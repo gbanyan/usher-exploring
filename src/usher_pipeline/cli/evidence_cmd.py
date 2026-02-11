@@ -1208,3 +1208,215 @@ def literature(ctx, force, email, api_key, batch_size):
         # Clean up resources
         if store is not None:
             store.close()
+
+
+@evidence.command('expression')
+@click.option(
+    '--force',
+    is_flag=True,
+    help='Re-download and reprocess data even if checkpoint exists'
+)
+@click.option(
+    '--skip-cellxgene',
+    is_flag=True,
+    help='Skip CellxGene single-cell data (requires optional cellxgene-census dependency)'
+)
+@click.pass_context
+def expression_cmd(ctx, force, skip_cellxgene):
+    """Fetch and load tissue expression evidence (HPA, GTEx, CellxGene).
+
+    Retrieves expression data from HPA (Human Protein Atlas), GTEx (tissue-level RNA-seq),
+    and optionally CellxGene (single-cell RNA-seq for photoreceptor/hair cells). Computes
+    tissue specificity (Tau index) and Usher-tissue enrichment scores.
+
+    Supports checkpoint-restart: skips processing if data already exists
+    in DuckDB (use --force to re-run).
+
+    NOTE: CellxGene support requires optional dependency. Install with:
+    pip install 'usher-pipeline[expression]'
+    Or use --skip-cellxgene flag to skip single-cell data.
+
+    Examples:
+
+        # First run: download, process, and load (skip CellxGene)
+        usher-pipeline evidence expression --skip-cellxgene
+
+        # With CellxGene support (requires optional dependency)
+        usher-pipeline evidence expression
+
+        # Force re-download and reprocess
+        usher-pipeline evidence expression --force --skip-cellxgene
+    """
+    config_path = ctx.obj['config_path']
+
+    click.echo(click.style("=== Tissue Expression Evidence ===", bold=True))
+    click.echo()
+
+    store = None
+    try:
+        # Load config
+        click.echo("Loading configuration...")
+        config = load_config(config_path)
+        click.echo(click.style(f"  Config loaded: {config_path}", fg='green'))
+        click.echo()
+
+        # Initialize storage and provenance
+        click.echo("Initializing storage and provenance tracking...")
+        store = PipelineStore.from_config(config)
+        provenance = ProvenanceTracker.from_config(config)
+        click.echo(click.style("  Storage initialized", fg='green'))
+        click.echo()
+
+        # Check checkpoint
+        has_checkpoint = store.has_checkpoint('tissue_expression')
+
+        if has_checkpoint and not force:
+            click.echo(click.style(
+                "Tissue expression checkpoint exists. Skipping processing (use --force to re-run).",
+                fg='yellow'
+            ))
+            click.echo()
+
+            # Load existing data for summary display
+            df = store.load_dataframe('tissue_expression')
+            if df is not None:
+                total_genes = len(df)
+                retina_expr = df.filter(
+                    df['hpa_retina_tpm'].is_not_null() |
+                    df['gtex_retina_tpm'].is_not_null() |
+                    df['cellxgene_photoreceptor_expr'].is_not_null()
+                ).height
+                inner_ear_expr = df.filter(df['cellxgene_hair_cell_expr'].is_not_null()).height
+                mean_tau = df.select('tau_specificity').mean().item()
+
+                click.echo(click.style("=== Summary ===", bold=True))
+                click.echo(f"Total Genes: {total_genes}")
+                click.echo(f"  With retina expression: {retina_expr}")
+                click.echo(f"  With inner ear expression: {inner_ear_expr}")
+                click.echo(f"  Mean Tau specificity: {mean_tau:.3f}" if mean_tau else "  Mean Tau specificity: N/A")
+                click.echo(f"DuckDB Path: {config.duckdb_path}")
+                click.echo()
+                click.echo(click.style("Evidence layer ready (used existing checkpoint)", fg='green'))
+                return
+
+        # Load gene universe (need gene_ids)
+        click.echo("Loading gene universe from DuckDB...")
+        gene_universe = store.load_dataframe('gene_universe')
+
+        if gene_universe is None or gene_universe.height == 0:
+            click.echo(click.style(
+                "Error: gene_universe table not found. Run 'usher-pipeline setup' first.",
+                fg='red'
+            ), err=True)
+            sys.exit(1)
+
+        gene_ids = gene_universe.select("gene_id").to_series().to_list()
+
+        click.echo(click.style(
+            f"  Loaded {len(gene_ids)} genes",
+            fg='green'
+        ))
+        click.echo()
+
+        # Create expression data directory
+        expression_dir = Path(config.data_dir) / "expression"
+        expression_dir.mkdir(parents=True, exist_ok=True)
+
+        # Process expression evidence
+        click.echo("Fetching and processing expression data...")
+        click.echo("  Downloading HPA normal tissue data (~30MB)...")
+        click.echo("  Downloading GTEx median expression data (~20MB)...")
+        if not skip_cellxgene:
+            click.echo("  Querying CellxGene census for single-cell data...")
+        else:
+            click.echo("  Skipping CellxGene (--skip-cellxgene flag)")
+
+        try:
+            df = process_expression_evidence(
+                gene_ids=gene_ids,
+                cache_dir=expression_dir,
+                force=force,
+                skip_cellxgene=skip_cellxgene,
+            )
+            click.echo(click.style(
+                f"  Processed {len(df)} genes",
+                fg='green'
+            ))
+        except Exception as e:
+            click.echo(click.style(f"  Error processing: {e}", fg='red'), err=True)
+            logger.exception("Failed to process expression evidence")
+            sys.exit(1)
+
+        click.echo()
+        provenance.record_step('process_expression_evidence', {
+            'total_genes': len(df),
+            'skip_cellxgene': skip_cellxgene,
+        })
+
+        # Load to DuckDB
+        click.echo("Loading to DuckDB...")
+
+        try:
+            expression_load_to_duckdb(
+                df=df,
+                store=store,
+                provenance=provenance,
+                description="HPA, GTEx, and CellxGene tissue expression with Tau specificity and Usher enrichment scores"
+            )
+            click.echo(click.style(
+                f"  Saved to 'tissue_expression' table",
+                fg='green'
+            ))
+        except Exception as e:
+            click.echo(click.style(f"  Error loading: {e}", fg='red'), err=True)
+            logger.exception("Failed to load expression evidence to DuckDB")
+            sys.exit(1)
+
+        click.echo()
+
+        # Save provenance sidecar
+        click.echo("Saving provenance metadata...")
+        provenance_path = expression_dir / "tissue.provenance.json"
+        provenance.save_sidecar(provenance_path)
+        click.echo(click.style(f"  Provenance saved: {provenance_path}", fg='green'))
+        click.echo()
+
+        # Display summary
+        retina_expr = df.filter(
+            df['hpa_retina_tpm'].is_not_null() |
+            df['gtex_retina_tpm'].is_not_null() |
+            df['cellxgene_photoreceptor_expr'].is_not_null()
+        ).height
+        inner_ear_expr = df.filter(df['cellxgene_hair_cell_expr'].is_not_null()).height
+        mean_tau = df.select('tau_specificity').mean().item()
+
+        # Top enriched genes
+        top_genes = df.filter(df['usher_tissue_enrichment'].is_not_null()).sort(
+            'usher_tissue_enrichment', descending=True
+        ).head(10).select(['gene_id', 'usher_tissue_enrichment', 'tau_specificity', 'expression_score_normalized'])
+
+        click.echo(click.style("=== Summary ===", bold=True))
+        click.echo(f"Total Genes: {len(df)}")
+        click.echo(f"  With retina expression: {retina_expr}")
+        click.echo(f"  With inner ear expression: {inner_ear_expr}")
+        click.echo(f"  Mean Tau specificity: {mean_tau:.3f}" if mean_tau else "  Mean Tau specificity: N/A")
+        click.echo()
+        click.echo("Top 10 enriched genes:")
+        for row in top_genes.iter_rows(named=True):
+            tau_str = f"{row['tau_specificity']:.3f}" if row['tau_specificity'] else "N/A"
+            expr_str = f"{row['expression_score_normalized']:.3f}" if row['expression_score_normalized'] else "N/A"
+            click.echo(f"  {row['gene_id']}: enrichment={row['usher_tissue_enrichment']:.2f}, tau={tau_str}, score={expr_str}")
+        click.echo()
+        click.echo(f"DuckDB Path: {config.duckdb_path}")
+        click.echo(f"Provenance: {provenance_path}")
+        click.echo()
+        click.echo(click.style("Expression evidence layer complete!", fg='green', bold=True))
+
+    except Exception as e:
+        click.echo(click.style(f"Evidence command failed: {e}", fg='red'), err=True)
+        logger.exception("Evidence command failed")
+        sys.exit(1)
+    finally:
+        # Clean up resources
+        if store is not None:
+            store.close()

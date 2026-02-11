@@ -35,7 +35,7 @@ def classify_evidence_type(df: pl.DataFrame) -> pl.DataFrame:
 
     Returns:
         DataFrame with added columns:
-        - hpa_evidence_type: "experimental" or "predicted" (NULL if no HPA data)
+        - hpa_evidence_type: "experimental" or "computational" (NULL if no HPA data)
         - evidence_type: "experimental", "computational", "both", "none"
     """
     logger.info("classify_evidence_start", row_count=len(df))
@@ -45,7 +45,7 @@ def classify_evidence_type(df: pl.DataFrame) -> pl.DataFrame:
         pl.when(pl.col("hpa_reliability").is_in(["Enhanced", "Supported"]))
         .then(pl.lit("experimental"))
         .when(pl.col("hpa_reliability").is_in(["Approved", "Uncertain"]))
-        .then(pl.lit("predicted"))
+        .then(pl.lit("computational"))
         .otherwise(None)
         .alias("hpa_evidence_type")
     ])
@@ -60,8 +60,8 @@ def classify_evidence_type(df: pl.DataFrame) -> pl.DataFrame:
             # Proteomics is experimental
             pl.when(pl.col("hpa_evidence_type") == "experimental")
             .then(pl.lit("experimental"))  # Both proteomics and HPA experimental
-            .when(pl.col("hpa_evidence_type") == "predicted")
-            .then(pl.lit("both"))  # Proteomics experimental, HPA predicted
+            .when(pl.col("hpa_evidence_type") == "computational")
+            .then(pl.lit("both"))  # Proteomics experimental, HPA computational
             .when(pl.col("hpa_evidence_type").is_null())
             .then(pl.lit("experimental"))  # Only proteomics
             .otherwise(pl.lit("experimental"))
