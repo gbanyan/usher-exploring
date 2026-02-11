@@ -12,7 +12,7 @@ This pipeline transforms ~20,000 human protein-coding genes into a ranked, evide
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Data Infrastructure** - Foundation for reproducible, modular pipeline
+- [x] **Phase 1: Data Infrastructure** - Foundation for reproducible, modular pipeline
 - [ ] **Phase 2: Prototype Evidence Layer** - Validate retrieval-to-storage architecture
 - [ ] **Phase 3: Core Evidence Layers** - Parallel multi-source data retrieval
 - [ ] **Phase 4: Scoring & Integration** - Multi-evidence weighted scoring system
@@ -34,10 +34,10 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 4 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- Project scaffold, config system, and base API client
-- [ ] 01-02-PLAN.md -- Gene ID mapping with validation gates
-- [ ] 01-03-PLAN.md -- DuckDB persistence and provenance tracking
-- [ ] 01-04-PLAN.md -- CLI integration and end-to-end wiring
+- [x] 01-01-PLAN.md -- Project scaffold, config system, and base API client
+- [x] 01-02-PLAN.md -- Gene ID mapping with validation gates
+- [x] 01-03-PLAN.md -- DuckDB persistence and provenance tracking
+- [x] 01-04-PLAN.md -- CLI integration and end-to-end wiring
 
 ### Phase 2: Prototype Evidence Layer
 **Goal**: Validate retrieval-to-storage pattern with single evidence layer
@@ -116,7 +116,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Infrastructure | 0/4 | Planning complete | - |
+| 1. Data Infrastructure | 4/4 | ✓ Complete | 2026-02-11 |
 | 2. Prototype Evidence Layer | 0/TBD | Not started | - |
 | 3. Core Evidence Layers | 0/TBD | Not started | - |
 | 4. Scoring & Integration | 0/TBD | Not started | - |
