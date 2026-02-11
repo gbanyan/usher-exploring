@@ -26,6 +26,10 @@ from usher_pipeline.evidence.animal_models.transform import (
     score_animal_evidence,
     process_animal_model_evidence,
 )
+from usher_pipeline.evidence.animal_models.load import (
+    load_to_duckdb,
+    query_sensory_phenotype_genes,
+)
 
 __all__ = [
     "AnimalModelRecord",
@@ -39,4 +43,6 @@ __all__ = [
     "filter_sensory_phenotypes",
     "score_animal_evidence",
     "process_animal_model_evidence",
+    "load_to_duckdb",
+    "query_sensory_phenotype_genes",
 ]
