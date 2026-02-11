@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Data Infrastructure** - Foundation for reproducible, modular pipeline
 - [x] **Phase 2: Prototype Evidence Layer** - Validate retrieval-to-storage architecture
 - [x] **Phase 3: Core Evidence Layers** - Parallel multi-source data retrieval
-- [ ] **Phase 4: Scoring & Integration** - Multi-evidence weighted scoring system
+- [x] **Phase 4: Scoring & Integration** - Multi-evidence weighted scoring system
 - [ ] **Phase 5: Output & CLI** - User-facing interface and tiered results
 - [ ] **Phase 6: Validation** - Benchmark scoring against known genes
 
@@ -88,9 +88,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 04-01-PLAN.md -- Known gene compilation, weight validation, and multi-evidence scoring integration
-- [ ] 04-02-PLAN.md -- Quality control checks and positive control validation
-- [ ] 04-03-PLAN.md -- CLI score command and unit/integration tests
+- [x] 04-01-PLAN.md -- Known gene compilation, weight validation, and multi-evidence scoring integration
+- [x] 04-02-PLAN.md -- Quality control checks and positive control validation
+- [x] 04-03-PLAN.md -- CLI score command and unit/integration tests
 
 ### Phase 5: Output & CLI
 **Goal**: User-facing interface and structured tiered output
@@ -130,6 +130,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 1. Data Infrastructure | 4/4 | ✓ Complete | 2026-02-11 |
 | 2. Prototype Evidence Layer | 2/2 | ✓ Complete | 2026-02-11 |
 | 3. Core Evidence Layers | 6/6 | ✓ Complete | 2026-02-11 |
-| 4. Scoring & Integration | 0/3 | In progress | - |
+| 4. Scoring & Integration | 3/3 | ✓ Complete | 2026-02-11 |
 | 5. Output & CLI | 0/TBD | Not started | - |
 | 6. Validation | 0/TBD | Not started | - |

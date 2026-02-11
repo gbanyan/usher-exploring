@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-02-11)
 
 **Core value:** Produce a high-confidence, multi-evidence-backed ranked list of under-studied cilia/Usher candidate genes that is fully traceable — every gene's inclusion is explainable by specific evidence, and every gap is documented.
-**Current focus:** Phase 4 in progress — Scoring and Integration
+**Current focus:** Phase 4 complete — ready for Phase 5
 
 ## Current Position
 
-Phase: 4 of 6 (Scoring and Integration)
-Plan: 3 of 3 in current phase (complete)
-Status: Phase 04 complete — CLI score command and comprehensive test coverage
-Last activity: 2026-02-11 — Completed 04-03-PLAN.md
+Phase: 4 of 6 (Scoring & Integration)
+Plan: 3 of 3 in current phase (phase complete)
+Status: Phase 4 complete — verified (14/14 must-haves, 5/5 requirements)
+Last activity: 2026-02-11 — Phase 4 verified and complete
 
 Progress: [████████░░] 75.0% (15/20 plans complete across all phases)
 
@@ -122,6 +122,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-11 - Plan execution
-Stopped at: Completed 04-03-PLAN.md (CLI score command and comprehensive tests)
-Resume file: .planning/phases/04-scoring-integration/04-03-SUMMARY.md
+Last session: 2026-02-11 - Phase 4 execution
+Stopped at: Phase 4 complete and verified — all 3 plans executed, 14/14 must-haves verified
+Resume file: .planning/phases/04-scoring-integration/04-VERIFICATION.md
