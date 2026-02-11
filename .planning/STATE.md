@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-11)
 ## Current Position
 
 Phase: 4 of 6 (Scoring and Integration)
-Plan: 1 of 3 in current phase (in progress)
-Status: Plan 04-01 complete — known gene compilation and weighted scoring integration
-Last activity: 2026-02-11 — Completed 04-01-PLAN.md
+Plan: 2 of 3 in current phase (in progress)
+Status: Plan 04-02 complete — quality control and positive control validation
+Last activity: 2026-02-11 — Completed 04-02-PLAN.md
 
-Progress: [██████░░░░] 65.0% (13/20 plans complete across all phases)
+Progress: [███████░░░] 70.0% (14/20 plans complete across all phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13
-- Average duration: 5.5 min
-- Total execution time: 1.2 hours
+- Total plans completed: 14
+- Average duration: 5.4 min
+- Total execution time: 1.3 hours
 
 **By Phase:**
 
@@ -30,17 +30,17 @@ Progress: [██████░░░░] 65.0% (13/20 plans complete across al
 | 01 - Data Infrastructure | 4/4 | 14 min | 3.5 min/plan |
 | 02 - Prototype Evidence Layer | 2/2 | 8 min | 4.0 min/plan |
 | 03 - Core Evidence Layers | 6/6 | 52 min | 8.7 min/plan |
-| 04 - Scoring Integration | 1/3 | 4 min | 4.0 min/plan |
+| 04 - Scoring Integration | 2/3 | 7 min | 3.5 min/plan |
 
 **Recent Plan Details:**
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
-| Phase 03 P02 | 12 min | 2 tasks | 9 files |
 | Phase 03 P03 | 11 min | 2 tasks | 7 files |
 | Phase 03 P04 | 8 min | 2 tasks | 8 files |
 | Phase 03 P05 | 10 min | 2 tasks | 8 files |
 | Phase 03 P06 | 13 min | 2 tasks | 10 files |
 | Phase 04 P01 | 4 min | 2 tasks | 4 files |
+| Phase 04 P02 | 3 min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -103,6 +103,10 @@ Recent decisions affecting current work:
 - [04-01]: Quality flags based on evidence_count (>=4 sufficient, >=2 moderate, >=1 sparse, 0 no_evidence)
 - [04-01]: Per-layer contribution tracking (score * weight) for explainability
 - [04-01]: ScoringWeights validation enforcing sum = 1.0 ± 1e-6 tolerance
+- [04-02]: scipy MAD-based outlier detection (>3 MAD threshold) for robust anomaly detection
+- [04-02]: Missing data thresholds: 50% warn, 80% error for graduated QC feedback
+- [04-02]: PERCENT_RANK validation computed before known gene exclusion (validates scoring system)
+- [04-02]: Top quartile validation criterion (median percentile >= 0.75 for known genes)
 
 ### Pending Todos
 
@@ -115,5 +119,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-11 - Plan execution
-Stopped at: Completed 04-01-PLAN.md (Known gene compilation and weighted scoring)
-Resume file: .planning/phases/04-scoring-integration/04-01-SUMMARY.md
+Stopped at: Completed 04-02-PLAN.md (Quality control and positive control validation)
+Resume file: .planning/phases/04-scoring-integration/04-02-SUMMARY.md
