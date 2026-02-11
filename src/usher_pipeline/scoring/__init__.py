@@ -34,6 +34,11 @@ from usher_pipeline.scoring.sensitivity import (
     EVIDENCE_LAYERS,
     STABILITY_THRESHOLD,
 )
+from usher_pipeline.scoring.validation_report import (
+    generate_comprehensive_validation_report,
+    recommend_weight_tuning,
+    save_validation_report,
+)
 
 __all__ = [
     "OMIM_USHER_GENES",
@@ -58,4 +63,7 @@ __all__ = [
     "generate_sensitivity_report",
     "EVIDENCE_LAYERS",
     "STABILITY_THRESHOLD",
+    "generate_comprehensive_validation_report",
+    "recommend_weight_tuning",
+    "save_validation_report",
 ]

@@ -14,6 +14,7 @@ from usher_pipeline.cli.setup_cmd import setup
 from usher_pipeline.cli.evidence_cmd import evidence
 from usher_pipeline.cli.score_cmd import score
 from usher_pipeline.cli.report_cmd import report
+from usher_pipeline.cli.validate_cmd import validate
 
 
 # Configure logging
@@ -103,6 +104,7 @@ cli.add_command(setup)
 cli.add_command(evidence)
 cli.add_command(score)
 cli.add_command(report)
+cli.add_command(validate)
 
 
 if __name__ == '__main__':
