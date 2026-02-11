@@ -2,7 +2,7 @@
 
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 
 LITERATURE_TABLE_NAME = "literature_evidence"
@@ -84,6 +84,4 @@ class LiteratureRecord(BaseModel):
         description="Quality-weighted literature score [0-1], normalized to mitigate well-studied gene bias. NULL if total_pubmed_count is NULL.",
     )
 
-    class Config:
-        """Pydantic config."""
-        frozen = False  # Allow mutation for score computation
+    model_config = ConfigDict(frozen=False)  # Allow mutation for score computation

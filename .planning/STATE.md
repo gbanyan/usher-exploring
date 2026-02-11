@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-11)
 ## Current Position
 
 Phase: 3 of 6 (Core Evidence Layers)
-Plan: 1 of 6 in current phase
-Status: In progress — 03-01 complete (annotation completeness)
-Last activity: 2026-02-11 — Completed 03-01-PLAN.md (annotation completeness evidence layer)
+Plan: 4 of 6 in current phase
+Status: In progress — 03-04 complete (subcellular localization)
+Last activity: 2026-02-11 — Completed 03-04-PLAN.md (Subcellular Localization evidence layer)
 
-Progress: [█████░░░░░] 35.0% (7/20 plans complete across all phases)
+Progress: [█████░░░░░] 40.0% (8/20 plans complete across all phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 4.1 min
-- Total execution time: 0.48 hours
+- Total plans completed: 8
+- Average duration: 4.7 min
+- Total execution time: 0.63 hours
 
 **By Phase:**
 
@@ -29,7 +29,7 @@ Progress: [█████░░░░░] 35.0% (7/20 plans complete across all
 |-------|-------|-------|----------|
 | 01 - Data Infrastructure | 4/4 | 14 min | 3.5 min/plan |
 | 02 - Prototype Evidence Layer | 2/2 | 8 min | 4.0 min/plan |
-| 03 - Core Evidence Layers | 1/6 | 7 min | 7.2 min/plan |
+| 03 - Core Evidence Layers | 2/6 | 16 min | 8.0 min/plan |
 
 ## Accumulated Context
 
@@ -66,6 +66,10 @@ Recent decisions affecting current work:
 - [03-01]: Annotation tier thresholds: Well >= (20 GO AND 4 UniProt), Partial >= (5 GO OR 3 UniProt)
 - [03-01]: Composite annotation score weighting: GO 50%, UniProt 30%, Pathway 20%
 - [03-01]: NULL GO counts treated as zero for tier classification but preserved as NULL in data (conservative assumption)
+- [03-04]: Evidence type terminology standardized to computational (not predicted) for consistency with bioinformatics convention
+- [03-04]: Proteomics absence stored as False (informative negative) vs HPA absence as NULL (unknown/not tested)
+- [03-04]: Curated proteomics reference gene sets (CiliaCarta, Centrosome-DB) embedded as Python constants for simpler deployment
+- [03-04]: Computational evidence (HPA Uncertain/Approved) downweighted to 0.6x vs experimental (Enhanced/Supported, proteomics) at 1.0x
 
 ### Pending Todos
 
@@ -78,5 +82,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-11 - Plan execution
-Stopped at: Completed 03-01-PLAN.md (annotation completeness evidence layer)
-Resume file: .planning/phases/03-core-evidence-layers/03-01-SUMMARY.md
+Stopped at: Completed 03-04-PLAN.md (Subcellular Localization evidence layer)
+Resume file: .planning/phases/03-core-evidence-layers/03-04-SUMMARY.md

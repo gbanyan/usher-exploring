@@ -52,7 +52,7 @@ def classify_evidence_tier(df: pl.DataFrame) -> pl.DataFrame:
 
     df = df.with_columns([
         pl.when(
-            # Direct experimental: knockout/mutation evidence + cilia/sensory context
+            # Direct experimental: knockout/mutation evidence + cilia/sensory context (HIGHEST TIER)
             (pl.col("direct_experimental_count").is_not_null()) &
             (pl.col("direct_experimental_count") >= 1) &
             (
@@ -61,16 +61,7 @@ def classify_evidence_tier(df: pl.DataFrame) -> pl.DataFrame:
             )
         ).then(pl.lit("direct_experimental"))
         .when(
-            # Functional mention: cilia/sensory context + multiple publications
-            (
-                (pl.col("cilia_context_count").is_not_null() & (pl.col("cilia_context_count") >= 1)) |
-                (pl.col("sensory_context_count").is_not_null() & (pl.col("sensory_context_count") >= 1))
-            ) &
-            (pl.col("total_pubmed_count").is_not_null()) &
-            (pl.col("total_pubmed_count") >= 3)
-        ).then(pl.lit("functional_mention"))
-        .when(
-            # HTS hit: screen evidence + cilia/sensory context
+            # HTS hit: screen evidence + cilia/sensory context (SECOND TIER - prioritized over functional mention)
             (pl.col("hts_screen_count").is_not_null()) &
             (pl.col("hts_screen_count") >= 1) &
             (
@@ -78,6 +69,15 @@ def classify_evidence_tier(df: pl.DataFrame) -> pl.DataFrame:
                 (pl.col("sensory_context_count").is_not_null() & (pl.col("sensory_context_count") >= 1))
             )
         ).then(pl.lit("hts_hit"))
+        .when(
+            # Functional mention: cilia/sensory context + multiple publications (THIRD TIER)
+            (
+                (pl.col("cilia_context_count").is_not_null() & (pl.col("cilia_context_count") >= 1)) |
+                (pl.col("sensory_context_count").is_not_null() & (pl.col("sensory_context_count") >= 1))
+            ) &
+            (pl.col("total_pubmed_count").is_not_null()) &
+            (pl.col("total_pubmed_count") >= 3)
+        ).then(pl.lit("functional_mention"))
         .when(
             # Incidental: publications exist but no cilia/sensory context
             (pl.col("total_pubmed_count").is_not_null()) &
@@ -90,7 +90,7 @@ def classify_evidence_tier(df: pl.DataFrame) -> pl.DataFrame:
     # Count tier distribution for logging
     tier_counts = (
         df.group_by("evidence_tier")
-        .agg(pl.count().alias("count"))
+        .agg(pl.len().alias("count"))
         .sort("count", descending=True)
     )
 
@@ -137,10 +137,10 @@ def compute_literature_score(df: pl.DataFrame) -> pl.DataFrame:
     ])
 
     # Step 2: Apply evidence quality weight
-    # Map evidence_tier to quality weight using replace
+    # Map evidence_tier to quality weight using replace_strict with default
     df = df.with_columns([
         pl.col("evidence_tier")
-        .replace(EVIDENCE_QUALITY_WEIGHTS, default=0.0)
+        .replace_strict(EVIDENCE_QUALITY_WEIGHTS, default=0.0, return_dtype=pl.Float64)
         .alias("quality_weight")
     ])
 

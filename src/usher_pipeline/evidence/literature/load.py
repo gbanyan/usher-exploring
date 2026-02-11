@@ -32,7 +32,7 @@ def load_to_duckdb(
     # Calculate summary statistics for provenance
     tier_counts = (
         df.group_by("evidence_tier")
-        .agg(pl.count().alias("count"))
+        .agg(pl.len().alias("count"))
         .to_dicts()
     )
     tier_distribution = {row["evidence_tier"]: row["count"] for row in tier_counts}
