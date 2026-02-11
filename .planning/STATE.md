@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-11)
 ## Current Position
 
 Phase: 3 of 6 (Core Evidence Layers)
-Plan: 4 of 6 in current phase
-Status: In progress — 03-04 complete (subcellular localization)
-Last activity: 2026-02-11 — Completed 03-04-PLAN.md (Subcellular Localization evidence layer)
+Plan: 3 of 6 in current phase (03-03 complete)
+Status: In progress — 03-03 complete (protein features)
+Last activity: 2026-02-11 — Completed 03-03-PLAN.md (Protein Features evidence layer)
 
-Progress: [█████░░░░░] 40.0% (8/20 plans complete across all phases)
+Progress: [█████░░░░░] 45.0% (9/20 plans complete across all phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: 4.7 min
-- Total execution time: 0.63 hours
+- Total plans completed: 9
+- Average duration: 5.2 min
+- Total execution time: 0.78 hours
 
 **By Phase:**
 
@@ -29,8 +29,10 @@ Progress: [█████░░░░░] 40.0% (8/20 plans complete across all
 |-------|-------|-------|----------|
 | 01 - Data Infrastructure | 4/4 | 14 min | 3.5 min/plan |
 | 02 - Prototype Evidence Layer | 2/2 | 8 min | 4.0 min/plan |
-| 03 - Core Evidence Layers | 2/6 | 16 min | 8.0 min/plan |
-| Phase 03 P05 | 10 | 2 tasks | 8 files |
+| 03 - Core Evidence Layers | 3/6 | 27 min | 9.0 min/plan |
+| Phase 03 P03 | 11 min | 2 tasks | 7 files |
+| Phase 03 P04 | 8 min | 2 tasks | 8 files |
+| Phase 03 P05 | 10 min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -67,6 +69,11 @@ Recent decisions affecting current work:
 - [03-01]: Annotation tier thresholds: Well >= (20 GO AND 4 UniProt), Partial >= (5 GO OR 3 UniProt)
 - [03-01]: Composite annotation score weighting: GO 50%, UniProt 30%, Pathway 20%
 - [03-01]: NULL GO counts treated as zero for tier classification but preserved as NULL in data (conservative assumption)
+- [03-03]: UniProt REST API with batching (100 accessions) over bulk download for flexibility
+- [03-03]: InterPro API for supplemental domain annotations (10 req/sec rate limit)
+- [03-03]: Keyword-based cilia motif detection over ML for explainability (IFT, BBSome, ciliary, etc.)
+- [03-03]: Composite protein score weights: length 15%, domain 20%, coiled-coil 20%, TM 20%, cilia 15%, scaffold 10%
+- [03-03]: List(Null) edge case handling for proteins with no domains (cast to List(String))
 - [03-04]: Evidence type terminology standardized to computational (not predicted) for consistency with bioinformatics convention
 - [03-04]: Proteomics absence stored as False (informative negative) vs HPA absence as NULL (unknown/not tested)
 - [03-04]: Curated proteomics reference gene sets (CiliaCarta, Centrosome-DB) embedded as Python constants for simpler deployment
@@ -85,5 +92,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-11 - Plan execution
-Stopped at: Completed 03-04-PLAN.md (Subcellular Localization evidence layer)
-Resume file: .planning/phases/03-core-evidence-layers/03-04-SUMMARY.md
+Stopped at: Completed 03-03-PLAN.md (Protein Features evidence layer)
+Resume file: .planning/phases/03-core-evidence-layers/03-03-SUMMARY.md
