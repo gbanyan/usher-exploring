@@ -36,6 +36,7 @@ dependencies = [
     "httpx>=0.28",
     "structlog>=25.0",
     "biopython>=1.84",
+    "scipy>=1.14",
 ]
 
 [project.optional-dependencies]
