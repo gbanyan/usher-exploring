@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-02-11)
 
 ## Current Position
 
-Phase: 4 of 6 (Scoring & Integration)
-Plan: 3 of 3 in current phase (phase complete)
-Status: Phase 4 complete — verified (14/14 must-haves, 5/5 requirements)
-Last activity: 2026-02-11 — Phase 4 verified and complete
+Phase: 5 of 6 (Output & CLI)
+Plan: 1 of 3 in current phase (plan 05-01 complete)
+Status: Phase 5 in progress — 05-01 complete
+Last activity: 2026-02-11 — Plan 05-01 executed and verified
 
-Progress: [████████░░] 75.0% (15/20 plans complete across all phases)
+Progress: [████████░░] 80.0% (16/20 plans complete across all phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 15
-- Average duration: 5.1 min
-- Total execution time: 1.3 hours
+- Total plans completed: 16
+- Average duration: 5.0 min
+- Total execution time: 1.4 hours
 
 **By Phase:**
 
@@ -31,16 +31,17 @@ Progress: [████████░░] 75.0% (15/20 plans complete across al
 | 02 - Prototype Evidence Layer | 2/2 | 8 min | 4.0 min/plan |
 | 03 - Core Evidence Layers | 6/6 | 52 min | 8.7 min/plan |
 | 04 - Scoring Integration | 3/3 | 10 min | 3.3 min/plan |
+| 05 - Output & CLI | 1/3 | 4 min | 4.0 min/plan |
 
 **Recent Plan Details:**
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
-| Phase 03 P04 | 8 min | 2 tasks | 8 files |
 | Phase 03 P05 | 10 min | 2 tasks | 8 files |
 | Phase 03 P06 | 13 min | 2 tasks | 10 files |
 | Phase 04 P01 | 4 min | 2 tasks | 4 files |
 | Phase 04 P02 | 3 min | 2 tasks | 4 files |
 | Phase 04 P03 | 3 min | 2 tasks | 4 files |
+| Phase 05 P01 | 4 min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -111,6 +112,12 @@ Recent decisions affecting current work:
 - [04-03]: Separate --skip-qc and --skip-validation flags for flexible iteration
 - [04-03]: Tests use tmp_path fixtures for isolated DuckDB instances
 - [04-03]: Synthetic test data designed to ensure known genes rank highly (0.8-0.95 scores across all layers)
+- [05-01]: Configurable tier thresholds (HIGH: score>=0.7 and evidence>=3, MEDIUM: score>=0.4 and evidence>=2, LOW: score>=0.2)
+- [05-01]: EXCLUDED genes filtered out (below LOW threshold or NULL composite_score)
+- [05-01]: Deterministic sorting (composite_score DESC, gene_id ASC) for reproducible output
+- [05-01]: Dual-format TSV+Parquet with identical data for downstream tool compatibility
+- [05-01]: YAML provenance sidecar includes statistics (tier counts) and column metadata
+- [05-01]: Fixed deprecated pl.count() -> pl.len() usage for polars 0.20.5+ compatibility
 
 ### Pending Todos
 
@@ -122,6 +129,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-11 - Phase 4 execution
-Stopped at: Phase 4 complete and verified — all 3 plans executed, 14/14 must-haves verified
-Resume file: .planning/phases/04-scoring-integration/04-VERIFICATION.md
+Last session: 2026-02-11 - Phase 5 execution
+Stopped at: Plan 05-01 complete — tiering, evidence summary, and dual-format writer implemented with tests
+Resume file: .planning/phases/05-output-cli/05-01-SUMMARY.md
