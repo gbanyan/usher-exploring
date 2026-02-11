@@ -30,6 +30,7 @@ Progress: [█████░░░░░] 40.0% (8/20 plans complete across all
 | 01 - Data Infrastructure | 4/4 | 14 min | 3.5 min/plan |
 | 02 - Prototype Evidence Layer | 2/2 | 8 min | 4.0 min/plan |
 | 03 - Core Evidence Layers | 2/6 | 16 min | 8.0 min/plan |
+| Phase 03 P05 | 10 | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -70,6 +71,8 @@ Recent decisions affecting current work:
 - [03-04]: Proteomics absence stored as False (informative negative) vs HPA absence as NULL (unknown/not tested)
 - [03-04]: Curated proteomics reference gene sets (CiliaCarta, Centrosome-DB) embedded as Python constants for simpler deployment
 - [03-04]: Computational evidence (HPA Uncertain/Approved) downweighted to 0.6x vs experimental (Enhanced/Supported, proteomics) at 1.0x
+- [Phase 03-05]: Ortholog confidence based on HCOP support count (HIGH: 8+, MEDIUM: 4-7, LOW: 1-3)
+- [Phase 03-05]: NULL score for genes without orthologs (preserves NULL pattern)
 
 ### Pending Todos
 
