@@ -122,52 +122,52 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | — | Pending |
-| INFRA-02 | — | Pending |
-| INFRA-03 | — | Pending |
-| INFRA-04 | — | Pending |
-| INFRA-05 | — | Pending |
-| INFRA-06 | — | Pending |
-| INFRA-07 | — | Pending |
-| ANNOT-01 | — | Pending |
-| ANNOT-02 | — | Pending |
-| ANNOT-03 | — | Pending |
-| EXPR-01 | — | Pending |
-| EXPR-02 | — | Pending |
-| EXPR-03 | — | Pending |
-| EXPR-04 | — | Pending |
-| PROT-01 | — | Pending |
-| PROT-02 | — | Pending |
-| PROT-03 | — | Pending |
-| PROT-04 | — | Pending |
-| LOCA-01 | — | Pending |
-| LOCA-02 | — | Pending |
-| LOCA-03 | — | Pending |
-| GCON-01 | — | Pending |
-| GCON-02 | — | Pending |
-| GCON-03 | — | Pending |
-| ANIM-01 | — | Pending |
-| ANIM-02 | — | Pending |
-| ANIM-03 | — | Pending |
-| LITE-01 | — | Pending |
-| LITE-02 | — | Pending |
-| LITE-03 | — | Pending |
-| SCOR-01 | — | Pending |
-| SCOR-02 | — | Pending |
-| SCOR-03 | — | Pending |
-| SCOR-04 | — | Pending |
-| SCOR-05 | — | Pending |
-| OUTP-01 | — | Pending |
-| OUTP-02 | — | Pending |
-| OUTP-03 | — | Pending |
-| OUTP-04 | — | Pending |
-| OUTP-05 | — | Pending |
+| INFRA-01 | Phase 1 | Pending |
+| INFRA-02 | Phase 1 | Pending |
+| INFRA-03 | Phase 1 | Pending |
+| INFRA-04 | Phase 1 | Pending |
+| INFRA-05 | Phase 1 | Pending |
+| INFRA-06 | Phase 1 | Pending |
+| INFRA-07 | Phase 1 | Pending |
+| ANNOT-01 | Phase 3 | Pending |
+| ANNOT-02 | Phase 3 | Pending |
+| ANNOT-03 | Phase 3 | Pending |
+| EXPR-01 | Phase 3 | Pending |
+| EXPR-02 | Phase 3 | Pending |
+| EXPR-03 | Phase 3 | Pending |
+| EXPR-04 | Phase 3 | Pending |
+| PROT-01 | Phase 3 | Pending |
+| PROT-02 | Phase 3 | Pending |
+| PROT-03 | Phase 3 | Pending |
+| PROT-04 | Phase 3 | Pending |
+| LOCA-01 | Phase 3 | Pending |
+| LOCA-02 | Phase 3 | Pending |
+| LOCA-03 | Phase 3 | Pending |
+| GCON-01 | Phase 2 | Pending |
+| GCON-02 | Phase 2 | Pending |
+| GCON-03 | Phase 2 | Pending |
+| ANIM-01 | Phase 3 | Pending |
+| ANIM-02 | Phase 3 | Pending |
+| ANIM-03 | Phase 3 | Pending |
+| LITE-01 | Phase 3 | Pending |
+| LITE-02 | Phase 3 | Pending |
+| LITE-03 | Phase 3 | Pending |
+| SCOR-01 | Phase 4 | Pending |
+| SCOR-02 | Phase 4 | Pending |
+| SCOR-03 | Phase 4 | Pending |
+| SCOR-04 | Phase 4 | Pending |
+| SCOR-05 | Phase 4 | Pending |
+| OUTP-01 | Phase 5 | Pending |
+| OUTP-02 | Phase 5 | Pending |
+| OUTP-03 | Phase 5 | Pending |
+| OUTP-04 | Phase 5 | Pending |
+| OUTP-05 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 40 total
-- Mapped to phases: 0
-- Unmapped: 40 ⚠️
+- Mapped to phases: 40
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-11*
-*Last updated: 2026-02-11 after initial definition*
+*Last updated: 2026-02-11 after roadmap creation*
