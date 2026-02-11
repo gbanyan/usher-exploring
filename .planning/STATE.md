@@ -9,25 +9,26 @@ See: .planning/PROJECT.md (updated 2026-02-11)
 
 ## Current Position
 
-Phase: 1 of 6 (Data Infrastructure)
-Plan: 4 of 4 in current phase
-Status: Phase complete — verified
-Last activity: 2026-02-11 — Phase 1 verified (5/5 must-haves, 12/12 artifacts, 7/7 requirements)
+Phase: 2 of 6 (Prototype Evidence Layer)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-02-11 — Completed 02-01: gnomAD constraint data pipeline (fetch->filter->normalize pattern established)
 
-Progress: [█████░░░░░] 16.7% (1/6 phases complete, 4/4 plans in phase 1 complete)
+Progress: [█████░░░░░] 20.8% (1/6 phases complete, 1/2 plans in phase 2 complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 3.5 min
-- Total execution time: 0.23 hours
+- Total plans completed: 5
+- Average duration: 3.6 min
+- Total execution time: 0.30 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01 - Data Infrastructure | 4/4 | 14 min | 3.5 min/plan |
+| 02 - Prototype Evidence Layer | 1/2 | 4 min | 4.0 min/plan |
 
 ## Accumulated Context
 
@@ -51,6 +52,12 @@ Recent decisions affecting current work:
 - [01-04]: Click for CLI framework (standard Python CLI library with excellent UX)
 - [01-04]: Setup command uses checkpoint-restart pattern (gene universe fetch can take minutes)
 - [01-04]: Mock mygene in integration tests (avoids external API dependency, reproducible)
+- [02-01]: httpx over requests for streaming downloads (async-native, cleaner API)
+- [02-01]: structlog for structured logging (JSON-formatted, context-aware)
+- [02-01]: LOEUF normalization with inversion (lower LOEUF = more constrained = higher 0-1 score)
+- [02-01]: Quality flags instead of filtering (preserve all genes with measured/incomplete_coverage/no_data categorization)
+- [02-01]: NULL preservation pattern (unknown constraint != zero constraint, must not be conflated)
+- [02-01]: Lazy polars evaluation (LazyFrame until final collect() for query optimization)
 
 ### Pending Todos
 
@@ -63,5 +70,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-11 - Plan execution
-Stopped at: Completed 01-04-PLAN.md (Phase 01 complete)
-Resume file: .planning/phases/01-data-infrastructure/01-04-SUMMARY.md
+Stopped at: Completed 02-01-PLAN.md (gnomAD constraint data pipeline)
+Resume file: .planning/phases/02-prototype-evidence-layer/02-01-SUMMARY.md
