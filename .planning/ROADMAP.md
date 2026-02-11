@@ -119,9 +119,12 @@ Plans:
   2. Negative control validation shows housekeeping genes are deprioritized (low scores, excluded from high-confidence tier)
   3. Sensitivity analysis across parameter sweeps demonstrates rank stability for top candidates
   4. Final scoring weights are tuned based on validation metrics and documented with rationale
-**Plans**: TBD
+**Plans**: 3 plans
 
-Plans: (to be created during plan-phase)
+Plans:
+- [ ] 06-01-PLAN.md -- Negative control validation (housekeeping genes) and enhanced positive control metrics (recall@k)
+- [ ] 06-02-PLAN.md -- Sensitivity analysis (weight perturbation sweeps with Spearman rank correlation)
+- [ ] 06-03-PLAN.md -- Comprehensive validation report, CLI validate command, and unit tests
 
 ## Progress
 
@@ -135,4 +138,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 3. Core Evidence Layers | 6/6 | Complete | 2026-02-11 |
 | 4. Scoring & Integration | 3/3 | Complete | 2026-02-11 |
 | 5. Output & CLI | 3/3 | Complete | 2026-02-12 |
-| 6. Validation | 0/TBD | Not started | - |
+| 6. Validation | 0/3 | Not started | - |
