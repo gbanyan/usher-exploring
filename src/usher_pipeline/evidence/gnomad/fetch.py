@@ -144,11 +144,15 @@ def parse_constraint_tsv(tsv_path: Path) -> pl.LazyFrame:
     )
 
     # Map actual columns to our standardized names
+    # Track which source columns we've already used to avoid duplicates
     column_mapping = {}
+    used_source_cols = set()
+
     for our_name, variants in COLUMN_VARIANTS.items():
         for variant in variants:
-            if variant in actual_columns:
+            if variant in actual_columns and variant not in used_source_cols:
                 column_mapping[variant] = our_name
+                used_source_cols.add(variant)
                 break
 
     if not column_mapping:
@@ -163,5 +167,14 @@ def parse_constraint_tsv(tsv_path: Path) -> pl.LazyFrame:
 
     # Select and rename mapped columns
     lf = lf.select([pl.col(old).alias(new) for old, new in column_mapping.items()])
+
+    # Special case: if loeuf is mapped but loeuf_upper is not, duplicate loeuf to loeuf_upper
+    # (In gnomAD, the "upper" value IS the LOEUF we use)
+    mapped_names = set(column_mapping.values())
+    if "loeuf" in mapped_names and "loeuf_upper" not in mapped_names:
+        lf = lf.with_columns(pl.col("loeuf").alias("loeuf_upper"))
+    elif "loeuf_upper" in mapped_names and "loeuf" not in mapped_names:
+        # If we only got loeuf_upper, copy it to loeuf
+        lf = lf.with_columns(pl.col("loeuf_upper").alias("loeuf"))
 
     return lf

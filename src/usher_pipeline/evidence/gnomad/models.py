@@ -9,15 +9,18 @@ GNOMAD_CONSTRAINT_URL = (
 )
 
 # Column name mapping for different gnomAD versions
-# v2.1.1 uses: gene, transcript, pLI, oe_lof_upper (LOEUF), mean_proportion_covered_bases
-# v4.x uses: gene, transcript, mane_select, lof.pLI, lof.oe_ci.upper, mean_proportion_covered
+# v2.1.1 uses: gene, transcript, pLI, oe_lof_upper (LOEUF upper CI), mean_proportion_covered_bases
+# v4.x uses: gene, transcript, mane_select, lof.pLI, lof.oe_ci.upper (LOEUF), mean_proportion_covered
+# NOTE: In gnomAD data, what's called "upper" is actually the LOEUF value we want (observed/expected upper bound)
 COLUMN_VARIANTS = {
     "gene_id": ["gene", "gene_id"],
     "gene_symbol": ["gene_symbol", "gene"],
     "transcript": ["transcript", "canonical_transcript", "mane_select"],
     "pli": ["pLI", "lof.pLI", "pli"],
-    "loeuf": ["oe_lof_upper", "lof.oe_ci.upper", "oe_lof", "loeuf"],
-    "loeuf_upper": ["oe_lof_upper_ci", "lof.oe_ci.upper", "oe_lof_upper"],
+    # LOEUF is the "upper" column in gnomAD (oe_lof_upper = observed/expected upper bound)
+    "loeuf": ["lof.oe_ci.upper", "oe_lof_upper", "oe_lof", "loeuf"],
+    # loeuf_upper is typically the same as loeuf in gnomAD data (they report the upper CI)
+    "loeuf_upper": ["lof.oe_ci.upper", "oe_lof_upper_ci", "oe_lof_upper"],
     "mean_depth": ["mean_coverage", "mean_depth", "mean_cov"],
     "cds_covered_pct": [
         "mean_proportion_covered_bases",
