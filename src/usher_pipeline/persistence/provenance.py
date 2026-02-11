@@ -37,12 +37,22 @@ class ProvenanceTracker:
             details: Optional dictionary of additional details
         """
         step = {
+            "name": step_name,
             "step_name": step_name,
             "timestamp": datetime.now(timezone.utc).isoformat(),
         }
         if details:
             step["details"] = details
         self.processing_steps.append(step)
+
+    def get_steps(self) -> list[dict]:
+        """
+        Get all recorded processing steps.
+
+        Returns:
+            List of processing step dictionaries
+        """
+        return self.processing_steps
 
     def create_metadata(self) -> dict:
         """
