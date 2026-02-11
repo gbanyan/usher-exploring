@@ -48,9 +48,11 @@ Plans:
   2. Constraint scores are filtered by coverage quality (mean depth >30x, >90% CDS covered) and stored with quality flags
   3. Missing data is encoded as "unknown" rather than zero, preserving genes with incomplete coverage
   4. Prototype layer writes normalized scores to DuckDB and demonstrates checkpoint restart capability
-**Plans**: TBD
+**Plans**: 2 plans
 
-Plans: (to be created during plan-phase)
+Plans:
+- [ ] 02-01-PLAN.md -- gnomAD data model, download, coverage filter, and normalization
+- [ ] 02-02-PLAN.md -- DuckDB persistence, CLI evidence command, and integration tests
 
 ### Phase 3: Core Evidence Layers
 **Goal**: Complete all remaining evidence retrieval modules
@@ -117,7 +119,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Data Infrastructure | 4/4 | ✓ Complete | 2026-02-11 |
-| 2. Prototype Evidence Layer | 0/TBD | Not started | - |
+| 2. Prototype Evidence Layer | 0/2 | Planned | - |
 | 3. Core Evidence Layers | 0/TBD | Not started | - |
 | 4. Scoring & Integration | 0/TBD | Not started | - |
 | 5. Output & CLI | 0/TBD | Not started | - |
