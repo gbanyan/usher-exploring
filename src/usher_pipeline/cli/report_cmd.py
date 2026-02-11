@@ -189,16 +189,17 @@ def report(ctx, output_dir, force, skip_viz, skip_report,
         # Step 2: Build tier thresholds
         click.echo(click.style("Step 2: Configuring tier thresholds...", bold=True))
         tier_thresholds = {
-            "high": {
-                "score": high_threshold,
+            "HIGH": {
+                "composite_score": high_threshold,
                 "evidence_count": min_evidence_high
             },
-            "medium": {
-                "score": medium_threshold,
+            "MEDIUM": {
+                "composite_score": medium_threshold,
                 "evidence_count": min_evidence_medium
             },
-            "low": {
-                "score": low_threshold
+            "LOW": {
+                "composite_score": low_threshold,
+                "evidence_count": 1  # LOW tier requires at least 1 evidence layer
             }
         }
 
@@ -261,7 +262,7 @@ def report(ctx, output_dir, force, skip_viz, skip_report,
             output_paths = write_candidate_output(
                 tiered_df,
                 output_dir=output_dir,
-                base_filename="candidates"
+                filename_base="candidates"
             )
 
             click.echo(click.style(
