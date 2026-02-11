@@ -85,9 +85,12 @@ Plans:
   3. Scoring handles missing data explicitly with "unknown" status rather than penalizing genes lacking evidence in specific layers
   4. Known cilia/Usher genes rank highly before exclusion, validating that scoring system works
   5. Quality control checks detect missing data rates, score distribution anomalies, and outliers per evidence layer
-**Plans**: TBD
+**Plans**: 3 plans
 
-Plans: (to be created during plan-phase)
+Plans:
+- [ ] 04-01-PLAN.md -- Known gene compilation, weight validation, and multi-evidence scoring integration
+- [ ] 04-02-PLAN.md -- Quality control checks and positive control validation
+- [ ] 04-03-PLAN.md -- CLI score command and unit/integration tests
 
 ### Phase 5: Output & CLI
 **Goal**: User-facing interface and structured tiered output
@@ -127,6 +130,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 1. Data Infrastructure | 4/4 | ✓ Complete | 2026-02-11 |
 | 2. Prototype Evidence Layer | 2/2 | ✓ Complete | 2026-02-11 |
 | 3. Core Evidence Layers | 6/6 | ✓ Complete | 2026-02-11 |
-| 4. Scoring & Integration | 0/TBD | Not started | - |
+| 4. Scoring & Integration | 0/3 | In progress | - |
 | 5. Output & CLI | 0/TBD | Not started | - |
 | 6. Validation | 0/TBD | Not started | - |
