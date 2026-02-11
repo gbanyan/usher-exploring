@@ -103,9 +103,12 @@ Plans:
   4. Pipeline generates visualizations: score distribution, evidence layer contribution, tier breakdown
   5. Unified CLI provides subcommands for running layers, integration, and reporting with progress logging
   6. Reproducibility report documents all parameters, data versions, gene counts at filtering steps, and validation metrics
-**Plans**: TBD
+**Plans**: 3 plans
 
-Plans: (to be created during plan-phase)
+Plans:
+- [ ] 05-01-PLAN.md -- Tiered candidate output with evidence summary and dual-format writer (TSV+Parquet)
+- [ ] 05-02-PLAN.md -- Visualizations (score distribution, layer contributions, tier breakdown) and reproducibility report
+- [ ] 05-03-PLAN.md -- CLI report command wiring all output modules with integration tests
 
 ### Phase 6: Validation
 **Goal**: Benchmark scoring system against positive and negative controls
@@ -123,13 +126,13 @@ Plans: (to be created during plan-phase)
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Infrastructure | 4/4 | ✓ Complete | 2026-02-11 |
-| 2. Prototype Evidence Layer | 2/2 | ✓ Complete | 2026-02-11 |
-| 3. Core Evidence Layers | 6/6 | ✓ Complete | 2026-02-11 |
-| 4. Scoring & Integration | 3/3 | ✓ Complete | 2026-02-11 |
-| 5. Output & CLI | 0/TBD | Not started | - |
+| 1. Data Infrastructure | 4/4 | Complete | 2026-02-11 |
+| 2. Prototype Evidence Layer | 2/2 | Complete | 2026-02-11 |
+| 3. Core Evidence Layers | 6/6 | Complete | 2026-02-11 |
+| 4. Scoring & Integration | 3/3 | Complete | 2026-02-11 |
+| 5. Output & CLI | 0/3 | In Progress | - |
 | 6. Validation | 0/TBD | Not started | - |
