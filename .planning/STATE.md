@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-11)
 ## Current Position
 
 Phase: 3 of 6 (Core Evidence Layers)
-Plan: 3 of 6 in current phase (03-03 complete)
-Status: In progress — 03-03 complete (protein features)
-Last activity: 2026-02-11 — Completed 03-03-PLAN.md (Protein Features evidence layer)
+Plan: 5 of 6 in current phase (03-02 complete, 03-06 remaining)
+Status: In progress — 03-02 complete (expression evidence)
+Last activity: 2026-02-11 — Completed 03-02-PLAN.md (Tissue Expression evidence layer)
 
-Progress: [█████░░░░░] 45.0% (9/20 plans complete across all phases)
+Progress: [██████░░░░] 55.0% (11/20 plans complete across all phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
-- Average duration: 5.2 min
-- Total execution time: 0.78 hours
+- Total plans completed: 11
+- Average duration: 5.4 min
+- Total execution time: 1.0 hours
 
 **By Phase:**
 
@@ -29,7 +29,8 @@ Progress: [█████░░░░░] 45.0% (9/20 plans complete across all
 |-------|-------|-------|----------|
 | 01 - Data Infrastructure | 4/4 | 14 min | 3.5 min/plan |
 | 02 - Prototype Evidence Layer | 2/2 | 8 min | 4.0 min/plan |
-| 03 - Core Evidence Layers | 3/6 | 27 min | 9.0 min/plan |
+| 03 - Core Evidence Layers | 5/6 | 39 min | 7.8 min/plan |
+| Phase 03 P02 | 12 min | 2 tasks | 9 files |
 | Phase 03 P03 | 11 min | 2 tasks | 7 files |
 | Phase 03 P04 | 8 min | 2 tasks | 8 files |
 | Phase 03 P05 | 10 min | 2 tasks | 8 files |
@@ -80,6 +81,12 @@ Recent decisions affecting current work:
 - [03-04]: Computational evidence (HPA Uncertain/Approved) downweighted to 0.6x vs experimental (Enhanced/Supported, proteomics) at 1.0x
 - [Phase 03-05]: Ortholog confidence based on HCOP support count (HIGH: 8+, MEDIUM: 4-7, LOW: 1-3)
 - [Phase 03-05]: NULL score for genes without orthologs (preserves NULL pattern)
+- [03-02]: HPA bulk TSV download over per-gene API (efficient for 20K genes)
+- [03-02]: GTEx retina/fallopian tube may be NULL (not in all versions)
+- [03-02]: CellxGene optional dependency with --skip-cellxgene flag (large install)
+- [03-02]: Tau specificity requires complete tissue data (any NULL -> NULL Tau)
+- [03-02]: Expression score composite: 40% enrichment + 30% Tau + 30% target rank
+- [03-02]: Inner ear data primarily from CellxGene scRNA-seq (not HPA/GTEx bulk)
 
 ### Pending Todos
 
@@ -92,5 +99,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-11 - Plan execution
-Stopped at: Completed 03-03-PLAN.md (Protein Features evidence layer)
-Resume file: .planning/phases/03-core-evidence-layers/03-03-SUMMARY.md
+Stopped at: Completed 03-02-PLAN.md (Tissue Expression evidence layer)
+Resume file: .planning/phases/03-core-evidence-layers/03-02-SUMMARY.md
