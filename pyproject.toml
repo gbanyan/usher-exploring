@@ -42,7 +42,7 @@ dev = [
 ]
 
 [project.scripts]
-usher-pipeline = "usher_pipeline.cli:main"
+usher-pipeline = "usher_pipeline.cli.main:cli"
 
 [tool.setuptools]
 packages = ["usher_pipeline"]
