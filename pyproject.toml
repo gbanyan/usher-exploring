@@ -35,12 +35,16 @@ dependencies = [
     "pyyaml>=6.0",
     "httpx>=0.28",
     "structlog>=25.0",
+    "biopython>=1.84",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
+]
+expression = [
+    "cellxgene-census>=1.19",
 ]
 
 [project.scripts]
