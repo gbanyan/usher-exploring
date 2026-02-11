@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-02-11)
 
 ## Current Position
 
-Phase: 5 of 6 (Output & CLI)
-Plan: 3 of 3 in current phase (plans 05-01, 05-02, 05-03 complete)
-Status: Phase 5 complete — verified (6/6 success criteria, 5/5 requirements)
-Last activity: 2026-02-12 — Phase 5 verified and complete
+Phase: 6 of 6 (Validation)
+Plan: 3 of 3 in current phase (plans 06-01, 06-02 complete)
+Status: Phase 6 in progress — plans 06-01 and 06-02 complete
+Last activity: 2026-02-12 — Completed 06-02: Sensitivity Analysis Module
 
-Progress: [█████████░] 90.0% (18/20 plans complete across all phases)
+Progress: [██████████] 100.0% (20/20 plans complete across all phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 18
-- Average duration: 4.9 min
-- Total execution time: 1.5 hours
+- Total plans completed: 20
+- Average duration: 4.6 min
+- Total execution time: 1.6 hours
 
 **By Phase:**
 
@@ -32,6 +32,7 @@ Progress: [█████████░] 90.0% (18/20 plans complete across al
 | 03 - Core Evidence Layers | 6/6 | 52 min | 8.7 min/plan |
 | 04 - Scoring Integration | 3/3 | 10 min | 3.3 min/plan |
 | 05 - Output & CLI | 3/3 | 12 min | 4.0 min/plan |
+| 06 - Validation | 2/3 | 5 min | 2.5 min/plan |
 
 **Recent Plan Details:**
 | Plan | Duration | Tasks | Files |
@@ -42,6 +43,8 @@ Progress: [█████████░] 90.0% (18/20 plans complete across al
 | Phase 05 P01 | 4 min | 2 tasks | 5 files |
 | Phase 05 P02 | 5 min | 2 tasks | 6 files |
 | Phase 05 P03 | 3 min | 2 tasks | 3 files |
+| Phase 06 P01 | 2 min | 2 tasks | 3 files |
+| Phase 06 P02 | 3 min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -128,6 +131,16 @@ Recent decisions affecting current work:
 - [05-03]: Configurable tier thresholds via CLI flags (--high-threshold, --medium-threshold, --low-threshold, --min-evidence-high, --min-evidence-medium)
 - [05-03]: Skip flags for flexible iteration (--skip-viz, --skip-report) allow faster output generation
 - [05-03]: Graceful degradation for visualization and reproducibility report failures (warnings, not errors)
+- [06-01]: Housekeeping genes as negative controls (13 literature-validated genes from Eisenberg & Levanon 2013)
+- [06-01]: Inverted threshold logic for negative controls (median percentile < 50% = success)
+- [06-01]: Recall@k at both absolute (100, 500, 1000, 2000) and percentage (5%, 10%, 20%) thresholds
+- [06-01]: Per-source breakdown separates OMIM Usher from SYSCILIA SCGS v2 for granular validation analysis
+- [06-02]: Perturbation deltas ±5% and ±10% (DEFAULT_DELTAS) for reasonable weight variations
+- [06-02]: Stability threshold Spearman rho >= 0.85 (STABILITY_THRESHOLD) based on rank stability literature
+- [06-02]: Renormalization maintains sum=1.0 after perturbation (weight constraint enforcement)
+- [06-02]: Top-N default 100 genes for ranking comparison (relevant for candidate prioritization)
+- [06-02]: Minimum overlap 10 genes required for Spearman correlation (avoids meaningless correlations)
+- [06-02]: Per-layer sensitivity tracking (most_sensitive_layer and most_robust_layer computed from mean rho)
 
 ### Pending Todos
 
@@ -139,6 +152,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-12 - Phase 5 execution
-Stopped at: Phase 5 complete and verified — all 3 plans executed, 6/6 success criteria verified
-Resume file: .planning/phases/05-output-cli/05-VERIFICATION.md
+Last session: 2026-02-12 - Phase 6 execution
+Stopped at: Completed 06-01: Negative Controls & Recall@k Validation
+Resume file: .planning/phases/06-validation/06-01-SUMMARY.md
