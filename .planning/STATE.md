@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-11)
 ## Current Position
 
 Phase: 3 of 6 (Core Evidence Layers)
-Plan: 5 of 6 in current phase (03-02 complete, 03-06 remaining)
-Status: In progress — 03-02 complete (expression evidence)
-Last activity: 2026-02-11 — Completed 03-02-PLAN.md (Tissue Expression evidence layer)
+Plan: 6 of 6 in current phase (phase complete)
+Status: Phase 3 complete — ready for Phase 4
+Last activity: 2026-02-11 — Completed 03-06-PLAN.md (Literature Evidence layer)
 
-Progress: [██████░░░░] 55.0% (11/20 plans complete across all phases)
+Progress: [██████░░░░] 60.0% (12/20 plans complete across all phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
-- Average duration: 5.4 min
-- Total execution time: 1.0 hours
+- Total plans completed: 12
+- Average duration: 5.6 min
+- Total execution time: 1.1 hours
 
 **By Phase:**
 
@@ -29,11 +29,12 @@ Progress: [██████░░░░] 55.0% (11/20 plans complete across al
 |-------|-------|-------|----------|
 | 01 - Data Infrastructure | 4/4 | 14 min | 3.5 min/plan |
 | 02 - Prototype Evidence Layer | 2/2 | 8 min | 4.0 min/plan |
-| 03 - Core Evidence Layers | 5/6 | 39 min | 7.8 min/plan |
+| 03 - Core Evidence Layers | 6/6 | 52 min | 8.7 min/plan |
 | Phase 03 P02 | 12 min | 2 tasks | 9 files |
 | Phase 03 P03 | 11 min | 2 tasks | 7 files |
 | Phase 03 P04 | 8 min | 2 tasks | 8 files |
 | Phase 03 P05 | 10 min | 2 tasks | 8 files |
+| Phase 03 P06 | 13 min | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -87,6 +88,10 @@ Recent decisions affecting current work:
 - [03-02]: Tau specificity requires complete tissue data (any NULL -> NULL Tau)
 - [03-02]: Expression score composite: 40% enrichment + 30% Tau + 30% target rank
 - [03-02]: Inner ear data primarily from CellxGene scRNA-seq (not HPA/GTEx bulk)
+- [03-06]: HTS hits prioritized over functional mentions in evidence tier hierarchy (direct > HTS > functional > incidental)
+- [03-06]: Quality-weighted scoring uses log2 normalization to mitigate well-studied gene bias (prevents TP53-like dominance)
+- [03-06]: Context weights cilia/sensory=2.0, cytoskeleton/polarity=1.0 for primary target prioritization
+- [03-06]: Rate limiting via decorator pattern (3 req/sec default, 10 req/sec with NCBI API key)
 
 ### Pending Todos
 
@@ -99,5 +104,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-11 - Plan execution
-Stopped at: Completed 03-02-PLAN.md (Tissue Expression evidence layer)
-Resume file: .planning/phases/03-core-evidence-layers/03-02-SUMMARY.md
+Stopped at: Completed 03-06-PLAN.md (Literature Evidence layer) - Phase 3 complete
+Resume file: .planning/phases/03-core-evidence-layers/03-06-SUMMARY.md
