@@ -26,6 +26,14 @@ from usher_pipeline.scoring.negative_controls import (
     validate_negative_controls,
     generate_negative_control_report,
 )
+from usher_pipeline.scoring.sensitivity import (
+    perturb_weight,
+    run_sensitivity_analysis,
+    summarize_sensitivity,
+    generate_sensitivity_report,
+    EVIDENCE_LAYERS,
+    STABILITY_THRESHOLD,
+)
 
 __all__ = [
     "OMIM_USHER_GENES",
@@ -44,4 +52,10 @@ __all__ = [
     "compile_housekeeping_genes",
     "validate_negative_controls",
     "generate_negative_control_report",
+    "perturb_weight",
+    "run_sensitivity_analysis",
+    "summarize_sensitivity",
+    "generate_sensitivity_report",
+    "EVIDENCE_LAYERS",
+    "STABILITY_THRESHOLD",
 ]
