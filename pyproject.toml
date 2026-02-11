@@ -37,6 +37,8 @@ dependencies = [
     "structlog>=25.0",
     "biopython>=1.84",
     "scipy>=1.14",
+    "matplotlib>=3.8.0",
+    "seaborn>=0.13.0",
 ]
 
 [project.optional-dependencies]
