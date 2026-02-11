@@ -31,9 +31,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. API clients retrieve data from external sources with rate limiting, retry logic, and persistent disk caching
   4. DuckDB database stores intermediate results enabling restart-from-checkpoint without re-downloading
   5. Every pipeline output includes provenance metadata: pipeline version, data source versions, timestamps, config hash
-**Plans**: TBD
+**Plans**: 4 plans
 
-Plans: (to be created during plan-phase)
+Plans:
+- [ ] 01-01-PLAN.md -- Project scaffold, config system, and base API client
+- [ ] 01-02-PLAN.md -- Gene ID mapping with validation gates
+- [ ] 01-03-PLAN.md -- DuckDB persistence and provenance tracking
+- [ ] 01-04-PLAN.md -- CLI integration and end-to-end wiring
 
 ### Phase 2: Prototype Evidence Layer
 **Goal**: Validate retrieval-to-storage pattern with single evidence layer
@@ -112,7 +116,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Infrastructure | 0/TBD | Not started | - |
+| 1. Data Infrastructure | 0/4 | Planning complete | - |
 | 2. Prototype Evidence Layer | 0/TBD | Not started | - |
 | 3. Core Evidence Layers | 0/TBD | Not started | - |
 | 4. Scoring & Integration | 0/TBD | Not started | - |
