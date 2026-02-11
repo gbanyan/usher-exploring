@@ -10,6 +10,7 @@ from usher_pipeline.evidence.annotation.transform import (
     normalize_annotation_score,
     process_annotation_evidence,
 )
+from usher_pipeline.evidence.annotation.load import load_to_duckdb, query_poorly_annotated
 
 __all__ = [
     "AnnotationRecord",
@@ -19,4 +20,6 @@ __all__ = [
     "classify_annotation_tier",
     "normalize_annotation_score",
     "process_annotation_evidence",
+    "load_to_duckdb",
+    "query_poorly_annotated",
 ]
