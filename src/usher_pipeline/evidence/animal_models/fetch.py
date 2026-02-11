@@ -168,27 +168,36 @@ def fetch_ortholog_mapping(gene_ids: list[str]) -> pl.DataFrame:
     logger.info("hcop_zebrafish_columns", columns=zebrafish_df.columns)
 
     # Parse zebrafish ortholog data
-    zebrafish_orthologs = (
-        zebrafish_df
-        .filter(pl.col("human_ensembl_gene").is_in(gene_ids))
-        .select([
-            pl.col("human_ensembl_gene").alias("gene_id"),
-            pl.col("zebrafish_symbol").alias("zebrafish_ortholog"),
-            pl.col("support").str.split(",").list.len().alias("support_count"),
-        ])
-        .with_columns([
-            pl.when(pl.col("support_count") >= 8)
-            .then(pl.lit("HIGH"))
-            .when(pl.col("support_count") >= 4)
-            .then(pl.lit("MEDIUM"))
-            .otherwise(pl.lit("LOW"))
-            .alias("zebrafish_ortholog_confidence")
-        ])
-        .sort(["gene_id", "support_count"], descending=[False, True])
-        .group_by("gene_id")
-        .first()
-        .select(["gene_id", "zebrafish_ortholog", "zebrafish_ortholog_confidence"])
-    )
+    # Handle case where zebrafish_df might be empty or missing expected columns
+    if "zebrafish_symbol" in zebrafish_df.columns and len(zebrafish_df) > 0:
+        zebrafish_orthologs = (
+            zebrafish_df
+            .filter(pl.col("human_ensembl_gene").is_in(gene_ids))
+            .select([
+                pl.col("human_ensembl_gene").alias("gene_id"),
+                pl.col("zebrafish_symbol").alias("zebrafish_ortholog"),
+                pl.col("support").str.split(",").list.len().alias("support_count"),
+            ])
+            .with_columns([
+                pl.when(pl.col("support_count") >= 8)
+                .then(pl.lit("HIGH"))
+                .when(pl.col("support_count") >= 4)
+                .then(pl.lit("MEDIUM"))
+                .otherwise(pl.lit("LOW"))
+                .alias("zebrafish_ortholog_confidence")
+            ])
+            .sort(["gene_id", "support_count"], descending=[False, True])
+            .group_by("gene_id")
+            .first()
+            .select(["gene_id", "zebrafish_ortholog", "zebrafish_ortholog_confidence"])
+        )
+    else:
+        # Return empty DataFrame with correct schema
+        zebrafish_orthologs = pl.DataFrame({
+            "gene_id": [],
+            "zebrafish_ortholog": [],
+            "zebrafish_ortholog_confidence": [],
+        }, schema={"gene_id": pl.String, "zebrafish_ortholog": pl.String, "zebrafish_ortholog_confidence": pl.String})
 
     logger.info("zebrafish_orthologs_mapped", count=len(zebrafish_orthologs))
 

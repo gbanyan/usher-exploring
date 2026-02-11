@@ -38,14 +38,26 @@ def filter_sensory_phenotypes(
     if phenotype_df.is_empty():
         return phenotype_df
 
+    # Skip filtering if term column is missing or all NULL
+    if term_column not in phenotype_df.columns:
+        logger.warning("filter_sensory_phenotypes_skip", reason=f"column_{term_column}_missing")
+        return pl.DataFrame(schema=phenotype_df.schema).clear()
+
+    if phenotype_df[term_column].null_count() == len(phenotype_df):
+        logger.warning("filter_sensory_phenotypes_skip", reason=f"all_{term_column}_null")
+        return pl.DataFrame(schema=phenotype_df.schema).clear()
+
     logger.info("filter_sensory_phenotypes_start", row_count=len(phenotype_df))
 
     # Create case-insensitive match condition
-    # Match if ANY keyword appears as substring in term
+    # Match if ANY keyword appears as substring in term (handles NULL by checking is_not_null first)
     match_condition = pl.lit(False)
 
     for keyword in keywords:
-        match_condition = match_condition | pl.col(term_column).str.to_lowercase().str.contains(keyword.lower())
+        match_condition = match_condition | (
+            pl.col(term_column).is_not_null() &
+            pl.col(term_column).str.to_lowercase().str.contains(keyword.lower())
+        )
 
     # Filter phenotypes
     filtered = phenotype_df.filter(match_condition)
@@ -229,7 +241,7 @@ def process_animal_model_evidence(gene_ids: list[str]) -> pl.DataFrame:
             .group_by("mouse_gene")
             .agg([
                 pl.col("mp_term_name").count().alias("mgi_phenotype_count"),
-                pl.col("mp_term_name").str.concat("; ").alias("mgi_terms"),
+                pl.col("mp_term_name").str.join("; ").alias("mgi_terms"),
             ])
         )
     else:
@@ -237,7 +249,7 @@ def process_animal_model_evidence(gene_ids: list[str]) -> pl.DataFrame:
             "mouse_gene": [],
             "mgi_phenotype_count": [],
             "mgi_terms": [],
-        })
+        }, schema={"mouse_gene": pl.String, "mgi_phenotype_count": pl.Int64, "mgi_terms": pl.String})
 
     # Count sensory phenotypes per zebrafish gene
     if not zfin_sensory.is_empty():
@@ -246,7 +258,7 @@ def process_animal_model_evidence(gene_ids: list[str]) -> pl.DataFrame:
             .group_by("zebrafish_gene")
             .agg([
                 pl.col("zp_term_name").count().alias("zfin_phenotype_count"),
-                pl.col("zp_term_name").str.concat("; ").alias("zfin_terms"),
+                pl.col("zp_term_name").str.join("; ").alias("zfin_terms"),
             ])
         )
     else:
@@ -254,7 +266,7 @@ def process_animal_model_evidence(gene_ids: list[str]) -> pl.DataFrame:
             "zebrafish_gene": [],
             "zfin_phenotype_count": [],
             "zfin_terms": [],
-        })
+        }, schema={"zebrafish_gene": pl.String, "zfin_phenotype_count": pl.Int64, "zfin_terms": pl.String})
 
     # Count sensory phenotypes per mouse gene from IMPC
     if not impc_sensory.is_empty():
@@ -263,7 +275,7 @@ def process_animal_model_evidence(gene_ids: list[str]) -> pl.DataFrame:
             .group_by("mouse_gene")
             .agg([
                 pl.col("mp_term_name").count().alias("impc_phenotype_count"),
-                pl.col("mp_term_name").str.concat("; ").alias("impc_terms"),
+                pl.col("mp_term_name").str.join("; ").alias("impc_terms"),
             ])
         )
     else:
@@ -271,7 +283,7 @@ def process_animal_model_evidence(gene_ids: list[str]) -> pl.DataFrame:
             "mouse_gene": [],
             "impc_phenotype_count": [],
             "impc_terms": [],
-        })
+        }, schema={"mouse_gene": pl.String, "impc_phenotype_count": pl.Int64, "impc_terms": pl.String})
 
     # Step 4: Join phenotype data with ortholog mappings
     logger.info("step_4_join_data")
