@@ -65,9 +65,15 @@ Plans:
   4. Localization evidence from HPA and proteomics datasets distinguishes experimental from computational predictions
   5. Animal model phenotypes from MGI, ZFIN, and IMPC are filtered for sensory/cilia relevance with ortholog confidence scoring
   6. Literature evidence from PubMed distinguishes direct experimental evidence from incidental mentions with quality-weighted scoring
-**Plans**: TBD
+**Plans**: 6 plans
 
-Plans: (to be created during plan-phase)
+Plans:
+- [ ] 03-01-PLAN.md -- Gene annotation completeness (GO terms, UniProt scores, pathway membership, tier classification)
+- [ ] 03-02-PLAN.md -- Tissue expression (HPA, GTEx, CellxGene with Tau specificity and enrichment scoring)
+- [ ] 03-03-PLAN.md -- Protein sequence/structure features (UniProt/InterPro domains, cilia motifs, normalization)
+- [ ] 03-04-PLAN.md -- Subcellular localization (HPA subcellular, cilia proteomics, evidence type distinction)
+- [ ] 03-05-PLAN.md -- Animal model phenotypes (MGI, ZFIN, IMPC with HCOP ortholog mapping)
+- [ ] 03-06-PLAN.md -- Literature evidence (PubMed queries, evidence tier classification, quality-weighted scoring)
 
 ### Phase 4: Scoring & Integration
 **Goal**: Multi-evidence weighted scoring with known gene validation
@@ -120,7 +126,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 |-------|----------------|--------|-----------|
 | 1. Data Infrastructure | 4/4 | ✓ Complete | 2026-02-11 |
 | 2. Prototype Evidence Layer | 2/2 | ✓ Complete | 2026-02-11 |
-| 3. Core Evidence Layers | 0/TBD | Not started | - |
+| 3. Core Evidence Layers | 0/6 | In Progress | - |
 | 4. Scoring & Integration | 0/TBD | Not started | - |
 | 5. Output & CLI | 0/TBD | Not started | - |
 | 6. Validation | 0/TBD | Not started | - |
