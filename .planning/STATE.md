@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-11)
 
 **Core value:** Produce a high-confidence, multi-evidence-backed ranked list of under-studied cilia/Usher candidate genes that is fully traceable — every gene's inclusion is explainable by specific evidence, and every gap is documented.
-**Current focus:** Phase 3 complete — ready for Phase 4
+**Current focus:** Phase 4 in progress — Scoring and Integration
 
 ## Current Position
 
-Phase: 3 of 6 (Core Evidence Layers)
-Plan: 6 of 6 in current phase (phase complete)
-Status: Phase 3 complete — verified (6/6 success criteria, 20/20 requirements)
-Last activity: 2026-02-11 — Phase 3 verified and complete
+Phase: 4 of 6 (Scoring and Integration)
+Plan: 1 of 3 in current phase (in progress)
+Status: Plan 04-01 complete — known gene compilation and weighted scoring integration
+Last activity: 2026-02-11 — Completed 04-01-PLAN.md
 
-Progress: [██████░░░░] 60.0% (12/20 plans complete across all phases)
+Progress: [██████░░░░] 65.0% (13/20 plans complete across all phases)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
-- Average duration: 5.6 min
-- Total execution time: 1.1 hours
+- Total plans completed: 13
+- Average duration: 5.5 min
+- Total execution time: 1.2 hours
 
 **By Phase:**
 
@@ -30,11 +30,17 @@ Progress: [██████░░░░] 60.0% (12/20 plans complete across al
 | 01 - Data Infrastructure | 4/4 | 14 min | 3.5 min/plan |
 | 02 - Prototype Evidence Layer | 2/2 | 8 min | 4.0 min/plan |
 | 03 - Core Evidence Layers | 6/6 | 52 min | 8.7 min/plan |
+| 04 - Scoring Integration | 1/3 | 4 min | 4.0 min/plan |
+
+**Recent Plan Details:**
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
 | Phase 03 P02 | 12 min | 2 tasks | 9 files |
 | Phase 03 P03 | 11 min | 2 tasks | 7 files |
 | Phase 03 P04 | 8 min | 2 tasks | 8 files |
 | Phase 03 P05 | 10 min | 2 tasks | 8 files |
 | Phase 03 P06 | 13 min | 2 tasks | 10 files |
+| Phase 04 P01 | 4 min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -92,6 +98,11 @@ Recent decisions affecting current work:
 - [03-06]: Quality-weighted scoring uses log2 normalization to mitigate well-studied gene bias (prevents TP53-like dominance)
 - [03-06]: Context weights cilia/sensory=2.0, cytoskeleton/polarity=1.0 for primary target prioritization
 - [03-06]: Rate limiting via decorator pattern (3 req/sec default, 10 req/sec with NCBI API key)
+- [04-01]: OMIM Usher genes (10) and SYSCILIA SCGS v2 core (28) as known gene positive controls
+- [04-01]: NULL-preserving weighted average: weighted_sum / available_weight (only non-NULL layers contribute)
+- [04-01]: Quality flags based on evidence_count (>=4 sufficient, >=2 moderate, >=1 sparse, 0 no_evidence)
+- [04-01]: Per-layer contribution tracking (score * weight) for explainability
+- [04-01]: ScoringWeights validation enforcing sum = 1.0 ± 1e-6 tolerance
 
 ### Pending Todos
 
@@ -104,5 +115,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-11 - Plan execution
-Stopped at: Completed 03-06-PLAN.md (Literature Evidence layer) - Phase 3 complete
-Resume file: .planning/phases/03-core-evidence-layers/03-06-SUMMARY.md
+Stopped at: Completed 04-01-PLAN.md (Known gene compilation and weighted scoring)
+Resume file: .planning/phases/04-scoring-integration/04-01-SUMMARY.md
