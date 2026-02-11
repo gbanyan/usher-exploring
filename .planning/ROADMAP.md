@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Data Infrastructure** - Foundation for reproducible, modular pipeline
 - [x] **Phase 2: Prototype Evidence Layer** - Validate retrieval-to-storage architecture
-- [ ] **Phase 3: Core Evidence Layers** - Parallel multi-source data retrieval
+- [x] **Phase 3: Core Evidence Layers** - Parallel multi-source data retrieval
 - [ ] **Phase 4: Scoring & Integration** - Multi-evidence weighted scoring system
 - [ ] **Phase 5: Output & CLI** - User-facing interface and tiered results
 - [ ] **Phase 6: Validation** - Benchmark scoring against known genes
@@ -68,12 +68,12 @@ Plans:
 **Plans**: 6 plans
 
 Plans:
-- [ ] 03-01-PLAN.md -- Gene annotation completeness (GO terms, UniProt scores, pathway membership, tier classification)
-- [ ] 03-02-PLAN.md -- Tissue expression (HPA, GTEx, CellxGene with Tau specificity and enrichment scoring)
-- [ ] 03-03-PLAN.md -- Protein sequence/structure features (UniProt/InterPro domains, cilia motifs, normalization)
-- [ ] 03-04-PLAN.md -- Subcellular localization (HPA subcellular, cilia proteomics, evidence type distinction)
-- [ ] 03-05-PLAN.md -- Animal model phenotypes (MGI, ZFIN, IMPC with HCOP ortholog mapping)
-- [ ] 03-06-PLAN.md -- Literature evidence (PubMed queries, evidence tier classification, quality-weighted scoring)
+- [x] 03-01-PLAN.md -- Gene annotation completeness (GO terms, UniProt scores, pathway membership, tier classification)
+- [x] 03-02-PLAN.md -- Tissue expression (HPA, GTEx, CellxGene with Tau specificity and enrichment scoring)
+- [x] 03-03-PLAN.md -- Protein sequence/structure features (UniProt/InterPro domains, cilia motifs, normalization)
+- [x] 03-04-PLAN.md -- Subcellular localization (HPA subcellular, cilia proteomics, evidence type distinction)
+- [x] 03-05-PLAN.md -- Animal model phenotypes (MGI, ZFIN, IMPC with HCOP ortholog mapping)
+- [x] 03-06-PLAN.md -- Literature evidence (PubMed queries, evidence tier classification, quality-weighted scoring)
 
 ### Phase 4: Scoring & Integration
 **Goal**: Multi-evidence weighted scoring with known gene validation
@@ -126,7 +126,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 |-------|----------------|--------|-----------|
 | 1. Data Infrastructure | 4/4 | ✓ Complete | 2026-02-11 |
 | 2. Prototype Evidence Layer | 2/2 | ✓ Complete | 2026-02-11 |
-| 3. Core Evidence Layers | 0/6 | In Progress | - |
+| 3. Core Evidence Layers | 6/6 | ✓ Complete | 2026-02-11 |
 | 4. Scoring & Integration | 0/TBD | Not started | - |
 | 5. Output & CLI | 0/TBD | Not started | - |
 | 6. Validation | 0/TBD | Not started | - |
