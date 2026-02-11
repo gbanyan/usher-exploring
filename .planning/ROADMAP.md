@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Prototype Evidence Layer** - Validate retrieval-to-storage architecture
 - [x] **Phase 3: Core Evidence Layers** - Parallel multi-source data retrieval
 - [x] **Phase 4: Scoring & Integration** - Multi-evidence weighted scoring system
-- [ ] **Phase 5: Output & CLI** - User-facing interface and tiered results
+- [x] **Phase 5: Output & CLI** - User-facing interface and tiered results
 - [ ] **Phase 6: Validation** - Benchmark scoring against known genes
 
 ## Phase Details
@@ -106,9 +106,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 05-01-PLAN.md -- Tiered candidate output with evidence summary and dual-format writer (TSV+Parquet)
-- [ ] 05-02-PLAN.md -- Visualizations (score distribution, layer contributions, tier breakdown) and reproducibility report
-- [ ] 05-03-PLAN.md -- CLI report command wiring all output modules with integration tests
+- [x] 05-01-PLAN.md -- Tiered candidate output with evidence summary and dual-format writer (TSV+Parquet)
+- [x] 05-02-PLAN.md -- Visualizations (score distribution, layer contributions, tier breakdown) and reproducibility report
+- [x] 05-03-PLAN.md -- CLI report command wiring all output modules with integration tests
 
 ### Phase 6: Validation
 **Goal**: Benchmark scoring system against positive and negative controls
@@ -134,5 +134,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 2. Prototype Evidence Layer | 2/2 | Complete | 2026-02-11 |
 | 3. Core Evidence Layers | 6/6 | Complete | 2026-02-11 |
 | 4. Scoring & Integration | 3/3 | Complete | 2026-02-11 |
-| 5. Output & CLI | 0/3 | In Progress | - |
+| 5. Output & CLI | 3/3 | Complete | 2026-02-12 |
 | 6. Validation | 0/TBD | Not started | - |
