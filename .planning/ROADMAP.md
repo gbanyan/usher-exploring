@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Core Evidence Layers** - Parallel multi-source data retrieval
 - [x] **Phase 4: Scoring & Integration** - Multi-evidence weighted scoring system
 - [x] **Phase 5: Output & CLI** - User-facing interface and tiered results
-- [ ] **Phase 6: Validation** - Benchmark scoring against known genes
+- [x] **Phase 6: Validation** - Benchmark scoring against known genes
 
 ## Phase Details
 
@@ -122,9 +122,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 06-01-PLAN.md -- Negative control validation (housekeeping genes) and enhanced positive control metrics (recall@k)
-- [ ] 06-02-PLAN.md -- Sensitivity analysis (weight perturbation sweeps with Spearman rank correlation)
-- [ ] 06-03-PLAN.md -- Comprehensive validation report, CLI validate command, and unit tests
+- [x] 06-01-PLAN.md -- Negative control validation (housekeeping genes) and enhanced positive control metrics (recall@k)
+- [x] 06-02-PLAN.md -- Sensitivity analysis (weight perturbation sweeps with Spearman rank correlation)
+- [x] 06-03-PLAN.md -- Comprehensive validation report, CLI validate command, and unit tests
 
 ## Progress
 
@@ -138,4 +138,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 3. Core Evidence Layers | 6/6 | Complete | 2026-02-11 |
 | 4. Scoring & Integration | 3/3 | Complete | 2026-02-11 |
 | 5. Output & CLI | 3/3 | Complete | 2026-02-12 |
-| 6. Validation | 0/3 | Not started | - |
+| 6. Validation | 3/3 | Complete | 2026-02-12 |
