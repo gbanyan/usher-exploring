@@ -7,6 +7,7 @@ from usher_pipeline.evidence.gnomad.transform import (
     normalize_scores,
     process_gnomad_constraint,
 )
+from usher_pipeline.evidence.gnomad.load import load_to_duckdb, query_constrained_genes
 
 __all__ = [
     "ConstraintRecord",
@@ -16,4 +17,6 @@ __all__ = [
     "filter_by_coverage",
     "normalize_scores",
     "process_gnomad_constraint",
+    "load_to_duckdb",
+    "query_constrained_genes",
 ]
