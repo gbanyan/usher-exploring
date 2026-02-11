@@ -11,6 +11,13 @@ from usher_pipeline.scoring.integration import (
     compute_composite_scores,
     persist_scored_genes,
 )
+from usher_pipeline.scoring.quality_control import (
+    run_qc_checks,
+)
+from usher_pipeline.scoring.validation import (
+    validate_known_gene_ranking,
+    generate_validation_report,
+)
 
 __all__ = [
     "OMIM_USHER_GENES",
@@ -20,4 +27,7 @@ __all__ = [
     "join_evidence_layers",
     "compute_composite_scores",
     "persist_scored_genes",
+    "run_qc_checks",
+    "validate_known_gene_ranking",
+    "generate_validation_report",
 ]
