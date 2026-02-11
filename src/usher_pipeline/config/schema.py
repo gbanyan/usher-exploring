@@ -70,6 +70,29 @@ class ScoringWeights(BaseModel):
         description="Weight for literature evidence",
     )
 
+    def validate_sum(self) -> None:
+        """
+        Validate that all scoring weights sum to 1.0.
+
+        Raises:
+            ValueError: If weights do not sum to 1.0 (within 1e-6 tolerance)
+
+        Notes:
+            - Tolerance of 1e-6 accounts for floating point precision
+            - Should be called before using weights in scoring calculations
+        """
+        total = (
+            self.gnomad
+            + self.expression
+            + self.annotation
+            + self.localization
+            + self.animal_model
+            + self.literature
+        )
+
+        if abs(total - 1.0) > 1e-6:
+            raise ValueError(f"Scoring weights must sum to 1.0, got {total:.6f}")
+
 
 class APIConfig(BaseModel):
     """Configuration for API clients."""
