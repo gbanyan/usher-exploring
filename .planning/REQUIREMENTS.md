@@ -1,0 +1,173 @@
+# Requirements: Usher Cilia Candidate Gene Discovery Pipeline
+
+**Defined:** 2026-02-11
+**Core Value:** Produce a high-confidence, multi-evidence-backed ranked list of under-studied cilia/Usher candidate genes that is fully traceable — every gene's inclusion is explainable by specific evidence, and every gap is documented.
+
+## v1 Requirements
+
+Requirements for initial release. Each maps to roadmap phases.
+
+### Data Infrastructure
+
+- [ ] **INFRA-01**: Pipeline defines gene universe as all human protein-coding genes from Ensembl, excluding pseudogenes and transcripts lacking protein-level evidence
+- [ ] **INFRA-02**: Pipeline uses Ensembl gene IDs as primary keys throughout, with validated mapping to HGNC symbols and UniProt accessions
+- [ ] **INFRA-03**: Gene ID mapping includes validation gates that report percentage successfully mapped and flag unmapped genes for review
+- [ ] **INFRA-04**: Pipeline retrieves data from external APIs (gnomAD, GTEx, HPA, UniProt, PubMed, model organism DBs) with rate limiting, retry logic, and persistent disk caching
+- [ ] **INFRA-05**: All pipeline parameters (weights, thresholds, data source versions) are configurable via YAML config files with Pydantic validation
+- [ ] **INFRA-06**: Every output includes provenance metadata: pipeline version, data source versions, download timestamps, config hash, and processing steps
+- [ ] **INFRA-07**: Intermediate results are persisted to disk (Parquet/DuckDB) enabling restart-from-checkpoint without re-downloading data
+
+### Evidence Layer 1: Gene Annotation Completeness
+
+- [ ] **ANNOT-01**: Pipeline quantifies functional annotation depth per gene using GO term count, UniProt annotation score, and pathway membership
+- [ ] **ANNOT-02**: Genes are classified into annotation tiers (well-annotated, partially-annotated, poorly-annotated) based on composite annotation metrics
+- [ ] **ANNOT-03**: Annotation completeness score is normalized to 0-1 scale and stored as an evidence layer feature
+
+### Evidence Layer 2: Tissue Expression
+
+- [ ] **EXPR-01**: Pipeline retrieves tissue-level expression data from Human Protein Atlas and GTEx for retina, inner ear, and cilia-rich tissues
+- [ ] **EXPR-02**: Pipeline retrieves published scRNA-seq data from CellxGene for photoreceptor subtypes and auditory hair cell subpopulations
+- [ ] **EXPR-03**: Expression data is converted to comparable specificity metrics (e.g., tissue specificity index or relative rank) across data sources
+- [ ] **EXPR-04**: Expression evidence score reflects enrichment in Usher-relevant tissues relative to global expression
+
+### Evidence Layer 3: Protein Sequence & Structure Features
+
+- [ ] **PROT-01**: Pipeline extracts protein length, domain composition, and domain count from UniProt/InterPro per gene
+- [ ] **PROT-02**: Pipeline identifies presence of coiled-coil regions, scaffold/adaptor-type domains, and transmembrane domains
+- [ ] **PROT-03**: Pipeline checks for known cilia-associated or sensory structure-associated motifs without presupposing conclusions
+- [ ] **PROT-04**: Protein features are encoded as binary and continuous features normalized to 0-1 scale
+
+### Evidence Layer 4: Subcellular Localization
+
+- [ ] **LOCA-01**: Pipeline integrates high-throughput protein localization data from Human Protein Atlas subcellular and published centrosome/cilium proteomics
+- [ ] **LOCA-02**: Localization evidence distinguishes direct experimental evidence from computational predictions
+- [ ] **LOCA-03**: Localization score reflects proximity to cilia-related compartments (centrosome, basal body, cilium, stereocilia, transition zone)
+
+### Evidence Layer 5: Genetic Constraint
+
+- [ ] **GCON-01**: Pipeline retrieves loss-of-function tolerance metrics (pLI, LOEUF) from gnomAD per gene
+- [ ] **GCON-02**: Constraint scores are filtered by coverage quality (mean depth >30x, >90% CDS covered) to avoid unreliable estimates
+- [ ] **GCON-03**: Constraint evidence is interpreted as weak signal for "important but under-studied" rather than direct cilia involvement
+
+### Evidence Layer 6: Animal Model Phenotypes
+
+- [ ] **ANIM-01**: Pipeline retrieves gene knockout/perturbation phenotypes from MGI (mouse), ZFIN (zebrafish), and IMPC
+- [ ] **ANIM-02**: Phenotypes are filtered for relevance to sensory function, balance, vision, hearing, and cilia morphology
+- [ ] **ANIM-03**: Ortholog mapping uses established databases with confidence scoring, handling one-to-many mappings explicitly
+
+### Literature Evidence
+
+- [ ] **LITE-01**: Pipeline performs systematic PubMed queries per candidate gene for mentions in cilia, sensory organ, cytoskeleton, and cell polarity contexts
+- [ ] **LITE-02**: Literature evidence distinguishes direct experimental evidence, incidental mentions, and high-throughput screen hits as qualitative tiers
+- [ ] **LITE-03**: Literature score reflects evidence quality (not just publication count) to mitigate well-studied gene bias
+
+### Scoring & Integration
+
+- [ ] **SCOR-01**: Pipeline compiles known cilia/Usher gene set from CiliaCarta, SYSCILIA gold standard, and OMIM Usher entries as exclusion set and positive controls
+- [ ] **SCOR-02**: Multi-evidence integration uses weighted rule-based scoring with configurable per-layer weights, producing a composite score per gene
+- [ ] **SCOR-03**: Scoring handles missing data explicitly — genes lacking evidence in a layer receive "unknown" status rather than zero score
+- [ ] **SCOR-04**: Known cilia/Usher genes are used as positive controls (should rank highly before exclusion) to validate scoring system
+- [ ] **SCOR-05**: Quality control checks detect missing data rates, score distribution anomalies, and outliers per evidence layer
+
+### Output & Reporting
+
+- [ ] **OUTP-01**: Pipeline produces tiered candidate list (high/medium/low confidence) based on composite score and evidence breadth
+- [ ] **OUTP-02**: Each candidate gene includes a multi-dimensional evidence summary showing which layers support it and which have gaps
+- [ ] **OUTP-03**: Output is in structured machine-readable format (TSV and Parquet) compatible with downstream PPI and structural prediction tools
+- [ ] **OUTP-04**: Pipeline generates basic visualizations: score distribution, evidence layer contribution plots, tier breakdown
+- [ ] **OUTP-05**: Pipeline produces reproducibility report documenting all parameters, data versions, gene counts at each filtering step, and validation metrics
+
+## v2 Requirements
+
+Deferred to future release. Tracked but not in current roadmap.
+
+### Advanced Scoring
+
+- **ASCR-01**: Explainable scoring with SHAP-style per-gene evidence breakdown showing why each gene ranks where it does
+- **ASCR-02**: Systematic under-annotation bias correction that downweights literature-heavy features for under-studied candidates
+- **ASCR-03**: Sensitivity analysis with parameter sweep across weight configurations and rank stability metrics
+- **ASCR-04**: Evidence conflict detection flagging genes with contradictory evidence patterns
+
+### Advanced Output
+
+- **AOUT-01**: Interactive HTML report with browsable results, sortable tables, and linked evidence sources
+- **AOUT-02**: Negative control validation testing against housekeeping genes to assess specificity
+
+### Extended Evidence
+
+- **AEVD-01**: Cross-species homology confidence scoring using DIOPT with explicit ortholog quality thresholds
+- **AEVD-02**: Cilia-specific knowledgebase integration (CilioGenics, CiliaMiner) as additional evidence layer
+- **AEVD-03**: Incremental update capability to re-run with new data without full recomputation
+
+## Out of Scope
+
+Explicitly excluded. Documented to prevent scope creep.
+
+| Feature | Reason |
+|---------|--------|
+| Real-time web dashboard | Overkill for research tool; static reports + CLI sufficient |
+| GUI for parameter tuning | Research pipelines need reproducible CLI execution |
+| Variant-level analysis | Out of scope for gene-level discovery; use Exomiser/LIRICAL for variant work |
+| Custom alignment/variant calling | Well-solved problem; focus on gene prioritization logic |
+| ML-based scoring model | Small positive control set insufficient for robust ML; rule-based more transparent |
+| LLM-based automated literature scanning | High complexity, cost, and uncertainty; manual/programmatic PubMed queries sufficient |
+| Bayesian evidence weight optimization | Requires larger training set; manual weight tuning sufficient for v1 |
+| Private/proprietary datasets | Public data only for reproducibility |
+| Downstream PPI network analysis | This pipeline produces input candidate list; PPI is separate |
+| AlphaFold structural predictions | Downstream analysis, not part of discovery pipeline |
+
+## Traceability
+
+Which phases cover which requirements. Updated during roadmap creation.
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| INFRA-01 | — | Pending |
+| INFRA-02 | — | Pending |
+| INFRA-03 | — | Pending |
+| INFRA-04 | — | Pending |
+| INFRA-05 | — | Pending |
+| INFRA-06 | — | Pending |
+| INFRA-07 | — | Pending |
+| ANNOT-01 | — | Pending |
+| ANNOT-02 | — | Pending |
+| ANNOT-03 | — | Pending |
+| EXPR-01 | — | Pending |
+| EXPR-02 | — | Pending |
+| EXPR-03 | — | Pending |
+| EXPR-04 | — | Pending |
+| PROT-01 | — | Pending |
+| PROT-02 | — | Pending |
+| PROT-03 | — | Pending |
+| PROT-04 | — | Pending |
+| LOCA-01 | — | Pending |
+| LOCA-02 | — | Pending |
+| LOCA-03 | — | Pending |
+| GCON-01 | — | Pending |
+| GCON-02 | — | Pending |
+| GCON-03 | — | Pending |
+| ANIM-01 | — | Pending |
+| ANIM-02 | — | Pending |
+| ANIM-03 | — | Pending |
+| LITE-01 | — | Pending |
+| LITE-02 | — | Pending |
+| LITE-03 | — | Pending |
+| SCOR-01 | — | Pending |
+| SCOR-02 | — | Pending |
+| SCOR-03 | — | Pending |
+| SCOR-04 | — | Pending |
+| SCOR-05 | — | Pending |
+| OUTP-01 | — | Pending |
+| OUTP-02 | — | Pending |
+| OUTP-03 | — | Pending |
+| OUTP-04 | — | Pending |
+| OUTP-05 | — | Pending |
+
+**Coverage:**
+- v1 requirements: 40 total
+- Mapped to phases: 0
+- Unmapped: 40 ⚠️
+
+---
+*Requirements defined: 2026-02-11*
+*Last updated: 2026-02-11 after initial definition*
