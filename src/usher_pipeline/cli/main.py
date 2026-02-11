@@ -13,6 +13,7 @@ from usher_pipeline.config.loader import load_config
 from usher_pipeline.cli.setup_cmd import setup
 from usher_pipeline.cli.evidence_cmd import evidence
 from usher_pipeline.cli.score_cmd import score
+from usher_pipeline.cli.report_cmd import report
 
 
 # Configure logging
@@ -101,6 +102,7 @@ def info(ctx):
 cli.add_command(setup)
 cli.add_command(evidence)
 cli.add_command(score)
+cli.add_command(report)
 
 
 if __name__ == '__main__':
