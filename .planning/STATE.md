@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-02-11)
 
 **Core value:** Produce a high-confidence, multi-evidence-backed ranked list of under-studied cilia/Usher candidate genes that is fully traceable — every gene's inclusion is explainable by specific evidence, and every gap is documented.
-**Current focus:** Phase 1 complete — ready for Phase 2
+**Current focus:** Phase 2 complete — ready for Phase 3
 
 ## Current Position
 
 Phase: 2 of 6 (Prototype Evidence Layer)
 Plan: 2 of 2 in current phase (phase complete)
-Status: Phase 2 complete - ready for Phase 3
-Last activity: 2026-02-11 — Completed 02-02: gnomAD evidence layer integration (DuckDB persistence, CLI, checkpoint-restart)
+Status: Phase 2 complete — verified (9/9 must-haves, 3/3 requirements)
+Last activity: 2026-02-11 — Phase 2 verified and complete
 
 Progress: [█████░░░░░] 33.3% (2/6 phases complete)
 

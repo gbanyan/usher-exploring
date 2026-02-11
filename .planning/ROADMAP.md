@@ -13,7 +13,7 @@ This pipeline transforms ~20,000 human protein-coding genes into a ranked, evide
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Data Infrastructure** - Foundation for reproducible, modular pipeline
-- [ ] **Phase 2: Prototype Evidence Layer** - Validate retrieval-to-storage architecture
+- [x] **Phase 2: Prototype Evidence Layer** - Validate retrieval-to-storage architecture
 - [ ] **Phase 3: Core Evidence Layers** - Parallel multi-source data retrieval
 - [ ] **Phase 4: Scoring & Integration** - Multi-evidence weighted scoring system
 - [ ] **Phase 5: Output & CLI** - User-facing interface and tiered results
@@ -51,8 +51,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md -- gnomAD data model, download, coverage filter, and normalization
-- [ ] 02-02-PLAN.md -- DuckDB persistence, CLI evidence command, and integration tests
+- [x] 02-01-PLAN.md -- gnomAD data model, download, coverage filter, and normalization
+- [x] 02-02-PLAN.md -- DuckDB persistence, CLI evidence command, and integration tests
 
 ### Phase 3: Core Evidence Layers
 **Goal**: Complete all remaining evidence retrieval modules
@@ -119,7 +119,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Data Infrastructure | 4/4 | ✓ Complete | 2026-02-11 |
-| 2. Prototype Evidence Layer | 0/2 | Planned | - |
+| 2. Prototype Evidence Layer | 2/2 | ✓ Complete | 2026-02-11 |
 | 3. Core Evidence Layers | 0/TBD | Not started | - |
 | 4. Scoring & Integration | 0/TBD | Not started | - |
 | 5. Output & CLI | 0/TBD | Not started | - |
