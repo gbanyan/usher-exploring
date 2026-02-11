@@ -1,0 +1,25 @@
+# Default pipeline configuration
+
+data_dir: data
+cache_dir: data/cache
+duckdb_path: data/pipeline.duckdb
+
+versions:
+  ensembl_release: 113
+  gnomad_version: v4.1
+  gtex_version: v8
+  hpa_version: "23.0"
+
+api:
+  rate_limit_per_second: 5
+  max_retries: 5
+  cache_ttl_seconds: 86400
+  timeout_seconds: 30
+
+scoring:
+  gnomad: 0.20
+  expression: 0.20
+  annotation: 0.15
+  localization: 0.15
+  animal_model: 0.15
+  literature: 0.15
