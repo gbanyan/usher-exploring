@@ -1,6 +1,6 @@
 """Persistence layer for pipeline checkpoints and provenance tracking."""
 
 from usher_pipeline.persistence.duckdb_store import PipelineStore
+from usher_pipeline.persistence.provenance import ProvenanceTracker
 
-# ProvenanceTracker will be added in Task 2
-__all__ = ["PipelineStore"]
+__all__ = ["PipelineStore", "ProvenanceTracker"]
