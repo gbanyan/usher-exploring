@@ -10,25 +10,25 @@ See: .planning/PROJECT.md (updated 2026-02-11)
 ## Current Position
 
 Phase: 2 of 6 (Prototype Evidence Layer)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-02-11 — Completed 02-01: gnomAD constraint data pipeline (fetch->filter->normalize pattern established)
+Plan: 2 of 2 in current phase (phase complete)
+Status: Phase 2 complete - ready for Phase 3
+Last activity: 2026-02-11 — Completed 02-02: gnomAD evidence layer integration (DuckDB persistence, CLI, checkpoint-restart)
 
-Progress: [█████░░░░░] 20.8% (1/6 phases complete, 1/2 plans in phase 2 complete)
+Progress: [█████░░░░░] 33.3% (2/6 phases complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 3.6 min
-- Total execution time: 0.30 hours
+- Total plans completed: 6
+- Average duration: 3.7 min
+- Total execution time: 0.37 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01 - Data Infrastructure | 4/4 | 14 min | 3.5 min/plan |
-| 02 - Prototype Evidence Layer | 1/2 | 4 min | 4.0 min/plan |
+| 02 - Prototype Evidence Layer | 2/2 | 8 min | 4.0 min/plan |
 
 ## Accumulated Context
 
@@ -58,6 +58,10 @@ Recent decisions affecting current work:
 - [02-01]: Quality flags instead of filtering (preserve all genes with measured/incomplete_coverage/no_data categorization)
 - [02-01]: NULL preservation pattern (unknown constraint != zero constraint, must not be conflated)
 - [02-01]: Lazy polars evaluation (LazyFrame until final collect() for query optimization)
+- [02-02]: load_to_duckdb uses CREATE OR REPLACE for idempotency (safe to re-run)
+- [02-02]: CLI evidence command group for extensibility (future evidence sources follow same pattern)
+- [02-02]: Checkpoint at table level (has_checkpoint checks DuckDB table existence)
+- [02-02]: Integration tests with synthetic fixtures (no external downloads, fast, reproducible)
 
 ### Pending Todos
 
@@ -70,5 +74,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-11 - Plan execution
-Stopped at: Completed 02-01-PLAN.md (gnomAD constraint data pipeline)
-Resume file: .planning/phases/02-prototype-evidence-layer/02-01-SUMMARY.md
+Stopped at: Completed 02-02-PLAN.md (gnomAD evidence layer integration) - Phase 2 complete
+Resume file: .planning/phases/02-prototype-evidence-layer/02-02-SUMMARY.md
