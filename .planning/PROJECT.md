@@ -2,33 +2,52 @@
 
 ## What This Is
 
-A reproducible, explainable bioinformatics pipeline that systematically screens all human protein-coding genes (~20,000) to identify under-studied candidates likely involved in cilia/sensory cilia pathways — particularly those relevant to Usher syndrome. The pipeline integrates 6+ evidence layers, scores genes via weighted rule-based integration, and outputs a tiered candidate list for downstream protein interaction network and structural prediction analyses.
+A reproducible bioinformatics pipeline that screens all ~20,000 human protein-coding genes across 6 evidence layers to identify under-studied candidates likely involved in cilia/sensory cilia pathways relevant to Usher syndrome. Integrates genetic constraint, tissue expression, gene annotation, protein features, subcellular localization, animal model phenotypes, and literature evidence into a transparent weighted scoring system producing tiered candidate lists.
 
 ## Core Value
 
 Produce a high-confidence, multi-evidence-backed ranked list of under-studied cilia/Usher candidate genes that is fully traceable — every gene's inclusion is explainable by specific evidence, and every gap is documented.
 
+## Current State
+
+**Shipped:** v1.0 MVP (2026-02-12)
+**Codebase:** 21,183 lines Python across 164 files
+**Tech stack:** Python, Click CLI, DuckDB, Polars, Pydantic, matplotlib/seaborn, scipy, structlog
+
+**What works:**
+- `usher-pipeline setup` — fetches gene universe from Ensembl with HGNC/UniProt mapping
+- `usher-pipeline evidence <layer>` — 7 evidence layer subcommands with checkpoint-restart
+- `usher-pipeline score` — multi-evidence weighted scoring with QC and positive control validation
+- `usher-pipeline report` — tiered output (TSV+Parquet), visualizations, reproducibility report
+- `usher-pipeline validate` — positive/negative control validation, sensitivity analysis
+
+**Known issues:**
+- cellxgene-census version conflict blocks some test execution
+- PubMed literature pipeline takes 3-11 hours for full gene universe (mitigated by checkpoint-restart)
+
 ## Requirements
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Modular Python pipeline with independent, composable CLI scripts per evidence layer — v1.0
+- ✓ Gene universe: all human protein-coding genes (Ensembl/HGNC aligned) — v1.0
+- ✓ Evidence Layer 1: Gene annotation completeness (GO/UniProt) — v1.0
+- ✓ Evidence Layer 2: Tissue-specific expression (HPA, GTEx, CellxGene) — v1.0
+- ✓ Evidence Layer 3: Protein sequence/structure features (UniProt/InterPro) — v1.0
+- ✓ Evidence Layer 4: Subcellular localization (HPA, cilia proteomics) — v1.0
+- ✓ Evidence Layer 5: Genetic constraint (gnomAD pLI, LOEUF) — v1.0
+- ✓ Evidence Layer 6: Animal model phenotypes (MGI, ZFIN, IMPC) — v1.0
+- ✓ Systematic literature scanning per candidate — v1.0
+- ✓ Known cilia/Usher gene set compiled as exclusion set and positive controls — v1.0
+- ✓ Weighted rule-based multi-evidence integration scoring — v1.0
+- ✓ Tiered output with per-gene evidence summaries and gap documentation — v1.0
+- ✓ Output format compatible with downstream analyses — v1.0
+- ✓ Sensitivity analysis with parameter sweep (originally v2, delivered early) — v1.0
+- ✓ Negative control validation with housekeeping genes (originally v2, delivered early) — v1.0
 
 ### Active
 
-- [ ] Modular Python pipeline with independent, composable CLI scripts per evidence layer
-- [ ] Gene universe: all human protein-coding genes (Ensembl/HGNC aligned), excluding pseudogenes and transcripts lacking protein-level evidence
-- [ ] Evidence Layer 1: Gene annotation completeness (GO/UniProt functional annotation depth)
-- [ ] Evidence Layer 2: Tissue-specific expression (retina, inner ear/hair cells, cilia-rich tissues) from public atlases (HPA, GTEx, CellxGene published scRNA-seq)
-- [ ] Evidence Layer 3: Protein sequence/structure features (length, domain composition, coiled-coil, scaffold/adaptor domains, cilia-associated motifs)
-- [ ] Evidence Layer 4: Subcellular localization evidence (centrosome, basal body, cilium, stereocilia) from high-throughput proteomics datasets
-- [ ] Evidence Layer 5: Human genetic constraint (loss-of-function tolerance from gnomAD, selection pressure indicators)
-- [ ] Evidence Layer 6: Animal model phenotypes (sensory, balance, vision, cilia phenotypes from model organism databases)
-- [ ] Systematic literature scanning per candidate (distinguishing direct experimental evidence, incidental mentions, high-throughput hits)
-- [ ] Known cilia/Usher gene set compiled from public sources (CiliaCarta, SYSCILIA gold standard, OMIM Usher genes) as exclusion set and positive controls
-- [ ] Weighted rule-based multi-evidence integration scoring with transparent weights
-- [ ] Tiered output (high/medium/low confidence) with per-gene evidence summaries and data gap documentation
-- [ ] Output format compatible with downstream PPI network analysis (STRING/BioGRID), structural prediction (AlphaFold-Multimer), and additional analyses
+(None — define with `/gsd:new-milestone`)
 
 ### Out of Scope
 
@@ -37,42 +56,44 @@ Produce a high-confidence, multi-evidence-backed ranked list of under-studied ci
 - Downstream PPI network or structural prediction analyses — this pipeline produces the input candidate list
 - Wet-lab validation — computational discovery pipeline only
 - Real-time data updates — pipeline runs against versioned snapshots of source databases
+- Real-time web dashboard — static reports + CLI sufficient for research tool
+- GUI for parameter tuning — research pipelines need reproducible CLI execution
+- Variant-level analysis — gene-level discovery scope; use Exomiser/LIRICAL for variant work
+- LLM-based automated literature scanning — manual/programmatic PubMed queries sufficient
+- Bayesian evidence weight optimization — requires larger training set; manual tuning sufficient
 
 ## Context
 
-Usher syndrome is the most common genetic cause of combined deafness and blindness. While several causal genes (USH1B/MYO7A, USH1C, USH2A, etc.) are known, the full molecular network — particularly scaffold, adaptor, and regulatory proteins connecting Usher complexes to cilia machinery — remains incompletely characterized. Many genes with cilia-relevant features lack functional annotation, creating a discovery opportunity.
+Usher syndrome is the most common genetic cause of combined deafness and blindness. While several causal genes (USH1B/MYO7A, USH1C, USH2A, etc.) are known, the full molecular network — particularly scaffold, adaptor, and regulatory proteins connecting Usher complexes to cilia machinery — remains incompletely characterized.
 
-The pipeline targets this gap: genes that have cilia-suggestive evidence across multiple layers but haven't been studied in the Usher/sensory cilia context. By operationalizing "under-studied" (limited GO annotation, sparse mechanistic literature, not in canonical cilia gene lists) and cross-referencing with expression, structural, localization, genetic, and phenotypic evidence, the pipeline surfaces candidates that would otherwise remain invisible.
+The pipeline targets this gap: genes that have cilia-suggestive evidence across multiple layers but haven't been studied in the Usher/sensory cilia context.
 
-Key public data sources:
-- **Gene annotation:** Ensembl, HGNC, UniProt, Gene Ontology
-- **Expression:** Human Protein Atlas, GTEx, CellxGene (published retina/cochlea scRNA-seq datasets)
-- **Protein features:** UniProt domains, InterPro, Pfam
-- **Localization:** Human Protein Atlas subcellular, OpenCell, published centrosome/cilium proteomics
-- **Genetic constraint:** gnomAD (pLI, LOEUF scores)
-- **Animal models:** MGI (mouse), ZFIN (zebrafish), IMPC
-- **Known gene sets:** CiliaCarta, SYSCILIA gold standard, OMIM (Usher-related entries)
-- **Literature:** PubMed/NCBI for systematic text scanning
+Key public data sources: Ensembl, HGNC, UniProt, Gene Ontology, Human Protein Atlas, GTEx, CellxGene, InterPro, gnomAD, MGI, ZFIN, IMPC, CiliaCarta, SYSCILIA, OMIM, PubMed.
 
 ## Constraints
 
-- **Language**: Python — all pipeline modules written in Python
-- **Architecture**: Modular CLI scripts — each evidence layer is an independent module, composable via standard input/output
-- **Data**: Public sources only — no proprietary or access-restricted datasets
-- **Compute**: Local workstation with NVIDIA 4090 GPU — GPU available if needed for large-scale computations
-- **Scoring**: Weighted rule-based — fully transparent, no black-box models
-- **Reproducibility**: Versioned data snapshots, pinned dependencies, documented parameters
+- **Language**: Python
+- **Architecture**: Modular CLI (Click) with DuckDB persistence and Polars DataFrames
+- **Data**: Public sources only
+- **Scoring**: Weighted rule-based with transparent weights
+- **Reproducibility**: Versioned data snapshots, provenance tracking, checkpoint-restart
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Python over R/Bioconductor | User preference; rich ecosystem for data integration (pandas, scanpy, biopython) | — Pending |
-| Weighted rule-based scoring over ML | Explainability is paramount; every gene's score must be traceable to specific evidence | — Pending |
-| Public data only | Reproducibility — anyone can re-run the pipeline with the same inputs | — Pending |
-| Modular CLI scripts over workflow manager | Flexibility for iterative development; each layer can be run/debugged independently | — Pending |
-| Known gene exclusion via CiliaCarta/SYSCILIA/OMIM | Standard community-curated lists; used as both exclusion set and positive controls for validation | — Pending |
-| Tiered output over fixed cutoff | Allows flexible downstream use — high-confidence for focused follow-up, medium/low for broader network analysis | — Pending |
+| Python over R/Bioconductor | Rich ecosystem for data integration (polars, biopython) | ✓ Good |
+| Weighted rule-based scoring over ML | Explainability paramount; every score traceable to evidence | ✓ Good |
+| Public data only | Reproducibility — anyone can re-run with same inputs | ✓ Good |
+| Modular CLI scripts over workflow manager | Flexibility for iterative development; independent debugging | ✓ Good |
+| DuckDB over SQLite | Native polars integration, better analytics queries | ✓ Good |
+| NULL preservation (unknown ≠ zero) | Avoids penalizing genes with missing evidence | ✓ Good |
+| Polars over pandas | Better performance with lazy evaluation, null handling | ✓ Good |
+| LOEUF inversion (lower = more constrained = higher score) | Intuitive direction for scoring integration | ✓ Good |
+| Log2 normalization for literature bias | Prevents well-studied gene dominance (TP53 problem) | ✓ Good |
+| Housekeeping genes as negative controls | Literature-validated set (Eisenberg & Levanon 2013) | ✓ Good |
+| Spearman rho ≥ 0.85 stability threshold | Based on rank stability literature for robustness testing | ✓ Good |
+| Configurable tier thresholds | Allows flexible downstream use by confidence level | ✓ Good |
 
 ---
-*Last updated: 2026-02-11 after initialization*
+*Last updated: 2026-02-12 after v1.0 milestone*
