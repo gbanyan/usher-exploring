@@ -1,5 +1,7 @@
 # Usher Cilia Candidate Gene Discovery Pipeline
 
+> **[中文版 (README.md)](README.md)**
+
 A reproducible bioinformatics pipeline for systematic screening of candidate genes associated with Usher syndrome and ciliopathies.
 
 This pipeline evaluates approximately 22,600 human protein-coding genes across six independent evidence layers, producing weighted composite scores and tiered candidate gene lists for downstream experimental validation.

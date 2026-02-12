@@ -1,0 +1,33 @@
+generated_at: '2026-02-12T18:42:59.932245+00:00'
+output_files:
+- candidates.tsv
+- candidates.parquet
+statistics:
+  total_candidates: 18116
+  high_count: 0
+  medium_count: 2151
+  low_count: 15965
+column_count: 22
+column_names:
+- gene_id
+- gene_symbol
+- gnomad_score
+- expression_score
+- annotation_score
+- localization_score
+- animal_model_score
+- literature_score
+- evidence_count
+- available_weight
+- weighted_sum
+- composite_score
+- quality_flag
+- gnomad_contribution
+- expression_contribution
+- annotation_contribution
+- localization_contribution
+- animal_model_contribution
+- literature_contribution
+- confidence_tier
+- supporting_layers
+- evidence_gaps

@@ -1,0 +1,57 @@
+{
+  "run_id": "5f00f9da-e548-4a58-b1b3-028d05c94d32",
+  "timestamp": "2026-02-12T18:43:00.223842+00:00",
+  "pipeline_version": "0.1.0",
+  "parameters": {
+    "gnomad": 0.2,
+    "expression": 0.2,
+    "annotation": 0.15,
+    "localization": 0.15,
+    "animal_model": 0.15,
+    "literature": 0.15
+  },
+  "data_versions": {
+    "ensembl_release": 113,
+    "gnomad_version": "v4.1",
+    "gtex_version": "v8",
+    "hpa_version": "23.0"
+  },
+  "software_environment": {
+    "python": "3.14.3",
+    "polars": "1.38.1",
+    "duckdb": "1.4.4"
+  },
+  "filtering_steps": [
+    {
+      "step_name": "load_scored_genes",
+      "input_count": 0,
+      "output_count": 0,
+      "criteria": ""
+    },
+    {
+      "step_name": "apply_tier_classification",
+      "input_count": 0,
+      "output_count": 0,
+      "criteria": ""
+    },
+    {
+      "step_name": "write_candidate_output",
+      "input_count": 0,
+      "output_count": 0,
+      "criteria": ""
+    },
+    {
+      "step_name": "generate_visualizations",
+      "input_count": 0,
+      "output_count": 0,
+      "criteria": ""
+    }
+  ],
+  "validation_metrics": {},
+  "tier_statistics": {
+    "total": 18116,
+    "high": 0,
+    "medium": 2151,
+    "low": 15965
+  }
+}

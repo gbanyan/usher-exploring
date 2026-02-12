@@ -1,11 +1,24 @@
-# Data files
-data/
+# === Raw data & intermediate files ===
+data/cache/
+data/gnomad/
+data/annotation/
+data/expression/
+data/localization/
+data/animal_models/
+data/scoring/
 
-# DuckDB
+# DuckDB database (large, regeneratable)
 *.duckdb
 *.duckdb.wal
 
-# Python
+# Provenance JSON (regenerated on each run)
+*.provenance.json
+*.provenance.provenance.json
+
+# === Keep report results ===
+# data/report/ is NOT ignored — candidates.tsv, parquet, plots are tracked
+
+# === Python ===
 __pycache__/
 *.pyc
 *.pyo
@@ -18,23 +31,27 @@ dist/
 build/
 .eggs/
 
-# Testing
+# === Testing ===
 .pytest_cache/
 .coverage
 htmlcov/
 .tox/
 
-# IDE
+# === IDE ===
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Provenance files (not in data/)
-/*.provenance.json
-
-# Virtual environment
+# === Virtual environment ===
 .venv/
 venv/
 env/
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === Planning (internal) ===
+.planning/

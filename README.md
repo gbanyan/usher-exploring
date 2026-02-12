@@ -1,5 +1,7 @@
 # Usher Cilia Candidate Gene Discovery Pipeline
 
+> **[English version (README.en.md)](README.en.md)**
+
 一套可重現的生物資訊分析管線，用於系統性篩選與 Usher 症候群及纖毛病變（ciliopathies）相關的候選基因。
 
 本管線對人類約 22,600 個蛋白質編碼基因，透過六個獨立的證據層面進行評分與排序，最終產出分層候選基因清單，供後續實驗驗證參考。
