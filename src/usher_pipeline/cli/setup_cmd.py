@@ -189,8 +189,8 @@ def setup(ctx, force):
 
         # Create DataFrame with mapping results
         df = pl.DataFrame({
-            'ensembl_id': [r.ensembl_id for r in mapping_results],
-            'hgnc_symbol': [r.hgnc_symbol for r in mapping_results],
+            'gene_id': [r.ensembl_id for r in mapping_results],
+            'gene_symbol': [r.hgnc_symbol for r in mapping_results],
             'uniprot_accession': [r.uniprot_accession for r in mapping_results],
         })
 

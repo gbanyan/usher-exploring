@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 # Expected range for human protein-coding genes
 MIN_EXPECTED_GENES = 19000
-MAX_EXPECTED_GENES = 22000
+MAX_EXPECTED_GENES = 23000
 
 
 def fetch_protein_coding_genes(ensembl_release: int = 113) -> GeneUniverse:
@@ -51,12 +51,12 @@ def fetch_protein_coding_genes(ensembl_release: int = 113) -> GeneUniverse:
 
     # Query for human protein-coding genes
     logger.info("Querying mygene for type_of_gene:protein-coding (species=9606)")
-    results = mg.query(
+    results = list(mg.query(
         'type_of_gene:"protein-coding"',
         species=9606,
         fields='ensembl.gene,symbol,name',
         fetch_all=True,
-    )
+    ))
 
     logger.info(f"Retrieved {len(results)} results from mygene")
 

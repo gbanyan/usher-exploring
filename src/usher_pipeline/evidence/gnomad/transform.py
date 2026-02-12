@@ -27,38 +27,58 @@ def filter_by_coverage(
 
     Returns:
         LazyFrame with quality_flag column added:
-        - "measured": Good coverage AND has LOEUF estimate
+        - "measured": Has LOEUF estimate (and good coverage if available)
         - "incomplete_coverage": Coverage below thresholds
         - "no_data": Both LOEUF and pLI are NULL
     """
-    # Ensure numeric columns are properly cast to float (handles edge cases with mixed types)
-    lf = lf.with_columns([
-        pl.col("mean_depth").cast(pl.Float64, strict=False),
-        pl.col("cds_covered_pct").cast(pl.Float64, strict=False),
+    # Check which columns are available (gnomAD v4.1 lacks coverage columns)
+    available_cols = lf.collect_schema().names()
+    has_coverage = "mean_depth" in available_cols and "cds_covered_pct" in available_cols
+
+    # Ensure numeric columns are properly cast
+    cast_exprs = [
         pl.col("loeuf").cast(pl.Float64, strict=False),
         pl.col("pli").cast(pl.Float64, strict=False),
-    ])
+    ]
+    if has_coverage:
+        cast_exprs.extend([
+            pl.col("mean_depth").cast(pl.Float64, strict=False),
+            pl.col("cds_covered_pct").cast(pl.Float64, strict=False),
+        ])
+    lf = lf.with_columns(cast_exprs)
 
-    return lf.with_columns(
-        pl.when(
-            pl.col("mean_depth").is_not_null()
-            & pl.col("cds_covered_pct").is_not_null()
-            & (pl.col("mean_depth") >= min_depth)
-            & (pl.col("cds_covered_pct") >= min_cds_pct)
-            & pl.col("loeuf").is_not_null()
+    if has_coverage:
+        return lf.with_columns(
+            pl.when(
+                pl.col("mean_depth").is_not_null()
+                & pl.col("cds_covered_pct").is_not_null()
+                & (pl.col("mean_depth") >= min_depth)
+                & (pl.col("cds_covered_pct") >= min_cds_pct)
+                & pl.col("loeuf").is_not_null()
+            )
+            .then(pl.lit("measured"))
+            .when(pl.col("loeuf").is_null() & pl.col("pli").is_null())
+            .then(pl.lit("no_data"))
+            .when(
+                pl.col("mean_depth").is_not_null()
+                & pl.col("cds_covered_pct").is_not_null()
+                & ((pl.col("mean_depth") < min_depth) | (pl.col("cds_covered_pct") < min_cds_pct))
+            )
+            .then(pl.lit("incomplete_coverage"))
+            .otherwise(pl.lit("incomplete_coverage"))
+            .alias("quality_flag")
         )
-        .then(pl.lit("measured"))
-        .when(pl.col("loeuf").is_null() & pl.col("pli").is_null())
-        .then(pl.lit("no_data"))
-        .when(
-            pl.col("mean_depth").is_not_null()
-            & pl.col("cds_covered_pct").is_not_null()
-            & ((pl.col("mean_depth") < min_depth) | (pl.col("cds_covered_pct") < min_cds_pct))
+    else:
+        # No coverage columns (gnomAD v4.1) — classify by presence of constraint data
+        logger.info("gnomad_no_coverage_columns", msg="Using constraint-only quality flags")
+        return lf.with_columns(
+            pl.when(pl.col("loeuf").is_not_null())
+            .then(pl.lit("measured"))
+            .when(pl.col("loeuf").is_null() & pl.col("pli").is_null())
+            .then(pl.lit("no_data"))
+            .otherwise(pl.lit("incomplete_coverage"))
+            .alias("quality_flag")
         )
-        .then(pl.lit("incomplete_coverage"))
-        .otherwise(pl.lit("incomplete_coverage"))
-        .alias("quality_flag")
-    )
 
 
 def normalize_scores(lf: pl.LazyFrame) -> pl.LazyFrame:

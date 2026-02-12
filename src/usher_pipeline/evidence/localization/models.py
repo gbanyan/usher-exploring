@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 LOCALIZATION_TABLE_NAME = "subcellular_localization"
 
 # HPA subcellular data URL (bulk download)
-HPA_SUBCELLULAR_URL = "https://www.proteinatlas.org/download/subcellular_location.tsv.zip"
+HPA_SUBCELLULAR_URL = "https://v23.proteinatlas.org/download/subcellular_location.tsv.zip"
 
 # Compartment definitions for scoring
 CILIA_COMPARTMENTS = [

@@ -4,12 +4,12 @@ from pydantic import BaseModel
 
 # HPA normal tissue data download URL (bulk TSV, more efficient than per-gene API)
 HPA_NORMAL_TISSUE_URL = (
-    "https://www.proteinatlas.org/download/normal_tissue.tsv.zip"
+    "https://v23.proteinatlas.org/download/normal_tissue.tsv.zip"
 )
 
 # GTEx v10 median gene expression bulk data
 GTEX_MEDIAN_EXPRESSION_URL = (
-    "https://storage.googleapis.com/adult-gtex/bulk-gex/v10/median-tpm/"
+    "https://storage.googleapis.com/adult-gtex/bulk-gex/v8/rna-seq/"
     "GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_median_tpm.gct.gz"
 )
 

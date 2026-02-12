@@ -31,17 +31,20 @@ def load_to_duckdb(
     logger.info("expression_load_start", row_count=len(df))
 
     # Calculate summary statistics for provenance
-    # Genes with retina expression (any source)
+    # Genes with retina expression (any source) — check column existence
+    retina_filter_parts = []
+    for col in ["hpa_retina_tpm", "gtex_retina_tpm", "cellxgene_photoreceptor_expr"]:
+        if col in df.columns:
+            retina_filter_parts.append(pl.col(col).is_not_null())
     retina_expr_count = df.filter(
-        pl.col("hpa_retina_tpm").is_not_null() |
-        pl.col("gtex_retina_tpm").is_not_null() |
-        pl.col("cellxgene_photoreceptor_expr").is_not_null()
+        pl.any_horizontal(retina_filter_parts) if retina_filter_parts else pl.lit(False)
     ).height
 
     # Genes with inner ear expression (primarily CellxGene)
-    inner_ear_expr_count = df.filter(
-        pl.col("cellxgene_hair_cell_expr").is_not_null()
-    ).height
+    inner_ear_expr_count = (
+        df.filter(pl.col("cellxgene_hair_cell_expr").is_not_null()).height
+        if "cellxgene_hair_cell_expr" in df.columns else 0
+    )
 
     # Mean Tau specificity (excluding NULLs)
     mean_tau = df.select(pl.col("tau_specificity").mean()).item()

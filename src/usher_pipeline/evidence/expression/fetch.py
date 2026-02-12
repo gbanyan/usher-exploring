@@ -293,12 +293,11 @@ def fetch_hpa_expression(
         )
     )
 
-    # Pivot: rows=genes, columns=tissues
-    # Create separate columns for each target tissue
-    lf_wide = lf.pivot(
+    # Pivot: rows=genes, columns=tissues (collect first — DataFrame.pivot is simpler)
+    df_wide = lf.collect().pivot(
+        on="Tissue",
         values="expression_value",
         index="Gene name",
-        columns="Tissue",
     )
 
     # Rename columns to match our schema
@@ -308,14 +307,14 @@ def fetch_hpa_expression(
             rename_map[hpa_tissue] = f"hpa_{our_key}_tpm"
 
     if rename_map:
-        lf_wide = lf_wide.rename(rename_map)
+        df_wide = df_wide.rename(rename_map)
 
     # Rename "Gene name" to "gene_symbol"
-    lf_wide = lf_wide.rename({"Gene name": "gene_symbol"})
+    df_wide = df_wide.rename({"Gene name": "gene_symbol"})
 
     logger.info("hpa_parse_complete", tissues=list(target_tissue_names.keys()))
 
-    return lf_wide
+    return df_wide.lazy()
 
 
 def fetch_gtex_expression(
@@ -372,27 +371,29 @@ def fetch_gtex_expression(
 
     # Select gene ID column + target tissue columns
     # GTEx uses "Name" for gene ID (ENSG...) and "Description" for gene symbol
+    available_cols = lf.collect_schema().names()
+
     select_cols = ["Name"]
     rename_map = {"Name": "gene_id"}
+    missing_tissues = []
 
     for our_key, gtex_tissue in target_tissue_cols.items():
-        if gtex_tissue:
-            # Check if tissue column exists (not all GTEx versions have all tissues)
+        if gtex_tissue and gtex_tissue in available_cols:
             select_cols.append(gtex_tissue)
             rename_map[gtex_tissue] = f"gtex_{our_key}_tpm"
+        elif gtex_tissue:
+            missing_tissues.append(gtex_tissue)
 
-    # Try to select columns; if tissue missing, it will be NULL
-    # Use select with error handling for missing columns
-    try:
-        lf = lf.select(select_cols).rename(rename_map)
-    except Exception as e:
-        logger.warning("gtex_tissue_missing", error=str(e))
-        # Fallback: select available columns
-        available_cols = lf.columns
-        select_available = [col for col in select_cols if col in available_cols]
-        lf = lf.select(select_available).rename({
-            k: v for k, v in rename_map.items() if k in select_available
-        })
+    if missing_tissues:
+        logger.warning("gtex_tissues_not_available", missing=missing_tissues)
+
+    lf = lf.select(select_cols).rename(rename_map)
+
+    # Add NULL columns for missing tissues
+    for our_key, gtex_tissue in target_tissue_cols.items():
+        col_name = f"gtex_{our_key}_tpm"
+        if gtex_tissue and gtex_tissue not in available_cols:
+            lf = lf.with_columns(pl.lit(None).cast(pl.Float64).alias(col_name))
 
     # Filter to requested gene_ids if provided
     if gene_ids:

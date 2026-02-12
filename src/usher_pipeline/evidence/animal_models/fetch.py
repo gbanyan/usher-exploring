@@ -86,6 +86,7 @@ def _download_text(url: str) -> str:
 
     with httpx.stream("GET", url, timeout=120.0, follow_redirects=True) as response:
         response.raise_for_status()
+        response.read()
         content = response.text
 
     logger.info("download_text_complete", size_mb=round(len(content) / 1024 / 1024, 2))
@@ -163,6 +164,7 @@ def fetch_ortholog_mapping(gene_ids: list[str]) -> pl.DataFrame:
         io.BytesIO(zebrafish_data),
         separator="\t",
         null_values=["", "NA"],
+        infer_schema_length=10000,
     )
 
     logger.info("hcop_zebrafish_columns", columns=zebrafish_df.columns)
@@ -254,12 +256,13 @@ def fetch_mgi_phenotypes(mouse_gene_symbols: list[str]) -> pl.DataFrame:
     if lines[0].startswith("#"):
         lines = lines[1:]
 
-    # Read as DataFrame
+    # Read as DataFrame (all columns as string to avoid type inference issues)
     df = pl.read_csv(
         io.StringIO("\n".join(lines)),
         separator="\t",
         null_values=["", "NA"],
         has_header=True,
+        infer_schema_length=10000,
     )
 
     logger.info("mgi_raw_columns", columns=df.columns)

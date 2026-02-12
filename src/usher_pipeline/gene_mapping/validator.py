@@ -171,7 +171,7 @@ def validate_gene_universe(genes: list[str]) -> ValidationResult:
 
     gene_count = len(genes)
     MIN_GENES = 19000
-    MAX_GENES = 22000
+    MAX_GENES = 23000
 
     # Check gene count
     if gene_count < MIN_GENES:

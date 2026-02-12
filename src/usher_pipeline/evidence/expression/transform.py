@@ -262,12 +262,32 @@ def process_expression_evidence(
     # Compute expression score
     df = compute_expression_score(df)
 
+    # Ensure all expected columns exist (NULL if source unavailable)
+    expected_cols = {
+        "hpa_retina_tpm": pl.Float64,
+        "hpa_cerebellum_tpm": pl.Float64,
+        "hpa_testis_tpm": pl.Float64,
+        "hpa_fallopian_tube_tpm": pl.Float64,
+        "gtex_retina_tpm": pl.Float64,
+        "gtex_cerebellum_tpm": pl.Float64,
+        "gtex_testis_tpm": pl.Float64,
+        "gtex_fallopian_tube_tpm": pl.Float64,
+        "cellxgene_photoreceptor_expr": pl.Float64,
+        "cellxgene_hair_cell_expr": pl.Float64,
+        "tau_specificity": pl.Float64,
+        "usher_tissue_enrichment": pl.Float64,
+        "expression_score_normalized": pl.Float64,
+    }
+    for col_name, dtype in expected_cols.items():
+        if col_name not in df.columns:
+            df = df.with_columns(pl.lit(None).cast(dtype).alias(col_name))
+
     logger.info(
         "expression_pipeline_complete",
         row_count=len(df),
-        has_hpa=any("hpa_" in col for col in df.columns),
-        has_gtex=any("gtex_" in col for col in df.columns),
-        has_cellxgene=any("cellxgene_" in col for col in df.columns),
+        has_hpa=any("hpa_" in col and df[col].null_count() < len(df) for col in df.columns if "hpa_" in col),
+        has_gtex=any("gtex_" in col and df[col].null_count() < len(df) for col in df.columns if "gtex_" in col),
+        has_cellxgene=any("cellxgene_" in col and df[col].null_count() < len(df) for col in df.columns if "cellxgene_" in col),
     )
 
     return df
