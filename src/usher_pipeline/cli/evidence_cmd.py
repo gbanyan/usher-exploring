@@ -1110,6 +1110,27 @@ def literature(ctx, force, email, api_key, batch_size):
         ))
         click.echo()
 
+        # Load partial checkpoint if exists (for resume after interrupt)
+        partial_checkpoint = None
+        if store.has_checkpoint('literature_partial'):
+            partial_checkpoint = store.load_dataframe('literature_partial')
+            if partial_checkpoint is not None and partial_checkpoint.height > 0:
+                click.echo(click.style(
+                    f"  Resuming from partial checkpoint: {partial_checkpoint.height} genes already fetched",
+                    fg='cyan'
+                ))
+            else:
+                partial_checkpoint = None
+
+        # Define checkpoint callback to persist partial results to DuckDB
+        def save_partial_checkpoint(partial_df: pl.DataFrame):
+            store.save_dataframe(
+                df=partial_df,
+                table_name="literature_partial",
+                description="Partial literature fetch checkpoint (in-progress)",
+                replace=True,
+            )
+
         # Process literature evidence
         click.echo("Fetching and processing literature evidence from PubMed...")
         click.echo(f"  Email: {email}")
@@ -1124,7 +1145,8 @@ def literature(ctx, force, email, api_key, batch_size):
                 email=email,
                 api_key=api_key,
                 batch_size=batch_size,
-                checkpoint_df=None,  # Future: load partial checkpoint if exists
+                checkpoint_df=partial_checkpoint,
+                checkpoint_callback=save_partial_checkpoint,
             )
             click.echo(click.style(
                 f"  Processed {len(df)} genes",
@@ -1156,6 +1178,12 @@ def literature(ctx, force, email, api_key, batch_size):
                 provenance=provenance,
                 description="PubMed literature evidence with context-specific queries and quality-weighted scoring"
             )
+            # Clean up partial checkpoint after successful full load
+            try:
+                store.conn.execute("DROP TABLE IF EXISTS literature_partial")
+                store.conn.execute("DELETE FROM _checkpoints WHERE table_name = 'literature_partial'")
+            except Exception:
+                pass  # Non-critical cleanup
             click.echo(click.style(
                 f"  Saved to 'literature_evidence' table",
                 fg='green'

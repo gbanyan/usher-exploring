@@ -153,6 +153,7 @@ def fetch_literature_evidence(
     api_key: Optional[str] = None,
     batch_size: int = 500,
     checkpoint_df: Optional[pl.DataFrame] = None,
+    checkpoint_callback=None,
 ) -> pl.DataFrame:
     """Fetch literature evidence for all genes with progress tracking and checkpointing.
 
@@ -168,6 +169,7 @@ def fetch_literature_evidence(
         api_key: Optional NCBI API key for 10 req/sec rate limit
         batch_size: Save checkpoint every N genes (default: 500)
         checkpoint_df: Optional partial results DataFrame to resume from
+        checkpoint_callback: Optional callable(pl.DataFrame) to persist partial results
 
     Returns:
         DataFrame with columns: gene_symbol, total_pubmed_count, cilia_context_count,
@@ -175,6 +177,7 @@ def fetch_literature_evidence(
         direct_experimental_count, hts_screen_count.
         NULL values indicate failed queries (API errors), not zero publications.
     """
+    all_gene_symbols = gene_symbols
     # Estimate time
     queries_per_gene = 6  # total + 4 contexts + direct + hts
     total_queries = len(gene_symbols) * queries_per_gene
@@ -205,6 +208,8 @@ def fetch_literature_evidence(
     else:
         results = []
 
+    total_all = len(all_gene_symbols)
+
     # Process genes with progress logging
     for i, gene_symbol in enumerate(gene_symbols, start=1):
         # Query PubMed for this gene
@@ -218,21 +223,23 @@ def fetch_literature_evidence(
 
         # Log progress every 100 genes
         if i % 100 == 0:
-            pct = (i / len(gene_symbols)) * 100
+            pct = (len(results) / total_all) * 100
             logger.info(
                 "pubmed_fetch_progress",
-                processed=i,
-                total=len(gene_symbols),
+                processed=len(results),
+                total=total_all,
                 percent=round(pct, 1),
                 gene_symbol=gene_symbol,
             )
 
-        # Checkpoint every batch_size genes
-        if i % batch_size == 0:
+        # Checkpoint every batch_size genes — persist to DuckDB
+        if i % batch_size == 0 and checkpoint_callback is not None:
+            checkpoint_partial = pl.DataFrame(results)
+            checkpoint_callback(checkpoint_partial)
             logger.info(
-                "pubmed_fetch_checkpoint",
-                processed=i,
-                total=len(gene_symbols),
+                "pubmed_fetch_checkpoint_saved",
+                processed=len(results),
+                total=total_all,
                 batch_size=batch_size,
             )
 

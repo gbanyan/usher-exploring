@@ -208,6 +208,7 @@ def process_literature_evidence(
     api_key: Optional[str] = None,
     batch_size: int = 500,
     checkpoint_df: Optional[pl.DataFrame] = None,
+    checkpoint_callback=None,
 ) -> pl.DataFrame:
     """End-to-end literature evidence processing pipeline.
 
@@ -256,6 +257,7 @@ def process_literature_evidence(
         api_key=api_key,
         batch_size=batch_size,
         checkpoint_df=checkpoint_df,
+        checkpoint_callback=checkpoint_callback,
     )
 
     # Step 3: Classify evidence tiers
