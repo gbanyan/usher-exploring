@@ -37,7 +37,38 @@ def join_evidence_layers(store: PipelineStore) -> pl.DataFrame:
         - Uses LEFT JOIN pattern to preserve NULLs
         - evidence_count = sum of non-NULL layers (0-6)
     """
+    # Use CTEs to deduplicate each evidence table to one row per gene_id
+    # (some tables have multiple rows per gene, e.g. gnomAD has per-transcript data).
+    # For score columns, take the MAX to keep the strongest evidence.
     query = """
+    WITH gu AS (
+        SELECT gene_id, FIRST(gene_symbol) AS gene_symbol
+        FROM gene_universe GROUP BY gene_id
+    ),
+    gc AS (
+        SELECT gene_id, MAX(loeuf_normalized) AS loeuf_normalized
+        FROM gnomad_constraint GROUP BY gene_id
+    ),
+    te AS (
+        SELECT gene_id, MAX(expression_score_normalized) AS expression_score_normalized
+        FROM tissue_expression GROUP BY gene_id
+    ),
+    ac AS (
+        SELECT gene_id, MAX(annotation_score_normalized) AS annotation_score_normalized
+        FROM annotation_completeness GROUP BY gene_id
+    ),
+    sl AS (
+        SELECT gene_id, MAX(localization_score_normalized) AS localization_score_normalized
+        FROM subcellular_localization GROUP BY gene_id
+    ),
+    am AS (
+        SELECT gene_id, MAX(animal_model_score_normalized) AS animal_model_score_normalized
+        FROM animal_model_phenotypes GROUP BY gene_id
+    ),
+    le AS (
+        SELECT gene_id, MAX(literature_score_normalized) AS literature_score_normalized
+        FROM literature_evidence GROUP BY gene_id
+    )
     SELECT
         g.gene_id,
         g.gene_symbol,
@@ -55,13 +86,13 @@ def join_evidence_layers(store: PipelineStore) -> pl.DataFrame:
             CASE WHEN animal.animal_model_score_normalized IS NOT NULL THEN 1 ELSE 0 END +
             CASE WHEN lit.literature_score_normalized IS NOT NULL THEN 1 ELSE 0 END
         ) AS evidence_count
-    FROM gene_universe g
-    LEFT JOIN gnomad_constraint gnomad ON g.gene_id = gnomad.gene_id
-    LEFT JOIN tissue_expression expr ON g.gene_id = expr.gene_id
-    LEFT JOIN annotation_completeness annot ON g.gene_id = annot.gene_id
-    LEFT JOIN subcellular_localization loc ON g.gene_id = loc.gene_id
-    LEFT JOIN animal_model_phenotypes animal ON g.gene_id = animal.gene_id
-    LEFT JOIN literature_evidence lit ON g.gene_id = lit.gene_id
+    FROM gu g
+    LEFT JOIN gc gnomad ON g.gene_id = gnomad.gene_id
+    LEFT JOIN te expr ON g.gene_id = expr.gene_id
+    LEFT JOIN ac annot ON g.gene_id = annot.gene_id
+    LEFT JOIN sl loc ON g.gene_id = loc.gene_id
+    LEFT JOIN am animal ON g.gene_id = animal.gene_id
+    LEFT JOIN le lit ON g.gene_id = lit.gene_id
     """
 
     # Execute query and convert to polars
@@ -130,6 +161,34 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
     weights.validate_sum()
 
     query = f"""
+    WITH gu AS (
+        SELECT gene_id, FIRST(gene_symbol) AS gene_symbol
+        FROM gene_universe GROUP BY gene_id
+    ),
+    gc AS (
+        SELECT gene_id, MAX(loeuf_normalized) AS loeuf_normalized
+        FROM gnomad_constraint GROUP BY gene_id
+    ),
+    te AS (
+        SELECT gene_id, MAX(expression_score_normalized) AS expression_score_normalized
+        FROM tissue_expression GROUP BY gene_id
+    ),
+    ac AS (
+        SELECT gene_id, MAX(annotation_score_normalized) AS annotation_score_normalized
+        FROM annotation_completeness GROUP BY gene_id
+    ),
+    sl AS (
+        SELECT gene_id, MAX(localization_score_normalized) AS localization_score_normalized
+        FROM subcellular_localization GROUP BY gene_id
+    ),
+    am AS (
+        SELECT gene_id, MAX(animal_model_score_normalized) AS animal_model_score_normalized
+        FROM animal_model_phenotypes GROUP BY gene_id
+    ),
+    le AS (
+        SELECT gene_id, MAX(literature_score_normalized) AS literature_score_normalized
+        FROM literature_evidence GROUP BY gene_id
+    )
     SELECT
         g.gene_id,
         g.gene_symbol,
@@ -222,13 +281,13 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
         CASE WHEN loc.localization_score_normalized IS NOT NULL THEN loc.localization_score_normalized * {weights.localization} ELSE NULL END AS localization_contribution,
         CASE WHEN animal.animal_model_score_normalized IS NOT NULL THEN animal.animal_model_score_normalized * {weights.animal_model} ELSE NULL END AS animal_model_contribution,
         CASE WHEN lit.literature_score_normalized IS NOT NULL THEN lit.literature_score_normalized * {weights.literature} ELSE NULL END AS literature_contribution
-    FROM gene_universe g
-    LEFT JOIN gnomad_constraint gnomad ON g.gene_id = gnomad.gene_id
-    LEFT JOIN tissue_expression expr ON g.gene_id = expr.gene_id
-    LEFT JOIN annotation_completeness annot ON g.gene_id = annot.gene_id
-    LEFT JOIN subcellular_localization loc ON g.gene_id = loc.gene_id
-    LEFT JOIN animal_model_phenotypes animal ON g.gene_id = animal.gene_id
-    LEFT JOIN literature_evidence lit ON g.gene_id = lit.gene_id
+    FROM gu g
+    LEFT JOIN gc gnomad ON g.gene_id = gnomad.gene_id
+    LEFT JOIN te expr ON g.gene_id = expr.gene_id
+    LEFT JOIN ac annot ON g.gene_id = annot.gene_id
+    LEFT JOIN sl loc ON g.gene_id = loc.gene_id
+    LEFT JOIN am animal ON g.gene_id = animal.gene_id
+    LEFT JOIN le lit ON g.gene_id = lit.gene_id
     ORDER BY composite_score DESC NULLS LAST
     """
 

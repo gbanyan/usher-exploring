@@ -1,12 +1,12 @@
-generated_at: '2026-02-12T18:42:59.932245+00:00'
+generated_at: '2026-02-15T20:47:53.707513+00:00'
 output_files:
 - candidates.tsv
 - candidates.parquet
 statistics:
-  total_candidates: 18116
-  high_count: 0
-  medium_count: 2151
-  low_count: 15965
+  total_candidates: 19342
+  high_count: 44
+  medium_count: 7268
+  low_count: 12030
 column_count: 22
 column_names:
 - gene_id

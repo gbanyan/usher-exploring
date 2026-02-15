@@ -242,17 +242,18 @@ def process_literature_evidence(
 
     # Step 1: Map gene IDs to symbols
     gene_map = gene_symbol_map.filter(pl.col("gene_id").is_in(gene_ids))
-    gene_symbols = gene_map["gene_symbol"].to_list()
+    # Deduplicate symbols for PubMed queries (many gene_ids can share a symbol)
+    unique_symbols = gene_map["gene_symbol"].unique().to_list()
 
     logger.info(
         "literature_gene_mapping",
         input_ids=len(gene_ids),
-        mapped_symbols=len(gene_symbols),
+        mapped_symbols=len(unique_symbols),
     )
 
-    # Step 2: Fetch literature evidence
+    # Step 2: Fetch literature evidence (one query per unique symbol)
     lit_df = fetch_literature_evidence(
-        gene_symbols=gene_symbols,
+        gene_symbols=unique_symbols,
         email=email,
         api_key=api_key,
         batch_size=batch_size,
@@ -266,7 +267,8 @@ def process_literature_evidence(
     # Step 4: Compute quality-weighted scores
     lit_df = compute_literature_score(lit_df)
 
-    # Step 5: Join back to gene IDs
+    # Step 5: Join back to gene IDs (lit_df has unique symbols, gene_map may have
+    # multiple gene_ids per symbol — this is correct, each gene_id gets its score)
     result_df = gene_map.join(
         lit_df,
         on="gene_symbol",

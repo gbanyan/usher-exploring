@@ -1071,7 +1071,7 @@ def literature(ctx, force, email, api_key, batch_size):
                 total_genes = len(df)
                 tier_counts = (
                     df.group_by("evidence_tier")
-                    .agg(df.select("gene_id").count().alias("count"))
+                    .agg(pl.len().alias("count"))
                     .sort("count", descending=True)
                 )
 
@@ -1205,7 +1205,7 @@ def literature(ctx, force, email, api_key, batch_size):
         # Display summary
         tier_counts = (
             df.group_by("evidence_tier")
-            .agg(df.select("gene_id").count().alias("count"))
+            .agg(pl.len().alias("count"))
             .sort("count", descending=True)
         )
 
