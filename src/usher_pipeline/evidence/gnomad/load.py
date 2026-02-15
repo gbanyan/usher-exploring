@@ -29,18 +29,40 @@ def load_to_duckdb(
     """
     logger.info("gnomad_load_start", row_count=len(df))
 
-    # Enrich with Ensembl gene_id from gene_universe if missing
-    # gnomAD data only has gene_symbol (HGNC); we need Ensembl gene_id for scoring JOINs
-    if "gene_id" not in df.columns or df["gene_id"].null_count() == len(df):
-        logger.info("gnomad_enriching_gene_ids", msg="Mapping gene_symbol to Ensembl gene_id via gene_universe")
-        gene_map = store.conn.execute(
-            "SELECT gene_id, gene_symbol FROM gene_universe"
-        ).pl()
-        if "gene_id" in df.columns:
-            df = df.drop("gene_id")
+    # Enrich with Ensembl gene_id from gene_universe
+    # gnomAD gene_id is mixed: some Ensembl (ENSG...), some NCBI numeric (4622).
+    # For rows without a valid Ensembl ID, fall back to gene_symbol lookup.
+    gene_map = store.conn.execute(
+        "SELECT gene_id AS ensembl_id, gene_symbol FROM gene_universe"
+    ).pl()
+
+    if "gene_id" not in df.columns:
+        # No gene_id column at all — join entirely via gene_symbol
+        logger.info("gnomad_enriching_gene_ids", msg="No gene_id column; mapping via gene_symbol")
+        df = df.join(gene_map.rename({"ensembl_id": "gene_id"}), on="gene_symbol", how="left")
+    else:
+        # gene_id exists but may contain non-Ensembl IDs — patch those via gene_symbol
+        is_ensembl = pl.col("gene_id").str.starts_with("ENSG")
+        before_ensembl = df.filter(is_ensembl).height
+
+        # Join gene_symbol → ensembl_id for fallback
         df = df.join(gene_map, on="gene_symbol", how="left")
-        matched = df.filter(pl.col("gene_id").is_not_null()).height
-        logger.info("gnomad_gene_id_enrichment", matched=matched, total=len(df))
+        # Use original gene_id if it's Ensembl, otherwise use ensembl_id from gene_universe
+        df = df.with_columns(
+            pl.when(is_ensembl)
+            .then(pl.col("gene_id"))
+            .otherwise(pl.col("ensembl_id"))
+            .alias("gene_id")
+        ).drop("ensembl_id")
+
+        after_ensembl = df.filter(pl.col("gene_id").str.starts_with("ENSG")).height
+        logger.info(
+            "gnomad_gene_id_enrichment",
+            before_ensembl=before_ensembl,
+            after_ensembl=after_ensembl,
+            rescued=after_ensembl - before_ensembl,
+            total=len(df),
+        )
 
     # Calculate summary statistics for provenance
     measured_count = df.filter(pl.col("quality_flag") == "measured").height
