@@ -1,6 +1,6 @@
 {
-  "run_id": "0bcdae80-84c2-486b-809a-36040ce4821d",
-  "timestamp": "2026-02-15T20:47:54.482074+00:00",
+  "run_id": "e7486ff1-f9be-403b-a68d-115fc845f4a1",
+  "timestamp": "2026-02-15T21:13:12.288563+00:00",
   "pipeline_version": "0.1.0",
   "parameters": {
     "gnomad": 0.2,
@@ -49,9 +49,9 @@
   ],
   "validation_metrics": {},
   "tier_statistics": {
-    "total": 19342,
-    "high": 44,
-    "medium": 7268,
-    "low": 12030
+    "total": 21103,
+    "high": 18,
+    "medium": 9577,
+    "low": 11508
   }
 }

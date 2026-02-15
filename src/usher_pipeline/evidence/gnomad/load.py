@@ -29,6 +29,19 @@ def load_to_duckdb(
     """
     logger.info("gnomad_load_start", row_count=len(df))
 
+    # Enrich with Ensembl gene_id from gene_universe if missing
+    # gnomAD data only has gene_symbol (HGNC); we need Ensembl gene_id for scoring JOINs
+    if "gene_id" not in df.columns or df["gene_id"].null_count() == len(df):
+        logger.info("gnomad_enriching_gene_ids", msg="Mapping gene_symbol to Ensembl gene_id via gene_universe")
+        gene_map = store.conn.execute(
+            "SELECT gene_id, gene_symbol FROM gene_universe"
+        ).pl()
+        if "gene_id" in df.columns:
+            df = df.drop("gene_id")
+        df = df.join(gene_map, on="gene_symbol", how="left")
+        matched = df.filter(pl.col("gene_id").is_not_null()).height
+        logger.info("gnomad_gene_id_enrichment", matched=matched, total=len(df))
+
     # Calculate summary statistics for provenance
     measured_count = df.filter(pl.col("quality_flag") == "measured").height
     incomplete_count = df.filter(pl.col("quality_flag") == "incomplete_coverage").height

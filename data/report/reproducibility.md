@@ -1,7 +1,7 @@
 # Pipeline Reproducibility Report
 
-**Run ID:** `0bcdae80-84c2-486b-809a-36040ce4821d`
-**Timestamp:** 2026-02-15T20:47:54.482074+00:00
+**Run ID:** `e7486ff1-f9be-403b-a68d-115fc845f4a1`
+**Timestamp:** 2026-02-15T21:13:12.288563+00:00
 **Pipeline Version:** 0.1.0
 
 ## Parameters
@@ -39,7 +39,7 @@
 
 ## Tier Statistics
 
-- **Total Candidates:** 19342
-- **HIGH:** 44
-- **MEDIUM:** 7268
-- **LOW:** 12030
+- **Total Candidates:** 21103
+- **HIGH:** 18
+- **MEDIUM:** 9577
+- **LOW:** 11508

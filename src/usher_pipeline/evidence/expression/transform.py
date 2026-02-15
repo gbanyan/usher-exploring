@@ -187,6 +187,7 @@ def process_expression_evidence(
     cache_dir: Optional[Path] = None,
     force: bool = False,
     skip_cellxgene: bool = False,
+    gene_symbol_map: Optional[pl.DataFrame] = None,
 ) -> pl.DataFrame:
     """End-to-end expression evidence processing pipeline.
 
@@ -217,17 +218,23 @@ def process_expression_evidence(
     gene_universe = pl.LazyFrame({"gene_id": gene_ids})
 
     # Merge GTEx with gene universe (left join to preserve all genes)
-    # GTEx has gene_id, HPA has gene_symbol - need to handle join carefully
     lf_merged = gene_universe.join(lf_gtex, on="gene_id", how="left")
 
-    # For HPA, we need gene_symbol mapping
-    # We'll need to load gene universe with gene_symbol from DuckDB or pass it in
-    # For now, we'll fetch HPA separately and join on gene_symbol later
-    # This requires gene_symbol in our gene_ids input or from gene universe
-
-    # DEVIATION: HPA uses gene_symbol, but we're working with gene_ids
-    # We need gene_symbol mapping. For simplicity, we'll collect HPA separately
-    # and merge in load.py after enriching with gene_symbol from gene universe
+    # Merge HPA data via gene_symbol mapping
+    # HPA returns gene_symbol as key; we need gene_symbol_map to bridge to gene_id
+    if gene_symbol_map is not None:
+        logger.info("merging_hpa_via_symbol_map")
+        # lf_hpa has: gene_symbol, hpa_retina_tpm, hpa_cerebellum_tpm, ...
+        # gene_symbol_map has: gene_id, gene_symbol
+        # Join HPA → symbol_map to get gene_id, then join into merged
+        lf_hpa_with_id = lf_hpa.join(
+            gene_symbol_map.select(["gene_id", "gene_symbol"]).lazy(),
+            on="gene_symbol",
+            how="inner",
+        ).drop("gene_symbol")
+        lf_merged = lf_merged.join(lf_hpa_with_id, on="gene_id", how="left")
+    else:
+        logger.warning("hpa_skipped_no_symbol_map", msg="gene_symbol_map not provided; HPA data will be NULL")
 
     # Fetch CellxGene if not skipped
     if not skip_cellxgene:

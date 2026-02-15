@@ -1360,11 +1360,15 @@ def expression_cmd(ctx, force, skip_cellxgene):
             click.echo("  Skipping CellxGene (--skip-cellxgene flag)")
 
         try:
+            # Build gene_symbol_map for HPA merge (HPA uses gene_symbol, not gene_id)
+            gene_symbol_map = gene_universe.select(["gene_id", "gene_symbol"])
+
             df = process_expression_evidence(
                 gene_ids=gene_ids,
                 cache_dir=expression_dir,
                 force=force,
                 skip_cellxgene=skip_cellxgene,
+                gene_symbol_map=gene_symbol_map,
             )
             click.echo(click.style(
                 f"  Processed {len(df)} genes",

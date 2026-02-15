@@ -389,6 +389,12 @@ def fetch_gtex_expression(
 
     lf = lf.select(select_cols).rename(rename_map)
 
+    # Strip version suffix from Ensembl gene IDs (e.g., ENSG00000223972.5 → ENSG00000223972)
+    # GTEx uses versioned IDs but gene_universe uses unversioned
+    lf = lf.with_columns(
+        pl.col("gene_id").str.replace(r"\.\d+$", "").alias("gene_id")
+    )
+
     # Add NULL columns for missing tissues
     for our_key, gtex_tissue in target_tissue_cols.items():
         col_name = f"gtex_{our_key}_tpm"

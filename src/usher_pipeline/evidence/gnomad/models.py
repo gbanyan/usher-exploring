@@ -13,8 +13,8 @@ GNOMAD_CONSTRAINT_URL = (
 # v4.x uses: gene, transcript, mane_select, lof.pLI, lof.oe_ci.upper (LOEUF), mean_proportion_covered
 # NOTE: In gnomAD data, what's called "upper" is actually the LOEUF value we want (observed/expected upper bound)
 COLUMN_VARIANTS = {
-    "gene_id": ["gene", "gene_id"],
-    "gene_symbol": ["gene_symbol", "gene"],
+    "gene_id": ["gene_id"],  # gnomAD doesn't provide Ensembl IDs; enriched from gene_universe in load
+    "gene_symbol": ["gene", "gene_symbol"],  # gnomAD "gene" column = HGNC symbol
     "transcript": ["transcript", "canonical_transcript", "mane_select"],
     "pli": ["pLI", "lof.pLI", "pli"],
     # LOEUF is the "upper" column in gnomAD (oe_lof_upper = observed/expected upper bound)
