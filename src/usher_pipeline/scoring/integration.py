@@ -98,6 +98,25 @@ def join_evidence_layers(store: PipelineStore) -> pl.DataFrame:
     # Execute query and convert to polars
     result = store.conn.execute(query).pl()
 
+    # Deduplicate: keep one row per gene_symbol with the most evidence layers.
+    # gene_universe contains multiple Ensembl IDs per gene_symbol (1,539 symbols
+    # with 3,033 excess IDs). Non-canonical IDs lack data in some evidence tables,
+    # producing inflated scores via weighted_sum/available_weight normalization.
+    before_dedup = result.height
+    result = result.sort(
+        ["gene_symbol", "evidence_count"],
+        descending=[False, True],
+    ).unique(subset=["gene_symbol"], keep="first")
+    after_dedup = result.height
+
+    if before_dedup != after_dedup:
+        logger.info(
+            "join_evidence_dedup_gene_symbol",
+            before=before_dedup,
+            after=after_dedup,
+            removed=before_dedup - after_dedup,
+        )
+
     # Log summary statistics
     total_genes = result.height
     mean_evidence = result["evidence_count"].mean()
@@ -293,6 +312,26 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
 
     # Execute query and convert to polars
     result = store.conn.execute(query).pl()
+
+    # Deduplicate: keep one row per gene_symbol with the most evidence layers
+    # (tiebreak by composite_score DESC). See join_evidence_layers() for rationale.
+    before_dedup = result.height
+    result = result.sort(
+        ["gene_symbol", "evidence_count", "composite_score"],
+        descending=[False, True, True],
+    ).unique(subset=["gene_symbol"], keep="first")
+    after_dedup = result.height
+
+    if before_dedup != after_dedup:
+        logger.info(
+            "composite_scores_dedup_gene_symbol",
+            before=before_dedup,
+            after=after_dedup,
+            removed=before_dedup - after_dedup,
+        )
+
+    # Re-sort by composite_score DESC NULLS LAST
+    result = result.sort("composite_score", descending=True, nulls_last=True)
 
     # Log summary statistics
     total_genes = result.height
