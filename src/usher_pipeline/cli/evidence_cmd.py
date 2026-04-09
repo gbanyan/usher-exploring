@@ -12,6 +12,7 @@ import sys
 from pathlib import Path
 
 import click
+import polars as pl
 import structlog
 
 from usher_pipeline.config.loader import load_config

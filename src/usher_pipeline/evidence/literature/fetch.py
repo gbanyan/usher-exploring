@@ -237,24 +237,48 @@ def _esearch_all_pmids(
     if total == 0:
         return set()
 
-    # Paginate through esearch to get all PMIDs
-    pmids = set()
-    batch_size = 10000
-    for start in range(0, total, batch_size):
+    # PubMed esearch caps retstart at 9999. For large result sets, we split
+    # by date ranges to stay under the limit per sub-query.
+    if total <= 9999:
+        # Small enough to get in one call
         time.sleep(rate_delay)
         handle = Entrez.esearch(
-            db="pubmed",
-            term=query,
-            retstart=start,
-            retmax=batch_size,
-            webenv=web_env,
-            query_key=query_key,
+            db="pubmed", term=query, retmax=9999, usehistory="y",
         )
-        batch_record = Entrez.read(handle)
+        record = Entrez.read(handle)
         handle.close()
+        pmids = {int(uid) for uid in record.get("IdList", [])}
+    else:
+        # Split into year-range sub-queries
+        pmids = set()
+        year_ranges = [
+            ("1900", "1999"),
+            ("2000", "2009"),
+            ("2010", "2014"),
+            ("2015", "2019"),
+            ("2020", "2022"),
+            ("2023", "2024"),
+            ("2025", "2026"),
+        ]
+        for yr_start, yr_end in year_ranges:
+            sub_query = f"({query}) AND {yr_start}:{yr_end}[DP]"
+            time.sleep(rate_delay)
+            handle = Entrez.esearch(
+                db="pubmed", term=sub_query, retmax=9999, usehistory="y",
+            )
+            sub_record = Entrez.read(handle)
+            handle.close()
+            sub_ids = {int(uid) for uid in sub_record.get("IdList", [])}
+            sub_total = int(sub_record["Count"])
+            pmids.update(sub_ids)
 
-        for pmid_str in batch_record.get("IdList", []):
-            pmids.add(int(pmid_str))
+            if sub_total > 9999:
+                logger.warning(
+                    "esearch_year_range_truncated",
+                    query=sub_query[:80],
+                    total=sub_total,
+                    retrieved=len(sub_ids),
+                )
 
     logger.info(
         "esearch_context_complete",
