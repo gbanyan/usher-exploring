@@ -239,7 +239,7 @@ def process_expression_evidence(
     # Fetch CellxGene if not skipped
     if not skip_cellxgene:
         logger.info("fetching_cellxgene")
-        lf_cellxgene = fetch_cellxgene_expression(gene_ids, cache_dir=cache_dir)
+        lf_cellxgene = fetch_cellxgene_expression(gene_ids, cache_dir=cache_dir, force=force)
         lf_merged = lf_merged.join(lf_cellxgene, on="gene_id", how="left")
 
     # Collect at this point to enable horizontal operations

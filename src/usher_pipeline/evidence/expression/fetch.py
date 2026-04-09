@@ -410,29 +410,154 @@ def fetch_gtex_expression(
     return lf
 
 
+def _null_cellxgene_result(gene_ids: list[str]) -> pl.LazyFrame:
+    """Return a NULL CellxGene result for all genes (fallback)."""
+    return pl.LazyFrame({
+        "gene_id": gene_ids,
+        "cellxgene_photoreceptor_expr": [None] * len(gene_ids),
+        "cellxgene_hair_cell_expr": [None] * len(gene_ids),
+    })
+
+
+# Cell type groups for Census queries
+PHOTORECEPTOR_CELL_TYPES = [
+    "photoreceptor cell",
+    "retinal rod cell",
+    "retinal cone cell",
+]
+HAIR_CELL_TYPES = [
+    "hair cell",
+    "cochlear hair cell",
+    "vestibular hair cell",
+]
+
+
+def _query_mean_expression(
+    census,
+    cell_types: list[str],
+    gene_ids: list[str],
+    column_name: str,
+) -> pl.DataFrame:
+    """Query Census for mean expression of genes in specific cell types.
+
+    Args:
+        census: Open cellxgene_census.open_soma() context.
+        cell_types: List of cell_type ontology labels to filter.
+        gene_ids: Ensembl gene IDs to query.
+        column_name: Name for the output expression column.
+
+    Returns:
+        DataFrame with columns: gene_id, <column_name>.
+    """
+    import cellxgene_census
+
+    # Build cell type filter
+    type_filters = " or ".join(f"cell_type == '{ct}'" for ct in cell_types)
+    obs_filter = f"is_primary_data == True and ({type_filters})"
+
+    logger.info(
+        "cellxgene_query_cell_type",
+        cell_types=cell_types,
+        obs_filter=obs_filter[:120],
+    )
+
+    try:
+        adata = cellxgene_census.get_anndata(
+            census,
+            organism="Homo sapiens",
+            obs_value_filter=obs_filter,
+            var_value_filter=f"feature_id in {gene_ids}",
+            column_names={"obs": ["cell_type"], "var": ["feature_id"]},
+        )
+    except Exception as e:
+        logger.warning(
+            "cellxgene_query_failed",
+            cell_types=cell_types,
+            error=str(e),
+        )
+        return pl.DataFrame({
+            "gene_id": gene_ids,
+            column_name: [None] * len(gene_ids),
+        })
+
+    n_cells = adata.n_obs
+    n_genes_found = adata.n_vars
+
+    logger.info(
+        "cellxgene_query_result",
+        cell_types=cell_types,
+        cells_found=n_cells,
+        genes_found=n_genes_found,
+    )
+
+    if n_cells == 0:
+        return pl.DataFrame({
+            "gene_id": gene_ids,
+            column_name: [None] * len(gene_ids),
+        })
+
+    # Compute mean expression per gene across all matching cells
+    # adata.X is a sparse matrix (cells x genes)
+    import numpy as np
+
+    mean_expr = np.asarray(adata.X.mean(axis=0)).flatten()
+    feature_ids = adata.var["feature_id"]
+    found_gene_ids = feature_ids.tolist() if hasattr(feature_ids, "tolist") else list(feature_ids)
+
+    # Build lookup dict
+    expr_map = dict(zip(found_gene_ids, mean_expr))
+
+    # Map back to all requested gene_ids (NULL for genes not found in Census)
+    values = [
+        float(expr_map[gid]) if gid in expr_map else None
+        for gid in gene_ids
+    ]
+
+    return pl.DataFrame({
+        "gene_id": gene_ids,
+        column_name: values,
+    })
+
+
 def fetch_cellxgene_expression(
     gene_ids: list[str],
     cache_dir: Optional[Path] = None,
-    batch_size: int = 100,
+    force: bool = False,
 ) -> pl.LazyFrame:
     """Fetch CellxGene single-cell expression data for target cell types.
 
-    Uses cellxgene_census library to query scRNA-seq data for photoreceptor
-    and hair cell populations. Computes mean expression per gene per cell type.
+    Queries CZ CELLxGENE Census for photoreceptor and hair cell expression.
+    Results are cached to a parquet file to avoid re-querying on subsequent runs.
 
-    NOTE: cellxgene_census is an optional dependency (large install).
-    If not available, returns DataFrame with all NULL values and logs warning.
+    NOTE: cellxgene_census is an optional dependency.
+    If not available, returns DataFrame with all NULL values.
 
     Args:
-        gene_ids: List of Ensembl gene IDs to query
-        cache_dir: Directory for caching (currently unused)
-        batch_size: Number of genes to process per batch (default: 100)
+        gene_ids: List of Ensembl gene IDs to query.
+        cache_dir: Directory for caching query results.
+        force: Re-query Census even if cache exists.
 
     Returns:
         LazyFrame with columns: gene_id, cellxgene_photoreceptor_expr,
-        cellxgene_hair_cell_expr
+        cellxgene_hair_cell_expr.
         NULL if cellxgene_census not available or cell type data missing.
     """
+    # Check cache FIRST (before importing cellxgene_census)
+    cache_dir = Path(cache_dir) if cache_dir else Path("data/expression")
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cache_path = cache_dir / "cellxgene_expression.parquet"
+
+    if cache_path.exists() and not force:
+        logger.info("cellxgene_cache_hit", path=str(cache_path))
+        cached = pl.read_parquet(cache_path)
+        # Filter to requested gene_ids and left-join to preserve all
+        result = (
+            pl.DataFrame({"gene_id": gene_ids})
+            .join(cached, on="gene_id", how="left")
+        )
+        return result.lazy()
+
+    # Import cellxgene_census (optional dependency) — only needed for live queries
     try:
         import cellxgene_census
     except ImportError:
@@ -440,26 +565,51 @@ def fetch_cellxgene_expression(
             "cellxgene_census_unavailable",
             message="cellxgene_census not installed. Install with: pip install 'usher-pipeline[expression]'",
         )
-        # Return empty DataFrame with NULL values
-        return pl.LazyFrame({
-            "gene_id": gene_ids,
-            "cellxgene_photoreceptor_expr": [None] * len(gene_ids),
-            "cellxgene_hair_cell_expr": [None] * len(gene_ids),
-        })
+        return _null_cellxgene_result(gene_ids)
 
-    logger.info("cellxgene_query_start", gene_count=len(gene_ids), batch_size=batch_size)
+    logger.info("cellxgene_fetch_start", gene_count=len(gene_ids))
 
-    # For now, return placeholder with NULLs
-    # Full CellxGene integration requires census schema knowledge and filtering
-    # This is a complex query that would need cell type ontology matching
-    # Placeholder implementation for testing
-    logger.warning(
-        "cellxgene_not_implemented",
-        message="CellxGene integration is complex and not yet implemented. Returning NULL values.",
-    )
+    try:
+        with cellxgene_census.open_soma() as census:
+            # Query photoreceptor expression
+            photo_df = _query_mean_expression(
+                census,
+                PHOTORECEPTOR_CELL_TYPES,
+                gene_ids,
+                "cellxgene_photoreceptor_expr",
+            )
 
-    return pl.LazyFrame({
-        "gene_id": gene_ids,
-        "cellxgene_photoreceptor_expr": [None] * len(gene_ids),
-        "cellxgene_hair_cell_expr": [None] * len(gene_ids),
-    })
+            # Query hair cell expression
+            hair_df = _query_mean_expression(
+                census,
+                HAIR_CELL_TYPES,
+                gene_ids,
+                "cellxgene_hair_cell_expr",
+            )
+
+        # Merge results
+        result = photo_df.join(hair_df, on="gene_id", how="outer_coalesce")
+
+        # Cache to parquet
+        result.write_parquet(cache_path)
+        logger.info(
+            "cellxgene_fetch_complete",
+            genes=result.height,
+            photoreceptor_non_null=result.filter(
+                pl.col("cellxgene_photoreceptor_expr").is_not_null()
+            ).height,
+            hair_cell_non_null=result.filter(
+                pl.col("cellxgene_hair_cell_expr").is_not_null()
+            ).height,
+            cache_path=str(cache_path),
+        )
+
+        return result.lazy()
+
+    except Exception as e:
+        logger.warning(
+            "cellxgene_fetch_failed",
+            error=str(e),
+            message="CellxGene Census query failed. Returning NULL values.",
+        )
+        return _null_cellxgene_result(gene_ids)
