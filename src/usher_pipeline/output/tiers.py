@@ -56,6 +56,31 @@ def assign_tiers(
     med_count = t["MEDIUM"]["evidence_count"]
     low_score = t["LOW"]["composite_score"]
 
+    # Add cilia_signal flag: whether the gene has non-zero evidence in at least
+    # one cilia-specific layer (localization or animal_model). This flag helps
+    # users distinguish disease-relevant MEDIUM candidates from generically
+    # high-scoring housekeeping genes. Expression is excluded because nearly
+    # all genes have non-zero expression scores, making it non-discriminative.
+    # NOTE: This is a soft flag, not a hard gate on tier assignment, because
+    # known Usher genes (MYO7A, USH2A, etc.) often lack localization/animal-model
+    # data in genome-wide databases despite having well-established cilia functions
+    # from targeted studies. A hard gate would incorrectly demote these genes.
+    cilia_layers = ["localization_score", "animal_model_score"]
+    available_cilia = [c for c in cilia_layers if c in scored_df.columns]
+
+    if available_cilia:
+        has_cilia_signal = pl.lit(False)
+        for col in available_cilia:
+            has_cilia_signal = has_cilia_signal | (
+                pl.col(col).is_not_null() & (pl.col(col) > 0.0)
+            )
+    else:
+        has_cilia_signal = pl.lit(False)
+
+    scored_df = scored_df.with_columns(
+        has_cilia_signal.alias("has_cilia_signal")
+    )
+
     # Add confidence_tier column using vectorized when/then/otherwise chain
     result = scored_df.with_columns(
         pl.when(

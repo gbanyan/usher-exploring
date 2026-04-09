@@ -184,6 +184,9 @@ def report(ctx, output_dir, force, skip_viz, skip_report,
         click.echo()
         provenance.record_step('load_scored_genes', {
             'total_genes': total_scored,
+            'input_count': total_scored,
+            'output_count': total_scored,
+            'criteria': 'Load all scored genes from DuckDB',
         })
 
         # Step 2: Build tier thresholds
@@ -237,6 +240,9 @@ def report(ctx, output_dir, force, skip_viz, skip_report,
             'medium_count': medium_count,
             'low_count': low_count,
             'excluded_count': total_scored - total_candidates,
+            'input_count': total_scored,
+            'output_count': total_candidates,
+            'criteria': f'HIGH: score>={high_threshold} & evidence>={min_evidence_high}; MEDIUM: score>={medium_threshold} & evidence>={min_evidence_medium}; LOW: score>={low_threshold}',
         })
 
         # Step 4: Add evidence summary
@@ -287,6 +293,9 @@ def report(ctx, output_dir, force, skip_viz, skip_report,
             'output_dir': str(output_dir),
             'tsv_path': str(output_paths['tsv']),
             'parquet_path': str(output_paths['parquet']),
+            'input_count': total_candidates,
+            'output_count': total_candidates,
+            'criteria': 'Write TSV + Parquet with provenance YAML',
         })
 
         # Step 6: Generate visualizations (unless --skip-viz)
@@ -312,6 +321,9 @@ def report(ctx, output_dir, force, skip_viz, skip_report,
             provenance.record_step('generate_visualizations', {
                 'plots_dir': str(plots_dir),
                 'plot_count': len(plot_paths) if 'plot_paths' in locals() else 0,
+                'input_count': total_candidates,
+                'output_count': len(plot_paths) if 'plot_paths' in locals() else 0,
+                'criteria': 'Generate score distribution, layer contributions, tier breakdown plots',
             })
         else:
             click.echo(click.style("Step 6: Skipping visualizations (--skip-viz)", fg='yellow'))

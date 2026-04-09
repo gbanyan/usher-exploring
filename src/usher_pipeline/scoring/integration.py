@@ -98,15 +98,19 @@ def join_evidence_layers(store: PipelineStore) -> pl.DataFrame:
     # Execute query and convert to polars
     result = store.conn.execute(query).pl()
 
-    # Deduplicate: keep one row per gene_symbol with the most evidence layers.
+    # Deduplicate: keep one row per gene_symbol using canonical ID preference.
     # gene_universe contains multiple Ensembl IDs per gene_symbol (1,539 symbols
-    # with 3,033 excess IDs). Non-canonical IDs lack data in some evidence tables,
-    # producing inflated scores via weighted_sum/available_weight normalization.
+    # with 3,033 excess IDs). We prefer the ID recognized by gnomAD (which uses
+    # MANE Select canonical transcripts), then tiebreak by lowest Ensembl ID
+    # (oldest = most established). This avoids ascertainment bias from selecting
+    # IDs that happen to match more evidence databases.
     before_dedup = result.height
-    result = result.sort(
-        ["gene_symbol", "evidence_count"],
-        descending=[False, True],
-    ).unique(subset=["gene_symbol"], keep="first")
+    result = result.with_columns(
+        pl.col("gnomad_score").is_not_null().cast(pl.Int8).alias("_has_gnomad"),
+    ).sort(
+        ["gene_symbol", "_has_gnomad", "gene_id"],
+        descending=[False, True, False],
+    ).unique(subset=["gene_symbol"], keep="first").drop("_has_gnomad")
     after_dedup = result.height
 
     if before_dedup != after_dedup:
@@ -313,13 +317,16 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
     # Execute query and convert to polars
     result = store.conn.execute(query).pl()
 
-    # Deduplicate: keep one row per gene_symbol with the most evidence layers
-    # (tiebreak by composite_score DESC). See join_evidence_layers() for rationale.
+    # Deduplicate: keep one row per gene_symbol using canonical ID preference.
+    # Prefer gnomAD-recognized IDs (MANE Select), then lowest Ensembl ID.
+    # See join_evidence_layers() for rationale.
     before_dedup = result.height
-    result = result.sort(
-        ["gene_symbol", "evidence_count", "composite_score"],
-        descending=[False, True, True],
-    ).unique(subset=["gene_symbol"], keep="first")
+    result = result.with_columns(
+        pl.col("gnomad_score").is_not_null().cast(pl.Int8).alias("_has_gnomad"),
+    ).sort(
+        ["gene_symbol", "_has_gnomad", "gene_id"],
+        descending=[False, True, False],
+    ).unique(subset=["gene_symbol"], keep="first").drop("_has_gnomad")
     after_dedup = result.height
 
     if before_dedup != after_dedup:
