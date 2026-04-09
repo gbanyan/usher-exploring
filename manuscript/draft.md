@@ -311,7 +311,7 @@ The authors declare that they have no competing interests.
 
 [27] Street VA, et al. Mutations in a plasma membrane Ca2+-ATPase gene cause deafness in deafwaddler mice. Nat Genet. 1998;19(4):390-394.
 
-[28] van Dam TJP, et al. CiliacCarta: An integrated and validated compendium of ciliary genes. PLoS One. 2019;14(5):e0216705. [Note: SCGSv2 subset derived from van Dam et al. The full SYSCILIA Gold Standard v2 is described in Vasquez et al. Mol Biol Cell. 2021;32(br6).]
+[28] Vasquez SSV, van Dam J, Wheway G. An updated SYSCILIA gold standard (SCGSv2) of known ciliary genes, revealing the vast progress that has been made in the cilia research field. Mol Biol Cell. 2021;32(21):br13.
 
 [29] Stoeger T, et al. Large-scale investigation of the reasons why potentially important genes are ignored. PLoS Biol. 2018;16(9):e2006643.
 
