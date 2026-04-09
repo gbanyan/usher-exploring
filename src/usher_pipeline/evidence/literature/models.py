@@ -7,8 +7,7 @@ from pydantic import BaseModel, Field, ConfigDict
 
 LITERATURE_TABLE_NAME = "literature_evidence"
 
-# Context-specific PubMed search terms
-# These are combined with gene symbols to find relevant publications
+# Context-specific PubMed search terms (kept for reference / test fixtures)
 SEARCH_CONTEXTS = {
     "cilia": "(cilia OR cilium OR ciliary OR flagellum OR intraflagellar)",
     "sensory": "(retina OR cochlea OR hair cell OR photoreceptor OR vestibular OR hearing OR usher syndrome)",
@@ -16,9 +15,27 @@ SEARCH_CONTEXTS = {
     "cell_polarity": "(cell polarity OR planar cell polarity OR apicobasal OR tight junction)",
 }
 
-# Terms indicating direct experimental evidence
-# Publications with these terms carry higher confidence than incidental mentions
-DIRECT_EVIDENCE_TERMS = "(knockout OR knockdown OR mutation OR CRISPR OR siRNA OR morpholino OR null allele)"
+# Bulk data URLs (NCBI Gene FTP)
+GENE2PUBMED_URL = "https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene2pubmed.gz"
+GENE_INFO_URL = "https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene_info.gz"
+
+# Human taxonomy ID for filtering bulk data
+HUMAN_TAX_ID = 9606
+
+# MeSH-based PubMed queries for context PMID sets
+# Each query is run once (not per-gene) to get all relevant PMIDs
+MESH_CONTEXT_QUERIES = {
+    "cilia": "(Cilia[MeSH] OR Ciliopathies[MeSH] OR Flagella[MeSH] OR cilia[Title/Abstract] OR cilium[Title/Abstract] OR ciliary[Title/Abstract] OR intraflagellar[Title/Abstract])",
+    "sensory": "(Retina[MeSH] OR Cochlea[MeSH] OR Hair Cells, Auditory[MeSH] OR Photoreceptor Cells[MeSH] OR Usher Syndromes[MeSH] OR retina[Title/Abstract] OR cochlea[Title/Abstract] OR hair cell[Title/Abstract] OR photoreceptor[Title/Abstract] OR vestibular[Title/Abstract] OR hearing[Title/Abstract] OR usher syndrome[Title/Abstract])",
+    "cytoskeleton": "(Cytoskeleton[MeSH] OR Actins[MeSH] OR Microtubules[MeSH] OR Molecular Motor Proteins[MeSH])",
+    "cell_polarity": "(Cell Polarity[MeSH] OR planar cell polarity[Title/Abstract] OR apicobasal[Title/Abstract] OR tight junction[Title/Abstract])",
+}
+
+# Direct experimental evidence query (run once globally, intersected with cilia PMIDs)
+DIRECT_EVIDENCE_QUERY = "(knockout[Title/Abstract] OR knockdown[Title/Abstract] OR mutation[Title/Abstract] OR CRISPR[Title/Abstract] OR siRNA[Title/Abstract] OR morpholino[Title/Abstract] OR null allele[Title/Abstract])"
+
+# HTS screen query
+HTS_QUERY = "(screen[Title/Abstract] OR proteomics[Title/Abstract] OR transcriptomics[Title/Abstract])"
 
 # Evidence tier classification
 # Higher tiers indicate stronger evidence quality

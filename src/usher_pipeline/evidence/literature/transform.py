@@ -205,15 +205,14 @@ def process_literature_evidence(
     gene_ids: list[str],
     gene_symbol_map: pl.DataFrame,
     email: str,
+    data_dir: "Path",
     api_key: Optional[str] = None,
-    batch_size: int = 500,
-    checkpoint_df: Optional[pl.DataFrame] = None,
-    checkpoint_callback=None,
+    force: bool = False,
 ) -> pl.DataFrame:
     """End-to-end literature evidence processing pipeline.
 
     1. Map gene IDs to symbols
-    2. Fetch PubMed literature evidence
+    2. Fetch bulk literature evidence (gene2pubmed + MeSH queries)
     3. Classify evidence tiers
     4. Compute quality-weighted scores
     5. Join back to gene IDs
@@ -222,9 +221,9 @@ def process_literature_evidence(
         gene_ids: List of Ensembl gene IDs
         gene_symbol_map: DataFrame with columns: gene_id, gene_symbol
         email: Email for NCBI E-utilities (required)
-        api_key: Optional NCBI API key for higher rate limit
-        batch_size: Checkpoint save frequency (default: 500)
-        checkpoint_df: Optional partial results to resume from
+        data_dir: Directory for bulk file downloads
+        api_key: Optional NCBI API key
+        force: Re-download bulk files even if cached
 
     Returns:
         DataFrame with columns: gene_id, gene_symbol, total_pubmed_count,
@@ -237,12 +236,10 @@ def process_literature_evidence(
     logger.info(
         "literature_process_start",
         gene_count=len(gene_ids),
-        has_checkpoint=checkpoint_df is not None,
     )
 
     # Step 1: Map gene IDs to symbols
     gene_map = gene_symbol_map.filter(pl.col("gene_id").is_in(gene_ids))
-    # Deduplicate symbols for PubMed queries (many gene_ids can share a symbol)
     unique_symbols = gene_map["gene_symbol"].unique().to_list()
 
     logger.info(
@@ -251,14 +248,13 @@ def process_literature_evidence(
         mapped_symbols=len(unique_symbols),
     )
 
-    # Step 2: Fetch literature evidence (one query per unique symbol)
+    # Step 2: Fetch bulk literature evidence
     lit_df = fetch_literature_evidence(
         gene_symbols=unique_symbols,
         email=email,
+        data_dir=data_dir,
         api_key=api_key,
-        batch_size=batch_size,
-        checkpoint_df=checkpoint_df,
-        checkpoint_callback=checkpoint_callback,
+        force=force,
     )
 
     # Step 3: Classify evidence tiers
@@ -267,8 +263,7 @@ def process_literature_evidence(
     # Step 4: Compute quality-weighted scores
     lit_df = compute_literature_score(lit_df)
 
-    # Step 5: Join back to gene IDs (lit_df has unique symbols, gene_map may have
-    # multiple gene_ids per symbol — this is correct, each gene_id gets its score)
+    # Step 5: Join back to gene IDs
     result_df = gene_map.join(
         lit_df,
         on="gene_symbol",

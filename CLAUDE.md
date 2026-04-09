@@ -104,5 +104,5 @@ Weights must sum to 1.0 (validated by `ScoringWeights.validate_sum()` with 1e-6 
 - **gnomAD gene_id alignment**: gnomAD uses transcript-level IDs; join to gene_universe may produce NaN scores for some genes. `gnomad/load.py` enriches via `gene_symbol` fallback.
 - **GTEx v8 lacks retina tissue**: "Eye - Retina" not available; retina expression comes only from HPA.
 - **HPA expression merge gap**: HPA uses gene_symbol while pipeline keys on gene_id; the join in `expression/transform.py` may miss genes without symbol mapping.
-- **Literature layer is slow**: ~8 genes/minute via NCBI E-utilities; full run takes ~46 hours for 22K genes. Use `--api-key` for 10 req/s (vs 3 req/s default).
+- **Literature layer**: Uses bulk gene2pubmed (~150MB) + 6 batch PubMed MeSH queries. Runtime ~5-10 minutes. Bulk files cached in `data/literature/`. Use `--force` to re-download.
 - **HPA URLs pinned to v23**: Using `v23.proteinatlas.org` because latest version changed download paths.

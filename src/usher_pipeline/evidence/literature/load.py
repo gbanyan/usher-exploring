@@ -50,8 +50,8 @@ def load_to_duckdb(
     if len(mean_score_result) > 0:
         mean_score = mean_score_result.to_dicts()[0]["literature_score_normalized"]
 
-    # Count total PubMed queries made (estimate: 6 queries per gene)
-    total_queries = len(df) * 6
+    # Bulk mode: 6 batch PubMed queries + 2 bulk FTP downloads
+    total_queries = 8
 
     # Save to DuckDB with CREATE OR REPLACE (idempotent)
     store.save_dataframe(

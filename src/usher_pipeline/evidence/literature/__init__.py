@@ -1,11 +1,11 @@
-"""Literature Evidence Layer (LITE): PubMed-based evidence for cilia/sensory gene involvement.
+"""Literature Evidence Layer: PubMed-based evidence for cilia/sensory gene involvement.
 
-This module fetches PubMed citations for genes in various contexts (cilia, sensory,
-cytoskeleton, cell polarity), classifies evidence quality, and computes quality-weighted
+Uses bulk gene2pubmed + batch MeSH queries (~5-10 min) instead of per-gene
+E-utilities (~46 hours). Classifies evidence quality and computes quality-weighted
 scores that mitigate well-studied gene bias.
 
 Key exports:
-- fetch: query_pubmed_gene, fetch_literature_evidence
+- fetch: download_bulk_files, fetch_literature_evidence, parse_gene2pubmed, etc.
 - transform: classify_evidence_tier, compute_literature_score, process_literature_evidence
 - load: load_to_duckdb
 - models: LiteratureRecord, SEARCH_CONTEXTS, LITERATURE_TABLE_NAME
@@ -15,11 +15,14 @@ from usher_pipeline.evidence.literature.models import (
     LiteratureRecord,
     LITERATURE_TABLE_NAME,
     SEARCH_CONTEXTS,
-    DIRECT_EVIDENCE_TERMS,
 )
 from usher_pipeline.evidence.literature.fetch import (
-    query_pubmed_gene,
     fetch_literature_evidence,
+    download_bulk_files,
+    parse_gene2pubmed,
+    parse_gene_info,
+    build_gene_pmid_map,
+    count_context_intersections,
 )
 from usher_pipeline.evidence.literature.transform import (
     classify_evidence_tier,
@@ -36,10 +39,13 @@ __all__ = [
     "LiteratureRecord",
     "LITERATURE_TABLE_NAME",
     "SEARCH_CONTEXTS",
-    "DIRECT_EVIDENCE_TERMS",
-    # Fetch
-    "query_pubmed_gene",
+    # Fetch (bulk)
     "fetch_literature_evidence",
+    "download_bulk_files",
+    "parse_gene2pubmed",
+    "parse_gene_info",
+    "build_gene_pmid_map",
+    "count_context_intersections",
     # Transform
     "classify_evidence_tier",
     "compute_literature_score",

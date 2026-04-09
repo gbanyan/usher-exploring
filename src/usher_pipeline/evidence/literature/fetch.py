@@ -1,255 +1,435 @@
-"""Fetch literature evidence from PubMed via Biopython Entrez."""
+"""Bulk literature evidence fetch via gene2pubmed + batch MeSH queries.
 
-from time import sleep
+Instead of querying PubMed per-gene (135K API calls, ~46 hours), this module:
+1. Downloads NCBI gene2pubmed.gz (~150MB) -- curated gene->PMID mapping
+2. Downloads NCBI gene_info.gz (~20MB) -- GeneID->symbol mapping
+3. Runs 6 batch PubMed queries for context PMID sets (cilia, sensory, etc.)
+4. Counts per-gene set intersections locally
+
+Total runtime: ~5-10 minutes (vs 46 hours).
+"""
+
+import time
+from pathlib import Path
 from typing import Optional
-from functools import wraps
 
+import httpx
 import polars as pl
 import structlog
 from Bio import Entrez
-
-from usher_pipeline.evidence.literature.models import (
-    SEARCH_CONTEXTS,
-    DIRECT_EVIDENCE_TERMS,
+from tenacity import (
+    retry,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
 )
 
-logger = structlog.get_logger()
+from usher_pipeline.evidence.literature.models import (
+    GENE2PUBMED_URL,
+    GENE_INFO_URL,
+    HUMAN_TAX_ID,
+    MESH_CONTEXT_QUERIES,
+    DIRECT_EVIDENCE_QUERY,
+    HTS_QUERY,
+)
+
+logger = structlog.get_logger(__name__)
 
 
-def ratelimit(calls_per_sec: float = 3.0):
-    """Rate limiter decorator for PubMed API calls.
+# -- Bulk file download -------------------------------------------------------
 
-    NCBI E-utilities rate limits:
-    - Without API key: 3 requests/second
-    - With API key: 10 requests/second
+
+@retry(
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=4, max=30),
+    retry=retry_if_exception_type(
+        (httpx.HTTPStatusError, httpx.ConnectError, httpx.TimeoutException)
+    ),
+)
+def _download_gz(url: str, dest: Path, force: bool = False) -> Path:
+    """Download a gzipped file from NCBI FTP with retry."""
+    if dest.exists() and not force:
+        logger.info("bulk_file_exists", path=str(dest))
+        return dest
+
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = dest.with_suffix(".tmp")
+
+    logger.info("bulk_download_start", url=url)
+    with httpx.stream("GET", url, timeout=300.0, follow_redirects=True) as resp:
+        resp.raise_for_status()
+        with open(temp_path, "wb") as f:
+            for chunk in resp.iter_bytes(chunk_size=65536):
+                f.write(chunk)
+
+    temp_path.rename(dest)
+    logger.info(
+        "bulk_download_complete",
+        path=str(dest),
+        size_mb=round(dest.stat().st_size / 1024 / 1024, 1),
+    )
+    return dest
+
+
+def download_bulk_files(data_dir: Path, force: bool = False) -> tuple[Path, Path]:
+    """Download gene2pubmed.gz and gene_info.gz from NCBI.
 
     Args:
-        calls_per_sec: Maximum calls per second (default: 3 for no API key)
-    """
-    min_interval = 1.0 / calls_per_sec
-    last_called = [0.0]
-
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            import time
-            elapsed = time.time() - last_called[0]
-            if elapsed < min_interval:
-                sleep(min_interval - elapsed)
-            result = func(*args, **kwargs)
-            last_called[0] = time.time()
-            return result
-        return wrapper
-    return decorator
-
-
-@ratelimit(calls_per_sec=3.0)  # Default rate limit
-def _esearch_with_ratelimit(gene_symbol: str, query_terms: str, email: str) -> int:
-    """Execute PubMed esearch with rate limiting.
-
-    Args:
-        gene_symbol: Gene symbol to search
-        query_terms: Additional query terms (context filters)
-        email: Email for NCBI (required)
+        data_dir: Directory to save downloaded files.
+        force: Re-download even if files exist.
 
     Returns:
-        Count of publications matching query
+        Tuple of (gene2pubmed_path, gene_info_path).
     """
-    query = f"({gene_symbol}[Gene Name]) AND {query_terms}"
-    try:
-        handle = Entrez.esearch(db="pubmed", term=query, retmax=0)
-        record = Entrez.read(handle)
-        handle.close()
-        count = int(record["Count"])
-        return count
-    except Exception as e:
-        logger.warning(
-            "pubmed_query_failed",
-            gene_symbol=gene_symbol,
-            query_terms=query_terms[:50],
-            error=str(e),
+    data_dir = Path(data_dir)
+    lit_dir = data_dir / "literature"
+
+    g2p_path = _download_gz(GENE2PUBMED_URL, lit_dir / "gene2pubmed.gz", force)
+    gi_path = _download_gz(GENE_INFO_URL, lit_dir / "gene_info.gz", force)
+
+    return g2p_path, gi_path
+
+
+# -- Bulk file parsing ---------------------------------------------------------
+
+
+def parse_gene2pubmed(gz_path: Path) -> pl.DataFrame:
+    """Parse gene2pubmed.gz, filtering to human entries only.
+
+    Args:
+        gz_path: Path to gene2pubmed.gz.
+
+    Returns:
+        DataFrame with columns: gene_id (Int64), pmid (Int64).
+    """
+    df = pl.read_csv(
+        gz_path,
+        separator="\t",
+        comment_prefix="##",
+        has_header=True,
+    )
+
+    # Handle the '#tax_id' header prefix
+    if "#tax_id" in df.columns:
+        df = df.rename({"#tax_id": "tax_id"})
+
+    df = (
+        df.filter(pl.col("tax_id") == HUMAN_TAX_ID)
+        .select(
+            pl.col("GeneID").cast(pl.Int64).alias("gene_id"),
+            pl.col("PubMed_ID").cast(pl.Int64).alias("pmid"),
         )
-        # Return None to indicate failed query (not zero publications)
-        return None
+    )
+
+    logger.info(
+        "gene2pubmed_parsed",
+        human_rows=df.height,
+        unique_genes=df["gene_id"].n_unique(),
+    )
+    return df
 
 
-def query_pubmed_gene(
-    gene_symbol: str,
-    contexts: dict[str, str],
+def parse_gene_info(gz_path: Path) -> pl.DataFrame:
+    """Parse gene_info.gz for human protein-coding gene_id -> symbol mapping.
+
+    Args:
+        gz_path: Path to gene_info.gz.
+
+    Returns:
+        DataFrame with columns: gene_id (Int64), gene_symbol (str).
+    """
+    df = pl.read_csv(
+        gz_path,
+        separator="\t",
+        comment_prefix="##",
+        has_header=True,
+        null_values=["-"],
+    )
+
+    if "#tax_id" in df.columns:
+        df = df.rename({"#tax_id": "tax_id"})
+
+    df = (
+        df.filter(
+            (pl.col("tax_id") == HUMAN_TAX_ID)
+            & (pl.col("type_of_gene") == "protein-coding")
+        )
+        .select(
+            pl.col("GeneID").cast(pl.Int64).alias("gene_id"),
+            pl.col("Symbol").alias("gene_symbol"),
+        )
+    )
+
+    logger.info("gene_info_parsed", human_protein_coding=df.height)
+    return df
+
+
+def build_gene_pmid_map(
+    gene2pubmed: pl.DataFrame,
+    gene_info: pl.DataFrame,
+) -> dict[str, set[int]]:
+    """Build gene_symbol -> set of PMIDs mapping.
+
+    Joins gene2pubmed (gene_id->pmid) with gene_info (gene_id->symbol)
+    to produce a dict keyed by HGNC symbol.
+
+    Args:
+        gene2pubmed: DataFrame from parse_gene2pubmed().
+        gene_info: DataFrame from parse_gene_info().
+
+    Returns:
+        Dict mapping gene_symbol to set of PMIDs.
+    """
+    joined = gene2pubmed.join(gene_info, on="gene_id", how="inner")
+
+    result: dict[str, set[int]] = {}
+    for row in joined.group_by("gene_symbol").agg(pl.col("pmid")).iter_rows():
+        symbol, pmids = row
+        result[symbol] = set(pmids)
+
+    logger.info(
+        "gene_pmid_map_built",
+        symbols=len(result),
+        total_pmid_pairs=joined.height,
+    )
+    return result
+
+
+# -- Batch PubMed queries for context PMID sets --------------------------------
+
+
+def _esearch_all_pmids(
+    query: str,
     email: str,
     api_key: Optional[str] = None,
-) -> dict:
-    """Query PubMed for a single gene across multiple contexts.
+) -> set[int]:
+    """Run a single PubMed esearch and retrieve ALL matching PMIDs.
 
-    Performs systematic queries:
-    1. Total publications for gene (no context filter)
-    2. Publications in each context (cilia, sensory, etc.)
-    3. Direct experimental evidence (knockout/mutation terms)
-    4. High-throughput screen mentions
+    Uses usehistory for server-side result storage, then paginates
+    to get all PMIDs.
 
     Args:
-        gene_symbol: HGNC gene symbol (e.g., "BRCA1")
-        contexts: Dict mapping context names to PubMed search terms
-        email: Email address (required by NCBI E-utilities)
-        api_key: Optional NCBI API key for higher rate limit (10/sec vs 3/sec)
+        query: PubMed search query string.
+        email: Email for NCBI E-utilities.
+        api_key: Optional NCBI API key.
 
     Returns:
-        Dict with counts for each context, plus direct_experimental and hts counts.
-        NULL values indicate failed queries (API errors), not zero publications.
+        Set of PMIDs matching the query.
     """
-    # Set Entrez credentials
     Entrez.email = email
     if api_key:
         Entrez.api_key = api_key
 
-    # Update rate limit based on API key
-    rate = 10.0 if api_key else 3.0
-    global _esearch_with_ratelimit
-    _esearch_with_ratelimit = ratelimit(calls_per_sec=rate)(_esearch_with_ratelimit.__wrapped__)
+    # Rate limit: respect NCBI policy
+    rate_delay = 0.11 if api_key else 0.34
 
-    logger.debug(
-        "pubmed_query_gene_start",
-        gene_symbol=gene_symbol,
-        context_count=len(contexts),
-        rate_limit=rate,
+    # First: get count and WebEnv for history
+    handle = Entrez.esearch(db="pubmed", term=query, retmax=0, usehistory="y")
+    record = Entrez.read(handle)
+    handle.close()
+
+    total = int(record["Count"])
+    web_env = record["WebEnv"]
+    query_key = record["QueryKey"]
+
+    logger.info("esearch_context_query", query=query[:80], total_pmids=total)
+
+    if total == 0:
+        return set()
+
+    # Paginate through esearch to get all PMIDs
+    pmids = set()
+    batch_size = 10000
+    for start in range(0, total, batch_size):
+        time.sleep(rate_delay)
+        handle = Entrez.esearch(
+            db="pubmed",
+            term=query,
+            retstart=start,
+            retmax=batch_size,
+            webenv=web_env,
+            query_key=query_key,
+        )
+        batch_record = Entrez.read(handle)
+        handle.close()
+
+        for pmid_str in batch_record.get("IdList", []):
+            pmids.add(int(pmid_str))
+
+    logger.info(
+        "esearch_context_complete",
+        query=query[:80],
+        retrieved_pmids=len(pmids),
     )
+    return pmids
 
-    results = {"gene_symbol": gene_symbol}
 
-    # Query 1: Total publications (no context filter)
-    total_count = _esearch_with_ratelimit(gene_symbol, "", email)
-    results["total_pubmed_count"] = total_count
+def fetch_context_pmid_sets(
+    email: str,
+    api_key: Optional[str] = None,
+) -> tuple[dict[str, set[int]], set[int], set[int]]:
+    """Fetch PMID sets for each context via batch PubMed queries.
 
-    # Query 2: Context-specific counts
-    for context_name, context_terms in contexts.items():
-        count = _esearch_with_ratelimit(gene_symbol, context_terms, email)
-        results[f"{context_name}_context_count"] = count
+    Runs 6 queries total (4 contexts + direct_experimental + HTS).
 
-    # Query 3: Direct experimental evidence
-    direct_count = _esearch_with_ratelimit(
-        gene_symbol,
-        f"{DIRECT_EVIDENCE_TERMS} AND {contexts.get('cilia', '')}",
-        email,
+    Args:
+        email: Email for NCBI E-utilities.
+        api_key: Optional NCBI API key.
+
+    Returns:
+        Tuple of (context_pmid_sets, direct_experimental_pmids, hts_pmids).
+    """
+    logger.info("fetch_context_pmid_sets_start")
+
+    context_sets = {}
+    for name, query in MESH_CONTEXT_QUERIES.items():
+        context_sets[name] = _esearch_all_pmids(query, email, api_key)
+
+    # Direct experimental = experimental terms AND cilia context
+    direct_query = f"{DIRECT_EVIDENCE_QUERY} AND {MESH_CONTEXT_QUERIES['cilia']}"
+    direct_pmids = _esearch_all_pmids(direct_query, email, api_key)
+
+    hts_pmids = _esearch_all_pmids(HTS_QUERY, email, api_key)
+
+    logger.info(
+        "fetch_context_pmid_sets_complete",
+        context_sizes={k: len(v) for k, v in context_sets.items()},
+        direct_experimental=len(direct_pmids),
+        hts=len(hts_pmids),
     )
-    results["direct_experimental_count"] = direct_count
+    return context_sets, direct_pmids, hts_pmids
 
-    # Query 4: High-throughput screen hits
-    hts_terms = "(screen[Title/Abstract] OR proteomics[Title/Abstract] OR transcriptomics[Title/Abstract])"
-    hts_count = _esearch_with_ratelimit(gene_symbol, hts_terms, email)
-    results["hts_screen_count"] = hts_count
 
-    logger.debug(
-        "pubmed_query_gene_complete",
-        gene_symbol=gene_symbol,
-        total_count=total_count,
+# -- Local counting ------------------------------------------------------------
+
+
+def count_context_intersections(
+    gene_pmid_map: dict[str, set[int]],
+    context_pmid_sets: dict[str, set[int]],
+    direct_experimental_pmids: set[int],
+    hts_pmids: set[int],
+    pipeline_symbols: list[str],
+) -> pl.DataFrame:
+    """Count per-gene context intersections from PMID sets.
+
+    For each gene in pipeline_symbols, counts how many of its PMIDs
+    overlap with each context PMID set. Genes not found in gene2pubmed
+    get NULL counts (not 0) to preserve the pipeline's NULL semantics:
+    "unknown" is different from "zero evidence".
+
+    Args:
+        gene_pmid_map: gene_symbol -> set of PMIDs.
+        context_pmid_sets: context_name -> set of PMIDs.
+        direct_experimental_pmids: PMIDs from experimental evidence queries.
+        hts_pmids: PMIDs from HTS screen queries.
+        pipeline_symbols: List of gene symbols from our pipeline.
+
+    Returns:
+        DataFrame with columns: gene_symbol, total_pubmed_count,
+        cilia_context_count, sensory_context_count,
+        cytoskeleton_context_count, cell_polarity_context_count,
+        direct_experimental_count, hts_screen_count.
+    """
+    rows = []
+    for symbol in pipeline_symbols:
+        pmids = gene_pmid_map.get(symbol)
+
+        if pmids is None:
+            # Gene not in gene2pubmed -- NULL counts (not 0)
+            rows.append({
+                "gene_symbol": symbol,
+                "total_pubmed_count": None,
+                "cilia_context_count": None,
+                "sensory_context_count": None,
+                "cytoskeleton_context_count": None,
+                "cell_polarity_context_count": None,
+                "direct_experimental_count": None,
+                "hts_screen_count": None,
+            })
+        else:
+            rows.append({
+                "gene_symbol": symbol,
+                "total_pubmed_count": len(pmids),
+                "cilia_context_count": len(pmids & context_pmid_sets.get("cilia", set())),
+                "sensory_context_count": len(pmids & context_pmid_sets.get("sensory", set())),
+                "cytoskeleton_context_count": len(pmids & context_pmid_sets.get("cytoskeleton", set())),
+                "cell_polarity_context_count": len(pmids & context_pmid_sets.get("cell_polarity", set())),
+                "direct_experimental_count": len(pmids & direct_experimental_pmids),
+                "hts_screen_count": len(pmids & hts_pmids),
+            })
+
+    df = pl.DataFrame(rows)
+
+    genes_known = df.filter(pl.col("total_pubmed_count").is_not_null()).height
+    logger.info(
+        "context_intersections_complete",
+        total_genes=df.height,
+        genes_in_gene2pubmed=genes_known,
+        genes_with_publications=df.filter(
+            pl.col("total_pubmed_count").is_not_null()
+            & (pl.col("total_pubmed_count") > 0)
+        ).height,
+        genes_with_cilia_context=df.filter(
+            pl.col("cilia_context_count").is_not_null()
+            & (pl.col("cilia_context_count") > 0)
+        ).height,
     )
+    return df
 
-    return results
+
+# -- High-level orchestration --------------------------------------------------
 
 
 def fetch_literature_evidence(
     gene_symbols: list[str],
     email: str,
+    data_dir: Path,
     api_key: Optional[str] = None,
-    batch_size: int = 500,
-    checkpoint_df: Optional[pl.DataFrame] = None,
-    checkpoint_callback=None,
+    force: bool = False,
 ) -> pl.DataFrame:
-    """Fetch literature evidence for all genes with progress tracking and checkpointing.
+    """Fetch literature evidence for all genes using bulk data.
 
-    This is a SLOW operation (~20K genes * ~6 queries each = ~120K queries):
-    - With API key (10 req/sec): ~3.3 hours
-    - Without API key (3 req/sec): ~11 hours
+    Downloads gene2pubmed + gene_info from NCBI, runs 6 batch PubMed
+    queries for context PMID sets, then counts per-gene intersections.
 
-    Supports checkpoint-restart: pass partial results to resume from last checkpoint.
+    Runtime: ~5-10 minutes (vs ~46 hours with per-gene E-utilities).
 
     Args:
-        gene_symbols: List of HGNC gene symbols to query
-        email: Email address (required by NCBI E-utilities)
-        api_key: Optional NCBI API key for 10 req/sec rate limit
-        batch_size: Save checkpoint every N genes (default: 500)
-        checkpoint_df: Optional partial results DataFrame to resume from
-        checkpoint_callback: Optional callable(pl.DataFrame) to persist partial results
+        gene_symbols: List of HGNC gene symbols from pipeline.
+        email: Email for NCBI E-utilities (required).
+        data_dir: Directory for downloading bulk files.
+        api_key: Optional NCBI API key.
+        force: Re-download bulk files even if cached.
 
     Returns:
-        DataFrame with columns: gene_symbol, total_pubmed_count, cilia_context_count,
-        sensory_context_count, cytoskeleton_context_count, cell_polarity_context_count,
+        DataFrame with columns: gene_symbol, total_pubmed_count,
+        cilia_context_count, sensory_context_count,
+        cytoskeleton_context_count, cell_polarity_context_count,
         direct_experimental_count, hts_screen_count.
-        NULL values indicate failed queries (API errors), not zero publications.
     """
-    all_gene_symbols = gene_symbols
-    # Estimate time
-    queries_per_gene = 6  # total + 4 contexts + direct + hts
-    total_queries = len(gene_symbols) * queries_per_gene
-    rate = 10.0 if api_key else 3.0
-    estimated_seconds = total_queries / rate
-    estimated_hours = estimated_seconds / 3600
+    logger.info("literature_bulk_fetch_start", gene_count=len(gene_symbols))
 
-    logger.info(
-        "pubmed_fetch_start",
-        gene_count=len(gene_symbols),
-        total_queries=total_queries,
-        rate_limit_per_sec=rate,
-        estimated_hours=round(estimated_hours, 2),
-        has_api_key=api_key is not None,
+    # Step 1: Download bulk files
+    g2p_path, gi_path = download_bulk_files(data_dir, force=force)
+
+    # Step 2: Parse bulk files
+    gene2pubmed = parse_gene2pubmed(g2p_path)
+    gene_info = parse_gene_info(gi_path)
+
+    # Step 3: Build gene->PMID map
+    gene_pmid_map = build_gene_pmid_map(gene2pubmed, gene_info)
+
+    # Step 4: Fetch context PMID sets (6 batch queries)
+    context_sets, direct_pmids, hts_pmids = fetch_context_pmid_sets(email, api_key)
+
+    # Step 5: Count intersections
+    df = count_context_intersections(
+        gene_pmid_map=gene_pmid_map,
+        context_pmid_sets=context_sets,
+        direct_experimental_pmids=direct_pmids,
+        hts_pmids=hts_pmids,
+        pipeline_symbols=gene_symbols,
     )
 
-    # Resume from checkpoint if provided
-    if checkpoint_df is not None:
-        processed_symbols = set(checkpoint_df["gene_symbol"].to_list())
-        remaining_symbols = [s for s in gene_symbols if s not in processed_symbols]
-        logger.info(
-            "pubmed_fetch_resume",
-            checkpoint_genes=len(processed_symbols),
-            remaining_genes=len(remaining_symbols),
-        )
-        gene_symbols = remaining_symbols
-        results = checkpoint_df.to_dicts()
-    else:
-        results = []
-
-    total_all = len(all_gene_symbols)
-
-    # Process genes with progress logging
-    for i, gene_symbol in enumerate(gene_symbols, start=1):
-        # Query PubMed for this gene
-        gene_result = query_pubmed_gene(
-            gene_symbol=gene_symbol,
-            contexts=SEARCH_CONTEXTS,
-            email=email,
-            api_key=api_key,
-        )
-        results.append(gene_result)
-
-        # Log progress every 100 genes
-        if i % 100 == 0:
-            pct = (len(results) / total_all) * 100
-            logger.info(
-                "pubmed_fetch_progress",
-                processed=len(results),
-                total=total_all,
-                percent=round(pct, 1),
-                gene_symbol=gene_symbol,
-            )
-
-        # Checkpoint every batch_size genes — persist to DuckDB
-        if i % batch_size == 0 and checkpoint_callback is not None:
-            checkpoint_partial = pl.DataFrame(results)
-            checkpoint_callback(checkpoint_partial)
-            logger.info(
-                "pubmed_fetch_checkpoint_saved",
-                processed=len(results),
-                total=total_all,
-                batch_size=batch_size,
-            )
-
-    logger.info(
-        "pubmed_fetch_complete",
-        total_genes=len(results),
-        failed_count=sum(1 for r in results if r["total_pubmed_count"] is None),
-    )
-
-    # Convert to DataFrame
-    df = pl.DataFrame(results)
-
+    logger.info("literature_bulk_fetch_complete", gene_count=df.height)
     return df

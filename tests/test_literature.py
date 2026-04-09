@@ -1,14 +1,12 @@
-"""Unit tests for literature evidence layer."""
+"""Unit tests for literature evidence layer (transform + scoring)."""
 
 import polars as pl
 import pytest
-from unittest.mock import Mock, patch
 
 from usher_pipeline.evidence.literature import (
     classify_evidence_tier,
     compute_literature_score,
     SEARCH_CONTEXTS,
-    DIRECT_EVIDENCE_TERMS,
 )
 
 
@@ -241,51 +239,3 @@ def test_score_normalization(synthetic_literature_data):
     assert scores.max() <= 1.0
 
 
-@patch('usher_pipeline.evidence.literature.fetch.Entrez')
-def test_query_pubmed_gene_mock(mock_entrez):
-    """Test query_pubmed_gene with mocked Biopython Entrez."""
-    from usher_pipeline.evidence.literature.fetch import query_pubmed_gene
-
-    # Mock esearch responses
-    def mock_esearch(db, term, retmax):
-        """Return different counts based on query term."""
-        count_map = {
-            "GENE1": 100,  # Total
-            "GENE1 cilia": 10,
-            "GENE1 sensory": 5,
-            "GENE1 knockout": 3,
-            "GENE1 screen": 0,
-        }
-        # Simple matching on term content
-        for key, count in count_map.items():
-            if key.replace(" ", ") AND (") in term or key in term:
-                mock_handle = Mock()
-                mock_handle.__enter__ = Mock(return_value=mock_handle)
-                mock_handle.__exit__ = Mock(return_value=False)
-                return mock_handle
-
-        # Default
-        mock_handle = Mock()
-        mock_handle.__enter__ = Mock(return_value=mock_handle)
-        mock_handle.__exit__ = Mock(return_value=False)
-        return mock_handle
-
-    # Set up mock
-    mock_entrez.esearch = mock_esearch
-    mock_entrez.read = Mock(return_value={"Count": "10"})
-
-    # Test query
-    result = query_pubmed_gene(
-        gene_symbol="GENE1",
-        contexts=SEARCH_CONTEXTS,
-        email="test@example.com",
-        api_key=None,
-    )
-
-    # Verify result structure
-    assert "gene_symbol" in result
-    assert "total_pubmed_count" in result
-    assert "cilia_context_count" in result
-    assert "sensory_context_count" in result
-    assert "direct_experimental_count" in result
-    assert "hts_screen_count" in result

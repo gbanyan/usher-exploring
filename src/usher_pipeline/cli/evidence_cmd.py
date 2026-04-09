@@ -978,66 +978,45 @@ def animal_models(ctx, force):
 @click.option(
     '--force',
     is_flag=True,
-    help='Reprocess data even if checkpoint exists'
+    help='Re-download bulk files and reprocess'
 )
 @click.option(
     '--email',
     required=True,
-    help='Email address for NCBI E-utilities (required by PubMed API)'
+    help='Email for NCBI E-utilities (required by PubMed API)'
 )
 @click.option(
     '--api-key',
     default=None,
-    help='NCBI API key for higher rate limit (10 req/sec vs 3 req/sec). Get from https://www.ncbi.nlm.nih.gov/account/settings/'
-)
-@click.option(
-    '--batch-size',
-    type=int,
-    default=500,
-    help='Save partial checkpoints every N genes (default: 500)'
+    help='NCBI API key (optional, speeds up batch context queries)'
 )
 @click.pass_context
-def literature(ctx, force, email, api_key, batch_size):
-    """Fetch and load literature evidence from PubMed.
+def literature(ctx, force, email, api_key):
+    """Fetch and load literature evidence using bulk data.
 
-    Queries PubMed for each gene across multiple contexts (cilia, sensory, cytoskeleton,
-    cell polarity), classifies evidence into quality tiers, and computes quality-weighted
-    scores with bias mitigation to avoid TP53-like well-studied gene dominance.
+    Downloads gene2pubmed (~150MB) and gene_info (~20MB) from NCBI,
+    runs 6 batch PubMed queries for context classification (cilia, sensory,
+    cytoskeleton, cell polarity, experimental, HTS), then counts per-gene
+    intersections locally. Classifies evidence tiers and computes
+    quality-weighted scores with bias mitigation.
 
-    WARNING: This is a SLOW operation (estimated 3-11 hours for 20K genes):
-    - With API key (10 req/sec): ~3.3 hours
-    - Without API key (3 req/sec): ~11 hours
-
-    Supports checkpoint-restart: saves partial results every batch-size genes.
-    Interrupted runs can be resumed (use --force to restart from scratch).
-
-    Get NCBI API key: https://www.ncbi.nlm.nih.gov/account/settings/
-    (API Key Management -> Create API Key)
+    Runtime: ~5-10 minutes.
 
     Examples:
 
-        # With API key (recommended - 3x faster)
-        usher-pipeline evidence literature --email you@example.com --api-key YOUR_KEY
-
-        # Without API key (slower)
         usher-pipeline evidence literature --email you@example.com
 
-        # Force restart from scratch
-        usher-pipeline evidence literature --email you@example.com --api-key YOUR_KEY --force
+        usher-pipeline evidence literature --email you@example.com --api-key YOUR_KEY
+
+        usher-pipeline evidence literature --email you@example.com --force
     """
     config_path = ctx.obj['config_path']
 
-    click.echo(click.style("=== Literature Evidence (PubMed) ===", bold=True))
+    click.echo(click.style("=== Literature Evidence (Bulk) ===", bold=True))
     click.echo()
 
-    # Warn about long runtime
-    if api_key:
-        click.echo(click.style("  NCBI API key provided: faster rate limit (10 req/sec)", fg='cyan'))
-        click.echo(click.style("  Estimated runtime: ~3-4 hours for 20K genes", fg='cyan'))
-    else:
-        click.echo(click.style("  No API key: using default rate limit (3 req/sec)", fg='yellow'))
-        click.echo(click.style("  Estimated runtime: ~10-12 hours for 20K genes", fg='yellow'))
-        click.echo(click.style("  Get API key at: https://www.ncbi.nlm.nih.gov/account/settings/", fg='yellow'))
+    click.echo(click.style("  Bulk mode: gene2pubmed + batch MeSH queries", fg='cyan'))
+    click.echo(click.style("  Estimated runtime: ~5-10 minutes", fg='cyan'))
     click.echo()
 
     store = None
@@ -1110,32 +1089,9 @@ def literature(ctx, force, email, api_key, batch_size):
         ))
         click.echo()
 
-        # Load partial checkpoint if exists (for resume after interrupt)
-        partial_checkpoint = None
-        if store.has_checkpoint('literature_partial'):
-            partial_checkpoint = store.load_dataframe('literature_partial')
-            if partial_checkpoint is not None and partial_checkpoint.height > 0:
-                click.echo(click.style(
-                    f"  Resuming from partial checkpoint: {partial_checkpoint.height} genes already fetched",
-                    fg='cyan'
-                ))
-            else:
-                partial_checkpoint = None
-
-        # Define checkpoint callback to persist partial results to DuckDB
-        def save_partial_checkpoint(partial_df: pl.DataFrame):
-            store.save_dataframe(
-                df=partial_df,
-                table_name="literature_partial",
-                description="Partial literature fetch checkpoint (in-progress)",
-                replace=True,
-            )
-
-        # Process literature evidence
-        click.echo("Fetching and processing literature evidence from PubMed...")
+        # Process literature evidence (bulk fetch + transform)
+        click.echo("Fetching bulk literature evidence...")
         click.echo(f"  Email: {email}")
-        click.echo(f"  Batch size: {batch_size} genes")
-        click.echo(f"  This will take several hours. Progress logged every 100 genes.")
         click.echo()
 
         try:
@@ -1143,10 +1099,9 @@ def literature(ctx, force, email, api_key, batch_size):
                 gene_ids=gene_ids,
                 gene_symbol_map=gene_symbol_map,
                 email=email,
+                data_dir=config.data_dir,
                 api_key=api_key,
-                batch_size=batch_size,
-                checkpoint_df=partial_checkpoint,
-                checkpoint_callback=save_partial_checkpoint,
+                force=force,
             )
             click.echo(click.style(
                 f"  Processed {len(df)} genes",
@@ -1162,7 +1117,7 @@ def literature(ctx, force, email, api_key, batch_size):
             'total_genes': len(df),
             'email': email,
             'has_api_key': api_key is not None,
-            'batch_size': batch_size,
+            'mode': 'bulk',
         })
 
         # Load to DuckDB
@@ -1176,14 +1131,8 @@ def literature(ctx, force, email, api_key, batch_size):
                 df=df,
                 store=store,
                 provenance=provenance,
-                description="PubMed literature evidence with context-specific queries and quality-weighted scoring"
+                description="Bulk literature evidence (gene2pubmed + MeSH batch queries)"
             )
-            # Clean up partial checkpoint after successful full load
-            try:
-                store.conn.execute("DROP TABLE IF EXISTS literature_partial")
-                store.conn.execute("DELETE FROM _checkpoints WHERE table_name = 'literature_partial'")
-            except Exception:
-                pass  # Non-critical cleanup
             click.echo(click.style(
                 f"  Saved to 'literature_evidence' table",
                 fg='green'
