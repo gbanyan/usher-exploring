@@ -29,6 +29,38 @@ from usher_pipeline.persistence import PipelineStore, ProvenanceTracker
 logger = logging.getLogger(__name__)
 
 
+def _fetch_and_load_mane(config, store, force=False):
+    """Fetch and load MANE Select data, warning on failure (non-fatal)."""
+    click.echo("Fetching MANE Select canonical transcripts...")
+    from usher_pipeline.gene_mapping.mane_select import (
+        fetch_mane_select,
+        parse_mane_select,
+        load_mane_select,
+    )
+    try:
+        mane_gz = fetch_mane_select(
+            data_dir=config.data_dir,
+            version=config.versions.mane_version,
+            force=force,
+        )
+        mane_df = parse_mane_select(mane_gz)
+        load_mane_select(store, mane_df)
+        mane_select_count = mane_df.filter(
+            mane_df["mane_status"] == "MANE Select"
+        ).height
+        click.echo(click.style(
+            f"  Loaded {len(mane_df)} MANE transcripts ({mane_select_count} MANE Select)",
+            fg='green'
+        ))
+    except Exception as e:
+        click.echo(click.style(
+            f"  Warning: MANE Select fetch failed ({e}). Scoring will fall back to gnomAD proxy.",
+            fg='yellow'
+        ))
+        logger.warning("mane_select_fetch_failed", error=str(e))
+    click.echo()
+
+
 @click.command('setup')
 @click.option(
     '--force',
@@ -78,6 +110,10 @@ def setup(ctx, force):
                 gene_count = len(df)
                 click.echo(f"Loaded {gene_count} genes from checkpoint")
                 click.echo()
+
+                # Fetch MANE Select if not yet loaded
+                if not store.has_checkpoint('mane_select'):
+                    _fetch_and_load_mane(config, store, force=False)
 
                 # Display summary
                 click.echo(click.style("=== Setup Summary ===", bold=True))
@@ -201,6 +237,9 @@ def setup(ctx, force):
         )
         click.echo(click.style(f"  Saved {len(df)} genes to 'gene_universe' table", fg='green'))
         click.echo()
+
+        # 8b. Fetch and load MANE Select canonical transcripts
+        _fetch_and_load_mane(config, store, force=force)
 
         # 9. Save provenance
         click.echo("Saving provenance metadata...")

@@ -51,7 +51,7 @@ output/: TSV, Parquet, visualizations, reproducibility report
 - **NULL preservation**: Missing evidence ≠ zero score. LEFT JOINs preserve NULLs; scoring weights only applied to non-NULL layers (`evidence_count` tracks coverage). **Never convert NULL to 0.0** — "unknown" is semantically different from "zero evidence".
 - **Idempotent loads**: Each evidence layer uses `CREATE OR REPLACE TABLE`.
 - **Checkpoint-restart**: Literature layer supports resuming via existing progress in DuckDB. Downloads check if file exists before re-fetching (`force=False` default).
-- **Gene symbol deduplication**: `gene_universe` has multiple Ensembl IDs per gene_symbol (~1,539 symbols with excess IDs). Scoring deduplicates by `gene_symbol`, keeping the row with the most evidence layers. See `scoring/integration.py`.
+- **Gene symbol deduplication**: `gene_universe` has multiple Ensembl IDs per gene_symbol (~1,539 symbols with excess IDs). Scoring deduplicates by `gene_symbol`, preferring MANE Select canonical IDs, then gnomAD-recognized IDs, then lowest Ensembl ID. See `scoring/integration.py`.
 
 ### Evidence Layer Pattern
 
@@ -83,6 +83,7 @@ When adding a new evidence layer: create all 4 files, register the CLI subcomman
 | `subcellular_localization` | HPA + proteomics | `localization_score_normalized` |
 | `animal_model_phenotypes` | MGI/ZFIN/IMPC via HCOP | `animal_model_score_normalized` |
 | `literature_evidence` | PubMed (NCBI E-utils) | `literature_score_normalized` |
+| `mane_select` | NCBI MANE v1.3 | — (reference table) |
 | `scored_genes` | scoring integration | `composite_score` |
 
 ### Testing Conventions

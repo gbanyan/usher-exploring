@@ -10,6 +10,61 @@ from usher_pipeline.persistence.duckdb_store import PipelineStore
 logger = structlog.get_logger(__name__)
 
 
+def _load_mane_gene_ids(store: PipelineStore) -> list[str]:
+    """Load MANE Select gene IDs from DuckDB, returning empty list if unavailable."""
+    try:
+        mane_df = store.conn.execute(
+            "SELECT ensembl_gene_id FROM mane_select WHERE mane_status = 'MANE Select'"
+        ).pl()
+        return mane_df["ensembl_gene_id"].to_list()
+    except duckdb.CatalogException:
+        logger.info("mane_select_table_not_found_using_gnomad_proxy")
+        return []
+
+
+def _dedup_by_gene_symbol(
+    result: pl.DataFrame,
+    mane_ids: list[str],
+    context: str,
+) -> pl.DataFrame:
+    """Deduplicate to one row per gene_symbol using MANE > gnomAD > lowest ID.
+
+    Args:
+        result: DataFrame with gene_id, gene_symbol, gnomad_score columns.
+        mane_ids: List of Ensembl gene IDs in MANE Select.
+        context: Logging context label.
+
+    Returns:
+        Deduplicated DataFrame.
+    """
+    before = result.height
+
+    is_mane_col = (
+        pl.col("gene_id").is_in(mane_ids).cast(pl.Int8).alias("_is_mane")
+        if mane_ids
+        else pl.lit(0).cast(pl.Int8).alias("_is_mane")
+    )
+
+    result = result.with_columns(
+        is_mane_col,
+        pl.col("gnomad_score").is_not_null().cast(pl.Int8).alias("_has_gnomad"),
+    ).sort(
+        ["gene_symbol", "_is_mane", "_has_gnomad", "gene_id"],
+        descending=[False, True, True, False],
+    ).unique(subset=["gene_symbol"], keep="first").drop(["_is_mane", "_has_gnomad"])
+
+    after = result.height
+    if before != after:
+        logger.info(
+            f"{context}_dedup_gene_symbol",
+            before=before,
+            after=after,
+            removed=before - after,
+            using_mane=len(mane_ids) > 0,
+        )
+    return result
+
+
 def join_evidence_layers(store: PipelineStore) -> pl.DataFrame:
     """
     Join gene_universe with all 6 evidence tables on gene_id.
@@ -98,28 +153,10 @@ def join_evidence_layers(store: PipelineStore) -> pl.DataFrame:
     # Execute query and convert to polars
     result = store.conn.execute(query).pl()
 
-    # Deduplicate: keep one row per gene_symbol using canonical ID preference.
-    # gene_universe contains multiple Ensembl IDs per gene_symbol (1,539 symbols
-    # with 3,033 excess IDs). We prefer the ID recognized by gnomAD (which uses
-    # MANE Select canonical transcripts), then tiebreak by lowest Ensembl ID
-    # (oldest = most established). This avoids ascertainment bias from selecting
-    # IDs that happen to match more evidence databases.
-    before_dedup = result.height
-    result = result.with_columns(
-        pl.col("gnomad_score").is_not_null().cast(pl.Int8).alias("_has_gnomad"),
-    ).sort(
-        ["gene_symbol", "_has_gnomad", "gene_id"],
-        descending=[False, True, False],
-    ).unique(subset=["gene_symbol"], keep="first").drop("_has_gnomad")
-    after_dedup = result.height
-
-    if before_dedup != after_dedup:
-        logger.info(
-            "join_evidence_dedup_gene_symbol",
-            before=before_dedup,
-            after=after_dedup,
-            removed=before_dedup - after_dedup,
-        )
+    # Deduplicate: keep one row per gene_symbol.
+    # Preference: MANE Select canonical ID > gnomAD-recognized ID > lowest Ensembl ID.
+    mane_ids = _load_mane_gene_ids(store)
+    result = _dedup_by_gene_symbol(result, mane_ids, "join_evidence")
 
     # Log summary statistics
     total_genes = result.height
@@ -317,25 +354,10 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
     # Execute query and convert to polars
     result = store.conn.execute(query).pl()
 
-    # Deduplicate: keep one row per gene_symbol using canonical ID preference.
-    # Prefer gnomAD-recognized IDs (MANE Select), then lowest Ensembl ID.
-    # See join_evidence_layers() for rationale.
-    before_dedup = result.height
-    result = result.with_columns(
-        pl.col("gnomad_score").is_not_null().cast(pl.Int8).alias("_has_gnomad"),
-    ).sort(
-        ["gene_symbol", "_has_gnomad", "gene_id"],
-        descending=[False, True, False],
-    ).unique(subset=["gene_symbol"], keep="first").drop("_has_gnomad")
-    after_dedup = result.height
-
-    if before_dedup != after_dedup:
-        logger.info(
-            "composite_scores_dedup_gene_symbol",
-            before=before_dedup,
-            after=after_dedup,
-            removed=before_dedup - after_dedup,
-        )
+    # Deduplicate: keep one row per gene_symbol.
+    # See _dedup_by_gene_symbol() for preference logic.
+    mane_ids = _load_mane_gene_ids(store)
+    result = _dedup_by_gene_symbol(result, mane_ids, "composite_scores")
 
     # Re-sort by composite_score DESC NULLS LAST
     result = result.sort("composite_score", descending=True, nulls_last=True)

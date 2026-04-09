@@ -9,6 +9,7 @@ versions:
   gnomad_version: v4.1
   gtex_version: v8
   hpa_version: "23.0"
+  mane_version: "1.3"
 
 api:
   rate_limit_per_second: 5

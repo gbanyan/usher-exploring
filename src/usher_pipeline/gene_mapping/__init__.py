@@ -18,6 +18,11 @@ from usher_pipeline.gene_mapping.validator import (
     ValidationResult,
     validate_gene_universe,
 )
+from usher_pipeline.gene_mapping.mane_select import (
+    fetch_mane_select,
+    parse_mane_select,
+    load_mane_select,
+)
 
 __all__ = [
     "GeneMapper",
@@ -28,4 +33,7 @@ __all__ = [
     "MappingValidator",
     "ValidationResult",
     "validate_gene_universe",
+    "fetch_mane_select",
+    "parse_mane_select",
+    "load_mane_select",
 ]

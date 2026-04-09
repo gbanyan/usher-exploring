@@ -28,6 +28,10 @@ class DataSourceVersions(BaseModel):
         default="23.0",
         description="Human Protein Atlas version",
     )
+    mane_version: str = Field(
+        default="1.3",
+        description="MANE Select release version",
+    )
 
 
 class ScoringWeights(BaseModel):

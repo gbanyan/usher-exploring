@@ -92,6 +92,13 @@ def test_config_hash_deterministic():
     assert config3.config_hash() != config1.config_hash()
 
 
+def test_data_source_versions_has_mane():
+    """DataSourceVersions should include mane_version field."""
+    from usher_pipeline.config.schema import DataSourceVersions
+    versions = DataSourceVersions(ensembl_release=113)
+    assert versions.mane_version == "1.3"
+
+
 def test_config_creates_directories(tmp_path):
     """Test that loading config creates data and cache directories."""
     config_file = tmp_path / "test_config.yaml"
