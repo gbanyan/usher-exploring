@@ -1,13 +1,13 @@
-generated_at: '2026-02-16T01:59:18.621053+00:00'
+generated_at: '2026-04-09T15:25:29.809063+00:00'
 output_files:
 - candidates.tsv
 - candidates.parquet
 statistics:
-  total_candidates: 18243
-  high_count: 4
-  medium_count: 8051
-  low_count: 10188
-column_count: 22
+  total_candidates: 18249
+  high_count: 8
+  medium_count: 8066
+  low_count: 10175
+column_count: 23
 column_names:
 - gene_id
 - gene_symbol
@@ -28,6 +28,7 @@ column_names:
 - localization_contribution
 - animal_model_contribution
 - literature_contribution
+- has_cilia_signal
 - confidence_tier
 - supporting_layers
 - evidence_gaps

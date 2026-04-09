@@ -1,6 +1,6 @@
 {
-  "run_id": "f5587e39-163b-418c-8ac2-593b47323f34",
-  "timestamp": "2026-02-16T01:59:18.969516+00:00",
+  "run_id": "9a0b01a7-9407-4d8d-b9b3-fd0e614a563d",
+  "timestamp": "2026-04-09T15:25:29.810100+00:00",
   "pipeline_version": "0.1.0",
   "parameters": {
     "gnomad": 0.2,
@@ -17,41 +17,35 @@
     "hpa_version": "23.0"
   },
   "software_environment": {
-    "python": "3.14.3",
-    "polars": "1.38.1",
-    "duckdb": "1.4.4"
+    "python": "3.13.11",
+    "polars": "1.39.3",
+    "duckdb": "1.5.1"
   },
   "filtering_steps": [
     {
       "step_name": "load_scored_genes",
-      "input_count": 0,
-      "output_count": 0,
-      "criteria": ""
+      "input_count": 19555,
+      "output_count": 19555,
+      "criteria": "Load all scored genes from DuckDB"
     },
     {
       "step_name": "apply_tier_classification",
-      "input_count": 0,
-      "output_count": 0,
-      "criteria": ""
+      "input_count": 19555,
+      "output_count": 18249,
+      "criteria": "HIGH: score>=0.7 & evidence>=3; MEDIUM: score>=0.4 & evidence>=2; LOW: score>=0.2"
     },
     {
       "step_name": "write_candidate_output",
-      "input_count": 0,
-      "output_count": 0,
-      "criteria": ""
-    },
-    {
-      "step_name": "generate_visualizations",
-      "input_count": 0,
-      "output_count": 0,
-      "criteria": ""
+      "input_count": 18249,
+      "output_count": 18249,
+      "criteria": "Write TSV + Parquet with provenance YAML"
     }
   ],
   "validation_metrics": {},
   "tier_statistics": {
-    "total": 18243,
-    "high": 4,
-    "medium": 8051,
-    "low": 10188
+    "total": 18249,
+    "high": 8,
+    "medium": 8066,
+    "low": 10175
   }
 }

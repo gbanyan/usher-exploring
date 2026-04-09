@@ -1,7 +1,7 @@
 # Pipeline Reproducibility Report
 
-**Run ID:** `f5587e39-163b-418c-8ac2-593b47323f34`
-**Timestamp:** 2026-02-16T01:59:18.969516+00:00
+**Run ID:** `9a0b01a7-9407-4d8d-b9b3-fd0e614a563d`
+**Timestamp:** 2026-04-09T15:25:29.810100+00:00
 **Pipeline Version:** 0.1.0
 
 ## Parameters
@@ -24,22 +24,21 @@
 
 ## Software Environment
 
-- **python:** 3.14.3
-- **polars:** 1.38.1
-- **duckdb:** 1.4.4
+- **python:** 3.13.11
+- **polars:** 1.39.3
+- **duckdb:** 1.5.1
 
 ## Filtering Steps
 
 | Step | Input Count | Output Count | Criteria |
 |------|-------------|--------------|----------|
-| load_scored_genes | 0 | 0 |  |
-| apply_tier_classification | 0 | 0 |  |
-| write_candidate_output | 0 | 0 |  |
-| generate_visualizations | 0 | 0 |  |
+| load_scored_genes | 19555 | 19555 | Load all scored genes from DuckDB |
+| apply_tier_classification | 19555 | 18249 | HIGH: score>=0.7 & evidence>=3; MEDIUM: score>=0.4 & evidence>=2; LOW: score>=0.2 |
+| write_candidate_output | 18249 | 18249 | Write TSV + Parquet with provenance YAML |
 
 ## Tier Statistics
 
-- **Total Candidates:** 18243
-- **HIGH:** 4
-- **MEDIUM:** 8051
-- **LOW:** 10188
+- **Total Candidates:** 18249
+- **HIGH:** 8
+- **MEDIUM:** 8066
+- **LOW:** 10175
