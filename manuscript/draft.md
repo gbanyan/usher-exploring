@@ -70,7 +70,7 @@ All pipeline state resides in a single DuckDB database file (`pipeline.duckdb`).
 
 ### Gene universe
 
-The gene universe is constructed by querying the mygene.info API [12] for all human protein-coding genes (Ensembl release 113), yielding 22,761 Ensembl gene IDs with associated HGNC symbols and UniProt accessions. Because multiple Ensembl IDs may map to the same HGNC symbol (1,539 symbols with redundant IDs), the scoring stage deduplicates by gene symbol, retaining the entry with the highest evidence layer count to prevent score inflation from non-canonical transcript IDs.
+The gene universe is constructed by querying the mygene.info API [12] for all human protein-coding genes (Ensembl release 113), yielding 22,761 Ensembl gene IDs with associated HGNC symbols and UniProt accessions. Because multiple Ensembl IDs may map to the same HGNC symbol (1,539 symbols with redundant IDs), the scoring stage deduplicates by gene symbol using NCBI MANE Select canonical transcript mappings (v1.3, covering 19,288 genes), with fallback to gnomAD-recognized IDs, to prevent score inflation from non-canonical transcript IDs.
 
 ### Evidence layers
 
@@ -78,7 +78,7 @@ UsherPipe integrates six evidence layers, each capturing a distinct biological d
 
 **gnomAD constraint (weight: 0.20).** Loss-of-function intolerance is quantified using the LOEUF metric (loss-of-function observed/expected upper bound fraction) from gnomAD v4.1 [13]. Lower LOEUF values indicate stronger evolutionary constraint, suggesting functional importance. Scores are computed as the inverted normalization: *loeuf\_normalized* = (*LOEUF*_max − *LOEUF*) / (*LOEUF*_max − *LOEUF*_min). Quality filtering requires mean sequencing depth ≥30× and CDS coverage ≥90%; genes below these thresholds receive NULL scores rather than potentially unreliable estimates. This layer covers 93% of the gene universe.
 
-**Tissue expression specificity (weight: 0.20).** Usher syndrome affects retinal photoreceptors and cochlear hair cells; genes with enriched expression in these tissues are stronger candidates. Expression data are integrated from the Human Protein Atlas (HPA) v23 [14] and GTEx v8 [15]. The expression score combines three components: (a) Usher-tissue enrichment ratio (mean expression in target tissues / overall mean), (b) Tau tissue specificity index (τ, ranging from 0 for ubiquitous to 1 for tissue-specific), and (c) maximum expression percentile across target tissues. The composite is: *expression\_score* = 0.4 × enrichment percentile + 0.3 × τ + 0.3 × max target percentile. A known limitation is that GTEx v8 lacks retina tissue; retinal expression data derive solely from HPA. Coverage: 97%.
+**Tissue expression specificity (weight: 0.20).** Usher syndrome affects retinal photoreceptors and cochlear hair cells; genes with enriched expression in these tissues are stronger candidates. Expression data are integrated from three sources: the Human Protein Atlas (HPA) v23 [14] for bulk tissue expression, GTEx v8 [15] for median gene TPM across tissues, and CZ CELLxGENE Census [31] for single-cell RNA-seq expression in photoreceptor cells (1.48 million cells from retinal datasets). The expression score combines three components: (a) Usher-tissue enrichment ratio (mean expression in target tissues including photoreceptor single-cell data / overall mean), (b) Tau tissue specificity index (τ, ranging from 0 for ubiquitous to 1 for tissue-specific), and (c) maximum expression percentile across target tissues. The composite is: *expression\_score* = 0.4 × enrichment percentile + 0.3 × τ + 0.3 × max target percentile. GTEx v8 lacks retina tissue; retinal expression at the cell-type level is provided by CellxGene photoreceptor data (19,516 genes with non-null expression). Hair cell single-cell data is not yet available in CellxGene Census. Coverage: 97%.
 
 **Functional annotation completeness (weight: 0.15).** Annotation depth is quantified from Gene Ontology (GO) term counts [16], UniProt annotation scores (0–5 scale) [17], and KEGG/Reactome pathway membership [18]. The composite weights GO terms (50%), UniProt (30%), and pathway presence (20%), with GO counts log-scaled to attenuate the influence of heavily annotated genes. This layer is intentionally weighted lower (0.15) because annotation completeness inversely correlates with gene novelty — under-studied genes have fewer annotations by definition. Coverage: 99%.
 
@@ -86,7 +86,7 @@ UsherPipe integrates six evidence layers, each capturing a distinct biological d
 
 **Animal model phenotypes (weight: 0.15).** Cross-species phenotype conservation provides functional validation independent of human data. Orthologs are mapped via HCOP [19], and phenotype annotations are retrieved from MGI (mouse) [20], ZFIN (zebrafish) [21], and IMPC [22]. Phenotypes are filtered for sensory relevance using curated keyword sets (hearing, vision, retina, photoreceptor, cochlea, stereocilia, vestibular, balance for mouse; hearing, otic, lateral line, hair cell, retina for zebrafish). Phenotype counts are log-scaled — log₂(count + 1) / log₂(max + 1) — to prevent annotation-rich model organisms from dominating rankings. Coverage: 98%.
 
-**Literature mining (weight: 0.15).** PubMed abstracts are searched via NCBI E-utilities [23] using gene symbols combined with cilia- and sensory-related MeSH terms. Evidence quality is tiered: direct experimental (knockout/mutation in cilia/sensory context, weight 1.0), functional mention (cilia context with ≥3 publications, 0.6), high-throughput screening hit (0.3), and incidental mention (0.1). Critically, raw scores are divided by log₂(total publications + 1) to correct for research bias: a gene with 5 cilia-related papers among 50 total publications receives a higher score than one with 5 among 100,000. This explicitly favors under-studied genes with disproportionate cilia evidence. Coverage: 100%.
+**Literature mining (weight: 0.15).** Gene-to-publication mappings are obtained from NCBI's curated gene2pubmed database, providing total publication counts per gene. Context-specific counts (cilia, sensory, cytoskeleton, cell polarity) are derived by intersecting each gene's PMIDs with six batch PubMed MeSH queries — replacing per-gene API queries and reducing runtime from ~46 hours to ~5 minutes. Evidence quality is tiered: direct experimental (knockout/mutation in cilia/sensory context, weight 1.0), functional mention (cilia context with ≥3 publications, 0.6), high-throughput screening hit (0.3), and incidental mention (0.1). Critically, raw scores are divided by log₂(total publications + 1) to correct for research bias: a gene with 5 cilia-related papers among 50 total publications receives a higher score than one with 5 among 100,000. This explicitly favors under-studied genes with disproportionate cilia evidence. Coverage: 85% (genes present in gene2pubmed; remaining genes receive NULL).
 
 ### NULL-aware composite scoring
 
@@ -117,13 +117,13 @@ usher-pipeline evidence annotation    # GO/UniProt/pathway (~3 min)
 usher-pipeline evidence localization  # Subcellular localization (~5 min)
 usher-pipeline evidence animal-models # MGI/ZFIN/IMPC phenotypes (~8 min)
 usher-pipeline evidence literature \
-  --email user@example.com            # PubMed mining (~46 hours)
+  --email user@example.com            # Bulk literature mining (~5 min)
 usher-pipeline score                  # Composite scoring (<1 min)
 usher-pipeline report                 # TSV/Parquet + figures (<1 min)
 usher-pipeline validate               # Validation report (<1 min)
 ```
 
-Total runtime excluding the literature layer is approximately 35 minutes on a standard workstation with broadband internet. The literature layer dominates runtime (~46 hours for 22,600 genes at 3 requests/second; ~14 hours with an NCBI API key at 10 requests/second) but supports checkpoint-restart. All outputs are written to `data/report/`, including `candidates.tsv` (tab-separated candidate list), `candidates.parquet` (binary format for programmatic analysis), and visualization plots.
+Total runtime is approximately 30–45 minutes on a standard workstation with broadband internet, dominated by bulk file downloads (gene2pubmed ~150 MB, HPA/GTEx expression files). The CellxGene Census query adds ~10 minutes on first run but results are cached locally for subsequent runs. All outputs are written to `data/report/`, including `candidates.tsv` (tab-separated candidate list), `candidates.parquet` (binary format for programmatic analysis), and visualization plots.
 
 ---
 
@@ -201,11 +201,11 @@ This design also enables progressive enrichment. As new data sources become avai
 
 ### Limitations
 
-Several limitations should be noted. First, the negative control analysis shows that housekeeping genes achieve MEDIUM-tier composite scores driven by non-specific layers (constraint, annotation, literature). The `has_cilia_signal` flag mitigates this by marking genes with direct cilia-specific evidence, but users should examine layer-level scores when evaluating candidates. Second, the gene deduplication strategy — preferring gnomAD-recognized Ensembl IDs as a proxy for canonical transcripts — is an approximation; future versions should integrate MANE Select annotations directly from Ensembl. Third, GTEx v8 lacks retinal tissue, limiting expression evidence for this critical Usher-relevant tissue to HPA data alone. Fourth, the literature mining layer queries the live NCBI E-utilities API (~8 genes/minute without an API key), requiring approximately 46 hours for a full genome-wide scan; integration of bulk MEDLINE or PubTator would substantially reduce runtime. Fifth, missing data in genome-wide databases is likely missing not at random (MNAR) — genes lacking localization data may be inherently difficult to localize rather than simply unstudied — and our NULL-aware approach does not model this distinction. Finally, the weighted scoring framework is transparent and interpretable but not optimized through machine learning; whether learned weights would improve performance remains an open question.
+Several limitations should be noted. First, the negative control analysis shows that housekeeping genes achieve MEDIUM-tier composite scores driven by non-specific layers (constraint, annotation, literature). The `has_cilia_signal` flag mitigates this by marking genes with direct cilia-specific evidence, but users should examine layer-level scores when evaluating candidates. Second, while single-cell photoreceptor expression data from CellxGene Census covers 19,516 genes, inner ear hair cell data is not yet available in the Census; cochlear expression evidence remains a gap that future Census releases may address. Third, the bulk literature approach using gene2pubmed covers 85% of the gene universe; genes absent from NCBI's curated gene-to-publication mapping receive NULL literature scores. Fourth, missing data in genome-wide databases is likely missing not at random (MNAR) — genes lacking localization data may be inherently difficult to localize rather than simply unstudied — and our NULL-aware approach does not model this distinction. Finally, the weighted scoring framework is transparent and interpretable but not optimized through machine learning; whether learned weights would improve performance remains an open question.
 
 ### Future directions
 
-Promising extensions include protein-protein interaction network analysis (leveraging the Usher protein interactome [30]), dedicated single-cell expression layers for photoreceptor and hair cell populations from the CellxGene atlas, and a web interface for interactive exploration of candidate gene evidence profiles. Experimental validation of top candidates — particularly ARL3, MAPRE3, and ATP2B2 — through immunolocalization in retinal and cochlear tissue would provide the strongest support for their candidacy.
+Promising extensions include protein-protein interaction network analysis (leveraging the Usher protein interactome [30]), integration of cochlear hair cell single-cell data as it becomes available in CellxGene Census, and a web interface for interactive exploration of candidate gene evidence profiles. Experimental validation of top candidates — particularly ARL3, MAPRE3, and ATP2B2 — through immunolocalization in retinal and cochlear tissue would provide the strongest support for their candidacy.
 
 ---
 
@@ -229,7 +229,7 @@ UsherPipe addresses a specific gap in rare disease gene discovery by combining t
 
 ## List of abbreviations
 
-CDS, coding sequence; gnomAD, Genome Aggregation Database; GO, Gene Ontology; GTEx, Genotype-Tissue Expression; HCOP, HUGO Gene Nomenclature Committee Comparison of Orthology Predictions; HPA, Human Protein Atlas; HPO, Human Phenotype Ontology; IMPC, International Mouse Phenotyping Consortium; LOEUF, loss-of-function observed/expected upper bound fraction; MGI, Mouse Genome Informatics; PPI, protein-protein interaction; USH, Usher syndrome; ZFIN, Zebrafish Information Network.
+CDS, coding sequence; gnomAD, Genome Aggregation Database; GO, Gene Ontology; GTEx, Genotype-Tissue Expression; HCOP, HUGO Gene Nomenclature Committee Comparison of Orthology Predictions; HPA, Human Protein Atlas; HPO, Human Phenotype Ontology; IMPC, International Mouse Phenotyping Consortium; LOEUF, loss-of-function observed/expected upper bound fraction; MANE, Matched Annotation from NCBI and EMBL-EBI; MGI, Mouse Genome Informatics; PPI, protein-protein interaction; USH, Usher syndrome; ZFIN, Zebrafish Information Network.
 
 ---
 
@@ -316,3 +316,5 @@ The authors declare that they have no competing interests.
 [29] Stoeger T, et al. Large-scale investigation of the reasons why potentially important genes are ignored. PLoS Biol. 2018;16(9):e2006643.
 
 [30] Linnert J, et al. Usher syndrome proteins ADGRV1 (USH2C) and CIB2 (USH1J) interact and share a common interactome containing TRiC/CCT-BBS chaperonins. Front Cell Dev Biol. 2023;11:1199069.
+
+[31] CZI Single-Cell Biology, et al. CZ CELLxGENE Discover: A single-cell data platform for scalable exploration, analysis and modeling of aggregated data. Nucleic Acids Res. 2025;53(D1):D886-D896.
