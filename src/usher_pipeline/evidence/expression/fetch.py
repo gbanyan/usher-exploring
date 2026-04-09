@@ -435,19 +435,17 @@ HAIR_CELL_TYPES = [
 def _query_mean_expression(
     census,
     cell_types: list[str],
-    gene_ids: list[str],
     column_name: str,
 ) -> pl.DataFrame:
-    """Query Census for mean expression of genes in specific cell types.
+    """Query Census for mean expression of ALL genes in specific cell types.
 
     Args:
         census: Open cellxgene_census.open_soma() context.
         cell_types: List of cell_type ontology labels to filter.
-        gene_ids: Ensembl gene IDs to query.
         column_name: Name for the output expression column.
 
     Returns:
-        DataFrame with columns: gene_id, <column_name>.
+        DataFrame with columns: gene_id, <column_name> for all genes in Census.
     """
     import cellxgene_census
 
@@ -466,8 +464,8 @@ def _query_mean_expression(
             census,
             organism="Homo sapiens",
             obs_value_filter=obs_filter,
-            var_value_filter=f"feature_id in {gene_ids}",
-            column_names={"obs": ["cell_type"], "var": ["feature_id"]},
+            obs_column_names=["cell_type"],
+            var_column_names=["feature_id"],
         )
     except Exception as e:
         logger.warning(
@@ -475,10 +473,9 @@ def _query_mean_expression(
             cell_types=cell_types,
             error=str(e),
         )
-        return pl.DataFrame({
-            "gene_id": gene_ids,
-            column_name: [None] * len(gene_ids),
-        })
+        return pl.DataFrame({"gene_id": [], column_name: []}).cast(
+            {"gene_id": pl.Utf8, column_name: pl.Float64}
+        )
 
     n_cells = adata.n_obs
     n_genes_found = adata.n_vars
@@ -491,10 +488,9 @@ def _query_mean_expression(
     )
 
     if n_cells == 0:
-        return pl.DataFrame({
-            "gene_id": gene_ids,
-            column_name: [None] * len(gene_ids),
-        })
+        return pl.DataFrame({"gene_id": [], column_name: []}).cast(
+            {"gene_id": pl.Utf8, column_name: pl.Float64}
+        )
 
     # Compute mean expression per gene across all matching cells
     # adata.X is a sparse matrix (cells x genes)
@@ -504,18 +500,9 @@ def _query_mean_expression(
     feature_ids = adata.var["feature_id"]
     found_gene_ids = feature_ids.tolist() if hasattr(feature_ids, "tolist") else list(feature_ids)
 
-    # Build lookup dict
-    expr_map = dict(zip(found_gene_ids, mean_expr))
-
-    # Map back to all requested gene_ids (NULL for genes not found in Census)
-    values = [
-        float(expr_map[gid]) if gid in expr_map else None
-        for gid in gene_ids
-    ]
-
     return pl.DataFrame({
-        "gene_id": gene_ids,
-        column_name: values,
+        "gene_id": found_gene_ids,
+        column_name: mean_expr.tolist(),
     })
 
 
@@ -571,27 +558,38 @@ def fetch_cellxgene_expression(
 
     try:
         with cellxgene_census.open_soma() as census:
-            # Query photoreceptor expression
+            # Query photoreceptor expression (all genes)
             photo_df = _query_mean_expression(
                 census,
                 PHOTORECEPTOR_CELL_TYPES,
-                gene_ids,
                 "cellxgene_photoreceptor_expr",
             )
 
-            # Query hair cell expression
+            # Query hair cell expression (all genes)
             hair_df = _query_mean_expression(
                 census,
                 HAIR_CELL_TYPES,
-                gene_ids,
                 "cellxgene_hair_cell_expr",
             )
 
-        # Merge results
-        result = photo_df.join(hair_df, on="gene_id", how="outer_coalesce")
+        # Merge full Census results
+        if photo_df.height > 0 and hair_df.height > 0:
+            full_result = photo_df.join(hair_df, on="gene_id", how="outer_coalesce")
+        elif photo_df.height > 0:
+            full_result = photo_df.with_columns(pl.lit(None).cast(pl.Float64).alias("cellxgene_hair_cell_expr"))
+        elif hair_df.height > 0:
+            full_result = hair_df.with_columns(pl.lit(None).cast(pl.Float64).alias("cellxgene_photoreceptor_expr"))
+        else:
+            return _null_cellxgene_result(gene_ids)
 
-        # Cache to parquet
-        result.write_parquet(cache_path)
+        # Cache ALL Census genes to parquet (avoid re-querying)
+        full_result.write_parquet(cache_path)
+
+        # Filter to requested pipeline gene_ids
+        result = (
+            pl.DataFrame({"gene_id": gene_ids})
+            .join(full_result, on="gene_id", how="left")
+        )
         logger.info(
             "cellxgene_fetch_complete",
             genes=result.height,

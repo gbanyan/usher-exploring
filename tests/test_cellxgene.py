@@ -117,19 +117,17 @@ def test_query_mean_expression_mock():
     sys.modules["cellxgene_census"] = mock_cxg
     try:
         result = _query_mean_expression(
-            MagicMock(),  # census object (unused, get_anndata is module-level)
+            MagicMock(),  # census object
             ["photoreceptor cell"],
-            ["ENSG001", "ENSG002", "ENSG003"],
             "test_expr",
         )
     finally:
         del sys.modules["cellxgene_census"]
 
-    assert result.height == 3
+    # Returns all genes found in Census (not filtered to pipeline genes)
+    assert result.height == 2
     assert result.filter(pl.col("gene_id") == "ENSG001")["test_expr"][0] == pytest.approx(1.5)
     assert result.filter(pl.col("gene_id") == "ENSG002")["test_expr"][0] == pytest.approx(0.8)
-    # ENSG003 not in Census — should be NULL
-    assert result.filter(pl.col("gene_id") == "ENSG003")["test_expr"][0] is None
 
 
 def test_cell_type_constants():

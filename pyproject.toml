@@ -47,7 +47,7 @@ dev = [
     "pytest-cov>=4.1.0",
 ]
 expression = [
-    "cellxgene-census>=1.19",
+    "cellxgene-census>=1.15",
 ]
 
 [project.scripts]
