@@ -53,21 +53,45 @@ def test_tau_calculation_specific():
     assert tau == pytest.approx(1.0, abs=0.01)
 
 
-def test_tau_null_handling():
-    """NULL tissue values -> NULL Tau (insufficient data)."""
+def test_tau_partial_data():
+    """Partial tissue coverage -> Tau computed over available tissues (NULL-aware).
+
+    A gene missing one tissue is still scored on the tissues it does have,
+    because some panel tissues are structurally absent for every gene.
+    """
     df = pl.DataFrame({
         "gene_id": ["ENSG00000001", "ENSG00000002"],
-        "tissue1": [10.0, 20.0],
+        "tissue1": [100.0, 20.0],
         "tissue2": [None, 20.0],  # NULL for gene 1
-        "tissue3": [10.0, 20.0],
-        "tissue4": [10.0, 20.0],
+        "tissue3": [0.0, 20.0],
+        "tissue4": [0.0, 20.0],
     })
 
     tissue_cols = ["tissue1", "tissue2", "tissue3", "tissue4"]
     result = calculate_tau_specificity(df, tissue_cols)
 
     tau_values = result.select("tau_specificity").to_series().to_list()
-    # Gene 1 has NULL tissue -> NULL Tau
+    # Gene 1: 3 tissues with data (100, 0, 0) -> Tau = (0+1+1)/2 = 1.0
+    assert tau_values[0] == pytest.approx(1.0, abs=0.01)
+    # Gene 2: ubiquitous across 4 tissues -> Tau ~ 0
+    assert tau_values[1] == pytest.approx(0.0, abs=0.01)
+
+
+def test_tau_insufficient_tissues():
+    """Fewer than 2 tissues with data -> NULL Tau (insufficient data)."""
+    df = pl.DataFrame({
+        "gene_id": ["ENSG00000001", "ENSG00000002"],
+        "tissue1": [10.0, 20.0],
+        "tissue2": [None, 20.0],
+        "tissue3": [None, 20.0],
+        "tissue4": [None, 20.0],
+    })
+
+    tissue_cols = ["tissue1", "tissue2", "tissue3", "tissue4"]
+    result = calculate_tau_specificity(df, tissue_cols)
+
+    tau_values = result.select("tau_specificity").to_series().to_list()
+    # Gene 1 has only 1 tissue with data -> NULL Tau
     assert tau_values[0] is None
     # Gene 2 has complete data -> Tau should be valid
     assert tau_values[1] is not None

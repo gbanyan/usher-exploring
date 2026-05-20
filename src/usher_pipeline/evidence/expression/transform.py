@@ -25,7 +25,13 @@ def calculate_tau_specificity(
     Formula: Tau = sum(1 - xi/xmax) / (n-1)
     where xi is expression in tissue i, xmax is max expression across tissues.
 
-    If ANY tissue value is NULL, Tau is NULL (insufficient data for reliable specificity).
+    Tau is computed per gene over the tissues for which that gene has data
+    (NULL-aware): a gene with values in only a subset of the panel is still
+    scored on that subset. This is necessary because some panel tissues are
+    structurally absent for every gene (e.g. GTEx v8 has no retina), which
+    would make an "all tissues required" rule yield NULL Tau for every gene.
+    Tau is NULL only when fewer than two tissues have data, or when the
+    maximum expression across available tissues is zero.
 
     Args:
         df: DataFrame with expression values across tissues
@@ -42,45 +48,34 @@ def calculate_tau_specificity(
         missing = set(tissue_columns) - set(available_cols)
         logger.warning("tau_missing_columns", missing=list(missing))
 
-    if not available_cols:
-        # No tissue data available - return with NULL Tau
+    if len(available_cols) < 2:
+        # Cannot compute specificity with fewer than 2 tissues
         return df.with_columns(pl.lit(None).cast(pl.Float64).alias("tau_specificity"))
 
-    # For each gene, check if all tissue values are non-NULL
-    # If any NULL, Tau is NULL
-    # Otherwise, compute Tau = sum(1 - xi/xmax) / (n-1)
+    # Per-gene count of tissues with data
+    n_nonnull = sum(
+        pl.col(col).is_not_null().cast(pl.Int32) for col in available_cols
+    )
 
-    # Create expression for NULL check
-    has_all_data = pl.all_horizontal([pl.col(col).is_not_null() for col in available_cols])
-
-    # Compute Tau only for genes with complete data
-    # Step 1: Find max expression across tissues
+    # Max expression across the tissues that have data (NULLs ignored)
     max_expr = pl.max_horizontal([pl.col(col) for col in available_cols])
 
-    # Step 2: Compute sum(1 - xi/xmax) for each gene
-    # Handle division by zero: if max_expr is 0, Tau is undefined (set to NULL)
-    tau_sum = sum([
-        pl.when(max_expr > 0)
+    # sum(1 - xi/xmax) over tissues with data; NULL tissues contribute 0
+    tau_sum = sum(
+        pl.when(pl.col(col).is_not_null() & (max_expr > 0))
         .then(1.0 - (pl.col(col) / max_expr))
         .otherwise(0.0)
         for col in available_cols
-    ])
-
-    # Step 3: Divide by (n-1), where n is number of tissues
-    n_tissues = len(available_cols)
-    if n_tissues <= 1:
-        # Cannot compute specificity with only 1 tissue
-        tau = pl.lit(None).cast(pl.Float64)
-    else:
-        tau = tau_sum / (n_tissues - 1)
-
-    # Apply Tau only to genes with complete data
-    df = df.with_columns(
-        pl.when(has_all_data & (max_expr > 0))
-        .then(tau)
-        .otherwise(pl.lit(None))
-        .alias("tau_specificity")
     )
+
+    # Divide by (n_nonnull - 1); NULL when <2 tissues with data or max == 0
+    tau = (
+        pl.when((n_nonnull >= 2) & (max_expr > 0))
+        .then(tau_sum / (n_nonnull - 1))
+        .otherwise(pl.lit(None))
+    )
+
+    df = df.with_columns(tau.alias("tau_specificity"))
 
     logger.info("tau_calculation_complete")
 

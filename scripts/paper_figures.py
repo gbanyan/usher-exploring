@@ -291,30 +291,49 @@ def fig4_validation_controls(df: pl.DataFrame):
 # ── Figure 5: Sensitivity analysis heatmap ───────────────────────────────
 
 def fig5_sensitivity_heatmap():
-    """Heatmap of Spearman rho from weight perturbation sensitivity analysis."""
-    # Data from validation run
-    layers = ["gnomAD", "Expression", "Annotation", "Localization", "Animal Model", "Literature"]
-    deltas = ["-10%", "-5%", "+5%", "+10%"]
+    """Heatmap of Spearman rho from weight perturbation sensitivity analysis.
 
-    # Spearman rho values from the validation output
+    Spearman rho values are parsed from the current validation report so the
+    figure always reflects the most recent pipeline run.
+    """
+    layer_order = ["gnomad", "expression", "annotation",
+                   "localization", "animal_model", "literature"]
+    layer_labels = {
+        "gnomad": "gnomAD", "expression": "Expression", "annotation": "Annotation",
+        "localization": "Localization", "animal_model": "Animal Model",
+        "literature": "Literature",
+    }
+    delta_order = ["-0.10", "-0.05", "+0.05", "+0.10"]
+    delta_labels = ["-10%", "-5%", "+5%", "+10%"]
+
+    # Parse Spearman rho from the validation report (regenerated every run)
+    report = Path("data/validation/validation_report.md")
+    rho = {}
+    for line in report.read_text().splitlines():
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) >= 5 and parts[1] in layer_order and parts[2] in delta_order:
+            try:
+                rho[(parts[1], parts[2])] = float(parts[3])
+            except ValueError:
+                continue
+    if len(rho) != 24:
+        raise RuntimeError(
+            f"Expected 24 sensitivity values, parsed {len(rho)} from {report}"
+        )
+
     rho_matrix = np.array([
-        [0.9995, 0.9998, 0.9997, 0.9999],  # gnomAD
-        [1.0000, 1.0000, 0.9999, 0.9999],  # Expression
-        [0.9995, 0.9999, 0.9995, 1.0000],  # Annotation
-        [1.0000, 0.9999, 0.9999, 0.9999],  # Localization
-        [0.9997, 0.9995, 1.0000, 1.0000],  # Animal Model
-        [1.0000, 0.9999, 1.0000, 0.9998],  # Literature
+        [rho[(layer, d)] for d in delta_order] for layer in layer_order
     ])
 
     fig, ax = plt.subplots(figsize=(6, 5))
 
     sns.heatmap(
         rho_matrix,
-        xticklabels=deltas,
-        yticklabels=layers,
-        cmap="YlGn",
-        vmin=0.99, vmax=1.0,
-        annot=True, fmt=".4f",
+        xticklabels=delta_labels,
+        yticklabels=[layer_labels[layer] for layer in layer_order],
+        cmap="RdYlGn",
+        vmin=0.5, vmax=1.0,
+        annot=True, fmt=".3f",
         linewidths=0.5,
         linecolor="white",
         cbar_kws={"label": "Spearman ρ", "shrink": 0.8},

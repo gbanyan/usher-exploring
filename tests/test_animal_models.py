@@ -12,6 +12,10 @@ from usher_pipeline.evidence.animal_models import (
     score_animal_evidence,
     SENSORY_MP_KEYWORDS,
 )
+from usher_pipeline.evidence.animal_models.fetch import (
+    fetch_mgi_phenotypes,
+    fetch_zfin_phenotypes,
+)
 
 
 def test_ortholog_confidence_high():
@@ -278,3 +282,84 @@ def test_impc_integration():
 
     # IMPC should add to score (+0.3)
     assert with_impc_score > no_impc_score
+
+
+def test_fetch_mgi_phenotypes_parses_headerless_reports():
+    """MGI fetch parses headerless HMD + VOC reports and resolves MP term names."""
+    # VOC_MammalianPhenotype.rpt: headerless MP ID, term name, definition
+    vocab = (
+        "MP:0001\thearing loss\tinability to hear\n"
+        "MP:0002\tabnormal cochlea morphology\tcochlea defect\n"
+        "MP:0003\tabnormal coat color\tcoat defect"
+    )
+    # HMD_HumanPhenotype.rpt: headerless human sym, entrez, mouse sym, MGI acc, MP IDs
+    hmd = (
+        "GENE1\t111\tGene1\tMGI:1\tMP:0001, MP:0003\t\n"
+        "GENE2\t222\tGene2\tMGI:2\tMP:0002\t\n"
+        "GENE3\t333\tGene3\tMGI:3\t\t"  # no phenotypes
+    )
+
+    with patch('usher_pipeline.evidence.animal_models.fetch._download_text') as mock_dl:
+        mock_dl.side_effect = [vocab, hmd]
+        result = fetch_mgi_phenotypes(['Gene1', 'Gene2'])
+
+    assert set(result.columns) == {'mouse_gene', 'mp_term_id', 'mp_term_name'}
+    # Gene1 -> MP:0001, MP:0003 ; Gene2 -> MP:0002 ; Gene3 not requested
+    assert result.height == 3
+    g1 = result.filter(pl.col('mouse_gene') == 'Gene1')
+    assert sorted(g1['mp_term_id'].to_list()) == ['MP:0001', 'MP:0003']
+    assert 'hearing loss' in g1['mp_term_name'].to_list()
+
+
+def test_fetch_mgi_phenotypes_terms_enable_sensory_filter():
+    """MGI term names are populated so downstream keyword filtering works."""
+    vocab = "MP:0001\thearing loss\td\nMP:0003\tabnormal coat color\td"
+    hmd = "GENE1\t111\tGene1\tMGI:1\tMP:0001, MP:0003\t"
+
+    with patch('usher_pipeline.evidence.animal_models.fetch._download_text') as mock_dl:
+        mock_dl.side_effect = [vocab, hmd]
+        pheno = fetch_mgi_phenotypes(['Gene1'])
+
+    sensory = filter_sensory_phenotypes(pheno, SENSORY_MP_KEYWORDS, 'mp_term_name')
+    assert sensory.height == 1
+    assert sensory['mp_term_name'].to_list() == ['hearing loss']
+
+
+def _zfin_row(gene, subterm, superterm, keyword, tag):
+    """Build a 25-field headerless ZFIN phenoGeneCleanData row."""
+    fields = [""] * 25
+    fields[0] = "100"
+    fields[1] = gene            # col 2: gene symbol
+    fields[2] = "ZDB-GENE-1"    # col 3: gene id
+    fields[4] = subterm         # col 5: structure 1 subterm name
+    fields[7] = "ZFA:0001"      # col 8: superterm id
+    fields[8] = superterm       # col 9: structure 1 superterm name
+    fields[10] = keyword        # col 11: phenotype keyword name
+    fields[11] = tag            # col 12: phenotype tag
+    return "\t".join(fields)
+
+
+def test_fetch_zfin_phenotypes_parses_headerless_file():
+    """ZFIN fetch parses the headerless file and builds keyword-matchable terms."""
+    content = "\n".join([
+        _zfin_row("gene1", "photoreceptor cell", "retina", "degenerate", "abnormal"),
+        _zfin_row("gene2", "", "lateral line", "decreased amount", "abnormal"),
+        _zfin_row("gene3", "", "fin", "malformed", "normal"),   # normal -> dropped
+    ])
+
+    with patch('usher_pipeline.evidence.animal_models.fetch._download_text') as mock_dl:
+        mock_dl.return_value = content
+        result = fetch_zfin_phenotypes(['gene1', 'gene2', 'gene3'])
+
+    assert set(result.columns) == {'zebrafish_gene', 'zp_term_id', 'zp_term_name'}
+    # gene3 is tagged "normal" -> filtered out
+    assert sorted(result['zebrafish_gene'].to_list()) == ['gene1', 'gene2']
+    g1_term = result.filter(pl.col('zebrafish_gene') == 'gene1')['zp_term_name'][0]
+    assert 'retina' in g1_term and 'photoreceptor' in g1_term
+
+
+def test_fetch_zfin_phenotypes_empty_for_no_genes():
+    """ZFIN fetch returns an empty typed frame when no genes are requested."""
+    result = fetch_zfin_phenotypes([])
+    assert result.is_empty()
+    assert set(result.columns) == {'zebrafish_gene', 'zp_term_id', 'zp_term_name'}

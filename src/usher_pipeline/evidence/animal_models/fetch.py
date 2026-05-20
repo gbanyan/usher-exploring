@@ -19,11 +19,16 @@ logger = structlog.get_logger()
 
 
 # HCOP ortholog database URLs
-HCOP_HUMAN_MOUSE_URL = "https://ftp.ebi.ac.uk/pub/databases/genenames/hcop/human_mouse_hcop_fifteen_column.txt.gz"
-HCOP_HUMAN_ZEBRAFISH_URL = "https://ftp.ebi.ac.uk/pub/databases/genenames/hcop/human_zebrafish_hcop_fifteen_column.txt.gz"
+# HGNC moved bulk downloads from the EBI FTP to Google Cloud Storage.
+HCOP_HUMAN_MOUSE_URL = "https://storage.googleapis.com/public-download-files/hcop/human_mouse_hcop_fifteen_column.txt.gz"
+HCOP_HUMAN_ZEBRAFISH_URL = "https://storage.googleapis.com/public-download-files/hcop/human_zebrafish_hcop_fifteen_column.txt.gz"
 
-# MGI phenotype report URL
-MGI_GENE_PHENO_URL = "https://www.informatics.jax.org/downloads/reports/MGI_GenePheno.rpt"
+# MGI phenotype report URLs
+# HMD_HumanPhenotype.rpt: human/mouse homology with rolled-up MP IDs per mouse gene
+#   (headerless; col 1 human symbol, col 3 mouse symbol, col 5 comma-separated MP IDs)
+MGI_HMD_PHENOTYPE_URL = "https://www.informatics.jax.org/downloads/reports/HMD_HumanPhenotype.rpt"
+# VOC_MammalianPhenotype.rpt: MP ontology (headerless; col 1 MP ID, col 2 term name)
+MGI_MP_VOCAB_URL = "https://www.informatics.jax.org/downloads/reports/VOC_MammalianPhenotype.rpt"
 
 # ZFIN phenotype data URL
 ZFIN_PHENO_URL = "https://zfin.org/downloads/phenoGeneCleanData_fish.txt"
@@ -223,11 +228,26 @@ def fetch_ortholog_mapping(gene_ids: list[str]) -> pl.DataFrame:
     return result
 
 
+def _empty_mgi_result() -> pl.DataFrame:
+    """Return an empty MGI phenotype DataFrame with the expected schema."""
+    return pl.DataFrame(
+        schema={
+            "mouse_gene": pl.String,
+            "mp_term_id": pl.String,
+            "mp_term_name": pl.String,
+        }
+    )
+
+
 def fetch_mgi_phenotypes(mouse_gene_symbols: list[str]) -> pl.DataFrame:
     """Fetch mouse phenotype data from MGI (Mouse Genome Informatics).
 
-    Downloads the MGI gene-phenotype report and extracts phenotype terms
-    for the specified mouse genes.
+    Uses two MGI reports, both of which are headerless tab-delimited files:
+    - HMD_HumanPhenotype.rpt: human/mouse homology with the set of Mammalian
+      Phenotype (MP) IDs rolled up per mouse gene (column 3 = mouse symbol,
+      column 5 = comma-separated MP IDs).
+    - VOC_MammalianPhenotype.rpt: the MP ontology, used to resolve MP IDs to
+      human-readable term names (column 1 = MP ID, column 2 = term name).
 
     Args:
         mouse_gene_symbols: List of mouse gene symbols
@@ -240,83 +260,98 @@ def fetch_mgi_phenotypes(mouse_gene_symbols: list[str]) -> pl.DataFrame:
     """
     if not mouse_gene_symbols:
         logger.info("fetch_mgi_phenotypes_skip", reason="no_mouse_genes")
-        return pl.DataFrame({
-            "mouse_gene": [],
-            "mp_term_id": [],
-            "mp_term_name": [],
-        })
+        return _empty_mgi_result()
 
     logger.info("fetch_mgi_phenotypes_start", gene_count=len(mouse_gene_symbols))
 
-    # Download MGI phenotype report
-    content = _download_text(MGI_GENE_PHENO_URL)
-
-    # Parse TSV (skip first line if it's a comment)
-    lines = content.strip().split("\n")
-    if lines[0].startswith("#"):
-        lines = lines[1:]
-
-    # Read as DataFrame (all columns as string to avoid type inference issues)
-    df = pl.read_csv(
-        io.StringIO("\n".join(lines)),
+    # --- MP ontology: MP ID -> term name ---
+    vocab_content = _download_text(MGI_MP_VOCAB_URL)
+    vocab_df = pl.read_csv(
+        io.StringIO(vocab_content),
         separator="\t",
-        null_values=["", "NA"],
-        has_header=True,
-        infer_schema_length=10000,
+        has_header=False,
+        truncate_ragged_lines=True,
+        infer_schema_length=0,
+    )
+    if vocab_df.width < 2:
+        logger.warning("mgi_vocab_parse_failed", columns=vocab_df.columns)
+        return _empty_mgi_result()
+    mp_vocab = vocab_df.select(
+        pl.col(vocab_df.columns[0]).alias("mp_term_id"),
+        pl.col(vocab_df.columns[1]).alias("mp_term_name"),
     )
 
-    logger.info("mgi_raw_columns", columns=df.columns)
+    # --- Gene -> MP IDs from the homology/phenotype report ---
+    hmd_content = _download_text(MGI_HMD_PHENOTYPE_URL)
+    hmd_df = pl.read_csv(
+        io.StringIO(hmd_content),
+        separator="\t",
+        has_header=False,
+        truncate_ragged_lines=True,
+        infer_schema_length=0,
+    )
+    # Column 3 (index 2) = mouse symbol, column 5 (index 4) = comma-separated MP IDs
+    if hmd_df.width < 5:
+        logger.warning("mgi_hmd_parse_failed", columns=hmd_df.columns)
+        return _empty_mgi_result()
 
-    # MGI_GenePheno.rpt columns vary, but typically include:
-    # Allelic Composition, Allele Symbol(s), Genetic Background, Mammalian Phenotype ID, PubMed ID, MGI Marker Accession ID
-    # We need to identify the right columns
-    # Expected columns: marker symbol, MP ID, MP term
-    # Common column names: "Marker Symbol", "Mammalian Phenotype ID"
-
-    # Try to find the right columns
-    marker_col = None
-    mp_id_col = None
-
-    for col in df.columns:
-        col_lower = col.lower()
-        if "marker" in col_lower and "symbol" in col_lower:
-            marker_col = col
-        elif "mammalian phenotype id" in col_lower or "mp id" in col_lower:
-            mp_id_col = col
-
-    if marker_col is None or mp_id_col is None:
-        logger.warning("mgi_column_detection_failed", columns=df.columns)
-        # Return empty result
-        return pl.DataFrame({
-            "mouse_gene": [],
-            "mp_term_id": [],
-            "mp_term_name": [],
-        })
-
-    # Filter for genes of interest and extract phenotypes
-    # Note: MGI report may have one row per allele-phenotype combination
-    # We'll aggregate unique phenotypes per gene
     result = (
-        df
-        .filter(pl.col(marker_col).is_in(mouse_gene_symbols))
-        .select([
-            pl.col(marker_col).alias("mouse_gene"),
-            pl.col(mp_id_col).alias("mp_term_id"),
-            pl.lit(None).alias("mp_term_name"),  # Term name not in this report
-        ])
+        hmd_df
+        .select(
+            pl.col(hmd_df.columns[2]).alias("mouse_gene"),
+            pl.col(hmd_df.columns[4]).alias("mp_ids"),
+        )
+        .filter(
+            pl.col("mouse_gene").is_in(mouse_gene_symbols)
+            & pl.col("mp_ids").is_not_null()
+        )
+        # One MP ID per row (HMD lists them comma-separated)
+        .with_columns(pl.col("mp_ids").str.split(",").alias("mp_term_id"))
+        .explode("mp_term_id")
+        .with_columns(pl.col("mp_term_id").str.strip_chars())
+        .filter(pl.col("mp_term_id").str.starts_with("MP:"))
+        .select("mouse_gene", "mp_term_id")
         .unique()
+        # Attach human-readable term names for keyword filtering downstream
+        .join(mp_vocab, on="mp_term_id", how="left")
     )
 
-    logger.info("fetch_mgi_phenotypes_complete", phenotype_count=len(result))
+    logger.info(
+        "fetch_mgi_phenotypes_complete",
+        phenotype_count=len(result),
+        genes=result["mouse_gene"].n_unique(),
+    )
 
     return result
+
+
+def _empty_zfin_result() -> pl.DataFrame:
+    """Return an empty ZFIN phenotype DataFrame with the expected schema."""
+    return pl.DataFrame(
+        schema={
+            "zebrafish_gene": pl.String,
+            "zp_term_id": pl.String,
+            "zp_term_name": pl.String,
+        }
+    )
 
 
 def fetch_zfin_phenotypes(zebrafish_gene_symbols: list[str]) -> pl.DataFrame:
     """Fetch zebrafish phenotype data from ZFIN.
 
-    Downloads ZFIN phenotype data and extracts phenotype terms for the
-    specified zebrafish genes.
+    Downloads ZFIN phenoGeneCleanData_fish.txt, a headerless tab-delimited
+    file. Relevant 1-indexed columns:
+    - 2  Gene Symbol
+    - 5  Affected Structure or Process 1 subterm Name
+    - 8  Affected Structure or Process 1 superterm ID
+    - 9  Affected Structure or Process 1 superterm Name
+    - 11 Phenotype Keyword Name
+    - 12 Phenotype Tag (abnormal/normal)
+    - 14 Affected Structure or Process 2 subterm Name
+    - 18 Affected Structure or Process 2 superterm Name
+
+    The affected-structure names are concatenated into ``zp_term_name`` so
+    downstream keyword filtering can match anatomical terms (retina, ear, ...).
 
     Args:
         zebrafish_gene_symbols: List of zebrafish gene symbols
@@ -324,67 +359,69 @@ def fetch_zfin_phenotypes(zebrafish_gene_symbols: list[str]) -> pl.DataFrame:
     Returns:
         DataFrame with columns:
         - zebrafish_gene: Zebrafish gene symbol
-        - zp_term_id: Zebrafish Phenotype term ID (or descriptor)
-        - zp_term_name: Zebrafish Phenotype term name
+        - zp_term_id: Zebrafish anatomy (ZFA) superterm ID
+        - zp_term_name: Concatenated affected-structure / phenotype term names
     """
     if not zebrafish_gene_symbols:
         logger.info("fetch_zfin_phenotypes_skip", reason="no_zebrafish_genes")
-        return pl.DataFrame({
-            "zebrafish_gene": [],
-            "zp_term_id": [],
-            "zp_term_name": [],
-        })
+        return _empty_zfin_result()
 
     logger.info("fetch_zfin_phenotypes_start", gene_count=len(zebrafish_gene_symbols))
 
-    # Download ZFIN phenotype data
+    # Download ZFIN phenotype data (headerless TSV)
     content = _download_text(ZFIN_PHENO_URL)
 
-    # Parse TSV
     df = pl.read_csv(
         io.StringIO(content),
         separator="\t",
         null_values=["", "NA"],
-        has_header=True,
+        has_header=False,
+        truncate_ragged_lines=True,
+        infer_schema_length=0,
     )
 
-    logger.info("zfin_raw_columns", columns=df.columns)
+    # phenoGeneCleanData_fish.txt has 25+ columns; we need up to column 18
+    if df.width < 12:
+        logger.warning("zfin_parse_failed", width=df.width)
+        return _empty_zfin_result()
 
-    # ZFIN phenoGeneCleanData_fish.txt columns (typical):
-    # Gene Symbol, Gene ID, Affected Structure or Process 1 subterm ID, etc.
-    # Look for gene symbol and phenotype columns
-    gene_col = None
-    pheno_col = None
+    cols = df.columns
 
-    for col in df.columns:
-        col_lower = col.lower()
-        if "gene" in col_lower and ("symbol" in col_lower or "name" in col_lower):
-            gene_col = col
-        elif "phenotype" in col_lower or "structure" in col_lower or "process" in col_lower:
-            if pheno_col is None:  # Take first phenotype-related column
-                pheno_col = col
+    def _col(idx_1based: int):
+        """Column expression by 1-based index, or empty string if absent."""
+        i = idx_1based - 1
+        if i < len(cols):
+            return pl.col(cols[i]).fill_null("")
+        return pl.lit("")
 
-    if gene_col is None or pheno_col is None:
-        logger.warning("zfin_column_detection_failed", columns=df.columns)
-        return pl.DataFrame({
-            "zebrafish_gene": [],
-            "zp_term_id": [],
-            "zp_term_name": [],
-        })
+    # Affected-structure name columns used for keyword matching
+    name_parts = [_col(5), _col(9), _col(14), _col(18), _col(11)]
 
-    # Filter and extract
     result = (
         df
-        .filter(pl.col(gene_col).is_in(zebrafish_gene_symbols))
-        .select([
-            pl.col(gene_col).alias("zebrafish_gene"),
-            pl.lit(None).alias("zp_term_id"),
-            pl.col(pheno_col).alias("zp_term_name"),
-        ])
+        .select(
+            pl.col(cols[1]).alias("zebrafish_gene"),
+            _col(8).alias("zp_term_id"),
+            pl.concat_str(name_parts, separator=" ", ignore_nulls=True)
+            .str.strip_chars()
+            .alias("zp_term_name"),
+            _col(12).str.to_lowercase().alias("_tag"),
+        )
+        .filter(
+            pl.col("zebrafish_gene").is_in(zebrafish_gene_symbols)
+            # Keep abnormal phenotype annotations only
+            & (pl.col("_tag") == "abnormal")
+            & (pl.col("zp_term_name").str.len_chars() > 0)
+        )
+        .select("zebrafish_gene", "zp_term_id", "zp_term_name")
         .unique()
     )
 
-    logger.info("fetch_zfin_phenotypes_complete", phenotype_count=len(result))
+    logger.info(
+        "fetch_zfin_phenotypes_complete",
+        phenotype_count=len(result),
+        genes=result["zebrafish_gene"].n_unique(),
+    )
 
     return result
 

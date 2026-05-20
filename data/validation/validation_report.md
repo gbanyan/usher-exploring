@@ -7,28 +7,28 @@
 ### Summary
 - Known genes expected: 38
 - Known genes found: 38
-- Median percentile: 83.3%
-- Top quartile count: 28
-- Top quartile fraction: 73.7%
+- Median percentile: 90.2%
+- Top quartile count: 35
+- Top quartile fraction: 92.1%
 
 ### Recall@k Metrics
 
 | Threshold | Recall |
 |-----------|--------|
-| Top 100 | 0.0% |
-| Top 500 | 7.9% |
-| Top 1000 | 10.5% |
-| Top 2000 | 26.3% |
-| Top 10% | 23.7% |
-| Top 20% | 57.9% |
-| Top 5% | 7.9% |
+| Top 100 | 10.5% |
+| Top 500 | 23.7% |
+| Top 1000 | 42.1% |
+| Top 2000 | 52.6% |
+| Top 10% | 52.6% |
+| Top 20% | 84.2% |
+| Top 5% | 42.1% |
 
 ### Per-Source Breakdown
 
 | Source | Count | Median Percentile | Top Quartile |
 |--------|-------|-------------------|--------------|
-| omim_usher | 10 | 82.3% | 8 |
-| syscilia_scgs_v2 | 28 | 83.3% | 20 |
+| syscilia_scgs_v2 | 28 | 89.8% | 25 |
+| omim_usher | 10 | 95.7% | 10 |
 
 **Verdict:** Known cilia/Usher genes rank highly (median >= 75th percentile), validating scoring system sensitivity.
 
@@ -39,56 +39,56 @@
 ### Summary
 - Housekeeping genes expected: 13
 - Housekeeping genes found: 13
-- Median percentile: 92.4%
-- Top quartile count: 12
-- High-tier count (score >= 0.70): 0
+- Median percentile: 94.1%
+- Top quartile count: 11
+- High-tier count (score >= 0.70): 2
 
 **Verdict:** Housekeeping genes rank higher than expected, indicating potential lack of specificity.
 
 ## 3. Sensitivity Analysis
 
-**Status:** STABLE ✓
+**Status:** UNSTABLE ✗
 
 ### Summary
 - Total perturbations: 24
-- Stable perturbations (rho >= 0.85): 24
-- Unstable perturbations: 0
-- Mean Spearman rho: 0.9998
-- Range: [0.9995, 1.0000]
+- Stable perturbations (rho >= 0.85): 17
+- Unstable perturbations: 7
+- Mean Spearman rho: 0.8737
+- Range: [0.5372, 0.9900]
 
-- Most sensitive layer: annotation
-- Most robust layer: expression
+- Most sensitive layer: animal_model
+- Most robust layer: annotation
 
 ### Spearman Correlation by Perturbation
 
 | Layer | Delta | Spearman rho | Stable? |
 |-------|-------|--------------|---------|
-| gnomad | -0.10 | 0.9995 | ✓ |
-| gnomad | -0.05 | 0.9998 | ✓ |
-| gnomad | +0.05 | 0.9997 | ✓ |
-| gnomad | +0.10 | 0.9999 | ✓ |
-| expression | -0.10 | 1.0000 | ✓ |
-| expression | -0.05 | 1.0000 | ✓ |
-| expression | +0.05 | 0.9999 | ✓ |
-| expression | +0.10 | 0.9999 | ✓ |
-| annotation | -0.10 | 0.9995 | ✓ |
-| annotation | -0.05 | 0.9999 | ✓ |
-| annotation | +0.05 | 0.9995 | ✓ |
-| annotation | +0.10 | 1.0000 | ✓ |
-| localization | -0.10 | 1.0000 | ✓ |
-| localization | -0.05 | 0.9999 | ✓ |
-| localization | +0.05 | 0.9999 | ✓ |
-| localization | +0.10 | 0.9999 | ✓ |
-| animal_model | -0.10 | 0.9997 | ✓ |
-| animal_model | -0.05 | 0.9995 | ✓ |
-| animal_model | +0.05 | 1.0000 | ✓ |
-| animal_model | +0.10 | 1.0000 | ✓ |
-| literature | -0.10 | 1.0000 | ✓ |
-| literature | -0.05 | 0.9999 | ✓ |
-| literature | +0.05 | 1.0000 | ✓ |
-| literature | +0.10 | 0.9998 | ✓ |
+| gnomad | -0.10 | 0.7570 | ✗ |
+| gnomad | -0.05 | 0.9360 | ✓ |
+| gnomad | +0.05 | 0.9714 | ✓ |
+| gnomad | +0.10 | 0.9299 | ✓ |
+| expression | -0.10 | 0.8241 | ✗ |
+| expression | -0.05 | 0.9463 | ✓ |
+| expression | +0.05 | 0.9557 | ✓ |
+| expression | +0.10 | 0.8522 | ✓ |
+| annotation | -0.10 | 0.8975 | ✓ |
+| annotation | -0.05 | 0.9739 | ✓ |
+| annotation | +0.05 | 0.9900 | ✓ |
+| annotation | +0.10 | 0.9707 | ✓ |
+| localization | -0.10 | 0.7422 | ✗ |
+| localization | -0.05 | 0.9211 | ✓ |
+| localization | +0.05 | 0.9506 | ✓ |
+| localization | +0.10 | 0.8610 | ✓ |
+| animal_model | -0.10 | 0.6029 | ✗ |
+| animal_model | -0.05 | 0.8888 | ✓ |
+| animal_model | +0.05 | 0.7948 | ✗ |
+| animal_model | +0.10 | 0.5372 | ✗ |
+| literature | -0.10 | 0.8230 | ✗ |
+| literature | -0.05 | 0.9455 | ✓ |
+| literature | +0.05 | 0.9603 | ✓ |
+| literature | +0.10 | 0.9379 | ✓ |
 
-**Verdict:** All weight perturbations (±5-10%) produce stable rankings (rho >= 0.85), validating result robustness.
+**Verdict:** Some perturbations produce unstable rankings (rho < 0.85), suggesting results may be sensitive to weight choices.
 
 ## 4. Overall Validation Summary
 
@@ -100,7 +100,7 @@
 |------------------|--------|---------|
 | Positive Controls | PASSED ✓ | Known genes rank high |
 | Negative Controls | FAILED ✗ | Housekeeping genes rank high |
-| Sensitivity Analysis | STABLE ✓ | Rankings stable under perturbations |
+| Sensitivity Analysis | UNSTABLE ✗ | Rankings unstable under perturbations |
 
 ## 5. Weight Tuning Recommendations
 
@@ -115,6 +115,17 @@ Housekeeping genes rank higher than expected (median >= 50th percentile). This s
 - Consider reducing weights for generic layers (e.g., gnomad constraint, annotation)
 - Increase weights for cilia-specific layers (localization, animal_model, literature)
 - Review literature context weighting (ensure cilia-specific mentions prioritized)
+
+### 3. Weight Sensitivity Issue (Stability)
+
+Ranking stability is compromised with 7 unstable perturbations. This means small changes in weights produce significant ranking shifts.
+
+**Suggested Actions:**
+- Most sensitive layer: **animal_model**
+- Consider reducing weight of animal_model to improve stability
+- Review layers with high instability (low Spearman rho across perturbations)
+- Increase weights for robust layers (high Spearman rho)
+- Consider smoothing evidence scores (e.g., log-transform, rank normalization)
 
 ---
 
