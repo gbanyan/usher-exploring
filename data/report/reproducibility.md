@@ -1,7 +1,7 @@
 # Pipeline Reproducibility Report
 
-**Run ID:** `5e0f1f88-11f3-46ff-a858-83d16ad5f68f`
-**Timestamp:** 2026-05-20T02:55:43.199449+00:00
+**Run ID:** `3ed20572-958a-48e1-89f2-5d740f3fd10e`
+**Timestamp:** 2026-05-20T16:29:08.243097+00:00
 **Pipeline Version:** 0.1.0
 
 ## Parameters
@@ -34,13 +34,13 @@
 | Step | Input Count | Output Count | Criteria |
 |------|-------------|--------------|----------|
 | load_scored_genes | 19554 | 19554 | Load all scored genes from DuckDB |
-| apply_tier_classification | 19554 | 19132 | HIGH: score>=0.7 & evidence>=3; MEDIUM: score>=0.4 & evidence>=2; LOW: score>=0.2 |
+| apply_tier_classification | 19554 | 19132 | HIGH: score>=0.7 & evidence>=3 & cilia-signal gate (ciliary localization or top-quartile sensory animal-model phenotype); MEDIUM: score>=0.4 & evidence>=2; LOW: score>=0.2 |
 | write_candidate_output | 19132 | 19132 | Write TSV + Parquet with provenance YAML |
 | generate_visualizations | 19132 | 3 | Generate score distribution, layer contributions, tier breakdown plots |
 
 ## Tier Statistics
 
 - **Total Candidates:** 19132
-- **HIGH:** 136
-- **MEDIUM:** 11294
+- **HIGH:** 95
+- **MEDIUM:** 11335
 - **LOW:** 7702

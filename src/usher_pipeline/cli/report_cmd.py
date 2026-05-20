@@ -242,7 +242,7 @@ def report(ctx, output_dir, force, skip_viz, skip_report,
             'excluded_count': total_scored - total_candidates,
             'input_count': total_scored,
             'output_count': total_candidates,
-            'criteria': f'HIGH: score>={high_threshold} & evidence>={min_evidence_high}; MEDIUM: score>={medium_threshold} & evidence>={min_evidence_medium}; LOW: score>={low_threshold}',
+            'criteria': f'HIGH: score>={high_threshold} & evidence>={min_evidence_high} & cilia-signal gate (ciliary localization or top-quartile sensory animal-model phenotype); MEDIUM: score>={medium_threshold} & evidence>={min_evidence_medium}; LOW: score>={low_threshold}',
         })
 
         # Step 4: Add evidence summary

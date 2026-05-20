@@ -27,8 +27,8 @@
 
 | Source | Count | Median Percentile | Top Quartile |
 |--------|-------|-------------------|--------------|
-| syscilia_scgs_v2 | 28 | 89.8% | 25 |
 | omim_usher | 10 | 95.7% | 10 |
+| syscilia_scgs_v2 | 28 | 89.8% | 25 |
 
 **Verdict:** Known cilia/Usher genes rank highly (median >= 75th percentile), validating scoring system sensitivity.
 
@@ -41,7 +41,8 @@
 - Housekeeping genes found: 13
 - Median percentile: 94.1%
 - Top quartile count: 11
-- High-tier count (score >= 0.70): 2
+- Meeting the HIGH-tier composite-score threshold (composite >= 0.70): 2
+- In HIGH tier after cilia-signal gate: 1 (YWHAZ)
 
 **Verdict:** Housekeeping genes rank higher than expected, indicating potential lack of specificity.
 
@@ -103,6 +104,8 @@
 | Sensitivity Analysis | UNSTABLE ✗ | Rankings unstable under perturbations |
 
 ## 5. Weight Tuning Recommendations
+
+> **Note:** The recommendations below are automatically generated diagnostics, not the project's adopted course of action. The weight-learning question they raise was investigated directly (5-fold cross-validated grid search and penalized logistic regression; see `scripts/weight_tuning.py` and `scripts/weight_logreg.py`). Learned weights improve the control metrics but collapse the six-layer integration onto one or two layers, so the a priori biologically-motivated weights are retained by design and HIGH-tier specificity is addressed through the post-hoc cilia-signal gate. See the manuscript Discussion for the full analysis.
 
 **Recommendations for Weight Tuning:**
 

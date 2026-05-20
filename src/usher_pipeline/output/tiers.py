@@ -61,10 +61,6 @@ def assign_tiers(
     # users distinguish disease-relevant MEDIUM candidates from generically
     # high-scoring housekeeping genes. Expression is excluded because nearly
     # all genes have non-zero expression scores, making it non-discriminative.
-    # NOTE: This is a soft flag, not a hard gate on tier assignment, because
-    # known Usher genes (MYO7A, USH2A, etc.) often lack localization/animal-model
-    # data in genome-wide databases despite having well-established cilia functions
-    # from targeted studies. A hard gate would incorrectly demote these genes.
     cilia_layers = ["localization_score", "animal_model_score"]
     available_cilia = [c for c in cilia_layers if c in scored_df.columns]
 
@@ -81,11 +77,38 @@ def assign_tiers(
         has_cilia_signal.alias("has_cilia_signal")
     )
 
+    # Cilia-signal gate on the HIGH tier. A HIGH-confidence gene must show
+    # *direct* cilia-specific evidence: ciliary/centrosomal subcellular
+    # localization (localization_score > 0), or a sensory animal-model
+    # phenotype at or above the 75th percentile of that layer. Genes meeting
+    # the score/evidence thresholds but failing this gate fall through to
+    # MEDIUM. The percentile is computed over genes with a non-zero
+    # animal-model score: a zero score denotes absence of a recorded sensory
+    # phenotype, not a weak one, so the non-zero subset is the biologically
+    # meaningful reference set. This is a post-hoc specificity filter on the
+    # shortlist; it relabels tiers only and does not alter any composite
+    # score or percentile rank.
+    if {"localization_score", "animal_model_score"} <= set(scored_df.columns):
+        animal_pos = scored_df.filter(
+            pl.col("animal_model_score").is_not_null()
+            & (pl.col("animal_model_score") > 0.0)
+        )["animal_model_score"]
+        animal_q75 = float(animal_pos.quantile(0.75)) if len(animal_pos) else 0.0
+        high_cilia_gate = (
+            (pl.col("localization_score").is_not_null()
+             & (pl.col("localization_score") > 0.0))
+            | (pl.col("animal_model_score").is_not_null()
+               & (pl.col("animal_model_score") >= animal_q75))
+        )
+    else:
+        high_cilia_gate = pl.lit(True)
+
     # Add confidence_tier column using vectorized when/then/otherwise chain
     result = scored_df.with_columns(
         pl.when(
             (pl.col("composite_score") >= high_score)
             & (pl.col("evidence_count") >= high_count)
+            & high_cilia_gate
         )
         .then(pl.lit("HIGH"))
         .when(

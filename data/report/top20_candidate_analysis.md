@@ -4,7 +4,7 @@
 **Generated:** 2026-05-20（4 個 pipeline bug 修正後重跑：CellxGene 層、Tau specificity、MGI/ZFIN 解析、HCOP URL）
 **Scoring Layers:** gnomAD constraint (0.20) + Expression (0.20) + Annotation (0.15) + Localization (0.15) + Animal Model (0.15) + Literature (0.15)
 **Coverage:** gnomAD 91% | Expression 98% | Annotation 99% | Localization 66% | Animal Model 98% | Literature 99%
-**Tier Statistics:** HIGH 136 | MEDIUM 11,294 | LOW 7,702 | Total 19,132 candidates（from 19,554 scored genes）
+**Tier Statistics:** HIGH 95 | MEDIUM 11,335 | LOW 7,702 | Total 19,132 candidates（from 19,554 scored genes，HIGH 層已套用 cilia-signal gate）
 **Validation:** 陽性對照 median 90.2%、35/38 在前四分位；最高 CDH23 99.8th percentile
 
 > 本表所列為 layer normalized score（0–1，pipeline 實際使用值），非原始 LOEUF/TPM。`composite_score = weighted_sum / available_weight`，分母僅計非 NULL 層權重。

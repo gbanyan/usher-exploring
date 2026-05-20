@@ -1,6 +1,6 @@
 {
-  "run_id": "5e0f1f88-11f3-46ff-a858-83d16ad5f68f",
-  "timestamp": "2026-05-20T02:55:43.199449+00:00",
+  "run_id": "3ed20572-958a-48e1-89f2-5d740f3fd10e",
+  "timestamp": "2026-05-20T16:29:08.243097+00:00",
   "pipeline_version": "0.1.0",
   "parameters": {
     "gnomad": 0.2,
@@ -33,7 +33,7 @@
       "step_name": "apply_tier_classification",
       "input_count": 19554,
       "output_count": 19132,
-      "criteria": "HIGH: score>=0.7 & evidence>=3; MEDIUM: score>=0.4 & evidence>=2; LOW: score>=0.2"
+      "criteria": "HIGH: score>=0.7 & evidence>=3 & cilia-signal gate (ciliary localization or top-quartile sensory animal-model phenotype); MEDIUM: score>=0.4 & evidence>=2; LOW: score>=0.2"
     },
     {
       "step_name": "write_candidate_output",
@@ -51,8 +51,8 @@
   "validation_metrics": {},
   "tier_statistics": {
     "total": 19132,
-    "high": 136,
-    "medium": 11294,
+    "high": 95,
+    "medium": 11335,
     "low": 7702
   }
 }

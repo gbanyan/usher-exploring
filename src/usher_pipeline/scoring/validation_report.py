@@ -119,7 +119,11 @@ def generate_comprehensive_validation_report(
     sections.append(f"- Housekeeping genes found: {negative_metrics.get('total_in_dataset', 0)}")
     sections.append(f"- Median percentile: {neg_median_pct:.1f}%")
     sections.append(f"- Top quartile count: {negative_metrics.get('top_quartile_count', 0)}")
-    sections.append(f"- High-tier count (score >= 0.70): {negative_metrics.get('in_high_tier_count', 0)}")
+    sections.append(f"- Meeting the HIGH-tier composite-score threshold (composite >= 0.70): {negative_metrics.get('in_high_tier_count', 0)}")
+    gated_count = negative_metrics.get('gated_high_tier_count', 0)
+    gated_genes = negative_metrics.get('gated_high_tier_genes', [])
+    gated_suffix = f" ({', '.join(gated_genes)})" if gated_genes else ""
+    sections.append(f"- In HIGH tier after cilia-signal gate: {gated_count}{gated_suffix}")
     sections.append("")
 
     # Verdict
@@ -243,6 +247,20 @@ def generate_comprehensive_validation_report(
 
     # Section 5: Weight Tuning Recommendations
     sections.append("## 5. Weight Tuning Recommendations")
+    sections.append("")
+    sections.append(
+        "> **Note:** The recommendations below are automatically generated "
+        "diagnostics, not the project's adopted course of action. The "
+        "weight-learning question they raise was investigated directly "
+        "(5-fold cross-validated grid search and penalized logistic "
+        "regression; see `scripts/weight_tuning.py` and "
+        "`scripts/weight_logreg.py`). Learned weights improve the control "
+        "metrics but collapse the six-layer integration onto one or two "
+        "layers, so the a priori biologically-motivated weights are retained "
+        "by design and HIGH-tier specificity is addressed through the "
+        "post-hoc cilia-signal gate. See the manuscript Discussion for the "
+        "full analysis."
+    )
     sections.append("")
 
     recommendations = recommend_weight_tuning(

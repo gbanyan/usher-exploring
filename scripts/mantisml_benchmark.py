@@ -1,13 +1,20 @@
 """Benchmark UsherPipe against mantis-ml on known Usher/cilia gene recovery.
 
 Compares the two complete tools on a shared gene universe using identical
-metrics: median percentile rank of 38 known genes, recall@k, ROC-AUC, and
-housekeeping-gene specificity. mantis-ml is seed-based; its `known_gene`
-flag is used to also report metrics on the subset NOT used as mantis-ml
-seeds, since evaluating a seed-based tool on its own seeds is partly circular.
+metrics: median percentile rank of the known genes present in that universe,
+recall@k, ROC-AUC, and housekeeping-gene specificity. The curated known set
+has 38 genes; 36 fall inside the shared universe (ADGRV1 and WHRN are absent
+from one tool's gene set). mantis-ml is seed-based; its `known_gene` flag is
+used to also report metrics on the subset NOT used as mantis-ml seeds, since
+evaluating a seed-based tool on its own seeds is partly circular.
+
+mantis-ml provenance: v1.6.5, standard stochastic semi-supervised run
+(10 iterations), six-classifier consensus (Extra Trees, Random Forest,
+Gradient Boosting, SVM, XGBoost, deep neural net). Per-classifier prediction
+CSVs are cached in data/external/mantisml/.
 
 Usage:
-    python scripts/mantisml_benchmark.py --mantisml-csv <path-to *.mantis-ml_predictions.csv>
+    python scripts/mantisml_benchmark.py --mantisml-dir <dir of *.mantis-ml_predictions.csv>
 """
 
 import argparse
@@ -154,9 +161,10 @@ def main():
           f"({len(seeds_among_known)} were mantis-ml seeds, "
           f"{len(heldout_known)} not)")
 
+    n_known = len(known_common)
     rows = [
         evaluate("UsherPipe", up, known_common, HOUSEKEEPING),
-        evaluate("mantis-ml (all 38 known)", mm, known_common, HOUSEKEEPING),
+        evaluate(f"mantis-ml (all {n_known} shared known)", mm, known_common, HOUSEKEEPING),
         evaluate("mantis-ml (non-seed known only)", mm, heldout_known, HOUSEKEEPING),
         evaluate("UsherPipe (non-seed known only)", up, heldout_known, HOUSEKEEPING),
     ]
@@ -195,7 +203,8 @@ def main():
     for i, d in enumerate(data, 1):
         ax1.scatter([i] * len(d), d, s=14, color="black", alpha=0.45, zorder=3)
     ax1.axhline(75, ls="--", color="gray", lw=1)
-    ax1.set_ylabel("Percentile rank of 38 known genes")
+    ax1.set_ylabel(f"Percentile rank of {len(known_common)} known genes "
+                   f"(shared universe)")
     ax1.set_title("Known-gene recovery")
     ax1.set_ylim(0, 102)
 

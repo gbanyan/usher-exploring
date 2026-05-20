@@ -3,6 +3,7 @@
 import polars as pl
 import structlog
 
+from usher_pipeline.output.tiers import assign_tiers
 from usher_pipeline.persistence.duckdb_store import PipelineStore
 
 logger = structlog.get_logger(__name__)
@@ -157,9 +158,23 @@ def validate_negative_controls(
     top_quartile_genes = result.filter(pl.col("percentile_rank") >= 0.75)
     top_quartile_count = top_quartile_genes.height
 
-    # Count housekeeping genes with high composite scores (>= 0.70, near HIGH tier threshold)
+    # Count housekeeping genes meeting the HIGH-tier score/evidence thresholds
+    # (composite >= 0.70), before the cilia-signal gate is applied.
     high_tier_genes = result.filter(pl.col("composite_score") >= 0.70)
     in_high_tier_count = high_tier_genes.height
+
+    # Count housekeeping genes that remain in the HIGH tier *after* the
+    # cilia-signal gate. assign_tiers applies the gate identically to the
+    # report pipeline, so this count matches the published tier assignment.
+    scored_full = store.load_dataframe("scored_genes")
+    tiered = assign_tiers(scored_full)
+    hk_symbols = set(housekeeping_df["gene_symbol"].to_list())
+    gated_high = tiered.filter(
+        (pl.col("confidence_tier") == "HIGH")
+        & pl.col("gene_symbol").is_in(hk_symbols)
+    )
+    gated_high_tier_count = gated_high.height
+    gated_high_tier_genes = gated_high["gene_symbol"].to_list()
 
     # INVERTED validation logic: median should be BELOW threshold
     validation_passed = median_percentile < percentile_threshold
@@ -199,6 +214,8 @@ def validate_negative_controls(
         "median_percentile": median_percentile,
         "top_quartile_count": top_quartile_count,
         "in_high_tier_count": in_high_tier_count,
+        "gated_high_tier_count": gated_high_tier_count,
+        "gated_high_tier_genes": gated_high_tier_genes,
         "validation_passed": validation_passed,
         "housekeeping_gene_details": housekeeping_gene_details,
     }
@@ -241,6 +258,7 @@ This indicates either:
     median_pct = metrics["median_percentile"] * 100
     top_q_count = metrics["top_quartile_count"]
     high_tier_count = metrics["in_high_tier_count"]
+    gated_count = metrics.get("gated_high_tier_count", 0)
 
     report = [
         f"Negative Control Validation: {status}",
@@ -250,7 +268,8 @@ This indicates either:
         f"  Housekeeping genes found: {metrics['total_in_dataset']}",
         f"  Median percentile: {median_pct:.1f}%",
         f"  Top quartile count: {top_q_count}",
-        f"  High-tier count (score >= 0.70): {high_tier_count}",
+        f"  Meeting HIGH-tier score/evidence thresholds (composite >= 0.70): {high_tier_count}",
+        f"  In HIGH tier after cilia-signal gate: {gated_count}",
         "",
     ]
 

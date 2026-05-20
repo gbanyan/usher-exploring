@@ -223,7 +223,7 @@ def synthetic_scored_genes() -> pl.DataFrame:
         "localization_score": [
             0.75,
             None,
-            None,
+            0.6,
             0.6,
             0.5,
             None,
