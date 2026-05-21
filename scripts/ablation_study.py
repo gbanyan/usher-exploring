@@ -246,64 +246,62 @@ def main():
     # Sort by NULL-preserve percentile
     gene_order = known_df_pd.sort_values("pctile_null_preserve", ascending=False)["gene_symbol"].tolist()
 
-    fig, ax = plt.subplots(figsize=(10, 8))
-
-    sns.barplot(
-        data=melted, y="gene_symbol", x="percentile", hue="strategy",
-        order=gene_order,
-        palette={"NULL-preserve": "#2ecc71", "Zero-impute": "#e74c3c", "Median-impute": "#f39c12"},
-        ax=ax,
+    # ── Figure 6: two-panel ablation figure ────────────────────
+    fig, (axA, axB) = plt.subplots(
+        2, 1, figsize=(10, 14),
+        gridspec_kw={"height_ratios": [1, 2.4]},
     )
 
-    ax.axvline(x=75, color="gray", linestyle="--", linewidth=0.8, alpha=0.6)
-    ax.text(75.5, -0.5, "75th pctile", fontsize=8, color="gray")
-
-    ax.set_xlabel("Percentile Rank (%)")
-    ax.set_ylabel("")
-    ax.set_xlim(0, 105)
-    ax.legend(title="Imputation Strategy", loc="lower right", fontsize=8)
-
-    fig.text(0.02, 0.98, "B", fontsize=16, fontweight="bold", va="top", ha="left")
-    fig.savefig(OUTDIR / "fig6b_ablation_known_genes.png", dpi=300, bbox_inches="tight")
-    fig.savefig(OUTDIR / "fig6b_ablation_known_genes.pdf", bbox_inches="tight")
-    plt.close(fig)
-    print(f"  Saved: {OUTDIR}/fig6b_ablation_known_genes.png")
-
-    # ── Figure: Rank shift distribution for incomplete genes ───
-    fig2, ax2 = plt.subplots(figsize=(8, 5))
-
+    # Panel A: rank-shift distribution for incomplete-evidence genes
     inc_data = incomplete.select([
         "gene_symbol",
         (pl.col("pctile_null_preserve") - pl.col("pctile_zero_impute")).alias("vs_Zero"),
         (pl.col("pctile_null_preserve") - pl.col("pctile_median_impute")).alias("vs_Median"),
     ]).to_pandas()
-
     inc_melted = inc_data.melt(
         id_vars=["gene_symbol"],
         value_vars=["vs_Zero", "vs_Median"],
-        var_name="comparison", value_name="rank_shift_pct"
+        var_name="comparison", value_name="rank_shift_pct",
     )
-
     sns.histplot(
         data=inc_melted, x="rank_shift_pct", hue="comparison",
         palette={"vs_Zero": "#e74c3c", "vs_Median": "#f39c12"},
-        bins=50, alpha=0.6, ax=ax2,
+        bins=50, alpha=0.6, ax=axA,
     )
-
-    ax2.axvline(x=0, color="black", linewidth=0.8)
-    ax2.set_xlabel("Percentile Rank Shift (NULL-preserve minus imputed)")
-    ax2.set_ylabel("Gene Count")
-    ax2.text(0.98, 0.95,
+    axA.axvline(x=0, color="black", linewidth=0.8)
+    axA.set_xlabel("Percentile Rank Shift (NULL-preserve minus imputed)")
+    axA.set_ylabel("Gene Count")
+    axA.text(0.98, 0.95,
              f"n = {incomplete.height} genes\n(evidence < 6 layers)\n"
              f"Positive = NULL-preserve\nranks gene higher",
-             transform=ax2.transAxes, ha="right", va="top", fontsize=9,
+             transform=axA.transAxes, ha="right", va="top", fontsize=9,
              bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
 
-    fig2.text(0.02, 0.98, "A", fontsize=16, fontweight="bold", va="top", ha="left")
-    fig2.savefig(OUTDIR / "fig6a_ablation_shift_distribution.png", dpi=300, bbox_inches="tight")
-    fig2.savefig(OUTDIR / "fig6a_ablation_shift_distribution.pdf", bbox_inches="tight")
-    plt.close(fig2)
-    print(f"  Saved: {OUTDIR}/fig6a_ablation_shift_distribution.png")
+    # Panel B: known-gene rank under the three imputation strategies
+    sns.barplot(
+        data=melted, y="gene_symbol", x="percentile", hue="strategy",
+        order=gene_order,
+        palette={"NULL-preserve": "#2ecc71", "Zero-impute": "#e74c3c",
+                 "Median-impute": "#f39c12"},
+        ax=axB,
+    )
+    axB.axvline(x=75, color="gray", linestyle="--", linewidth=0.8, alpha=0.6)
+    axB.text(75.5, -0.5, "75th pctile", fontsize=8, color="gray")
+    axB.set_xlabel("Percentile Rank (%)")
+    axB.set_ylabel("")
+    axB.set_xlim(0, 105)
+    axB.legend(title="Imputation Strategy", loc="lower right", fontsize=8)
+
+    axA.text(-0.06, 1.04, "A", transform=axA.transAxes, fontsize=16,
+             fontweight="bold", va="bottom", ha="right")
+    axB.text(-0.06, 1.02, "B", transform=axB.transAxes, fontsize=16,
+             fontweight="bold", va="bottom", ha="right")
+
+    fig.tight_layout()
+    fig.savefig(OUTDIR / "fig6_ablation.png", dpi=300, bbox_inches="tight")
+    fig.savefig(OUTDIR / "fig6_ablation.pdf", bbox_inches="tight")
+    plt.close(fig)
+    print(f"  Saved: {OUTDIR}/fig6_ablation.png")
 
     # ── Save full comparison CSV ───────────────────────────────
     csv_path = Path("data/report/ablation_comparison.csv")
