@@ -45,9 +45,9 @@ def load_scored_genes() -> pl.DataFrame:
     return df
 
 
-# ── Figure 1: Score distribution (improved) ─────────────────────────────
+# ── Figure 2: Score distribution (improved) ─────────────────────────────
 
-def fig1_score_distribution(df: pl.DataFrame):
+def fig2_score_distribution(df: pl.DataFrame):
     """Improved score distribution with inset for high-score region."""
     pdf = df.filter(pl.col("composite_score").is_not_null()).to_pandas()
 
@@ -82,15 +82,15 @@ def fig1_score_distribution(df: pl.DataFrame):
         bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8),
     )
 
-    fig.savefig(FIGDIR / "fig1_score_distribution.png", dpi=DPI, bbox_inches="tight")
-    fig.savefig(FIGDIR / "fig1_score_distribution.pdf", bbox_inches="tight")
+    fig.savefig(FIGDIR / "fig2_score_distribution.png", dpi=DPI, bbox_inches="tight")
+    fig.savefig(FIGDIR / "fig2_score_distribution.pdf", bbox_inches="tight")
     plt.close(fig)
-    print("  Fig 1: score distribution")
+    print("  Fig 2: score distribution")
 
 
-# ── Figure 2: Evidence layer coverage ────────────────────────────────────
+# ── Figure 3: Evidence layer coverage ────────────────────────────────────
 
-def fig2_layer_coverage(df: pl.DataFrame):
+def fig3_layer_coverage(df: pl.DataFrame):
     """Evidence layer coverage with percentage labels."""
     layer_cols = {
         "gnomad_score": "gnomAD\nConstraint",
@@ -129,15 +129,15 @@ def fig2_layer_coverage(df: pl.DataFrame):
     ax.text(len(labels) - 0.5, total + 100, f"Gene universe: {total:,}",
             ha="right", va="bottom", fontsize=8, color="gray")
 
-    fig.savefig(FIGDIR / "fig2_layer_coverage.png", dpi=DPI, bbox_inches="tight")
-    fig.savefig(FIGDIR / "fig2_layer_coverage.pdf", bbox_inches="tight")
+    fig.savefig(FIGDIR / "fig3_layer_coverage.png", dpi=DPI, bbox_inches="tight")
+    fig.savefig(FIGDIR / "fig3_layer_coverage.pdf", bbox_inches="tight")
     plt.close(fig)
-    print("  Fig 2: layer coverage")
+    print("  Fig 3: layer coverage")
 
 
-# ── Figure 3: Top candidates heatmap ─────────────────────────────────────
+# ── Figure 4: Top candidates heatmap ─────────────────────────────────────
 
-def fig3_top_candidates_heatmap(df: pl.DataFrame, top_n: int = 25):
+def fig4_top_candidates_heatmap(df: pl.DataFrame, top_n: int = 25):
     """Heatmap of per-layer normalized scores for top candidates."""
     layer_cols = [
         "gnomad_score", "expression_score", "annotation_score",
@@ -213,15 +213,15 @@ def fig3_top_candidates_heatmap(df: pl.DataFrame, top_n: int = 25):
         transform=ax.transAxes, fontsize=8, va="top", style="italic",
     )
 
-    fig.savefig(FIGDIR / "fig3_top_candidates_heatmap.png", dpi=DPI, bbox_inches="tight")
-    fig.savefig(FIGDIR / "fig3_top_candidates_heatmap.pdf", bbox_inches="tight")
+    fig.savefig(FIGDIR / "fig4_top_candidates_heatmap.png", dpi=DPI, bbox_inches="tight")
+    fig.savefig(FIGDIR / "fig4_top_candidates_heatmap.pdf", bbox_inches="tight")
     plt.close(fig)
-    print("  Fig 3: top candidates heatmap")
+    print("  Fig 4: top candidates heatmap")
 
 
-# ── Figure 4: Positive control validation ────────────────────────────────
+# ── Figure 5: Positive control validation ────────────────────────────────
 
-def fig4_validation_controls(df: pl.DataFrame):
+def fig5_validation_controls(df: pl.DataFrame):
     """Distribution of known gene percentile ranks vs background."""
     # Compute percentile ranks
     scored = df.filter(pl.col("composite_score").is_not_null())
@@ -282,15 +282,15 @@ def fig4_validation_controls(df: pl.DataFrame):
     ax.legend(loc="lower left", fontsize=8)
     ax.set_ylim(0, 105)
 
-    fig.savefig(FIGDIR / "fig4_validation_controls.png", dpi=DPI, bbox_inches="tight")
-    fig.savefig(FIGDIR / "fig4_validation_controls.pdf", bbox_inches="tight")
+    fig.savefig(FIGDIR / "fig5_validation_controls.png", dpi=DPI, bbox_inches="tight")
+    fig.savefig(FIGDIR / "fig5_validation_controls.pdf", bbox_inches="tight")
     plt.close(fig)
-    print("  Fig 4: validation controls")
+    print("  Fig 5: validation controls")
 
 
-# ── Figure 5: Sensitivity analysis heatmap ───────────────────────────────
+# ── Figure 7: Sensitivity analysis heatmap ───────────────────────────────
 
-def fig5_sensitivity_heatmap():
+def fig7_sensitivity_heatmap():
     """Heatmap of Spearman rho from weight perturbation sensitivity analysis.
 
     Spearman rho values are parsed from the current validation report so the
@@ -344,10 +344,10 @@ def fig5_sensitivity_heatmap():
     ax.set_ylabel("")
     ax.set_title("")
 
-    fig.savefig(FIGDIR / "fig5_sensitivity_heatmap.png", dpi=DPI, bbox_inches="tight")
-    fig.savefig(FIGDIR / "fig5_sensitivity_heatmap.pdf", bbox_inches="tight")
+    fig.savefig(FIGDIR / "fig7_sensitivity_heatmap.png", dpi=DPI, bbox_inches="tight")
+    fig.savefig(FIGDIR / "fig7_sensitivity_heatmap.pdf", bbox_inches="tight")
     plt.close(fig)
-    print("  Fig 5: sensitivity heatmap")
+    print("  Fig 7: sensitivity heatmap")
 
 
 # ── Main ─────────────────────────────────────────────────────────────────
@@ -359,10 +359,10 @@ if __name__ == "__main__":
     df = load_candidates()
     scored = load_scored_genes()
 
-    fig1_score_distribution(df)
-    fig2_layer_coverage(df)
-    fig3_top_candidates_heatmap(df)
-    fig4_validation_controls(scored)
-    fig5_sensitivity_heatmap()
+    fig2_score_distribution(df)
+    fig3_layer_coverage(df)
+    fig4_top_candidates_heatmap(df)
+    fig5_validation_controls(scored)
+    fig7_sensitivity_heatmap()
 
     print(f"\nDone. {len(list(FIGDIR.glob('*.png')))} PNG + {len(list(FIGDIR.glob('*.pdf')))} PDF files generated.")

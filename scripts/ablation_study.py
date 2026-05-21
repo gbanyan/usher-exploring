@@ -263,10 +263,10 @@ def main():
     ax.set_xlim(0, 105)
     ax.legend(title="Imputation Strategy", loc="lower right", fontsize=8)
 
-    fig.savefig(OUTDIR / "fig_ablation_known_genes.png", dpi=300, bbox_inches="tight")
-    fig.savefig(OUTDIR / "fig_ablation_known_genes.pdf", bbox_inches="tight")
+    fig.savefig(OUTDIR / "fig6b_ablation_known_genes.png", dpi=300, bbox_inches="tight")
+    fig.savefig(OUTDIR / "fig6b_ablation_known_genes.pdf", bbox_inches="tight")
     plt.close(fig)
-    print(f"  Saved: {OUTDIR}/fig_ablation_known_genes.png")
+    print(f"  Saved: {OUTDIR}/fig6b_ablation_known_genes.png")
 
     # ── Figure: Rank shift distribution for incomplete genes ───
     fig2, ax2 = plt.subplots(figsize=(8, 5))
@@ -298,10 +298,10 @@ def main():
              transform=ax2.transAxes, ha="right", va="top", fontsize=9,
              bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
 
-    fig2.savefig(OUTDIR / "fig_ablation_shift_distribution.png", dpi=300, bbox_inches="tight")
-    fig2.savefig(OUTDIR / "fig_ablation_shift_distribution.pdf", bbox_inches="tight")
+    fig2.savefig(OUTDIR / "fig6a_ablation_shift_distribution.png", dpi=300, bbox_inches="tight")
+    fig2.savefig(OUTDIR / "fig6a_ablation_shift_distribution.pdf", bbox_inches="tight")
     plt.close(fig2)
-    print(f"  Saved: {OUTDIR}/fig_ablation_shift_distribution.png")
+    print(f"  Saved: {OUTDIR}/fig6a_ablation_shift_distribution.png")
 
     # ── Save full comparison CSV ───────────────────────────────
     csv_path = Path("data/report/ablation_comparison.csv")
