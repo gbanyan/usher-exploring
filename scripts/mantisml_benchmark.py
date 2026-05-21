@@ -224,6 +224,11 @@ def main():
     ax2.set_title("Benchmark metrics")
     ax2.legend()
 
+    ax1.text(-0.08, 1.05, "A", transform=ax1.transAxes, fontsize=16,
+             fontweight="bold", va="bottom", ha="right")
+    ax2.text(-0.08, 1.05, "B", transform=ax2.transAxes, fontsize=16,
+             fontweight="bold", va="bottom", ha="right")
+
     fig.tight_layout()
     fig.savefig(OUT_FIG + ".png", dpi=300, bbox_inches="tight")
     fig.savefig(OUT_FIG + ".pdf", bbox_inches="tight")

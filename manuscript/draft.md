@@ -272,15 +272,15 @@ The authors declare that they have no competing interests.
 
 ## Figure legends
 
-**Figure 1. UsherPipe pipeline architecture.** The four sequential stages of the pipeline: (1) gene universe construction from the mygene.info API; (2) six independent evidence-layer computations, each following a fetch–transform–load pattern; (3) NULL-aware composite scoring; and (4) report generation with validation. All pipeline state is held in a single DuckDB database, and any evidence layer can be recomputed independently through idempotent table writes.
+**Figure 1. UsherPipe pipeline architecture.** The four sequential stages of the pipeline: (1) gene universe construction from the mygene.info API; (2) six independent evidence-layer computations, each following a fetch–transform–load pattern; (3) NULL-aware composite scoring; and (4) report generation with validation. All pipeline state is held in a single DuckDB database (shown at right), which every stage reads from and writes to.
 
-**Figure 2. Distribution of composite scores.** Stacked histogram of NULL-aware composite scores for the 19,486 genes with a non-NULL score, coloured by confidence tier (HIGH, MEDIUM, LOW). Most genes fall in the MEDIUM range; the HIGH tier is a small shortlist at composite score ≥ 0.7.
+**Figure 2. Distribution of composite scores.** Stacked histogram of NULL-aware composite scores for the 19,132 tier-classified candidate genes, coloured by confidence tier (HIGH, MEDIUM, LOW); genes below the LOW threshold (composite score < 0.2) are excluded and not shown. Most candidates fall in the MEDIUM range, and the HIGH tier is a small shortlist at composite score ≥ 0.7.
 
 **Figure 3. Evidence layer coverage.** Number of genes with non-NULL evidence in each of the six evidence layers; the percentage above each bar is coverage relative to the full gene universe (dashed line). Coverage ranges from 66% (subcellular localization) to 99% (functional annotation and literature).
 
-**Figure 4. Per-layer evidence profiles of the top 25 candidates.** Heatmap of normalized layer scores (0–1) for the 25 highest-scoring genes with sufficient evidence (≥4 layers). Grey cells indicate missing evidence (NULL). Asterisks mark known OMIM Usher genes and plus signs mark known ciliopathy (SYSCILIA) genes that appear among the top candidates.
+**Figure 4. Per-layer evidence profiles of the top 25 candidates.** Heatmap of normalized layer scores (0–1) for the 25 highest-scoring genes with sufficient evidence (≥4 layers). Grey cells indicate missing evidence (NULL). A known OMIM Usher or SYSCILIA ciliary gene appearing among the top candidates is marked with an asterisk or a plus sign, respectively.
 
-**Figure 5. Positive-control validation.** Percentile-rank distributions for the 10 OMIM Usher genes, the 28 SYSCILIA ciliary genes, and a background sample of other genes, shown as box plots with the known genes also plotted as individual points. The dashed line marks the 75th percentile and the dotted line the median.
+**Figure 5. Positive-control validation.** Percentile-rank distributions for the 10 OMIM Usher genes, the 28 SYSCILIA ciliary genes, and a random sample of 500 background genes, shown as box plots with the known genes also plotted as individual points. The dashed line marks the 75th percentile and the dotted line the median.
 
 **Figure 6. Effect of missing-data handling on rankings.** (A) Distribution of percentile-rank shifts for genes with incomplete evidence (fewer than six layers) under NULL-preservation relative to zero imputation and to median imputation; positive values indicate that NULL-preservation ranks the gene higher. (B) Percentile rank of known disease genes under the three imputation strategies (NULL-preserve, zero-impute, median-impute); zero imputation lowers the rank of established genes that lack subcellular-localization data.
 

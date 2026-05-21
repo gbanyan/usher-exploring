@@ -263,6 +263,7 @@ def main():
     ax.set_xlim(0, 105)
     ax.legend(title="Imputation Strategy", loc="lower right", fontsize=8)
 
+    fig.text(0.02, 0.98, "B", fontsize=16, fontweight="bold", va="top", ha="left")
     fig.savefig(OUTDIR / "fig6b_ablation_known_genes.png", dpi=300, bbox_inches="tight")
     fig.savefig(OUTDIR / "fig6b_ablation_known_genes.pdf", bbox_inches="tight")
     plt.close(fig)
@@ -298,6 +299,7 @@ def main():
              transform=ax2.transAxes, ha="right", va="top", fontsize=9,
              bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
 
+    fig2.text(0.02, 0.98, "A", fontsize=16, fontweight="bold", va="top", ha="left")
     fig2.savefig(OUTDIR / "fig6a_ablation_shift_distribution.png", dpi=300, bbox_inches="tight")
     fig2.savefig(OUTDIR / "fig6a_ablation_shift_distribution.pdf", bbox_inches="tight")
     plt.close(fig2)

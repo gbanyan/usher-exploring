@@ -126,8 +126,8 @@ def fig3_layer_coverage(df: pl.DataFrame):
 
     # Add total line
     ax.axhline(y=total, color="gray", linestyle="--", linewidth=0.8, alpha=0.6)
-    ax.text(len(labels) - 0.5, total + 100, f"Gene universe: {total:,}",
-            ha="right", va="bottom", fontsize=8, color="gray")
+    ax.text(-0.4, total + 130, f"Gene universe: {total:,}",
+            ha="left", va="bottom", fontsize=8, color="gray")
 
     fig.savefig(FIGDIR / "fig3_layer_coverage.png", dpi=DPI, bbox_inches="tight")
     fig.savefig(FIGDIR / "fig3_layer_coverage.pdf", bbox_inches="tight")
@@ -360,7 +360,7 @@ if __name__ == "__main__":
     scored = load_scored_genes()
 
     fig2_score_distribution(df)
-    fig3_layer_coverage(df)
+    fig3_layer_coverage(scored)
     fig4_top_candidates_heatmap(df)
     fig5_validation_controls(scored)
     fig7_sensitivity_heatmap()
