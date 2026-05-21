@@ -55,3 +55,6 @@ Thumbs.db
 
 # === Planning (internal) ===
 .planning/
+
+# === Built manuscript PDF (regenerate with scripts/build_pdf.py) ===
+manuscript/draft.pdf
