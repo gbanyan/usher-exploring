@@ -1,6 +1,6 @@
 {
-  "run_id": "3ed20572-958a-48e1-89f2-5d740f3fd10e",
-  "timestamp": "2026-05-20T16:29:08.243097+00:00",
+  "run_id": "8fe6f7d9-0aac-4022-8d5c-40689bb7b007",
+  "timestamp": "2026-07-09T19:14:07.931042+00:00",
   "pipeline_version": "0.1.0",
   "parameters": {
     "gnomad": 0.2,
@@ -18,7 +18,7 @@
     "mane_version": "1.3"
   },
   "software_environment": {
-    "python": "3.12.12",
+    "python": "3.13.11",
     "polars": "1.39.3",
     "duckdb": "1.5.1"
   },
@@ -32,27 +32,27 @@
     {
       "step_name": "apply_tier_classification",
       "input_count": 19554,
-      "output_count": 19132,
+      "output_count": 19131,
       "criteria": "HIGH: score>=0.7 & evidence>=3 & cilia-signal gate (ciliary localization or top-quartile sensory animal-model phenotype); MEDIUM: score>=0.4 & evidence>=2; LOW: score>=0.2"
     },
     {
       "step_name": "write_candidate_output",
-      "input_count": 19132,
-      "output_count": 19132,
+      "input_count": 19131,
+      "output_count": 19131,
       "criteria": "Write TSV + Parquet with provenance YAML"
     },
     {
       "step_name": "generate_visualizations",
-      "input_count": 19132,
+      "input_count": 19131,
       "output_count": 3,
       "criteria": "Generate score distribution, layer contributions, tier breakdown plots"
     }
   ],
   "validation_metrics": {},
   "tier_statistics": {
-    "total": 19132,
-    "high": 95,
-    "medium": 11335,
-    "low": 7702
+    "total": 19131,
+    "high": 83,
+    "medium": 11323,
+    "low": 7725
   }
 }

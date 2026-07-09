@@ -1,0 +1,424 @@
+gene_id	gene_symbol	composite_score	evidence_count	quality_flag	exclusion_reason
+ENSG00000189064	GAGE2A	0.1999393950269832	4	sufficient_evidence	composite score < 0.2
+ENSG00000231738	TSPAN19	0.19987976357417736	5	sufficient_evidence	composite score < 0.2
+ENSG00000188305	PEAK3	0.1997847305782896	6	sufficient_evidence	composite score < 0.2
+ENSG00000162771	GARIN4	0.1997307075978479	6	sufficient_evidence	composite score < 0.2
+ENSG00000283567	C19orf85	0.19967242753850098	4	sufficient_evidence	composite score < 0.2
+ENSG00000205208	C4orf46	0.1996445542750079	6	sufficient_evidence	composite score < 0.2
+ENSG00000100249	C22orf31	0.19948353316214532	6	sufficient_evidence	composite score < 0.2
+ENSG00000176256	HMGB4	0.19945704985331192	5	sufficient_evidence	composite score < 0.2
+ENSG00000261341	SMIM47	0.19941748452618324	3	moderate_evidence	composite score < 0.2
+ENSG00000197245	FAM110D	0.19926432067603217	5	sufficient_evidence	composite score < 0.2
+ENSG00000184471	C1QTNF8	0.19915542757592414	5	sufficient_evidence	composite score < 0.2
+ENSG00000188897	APOLTP	0.19914199921442535	4	sufficient_evidence	composite score < 0.2
+ENSG00000262664	OVCA2	0.19909544875019386	6	sufficient_evidence	composite score < 0.2
+ENSG00000283227	SPRR5	0.19894175412075954	4	sufficient_evidence	composite score < 0.2
+ENSG00000233917	POTEB	0.1989227720555393	4	sufficient_evidence	composite score < 0.2
+ENSG00000181903	OR4C6	0.19881030087688797	4	sufficient_evidence	composite score < 0.2
+ENSG00000284638	SMIM44	0.19871544163538107	3	moderate_evidence	composite score < 0.2
+ENSG00000237524	TEX51	0.19866410227135534	4	sufficient_evidence	composite score < 0.2
+ENSG00000284643	SCYGR2	0.1986565422656967	4	sufficient_evidence	composite score < 0.2
+ENSG00000188408	MAGEB5	0.19860014077738966	4	sufficient_evidence	composite score < 0.2
+ENSG00000232030	MAGEB6B	0.19860014077738966	4	sufficient_evidence	composite score < 0.2
+ENSG00000164112	SMIM43	0.1985187789632853	4	sufficient_evidence	composite score < 0.2
+ENSG00000284725	SCYGR6	0.1984986088536404	4	sufficient_evidence	composite score < 0.2
+ENSG00000176555	OR4S1	0.1983391028559196	4	sufficient_evidence	composite score < 0.2
+ENSG00000285231	OOSP3	0.1983191024677202	3	moderate_evidence	composite score < 0.2
+ENSG00000283594	FAM236C	0.19823923414519137	3	moderate_evidence	composite score < 0.2
+ENSG00000204025	TRPC5OS	0.1980465756835718	4	sufficient_evidence	composite score < 0.2
+ENSG00000176281	OR4K5	0.19802497084194073	4	sufficient_evidence	composite score < 0.2
+ENSG00000279514	OR4C16	0.1978679048349513	4	sufficient_evidence	composite score < 0.2
+ENSG00000185829	ARL17A	0.19758094351832683	5	sufficient_evidence	composite score < 0.2
+ENSG00000284635	SCYGR8	0.19757733061664523	4	sufficient_evidence	composite score < 0.2
+ENSG00000224712	NPIPA3	0.19756900089726867	5	sufficient_evidence	composite score < 0.2
+ENSG00000181433	SAGE1	0.19752465899784125	5	sufficient_evidence	composite score < 0.2
+ENSG00000176571	CNBD1	0.197513632226448	5	sufficient_evidence	composite score < 0.2
+ENSG00000196171	OR6K2	0.19741232949737414	4	sufficient_evidence	composite score < 0.2
+ENSG00000233041	PHGR1	0.19734930881404952	6	sufficient_evidence	composite score < 0.2
+ENSG00000196553	CCDC196	0.1971993039721219	4	sufficient_evidence	composite score < 0.2
+ENSG00000178257	PRM3	0.19695037956950986	5	sufficient_evidence	composite score < 0.2
+ENSG00000173237	C11orf86	0.19676494522532992	5	sufficient_evidence	composite score < 0.2
+ENSG00000123407	HOXC12	0.19669207354210452	5	sufficient_evidence	composite score < 0.2
+ENSG00000283324	CTXND2	0.19651230594989555	4	sufficient_evidence	composite score < 0.2
+ENSG00000251154	PTTG1IP2	0.1964948255539057	3	moderate_evidence	composite score < 0.2
+ENSG00000258817	OR4C13	0.19645431077204634	4	sufficient_evidence	composite score < 0.2
+ENSG00000278558	TMEM191B	0.19617694397104565	5	sufficient_evidence	composite score < 0.2
+ENSG00000180425	C11orf71	0.19614041603727247	6	sufficient_evidence	composite score < 0.2
+ENSG00000175619	OR4B1	0.1958260467440886	4	sufficient_evidence	composite score < 0.2
+ENSG00000165383	LRRC18	0.19547724452161588	6	sufficient_evidence	composite score < 0.2
+ENSG00000186766	FOXI2	0.19529224016425517	5	sufficient_evidence	composite score < 0.2
+ENSG00000142694	EVA1B	0.1952867041022947	6	sufficient_evidence	composite score < 0.2
+ENSG00000188655	RNASE9	0.19526411823663856	5	sufficient_evidence	composite score < 0.2
+ENSG00000256537	SMIM10L1	0.19508736549023672	5	sufficient_evidence	composite score < 0.2
+ENSG00000231213	PLSCR5	0.19500345994474158	5	sufficient_evidence	composite score < 0.2
+ENSG00000213214	ARHGEF35	0.19485739887314468	5	sufficient_evidence	composite score < 0.2
+ENSG00000214700	C12orf71	0.19464353737076395	6	sufficient_evidence	composite score < 0.2
+ENSG00000226490	C8orf90	0.19424834999920132	3	moderate_evidence	composite score < 0.2
+ENSG00000214954	LRRC69	0.1942139507483108	6	sufficient_evidence	composite score < 0.2
+ENSG00000186118	TEX38	0.19421094147559861	6	sufficient_evidence	composite score < 0.2
+ENSG00000236027	PATE3	0.19413556544498337	5	sufficient_evidence	composite score < 0.2
+ENSG00000187754	SSX7	0.19400567914608413	5	sufficient_evidence	composite score < 0.2
+ENSG00000285010	OOSP4A	0.19399326244110546	3	moderate_evidence	composite score < 0.2
+ENSG00000203910	C1orf146	0.19393767866973888	6	sufficient_evidence	composite score < 0.2
+ENSG00000175018	TEX36	0.19374110953177465	6	sufficient_evidence	composite score < 0.2
+ENSG00000197768	STPG3	0.19359287592444407	6	sufficient_evidence	composite score < 0.2
+ENSG00000196993	NPIPB9	0.1933907743160716	5	sufficient_evidence	composite score < 0.2
+ENSG00000136327	NKX2-8	0.19336884939140003	6	sufficient_evidence	composite score < 0.2
+ENSG00000141371	CHCT1	0.19311987972756842	6	sufficient_evidence	composite score < 0.2
+ENSG00000203795	FAM24A	0.19307384585307938	5	sufficient_evidence	composite score < 0.2
+ENSG00000185055	EFCAB10	0.19305822620646435	5	sufficient_evidence	composite score < 0.2
+ENSG00000251380	DCANP1	0.19283859881137844	4	sufficient_evidence	composite score < 0.2
+ENSG00000170965	PLAC1	0.19260667469176923	5	sufficient_evidence	composite score < 0.2
+ENSG00000215131	C16orf90	0.19246751688593	5	sufficient_evidence	composite score < 0.2
+ENSG00000104714	ERICH1	0.19233541626698036	6	sufficient_evidence	composite score < 0.2
+ENSG00000273513	TBC1D3K	0.19220553502278542	5	sufficient_evidence	composite score < 0.2
+ENSG00000203727	SAMD5	0.19218650728401646	6	sufficient_evidence	composite score < 0.2
+ENSG00000255274	SMIM35	0.19210938733260824	3	moderate_evidence	composite score < 0.2
+ENSG00000177494	ZBED2	0.19191013633007203	6	sufficient_evidence	composite score < 0.2
+ENSG00000258436	RNASE12	0.19190530384099128	5	sufficient_evidence	composite score < 0.2
+ENSG00000185926	OR4C46	0.19189939656935268	4	sufficient_evidence	composite score < 0.2
+ENSG00000283199	C13orf46	0.19186652628589376	4	sufficient_evidence	composite score < 0.2
+ENSG00000100336	APOL4	0.19184667760007137	6	sufficient_evidence	composite score < 0.2
+ENSG00000204237	OXLD1	0.19179694156401966	6	sufficient_evidence	composite score < 0.2
+ENSG00000186967	KRTAP19-4	0.19165150097946537	4	sufficient_evidence	composite score < 0.2
+ENSG00000279782	PPIAL4F	0.1913963904717307	3	moderate_evidence	composite score < 0.2
+ENSG00000182974	OR4M2B	0.19133655127680518	5	sufficient_evidence	composite score < 0.2
+ENSG00000205002	AARD	0.19113581426612364	6	sufficient_evidence	composite score < 0.2
+ENSG00000213563	C8orf82	0.19101275528906056	6	sufficient_evidence	composite score < 0.2
+ENSG00000263201	DPEP2NB	0.19097914283070444	5	sufficient_evidence	composite score < 0.2
+ENSG00000182798	MAGEB17	0.1907610378836102	5	sufficient_evidence	composite score < 0.2
+ENSG00000286053	ASDURF	0.19072711708451373	5	sufficient_evidence	composite score < 0.2
+ENSG00000213416	KRTAP4-12	0.19066474239957118	4	sufficient_evidence	composite score < 0.2
+ENSG00000204450	TRIM64	0.1906343896727309	3	moderate_evidence	composite score < 0.2
+ENSG00000173699	SPATA3	0.1905677897466582	5	sufficient_evidence	composite score < 0.2
+ENSG00000189132	FAM47B	0.19047629401147348	4	sufficient_evidence	composite score < 0.2
+ENSG00000187944	C2orf66	0.19040303580583498	6	sufficient_evidence	composite score < 0.2
+ENSG00000260325	HSPB9	0.19034957081571402	6	sufficient_evidence	composite score < 0.2
+ENSG00000218819	TDRD15	0.18974699614049567	4	sufficient_evidence	composite score < 0.2
+ENSG00000125872	LRRN4	0.1897131765202722	6	sufficient_evidence	composite score < 0.2
+ENSG00000284791	SMIM41	0.18966905730312353	4	sufficient_evidence	composite score < 0.2
+ENSG00000284713	SMIM38	0.18956155189890367	4	sufficient_evidence	composite score < 0.2
+ENSG00000175857	GAPT	0.18953736988757042	6	sufficient_evidence	composite score < 0.2
+ENSG00000255524	NPIPB8	0.1895034758711949	5	sufficient_evidence	composite score < 0.2
+ENSG00000184814	PRR23B	0.18943235782517087	6	sufficient_evidence	composite score < 0.2
+ENSG00000284797	CIST1	0.189432157185039	4	sufficient_evidence	composite score < 0.2
+ENSG00000183246	RIMBP3C	0.1893152200808229	5	sufficient_evidence	composite score < 0.2
+ENSG00000283378	CNTNAP3C	0.18928433108778253	3	moderate_evidence	composite score < 0.2
+ENSG00000293600	LOC131768270	0.18925974091287046	2	moderate_evidence	composite score < 0.2
+ENSG00000254709	IGLL5	0.18917738147113256	5	sufficient_evidence	composite score < 0.2
+ENSG00000182315	MBD3L3	0.18899846177837917	5	sufficient_evidence	composite score < 0.2
+ENSG00000248483	POU5F2	0.18883423969982682	6	sufficient_evidence	composite score < 0.2
+ENSG00000120211	INSL4	0.18881806630338885	6	sufficient_evidence	composite score < 0.2
+ENSG00000196196	HRCT1	0.18876267246160072	5	sufficient_evidence	composite score < 0.2
+ENSG00000230054	TEX53	0.18866444120250833	4	sufficient_evidence	composite score < 0.2
+ENSG00000286920	SMIM40	0.18852023359266668	3	moderate_evidence	composite score < 0.2
+ENSG00000160233	LRRC3	0.18828921108570043	5	sufficient_evidence	composite score < 0.2
+ENSG00000124227	ANKRD60	0.18811487388563972	5	sufficient_evidence	composite score < 0.2
+ENSG00000274226	TBC1D3H	0.18810134166778417	5	sufficient_evidence	composite score < 0.2
+ENSG00000176979	TRIM60	0.18796321566437887	6	sufficient_evidence	composite score < 0.2
+ENSG00000276430	FAM25C	0.18789515069254653	5	sufficient_evidence	composite score < 0.2
+ENSG00000178821	TMEM52	0.18783322227105673	6	sufficient_evidence	composite score < 0.2
+ENSG00000240204	SMKR1	0.1876982924715515	6	sufficient_evidence	composite score < 0.2
+ENSG00000257108	NHLRC4	0.1876193149109242	6	sufficient_evidence	composite score < 0.2
+ENSG00000226690	C7orf78	0.1874698346666561	4	sufficient_evidence	composite score < 0.2
+ENSG00000123584	MAGEA9	0.18731000020788469	5	sufficient_evidence	composite score < 0.2
+ENSG00000155622	XAGE2	0.18725777895800386	4	sufficient_evidence	composite score < 0.2
+ENSG00000205710	C17orf107	0.1872487448843577	5	sufficient_evidence	composite score < 0.2
+ENSG00000255151	GLYATL1B	0.18707076212070242	5	sufficient_evidence	composite score < 0.2
+ENSG00000224659	GAGE12J	0.1870304425941641	4	sufficient_evidence	composite score < 0.2
+ENSG00000269586	CT45A10	0.18695678166211852	5	sufficient_evidence	composite score < 0.2
+ENSG00000277639	CHD9NB	0.18690118595335595	4	sufficient_evidence	composite score < 0.2
+ENSG00000282815	TEX13C	0.18679555382488341	5	sufficient_evidence	composite score < 0.2
+ENSG00000162620	LRRIQ3	0.1867674562994467	6	sufficient_evidence	composite score < 0.2
+ENSG00000196427	NBPF4	0.1866552911879364	5	sufficient_evidence	composite score < 0.2
+ENSG00000267978	MAGEA9B	0.18661635214621913	5	sufficient_evidence	composite score < 0.2
+ENSG00000214510	SPINK13	0.18654019176027226	6	sufficient_evidence	composite score < 0.2
+ENSG00000284438	SSU72L1	0.18623332739547538	3	moderate_evidence	composite score < 0.2
+ENSG00000284546	SSU72L3	0.18623332739547538	3	moderate_evidence	composite score < 0.2
+ENSG00000284018	SSU72L5	0.18623332739547538	3	moderate_evidence	composite score < 0.2
+ENSG00000204659	CBY3	0.18613631259175126	6	sufficient_evidence	composite score < 0.2
+ENSG00000159182	PRAC1	0.185991743779428	5	sufficient_evidence	composite score < 0.2
+ENSG00000284526	LOC122455342	0.18576329117676274	3	moderate_evidence	composite score < 0.2
+ENSG00000175202	HIGD2B	0.18565049974850695	5	sufficient_evidence	composite score < 0.2
+ENSG00000188996	HUS1B	0.1854771639634439	6	sufficient_evidence	composite score < 0.2
+ENSG00000198535	C2CD4A	0.18541542603855682	6	sufficient_evidence	composite score < 0.2
+ENSG00000286237	ARMCX5-GPRASP2	0.1853295148313803	5	sufficient_evidence	composite score < 0.2
+ENSG00000255359	CCDC179	0.18504275675939819	5	sufficient_evidence	composite score < 0.2
+ENSG00000204006	C1orf185	0.18486806989392493	5	sufficient_evidence	composite score < 0.2
+ENSG00000171405	XAGE5	0.18470780927981453	4	sufficient_evidence	composite score < 0.2
+ENSG00000152213	ARL11	0.18441181336602822	6	sufficient_evidence	composite score < 0.2
+ENSG00000212725	KRTAP2-1	0.18426939865096179	4	sufficient_evidence	composite score < 0.2
+ENSG00000163515	RETNLB	0.18425824735312973	6	sufficient_evidence	composite score < 0.2
+ENSG00000181562	EDDM3A	0.18420540868259588	5	sufficient_evidence	composite score < 0.2
+ENSG00000182108	DEXI	0.18404831190628762	6	sufficient_evidence	composite score < 0.2
+ENSG00000198173	FAM47C	0.1840271075644396	4	sufficient_evidence	composite score < 0.2
+ENSG00000189326	SPANXN4	0.18390258205007468	4	sufficient_evidence	composite score < 0.2
+ENSG00000197520	FAM177B	0.18385163342627076	5	sufficient_evidence	composite score < 0.2
+ENSG00000214688	C10orf105	0.18363563782603975	5	sufficient_evidence	composite score < 0.2
+ENSG00000167117	ANKRD40CL	0.18355797237393734	4	sufficient_evidence	composite score < 0.2
+ENSG00000222018	C21orf140	0.1835432610678249	4	sufficient_evidence	composite score < 0.2
+ENSG00000274600	RIMBP3B	0.1833510679072673	6	sufficient_evidence	composite score < 0.2
+ENSG00000259120	ERLN	0.18330204277683076	5	sufficient_evidence	composite score < 0.2
+ENSG00000275183	LENG9	0.1832542462046084	6	sufficient_evidence	composite score < 0.2
+ENSG00000283599	CXorf49C	0.18321594029899144	4	sufficient_evidence	composite score < 0.2
+ENSG00000147183	CPXCR1	0.18295409570615612	4	sufficient_evidence	composite score < 0.2
+ENSG00000214897	PNMA6E	0.18283519355030753	4	sufficient_evidence	composite score < 0.2
+ENSG00000283268	TEX54	0.18228268906880793	3	moderate_evidence	composite score < 0.2
+ENSG00000282881	TMEM275	0.1819382799756254	3	moderate_evidence	composite score < 0.2
+ENSG00000237489	C10orf143	0.18179314762880786	4	sufficient_evidence	composite score < 0.2
+ENSG00000228570	NUTM2E	0.18178464120193502	5	sufficient_evidence	composite score < 0.2
+ENSG00000228695	LOC107987423	0.18158356595263286	2	moderate_evidence	composite score < 0.2
+ENSG00000203499	IQANK1	0.1809139013759706	5	sufficient_evidence	composite score < 0.2
+ENSG00000241241	KRTAP4-16	0.18089664655686258	3	moderate_evidence	composite score < 0.2
+ENSG00000291317	TMEM276	0.18089664655686258	3	moderate_evidence	composite score < 0.2
+ENSG00000185156	MFSD6L	0.1808236704839311	5	sufficient_evidence	composite score < 0.2
+ENSG00000130487	KLHDC7B	0.1805335998677044	6	sufficient_evidence	composite score < 0.2
+ENSG00000178796	RIIAD1	0.17969010066466992	6	sufficient_evidence	composite score < 0.2
+ENSG00000226792	C13orf42	0.17965359833055117	4	sufficient_evidence	composite score < 0.2
+ENSG00000241224	C3orf85	0.17939674094559757	4	sufficient_evidence	composite score < 0.2
+ENSG00000196589	MBD3L2B	0.1789007019913139	5	sufficient_evidence	composite score < 0.2
+ENSG00000162069	BICDL2	0.1788489401105753	6	sufficient_evidence	composite score < 0.2
+ENSG00000216921	FAM240C	0.17869885111652234	6	sufficient_evidence	composite score < 0.2
+ENSG00000188051	TMEM221	0.17854076294229804	6	sufficient_evidence	composite score < 0.2
+ENSG00000274933	TBC1D3I	0.1783095939098482	5	sufficient_evidence	composite score < 0.2
+ENSG00000186788	SPATA31D3	0.17808979816860282	5	sufficient_evidence	composite score < 0.2
+ENSG00000214860	EVPLL	0.17804214430007073	6	sufficient_evidence	composite score < 0.2
+ENSG00000284356	TAF11L10	0.17790760593712593	3	moderate_evidence	composite score < 0.2
+ENSG00000283776	TAF11L13	0.17790760593712593	3	moderate_evidence	composite score < 0.2
+ENSG00000250782	TAF11L14	0.17790760593712593	3	moderate_evidence	composite score < 0.2
+ENSG00000284439	TAF11L3	0.17790760593712593	3	moderate_evidence	composite score < 0.2
+ENSG00000284283	TAF11L4	0.17790760593712593	3	moderate_evidence	composite score < 0.2
+ENSG00000284042	TAF11L6	0.17790760593712593	3	moderate_evidence	composite score < 0.2
+ENSG00000284465	TAF11L7	0.17790760593712593	3	moderate_evidence	composite score < 0.2
+ENSG00000283967	TAF11L8	0.17790760593712593	3	moderate_evidence	composite score < 0.2
+ENSG00000283988	TAF11L9	0.17790760593712593	3	moderate_evidence	composite score < 0.2
+ENSG00000277865	GOLGA6L22	0.17777922211043853	5	sufficient_evidence	composite score < 0.2
+ENSG00000198865	CCDC152	0.17774084221811473	6	sufficient_evidence	composite score < 0.2
+ENSG00000186924	KRTAP22-1	0.17773231982967336	4	sufficient_evidence	composite score < 0.2
+ENSG00000206262	FOXL2NB	0.17738484956533462	5	sufficient_evidence	composite score < 0.2
+ENSG00000269096	CT45A3	0.1772958327019507	5	sufficient_evidence	composite score < 0.2
+ENSG00000250821	EXOC1L	0.17664864339164496	4	sufficient_evidence	composite score < 0.2
+ENSG00000215115	CXorf49	0.17658848623593074	4	sufficient_evidence	composite score < 0.2
+ENSG00000221900	POM121L12	0.17658848623593074	4	sufficient_evidence	composite score < 0.2
+ENSG00000214787	MS4A4E	0.1762964717769254	5	sufficient_evidence	composite score < 0.2
+ENSG00000188959	C9orf152	0.1754439475173746	6	sufficient_evidence	composite score < 0.2
+ENSG00000284873	OOSP1	0.17534249971872798	4	sufficient_evidence	composite score < 0.2
+ENSG00000229972	IQCF3	0.17531426012543289	5	sufficient_evidence	composite score < 0.2
+ENSG00000286038	SPDYE13	0.17497813139092946	3	moderate_evidence	composite score < 0.2
+ENSG00000283247	CCDC201	0.1749386704188864	4	sufficient_evidence	composite score < 0.2
+ENSG00000182118	FAM89A	0.1747898557703745	6	sufficient_evidence	composite score < 0.2
+ENSG00000291309	LY6S	0.17449888206692976	3	moderate_evidence	composite score < 0.2
+ENSG00000248767	FOXL3	0.1744065008871193	4	sufficient_evidence	composite score < 0.2
+ENSG00000198354	DCAF12L2	0.17424688942874703	5	sufficient_evidence	composite score < 0.2
+ENSG00000198680	TUSC1	0.17424480008110346	6	sufficient_evidence	composite score < 0.2
+ENSG00000286190	SMIM48	0.17399044228536456	5	sufficient_evidence	composite score < 0.2
+ENSG00000273976	GOLGA6L1	0.1737435709006873	5	sufficient_evidence	composite score < 0.2
+ENSG00000233198	RNF224	0.17349417746181323	6	sufficient_evidence	composite score < 0.2
+ENSG00000186143	PRR30	0.17346106491933372	5	sufficient_evidence	composite score < 0.2
+ENSG00000260456	C16orf95	0.17345309342730808	6	sufficient_evidence	composite score < 0.2
+ENSG00000223601	EBLN1	0.173400951240811	5	sufficient_evidence	composite score < 0.2
+ENSG00000257529	RPL36A-HNRNPH2	0.1732382652554991	5	sufficient_evidence	composite score < 0.2
+ENSG00000179088	C12orf42	0.1731584776113172	5	sufficient_evidence	composite score < 0.2
+ENSG00000206260	PRR23A	0.17290678109337038	6	sufficient_evidence	composite score < 0.2
+ENSG00000255423	EBLN2	0.1728722898397947	5	sufficient_evidence	composite score < 0.2
+ENSG00000286131	LOC128092250	0.172248829109805	2	moderate_evidence	composite score < 0.2
+ENSG00000254469	XNDC1N	0.17221138728357033	6	sufficient_evidence	composite score < 0.2
+ENSG00000221874	ZNF816-ZNF321P	0.17211898177318186	5	sufficient_evidence	composite score < 0.2
+ENSG00000183260	ABHD16B	0.1717224111875887	6	sufficient_evidence	composite score < 0.2
+ENSG00000204919	PRR20A	0.17147757255936674	2	moderate_evidence	composite score < 0.2
+ENSG00000204918	PRR20B	0.17147757255936674	2	moderate_evidence	composite score < 0.2
+ENSG00000233701	PRR23C	0.17087032416909576	6	sufficient_evidence	composite score < 0.2
+ENSG00000286106	NOTCH2NLR	0.17074075924484403	5	sufficient_evidence	composite score < 0.2
+ENSG00000228836	CT45A5	0.17064802339822988	5	sufficient_evidence	composite score < 0.2
+ENSG00000204542	C6orf15	0.1704290796454041	5	sufficient_evidence	composite score < 0.2
+ENSG00000179178	TMEM125	0.17015021726571128	6	sufficient_evidence	composite score < 0.2
+ENSG00000224107	ETDB	0.1695733415118635	4	sufficient_evidence	composite score < 0.2
+ENSG00000189127	ANKRD34B	0.16920888187462024	6	sufficient_evidence	composite score < 0.2
+ENSG00000283361	CFAP97D2	0.16912952395870912	4	sufficient_evidence	composite score < 0.2
+ENSG00000188883	KLRG2	0.16908337252412037	6	sufficient_evidence	composite score < 0.2
+ENSG00000277535	CT47C1	0.16907766898556176	4	sufficient_evidence	composite score < 0.2
+ENSG00000189357	SPATA31D4	0.16864449559948833	5	sufficient_evidence	composite score < 0.2
+ENSG00000283288	SMIM33	0.16840750396062237	3	moderate_evidence	composite score < 0.2
+ENSG00000171695	LKAAEAR1	0.16789240054259794	6	sufficient_evidence	composite score < 0.2
+ENSG00000125816	NKX2-4	0.16783317439635254	6	sufficient_evidence	composite score < 0.2
+ENSG00000205858	LRRC72	0.1671864001258054	5	sufficient_evidence	composite score < 0.2
+ENSG00000182898	TCHHL1	0.16660175400025193	6	sufficient_evidence	composite score < 0.2
+ENSG00000171433	GLOD5	0.16647505799433543	5	sufficient_evidence	composite score < 0.2
+ENSG00000112273	HDGFL1	0.16610445848745992	5	sufficient_evidence	composite score < 0.2
+ENSG00000223731	SUPT20HL1	0.16591480115273005	4	sufficient_evidence	composite score < 0.2
+ENSG00000203942	C10orf62	0.16536163624168312	6	sufficient_evidence	composite score < 0.2
+ENSG00000182993	C12orf60	0.1646559517970845	6	sufficient_evidence	composite score < 0.2
+ENSG00000235750	KIAA0040	0.16460156004892496	6	sufficient_evidence	composite score < 0.2
+ENSG00000289746	TARP	0.16428317446977014	3	moderate_evidence	composite score < 0.2
+ENSG00000189090	FAM25G	0.16411870736283343	5	sufficient_evidence	composite score < 0.2
+ENSG00000283329	FAM240B	0.16379130040748036	3	moderate_evidence	composite score < 0.2
+ENSG00000244624	KRTAP20-1	0.16359637920062398	4	sufficient_evidence	composite score < 0.2
+ENSG00000256806	C17orf100	0.16349640760112685	6	sufficient_evidence	composite score < 0.2
+ENSG00000269720	CCDC194	0.16332120595905839	4	sufficient_evidence	composite score < 0.2
+ENSG00000284491	THSD8	0.1632801132358988	3	moderate_evidence	composite score < 0.2
+ENSG00000166262	FAM227B	0.16301925631770223	6	sufficient_evidence	composite score < 0.2
+ENSG00000184898	RBM43	0.16300970688155156	6	sufficient_evidence	composite score < 0.2
+ENSG00000244115	DNAJC25-GNG10	0.16296768351040072	4	sufficient_evidence	composite score < 0.2
+ENSG00000215113	CXorf49B	0.1626784885710899	3	moderate_evidence	composite score < 0.2
+ENSG00000186329	TMEM212	0.16200767162977145	6	sufficient_evidence	composite score < 0.2
+ENSG00000234186	C16orf82	0.16192085717416088	5	sufficient_evidence	composite score < 0.2
+ENSG00000253313	C1orf210	0.16151495411546707	6	sufficient_evidence	composite score < 0.2
+ENSG00000253276	CCDC71L	0.16076735519226784	6	sufficient_evidence	composite score < 0.2
+ENSG00000198889	DCAF12L1	0.16012648079541256	5	sufficient_evidence	composite score < 0.2
+ENSG00000285891	MSANTD5	0.15959587769576286	3	moderate_evidence	composite score < 0.2
+ENSG00000255181	CCDC166	0.15948981540427384	4	sufficient_evidence	composite score < 0.2
+ENSG00000203724	C1orf53	0.15863679424087399	6	sufficient_evidence	composite score < 0.2
+ENSG00000185056	C5orf47	0.15861372194536374	5	sufficient_evidence	composite score < 0.2
+ENSG00000225396	FAM236D	0.15856594335686408	3	moderate_evidence	composite score < 0.2
+ENSG00000258713	C20orf141	0.15799698390413208	6	sufficient_evidence	composite score < 0.2
+ENSG00000225528	TMA7B	0.1579414807040697	3	moderate_evidence	composite score < 0.2
+ENSG00000214324	PRR23E	0.15744865553219933	5	sufficient_evidence	composite score < 0.2
+ENSG00000204687	MAS1L	0.1573726565090532	6	sufficient_evidence	composite score < 0.2
+ENSG00000162460	TMEM82	0.1570696400350129	6	sufficient_evidence	composite score < 0.2
+ENSG00000283473	FAM240A	0.15674797661423193	5	sufficient_evidence	composite score < 0.2
+ENSG00000164241	C5orf63	0.1555231373227793	6	sufficient_evidence	composite score < 0.2
+ENSG00000286102	FAM246A	0.15510749786590688	3	moderate_evidence	composite score < 0.2
+ENSG00000238210	ETDA	0.15506144937141234	3	moderate_evidence	composite score < 0.2
+ENSG00000286175	FAM246B	0.15445448707744625	3	moderate_evidence	composite score < 0.2
+ENSG00000291827	TCEAL6	0.1543785484931396	3	moderate_evidence	composite score < 0.2
+ENSG00000226685	CT47A12	0.15431838170624448	3	moderate_evidence	composite score < 0.2
+ENSG00000214518	KRTAP2-2	0.15390769968440718	4	sufficient_evidence	composite score < 0.2
+ENSG00000268655	SAXO3	0.1536373850774772	4	sufficient_evidence	composite score < 0.2
+ENSG00000285765	FAM90A23	0.15305489509213804	6	sufficient_evidence	composite score < 0.2
+ENSG00000275520	FAM236A	0.15233120184442606	3	moderate_evidence	composite score < 0.2
+ENSG00000171060	C8orf74	0.1514345190282929	6	sufficient_evidence	composite score < 0.2
+ENSG00000285025	MIURF	0.15069455645962596	3	moderate_evidence	composite score < 0.2
+ENSG00000284479	SMIM39	0.15055820907114476	5	sufficient_evidence	composite score < 0.2
+ENSG00000285950	FAM90A10	0.14924773730839574	5	sufficient_evidence	composite score < 0.2
+ENSG00000285687	FAM90A22	0.14924773730839574	5	sufficient_evidence	composite score < 0.2
+ENSG00000285937	FAM90A8	0.14924773730839574	5	sufficient_evidence	composite score < 0.2
+ENSG00000149609	C20orf144	0.14903815576845422	5	sufficient_evidence	composite score < 0.2
+ENSG00000185028	LRRC14B	0.14897399255742771	6	sufficient_evidence	composite score < 0.2
+ENSG00000230778	ANKRD63	0.14763368579161715	6	sufficient_evidence	composite score < 0.2
+ENSG00000235942	LCE6A	0.14641018527830307	4	sufficient_evidence	composite score < 0.2
+ENSG00000204978	ERICH4	0.14616749031742213	6	sufficient_evidence	composite score < 0.2
+ENSG00000223591	CENPVL1	0.14611299382168522	3	moderate_evidence	composite score < 0.2
+ENSG00000283093	CENPVL2	0.14611299382168522	3	moderate_evidence	composite score < 0.2
+ENSG00000283297	TEX52	0.14600291092955986	5	sufficient_evidence	composite score < 0.2
+ENSG00000286224	LOC128092249	0.14514773194814165	3	moderate_evidence	composite score < 0.2
+ENSG00000268994	FAM236B	0.1446784885710899	3	moderate_evidence	composite score < 0.2
+ENSG00000236446	CT47B1	0.14347814506669374	5	sufficient_evidence	composite score < 0.2
+ENSG00000234511	C5orf58	0.14263145329250093	6	sufficient_evidence	composite score < 0.2
+ENSG00000163046	ANKRD30BL	0.14036463041600997	6	sufficient_evidence	composite score < 0.2
+ENSG00000310576	FAM174C	0.1400360437964056	5	sufficient_evidence	composite score < 0.2
+ENSG00000237671	GAGE12C	0.13437854849313957	3	moderate_evidence	composite score < 0.2
+ENSG00000284629	SCYGR1	0.13437854849313957	3	moderate_evidence	composite score < 0.2
+ENSG00000284704	SCYGR3	0.13437854849313957	3	moderate_evidence	composite score < 0.2
+ENSG00000284718	SCYGR7	0.13437854849313957	3	moderate_evidence	composite score < 0.2
+ENSG00000286105	TMEM217B	0.13437854849313957	3	moderate_evidence	composite score < 0.2
+ENSG00000204950	LRRC10B	0.1315186436947006	6	sufficient_evidence	composite score < 0.2
+ENSG00000285723	LOC128706665	0.13062614243975934	2	moderate_evidence	composite score < 0.2
+ENSG00000285946	LCE7A	0.1261129938216852	3	moderate_evidence	composite score < 0.2
+ENSG00000255251	PRR23D1	0.12004665600512601	4	sufficient_evidence	composite score < 0.2
+ENSG00000236371	CT47A1	0.11573878627968338	4	sufficient_evidence	composite score < 0.2
+ENSG00000224089	CT47A10	0.11573878627968338	4	sufficient_evidence	composite score < 0.2
+ENSG00000226929	CT47A11	0.11573878627968338	4	sufficient_evidence	composite score < 0.2
+ENSG00000242362	CT47A2	0.11573878627968338	4	sufficient_evidence	composite score < 0.2
+ENSG00000236126	CT47A3	0.11573878627968338	4	sufficient_evidence	composite score < 0.2
+ENSG00000230594	CT47A4	0.11573878627968338	4	sufficient_evidence	composite score < 0.2
+ENSG00000237957	CT47A5	0.11573878627968338	4	sufficient_evidence	composite score < 0.2
+ENSG00000226023	CT47A6	0.11573878627968338	4	sufficient_evidence	composite score < 0.2
+ENSG00000230347	CT47A8	0.11573878627968338	4	sufficient_evidence	composite score < 0.2
+ENSG00000226600	CT47A9	0.11573878627968338	4	sufficient_evidence	composite score < 0.2
+ENSG00000288649	ACTL10	0.11492947693494683	4	sufficient_evidence	composite score < 0.2
+ENSG00000223885	FAM90A13	0.11431838170624449	3	moderate_evidence	composite score < 0.2
+ENSG00000230045	FAM90A15	0.11431838170624449	3	moderate_evidence	composite score < 0.2
+ENSG00000233132	FAM90A3	0.11431838170624449	3	moderate_evidence	composite score < 0.2
+ENSG00000215373	FAM90A5	0.11431838170624449	3	moderate_evidence	composite score < 0.2
+ENSG00000215269	GAGE12G	0.11431838170624449	3	moderate_evidence	composite score < 0.2
+ENSG00000255378	PRR23D2	0.11431838170624449	3	moderate_evidence	composite score < 0.2
+ENSG00000284234	TAF11L5	0.11431838170624449	3	moderate_evidence	composite score < 0.2
+ENSG00000285508	LOC128706666	0.11147757255936676	2	moderate_evidence	composite score < 0.2
+ENSG00000290203	SPESP1-NOX5	0.11147757255936676	2	moderate_evidence	composite score < 0.2
+ENSG00000291316	TMEM276-ZFTRAF1	0.11147757255936676	2	moderate_evidence	composite score < 0.2
+ENSG00000203783	PRR9	0.10904565219665618	6	sufficient_evidence	composite score < 0.2
+ENSG00000284622	SCYGR10	0.09437854849313959	3	moderate_evidence	composite score < 0.2
+ENSG00000286075	SMIM10L3	0.0943183817062445	3	moderate_evidence	composite score < 0.2
+ENSG00000289762	SMIM46	0.09018050036068526	2	moderate_evidence	composite score < 0.2
+ENSG00000273696	CT45A7	0.08573878627968337	4	sufficient_evidence	composite score < 0.2
+ENSG00000285814	FAM90A14	0.08573878627968337	4	sufficient_evidence	composite score < 0.2
+ENSG00000285620	FAM90A16	0.08573878627968337	4	sufficient_evidence	composite score < 0.2
+ENSG00000285720	FAM90A17	0.08573878627968337	4	sufficient_evidence	composite score < 0.2
+ENSG00000285913	FAM90A18	0.08573878627968337	4	sufficient_evidence	composite score < 0.2
+ENSG00000285657	FAM90A19	0.08573878627968337	4	sufficient_evidence	composite score < 0.2
+ENSG00000285975	FAM90A7	0.08573878627968337	4	sufficient_evidence	composite score < 0.2
+ENSG00000285607	FAM90A9	0.08573878627968337	4	sufficient_evidence	composite score < 0.2
+ENSG00000288708	LOC127903862	0.08014293006636039	1	sparse_evidence	composite score < 0.2
+ENSG00000278085	CT45A8	0.07073878627968339	4	sufficient_evidence	composite score < 0.2
+ENSG00000270946	CT45A9	0.07073878627968339	4	sufficient_evidence	composite score < 0.2
+ENSG00000288608	LOC128092247	0.054619703930576816	1	sparse_evidence	composite score < 0.2
+ENSG00000288623	LOC128071547	0.02909647779479323	1	sparse_evidence	composite score < 0.2
+ENSG00000286025	FAM246C	0.0	1	sparse_evidence	composite score < 0.2
+ENSG00000281336	LOC101929775		0	no_evidence	no evidence (NULL composite)
+ENSG00000290912	LOC102723564		0	no_evidence	no evidence (NULL composite)
+ENSG00000280463	LOC102724737		0	no_evidence	no evidence (NULL composite)
+ENSG00000275949	LOC107984156		0	no_evidence	no evidence (NULL composite)
+ENSG00000250650	LOC107986375		0	no_evidence	no evidence (NULL composite)
+ENSG00000288650	LOC112267881		0	no_evidence	no evidence (NULL composite)
+ENSG00000307470	LOC112268317		0	no_evidence	no evidence (NULL composite)
+ENSG00000292415	LOC112268347		0	no_evidence	no evidence (NULL composite)
+ENSG00000283902	LOC112268354		0	no_evidence	no evidence (NULL composite)
+ENSG00000284301	LOC112268355		0	no_evidence	no evidence (NULL composite)
+ENSG00000292320	LOC112268390		0	no_evidence	no evidence (NULL composite)
+ENSG00000293992	LOC124900214		0	no_evidence	no evidence (NULL composite)
+ENSG00000283784	LOC124900568		0	no_evidence	no evidence (NULL composite)
+ENSG00000284511	LOC124900573		0	no_evidence	no evidence (NULL composite)
+ENSG00000283742	LOC124900574		0	no_evidence	no evidence (NULL composite)
+ENSG00000276709	LOC124900586		0	no_evidence	no evidence (NULL composite)
+ENSG00000301210	LOC124900855		0	no_evidence	no evidence (NULL composite)
+ENSG00000293573	LOC124901580		0	no_evidence	no evidence (NULL composite)
+ENSG00000286726	LOC124901872		0	no_evidence	no evidence (NULL composite)
+ENSG00000300805	LOC124902071		0	no_evidence	no evidence (NULL composite)
+ENSG00000296045	LOC124902551		0	no_evidence	no evidence (NULL composite)
+ENSG00000295726	LOC124902876		0	no_evidence	no evidence (NULL composite)
+ENSG00000308044	LOC124903151		0	no_evidence	no evidence (NULL composite)
+ENSG00000304907	LOC124903319		0	no_evidence	no evidence (NULL composite)
+ENSG00000298376	LOC124904094		0	no_evidence	no evidence (NULL composite)
+ENSG00000278178	LOC124905359		0	no_evidence	no evidence (NULL composite)
+ENSG00000284025	LOC124905408		0	no_evidence	no evidence (NULL composite)
+ENSG00000283820	LOC124905409		0	no_evidence	no evidence (NULL composite)
+ENSG00000284181	LOC124905410		0	no_evidence	no evidence (NULL composite)
+ENSG00000283878	LOC124905411		0	no_evidence	no evidence (NULL composite)
+ENSG00000284298	LOC124905412		0	no_evidence	no evidence (NULL composite)
+ENSG00000292414	LOC124905413		0	no_evidence	no evidence (NULL composite)
+ENSG00000284926	LOC124905442		0	no_evidence	no evidence (NULL composite)
+ENSG00000288173	LOC124905482		0	no_evidence	no evidence (NULL composite)
+ENSG00000292226	LOC124905558		0	no_evidence	no evidence (NULL composite)
+ENSG00000293268	LOC124906262		0	no_evidence	no evidence (NULL composite)
+ENSG00000288838	LOC124906869		0	no_evidence	no evidence (NULL composite)
+ENSG00000289997	LOC124906938		0	no_evidence	no evidence (NULL composite)
+ENSG00000301761	LOC124907090		0	no_evidence	no evidence (NULL composite)
+ENSG00000288184	LOC124907358		0	no_evidence	no evidence (NULL composite)
+ENSG00000288339	LOC124907502		0	no_evidence	no evidence (NULL composite)
+ENSG00000293342	LOC124907846		0	no_evidence	no evidence (NULL composite)
+ENSG00000288716	LOC127898562		0	no_evidence	no evidence (NULL composite)
+ENSG00000288712	LOC127898563		0	no_evidence	no evidence (NULL composite)
+ENSG00000288706	LOC127933115		0	no_evidence	no evidence (NULL composite)
+ENSG00000288678	LOC128031832		0	no_evidence	no evidence (NULL composite)
+ENSG00000288661	LOC128031833		0	no_evidence	no evidence (NULL composite)
+ENSG00000288654	LOC128031834		0	no_evidence	no evidence (NULL composite)
+ENSG00000288646	LOC128031835		0	no_evidence	no evidence (NULL composite)
+ENSG00000288644	LOC128031836		0	no_evidence	no evidence (NULL composite)
+ENSG00000288634	LOC128031837		0	no_evidence	no evidence (NULL composite)
+ENSG00000288626	LOC128071544		0	no_evidence	no evidence (NULL composite)
+ENSG00000288625	LOC128071545		0	no_evidence	no evidence (NULL composite)
+ENSG00000288614	LOC128092246		0	no_evidence	no evidence (NULL composite)
+ENSG00000288570	LOC128092248		0	no_evidence	no evidence (NULL composite)
+ENSG00000288629	LOC128092251		0	no_evidence	no evidence (NULL composite)
+ENSG00000285133	LOC128125814		0	no_evidence	no evidence (NULL composite)
+ENSG00000284895	LOC128125817		0	no_evidence	no evidence (NULL composite)
+ENSG00000288715	LOC128462377		0	no_evidence	no evidence (NULL composite)
+ENSG00000284217	LOC128966554		0	no_evidence	no evidence (NULL composite)
+ENSG00000292324	LOC128966567		0	no_evidence	no evidence (NULL composite)
+ENSG00000234749	LOC128966594		0	no_evidence	no evidence (NULL composite)
+ENSG00000290566	LOC128966727		0	no_evidence	no evidence (NULL composite)
+ENSG00000274971	LOC128966728		0	no_evidence	no evidence (NULL composite)
+ENSG00000273688	LOC128966730		0	no_evidence	no evidence (NULL composite)
+ENSG00000278345	LOC128966732		0	no_evidence	no evidence (NULL composite)
+ENSG00000293564	LOC139427322		0	no_evidence	no evidence (NULL composite)
+ENSG00000302423	TBC1D1-AS1		0	no_evidence	no evidence (NULL composite)
