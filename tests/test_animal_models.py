@@ -12,6 +12,7 @@ from usher_pipeline.evidence.animal_models import (
     score_animal_evidence,
     SENSORY_MP_KEYWORDS,
 )
+from usher_pipeline.evidence.animal_models.transform import compute_phenotype_aggregates
 from usher_pipeline.evidence.animal_models.fetch import (
     fetch_mgi_phenotypes,
     fetch_zfin_phenotypes,
@@ -246,42 +247,73 @@ def test_phenotype_count_scaling():
     assert many_score < few_score * 10  # Not 10x higher
 
 
-def test_impc_integration():
-    """Test that IMPC phenotypes contribute to score."""
-    # Gene without IMPC
-    no_impc = pl.DataFrame({
-        'gene_id': ['ENSG00000001'],
+def test_impc_no_independent_bonus():
+    """IMPC must not add an independent bonus on top of mouse (MGI) evidence.
+
+    IMPC phenotype data is ingested into MGI as Mammalian Phenotype (MP)
+    ontology annotations, so MGI and IMPC are not independent sources.
+    Two genes with identical mouse phenotype evidence (same confidence and
+    the same distinct sensory phenotype count) must score equally regardless
+    of whether the has_impc_phenotype flag is set.
+    """
+    base = {
         'mouse_ortholog': ['Gene1'],
         'mouse_ortholog_confidence': ['HIGH'],
         'zebrafish_ortholog': [None],
         'zebrafish_ortholog_confidence': [None],
         'has_mouse_phenotype': [True],
         'has_zebrafish_phenotype': [False],
-        'has_impc_phenotype': [False],
         'sensory_phenotype_count': [3],
+    }
+    no_impc = pl.DataFrame({'gene_id': ['ENSG00000001'], 'has_impc_phenotype': [False], **base})
+    with_impc = pl.DataFrame({'gene_id': ['ENSG00000002'], 'has_impc_phenotype': [True], **base})
+
+    no_impc_score = score_animal_evidence(no_impc)['animal_model_score_normalized'][0]
+    with_impc_score = score_animal_evidence(with_impc)['animal_model_score_normalized'][0]
+
+    assert with_impc_score == no_impc_score
+
+
+def test_mouse_phenotype_count_dedups_mgi_impc_overlap():
+    """MGI and IMPC share the MP ontology, so overlapping terms count once.
+
+    A gene with MGI terms {A, B} and IMPC terms {A, C} has three distinct
+    mouse phenotypes, not four; the summed count double-counted term A.
+    """
+    df = pl.DataFrame({
+        'mgi_phenotype_count': [2],
+        'mgi_terms': ['abnormal hearing; abnormal retina morphology'],
+        'impc_phenotype_count': [2],
+        'impc_terms': ['abnormal hearing; decreased startle reflex'],
+        'zfin_phenotype_count': [None],
+        'zfin_terms': [None],
     })
 
-    # Gene with IMPC
-    with_impc = pl.DataFrame({
-        'gene_id': ['ENSG00000002'],
-        'mouse_ortholog': ['Gene2'],
-        'mouse_ortholog_confidence': ['HIGH'],
-        'zebrafish_ortholog': [None],
-        'zebrafish_ortholog_confidence': [None],
-        'has_mouse_phenotype': [True],
-        'has_zebrafish_phenotype': [False],
-        'has_impc_phenotype': [True],
-        'sensory_phenotype_count': [3],
+    out = compute_phenotype_aggregates(df)
+
+    assert out['sensory_phenotype_count'][0] == 3
+    assert out['has_mouse_phenotype'][0] is True
+
+
+def test_impc_only_gene_gets_mouse_phenotype():
+    """A gene with IMPC-but-no-MGI evidence still has a mouse phenotype.
+
+    Folding IMPC into the mouse channel must preserve coverage for genes
+    whose only mouse evidence comes from IMPC screening.
+    """
+    df = pl.DataFrame({
+        'mgi_phenotype_count': [None],
+        'mgi_terms': [None],
+        'impc_phenotype_count': [1],
+        'impc_terms': ['abnormal cochlea morphology'],
+        'zfin_phenotype_count': [None],
+        'zfin_terms': [None],
     })
 
-    no_impc_result = score_animal_evidence(no_impc)
-    with_impc_result = score_animal_evidence(with_impc)
+    out = compute_phenotype_aggregates(df)
 
-    no_impc_score = no_impc_result['animal_model_score_normalized'][0]
-    with_impc_score = with_impc_result['animal_model_score_normalized'][0]
-
-    # IMPC should add to score (+0.3)
-    assert with_impc_score > no_impc_score
+    assert out['has_mouse_phenotype'][0] is True
+    assert out['sensory_phenotype_count'][0] == 1
 
 
 def test_fetch_mgi_phenotypes_parses_headerless_reports():

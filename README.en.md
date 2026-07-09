@@ -4,7 +4,7 @@
 
 A reproducible bioinformatics pipeline for systematic screening of candidate genes associated with Usher syndrome and ciliopathies.
 
-This pipeline evaluates approximately 22,600 human protein-coding genes across six independent evidence layers, producing weighted composite scores and tiered candidate gene lists for downstream experimental validation.
+This pipeline evaluates approximately 22,600 human protein-coding genes across six complementary evidence layers, producing weighted composite scores and tiered candidate gene lists for downstream experimental validation.
 
 ---
 
@@ -39,7 +39,7 @@ Usher proteins play critical roles in cilia and cilia-associated structures, par
 ### Core Design Principles
 
 - **Missing data ≠ zero score**: If a gene lacks data in a given evidence layer (NULL), it is not penalized. Only layers with available data contribute to the weighted average. This prevents systematic bias against understudied genes.
-- **Orthogonal multi-evidence validation**: Six evidence layers assess cilia/Usher relevance from independent angles, reducing the impact of any single data source bias.
+- **Complementary multi-evidence validation**: Six evidence layers assess cilia/Usher relevance from complementary angles, reducing the impact of any single data source bias.
 - **Full reproducibility**: All data versions, parameters, and analysis steps are recorded with provenance tracking.
 
 ---
@@ -335,11 +335,17 @@ Conservation of sensory phenotypes across species provides **functional validati
 ```
 animal_model_score =
     0.4 × mouse_score × mouse_confidence +
-    0.3 × zebrafish_score × zebrafish_confidence +
-    0.3 × impc_bonus
+    0.3 × zebrafish_score × zebrafish_confidence
 
 Confidence weights: HIGH = 1.0, MEDIUM = 0.7, LOW = 0.4
 Phenotype count scaling: log₂(sensory_phenotype_count + 1) / log₂(max_count + 1)
+
+Mouse evidence combines MGI and IMPC into a single channel: IMPC data is
+ingested into MGI via the shared Mammalian Phenotype ontology, so IMPC is
+not scored as an independent source (this would double-count the same mouse
+evidence). Distinct MP terms across MGI and IMPC are counted once; a gene
+whose only mouse evidence comes from IMPC still counts as having a mouse
+phenotype.
 ```
 
 Logarithmic scaling prevents genes with excessive phenotype annotations from dominating rankings (diminishing returns).

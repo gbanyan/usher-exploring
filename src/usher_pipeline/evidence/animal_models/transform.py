@@ -72,15 +72,69 @@ def filter_sensory_phenotypes(
     return filtered
 
 
+def compute_phenotype_aggregates(df: pl.DataFrame) -> pl.DataFrame:
+    """Fold MGI, IMPC, and ZFIN phenotype terms into per-gene aggregates.
+
+    MGI and IMPC both annotate with the Mammalian Phenotype (MP) ontology, and
+    IMPC data is ingested into MGI, so their term sets overlap. Mouse evidence
+    is therefore counted as the number of *distinct* MP terms across MGI and
+    IMPC (a set union), not the sum of the two per-source counts, which would
+    double-count shared terms. Zebrafish (ZFIN, ZP ontology) is counted
+    separately. A gene whose only mouse evidence comes from IMPC still counts
+    as having a mouse phenotype.
+
+    Expects per-source count/term columns (mgi_terms, impc_terms, zfin_terms
+    and their *_phenotype_count) and adds:
+    - has_mouse_phenotype: gene has any distinct mouse (MGI or IMPC) sensory term
+    - has_zebrafish_phenotype / has_impc_phenotype: provenance flags
+    - sensory_phenotype_count: distinct mouse terms + zebrafish count (NULL if 0)
+    - phenotype_categories: distinct union of all terms, "; "-joined
+    """
+    def _terms(col: str) -> pl.Expr:
+        return pl.col(col).fill_null("").str.split("; ")
+
+    def _distinct_nonempty(*cols: str) -> pl.Expr:
+        return (
+            pl.concat_list([_terms(c) for c in cols])
+            .list.unique()
+            .list.eval(pl.element().filter(pl.element() != ""))
+        )
+
+    mouse_terms = _distinct_nonempty("mgi_terms", "impc_terms")
+    all_terms = _distinct_nonempty("mgi_terms", "impc_terms", "zfin_terms")
+    zfin_count = pl.col("zfin_phenotype_count").fill_null(0)
+
+    return (
+        df.with_columns([
+            mouse_terms.list.len().alias("_mouse_count"),
+            all_terms.list.join("; ").alias("phenotype_categories"),
+        ])
+        .with_columns([
+            (pl.col("_mouse_count") > 0).alias("has_mouse_phenotype"),
+            (zfin_count > 0).alias("has_zebrafish_phenotype"),
+            (pl.col("impc_phenotype_count").fill_null(0) > 0).alias("has_impc_phenotype"),
+            (pl.col("_mouse_count") + zfin_count).alias("sensory_phenotype_count"),
+        ])
+        .with_columns([
+            pl.when(pl.col("sensory_phenotype_count") == 0)
+            .then(None)
+            .otherwise(pl.col("sensory_phenotype_count"))
+            .alias("sensory_phenotype_count")
+        ])
+        .drop("_mouse_count")
+    )
+
+
 def score_animal_evidence(df: pl.DataFrame) -> pl.DataFrame:
     """Compute animal model evidence scores with ortholog confidence weighting.
 
     Scoring formula:
     - Base score = 0 if no phenotypes
-    - For each organism with sensory phenotypes:
-      * Mouse (MGI): +0.4 weighted by ortholog confidence
-      * Zebrafish (ZFIN): +0.3 weighted by ortholog confidence
-      * IMPC: +0.3 (independent confirmation bonus)
+    - Mouse (MGI and IMPC, folded into one channel): +0.4 weighted by ortholog
+      confidence. IMPC phenotypes are ingested into MGI (shared MP ontology),
+      so they are not scored as an independent source; folding them in avoids
+      double-counting the same mouse evidence.
+    - Zebrafish (ZFIN): +0.3 weighted by ortholog confidence
     - Confidence weighting: HIGH=1.0, MEDIUM=0.7, LOW=0.4
     - Multiply by log2(sensory_phenotype_count + 1) / log2(max_count + 1) to reward multiple phenotypes
     - Clamp to [0, 1]
@@ -124,15 +178,12 @@ def score_animal_evidence(df: pl.DataFrame) -> pl.DataFrame:
         .otherwise(0.0)
     )
 
-    # Score for IMPC phenotypes (independent confirmation)
-    impc_score = (
-        pl.when(pl.col("has_impc_phenotype") == True)
-        .then(0.3)
-        .otherwise(0.0)
-    )
-
-    # Combine scores
-    base_score = mouse_score + zebrafish_score + impc_score
+    # IMPC phenotypes are folded into the mouse channel during aggregation
+    # (compute_phenotype_aggregates): IMPC data is ingested into MGI via the
+    # shared Mammalian Phenotype ontology, so scoring it as an independent
+    # source would double-count the same mouse evidence. Mouse and zebrafish
+    # are therefore the only two scoring channels.
+    base_score = mouse_score + zebrafish_score
 
     # Get max sensory phenotype count for normalization
     max_count = df.select(pl.col("sensory_phenotype_count").max()).item()
@@ -311,35 +362,13 @@ def process_animal_model_evidence(gene_ids: list[str]) -> pl.DataFrame:
             right_on="mouse_gene",
             how="left"
         )
-        # Add flags
-        .with_columns([
-            (pl.col("mgi_phenotype_count") > 0).alias("has_mouse_phenotype"),
-            (pl.col("zfin_phenotype_count") > 0).alias("has_zebrafish_phenotype"),
-            (pl.col("impc_phenotype_count") > 0).alias("has_impc_phenotype"),
-        ])
-        # Calculate total sensory phenotype count
-        .with_columns([
-            (
-                pl.col("mgi_phenotype_count").fill_null(0) +
-                pl.col("zfin_phenotype_count").fill_null(0) +
-                pl.col("impc_phenotype_count").fill_null(0)
-            ).alias("sensory_phenotype_count")
-        ])
-        # Combine phenotype terms
-        .with_columns([
-            pl.concat_str([
-                pl.col("mgi_terms").fill_null(""),
-                pl.col("zfin_terms").fill_null(""),
-                pl.col("impc_terms").fill_null(""),
-            ], separator="; ").str.replace_all("; ; ", "; ").str.strip_chars("; ").alias("phenotype_categories")
-        ])
-        # Set sensory_phenotype_count to NULL if zero (preserve NULL pattern)
-        .with_columns([
-            pl.when(pl.col("sensory_phenotype_count") == 0)
-            .then(None)
-            .otherwise(pl.col("sensory_phenotype_count"))
-            .alias("sensory_phenotype_count")
-        ])
+    )
+
+    # Fold MGI/IMPC/ZFIN phenotype terms into per-gene aggregates, counting
+    # distinct mouse (MGI + IMPC) MP terms as a set union to avoid
+    # double-counting, since IMPC data is ingested into MGI.
+    result = (
+        compute_phenotype_aggregates(result)
         # Select final columns
         .select([
             "gene_id",
