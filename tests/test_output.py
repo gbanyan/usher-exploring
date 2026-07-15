@@ -198,6 +198,33 @@ def synthetic_scored_genes() -> pl.DataFrame:
             None,
             None,
         ],
+        "tau_specificity": [
+            # HIGH: ENSG001 passes gate (>=0.8), ENSG002 passes, ENSG003 fails
+            0.9,
+            0.85,
+            0.65,
+            # MEDIUM: mix of values and NULLs
+            None,
+            0.9,
+            0.7,
+            0.5,
+            0.3,
+            # LOW: mostly NULL
+            None,
+            0.8,
+            0.6,
+            0.4,
+            0.2,
+            # EXCLUDED: irrelevant but still present
+            None,
+            0.5,
+            0.1,
+            # NULL composite: all None
+            None,
+            None,
+            None,
+            None,
+        ],
         "annotation_score": [
             0.8,
             0.7,

@@ -230,7 +230,8 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
         FROM gnomad_constraint GROUP BY gene_id
     ),
     te AS (
-        SELECT gene_id, MAX(expression_score_normalized) AS expression_score_normalized
+        SELECT gene_id, MAX(expression_score_normalized) AS expression_score_normalized,
+               FIRST(tau_specificity) AS tau_specificity
         FROM tissue_expression GROUP BY gene_id
     ),
     ac AS (
@@ -254,6 +255,7 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
         g.gene_symbol,
         gnomad.loeuf_normalized AS gnomad_score,
         expr.expression_score_normalized AS expression_score,
+        expr.tau_specificity AS tau_specificity,
         annot.annotation_score_normalized AS annotation_score,
         loc.localization_score_normalized AS localization_score,
         animal.animal_model_score_normalized AS animal_model_score,

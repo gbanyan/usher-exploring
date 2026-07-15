@@ -1,4 +1,4 @@
-generated_at: '2026-07-09T19:14:07.685594+00:00'
+generated_at: '2026-07-12T14:21:12.354405+00:00'
 output_files:
 - candidates.tsv
 - candidates.parquet
@@ -7,12 +7,13 @@ statistics:
   high_count: 83
   medium_count: 11323
   low_count: 7725
-column_count: 23
+column_count: 24
 column_names:
 - gene_id
 - gene_symbol
 - gnomad_score
 - expression_score
+- tau_specificity
 - annotation_score
 - localization_score
 - animal_model_score
