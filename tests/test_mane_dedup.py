@@ -32,9 +32,16 @@ def _setup_db_with_mane(tmp_path, mane_rows):
     mane = pl.DataFrame(mane_rows)
     store.save_dataframe(mane, "mane_select", "test mane")
 
-    # Empty evidence tables
+    # tissue_expression carries tau_specificity alongside its score column
+    empty_expression = pl.DataFrame({
+        "gene_id": pl.Series([], dtype=pl.Utf8),
+        "expression_score_normalized": pl.Series([], dtype=pl.Float64),
+        "tau_specificity": pl.Series([], dtype=pl.Float64),
+    })
+    store.save_dataframe(empty_expression, "tissue_expression", "test tissue_expression")
+
+    # Other empty evidence tables
     for table_name, score_col in [
-        ("tissue_expression", "expression_score_normalized"),
         ("annotation_completeness", "annotation_score_normalized"),
         ("subcellular_localization", "localization_score_normalized"),
         ("animal_model_phenotypes", "animal_model_score_normalized"),
@@ -108,8 +115,14 @@ def test_scoring_works_without_mane_table(tmp_path):
 
     # NO mane_select table at all
 
+    empty_expression = pl.DataFrame({
+        "gene_id": pl.Series([], dtype=pl.Utf8),
+        "expression_score_normalized": pl.Series([], dtype=pl.Float64),
+        "tau_specificity": pl.Series([], dtype=pl.Float64),
+    })
+    store.save_dataframe(empty_expression, "tissue_expression", "test tissue_expression")
+
     for table_name, score_col in [
-        ("tissue_expression", "expression_score_normalized"),
         ("annotation_completeness", "annotation_score_normalized"),
         ("subcellular_localization", "localization_score_normalized"),
         ("animal_model_phenotypes", "animal_model_score_normalized"),
