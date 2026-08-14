@@ -22,7 +22,7 @@ We present UsherPipe, a pipeline that starts from 20,116 Ensembl 113 protein-cod
 
 ### Conclusions
 
-UsherPipe provides a genome-wide, disease-focused integration of six evidence layers for Usher syndrome and related ciliopathies. Its layer-level NULL-aware score avoids treating unmeasured evidence as negative evidence, but does not by itself establish that a gene is under-studied or disease-causing. The pipeline and analysis outputs will be deposited at [AUTHOR ACTION REQUIRED: insert the public repository URL and immutable release/DOI before submission; do not state that the archive is available until this is complete].
+UsherPipe provides a genome-wide, disease-focused integration of six evidence layers for Usher syndrome and related ciliopathies. Its layer-level NULL-aware score avoids treating unmeasured evidence as negative evidence, but does not by itself establish that a gene is under-studied or disease-causing. The pipeline and analysis outputs are publicly available in the UsherPipe repository [50], with the submitted code/data version identified by commit `4cf8c5b`.
 
 **Keywords:** Usher syndrome, ciliopathy, gene prioritization, missing data, bioinformatics pipeline, disease gene discovery
 
@@ -149,7 +149,7 @@ All reported statistics are descriptive summaries of the stated gene universe an
 
 UsherPipe records stage-level execution metadata, configuration, and report outputs. Where emitted and accepted, JSON sidecars record timestamps, input/output counts, and processing parameters. Configuration is specified in a YAML file with configured data-source version labels (Ensembl 113, gnomAD v4.1, GTEx v8, HPA v23.0, and CELLxGENE Census `2025-11-08`) and a SHA-256 configuration hash for change detection. These labels describe the configured/local inputs but do not prove that upstream sources are immutable. The current run’s source-level provenance coverage is incomplete: `data/report/reproducibility.json` records six source records and six checksums, but only two source URLs, two versions, and no retrieval times; missing fields are not inferred. Literature and expression layers support checkpointed reprocessing from local caches without forcing a download.
 
-The human-readable reproducibility report is a working-tree support file, and the machine-readable provenance manifest is designated Additional file 4. The authors must complete or verify source-level provenance and the immutable release before submission.
+The human-readable reproducibility report is retained in the public repository, and the machine-readable provenance manifest is provided as Additional file 4. The manifest records the available source metadata and checksums; source-level provenance remains incomplete for some third-party inputs, as described above.
 
 ### Use of artificial intelligence tools
 During preparation of this manuscript, the authors used OpenAI Codex to assist with code review, data-integrity checks, manuscript editing, and PDF preparation. The authors reviewed and verified the generated suggestions and outputs, and remain fully responsible for the final content, analyses, and interpretation. No AI system is listed as an author.
@@ -252,7 +252,7 @@ The pre-rebuild artifact was compared with the current output only to quantify s
 
 ### Comparison with mantis-ml
 
-To place UsherPipe alongside its closest methodological peer, we evaluated the repository's cached mantis-ml v1.6.5 prediction files [26]. The benchmark script reads per-classifier `*.mantis-ml_predictions.csv` outputs, averages `mantis_ml_proba` across the six cached classifier files to form a cached-output consensus, and uses `known_gene` flags to identify mantis-ml seeds; it does not train or rerun the stochastic procedure. The comparison uses the 16,821 genes present in both gene universes. The updated curated set contains 37 controls; 35 were present in the shared universe, and 33 were flagged as mantis-ml seeds. All benchmark metrics below are computed on the 35 shared controls. [AUTHOR ACTION REQUIRED: provide the mantis-ml configuration, source-release identifier, input checksums, and random seeds if this cached-output consensus is to be presented as independently reproducible.]
+To place UsherPipe alongside its closest methodological peer, we evaluated the repository's cached mantis-ml v1.6.5 prediction files [26]. The benchmark script reads per-classifier `*.mantis-ml_predictions.csv` outputs, averages `mantis_ml_proba` across the six cached classifier files to form a cached-output consensus, and uses `known_gene` flags to identify mantis-ml seeds; it does not train or rerun the stochastic procedure. The comparison uses the 16,821 genes present in both gene universes. The updated curated set contains 37 controls; 35 were present in the shared universe, and 33 were flagged as mantis-ml seeds. All benchmark metrics below are computed on the 35 shared controls. Because the original stochastic procedure was not rerun and its complete training configuration is not available in this repository, this is an exploratory cached-output comparison rather than an independently reproducible benchmark.
 
 mantis-ml ranked these 35 controls at a median 99.7th percentile (33/35 in the top quartile, recall 88.6% at the top 5%, 91.4% at the top 10%, 94.3% at the top 20%, ROC-AUC 0.9551), compared with UsherPipe's 91.7th percentile (33/35 in the top quartile, recall 28.6%, 54.3%, and 77.1% at the same thresholds, AUC 0.8839) on the same shared universe. This is not a like-for-like estimate of novel-gene performance: mantis-ml is a seed-based learner, and 33 of the 35 shared controls were used as training seeds. Only two controls were not mantis-ml seeds, too few to support a meaningful held-out comparison. UsherPipe uses no seed genes, so its control recovery is less directly optimized but is still an internal diagnostic rather than an independent test.
 
@@ -292,7 +292,7 @@ Promising extensions include protein-protein interaction network analysis (lever
 
 ## Conclusions
 
-UsherPipe provides genome-wide, seed-free prioritization for Usher syndrome and related ciliopathy hypotheses using six transparent evidence layers and explicit missingness. Internal recovery of 37 selected controls yielded a median percentile of 92.8%, with 35 of 37 in the top quartile and 56.8% recall at the top-10% threshold; this is not an independent sensitivity estimate. Weight perturbations produced a mean top-100 Spearman ρ of 0.8548 (range 0.6051–0.9770), with 16 of 24 perturbations stable, so the default weights should be treated as one biologically motivated configuration. The final report contains 62 HIGH, 9,673 MEDIUM, and 8,652 LOW candidates, including hypotheses such as DYNC1H1, VANGL2, and ATP2B2 that require experimental validation. Public release, licensing, and immutable-version details remain to be completed before submission.
+UsherPipe provides genome-wide, seed-free prioritization for Usher syndrome and related ciliopathy hypotheses using six transparent evidence layers and explicit missingness. Internal recovery of 37 selected controls yielded a median percentile of 92.8%, with 35 of 37 in the top quartile and 56.8% recall at the top-10% threshold; this is not an independent sensitivity estimate. Weight perturbations produced a mean top-100 Spearman ρ of 0.8548 (range 0.6051–0.9770), with 16 of 24 perturbations stable, so the default weights should be treated as one biologically motivated configuration. The final report contains 62 HIGH, 9,673 MEDIUM, and 8,652 LOW candidates, including hypotheses such as DYNC1H1, VANGL2, and ATP2B2 that require experimental validation. The code, derived outputs, and provenance records are publicly available in the UsherPipe repository [50].
 
 ---
 
@@ -336,16 +336,16 @@ See the Methods section above. No AI system is listed as an author.
 
 ## Additional files
 
-- **Additional file 1 (TSV):** Table S1, merged gene symbols and retained canonical identifiers (`data/report/supplementary/table_s1_merged_genes.tsv`).
-- **Additional file 2 (TSV):** Table S2, genes excluded from the final tiered report (`data/report/supplementary/table_s2_excluded_genes.tsv`).
-- **Additional file 3 (source Markdown; final upload format pending):** Supplementary Methods and exploratory analyses (`manuscript/supplementary_methods.md`). [AUTHOR ACTION REQUIRED: convert this source to an accepted editable/text or PDF supplementary file, use the actual submitted filename, and update this entry before submission.]
-- **Additional file 4 (JSON):** Machine-readable reproducibility manifest (`data/report/reproducibility.json`). [AUTHOR ACTION REQUIRED: upload the final manifest with the exact submitted filename. If the human-readable `data/report/reproducibility.md` is also uploaded, convert it to an accepted format and list it as Additional file 11, then update all in-text citations and this list.]
-- **Additional file 5 (TSV):** Expression-shortlist candidate-level annotations and exploratory flags (`data/report/exploration/expression_shortlist_candidates.tsv`); supports the optional expression/protein views reported in Table 2.
-- **Additional file 6 (source Markdown; final upload format pending):** Expression/protein shortlist exploration report (`data/report/exploration/expression_shortlist_report.md`); describes the exploratory strategies, retention summaries, and interpretation. [AUTHOR ACTION REQUIRED: convert to an accepted text/PDF/editable format and update the final filename.]
-- **Additional file 7 (TSV):** Expression-shortlist strategy summary (`data/report/exploration/expression_shortlist_summary.tsv`); machine-readable retention and control-summary values underlying the optional strategy comparison.
-- **Additional file 8 (Parquet):** GSE135913 fetal cochlear hair-cell expression matrix (`data/report/exploration/gse135913_hair_cell_expression.parquet`); machine-readable gene-level exploratory aggregates from accepted fetal clusters. [AUTHOR ACTION REQUIRED: confirm that the submission system accepts Parquet or provide an accepted equivalent.]
-- **Additional file 9 (TSV):** GSE135913 fetal cochlear hair-cell expression matrix (`data/report/exploration/gse135913_hair_cell_expression.tsv`); text-form equivalent of Additional file 8 for review and reuse.
-- **Additional file 10 (JSON):** GSE135913 local-input provenance manifest (`data/report/exploration/gse135913_hair_cell_provenance.json`); records sample identifiers, local relative input paths, SHA-256 checksums, marker-selection metadata, and exclusion information.
+- **Additional file 1 (TSV):** `Additional_file_1_Table_S1.tsv`, merged gene symbols and retained canonical identifiers.
+- **Additional file 2 (TSV):** `Additional_file_2_Table_S2.tsv`, genes excluded from the final tiered report.
+- **Additional file 3 (TXT):** `Additional_file_3_Supplementary_Methods.txt`, supplementary methods and exploratory analyses.
+- **Additional file 4 (JSON):** `Additional_file_4_Reproducibility_Manifest.json`, machine-readable reproducibility manifest.
+- **Additional file 5 (TSV):** `Additional_file_5_Expression_Shortlist_Candidates.tsv`, expression-shortlist candidate-level annotations and exploratory flags.
+- **Additional file 6 (TXT):** `Additional_file_6_Expression_Shortlist_Report.txt`, expression/protein shortlist exploration report.
+- **Additional file 7 (TSV):** `Additional_file_7_Expression_Shortlist_Summary.tsv`, machine-readable retention and control-summary values underlying the optional strategy comparison.
+- **Additional file 8 (TSV):** `Additional_file_8_GSE135913_Hair_Cell_Expression.tsv`, GSE135913 fetal cochlear hair-cell expression matrix and gene-level exploratory aggregates.
+- **Additional file 9 (JSON):** `Additional_file_9_GSE135913_Provenance.json`, local-input provenance manifest with sample identifiers, relative input paths, SHA-256 checksums, marker-selection metadata, and exclusion information.
+- **Additional file 10 (JSON):** `Additional_file_10_Checksum_Manifest.json`, checksums for the reproducibility artifacts and generated outputs.
 
 ---
 
@@ -468,3 +468,5 @@ See the Methods section above. No AI system is listed as an author.
 [48] Vasquez SSV, van Dam J, Wheway G. An updated SYSCILIA gold standard (SCGSv2) of known ciliary genes, revealing the vast progress that has been made in the cilia research field. Mol Biol Cell. 2021;32(21):br13.
 
 [49] Linnert J, et al. Usher syndrome proteins ADGRV1 (USH2C) and CIB2 (USH1J) interact and share a common interactome containing TRiC/CCT-BBS chaperonins. Front Cell Dev Biol. 2023;11:1199069. doi:10.3389/fcell.2023.1199069.
+
+[50] UsherPipe. Usher syndrome candidate-gene prioritization pipeline. GitHub repository. 2026. Available from: https://github.com/gbanyan/usher-exploring/tree/4cf8c5b. Accessed 15 Aug 2026.
