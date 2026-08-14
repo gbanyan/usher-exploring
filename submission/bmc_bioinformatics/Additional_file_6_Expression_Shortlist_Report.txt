@@ -1,0 +1,32 @@
+Expression/protein shortlist exploration
+
+This analysis prioritizes genes within the existing HIGH tier; it does not alter composite scores or production confidence tiers.
+
+Data availability
+
+- HIGH candidates: 62
+- Established Usher genes already in HIGH: 2
+- Established Usher + SYSCILIA controls already in HIGH: 3
+- CellxGene hair-cell coverage within HIGH: 0/62
+- GSE135913 fetal cochlear coverage within HIGH: 61/62
+- Photoreceptor Q75 within HIGH: 0.8252069354057312
+- Fetal cochlear hair-cell Q75 within HIGH: 0.484961650905941
+- HPA retina Q75 within HIGH: NA (unavailable in the current local inputs)
+
+  CellxGene hair-cell expression is unavailable. The cochlear value is an exploratory aggregate from marker-validated fetal GSE135913 clusters and is not yet part of the production expression layer.
+
+Strategy comparison
+
+  Strategy                                        Status        Genes   Reduction   Established Usher retained   Known retained
+  ----------------------------------------------- ----------- ------- ----------- ---------------------------- ----------------
+  Photoreceptor expression >= Q75                 available        16       74.2%                          1/2              2/3
+  Fetal cochlear hair-cell expression >= Q75      available        16       74.2%                          2/2              2/3
+  Photoreceptor and hair-cell expression >= Q75   available         5       91.9%                          1/2              1/3
+  Photoreceptor and HPA retina >= Q75             NA               NA          NA                        NA/NA            NA/NA
+  Direct cilia/centrosome protein evidence        available        23       62.9%                          0/2              1/3
+  Photoreceptor >= Q75 OR direct protein          available        34       45.2%                          1/2              2/3
+  Photoreceptor >= Q75 AND direct protein         available         5       91.9%                          0/2              1/3
+
+Interpretation rule
+
+A strategy is exploratory unless it reduces the shortlist while retaining all positive controls already present in HIGH. Missing evidence must be audited before any strategy becomes a gate; here it provides no gate support but remains visible in the gene-level table. Protein AND expression is included as a stress test, not as a recommended hard gate.
