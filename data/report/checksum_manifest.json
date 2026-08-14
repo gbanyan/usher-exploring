@@ -1,0 +1,107 @@
+{
+  "manifest_version": 1,
+  "algorithm": "SHA-256",
+  "generated_at": "2026-08-14T14:55:12.362992+00:00",
+  "files": {
+    "data/validation/validation_report.md": {
+      "sha256": "ea6a8424e6554f12a8d797bcfb39eb721b94ad9be3b1c0a93643b69e498607d7",
+      "size_bytes": 11555
+    },
+    "data/report/reproducibility.json": {
+      "sha256": "3e03a8627cae95317874109408ccf1e989f0cbb76ea3f182d84f5c1c4868ecc2",
+      "size_bytes": 8188
+    },
+    "data/report/reproducibility.md": {
+      "sha256": "fdf8a32ad408d43a7ce72a9bb26561c9b91be0a0b3dbf21d8128a71cc4731c92",
+      "size_bytes": 3996
+    },
+    "data/report/paper_figures/fig5_validation_controls.png": {
+      "sha256": "c653a312f97db1859921bd67a7b013bcbeb6c18f112b70cada3f3a7a35b33cb5",
+      "size_bytes": 99907
+    },
+    "data/report/paper_figures/fig5_validation_controls.pdf": {
+      "sha256": "0f0d44d11e67f50a4cf4814a74debec5df82576e17bf3c112b9760193132d2c2",
+      "size_bytes": 21275
+    },
+    "data/report/paper_figures/fig6_ablation.png": {
+      "sha256": "9c585c633e5fdf8eea3ca8a3d312594c6f3ac50209e2d4b8f81dd1d51e63e8dc",
+      "size_bytes": 344611
+    },
+    "data/report/paper_figures/fig6_ablation.pdf": {
+      "sha256": "f2c5c23a1beb9c96b7f1e5544dc0c49210b2210fce9cb07fb3f7a0b3929cee47",
+      "size_bytes": 33076
+    },
+    "data/report/paper_figures/fig7_sensitivity_heatmap.png": {
+      "sha256": "b7d70109e7be918dd9074d79a75789b759a537fdacc681822efcb5990d31a2bf",
+      "size_bytes": 188561
+    },
+    "data/report/paper_figures/fig7_sensitivity_heatmap.pdf": {
+      "sha256": "617d3622df09b42c8ee92b3a5ef822d93c097ddad59e2eed784d2e888920b567",
+      "size_bytes": 23938
+    },
+    "data/report/paper_figures/fig7_sensitivity_metrics.csv": {
+      "sha256": "787759e5cc3aafa53c11d7cd63bfb72fcc0e5059cc76f4c7a87b72f10eed8b8a",
+      "size_bytes": 914
+    },
+    "data/report/candidates.tsv": {
+      "sha256": "9d9a288e7beb7fea580898b856631452a5720567a7b321e8b7f51206afac76a0",
+      "size_bytes": 8851178
+    },
+    "data/report/candidates.parquet": {
+      "sha256": "5d74b8024422ff2403f6133899f1f4f6d439fb4c6d8b2d53127cf0cfe809a13c",
+      "size_bytes": 1715126
+    },
+    "data/report/candidates.provenance.yaml": {
+      "sha256": "0f160b7cd3a7151d6f7c5c37d6193b387097e5331e82bb0c70f2cc0a1aa5f900",
+      "size_bytes": 3784
+    },
+    "data/report/supplementary/table_s1_merged_genes.tsv": {
+      "sha256": "d6cb4e64b499a7e508f07b4ab4506b1a1402d3ff1796f959896d8288e595f82f",
+      "size_bytes": 2875
+    },
+    "data/report/supplementary/table_s2_excluded_genes.tsv": {
+      "sha256": "f5acb99751554c370e85fad1d8f8712ef96cafe822a33180dfe084a7b47656a3",
+      "size_bytes": 145892
+    },
+    "data/report/exploration/expression_shortlist_candidates.tsv": {
+      "sha256": "0dde4c327187a09ab6d4569d55dbf84a82d25883ddf1bb679deea3093277bf67",
+      "size_bytes": 37211
+    },
+    "data/report/exploration/expression_shortlist_report.md": {
+      "sha256": "e046dbcd6b9eebd8190ad75a9c1cc4d0f0396cd887e48b6558f7d25633a1967f",
+      "size_bytes": 1897
+    },
+    "data/report/exploration/expression_shortlist_summary.tsv": {
+      "sha256": "cf325dbd5a2b545b471eee2dfe0deebd30cdf6e3cd34f443f841dd74fafb47e8",
+      "size_bytes": 669
+    },
+    "data/report/exploration/gse135913_hair_cell_expression.parquet": {
+      "sha256": "5b90a61048c119a83725cc1d512593480da13745bc5c55e49792328784624267",
+      "size_bytes": 530794
+    },
+    "data/report/exploration/gse135913_hair_cell_expression.tsv": {
+      "sha256": "3e475010971d403bab43848f18ae70412bbe1977cb81a66283559f56405f7017",
+      "size_bytes": 1288046
+    },
+    "data/report/exploration/gse135913_hair_cell_provenance.json": {
+      "sha256": "470de16bba054a7e3782cd2fd831383b897d856fb5c8c8c8b542f2e5b2bc618f",
+      "size_bytes": 2576
+    },
+    "data/report/exploration/high_shortlist_old_vs_new.md": {
+      "sha256": "fc03614ba8fba527ecfe6403c5456b204440063719df4705fe77942d5caf8316",
+      "size_bytes": 769
+    },
+    "data/report/exploration/high_shortlist_old_vs_new.tsv": {
+      "sha256": "ef367b1796199696df529bc4cbc174ed97065306c275f7586a62601a35830e2e",
+      "size_bytes": 5976
+    },
+    "data/report/exploration/weight_logreg_report.txt": {
+      "sha256": "44ab2f884d3cf7356b35f122fbf6b5d99037419e8b2f8d9a637cecb278bab258",
+      "size_bytes": 1748
+    },
+    "data/report/exploration/supplementary_analysis_audit.md": {
+      "sha256": "463fd1ec56e0e071b09173c7b13077524ee29abc93be820d404840b0d5f9c16f",
+      "size_bytes": 3454
+    }
+  }
+}

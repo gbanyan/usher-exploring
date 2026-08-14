@@ -58,3 +58,18 @@ Thumbs.db
 
 # === Built manuscript PDF (regenerate with scripts/build_pdf.py) ===
 manuscript/draft.pdf
+
+# === Raw literature bulk downloads (1.6 GB; exceeds GitHub's 100 MB file limit) ===
+data/literature/
+data/pubmed_context_sets.json
+
+# === DuckDB manual backups (the *.duckdb rule above misses the .bak-* suffix) ===
+*.duckdb.bak-*
+
+# === Agent/tool local config ===
+.claude/
+.serena/
+
+# === Reference PDFs (copyrighted, not redistributable) ===
+*.pdf
+!manuscript/figures/*.pdf

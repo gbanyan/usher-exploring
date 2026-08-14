@@ -26,8 +26,8 @@ def test_compile_known_genes_returns_expected_structure():
     assert isinstance(df, pl.DataFrame)
     assert set(df.columns) == {"gene_symbol", "source", "confidence"}
 
-    # Assert minimum expected count (10 OMIM Usher + 28 SYSCILIA SCGS v2 core)
-    assert df.height >= 38, f"Expected at least 38 genes, got {df.height}"
+    # Assert minimum expected count (9 established Usher + 28 SYSCILIA SCGS v2 core)
+    assert df.height >= 37, f"Expected at least 37 genes, got {df.height}"
 
     # Assert known genes are present
     gene_symbols = df.select("gene_symbol").to_series().to_list()
@@ -147,16 +147,14 @@ def test_null_preservation_in_composite(tmp_path):
     conn.execute("CREATE TABLE annotation_completeness AS SELECT * FROM annotation")
 
     # Create empty tables for other evidence layers
-    for table_name, score_col in [
-        ("tissue_expression", "expression_score_normalized"),
-        ("subcellular_localization", "localization_score_normalized"),
-        ("animal_model_phenotypes", "animal_model_score_normalized"),
-        ("literature_evidence", "literature_score_normalized"),
+    for table_name, columns in [
+        ("tissue_expression", ["gene_id", "expression_score_normalized", "tau_specificity"]),
+        ("subcellular_localization", ["gene_id", "localization_score_normalized"]),
+        ("animal_model_phenotypes", ["gene_id", "animal_model_score_normalized"]),
+        ("literature_evidence", ["gene_id", "literature_score_normalized"]),
     ]:
-        empty_df = pl.DataFrame({
-            "gene_id": [],
-            score_col: [],
-        })
+        empty_data = {col: [] for col in columns}
+        empty_df = pl.DataFrame(empty_data)
         conn.execute(f"CREATE TABLE {table_name} AS SELECT * FROM empty_df")
 
     # Create PipelineStore wrapper

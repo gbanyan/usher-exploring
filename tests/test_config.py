@@ -15,7 +15,14 @@ def test_load_valid_config():
 
     assert isinstance(config, PipelineConfig)
     assert config.versions.ensembl_release == 113
+    assert config.versions.ensembl_gene_source.endswith(
+        "Homo_sapiens.GRCh38.113.gtf.gz"
+    )
+    assert config.versions.ensembl_gene_source_sha256 == (
+        "62f1709b40e083ce9d4cdc64a86b5ffec2c5d5371434bb7095c74dc89079c466"
+    )
     assert config.versions.gnomad_version == "v4.1"
+    assert config.versions.cellxgene_census_version == "2025-11-08"
     assert config.api.rate_limit_per_second == 5
     assert config.api.max_retries == 5
     assert config.scoring.gnomad == 0.20
@@ -97,6 +104,40 @@ def test_data_source_versions_has_mane():
     from usher_pipeline.config.schema import DataSourceVersions
     versions = DataSourceVersions(ensembl_release=113)
     assert versions.mane_version == "1.3"
+    assert versions.cellxgene_census_version == "2025-11-08"
+    assert versions.ensembl_gene_source_sha256 == ""
+
+
+def test_inconsistent_ensembl_source_identity_is_rejected():
+    """A release cannot be paired with a different release's frozen source."""
+    from usher_pipeline.config.schema import DataSourceVersions
+
+    with pytest.raises(ValidationError, match="does not match"):
+        DataSourceVersions(
+            ensembl_release=114,
+            ensembl_gene_source="annotation/Homo_sapiens.GRCh38.113.gtf.gz",
+            ensembl_gene_source_url=(
+                "https://ftp.ensembl.org/pub/release-113/gtf/homo_sapiens/"
+                "Homo_sapiens.GRCh38.113.gtf.gz"
+            ),
+            ensembl_gene_source_sha256="0" * 64,
+        )
+
+
+def test_frozen_source_checksum_is_required_when_configured():
+    """A configured frozen source cannot disable digest verification with None."""
+    from usher_pipeline.config.schema import DataSourceVersions
+
+    with pytest.raises(ValidationError):
+        DataSourceVersions(
+            ensembl_release=113,
+            ensembl_gene_source="annotation/Homo_sapiens.GRCh38.113.gtf.gz",
+            ensembl_gene_source_url=(
+                "https://ftp.ensembl.org/pub/release-113/gtf/homo_sapiens/"
+                "Homo_sapiens.GRCh38.113.gtf.gz"
+            ),
+            ensembl_gene_source_sha256=None,
+        )
 
 
 def test_config_creates_directories(tmp_path):

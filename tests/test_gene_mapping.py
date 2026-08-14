@@ -25,16 +25,19 @@ MOCK_SUCCESSFUL_RESPONSE = {
     'out': [
         {
             'query': 'ENSG00000139618',
+            'ensembl': {'gene': 'ENSG00000139618'},
             'symbol': 'BRCA2',
             'uniprot': {'Swiss-Prot': 'P51587'}
         },
         {
             'query': 'ENSG00000141510',
+            'ensembl': {'gene': 'ENSG00000141510'},
             'symbol': 'TP53',
             'uniprot': {'Swiss-Prot': 'P04637'}
         },
         {
             'query': 'ENSG00000012048',
+            'ensembl': {'gene': 'ENSG00000012048'},
             'symbol': 'BRCA1',
             'uniprot': {'Swiss-Prot': 'P38398'}
         },
@@ -46,11 +49,13 @@ MOCK_RESPONSE_WITH_NOTFOUND = {
     'out': [
         {
             'query': 'ENSG00000139618',
+            'ensembl': {'gene': 'ENSG00000139618'},
             'symbol': 'BRCA2',
             'uniprot': {'Swiss-Prot': 'P51587'}
         },
         {
             'query': 'ENSG00000141510',
+            'ensembl': {'gene': 'ENSG00000141510'},
             'symbol': 'TP53',
             'uniprot': {'Swiss-Prot': 'P04637'}
         },
@@ -66,6 +71,7 @@ MOCK_RESPONSE_WITH_UNIPROT_LIST = {
     'out': [
         {
             'query': 'ENSG00000139618',
+            'ensembl': {'gene': 'ENSG00000139618'},
             'symbol': 'BRCA2',
             'uniprot': {'Swiss-Prot': ['P51587', 'Q9UBX7']}  # List of accessions
         },
@@ -179,6 +185,49 @@ def test_mapper_handles_uniprot_list():
         assert report.mapped_uniprot == 1
 
 
+def test_mapper_merges_duplicate_hits_without_inflating_counts():
+    """Duplicate MyGene hits for one query remain one output row."""
+    response = {
+        "out": [
+            {
+                "query": "ENSG00000139618",
+                "ensembl": {"gene": "ENSG00000139618"},
+                "symbol": "BRCA2",
+                "uniprot": {"Swiss-Prot": "P51587"},
+            },
+            {
+                "query": "ENSG00000139618",
+                "ensembl": {"gene": "ENSG00000139618"},
+                "symbol": "BRCA2",
+                "uniprot": {"Swiss-Prot": "Q9UBX7"},
+            },
+            {
+                "query": "ENSG00000141510",
+                "ensembl": {"gene": "ENSG00000141510"},
+                "symbol": "TP53",
+            },
+        ],
+        "missing": [],
+    }
+    with patch("mygene.MyGeneInfo") as mock_mygene:
+        mock_mg = MagicMock()
+        mock_mg.querymany.return_value = response
+        mock_mygene.return_value = mock_mg
+
+        mapper = GeneMapper()
+        results, report = mapper.map_ensembl_ids(
+            ["ENSG00000139618", "ENSG00000141510"]
+        )
+
+    assert [r.ensembl_id for r in results] == [
+        "ENSG00000139618", "ENSG00000141510"
+    ]
+    assert len(results) == 2
+    assert report.total_genes == 2
+    assert report.mapped_hgnc == 2
+    assert report.mapped_uniprot == 1
+
+
 def test_mapper_batching():
     """Test mapper processes genes in batches."""
     with patch('mygene.MyGeneInfo') as mock_mygene:
@@ -194,6 +243,49 @@ def test_mapper_batching():
 
         # Check querymany was called 3 times (3 batches)
         assert mock_mg.querymany.call_count == 3
+
+
+def test_mapper_rejects_stale_cross_mapping():
+    """A hit keyed by the query cannot describe a different Ensembl ID."""
+    with patch("mygene.MyGeneInfo") as mock_mygene:
+        mock_mg = MagicMock()
+        mock_mg.querymany.return_value = {
+            "out": [{
+                "query": "ENSG00000139618",
+                "ensembl": {"gene": "ENSG00000299999"},
+                "symbol": "NONCODING_CROSSMAP",
+                "type_of_gene": "lncRNA",
+            }],
+            "missing": [],
+        }
+        mock_mygene.return_value = mock_mg
+
+        results, report = GeneMapper().map_ensembl_ids(["ENSG00000139618"])
+
+    assert results[0].hgnc_symbol is None
+    assert results[0].uniprot_accession is None
+    assert report.unmapped_ids == ["ENSG00000139618"]
+
+
+def test_mapper_rejects_noncoding_hit_for_requested_id():
+    """A stale noncoding annotation cannot populate a coding universe row."""
+    with patch("mygene.MyGeneInfo") as mock_mygene:
+        mock_mg = MagicMock()
+        mock_mg.querymany.return_value = {
+            "out": [{
+                "query": "ENSG00000139618",
+                "ensembl": {"gene": "ENSG00000139618"},
+                "symbol": "LINC_STALE",
+                "type_of_gene": "lncRNA",
+            }],
+            "missing": [],
+        }
+        mock_mygene.return_value = mock_mg
+
+        results, report = GeneMapper().map_ensembl_ids(["ENSG00000139618"])
+
+    assert results[0].hgnc_symbol is None
+    assert report.mapped_hgnc == 0
 
 
 # Test MappingValidator

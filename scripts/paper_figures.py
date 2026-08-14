@@ -7,6 +7,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
+from matplotlib.patches import Patch
 import numpy as np
 import polars as pl
 import seaborn as sns
@@ -31,6 +32,11 @@ PALETTE = {
 }
 
 
+def background_sample_label(sample_size: int, population_size: int) -> str:
+    """Return an explicit sample-versus-population label for Figure 5."""
+    return f"Background sample\n(n={sample_size} of population N={population_size})"
+
+
 def load_candidates() -> pl.DataFrame:
     """Load tiered candidates from TSV."""
     return pl.read_csv("data/report/candidates.tsv", separator="\t")
@@ -43,6 +49,32 @@ def load_scored_genes() -> pl.DataFrame:
     df = store.load_dataframe("scored_genes")
     store.close()
     return df
+
+
+def validation_percent_rank(
+    df: pl.DataFrame,
+    score_column: str = "composite_score",
+) -> pl.DataFrame:
+    """Match DuckDB validation's ``PERCENT_RANK`` and tie semantics.
+
+    DuckDB uses ``(RANK() - 1) / (N - 1)``.  ``rank(method='min')`` gives the
+    SQL ``RANK`` value, so tied scores receive the same percentile and the
+    lowest score is exactly 0.0.
+    """
+    scored = df.filter(pl.col(score_column).is_not_null())
+    n = scored.height
+    if n == 0:
+        return scored.with_columns(pl.lit(None).cast(pl.Float64).alias("percentile"))
+    if n == 1:
+        return scored.with_columns(pl.lit(0.0).alias("percentile"))
+
+    return scored.with_columns(
+        (
+            (pl.col(score_column).rank(method="min") - 1)
+            / (n - 1)
+            * 100
+        ).alias("percentile")
+    )
 
 
 # ── Figure 2: Score distribution (improved) ─────────────────────────────
@@ -69,7 +101,9 @@ def fig2_score_distribution(df: pl.DataFrame):
     ax.set_xlabel("Composite Score")
     ax.set_ylabel("Gene Count")
     ax.set_title("")
-    ax.legend(title="Confidence Tier", loc="upper right")
+    handles = [Patch(facecolor=PALETTE[tier], label=tier)
+               for tier in ["HIGH", "MEDIUM", "LOW"]]
+    ax.legend(handles=handles, title="Confidence Tier", loc="upper right")
 
     # Annotate key stats
     n_total = len(pdf)
@@ -208,11 +242,12 @@ def fig4_top_candidates_heatmap(df: pl.DataFrame, top_n: int = 25):
 
     # Add legend for markers
     ax.text(
-        0, -0.02,
-        "* Known Usher gene   + Known ciliopathy gene   Grey = no data (NULL)",
+        0, -0.28,
+        "* Established Usher gene   + Known ciliopathy gene   Grey = no data (NULL)",
         transform=ax.transAxes, fontsize=8, va="top", style="italic",
     )
 
+    fig.subplots_adjust(bottom=0.30)
     fig.savefig(FIGDIR / "fig4_top_candidates_heatmap.png", dpi=DPI, bbox_inches="tight")
     fig.savefig(FIGDIR / "fig4_top_candidates_heatmap.pdf", bbox_inches="tight")
     plt.close(fig)
@@ -222,14 +257,13 @@ def fig4_top_candidates_heatmap(df: pl.DataFrame, top_n: int = 25):
 # ── Figure 5: Positive control validation ────────────────────────────────
 
 def fig5_validation_controls(df: pl.DataFrame):
-    """Distribution of known gene percentile ranks vs background."""
-    # Compute percentile ranks
-    scored = df.filter(pl.col("composite_score").is_not_null())
-    n = scored.height
-    ranked = scored.sort("composite_score").with_row_index("rank")
-    ranked = ranked.with_columns(
-        (pl.col("rank") / n * 100).alias("percentile")
-    )
+    """Distribution of control percentiles vs a labeled background sample.
+
+    The background box is drawn from a fixed-size sample for display, while
+    the label reports the full scored background population separately.
+    """
+    # Use the same PERCENT_RANK/tie semantics as validation.py.
+    ranked = validation_percent_rank(df)
 
     # Split into groups
     all_known = set(OMIM_USHER_GENES) | set(SYSCILIA_SCGS_V2_CORE)
@@ -251,14 +285,17 @@ def fig5_validation_controls(df: pl.DataFrame):
     # Violin/box plot
     data = []
     for p in usher_pcts:
-        data.append({"group": f"OMIM Usher\n(n={len(usher_pcts)})", "percentile": p})
+        data.append({"group": f"Established Usher\n(n={len(usher_pcts)})", "percentile": p})
     for p in cilia_pcts:
         data.append({"group": f"SYSCILIA\n(n={len(cilia_pcts)})", "percentile": p})
     # Sample background for display
     rng = np.random.default_rng(42)
     bg_sample = rng.choice(background_pcts, size=min(500, len(background_pcts)), replace=False)
     for p in bg_sample:
-        data.append({"group": f"Background\n(n={len(background_pcts)})", "percentile": p})
+        data.append({
+            "group": background_sample_label(len(bg_sample), len(background_pcts)),
+            "percentile": p,
+        })
 
     import pandas as pd
     plot_df = pd.DataFrame(data)
@@ -277,7 +314,7 @@ def fig5_validation_controls(df: pl.DataFrame):
     ax.axhline(y=50, color="gray", linestyle=":", linewidth=0.8, alpha=0.6, label="Median")
 
     ax.set_ylabel("Percentile Rank (%)")
-    ax.set_xlabel("")
+    ax.set_xlabel("Control set / displayed background sample")
     ax.set_title("")
     ax.legend(loc="lower left", fontsize=8)
     ax.set_ylim(0, 105)
@@ -293,8 +330,9 @@ def fig5_validation_controls(df: pl.DataFrame):
 def fig7_sensitivity_heatmap():
     """Heatmap of Spearman rho from weight perturbation sensitivity analysis.
 
-    Spearman rho values are parsed from the current validation report so the
-    figure always reflects the most recent pipeline run.
+    Spearman rho, top-N overlap, and Jaccard values are parsed from the current
+    internal evaluation report.  The heatmap shows rho; the complete overlap
+    and Jaccard table is emitted beside it as ``fig7_sensitivity_metrics.csv``.
     """
     layer_order = ["gnomad", "expression", "annotation",
                    "localization", "animal_model", "literature"]
@@ -304,26 +342,66 @@ def fig7_sensitivity_heatmap():
         "literature": "Literature",
     }
     delta_order = ["-0.10", "-0.05", "+0.05", "+0.10"]
-    delta_labels = ["-10%", "-5%", "+5%", "+10%"]
+    delta_labels = ["-0.10", "-0.05", "+0.05", "+0.10"]
 
-    # Parse Spearman rho from the validation report (regenerated every run)
+    # Parse sensitivity metrics from the internal evaluation report (regenerated
+    # every run).  Do not infer overlap or Jaccard from the heatmap values.
     report = Path("data/validation/validation_report.md")
-    rho = {}
+    records = []
+    top_n = None
     for line in report.read_text().splitlines():
         parts = [p.strip() for p in line.split("|")]
-        if len(parts) >= 5 and parts[1] in layer_order and parts[2] in delta_order:
+        if len(parts) >= 5 and parts[1] == "Layer" and parts[4].startswith("Top-"):
             try:
-                rho[(parts[1], parts[2])] = float(parts[3])
+                top_n = int(parts[4].split("-", 1)[1].split()[0])
+            except (IndexError, ValueError):
+                top_n = None
+        if len(parts) >= 7 and parts[1] in layer_order and parts[2] in delta_order:
+            try:
+                rho = None if parts[3] in {"N/A", ""} else float(parts[3])
+                overlap = None if parts[4] in {"N/A", ""} else int(parts[4])
+                jaccard = None if parts[5] in {"N/A", ""} else float(parts[5])
             except ValueError:
                 continue
-    if len(rho) != 24:
+            records.append({
+                "layer": parts[1],
+                "delta": float(parts[2]),
+                "spearman_rho": rho,
+                "top_n_overlap": overlap,
+                "top_n_jaccard": jaccard,
+            })
+
+        if line.strip().startswith("Compared top list:"):
+            try:
+                top_n = int(line.split(":", 1)[1].split()[0])
+            except (IndexError, ValueError):
+                top_n = None
+
+    if len(records) != 24:
         raise RuntimeError(
-            f"Expected 24 sensitivity values, parsed {len(rho)} from {report}"
+            f"Expected 24 sensitivity rows, parsed {len(records)} from {report}"
         )
 
+    if top_n is None:
+        top_n = 100
+
+    for record in records:
+        record["top_n"] = top_n
+
+    pl.DataFrame(records).select([
+        "layer", "delta", "top_n", "spearman_rho", "top_n_overlap", "top_n_jaccard"
+    ]).write_csv(FIGDIR / "fig7_sensitivity_metrics.csv")
+
+    rho = {
+        (record["layer"], f"{record['delta']:+.2f}"): record["spearman_rho"]
+        for record in records
+    }
+
     rho_matrix = np.array([
-        [rho[(layer, d)] for d in delta_order] for layer in layer_order
-    ])
+        [rho[(layer, d)] if rho[(layer, d)] is not None else np.nan for d in delta_order]
+        for layer in layer_order
+    ], dtype=float)
+    rho_mask = np.isnan(rho_matrix)
 
     fig, ax = plt.subplots(figsize=(6, 5))
 
@@ -334,20 +412,22 @@ def fig7_sensitivity_heatmap():
         cmap="RdYlGn",
         vmin=0.5, vmax=1.0,
         annot=True, fmt=".3f",
+        mask=rho_mask,
         linewidths=0.5,
         linecolor="white",
-        cbar_kws={"label": "Spearman ρ", "shrink": 0.8},
+        cbar_kws={"label": "Spearman ρ (shared top-N scores)", "shrink": 0.8},
         ax=ax,
     )
 
-    ax.set_xlabel("Weight Perturbation")
+    ax.set_xlabel(f"Raw Δ to one baseline weight; all six weights renormalized (top-{top_n})")
     ax.set_ylabel("")
-    ax.set_title("")
+    ax.set_title(f"Weight perturbation sensitivity: Spearman ρ on shared top-{top_n} genes")
 
     fig.savefig(FIGDIR / "fig7_sensitivity_heatmap.png", dpi=DPI, bbox_inches="tight")
     fig.savefig(FIGDIR / "fig7_sensitivity_heatmap.pdf", bbox_inches="tight")
     plt.close(fig)
     print("  Fig 7: sensitivity heatmap")
+    print(f"  Fig 7 metrics: {FIGDIR / 'fig7_sensitivity_metrics.csv'}")
 
 
 # ── Main ─────────────────────────────────────────────────────────────────

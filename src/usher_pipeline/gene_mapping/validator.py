@@ -5,13 +5,16 @@ Enforces configurable success rate thresholds and produces actionable reports.
 """
 
 import logging
+import re
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
+from typing import Mapping
 
 from usher_pipeline.gene_mapping.mapper import MappingReport
 
 logger = logging.getLogger(__name__)
+ENSEMBL_GENE_ID_RE = re.compile(r"^ENSG[0-9]+$")
 
 
 @dataclass
@@ -152,16 +155,21 @@ class MappingValidator:
         )
 
 
-def validate_gene_universe(genes: list[str]) -> ValidationResult:
+def validate_gene_universe(
+    genes: list[str],
+    gene_biotypes: Mapping[str, str | set[str] | frozenset[str]] | None = None,
+) -> ValidationResult:
     """Validate gene universe data quality.
 
     Checks:
     - Gene count is in expected range (19,000-22,000)
     - All gene IDs start with ENSG (Ensembl format)
     - No duplicate gene IDs
+    - When supplied, every retained ID has exactly ``protein_coding`` biotype
 
     Args:
         genes: List of gene IDs to validate
+        gene_biotypes: Optional per-ID biotype metadata from the frozen source
 
     Returns:
         ValidationResult with validation status and messages
@@ -192,7 +200,7 @@ def validate_gene_universe(genes: list[str]) -> ValidationResult:
         )
 
     # Check all IDs start with ENSG
-    non_ensg = [g for g in genes if not g.startswith('ENSG')]
+    non_ensg = [g for g in genes if not ENSEMBL_GENE_ID_RE.fullmatch(g)]
     if non_ensg:
         messages.append(
             f"FAILED: Found {len(non_ensg)} gene IDs not in ENSG format "
@@ -212,6 +220,38 @@ def validate_gene_universe(genes: list[str]) -> ValidationResult:
         passed = False
     else:
         messages.append("No duplicate gene IDs found")
+
+    # The source parser already applies this gate, but validating the
+    # per-ID metadata here makes it difficult for a caller to bypass it when
+    # constructing or reloading a gene universe.
+    if gene_biotypes is not None:
+        missing_biotypes = [gene_id for gene_id in genes if gene_id not in gene_biotypes]
+        invalid_biotypes: list[tuple[str, object]] = []
+        for gene_id in genes:
+            if gene_id not in gene_biotypes:
+                continue
+            value = gene_biotypes[gene_id]
+            normalized = value if isinstance(value, str) else set(value)
+            if normalized != "protein_coding" and normalized != {"protein_coding"}:
+                invalid_biotypes.append((gene_id, value))
+
+        if missing_biotypes:
+            messages.append(
+                f"FAILED: Missing gene_biotype metadata for {len(missing_biotypes)} "
+                f"retained IDs (examples: {missing_biotypes[:5]})"
+            )
+            passed = False
+        if invalid_biotypes:
+            messages.append(
+                f"FAILED: {len(invalid_biotypes)} retained IDs are not exactly "
+                "gene_biotype=protein_coding "
+                f"(examples: {invalid_biotypes[:5]})"
+            )
+            passed = False
+        if not missing_biotypes and not invalid_biotypes:
+            messages.append(
+                "All retained Ensembl IDs have gene_biotype=protein_coding"
+            )
 
     logger.info(
         f"Gene universe validation: {'PASSED' if passed else 'FAILED'} "

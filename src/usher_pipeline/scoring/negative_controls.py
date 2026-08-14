@@ -1,4 +1,4 @@
-"""Negative control validation using housekeeping genes."""
+"""Negative control recovery evaluation using housekeeping genes."""
 
 import polars as pl
 import structlog
@@ -82,8 +82,12 @@ def validate_negative_controls(
         Dict with keys:
         - total_expected: int - count of housekeeping genes in reference list
         - total_in_dataset: int - count of housekeeping genes found in scored_genes
+        - total_scored_non_null: int - all scored_genes rows with non-NULL composite_score;
+          denominator for PERCENT_RANK
         - median_percentile: float - median percentile rank of housekeeping genes
         - top_quartile_count: int - count of housekeeping genes >= 75th percentile (should be low)
+        - top_quartile_fraction: float | None - top-quartile count divided by found count;
+          None when no housekeeping genes were ranked
         - in_high_tier_count: int - count of housekeeping genes >= 70% score (should be near zero)
         - validation_passed: bool - True if median < percentile_threshold (INVERTED)
         - housekeeping_gene_details: list[dict] - top 20 housekeeping genes by percentile ASC (lowest-ranking)
@@ -101,6 +105,9 @@ def validate_negative_controls(
     # Compile housekeeping genes
     housekeeping_df = compile_housekeeping_genes()
     total_expected = housekeeping_df["gene_symbol"].n_unique()
+    total_scored_non_null = store.conn.execute(
+        "SELECT COUNT(*) FROM scored_genes WHERE composite_score IS NOT NULL"
+    ).fetchone()[0]
 
     # Register housekeeping genes as temporary DuckDB table
     store.conn.execute("DROP TABLE IF EXISTS _housekeeping_genes")
@@ -142,8 +149,10 @@ def validate_negative_controls(
         return {
             "total_expected": total_expected,
             "total_in_dataset": 0,
+            "total_scored_non_null": total_scored_non_null,
             "median_percentile": None,
             "top_quartile_count": 0,
+            "top_quartile_fraction": None,
             "in_high_tier_count": 0,
             "validation_passed": False,
             "housekeeping_gene_details": [],
@@ -157,6 +166,7 @@ def validate_negative_controls(
     # Count housekeeping genes in top quartile (bad for negative controls)
     top_quartile_genes = result.filter(pl.col("percentile_rank") >= 0.75)
     top_quartile_count = top_quartile_genes.height
+    top_quartile_fraction = top_quartile_count / total_in_dataset
 
     # Count housekeeping genes meeting the HIGH-tier score/evidence thresholds
     # (composite >= 0.70), before the cilia-signal gate is applied.
@@ -211,8 +221,10 @@ def validate_negative_controls(
     return {
         "total_expected": total_expected,
         "total_in_dataset": total_in_dataset,
+        "total_scored_non_null": total_scored_non_null,
         "median_percentile": median_percentile,
         "top_quartile_count": top_quartile_count,
+        "top_quartile_fraction": top_quartile_fraction,
         "in_high_tier_count": in_high_tier_count,
         "gated_high_tier_count": gated_high_tier_count,
         "gated_high_tier_genes": gated_high_tier_genes,
@@ -223,31 +235,34 @@ def validate_negative_controls(
 
 def generate_negative_control_report(metrics: dict) -> str:
     """
-    Generate human-readable negative control validation report.
+    Generate human-readable negative control recovery report.
 
     Args:
         metrics: Dict returned from validate_negative_controls()
 
     Returns:
-        Multi-line text report summarizing validation results
+        Multi-line text report summarizing internal evaluation results
 
     Notes:
         - Formats percentiles as percentages (e.g., "32.5%")
         - Includes table of lowest-ranked housekeeping genes (best outcome)
-        - Shows pass/fail status prominently
+        - Shows whether the controls meet the internal reference threshold
         - INVERTED interpretation: LOW percentiles are GOOD for negative controls
     """
     passed = metrics["validation_passed"]
-    status = "PASSED ✓" if passed else "FAILED ✗"
+    status = "MEETS REFERENCE ✓" if passed else "BELOW REFERENCE ✗"
 
     # Handle case where no housekeeping genes found
     if metrics["total_in_dataset"] == 0:
         return f"""
-Negative Control Validation: {status}
+Negative Control Recovery: {status}
 
 Reason: No housekeeping genes found in scored dataset
 Expected: {metrics['total_expected']} housekeeping genes
 Found: 0 genes
+Percentile denominator (non-NULL scored genes): {metrics.get('total_scored_non_null', 'N/A')}
+Top quartile count: 0
+Top quartile fraction: N/A (no ranked housekeeping genes)
 
 This indicates either:
 1. Housekeeping genes were filtered out
@@ -257,17 +272,21 @@ This indicates either:
 
     median_pct = metrics["median_percentile"] * 100
     top_q_count = metrics["top_quartile_count"]
+    top_q_fraction = metrics.get("top_quartile_fraction")
     high_tier_count = metrics["in_high_tier_count"]
     gated_count = metrics.get("gated_high_tier_count", 0)
 
     report = [
-        f"Negative Control Validation: {status}",
+        f"Negative Control Recovery: {status}",
         "",
         "Summary:",
         f"  Housekeeping genes expected: {metrics['total_expected']}",
         f"  Housekeeping genes found: {metrics['total_in_dataset']}",
+        f"  Percentile denominator (non-NULL scored genes): {metrics.get('total_scored_non_null', 'N/A'):,}" if isinstance(metrics.get('total_scored_non_null'), int) else "  Percentile denominator (non-NULL scored genes): N/A",
         f"  Median percentile: {median_pct:.1f}%",
         f"  Top quartile count: {top_q_count}",
+        f"  Top quartile fraction: {top_q_fraction * 100:.1f}%" if top_q_fraction is not None
+        else "  Top quartile fraction: N/A",
         f"  Meeting HIGH-tier score/evidence thresholds (composite >= 0.70): {high_tier_count}",
         f"  In HIGH tier after cilia-signal gate: {gated_count}",
         "",
@@ -277,7 +296,7 @@ This indicates either:
     if passed:
         report.append(
             f"Housekeeping genes rank LOW (median < 50th percentile), "
-            "confirming scoring system specificity."
+            "meeting the selected internal control-separation reference."
         )
     else:
         report.append(

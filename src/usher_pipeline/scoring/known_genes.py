@@ -3,21 +3,25 @@
 import polars as pl
 from usher_pipeline.persistence.duckdb_store import PipelineStore
 
-# OMIM Usher syndrome genes (high-confidence disease genes)
-# Source: OMIM database (omim.org) - Usher syndrome entries
-# These genes are well-established causes of Usher syndrome
-OMIM_USHER_GENES = frozenset([
+# Established Usher syndrome genes used as positive controls.
+# CIB2 is intentionally excluded: its historical USH1J assignment is disputed
+# by current gene-disease curation and it is retained only as a sensitivity
+# annotation in the manuscript, not as an established positive control.
+# Sources: current GenCC and GeneReviews Usher syndrome curation.
+ESTABLISHED_USHER_GENES = frozenset([
     "MYO7A",    # USH1B
     "USH1C",    # USH1C (harmonin)
     "CDH23",    # USH1D
     "PCDH15",   # USH1F
     "USH1G",    # USH1G (SANS)
-    "CIB2",     # USH1J
     "USH2A",    # USH2A
     "ADGRV1",   # USH2C (GPR98)
     "WHRN",     # USH2D (whirlin)
     "CLRN1",    # USH3A
 ])
+
+# Backward-compatible export name for downstream users of the pre-review API.
+OMIM_USHER_GENES = ESTABLISHED_USHER_GENES
 
 # SYSCILIA Gold Standard (SCGS) v2 - Core ciliary genes subset
 # Source: van Dam et al. (2021) MBoC - DOI: 10.1091/mbc.E21-05-0226
@@ -61,26 +65,26 @@ def compile_known_genes() -> pl.DataFrame:
     """
     Compile known cilia/Usher genes into a structured DataFrame.
 
-    Combines OMIM Usher syndrome genes and SYSCILIA SCGS v2 core genes
+    Combines established Usher controls and SYSCILIA SCGS v2 core genes
     into a single reference set for exclusion filtering and positive
     control validation.
 
     Returns:
         DataFrame with columns:
         - gene_symbol (str): Gene symbol
-        - source (str): "omim_usher" or "syscilia_scgs_v2"
+        - source (str): compatibility label "omim_usher" or "syscilia_scgs_v2"
         - confidence (str): "HIGH" for all entries in this curated set
 
     Notes:
         - Genes appearing in both lists will have two rows (one per source)
         - De-duplication is NOT performed on gene_symbol to preserve provenance
-        - Total rows = len(OMIM_USHER_GENES) + len(SYSCILIA_SCGS_V2_CORE)
+        - Total rows = len(ESTABLISHED_USHER_GENES) + len(SYSCILIA_SCGS_V2_CORE)
     """
     # Create DataFrames for each gene set
     omim_df = pl.DataFrame({
-        "gene_symbol": list(OMIM_USHER_GENES),
-        "source": ["omim_usher"] * len(OMIM_USHER_GENES),
-        "confidence": ["HIGH"] * len(OMIM_USHER_GENES),
+        "gene_symbol": list(ESTABLISHED_USHER_GENES),
+        "source": ["omim_usher"] * len(ESTABLISHED_USHER_GENES),
+        "confidence": ["HIGH"] * len(ESTABLISHED_USHER_GENES),
     })
 
     syscilia_df = pl.DataFrame({
@@ -114,7 +118,7 @@ def load_known_genes_to_duckdb(store: PipelineStore) -> int:
     store.save_dataframe(
         df=df,
         table_name="known_cilia_genes",
-        description="Known cilia and Usher syndrome genes for positive control validation",
+        description="Established cilia and Usher syndrome controls for internal recovery",
         replace=True,
     )
 

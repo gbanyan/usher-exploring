@@ -10,7 +10,10 @@ from usher_pipeline.gene_mapping.mapper import (
     MappingReport,
 )
 from usher_pipeline.gene_mapping.universe import (
+    EnsemblGeneSource,
     fetch_protein_coding_genes,
+    load_frozen_ensembl_gene_source,
+    sha256_file,
     GeneUniverse,
 )
 from usher_pipeline.gene_mapping.validator import (
@@ -29,6 +32,9 @@ __all__ = [
     "MappingResult",
     "MappingReport",
     "fetch_protein_coding_genes",
+    "load_frozen_ensembl_gene_source",
+    "EnsemblGeneSource",
+    "sha256_file",
     "GeneUniverse",
     "MappingValidator",
     "ValidationResult",

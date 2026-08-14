@@ -100,6 +100,14 @@ def populated_db(tmp_path):
         "annotation_score": [0.7] * 20,
         "localization_score": [0.6] * 20,
         "animal_model_score": [0.5] * 20,
+        # Source-level localization fields required by the HIGH gate.
+        "compartment_cilia": [True] * 3 + [False] * 17,
+        "compartment_centrosome": [False] * 20,
+        "compartment_basal_body": [False] * 20,
+        "compartment_transition_zone": [False] * 20,
+        "compartment_stereocilia": [False] * 20,
+        "in_cilia_compendium": [False] * 20,
+        "in_centrosome_compendium": [False] * 20,
         "literature_score": [0.4] * 20,
         # Contribution columns
         "gnomad_contribution": [0.18] * 20,

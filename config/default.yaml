@@ -6,10 +6,14 @@ duckdb_path: data/pipeline.duckdb
 
 versions:
   ensembl_release: 113
+  ensembl_gene_source: annotation/Homo_sapiens.GRCh38.113.gtf.gz
+  ensembl_gene_source_url: https://ftp.ensembl.org/pub/release-113/gtf/homo_sapiens/Homo_sapiens.GRCh38.113.gtf.gz
+  ensembl_gene_source_sha256: 62f1709b40e083ce9d4cdc64a86b5ffec2c5d5371434bb7095c74dc89079c466
   gnomad_version: v4.1
   gtex_version: v8
   hpa_version: "23.0"
   mane_version: "1.3"
+  cellxgene_census_version: "2025-11-08"
 
 api:
   rate_limit_per_second: 5

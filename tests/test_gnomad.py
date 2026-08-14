@@ -29,23 +29,24 @@ def sample_constraint_tsv(tmp_path: Path) -> Path:
     """
     tsv_path = tmp_path / "constraint.tsv"
 
-    # Use gnomAD v4.x-style column names
-    content = """gene\ttranscript\tgene_symbol\tlof.pLI\tlof.oe_ci.upper\tmean_coverage\tmean_proportion_covered
-ENSG00000001\tENST00000001\tGENE1\t0.95\t0.15\t45.0\t0.98
-ENSG00000002\tENST00000002\tGENE2\t0.80\t0.85\t50.0\t0.95
-ENSG00000003\tENST00000003\tGENE3\t0.10\t2.50\t40.0\t0.92
-ENSG00000004\tENST00000004\tGENE4\t0.50\t0.0\t55.0\t0.97
-ENSG00000005\tENST00000005\tGENE5\t0.20\t1.20\t25.0\t0.85
-ENSG00000006\tENST00000006\tGENE6\t0.70\t0.45\t35.0\t0.75
-ENSG00000007\tENST00000007\tGENE7\tNA\tNA\t60.0\t0.99
-ENSG00000008\tENST00000008\tGENE8\t0.60\t0.30\t50.0\t0.90
-ENSG00000009\tENST00000009\tGENE9\t.\t.\t.\t.
-ENSG00000010\tENST00000010\tGENE10\t0.90\t0.18\t48.0\t0.94
-ENSG00000011\tENST00000011\tGENE11\t0.15\t1.80\t32.0\t0.91
-ENSG00000012\tENST00000012\tGENE12\t0.85\t0.22\t10.0\t0.50
-ENSG00000013\tENST00000013\tGENE13\t0.40\t0.65\t38.0\t0.88
-ENSG00000014\tENST00000014\tGENE14\tNA\t0.75\t42.0\t0.93
-ENSG00000015\tENST00000015\tGENE15\t0.75\tNA\t47.0\t0.96
+    # gnomAD v4.x real schema: "gene" = HGNC symbol, "gene_id" = Ensembl ID
+    # (verified against data/gnomad/constraint_metrics.tsv header)
+    content = """gene\tgene_id\ttranscript\tlof.pLI\tlof.oe_ci.upper\tmean_coverage\tmean_proportion_covered
+GENE1\tENSG00000001\tENST00000001\t0.95\t0.15\t45.0\t0.98
+GENE2\tENSG00000002\tENST00000002\t0.80\t0.85\t50.0\t0.95
+GENE3\tENSG00000003\tENST00000003\t0.10\t2.50\t40.0\t0.92
+GENE4\tENSG00000004\tENST00000004\t0.50\t0.0\t55.0\t0.97
+GENE5\tENSG00000005\tENST00000005\t0.20\t1.20\t25.0\t0.85
+GENE6\tENSG00000006\tENST00000006\t0.70\t0.45\t35.0\t0.75
+GENE7\tENSG00000007\tENST00000007\tNA\tNA\t60.0\t0.99
+GENE8\tENSG00000008\tENST00000008\t0.60\t0.30\t50.0\t0.90
+GENE9\tENSG00000009\tENST00000009\t.\t.\t.\t.
+GENE10\tENSG00000010\tENST00000010\t0.90\t0.18\t48.0\t0.94
+GENE11\tENSG00000011\tENST00000011\t0.15\t1.80\t32.0\t0.91
+GENE12\tENSG00000012\tENST00000012\t0.85\t0.22\t10.0\t0.50
+GENE13\tENSG00000013\tENST00000013\t0.40\t0.65\t38.0\t0.88
+GENE14\tENSG00000014\tENST00000014\tNA\t0.75\t42.0\t0.93
+GENE15\tENSG00000015\tENST00000015\t0.75\tNA\t47.0\t0.96
 """
 
     tsv_path.write_text(content)
@@ -328,8 +329,8 @@ def test_download_forces_redownload(mock_stream: Mock, tmp_path: Path):
 def test_filter_by_coverage_handles_missing_columns(tmp_path: Path):
     """filter_by_coverage handles genes with missing mean_depth or cds_covered_pct."""
     tsv_path = tmp_path / "partial.tsv"
-    content = """gene\ttranscript\tgene_symbol\tlof.pLI\tlof.oe_ci.upper\tmean_coverage\tmean_proportion_covered
-ENSG00000001\tENST00000001\tGENE1\t0.95\t0.15\t.\t.
+    content = """gene\tgene_id\ttranscript\tlof.pLI\tlof.oe_ci.upper\tmean_coverage\tmean_proportion_covered
+GENE1\tENSG00000001\tENST00000001\t0.95\t0.15\t.\t.
 """
     tsv_path.write_text(content)
 

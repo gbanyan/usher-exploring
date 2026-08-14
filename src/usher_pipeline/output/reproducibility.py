@@ -27,15 +27,16 @@ class FilteringStep:
 @dataclass
 class ReproducibilityReport:
     """
-    Comprehensive reproducibility report for a pipeline run.
+    Reproducibility report for a pipeline run.
 
     Contains all information needed to reproduce the analysis:
     - Pipeline version and parameters
     - Data source versions
     - Software environment
     - Filtering steps with gene counts
-    - Validation metrics
+    - Internal evaluation metrics
     - Tier statistics
+    - Explicit source-metadata coverage
     """
 
     run_id: str
@@ -45,8 +46,31 @@ class ReproducibilityReport:
     data_versions: dict
     software_environment: dict
     filtering_steps: list[FilteringStep] = field(default_factory=list)
+    # Keep this field in its historical position and retain its serialized
+    # name.  Existing callers may construct the report positionally or pass
+    # validation_metrics by keyword.
     validation_metrics: dict = field(default_factory=dict)
     tier_statistics: dict = field(default_factory=dict)
+    config_hash: str = ""
+    evaluation_metrics: dict = field(default_factory=dict)
+    data_source_records: list[dict] = field(default_factory=list)
+    provenance_coverage: dict = field(default_factory=dict)
+    rejected_sidecars: list[dict] = field(default_factory=list)
+
+    def __post_init__(self) -> None:
+        """Bridge legacy validation naming and the neutral evaluation naming."""
+        if not self.evaluation_metrics and self.validation_metrics:
+            self.evaluation_metrics = dict(self.validation_metrics)
+            if "validation_passed" in self.evaluation_metrics:
+                self.evaluation_metrics["control_recovery_meets_reference"] = (
+                    self.evaluation_metrics["validation_passed"]
+                )
+        elif self.evaluation_metrics and not self.validation_metrics:
+            self.validation_metrics = dict(self.evaluation_metrics)
+            if "control_recovery_meets_reference" in self.validation_metrics:
+                self.validation_metrics["validation_passed"] = (
+                    self.validation_metrics["control_recovery_meets_reference"]
+                )
 
     def to_dict(self) -> dict:
         """
@@ -59,8 +83,12 @@ class ReproducibilityReport:
             "run_id": self.run_id,
             "timestamp": self.timestamp,
             "pipeline_version": self.pipeline_version,
+            "config_hash": self.config_hash,
             "parameters": self.parameters,
             "data_versions": self.data_versions,
+            "data_source_records": self.data_source_records,
+            "provenance_coverage": self.provenance_coverage,
+            "rejected_sidecars": self.rejected_sidecars,
             "software_environment": self.software_environment,
             "filtering_steps": [
                 {
@@ -71,7 +99,10 @@ class ReproducibilityReport:
                 }
                 for step in self.filtering_steps
             ],
+            # Keep the historical serialized field for readers of existing
+            # artifacts while exposing the transition field alongside it.
             "validation_metrics": self.validation_metrics,
+            "evaluation_metrics": self.evaluation_metrics,
             "tier_statistics": self.tier_statistics,
         }
 
@@ -110,6 +141,7 @@ class ReproducibilityReport:
             f"**Run ID:** `{self.run_id}`",
             f"**Timestamp:** {self.timestamp}",
             f"**Pipeline Version:** {self.pipeline_version}",
+            f"**Config SHA-256:** `{self.config_hash}`",
             "",
             "## Parameters",
             "",
@@ -139,6 +171,57 @@ class ReproducibilityReport:
             lines.append(f"- **{key}:** {value}")
 
         lines.append("")
+
+        lines.extend([
+            "## Data Source Metadata Coverage",
+            "",
+            f"**Coverage status:** {self.provenance_coverage.get('status', 'incomplete')}",
+            f"**Recorded source records:** {self.provenance_coverage.get('recorded_source_count', 0)}",
+            "",
+            self.provenance_coverage.get(
+                "note",
+                "Coverage counts only metadata explicitly recorded for this run; missing fields are not inferred.",
+            ),
+            "",
+        ])
+        if self.provenance_coverage.get("status") != "complete":
+            lines.extend([
+                "**Source metadata coverage is incomplete; no missing fields are inferred.**",
+                "",
+            ])
+        if self.rejected_sidecars:
+            lines.extend([
+                f"**Rejected provenance sidecars:** {len(self.rejected_sidecars)}",
+                "",
+                "| Sidecar | Reason | Observed config hash |",
+                "|---------|--------|----------------------|",
+            ])
+            for rejected in self.rejected_sidecars:
+                lines.append(
+                    f"| {rejected.get('path') or 'N/A'} | "
+                    f"{rejected.get('reason') or 'N/A'} | "
+                    f"{rejected.get('observed_config_hash') or 'N/A'} |"
+                )
+            lines.append("")
+        if self.data_source_records:
+            lines.extend([
+                "| Source | Version | URL | Retrieved at | Checksum |",
+                "|--------|---------|-----|--------------|----------|",
+            ])
+            for record in self.data_source_records:
+                lines.append(
+                    f"| {record.get('source_name') or 'N/A'} | "
+                    f"{record.get('version') or 'N/A'} | "
+                    f"{record.get('source_url') or 'N/A'} | "
+                    f"{record.get('retrieved_at') or 'N/A'} | "
+                    f"{record.get('checksum') or 'N/A'} |"
+                )
+            lines.append("")
+        else:
+            lines.extend([
+                "No per-source URL/version/retrieval/checksum records were accepted for this run.",
+                "",
+            ])
 
         # Add software environment
         lines.extend([
@@ -179,14 +262,14 @@ class ReproducibilityReport:
             "",
         ])
 
-        # Add validation metrics if available
-        if self.validation_metrics:
+        # Add internal evaluation metrics if available
+        if self.evaluation_metrics:
             lines.extend([
-                "## Validation Metrics",
+                "## Internal Evaluation Metrics",
                 "",
             ])
 
-            for key, value in self.validation_metrics.items():
+            for key, value in self.evaluation_metrics.items():
                 if isinstance(value, float):
                     lines.append(f"- **{key}:** {value:.3f}")
                 else:
@@ -208,7 +291,7 @@ def generate_reproducibility_report(
     validation_result: dict | None = None,
 ) -> ReproducibilityReport:
     """
-    Generate comprehensive reproducibility report.
+    Generate a reproducibility report with explicit provenance coverage.
 
     Args:
         config: Pipeline configuration
@@ -232,8 +315,9 @@ def generate_reproducibility_report(
     # Get current timestamp
     timestamp = datetime.now(timezone.utc).isoformat()
 
-    # Extract pipeline version from provenance
+    # Extract pipeline version and the exact configuration hash from provenance
     pipeline_version = provenance.pipeline_version
+    config_hash = provenance.config_hash
 
     # Extract parameters from config
     parameters = config.scoring.model_dump()
@@ -296,8 +380,10 @@ def generate_reproducibility_report(
         "low": low,
     }
 
-    # Extract validation metrics if provided
+    # Extract internal evaluation metrics if provided.  Keep the input key
+    # compatible with existing callers, but use neutral output language.
     validation_metrics = {}
+    evaluation_metrics = {}
     if validation_result:
         validation_metrics = {
             "median_percentile": validation_result.get("median_percentile", 0.0),
@@ -305,6 +391,11 @@ def generate_reproducibility_report(
                 "top_quartile_fraction", 0.0
             ),
             "validation_passed": validation_result.get("validation_passed", False),
+        }
+        evaluation_metrics = {
+            "median_percentile": validation_metrics["median_percentile"],
+            "top_quartile_fraction": validation_metrics["top_quartile_fraction"],
+            "control_recovery_meets_reference": validation_metrics["validation_passed"],
         }
 
     return ReproducibilityReport(
@@ -317,4 +408,9 @@ def generate_reproducibility_report(
         filtering_steps=filtering_steps,
         validation_metrics=validation_metrics,
         tier_statistics=tier_statistics,
+        config_hash=config_hash,
+        evaluation_metrics=evaluation_metrics,
+        data_source_records=provenance.data_sources.copy(),
+        provenance_coverage=provenance.provenance_coverage(),
+        rejected_sidecars=provenance.rejected_sidecars.copy(),
     )

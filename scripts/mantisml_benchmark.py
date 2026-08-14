@@ -3,7 +3,8 @@
 Compares the two complete tools on a shared gene universe using identical
 metrics: median percentile rank of the known genes present in that universe,
 recall@k, ROC-AUC, and housekeeping-gene specificity. The curated known set
-has 38 genes; 36 fall inside the shared universe (ADGRV1 and WHRN are absent
+has 37 genes; 35 fall inside the shared universe after removal of the disputed
+CIB2 control (ADGRV1 and WHRN are absent
 from one tool's gene set). mantis-ml is seed-based; its `known_gene` flag is
 used to also report metrics on the subset NOT used as mantis-ml seeds, since
 evaluating a seed-based tool on its own seeds is partly circular.
@@ -27,7 +28,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-OMIM_USHER = ["ADGRV1", "CDH23", "CIB2", "CLRN1", "MYO7A",
+OMIM_USHER = ["ADGRV1", "CDH23", "CLRN1", "MYO7A",
               "PCDH15", "USH1C", "USH1G", "USH2A", "WHRN"]
 SYSCILIA = ["ARL13B", "BBS1", "BBS2", "BBS4", "BBS5", "BBS7", "BBS9", "BBS10",
             "CC2D2A", "CEP164", "CEP290", "IFT88", "IFT140", "IFT172", "INPP5E",
@@ -157,7 +158,7 @@ def main():
     known_common = [g for g in KNOWN if g in common]
     seeds_among_known = [g for g in known_common if g in seeds]
     heldout_known = [g for g in known_common if g not in seeds]
-    print(f"Known genes in universe: {len(known_common)}/38 "
+    print(f"Known genes in universe: {len(known_common)}/{len(KNOWN)} "
           f"({len(seeds_among_known)} were mantis-ml seeds, "
           f"{len(heldout_known)} not)")
 
@@ -173,7 +174,7 @@ def main():
             "known_top_quartile_frac", "recall_at_5pct", "recall_at_10pct",
             "recall_at_20pct", "roc_auc", "housekeeping_median_pctile"]
     with open(OUT_CSV, "w", newline="") as fh:
-        w = csv.writer(fh)
+        w = csv.writer(fh, lineterminator="\n")
         w.writerow(cols)
         for r in rows:
             w.writerow([r[c] for c in cols])
@@ -195,7 +196,7 @@ def main():
     mm_eval = rows[1]
     data = [list(up_eval["_known_pctiles"].values()),
             list(mm_eval["_known_pctiles"].values())]
-    bp = ax1.boxplot(data, labels=["UsherPipe", "mantis-ml"], widths=0.55,
+    bp = ax1.boxplot(data, tick_labels=["UsherPipe", "mantis-ml"], widths=0.55,
                      patch_artist=True, showmeans=True)
     for patch, color in zip(bp["boxes"], ["#2c7fb8", "#de2d26"]):
         patch.set_facecolor(color)

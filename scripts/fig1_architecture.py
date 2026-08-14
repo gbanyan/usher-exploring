@@ -77,8 +77,8 @@ def main():
     # Stage 1: gene universe
     stage_box(ax, FX0, 10.3, FW, 1.05,
               "1. Gene universe construction",
-              "mygene.info API → 22,761 Ensembl IDs →\n"
-              "MANE-canonical deduplication → 19,554 genes")
+              "Ensembl 113 frozen GTF → 20,116 IDs →\n"
+              "MANE-canonical mapping → symbols regenerated downstream")
     down_arrow(ax, FX0 + FW / 2, 10.3, 9.55)
 
     # Stage 2: six evidence layers, inside a dashed group container

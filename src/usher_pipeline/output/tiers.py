@@ -2,6 +2,14 @@
 
 import polars as pl
 
+from usher_pipeline.evidence.localization.models import (
+    LOCALIZATION_GATE_SOURCE_COLUMNS,
+)
+
+HAS_CILIA_SIGNAL_SEMANTICS_VERSION = (
+    "v2: positive aggregate localization or positive animal-model signal"
+)
+
 # Default tier thresholds from research
 TIER_THRESHOLDS = {
     "HIGH": {"composite_score": 0.7, "evidence_count": 3},
@@ -56,52 +64,74 @@ def assign_tiers(
     med_count = t["MEDIUM"]["evidence_count"]
     low_score = t["LOW"]["composite_score"]
 
-    # Add cilia_signal flag: whether the gene has non-zero evidence in at least
-    # one cilia-specific layer (localization or animal_model). This flag helps
-    # users distinguish disease-relevant MEDIUM candidates from generically
-    # high-scoring housekeeping genes. Expression is excluded because nearly
-    # all genes have non-zero expression scores, making it non-discriminative.
-    cilia_layers = ["localization_score", "animal_model_score"]
-    available_cilia = [c for c in cilia_layers if c in scored_df.columns]
+    # Keep source-level direct evidence separate from the aggregate
+    # localization score. A positive score can represent only adjacent
+    # cytoskeleton/microtubule localization and is not sufficient for HIGH.
+    missing_source_columns = [
+        column
+        for column in LOCALIZATION_GATE_SOURCE_COLUMNS
+        if column not in scored_df.columns
+    ]
+    if missing_source_columns:
+        raise ValueError(
+            "scored_genes checkpoint lacks source-level localization fields: "
+            f"{', '.join(missing_source_columns)}. Re-run localization evidence "
+            "processing and composite scoring before generating tiers."
+        )
 
-    if available_cilia:
-        has_cilia_signal = pl.lit(False)
-        for col in available_cilia:
-            has_cilia_signal = has_cilia_signal | (
-                pl.col(col).is_not_null() & (pl.col(col) > 0.0)
-            )
-    else:
-        has_cilia_signal = pl.lit(False)
+    has_direct_cilia_signal = pl.lit(False)
+    for column in LOCALIZATION_GATE_SOURCE_COLUMNS:
+        has_direct_cilia_signal = has_direct_cilia_signal | pl.col(column).fill_null(False)
+
+    # ``has_cilia_signal`` is a broad, versioned reporting field retained for
+    # compatibility. It includes positive aggregate localization and animal
+    # model signal; direct source evidence is reported separately below.
+    localization_positive = (
+        (pl.col("localization_score") > 0.0).fill_null(False)
+        if "localization_score" in scored_df.columns
+        else pl.lit(False)
+    )
+    animal_positive = (
+        (pl.col("animal_model_score") > 0.0).fill_null(False)
+        if "animal_model_score" in scored_df.columns
+        else pl.lit(False)
+    )
+    has_cilia_signal = localization_positive | animal_positive
 
     scored_df = scored_df.with_columns(
-        has_cilia_signal.alias("has_cilia_signal")
+        has_direct_cilia_signal.alias("has_direct_localization_signal"),
+        has_cilia_signal.alias("has_cilia_signal"),
+        pl.lit(HAS_CILIA_SIGNAL_SEMANTICS_VERSION).alias(
+            "has_cilia_signal_semantics_version"
+        ),
     )
 
-    # Cilia-signal gate on the HIGH tier. A HIGH-confidence gene must show
-    # *direct* cilia-specific evidence: ciliary/centrosomal subcellular
-    # localization (localization_score > 0), or a sensory animal-model
-    # phenotype at or above the 75th percentile of that layer. Genes meeting
-    # the score/evidence thresholds but failing this gate fall through to
-    # MEDIUM. The percentile is computed over genes with a non-zero
-    # animal-model score: a zero score denotes absence of a recorded sensory
-    # phenotype, not a weak one, so the non-zero subset is the biologically
-    # meaningful reference set. This is a post-hoc specificity filter on the
-    # shortlist; it relabels tiers only and does not alter any composite
-    # score or percentile rank.
-    if {"localization_score", "animal_model_score"} <= set(scored_df.columns):
+    # Cilia-signal gate on the HIGH tier. A HIGH-priority hypothesis must show
+    # explicit direct cilia/centrosome/basal-body/transition-zone/stereocilia
+    # localization or membership in one of the embedded curated ciliary/centrosomal
+    # compendia. The separately named sensory animal-model Q75 route is retained as
+    # an independent way through the gate. Genes meeting the score/evidence
+    # thresholds but failing both routes fall through to MEDIUM.
+    if "animal_model_score" in scored_df.columns:
         animal_pos = scored_df.filter(
             pl.col("animal_model_score").is_not_null()
             & (pl.col("animal_model_score") > 0.0)
         )["animal_model_score"]
-        animal_q75 = float(animal_pos.quantile(0.75)) if len(animal_pos) else 0.0
-        high_cilia_gate = (
-            (pl.col("localization_score").is_not_null()
-             & (pl.col("localization_score") > 0.0))
-            | (pl.col("animal_model_score").is_not_null()
-               & (pl.col("animal_model_score") >= animal_q75))
-        )
+        if len(animal_pos):
+            animal_q75 = float(animal_pos.quantile(0.75))
+            sensory_animal_model_q75 = (
+                pl.col("animal_model_score").is_not_null()
+                & (pl.col("animal_model_score") > 0.0)
+                & (pl.col("animal_model_score") >= animal_q75)
+            )
+        else:
+            sensory_animal_model_q75 = pl.lit(False)
     else:
-        high_cilia_gate = pl.lit(True)
+        sensory_animal_model_q75 = pl.lit(False)
+
+    high_cilia_gate = (
+        pl.col("has_direct_localization_signal") | sensory_animal_model_q75
+    )
 
     # Add confidence_tier column using vectorized when/then/otherwise chain
     result = scored_df.with_columns(

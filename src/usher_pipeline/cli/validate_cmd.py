@@ -1,10 +1,10 @@
-"""Validation command: Run comprehensive validation pipeline.
+"""Internal evaluation command for control recovery and sensitivity.
 
 Commands for:
-- Running positive control validation (known genes)
-- Running negative control validation (housekeeping genes)
+- Running positive control recovery evaluation (known genes)
+- Running negative control recovery evaluation (housekeeping genes)
 - Running sensitivity analysis (weight perturbation)
-- Generating comprehensive validation report
+- Generating an internal evaluation report
 """
 
 import logging
@@ -23,7 +23,7 @@ from usher_pipeline.scoring import (
     summarize_sensitivity,
 )
 from usher_pipeline.scoring.validation_report import (
-    generate_comprehensive_validation_report,
+    generate_internal_evaluation_report,
     save_validation_report,
 )
 
@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 @click.option(
     '--force',
     is_flag=True,
-    help='Re-run validation even if validation checkpoint exists'
+    help='Re-run internal evaluation even if an evaluation report exists'
 )
 @click.option(
     '--skip-sensitivity',
@@ -45,7 +45,7 @@ logger = logging.getLogger(__name__)
     '--output-dir',
     type=click.Path(path_type=Path),
     default=None,
-    help='Output directory for validation report (default: {data_dir}/validation)'
+    help='Output directory for internal evaluation report (default: {data_dir}/validation)'
 )
 @click.option(
     '--top-n',
@@ -55,25 +55,25 @@ logger = logging.getLogger(__name__)
 )
 @click.pass_context
 def validate(ctx, force, skip_sensitivity, output_dir, top_n):
-    """Run comprehensive validation pipeline (positive + negative + sensitivity).
+    """Run internal evaluation (positive + negative control recovery + sensitivity).
 
-    Validates scoring system using three complementary approaches:
+    Evaluates the scoring system using three diagnostic components:
     1. Positive controls: Known cilia/Usher genes should rank highly
     2. Negative controls: Housekeeping genes should rank low
     3. Sensitivity analysis: Rankings should be stable under weight perturbations
 
-    Generates comprehensive validation report with weight tuning recommendations.
+    Generates an internal evaluation report with weight tuning recommendations.
 
     Requires scored_genes checkpoint (run 'usher-pipeline score' first).
 
     Pipeline steps:
     1. Load configuration and initialize store
     2. Check scored_genes checkpoint exists
-    3. Run positive control validation (validate_positive_controls_extended)
-    4. Run negative control validation (validate_negative_controls)
+    3. Run positive control recovery evaluation (validate_positive_controls_extended)
+    4. Run negative control recovery evaluation (validate_negative_controls)
     5. Run sensitivity analysis (unless --skip-sensitivity)
-    6. Generate comprehensive validation report
-    7. Save report to output_dir/validation_report.md
+    6. Generate internal evaluation report
+    7. Save report to output_dir/validation_report.md for compatibility
 
     Examples:
 
@@ -91,7 +91,7 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
     """
     config_path = ctx.obj['config_path']
 
-    click.echo(click.style("=== Comprehensive Validation Pipeline ===", bold=True))
+    click.echo(click.style("=== Internal Evaluation and Control-Recovery Pipeline ===", bold=True))
     click.echo()
 
     store = None
@@ -134,8 +134,8 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
 
         if has_validation and not force:
             click.echo(click.style(
-                f"Validation report exists at {validation_checkpoint_path}. "
-                "Skipping validation (use --force to re-run).",
+                f"Internal evaluation report exists at {validation_checkpoint_path}. "
+                "Skipping internal evaluation (use --force to re-run).",
                 fg='yellow'
             ))
             click.echo()
@@ -145,9 +145,9 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
             click.echo(report_text)
             return
 
-        # Step 4: Run positive control validation
-        click.echo(click.style("Step 4: Running positive control validation...", bold=True))
-        click.echo("  Validating known cilia/Usher gene rankings...")
+        # Step 4: Run positive control recovery evaluation
+        click.echo(click.style("Step 4: Evaluating positive control recovery...", bold=True))
+        click.echo("  Evaluating known cilia/Usher gene rankings...")
         click.echo("  Computing recall@k metrics...")
         click.echo("  Generating per-source breakdown...")
 
@@ -160,30 +160,30 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
 
             if pos_passed:
                 click.echo(click.style(
-                    f"  Positive controls PASSED (median: {median_pct:.1f}%, recall@10%: {recall_10pct:.1f}%)",
+                    f"  Positive control recovery meets reference (median: {median_pct:.1f}%, recall@10%: {recall_10pct:.1f}%)",
                     fg='green'
                 ))
             else:
                 click.echo(click.style(
-                    f"  Positive controls FAILED (median: {median_pct:.1f}%, recall@10%: {recall_10pct:.1f}%)",
+                    f"  Positive control recovery below reference (median: {median_pct:.1f}%, recall@10%: {recall_10pct:.1f}%)",
                     fg='red'
                 ))
 
         except Exception as e:
             click.echo(click.style(f"  Error running positive control validation: {e}", fg='red'), err=True)
-            logger.exception("Failed to run positive control validation")
+            logger.exception("Failed to run positive control recovery evaluation")
             sys.exit(1)
 
         click.echo()
-        provenance.record_step('validate_positive_controls', {
+        provenance.record_step('evaluate_positive_control_recovery', {
             'validation_passed': pos_passed,
             'median_percentile': positive_metrics.get("median_percentile"),
             'recall_at_10pct': positive_metrics.get("recall_at_k", {}).get("recalls_percentage", {}).get("10%"),
         })
 
-        # Step 5: Run negative control validation
-        click.echo(click.style("Step 5: Running negative control validation...", bold=True))
-        click.echo("  Validating housekeeping gene rankings...")
+        # Step 5: Run negative control recovery evaluation
+        click.echo(click.style("Step 5: Evaluating negative control recovery...", bold=True))
+        click.echo("  Evaluating housekeeping gene rankings...")
 
         try:
             negative_metrics = validate_negative_controls(store)
@@ -194,22 +194,22 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
 
             if neg_passed:
                 click.echo(click.style(
-                    f"  Negative controls PASSED (median: {neg_median_pct:.1f}%, top quartile: {top_q_count})",
+                    f"  Negative control recovery meets reference (median: {neg_median_pct:.1f}%, top quartile: {top_q_count})",
                     fg='green'
                 ))
             else:
                 click.echo(click.style(
-                    f"  Negative controls FAILED (median: {neg_median_pct:.1f}%, top quartile: {top_q_count})",
+                    f"  Negative control recovery below reference (median: {neg_median_pct:.1f}%, top quartile: {top_q_count})",
                     fg='red'
                 ))
 
         except Exception as e:
             click.echo(click.style(f"  Error running negative control validation: {e}", fg='red'), err=True)
-            logger.exception("Failed to run negative control validation")
+            logger.exception("Failed to run negative control recovery evaluation")
             sys.exit(1)
 
         click.echo()
-        provenance.record_step('validate_negative_controls', {
+        provenance.record_step('evaluate_negative_control_recovery', {
             'validation_passed': neg_passed,
             'median_percentile': negative_metrics.get("median_percentile"),
             'top_quartile_count': top_q_count,
@@ -222,7 +222,7 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
 
         if not skip_sensitivity:
             click.echo(click.style("Step 6: Running sensitivity analysis...", bold=True))
-            click.echo(f"  Perturbing weights by ±5% and ±10% (top {top_n} genes)...")
+            click.echo(f"  Perturbing weights by absolute ±0.05 and ±0.10 (top {top_n} genes)...")
             click.echo("  Computing Spearman rank correlations...")
 
             try:
@@ -242,14 +242,20 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
                 unstable_count = sensitivity_summary.get("unstable_count", 0)
                 mean_rho = sensitivity_summary.get("mean_rho", 0.0)
 
+                mean_rho_text = f"{mean_rho:.4f}" if mean_rho is not None else "N/A"
                 if sens_passed:
                     click.echo(click.style(
-                        f"  Sensitivity analysis STABLE (stable: {stable_count}, unstable: {unstable_count}, mean rho: {mean_rho:.4f})",
+                        f"  Sensitivity analysis STABLE (stable: {stable_count}, unstable: {unstable_count}, mean rho: {mean_rho_text})",
                         fg='green'
                     ))
                 else:
+                    status_text = (
+                        "UNASSESSED"
+                        if sensitivity_summary.get("assessment_status") == "unassessed"
+                        else "UNSTABLE"
+                    )
                     click.echo(click.style(
-                        f"  Sensitivity analysis UNSTABLE (stable: {stable_count}, unstable: {unstable_count}, mean rho: {mean_rho:.4f})",
+                        f"  Sensitivity analysis {status_text} (stable: {stable_count}, unstable: {unstable_count}, mean rho: {mean_rho_text})",
                         fg='yellow'
                     ))
 
@@ -284,16 +290,16 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
                 "stable_count": 0,
                 "unstable_count": 0,
                 "total_perturbations": 0,
-                "overall_stable": True,  # Default to stable if skipped
+                "overall_stable": None,
                 "most_sensitive_layer": None,
                 "most_robust_layer": None,
             }
 
-        # Step 7: Generate comprehensive validation report
-        click.echo(click.style("Step 7: Generating comprehensive validation report...", bold=True))
+        # Step 7: Generate internal evaluation report
+        click.echo(click.style("Step 7: Generating internal evaluation report...", bold=True))
 
         try:
-            report_text = generate_comprehensive_validation_report(
+            report_text = generate_internal_evaluation_report(
                 positive_metrics,
                 negative_metrics,
                 sensitivity_result,
@@ -304,13 +310,13 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
 
         except Exception as e:
             click.echo(click.style(f"  Error generating report: {e}", fg='red'), err=True)
-            logger.exception("Failed to generate validation report")
+            logger.exception("Failed to generate internal evaluation report")
             sys.exit(1)
 
         click.echo()
 
         # Step 8: Save report
-        click.echo(click.style("Step 8: Saving validation report...", bold=True))
+        click.echo(click.style("Step 8: Saving internal evaluation report...", bold=True))
 
         try:
             report_path = output_dir / "validation_report.md"
@@ -331,35 +337,44 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
         click.echo()
 
         # Display final summary
-        click.echo(click.style("=== Validation Summary ===", bold=True))
+        click.echo(click.style("=== Internal Evaluation Summary ===", bold=True))
         click.echo()
 
-        all_passed = pos_passed and neg_passed and (sens_passed if not skip_sensitivity else True)
+        all_passed = pos_passed and neg_passed and sens_passed is True
 
-        if all_passed:
-            overall_status = click.style("ALL VALIDATIONS PASSED ✓", fg='green', bold=True)
+        if skip_sensitivity:
+            overall_status = click.style("INTERNAL EVALUATION INCOMPLETE (Sensitivity Not Run)", fg='yellow', bold=True)
+        elif all_passed:
+            overall_status = click.style("ALL REFERENCE CHECKS MEET THRESHOLDS ✓", fg='green', bold=True)
+        elif pos_passed and neg_passed and sens_passed is None:
+            overall_status = click.style("INTERNAL EVALUATION INCOMPLETE (Sensitivity Unassessed)", fg='yellow', bold=True)
         elif pos_passed and neg_passed:
-            overall_status = click.style("PARTIAL PASS (Sensitivity Unstable)", fg='yellow', bold=True)
+            overall_status = click.style("REFERENCE CHECKS PARTLY MEET THRESHOLDS (Sensitivity Unstable)", fg='yellow', bold=True)
         elif pos_passed:
-            overall_status = click.style("PARTIAL PASS (Specificity Issue)", fg='yellow', bold=True)
+            overall_status = click.style("REFERENCE CHECKS PARTLY MEET THRESHOLDS (Control Separation Issue)", fg='yellow', bold=True)
         else:
-            overall_status = click.style("VALIDATION FAILED ✗", fg='red', bold=True)
+            overall_status = click.style("REFERENCE CHECKS BELOW THRESHOLDS ✗", fg='red', bold=True)
 
         click.echo(f"Overall Status: {overall_status}")
         click.echo()
 
-        click.echo(f"Positive Controls: {'PASSED ✓' if pos_passed else 'FAILED ✗'}")
+        click.echo(f"Positive Control Recovery: {'MEETS REFERENCE ✓' if pos_passed else 'BELOW REFERENCE ✗'}")
         click.echo(f"  - Median percentile: {positive_metrics.get('median_percentile', 0.0) * 100:.1f}%")
         click.echo(f"  - Recall@10%: {positive_metrics.get('recall_at_k', {}).get('recalls_percentage', {}).get('10%', 0.0) * 100:.1f}%")
         click.echo()
 
-        click.echo(f"Negative Controls: {'PASSED ✓' if neg_passed else 'FAILED ✗'}")
+        click.echo(f"Negative Control Recovery: {'MEETS REFERENCE ✓' if neg_passed else 'BELOW REFERENCE ✗'}")
         click.echo(f"  - Median percentile: {negative_metrics.get('median_percentile', 0.0) * 100:.1f}%")
         click.echo(f"  - Top quartile count: {negative_metrics.get('top_quartile_count', 0)}")
         click.echo()
 
         if not skip_sensitivity:
-            click.echo(f"Sensitivity Analysis: {'STABLE ✓' if sens_passed else 'UNSTABLE ✗'}")
+            sensitivity_status = (
+                "STABLE ✓" if sens_passed is True
+                else "UNASSESSED" if sens_passed is None
+                else "UNSTABLE ✗"
+            )
+            click.echo(f"Sensitivity Analysis: {sensitivity_status}")
             click.echo(f"  - Stable perturbations: {sensitivity_summary.get('stable_count', 0)}/{sensitivity_summary.get('total_perturbations', 0)}")
             if sensitivity_summary.get('mean_rho') is not None:
                 click.echo(f"  - Mean Spearman rho: {sensitivity_summary.get('mean_rho', 0.0):.4f}")
@@ -371,7 +386,7 @@ def validate(ctx, force, skip_sensitivity, output_dir, top_n):
         click.echo(f"Report Path: {report_path}")
         click.echo(f"Provenance: {provenance_path}")
         click.echo()
-        click.echo(click.style("Validation pipeline complete!", fg='green', bold=True))
+        click.echo(click.style("Internal evaluation pipeline complete.", fg='green', bold=True))
 
     except Exception as e:
         click.echo(click.style(f"Validation command failed: {e}", fg='red'), err=True)

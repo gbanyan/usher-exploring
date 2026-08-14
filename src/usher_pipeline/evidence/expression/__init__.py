@@ -17,6 +17,11 @@ from usher_pipeline.evidence.expression.fetch import (
     fetch_hpa_expression,
     fetch_gtex_expression,
     fetch_cellxgene_expression,
+    expression_source_metadata,
+    validate_expression_cache,
+    cellxgene_cache_identity,
+    cellxgene_cache_path,
+    cellxgene_legacy_cache_path,
 )
 from usher_pipeline.evidence.expression.transform import (
     calculate_tau_specificity,
@@ -30,6 +35,13 @@ from usher_pipeline.evidence.expression.load import (
 from usher_pipeline.evidence.expression.models import (
     ExpressionRecord,
     EXPRESSION_TABLE_NAME,
+    EXPRESSION_SCHEMA_VERSION,
+    HPA_LEVEL_ORDINAL,
+    HPA_LEVEL_SEMANTICS,
+    EXPRESSION_CONTRAST_SCOPE,
+    EXPRESSION_CONTRAST_DESCRIPTION,
+    RESTRICTED_TAU_COLUMN,
+    RESTRICTED_ENRICHMENT_COLUMN,
     TARGET_TISSUES,
 )
 
@@ -37,6 +49,11 @@ __all__ = [
     "fetch_hpa_expression",
     "fetch_gtex_expression",
     "fetch_cellxgene_expression",
+    "expression_source_metadata",
+    "validate_expression_cache",
+    "cellxgene_cache_identity",
+    "cellxgene_cache_path",
+    "cellxgene_legacy_cache_path",
     "calculate_tau_specificity",
     "compute_expression_score",
     "process_expression_evidence",
@@ -44,5 +61,12 @@ __all__ = [
     "query_tissue_enriched",
     "ExpressionRecord",
     "EXPRESSION_TABLE_NAME",
+    "EXPRESSION_SCHEMA_VERSION",
+    "HPA_LEVEL_ORDINAL",
+    "HPA_LEVEL_SEMANTICS",
+    "EXPRESSION_CONTRAST_SCOPE",
+    "EXPRESSION_CONTRAST_DESCRIPTION",
+    "RESTRICTED_TAU_COLUMN",
+    "RESTRICTED_ENRICHMENT_COLUMN",
     "TARGET_TISSUES",
 ]

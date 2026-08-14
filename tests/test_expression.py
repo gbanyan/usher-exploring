@@ -11,6 +11,10 @@ from usher_pipeline.evidence.expression.transform import (
     calculate_tau_specificity,
     compute_expression_score,
 )
+from usher_pipeline.evidence.expression.models import (
+    RESTRICTED_ENRICHMENT_COLUMN,
+    RESTRICTED_TAU_COLUMN,
+)
 
 
 def test_tau_calculation_ubiquitous():
@@ -28,15 +32,14 @@ def test_tau_calculation_ubiquitous():
     result = calculate_tau_specificity(df, tissue_cols)
 
     # Tau should be close to 0 for ubiquitous expression
-    assert "tau_specificity" in result.columns
-    tau_values = result.select("tau_specificity").to_series().to_list()
+    assert RESTRICTED_TAU_COLUMN in result.columns
+    tau_values = result.select(RESTRICTED_TAU_COLUMN).to_series().to_list()
     assert tau_values[0] == pytest.approx(0.0, abs=0.01)
     assert tau_values[1] == pytest.approx(0.0, abs=0.01)
 
 
-def test_tau_calculation_specific():
-    """Expression in one tissue only -> Tau near 1 (tissue-specific)."""
-    # Gene expressed only in one tissue
+def test_tau_includes_observed_zero_tissues():
+    """Observed zero values remain zero evidence but count in Tau."""
     df = pl.DataFrame({
         "gene_id": ["ENSG00000001"],
         "tissue1": [100.0],
@@ -48,8 +51,8 @@ def test_tau_calculation_specific():
     tissue_cols = ["tissue1", "tissue2", "tissue3", "tissue4"]
     result = calculate_tau_specificity(df, tissue_cols)
 
-    tau = result.select("tau_specificity").item()
-    # Tau = sum(1 - xi/xmax) / (n-1) = (0 + 1 + 1 + 1) / 3 = 1.0
+    tau = result.select(RESTRICTED_TAU_COLUMN).item()
+    # Tau = (0 + 1 + 1 + 1) / (4 - 1) = 1.0; NULL is the only excluded value.
     assert tau == pytest.approx(1.0, abs=0.01)
 
 
@@ -70,8 +73,8 @@ def test_tau_partial_data():
     tissue_cols = ["tissue1", "tissue2", "tissue3", "tissue4"]
     result = calculate_tau_specificity(df, tissue_cols)
 
-    tau_values = result.select("tau_specificity").to_series().to_list()
-    # Gene 1: 3 tissues with data (100, 0, 0) -> Tau = (0+1+1)/2 = 1.0
+    tau_values = result.select(RESTRICTED_TAU_COLUMN).to_series().to_list()
+    # Gene 1 has three observed tissues (100, 0, 0); only NULL is excluded.
     assert tau_values[0] == pytest.approx(1.0, abs=0.01)
     # Gene 2: ubiquitous across 4 tissues -> Tau ~ 0
     assert tau_values[1] == pytest.approx(0.0, abs=0.01)
@@ -90,7 +93,7 @@ def test_tau_insufficient_tissues():
     tissue_cols = ["tissue1", "tissue2", "tissue3", "tissue4"]
     result = calculate_tau_specificity(df, tissue_cols)
 
-    tau_values = result.select("tau_specificity").to_series().to_list()
+    tau_values = result.select(RESTRICTED_TAU_COLUMN).to_series().to_list()
     # Gene 1 has only 1 tissue with data -> NULL Tau
     assert tau_values[0] is None
     # Gene 2 has complete data -> Tau should be valid
@@ -101,15 +104,15 @@ def test_enrichment_score_high():
     """High retina expression relative to global -> high enrichment."""
     df = pl.DataFrame({
         "gene_id": ["ENSG00000001"],
-        "hpa_retina_tpm": [50.0],
-        "hpa_cerebellum_tpm": [40.0],
+        "hpa_retina_protein_level": [3],
+        "hpa_cerebellum_protein_level": [3],
         "gtex_retina_tpm": [60.0],
-        "hpa_testis_tpm": [5.0],
-        "hpa_fallopian_tube_tpm": [5.0],
+        "hpa_testis_protein_level": [1],
+        "hpa_fallopian_tube_protein_level": [1],
         "gtex_testis_tpm": [5.0],
         "cellxgene_photoreceptor_expr": [None],
         "cellxgene_hair_cell_expr": [None],
-        "tau_specificity": [0.5],
+        RESTRICTED_TAU_COLUMN: [0.5],
     })
 
     result = compute_expression_score(df)
@@ -118,8 +121,8 @@ def test_enrichment_score_high():
     # Mean Usher: (50+40+60)/3 = 50
     # Mean global: (50+40+60+5+5+5)/6 = 27.5
     # Enrichment: 50/27.5 ≈ 1.82
-    assert "usher_tissue_enrichment" in result.columns
-    enrichment = result.select("usher_tissue_enrichment").item()
+    assert RESTRICTED_ENRICHMENT_COLUMN in result.columns
+    enrichment = result.select(RESTRICTED_ENRICHMENT_COLUMN).item()
     assert enrichment > 1.5  # Significantly enriched
 
 
@@ -127,20 +130,20 @@ def test_enrichment_score_low():
     """No target tissue expression -> low enrichment."""
     df = pl.DataFrame({
         "gene_id": ["ENSG00000001"],
-        "hpa_retina_tpm": [5.0],
-        "hpa_cerebellum_tpm": [5.0],
+        "hpa_retina_protein_level": [1],
+        "hpa_cerebellum_protein_level": [1],
         "gtex_retina_tpm": [5.0],
-        "hpa_testis_tpm": [50.0],
-        "hpa_fallopian_tube_tpm": [50.0],
+        "hpa_testis_protein_level": [3],
+        "hpa_fallopian_tube_protein_level": [3],
         "gtex_testis_tpm": [50.0],
         "cellxgene_photoreceptor_expr": [None],
         "cellxgene_hair_cell_expr": [None],
-        "tau_specificity": [0.8],
+        RESTRICTED_TAU_COLUMN: [0.8],
     })
 
     result = compute_expression_score(df)
 
-    enrichment = result.select("usher_tissue_enrichment").item()
+    enrichment = result.select(RESTRICTED_ENRICHMENT_COLUMN).item()
     assert enrichment < 1.0  # Not enriched in Usher tissues
 
 
@@ -148,15 +151,15 @@ def test_expression_score_normalization():
     """Composite score should be in [0, 1] range."""
     df = pl.DataFrame({
         "gene_id": ["ENSG00000001", "ENSG00000002", "ENSG00000003"],
-        "hpa_retina_tpm": [50.0, 10.0, 5.0],
-        "hpa_cerebellum_tpm": [40.0, 10.0, 5.0],
+        "hpa_retina_protein_level": [3, 1, 1],
+        "hpa_cerebellum_protein_level": [3, 1, 1],
         "gtex_retina_tpm": [60.0, 10.0, 5.0],
-        "hpa_testis_tpm": [5.0, 50.0, 50.0],
-        "hpa_fallopian_tube_tpm": [5.0, 50.0, 50.0],
+        "hpa_testis_protein_level": [1, 3, 3],
+        "hpa_fallopian_tube_protein_level": [1, 3, 3],
         "gtex_testis_tpm": [5.0, 50.0, 50.0],
         "cellxgene_photoreceptor_expr": [None, None, None],
         "cellxgene_hair_cell_expr": [None, None, None],
-        "tau_specificity": [0.5, 0.3, 0.2],
+        RESTRICTED_TAU_COLUMN: [0.5, 0.3, 0.2],
     })
 
     result = compute_expression_score(df)
@@ -171,21 +174,21 @@ def test_null_preservation_all_sources():
     """Gene with no data from any source -> NULL score."""
     df = pl.DataFrame({
         "gene_id": ["ENSG00000001"],
-        "hpa_retina_tpm": [None],
-        "hpa_cerebellum_tpm": [None],
+        "hpa_retina_protein_level": [None],
+        "hpa_cerebellum_protein_level": [None],
         "gtex_retina_tpm": [None],
-        "hpa_testis_tpm": [None],
-        "hpa_fallopian_tube_tpm": [None],
+        "hpa_testis_protein_level": [None],
+        "hpa_fallopian_tube_protein_level": [None],
         "gtex_testis_tpm": [None],
         "cellxgene_photoreceptor_expr": [None],
         "cellxgene_hair_cell_expr": [None],
-        "tau_specificity": [None],
+        RESTRICTED_TAU_COLUMN: [None],
     })
 
     result = compute_expression_score(df)
 
     # Both enrichment and score should be NULL
-    enrichment = result.select("usher_tissue_enrichment").item()
+    enrichment = result.select(RESTRICTED_ENRICHMENT_COLUMN).item()
     score = result.select("expression_score_normalized").item()
     assert enrichment is None
     assert score is None

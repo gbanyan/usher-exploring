@@ -5,9 +5,50 @@ import polars as pl
 import structlog
 
 from usher_pipeline.config.schema import ScoringWeights
+from usher_pipeline.evidence.expression.models import RESTRICTED_TAU_COLUMN
+from usher_pipeline.evidence.localization.models import (
+    LOCALIZATION_GATE_SOURCE_COLUMNS,
+)
+from usher_pipeline.evidence.localization.load import (
+    LegacyLocalizationCheckpointError,
+    migrate_legacy_localization_checkpoint,
+)
 from usher_pipeline.persistence.duckdb_store import PipelineStore
 
 logger = structlog.get_logger(__name__)
+
+
+def _localization_source_projection(store: PipelineStore) -> str:
+    """Build the source-level SQL projection after explicit checkpoint migration."""
+    migration = migrate_legacy_localization_checkpoint(store)
+    if migration["status"] == "missing":
+        raise LegacyLocalizationCheckpointError(
+            "subcellular_localization checkpoint is missing; run localization "
+            "evidence processing before scoring."
+        )
+
+    try:
+        columns = {
+            row[0]
+            for row in store.conn.execute("DESCRIBE subcellular_localization").fetchall()
+        }
+    except duckdb.CatalogException as exc:
+        raise LegacyLocalizationCheckpointError(
+            "Unable to inspect subcellular_localization source fields; re-run "
+            "localization evidence processing before scoring."
+        ) from exc
+
+    missing = [column for column in LOCALIZATION_GATE_SOURCE_COLUMNS if column not in columns]
+    if missing:
+        raise LegacyLocalizationCheckpointError(
+            "subcellular_localization checkpoint still lacks source-level fields: "
+            f"{', '.join(missing)}. Re-run localization evidence processing before scoring."
+        )
+    expressions = [
+        f"BOOL_OR(COALESCE({column}, FALSE)) AS {column}"
+        for column in LOCALIZATION_GATE_SOURCE_COLUMNS
+    ]
+    return ",\n               ".join(expressions)
 
 
 def _load_mane_gene_ids(store: PipelineStore) -> list[str]:
@@ -95,7 +136,10 @@ def join_evidence_layers(store: PipelineStore) -> pl.DataFrame:
     # Use CTEs to deduplicate each evidence table to one row per gene_id
     # (some tables have multiple rows per gene, e.g. gnomAD has per-transcript data).
     # For score columns, take the MAX to keep the strongest evidence.
-    query = """
+    localization_source_projection = _localization_source_projection(store)
+    source_columns = LOCALIZATION_GATE_SOURCE_COLUMNS
+    source_select = ", ".join(f"loc.{column}" for column in source_columns)
+    query = f"""
     WITH gu AS (
         SELECT gene_id, FIRST(gene_symbol) AS gene_symbol
         FROM gene_universe GROUP BY gene_id
@@ -114,6 +158,7 @@ def join_evidence_layers(store: PipelineStore) -> pl.DataFrame:
     ),
     sl AS (
         SELECT gene_id, MAX(localization_score_normalized) AS localization_score_normalized
+               ,{localization_source_projection}
         FROM subcellular_localization GROUP BY gene_id
     ),
     am AS (
@@ -131,6 +176,7 @@ def join_evidence_layers(store: PipelineStore) -> pl.DataFrame:
         expr.expression_score_normalized AS expression_score,
         annot.annotation_score_normalized AS annotation_score,
         loc.localization_score_normalized AS localization_score,
+        {source_select},
         animal.animal_model_score_normalized AS animal_model_score,
         lit.literature_score_normalized AS literature_score,
         (
@@ -220,6 +266,33 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
     # Validate weights first
     weights.validate_sum()
 
+    # Prefer the v3 restricted-panel Tau contract.  Keep the legacy output
+    # alias so older consumers remain readable, and fall back to the legacy
+    # source column only for pre-v3 checkpoint tables.
+    expression_columns = {
+        row[0]
+        for row in store.conn.execute("DESCRIBE tissue_expression").fetchall()
+    }
+    if RESTRICTED_TAU_COLUMN in expression_columns:
+        tau_projection = (
+            f"FIRST({RESTRICTED_TAU_COLUMN}) AS {RESTRICTED_TAU_COLUMN}, "
+            f"FIRST({RESTRICTED_TAU_COLUMN}) AS tau_specificity"
+        )
+    elif "tau_specificity" in expression_columns:
+        tau_projection = (
+            "FIRST(tau_specificity) AS tau_restricted_panel_specificity, "
+            "FIRST(tau_specificity) AS tau_specificity"
+        )
+    else:
+        tau_projection = (
+            "CAST(NULL AS DOUBLE) AS tau_restricted_panel_specificity, "
+            "CAST(NULL AS DOUBLE) AS tau_specificity"
+        )
+
+    localization_source_projection = _localization_source_projection(store)
+    source_columns = LOCALIZATION_GATE_SOURCE_COLUMNS
+    source_select = ", ".join(f"loc.{column}" for column in source_columns)
+
     query = f"""
     WITH gu AS (
         SELECT gene_id, FIRST(gene_symbol) AS gene_symbol
@@ -230,7 +303,8 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
         FROM gnomad_constraint GROUP BY gene_id
     ),
     te AS (
-        SELECT gene_id, MAX(expression_score_normalized) AS expression_score_normalized
+        SELECT gene_id, MAX(expression_score_normalized) AS expression_score_normalized,
+               {tau_projection}
         FROM tissue_expression GROUP BY gene_id
     ),
     ac AS (
@@ -239,6 +313,7 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
     ),
     sl AS (
         SELECT gene_id, MAX(localization_score_normalized) AS localization_score_normalized
+               ,{localization_source_projection}
         FROM subcellular_localization GROUP BY gene_id
     ),
     am AS (
@@ -254,8 +329,11 @@ def compute_composite_scores(store: PipelineStore, weights: ScoringWeights) -> p
         g.gene_symbol,
         gnomad.loeuf_normalized AS gnomad_score,
         expr.expression_score_normalized AS expression_score,
+        expr.tau_restricted_panel_specificity AS tau_restricted_panel_specificity,
+        expr.tau_specificity AS tau_specificity,
         annot.annotation_score_normalized AS annotation_score,
         loc.localization_score_normalized AS localization_score,
+        {source_select},
         animal.animal_model_score_normalized AS animal_model_score,
         lit.literature_score_normalized AS literature_score,
         (

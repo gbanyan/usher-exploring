@@ -85,6 +85,10 @@ class LiteratureRecord(BaseModel):
         None,
         description="Publications with knockout/mutation/knockdown evidence",
     )
+    direct_experimental_context_count: Optional[int] = Field(
+        None,
+        description="Publications containing both direct-experimental and cilia/sensory context evidence",
+    )
     hts_screen_count: Optional[int] = Field(
         None,
         description="Publications from high-throughput screens (proteomics/transcriptomics)",

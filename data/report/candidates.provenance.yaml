@@ -1,20 +1,29 @@
-generated_at: '2026-07-09T19:14:07.685594+00:00'
+generated_at: '2026-08-14T13:38:24.424017+00:00'
 output_files:
 - candidates.tsv
 - candidates.parquet
 statistics:
-  total_candidates: 19131
-  high_count: 83
-  medium_count: 11323
-  low_count: 7725
-column_count: 23
+  total_candidates: 18387
+  high_count: 62
+  medium_count: 9673
+  low_count: 8652
+column_count: 34
 column_names:
 - gene_id
 - gene_symbol
 - gnomad_score
 - expression_score
+- tau_restricted_panel_specificity
+- tau_specificity
 - annotation_score
 - localization_score
+- compartment_cilia
+- compartment_centrosome
+- compartment_basal_body
+- compartment_transition_zone
+- compartment_stereocilia
+- in_cilia_compendium
+- in_centrosome_compendium
 - animal_model_score
 - literature_score
 - evidence_count
@@ -28,7 +37,71 @@ column_names:
 - localization_contribution
 - animal_model_contribution
 - literature_contribution
+- has_direct_localization_signal
 - has_cilia_signal
+- has_cilia_signal_semantics_version
 - confidence_tier
 - supporting_layers
 - evidence_gaps
+config_hash: b579c4b838b92bd6a578947f0ef30ebcdaf34ef2789c0c502c000f196dd2c8cf
+output_checksums:
+  candidates.tsv: 9d9a288e7beb7fea580898b856631452a5720567a7b321e8b7f51206afac76a0
+  candidates.parquet: 5d74b8024422ff2403f6133899f1f4f6d439fb4c6d8b2d53127cf0cfe809a13c
+data_source_records:
+- source_name: animal_model_phenotypes_donor_duckdb
+  source_url: null
+  version: null
+  retrieved_at: null
+  checksum: 1f5f606d0fb1d1ea3ca90386416c804ea70c809b8ea670c4a94e7659dac641d8
+  checksum_algorithm: sha256
+  local_path: /Users/gbanyan/.herdr/worktrees/usher-exploring/herdr-integration-final/data/pipeline_source.duckdb
+- source_name: annotation_completeness_donor_duckdb
+  source_url: null
+  version: null
+  retrieved_at: null
+  checksum: 1f5f606d0fb1d1ea3ca90386416c804ea70c809b8ea670c4a94e7659dac641d8
+  checksum_algorithm: sha256
+  local_path: /Users/gbanyan/.herdr/worktrees/usher-exploring/herdr-integration-final/data/pipeline_source.duckdb
+- source_name: download_gnomad_constraint
+  source_url: https://storage.googleapis.com/gcp-public-data--gnomad/release/4.1/constraint/gnomad.v4.1.constraint_metrics.tsv
+  version: v4.1
+  retrieved_at: null
+  checksum: 68d8abdb7fc48f570869b02dfaa74b9fecaece7fcc5f301ddca40ec1ce12da00
+  checksum_algorithm: sha256
+  local_path: data/gnomad/constraint_metrics.tsv
+- source_name: ensembl_gtf_local
+  source_url: https://ftp.ensembl.org/pub/release-113/gtf/homo_sapiens/Homo_sapiens.GRCh38.113.gtf.gz
+  version: null
+  retrieved_at: null
+  checksum: 62f1709b40e083ce9d4cdc64a86b5ffec2c5d5371434bb7095c74dc89079c466
+  checksum_algorithm: sha256
+  local_path: /Users/gbanyan/.herdr/worktrees/usher-exploring/herdr-integration-final/data/annotation/Homo_sapiens.GRCh38.113.gtf.gz
+- source_name: legacy_mapping_duckdb
+  source_url: null
+  version: null
+  retrieved_at: null
+  checksum: 1f5f606d0fb1d1ea3ca90386416c804ea70c809b8ea670c4a94e7659dac641d8
+  checksum_algorithm: sha256
+  local_path: /Users/gbanyan/.herdr/worktrees/usher-exploring/herdr-integration-final/data/pipeline_source.duckdb
+- source_name: mane_select_local
+  source_url: null
+  version: '1.3'
+  retrieved_at: null
+  checksum: 06637bc2d1f04f54635a8a09ff535ed44e5f7a2ced2d2a30a03f50b233379c35
+  checksum_algorithm: sha256
+  local_path: /Users/gbanyan/.herdr/worktrees/usher-exploring/herdr-integration-final/data/MANE.GRCh38.v1.3.summary.txt.gz
+rejected_sidecars: []
+provenance_coverage:
+  status: incomplete
+  recorded_source_count: 6
+  covered_fields:
+    source_name: 6
+    source_url: 2
+    version: 2
+    retrieved_at: 0
+    checksum: 6
+  rejected_sidecar_count: 0
+  rejected_sidecars: []
+  note: Coverage counts only metadata explicitly recorded for this run; missing source,
+    version, retrieval, or checksum fields are not inferred. Sidecars without an exact
+    current-config hash are rejected.

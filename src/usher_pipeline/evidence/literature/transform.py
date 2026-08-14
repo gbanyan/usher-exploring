@@ -1,5 +1,6 @@
 """Transform literature evidence: classify tiers and compute quality-weighted scores."""
 
+from pathlib import Path
 from typing import Optional
 
 import polars as pl
@@ -49,16 +50,19 @@ def classify_evidence_tier(df: pl.DataFrame) -> pl.DataFrame:
 
     # Define tier classification logic using polars expressions
     # Priority order: direct_experimental > functional_mention > hts_hit > incidental > none
+    # New fetches provide the PMID-level intersection.  Keep a fallback for
+    # legacy cached tables, but do not use separately counted sets when the
+    # intersection column is available.
+    direct_context_col = (
+        pl.col("direct_experimental_context_count")
+        if "direct_experimental_context_count" in df.columns
+        else pl.col("direct_experimental_count")
+    )
 
     df = df.with_columns([
         pl.when(
             # Direct experimental: knockout/mutation evidence + cilia/sensory context (HIGHEST TIER)
-            (pl.col("direct_experimental_count").is_not_null()) &
-            (pl.col("direct_experimental_count") >= 1) &
-            (
-                (pl.col("cilia_context_count").is_not_null() & (pl.col("cilia_context_count") >= 1)) |
-                (pl.col("sensory_context_count").is_not_null() & (pl.col("sensory_context_count") >= 1))
-            )
+            direct_context_col.is_not_null() & (direct_context_col >= 1)
         ).then(pl.lit("direct_experimental"))
         .when(
             # HTS hit: screen evidence + cilia/sensory context (SECOND TIER - prioritized over functional mention)
@@ -170,7 +174,9 @@ def compute_literature_score(df: pl.DataFrame) -> pl.DataFrame:
         df = df.with_columns([
             pl.when(pl.col("raw_score").is_not_null())
             .then(
-                pl.col("raw_score").rank(method="average") / total_with_scores
+                pl.when(pl.col("raw_score") > 0)
+                .then(pl.col("raw_score").rank(method="average") / total_with_scores)
+                .otherwise(0.0)
             )
             .otherwise(pl.lit(None))
             .alias("literature_score_normalized")
@@ -205,9 +211,11 @@ def process_literature_evidence(
     gene_ids: list[str],
     gene_symbol_map: pl.DataFrame,
     email: str,
-    data_dir: "Path",
+    data_dir: Optional[Path] = None,
     api_key: Optional[str] = None,
     force: bool = False,
+    cache_only: bool = False,
+    batch_size: Optional[int] = None,
 ) -> pl.DataFrame:
     """End-to-end literature evidence processing pipeline.
 
@@ -221,9 +229,14 @@ def process_literature_evidence(
         gene_ids: List of Ensembl gene IDs
         gene_symbol_map: DataFrame with columns: gene_id, gene_symbol
         email: Email for NCBI E-utilities (required)
-        data_dir: Directory for bulk file downloads
+        data_dir: Directory for bulk file downloads.  If omitted, use the
+            legacy per-gene compatibility path; production callers should
+            always provide a directory so the bulk path is used.
         api_key: Optional NCBI API key
         force: Re-download bulk files even if cached
+        cache_only: Require local bulk/context caches and never query NCBI
+        batch_size: Deprecated compatibility argument from the former
+            per-gene implementation; ignored by the bulk path.
 
     Returns:
         DataFrame with columns: gene_id, gene_symbol, total_pubmed_count,
@@ -248,14 +261,28 @@ def process_literature_evidence(
         mapped_symbols=len(unique_symbols),
     )
 
-    # Step 2: Fetch bulk literature evidence
-    lit_df = fetch_literature_evidence(
-        gene_symbols=unique_symbols,
-        email=email,
-        data_dir=data_dir,
-        api_key=api_key,
-        force=force,
-    )
+    # Step 2: Fetch literature evidence.  The bulk path is used whenever a
+    # data directory is supplied (including all CLI/manuscript runs).  Keep a
+    # narrow compatibility path for older callers that omitted it.
+    if data_dir is None:
+        from usher_pipeline.evidence.literature.fetch import (
+            fetch_legacy_literature_evidence,
+        )
+
+        lit_df = fetch_legacy_literature_evidence(
+            gene_symbols=unique_symbols,
+            email=email,
+            api_key=api_key,
+        )
+    else:
+        lit_df = fetch_literature_evidence(
+            gene_symbols=unique_symbols,
+            email=email,
+            data_dir=data_dir,
+            api_key=api_key,
+            force=force,
+            cache_only=cache_only,
+        )
 
     # Step 3: Classify evidence tiers
     lit_df = classify_evidence_tier(lit_df)

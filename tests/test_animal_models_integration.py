@@ -30,10 +30,12 @@ def mock_hcop_data():
 @pytest.fixture
 def mock_phenotype_data():
     """Mock MGI, ZFIN, and IMPC phenotype data."""
-    mgi_data = """Marker Symbol\tMammalian Phenotype ID
-Ush2a\tMP:0001967
-Ush2a\tMP:0005377
-Myo7a\tMP:0001968"""
+    mgi_vocab = """MP:0001967\tdeafness
+MP:0005377\tabnormal retina morphology
+MP:0001968\tabnormal cochlea morphology"""
+
+    mgi_hmd = """x\tx\tUsh2a\tx\tMP:0001967,MP:0005377
+x\tx\tMyo7a\tx\tMP:0001968"""
 
     zfin_data = """Gene Symbol\tAffected Structure or Process 1
 ush2a\tabnormal ear morphology
@@ -66,7 +68,12 @@ ush2a\tabnormal retina morphology"""
         }
     }
 
-    return {'mgi': mgi_data, 'zfin': zfin_data, 'impc': impc_responses}
+    return {
+        'mgi_vocab': mgi_vocab,
+        'mgi_hmd': mgi_hmd,
+        'zfin': zfin_data,
+        'impc': impc_responses,
+    }
 
 
 def test_full_pipeline(mock_hcop_data, mock_phenotype_data):
@@ -85,7 +92,8 @@ def test_full_pipeline(mock_hcop_data, mock_phenotype_data):
 
         # Mock MGI and ZFIN downloads
         mock_text.side_effect = [
-            mock_phenotype_data['mgi'],
+            mock_phenotype_data['mgi_vocab'],
+            mock_phenotype_data['mgi_hmd'],
             mock_phenotype_data['zfin'],
         ]
 
@@ -149,7 +157,8 @@ def test_checkpoint_restart(mock_hcop_data, mock_phenotype_data):
                 mock_hcop_data['zebrafish'].encode('utf-8'),
             ]
             mock_text.side_effect = [
-                mock_phenotype_data['mgi'],
+                mock_phenotype_data['mgi_vocab'],
+                mock_phenotype_data['mgi_hmd'],
                 mock_phenotype_data['zfin'],
             ]
 
@@ -196,7 +205,8 @@ def test_provenance_tracking(mock_hcop_data, mock_phenotype_data):
                 mock_hcop_data['zebrafish'].encode('utf-8'),
             ]
             mock_text.side_effect = [
-                mock_phenotype_data['mgi'],
+                mock_phenotype_data['mgi_vocab'],
+                mock_phenotype_data['mgi_hmd'],
                 mock_phenotype_data['zfin'],
             ]
 
@@ -244,12 +254,13 @@ def test_empty_phenotype_handling(mock_hcop_data):
         ]
 
         # Empty phenotype data
-        empty_mgi = """Marker Symbol\tMammalian Phenotype ID
+        empty_mgi_vocab = """MP:0000000\tno phenotype
 """
+        empty_mgi_hmd = ""
         empty_zfin = """Gene Symbol\tAffected Structure or Process 1
 """
 
-        mock_text.side_effect = [empty_mgi, empty_zfin]
+        mock_text.side_effect = [empty_mgi_vocab, empty_mgi_hmd, empty_zfin]
 
         def mock_impc_response(url, **kwargs):
             response = Mock()

@@ -87,8 +87,9 @@ def query_poorly_annotated(
 ) -> pl.DataFrame:
     """Query poorly annotated genes from DuckDB.
 
-    Identifies under-studied genes that may be promising cilia/Usher candidates
-    when combined with other evidence layers.
+    Identifies genes with relatively sparse annotation that may be useful for
+    exploratory review when combined with other evidence layers. Sparse
+    annotation alone does not establish research neglect or disease relevance.
 
     Args:
         store: PipelineStore instance

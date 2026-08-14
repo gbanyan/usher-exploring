@@ -266,6 +266,9 @@ def fetch_mgi_phenotypes(mouse_gene_symbols: list[str]) -> pl.DataFrame:
 
     # --- MP ontology: MP ID -> term name ---
     vocab_content = _download_text(MGI_MP_VOCAB_URL)
+    if not vocab_content.strip():
+        logger.warning("mgi_vocab_empty")
+        return _empty_mgi_result()
     vocab_df = pl.read_csv(
         io.StringIO(vocab_content),
         separator="\t",
@@ -283,6 +286,9 @@ def fetch_mgi_phenotypes(mouse_gene_symbols: list[str]) -> pl.DataFrame:
 
     # --- Gene -> MP IDs from the homology/phenotype report ---
     hmd_content = _download_text(MGI_HMD_PHENOTYPE_URL)
+    if not hmd_content.strip():
+        logger.warning("mgi_hmd_empty")
+        return _empty_mgi_result()
     hmd_df = pl.read_csv(
         io.StringIO(hmd_content),
         separator="\t",

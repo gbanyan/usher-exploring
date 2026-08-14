@@ -5,6 +5,8 @@ work together correctly without calling real external APIs.
 """
 
 import json
+import gzip
+import hashlib
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 
@@ -28,58 +30,35 @@ MOCK_GENES = [
     f"ENSG0000000{i:03d}" for i in range(1, 6)
 ]
 
-MOCK_MYGENE_QUERY_RESPONSE = [
-    {
-        'ensembl': {'gene': 'ENSG00000001'},
-        'symbol': 'GENE1',
-        'name': 'Gene 1',
-    },
-    {
-        'ensembl': {'gene': 'ENSG00000002'},
-        'symbol': 'GENE2',
-        'name': 'Gene 2',
-    },
-    {
-        'ensembl': {'gene': 'ENSG00000003'},
-        'symbol': 'GENE3',
-        'name': 'Gene 3',
-    },
-    {
-        'ensembl': {'gene': 'ENSG00000004'},
-        'symbol': 'GENE4',
-        'name': 'Gene 4',
-    },
-    {
-        'ensembl': {'gene': 'ENSG00000005'},
-        'symbol': 'GENE5',
-        'name': 'Gene 5',
-    },
-]
-
 MOCK_MYGENE_QUERYMANY_RESPONSE = {
     'out': [
         {
             'query': 'ENSG00000001',
+            'ensembl': {'gene': 'ENSG00000001'},
             'symbol': 'GENE1',
             'uniprot': {'Swiss-Prot': 'P12345'},
         },
         {
             'query': 'ENSG00000002',
+            'ensembl': {'gene': 'ENSG00000002'},
             'symbol': 'GENE2',
             'uniprot': {'Swiss-Prot': 'P23456'},
         },
         {
             'query': 'ENSG00000003',
+            'ensembl': {'gene': 'ENSG00000003'},
             'symbol': 'GENE3',
             'uniprot': {'Swiss-Prot': 'P34567'},
         },
         {
             'query': 'ENSG00000004',
+            'ensembl': {'gene': 'ENSG00000004'},
             'symbol': 'GENE4',
             'uniprot': {'Swiss-Prot': 'P45678'},
         },
         {
             'query': 'ENSG00000005',
+            'ensembl': {'gene': 'ENSG00000005'},
             'symbol': 'GENE5',
             'uniprot': {'Swiss-Prot': 'P56789'},
         },
@@ -91,6 +70,19 @@ MOCK_MYGENE_QUERYMANY_RESPONSE = {
 @pytest.fixture
 def test_config(tmp_path):
     """Create a test config with temporary paths."""
+    source_path = tmp_path / "Homo_sapiens.GRCh38.113.gtf.gz"
+    with gzip.open(source_path, "wt", encoding="utf-8") as source:
+        for index in range(1, 6):
+            source.write(
+                "1\tensembl\tgene\t1\t10\t.\t+\t.\t"
+                f'gene_id "ENSG0000000{index}"; '
+                f'gene_name "GENE{index}"; gene_biotype "protein_coding";\n'
+            )
+    source_sha256 = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    source_url = (
+        "https://ftp.ensembl.org/pub/release-113/gtf/homo_sapiens/"
+        "Homo_sapiens.GRCh38.113.gtf.gz"
+    )
     config_content = f"""
 data_dir: {tmp_path}/data
 cache_dir: {tmp_path}/cache
@@ -98,6 +90,9 @@ duckdb_path: {tmp_path}/test_pipeline.duckdb
 
 versions:
   ensembl_release: 113
+  ensembl_gene_source: {source_path}
+  ensembl_gene_source_url: {source_url}
+  ensembl_gene_source_sha256: {source_sha256}
   gnomad_version: v4.1
   gtex_version: v8
   hpa_version: "23.0"
@@ -185,18 +180,16 @@ def test_config_to_provenance(test_config, tmp_path):
 
 
 def test_full_setup_flow_mocked(test_config, tmp_path):
-    """Test full setup flow with mocked mygene API calls."""
+    """Test setup wiring with a local frozen source and mocked MyGene mapping."""
     # Load config
     config = load_config(test_config)
+    source_path = Path(config.versions.ensembl_gene_source)
 
     # Mock mygene API calls
     with patch('mygene.MyGeneInfo') as mock_mg:
         # Set up mock instance
         mock_instance = MagicMock()
         mock_mg.return_value = mock_instance
-
-        # Mock query (for fetch_protein_coding_genes)
-        mock_instance.query.return_value = MOCK_MYGENE_QUERY_RESPONSE
 
         # Mock querymany (for GeneMapper)
         mock_instance.querymany.return_value = MOCK_MYGENE_QUERYMANY_RESPONSE
@@ -207,7 +200,10 @@ def test_full_setup_flow_mocked(test_config, tmp_path):
 
         # Fetch universe (mocked)
         gene_universe = fetch_protein_coding_genes(
-            ensembl_release=config.versions.ensembl_release
+            source_path,
+            ensembl_release=config.versions.ensembl_release,
+            expected_sha256=config.versions.ensembl_gene_source_sha256,
+            source_url=config.versions.ensembl_gene_source_url,
         )
         assert len(gene_universe) == 5
         provenance.record_step('fetch_gene_universe', {
@@ -265,16 +261,21 @@ def test_checkpoint_skip_flow(test_config, tmp_path):
     """Test that setup skips re-fetch when checkpoint exists."""
     # Load config
     config = load_config(test_config)
+    source_path = Path(config.versions.ensembl_gene_source)
 
     with patch('mygene.MyGeneInfo') as mock_mg:
         mock_instance = MagicMock()
         mock_mg.return_value = mock_instance
-        mock_instance.query.return_value = MOCK_MYGENE_QUERY_RESPONSE
         mock_instance.querymany.return_value = MOCK_MYGENE_QUERYMANY_RESPONSE
 
         # First run: create checkpoint
         store = PipelineStore.from_config(config)
-        gene_universe = fetch_protein_coding_genes(113)
+        gene_universe = fetch_protein_coding_genes(
+            source_path,
+            ensembl_release=113,
+            expected_sha256=config.versions.ensembl_gene_source_sha256,
+            source_url=config.versions.ensembl_gene_source_url,
+        )
         mapper = GeneMapper()
         mapping_results, _ = mapper.map_ensembl_ids(gene_universe)
 

@@ -1,12 +1,12 @@
 """Prototype: a cilia-signal gate on the HIGH confidence tier.
 
-The HIGH tier is the actionable shortlist. Gating it on direct cilia-specific
+The HIGH tier is a higher-priority computational shortlist. Gating it on direct cilia-specific
 evidence keeps generically well-studied genes (housekeeping controls) out of
 the shortlist without changing any composite score or percentile ranking.
 
 This evaluates several principled gate definitions and reports, for each:
   * HIGH-tier size,
-  * how many of the 10 OMIM Usher genes (gold-standard) are retained in HIGH,
+  * how many of the 9 established Usher genes are retained in HIGH,
   * how many of the 13 housekeeping negative controls remain in HIGH.
 
 Note: a tier gate relabels genes; it does NOT change the composite ranking,
@@ -18,7 +18,7 @@ Run:  .venv312/bin/python scripts/tier_gate.py
 import duckdb
 import numpy as np
 
-OMIM_USHER = ["ADGRV1", "CDH23", "CIB2", "CLRN1", "MYO7A",
+OMIM_USHER = ["ADGRV1", "CDH23", "CLRN1", "MYO7A",
               "PCDH15", "USH1C", "USH1G", "USH2A", "WHRN"]
 SYSCILIA = ["ARL13B", "BBS1", "BBS2", "BBS4", "BBS5", "BBS7", "BBS9", "BBS10",
             "CC2D2A", "CEP164", "CEP290", "IFT88", "IFT140", "IFT172", "INPP5E",
@@ -68,7 +68,7 @@ def main():
         "G4 loc>0 OR animal>=0.30":     (loc > 0) | (animal >= 0.30),
     }
 
-    print(f"{'gate':38s} {'HIGH':>6s} {'OMIM kept':>10s} {'HK in HIGH':>11s}")
+    print(f"{'gate':38s} {'HIGH':>6s} {'Usher kept':>10s} {'HK in HIGH':>11s}")
     for name, signal in gates.items():
         gated_high = is_high & signal
         n_high = int(gated_high.sum())
@@ -85,12 +85,12 @@ def main():
     print(f"  HIGH-tier genes demoted to MEDIUM: {len(demoted)}")
     print(f"  housekeeping demoted: "
           f"{[genes[i] for i in hk if is_high[i] and not rec[i]]}")
-    print(f"  OMIM Usher genes in HIGH, all retained: "
+    print(f"  Established Usher genes in HIGH, all retained: "
           f"{all(rec[i] for i in omim if is_high[i])}")
     known_idx = [gidx[g] for g in KNOWN if g in gidx]
     known_high = [i for i in known_idx if is_high[i]]
     known_kept = [i for i in known_high if rec[i]]
-    print(f"  known genes (OMIM+SYSCILIA) in HIGH: {len(known_high)} -> "
+    print(f"  known genes (Usher+SYSCILIA) in HIGH: {len(known_high)} -> "
           f"{len(known_kept)} retained after gate")
 
 
