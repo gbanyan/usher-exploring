@@ -3,6 +3,7 @@
 **Target article type:** Research Article  
 **Checked:** 2026-08-14 (Asia/Taipei)  
 **Manuscript:** `manuscript/draft.md`  
+**Submission update:** Submitted through the Springer Nature submission portal on 2026-08-15. See [`submission/bmc_bioinformatics/SUBMISSION_STATUS.md`](../submission/bmc_bioinformatics/SUBMISSION_STATUS.md) for the current operational status. The ledger below preserves the pre-submission audit history and should not be read as a current indication that the manuscript remains unsubmitted.  
 **Status vocabulary:** `PASS` means the draft currently addresses the requirement; `AUTHOR ACTION REQUIRED` means a factual author decision or submission artifact is still missing; `NOT APPLICABLE—VERIFY` means the current draft indicates that the rule does not apply, but authors must confirm that no relevant material was added before submission.
 
 | Requirement | Official source | Draft evidence / decision | Status |

@@ -1,0 +1,28 @@
+15 August 2026
+
+Editor-in-Chief
+BMC Bioinformatics
+
+Dear Editor,
+
+Re: Submission of “UsherPipe: a genome-wide multi-evidence pipeline for prioritizing candidate genes in Usher syndrome and related ciliopathies” as a Research Article
+
+We are pleased to submit this manuscript for consideration as a Research Article in BMC Bioinformatics. UsherPipe is a genome-wide computational pipeline for prioritizing candidate genes in Usher syndrome and related ciliopathies. It integrates six complementary evidence layers using a NULL-aware scoring framework that preserves missing evidence rather than treating it as negative evidence, and provides auditable outputs, provenance records, and machine-readable supporting data.
+
+The manuscript’s central contribution is a transparent, disease-focused framework for organizing follow-up hypotheses across the protein-coding genome. The reported genes are presented as computational priorities, not confirmed disease genes. We believe this methodological focus and the accompanying reproducibility artifacts fit the scope of BMC Bioinformatics.
+
+The manuscript is original, has not been published previously, and is not under consideration elsewhere. All authors have read and approved the manuscript and consent to its submission. No specific funding was received. Jing-Rung Huang has personal lived experience of Usher syndrome but no financial competing interests; Yung-Hao Ching and Wen-Hsiang Lu declare no competing interests.
+
+The study used publicly available, de-identified, aggregate data and secondary database annotations. The code, outputs, provenance records, and supporting data are available at https://github.com/gbanyan/usher-exploring; the submitted code/data version is identified by commit 4cf8c5b.
+
+Thank you for considering our manuscript.
+
+Yours sincerely,
+
+Jing-Rung Huang, MD
+Corresponding author
+Department of Computer Science and Information Engineering
+National Cheng Kung University
+No. 1, University Road, Tainan 701, Taiwan
+Email: gbanyan.huang@gmail.com
+ORCID: 0000-0003-4776-3550
