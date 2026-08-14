@@ -399,7 +399,7 @@ def run_qc_checks(store: PipelineStore) -> dict:
         "run_qc_checks_complete",
         total_warnings=len(combined_warnings),
         total_errors=len(combined_errors),
-        status="PASSED" if passed else "FAILED",
+        status="MEETS_CHECKS" if passed else "CHECKS_HAVE_ERRORS",
     )
 
     return {

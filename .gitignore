@@ -61,6 +61,7 @@ manuscript/draft.pdf
 
 # === Raw literature bulk downloads (1.6 GB; exceeds GitHub's 100 MB file limit) ===
 data/literature/
+data/pubmed_context_sets.json
 
 # === DuckDB manual backups (the *.duckdb rule above misses the .bak-* suffix) ===
 *.duckdb.bak-*

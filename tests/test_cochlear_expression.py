@@ -1,11 +1,13 @@
 """Tests for exploratory GSE135913 cochlear expression processing."""
 
 import polars as pl
+import pytest
 
 from scripts.cochlear_expression import (
     aggregate_samples,
     extract_cluster_expression,
     identify_hair_cell_cluster,
+    load_scored_labels,
     leave_one_marker_out_sensitivity,
 )
 
@@ -51,3 +53,8 @@ def test_extract_and_null_aware_aggregate():
     assert atoh1["hair_cell_sample_count"] == 2
     assert new["cochlear_hair_cell_expression"] == 2.0
     assert new["hair_cell_sample_count"] == 1
+
+
+def test_scored_label_loader_fails_closed_for_missing_input(tmp_path):
+    with pytest.raises(FileNotFoundError):
+        load_scored_labels(tmp_path / "missing.duckdb")

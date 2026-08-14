@@ -36,6 +36,12 @@ UNICODE_MAP = {
 HEADER = "\\usepackage{amssymb}\n"
 
 
+def make_paths_breakable(text: str) -> str:
+    """Render path-like inline-code spans with LaTeX's breakable path command."""
+    pattern = re.compile(r"`([^`\n]*[/\\][^`\n]*)`")
+    return pattern.sub(lambda match: rf"\path{{{match.group(1)}}}", text)
+
+
 def figure_path(n: int) -> Path | None:
     """Return the PNG for Figure n (fig{n}_*.png), or None if absent."""
     matches = sorted(FIGDIR.glob(f"fig{n}_*.png"))
@@ -56,6 +62,9 @@ def main():
     text = "\n".join(out_lines)
     for uni, tex in UNICODE_MAP.items():
         text = text.replace(uni, tex)
+    text = make_paths_breakable(text)
+    # Give the narrow first column in Table 2 a legal line-break point.
+    text = text.replace("Protein/expression", "Protein/ expression")
 
     with tempfile.NamedTemporaryFile(
         "w", suffix=".md", delete=False, encoding="utf-8"
@@ -72,7 +81,7 @@ def main():
     cmd = [
         "pandoc", tmp_path, "-o", str(OUT),
         "--pdf-engine=xelatex",
-        "-V", "geometry:margin=1in",
+        "-V", "geometry:margin=0.85in",
         "-V", "fontsize=11pt",
         "-V", "linkcolor=blue",
         "--include-in-header", hdr_path,

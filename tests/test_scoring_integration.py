@@ -9,8 +9,15 @@ Tests:
 import duckdb
 import polars as pl
 import pytest
+from unittest.mock import Mock
 
 from usher_pipeline.config.schema import ScoringWeights
+from usher_pipeline.evidence.expression.load import load_to_duckdb
+from usher_pipeline.evidence.expression.models import (
+    EXPRESSION_SCHEMA_VERSION,
+    RESTRICTED_TAU_COLUMN,
+)
+from usher_pipeline.evidence.expression.transform import process_expression_evidence
 from usher_pipeline.persistence.duckdb_store import PipelineStore
 from usher_pipeline.scoring import (
     compile_known_genes,
@@ -93,7 +100,23 @@ def synthetic_store(tmp_path):
 
     localization = pl.DataFrame({
         "gene_id": loc_genes,
+        "gene_symbol": [f"LOC{i}" for i in range(len(loc_genes))],
+        "hpa_main_location": [None] * len(loc_genes),
+        "hpa_reliability": [None] * len(loc_genes),
+        "hpa_evidence_modality": [None] * len(loc_genes),
+        "hpa_evidence_type": [None] * len(loc_genes),
+        "hpa_reliability_weight": [None] * len(loc_genes),
+        "evidence_type": ["none"] * len(loc_genes),
+        "cilia_proximity_score": [0.0] * len(loc_genes),
         "localization_score_normalized": loc_scores,
+        "compartment_cilia": [False] * len(loc_genes),
+        "compartment_centrosome": [False] * len(loc_genes),
+        "compartment_basal_body": [False] * len(loc_genes),
+        "compartment_transition_zone": [False] * len(loc_genes),
+        "compartment_stereocilia": [False] * len(loc_genes),
+        "in_cilia_compendium": [False] * len(loc_genes),
+        "in_centrosome_compendium": [False] * len(loc_genes),
+        "localization_checkpoint_schema_version": [3] * len(loc_genes),
     })
     conn.execute("CREATE TABLE subcellular_localization AS SELECT * FROM localization")
 
@@ -196,6 +219,101 @@ def test_scoring_pipeline_end_to_end(synthetic_store):
     )
 
 
+def test_v3_expression_to_composite_uses_restricted_tau(tmp_path):
+    """Real v3 expression processing feeds the composite scorer's Tau field."""
+    expression_dir = tmp_path / "expression"
+    expression_dir.mkdir()
+    (expression_dir / "hpa_normal_tissue.tsv").write_text(
+        "Gene\tGene name\tTissue\tCell type\tLevel\tReliability\n"
+        "ENSG001\tGENE1\tretina\trods\tHigh\tApproved\n"
+        "ENSG001\tGENE1\ttestis\tLeydig cells\tLow\tApproved\n"
+        "ENSG002\tGENE2\tretina\trods\tLow\tApproved\n"
+        "ENSG002\tGENE2\ttestis\tLeydig cells\tLow\tApproved\n"
+    )
+    (expression_dir / "gtex_median_tpm.gct").write_text(
+        "#1.2\n"
+        "2\t5\n"
+        "Name\tDescription\tBrain - Cerebellum\tTestis\tFallopian Tube\n"
+        "ENSG001.1\tGENE1\t10\t0\t5\n"
+        "ENSG002.1\tGENE2\t5\t5\t5\n"
+    )
+
+    gene_ids = ["ENSG001", "ENSG002"]
+    gene_map = pl.DataFrame({
+        "gene_id": gene_ids,
+        "gene_symbol": ["GENE1", "GENE2"],
+    })
+    expression_df = process_expression_evidence(
+        gene_ids,
+        cache_dir=expression_dir,
+        skip_cellxgene=True,
+        gene_symbol_map=gene_map,
+    )
+    # Simulate a mixed checkpoint: v3 is authoritative even if a legacy
+    # column remains during migration.
+    expression_df = expression_df.with_columns(pl.lit(0.99).alias("tau_specificity"))
+    assert expression_df["gene_symbol"].to_list() == ["GENE1", "GENE2"]
+
+    db_path = tmp_path / "v3_scoring.duckdb"
+    store = PipelineStore(db_path)
+    store.save_dataframe(gene_map, "gene_universe", replace=True)
+    provenance = Mock()
+    load_to_duckdb(expression_df, store, provenance)
+    details = provenance.record_step.call_args[0][1]
+    assert details["schema_version"] == EXPRESSION_SCHEMA_VERSION
+
+    layer_tables = {
+        "gnomad_constraint": "loeuf_normalized",
+        "annotation_completeness": "annotation_score_normalized",
+        "subcellular_localization": "localization_score_normalized",
+        "animal_model_phenotypes": "animal_model_score_normalized",
+        "literature_evidence": "literature_score_normalized",
+    }
+    for table_name, score_column in layer_tables.items():
+        layer_df = pl.DataFrame({
+            "gene_id": gene_ids,
+            score_column: [0.5, 0.4],
+        })
+        if table_name == "subcellular_localization":
+            layer_df = layer_df.with_columns([
+                pl.Series("gene_symbol", ["GENE1", "GENE2"]),
+                pl.lit(None, dtype=pl.Utf8).alias("hpa_main_location"),
+                pl.lit(None, dtype=pl.Utf8).alias("hpa_reliability"),
+                pl.lit(None, dtype=pl.Utf8).alias("hpa_evidence_modality"),
+                pl.lit(None, dtype=pl.Utf8).alias("hpa_evidence_type"),
+                pl.lit(None, dtype=pl.Float64).alias("hpa_reliability_weight"),
+                pl.lit(None, dtype=pl.Utf8).alias("evidence_type"),
+                pl.lit(0.0).alias("cilia_proximity_score"),
+                *[
+                    pl.lit(False).alias(column)
+                    for column in [
+                        "compartment_cilia",
+                        "compartment_centrosome",
+                        "compartment_basal_body",
+                        "compartment_transition_zone",
+                        "compartment_stereocilia",
+                        "in_cilia_compendium",
+                        "in_centrosome_compendium",
+                    ]
+                ],
+                pl.lit(3).cast(pl.Int32).alias(
+                    "localization_checkpoint_schema_version"
+                ),
+            ])
+        store.save_dataframe(
+            layer_df,
+            table_name,
+            replace=True,
+        )
+
+    scored = compute_composite_scores(store, ScoringWeights())
+    gene1 = scored.filter(pl.col("gene_id") == "ENSG001")
+    assert gene1[RESTRICTED_TAU_COLUMN][0] == pytest.approx(0.75)
+    assert gene1["tau_specificity"][0] == pytest.approx(0.75)
+    assert gene1["composite_score"][0] is not None
+    store.close()
+
+
 def test_qc_detects_missing_data(tmp_path):
     """Test QC detects missing data above threshold."""
     # Create synthetic store with one layer 90% NULL
@@ -237,8 +355,36 @@ def test_qc_detects_missing_data(tmp_path):
     ]:
         df = pl.DataFrame({
             "gene_id": genes[:count],
+            "gene_symbol": [f"GENE{i}" for i in range(count)],
             score_col: [0.5] * count,
         })
+        if table_name == "subcellular_localization":
+            df = df.with_columns([
+                pl.lit(False).alias(column)
+                for column in [
+                    "compartment_cilia",
+                    "compartment_centrosome",
+                    "compartment_basal_body",
+                    "compartment_transition_zone",
+                    "compartment_stereocilia",
+                    "in_cilia_compendium",
+                    "in_centrosome_compendium",
+                ]
+            ])
+            df = df.with_columns([
+                pl.lit(None).cast(pl.Utf8).alias(column)
+                for column in [
+                    "hpa_main_location",
+                    "hpa_reliability",
+                    "hpa_evidence_modality",
+                    "hpa_evidence_type",
+                    "evidence_type",
+                ]
+            ]).with_columns([
+                pl.lit(None).cast(pl.Float64).alias("hpa_reliability_weight"),
+                pl.lit(0.0).alias("cilia_proximity_score"),
+                pl.lit(3).cast(pl.Int32).alias("localization_checkpoint_schema_version"),
+            ])
         conn.execute(f"CREATE TABLE {table_name} AS SELECT * FROM df")
 
     # Compute scores and persist

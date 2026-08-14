@@ -1,6 +1,8 @@
-# UsherPipe: A NULL-aware multi-evidence pipeline for discovering under-studied Usher syndrome candidate genes
+# Historical planning outline (not a submission file)
 
-**Target journal:** BMC Bioinformatics (Software Article)
+> **Packaging status:** This outline is superseded by `manuscript/draft.md`. The current target is a BMC Bioinformatics **Research Article**, not a Software Article, because the present manuscript is a disease-focused computational study and does not yet establish the broad utility, direct comparative advance, reviewer-accessible release, or unrestricted non-commercial availability expected for a Software Article. Counts, software/licensing claims, and repository placeholders below are historical planning notes and must not override the current draft or a future production rerun.
+
+**Target journal:** BMC Bioinformatics (Research Article)
 **Word target:** 3,500–4,500 words (body text)
 **Figures:** 5 figures + 2–3 tables
 
@@ -23,16 +25,16 @@
 - No tool specifically targets ciliopathy/Usher gene discovery with genome-wide coverage
 
 ### Results
-- Present UsherPipe, an open-source pipeline screening all ~19,500 protein-coding genes across 6 orthogonal evidence layers: gnomAD constraint, tissue expression specificity (retina/cochlea), functional annotation, cilia-related subcellular localization, cross-species animal model phenotypes, and literature mining with research-bias correction
+- Present UsherPipe, a pipeline starting from 20,116 Ensembl 113 protein-coding IDs and producing 20,081 analysis labels across 6 orthogonal evidence layers; 573 unresolved names use ENSG fallback labels and the remaining names derive from GTF `gene_name` or exact-ID legacy-cache fallback, not validated current canonical HGNC symbols; public release and licensing remain AUTHOR ACTION items
 - NULL-aware weighted scoring: missing evidence preserved as NULL (not imputed to zero); composite score computed only over available layers, preventing systematic penalization of under-studied genes
-- Validation: 38 known Usher/ciliopathy genes achieve median 83.3rd percentile rank; sensitivity analysis shows ranking stability (Spearman ρ ≥ 0.999 across all ±10% weight perturbations)
-- Pipeline identifies 4 HIGH-confidence and 8,051 MEDIUM-confidence candidates; top novel candidates include ARL3, MAPRE3, and ATP2B2 with convergent multi-layer evidence
-- [KEY STATS: 18,243 candidates total, 64% with ≥5 evidence layers, composite scores 0.20–0.97]
+- Internal recovery: 37/37 selected Usher/ciliary controls are present, with median percentile 92.8%, 35/37 in the top quartile, and 56.8% recall at the top-10% threshold; this is not independent validation
+- Pipeline identifies 62 HIGH, 9,673 MEDIUM, and 8,652 LOW analysis labels; sensitivity gives 16/24 stable perturbations, mean ρ 0.8548, range 0.6051–0.9770
+- [KEY STATS: 18,387 analysis labels total, 20,053 non-NULL scores, 1,694 S2 exclusions]
 
 ### Conclusions
 - UsherPipe enables systematic, reproducible discovery of under-studied Usher/ciliopathy candidate genes
 - NULL-aware design specifically avoids the "streetlight effect" that plagues seed-gene-dependent tools
-- Freely available at [GitHub URL] under MIT license
+- [AUTHOR ACTION REQUIRED: add the public project URL, immutable archive, and confirmed license before making availability claims]
 
 ---
 
@@ -59,68 +61,64 @@
 - UsherPipe: genome-wide + Usher/cilia-specific + under-studied gene targeting
 - NULL-aware weighted scoring preserves missing evidence
 - Literature bias correction surfaces overlooked genes
-- Open source, reproducible, configurable
+- Reproducible and configurable; public release and licensing remain AUTHOR ACTION items
 
 ---
 
-## 2. Implementation (~1,200 words)
+## 2. Methods (~1,200 words)
 
 ### 2.1 Architecture overview (~200 words)
-- Python 3.11+, Click CLI, DuckDB persistence, Polars data manipulation
+- Python ≥3.11, Click CLI, DuckDB persistence, Polars data manipulation; current manifest records Python 3.13.1, Polars 1.43.2, DuckDB 1.5.5
 - Pipeline stages: setup → 6 evidence layers → scoring → report → validation
 - Each evidence layer: fetch → transform → load (idempotent, checkpoint-restart)
 - **Figure 1: Pipeline architecture diagram** [to be drawn — not auto-generated]
 
 ### 2.2 Gene universe (~100 words)
-- mygene API → 22,761 Ensembl gene IDs with HGNC symbols and UniProt mappings
-- Gene symbol deduplication: multiple Ensembl IDs per symbol resolved by keeping highest-evidence row
+- Locally cached Ensembl 113 GTF input → 20,116 protein-coding Ensembl IDs; the configured release label does not prove source immutability
+- 35 duplicate-symbol consolidations → 20,081 analysis labels; 573 unresolved names use ENSG fallbacks, while remaining names derive from GTF `gene_name` or exact-ID legacy-cache fallback, not validated current canonical HGNC symbols
+- Table S1 contains 35 merged-symbol mappings: 34 MANE Select canonical and one gnomAD-recognized-or-lowest-Ensembl fallback
 
 ### 2.3 Evidence layers (~500 words, ~80 words each)
 
 #### gnomAD constraint (weight: 0.20)
 - gnomAD v4.1 LOEUF scores; inverted normalization (lower LOEUF → higher score)
-- Quality filtering: mean depth ≥30x, CDS coverage ≥90%; below threshold → NULL (not zero)
-- Coverage: 93% of gene universe
+- Unavailable gnomAD LOEUF → NULL (not zero)
 
 #### Tissue expression specificity (weight: 0.20)
 - HPA v23 + GTEx v8; Tau tissue specificity index + Usher-tissue enrichment ratio
 - Target tissues: retina, cerebellum, cochlea (proxy), photoreceptors
 - Known limitation: GTEx v8 lacks retina → retina data from HPA only
-- Coverage: 97%
 
 #### Functional annotation (weight: 0.15)
 - GO terms + UniProt annotation score + KEGG/Reactome pathway membership
 - Inverse relationship with novelty: less annotation → potentially more novel
-- Coverage: 99%
 
 #### Subcellular localization (weight: 0.15)
 - HPA immunofluorescence + CiliaCarta + cilia/centrosome proteomics
 - Graded scoring: cilia/basal body = 1.0, cytoskeleton = 0.5, proteomics-only = 0.3
 - Experimental vs. predicted evidence weighting
-- Coverage: 67% (lowest — many genes lack localization data)
+- Missing localization evidence remains NULL (not zero)
 
 #### Animal model phenotypes (weight: 0.15)
 - HCOP orthologs → MGI (mouse), ZFIN (zebrafish), IMPC phenotypes
 - Sensory keyword filtering: hearing, vision, retina, stereocilia, vestibular, etc.
 - Log-scaled to prevent annotation-rich genes dominating
-- Coverage: 98%
 
 #### Literature mining (weight: 0.15)
 - PubMed via NCBI E-utilities; quality tiers (direct_experimental > functional_mention > HTS_hit > incidental)
 - **Research bias correction**: raw_score / log₂(total_publications + 1)
 - Key innovation: 5 cilia papers among 50 total → higher score than 5 among 100,000
-- Coverage: 100%
 
 ### 2.4 NULL-aware composite scoring (~200 words)
 - Formula: composite = Σ(score_i × weight_i) / Σ(weight_i) over non-NULL layers
 - Weights must sum to 1.0; validated programmatically
 - evidence_count tracks coverage per gene (0–6)
-- Confidence tiers: HIGH (≥0.7 score, ≥3 layers), MEDIUM (≥0.4, ≥2), LOW (≥0.2)
+- Confidence tiers: HIGH (≥0.7 score, ≥3 layers, plus the post-hoc cilia-signal gate), MEDIUM (≥0.4, ≥2), LOW (≥0.2)
 - Quality flags: sufficient_evidence (≥4), moderate (≥2), sparse (≥1)
 
 ### 2.5 Reproducibility infrastructure (~100 words)
 - Config hashing (SHA-256), provenance sidecar JSONs per pipeline step
-- Data source version pinning (Ensembl 113, gnomAD v4.1, GTEx v8, HPA v23)
+- Locally cached inputs with configured version labels (Ensembl 113, gnomAD v4.1, GTEx v8, HPA v23); labels do not prove source immutability
 - DuckDB checkpoint-restart: literature layer resumes from partial progress
 
 ---
@@ -128,46 +126,45 @@
 ## 3. Results (~1,000 words)
 
 ### 3.1 Pipeline output overview (~200 words)
-- 19,555 scored genes → 18,243 candidates after tier filtering
-- 4 HIGH, 8,051 MEDIUM, 10,188 LOW
-- 64% of candidates have ≥5 evidence layers; mean score 0.39
+- 20,116 Ensembl IDs → 20,081 analysis labels after 35 duplicate-symbol consolidations, including 573 unresolved ENSG fallback labels
+- 20,053 non-NULL composite scores; 18,387 analysis labels after tier filtering
+- 62 HIGH, 9,673 MEDIUM, 8,652 LOW; 1,694 exclusions in Table S2 (1,666 score <0.2; 28 NULL composite)
 - **Figure 2: Score distribution by confidence tier** [fig1_score_distribution]
 - **Figure 3: Evidence layer coverage** [fig2_layer_coverage]
 
 ### 3.2 Top candidate genes (~300 words)
 - **Figure 4: Top 25 candidates heatmap** [fig3_top_candidates_heatmap]
-- Highlight top novel candidates:
-  - **PAFAH1B1** (#1, 0.741): lissencephaly gene, dynein pathway, cilia-relevant
-  - **DYNC1H1** (#2, 0.734): cytoplasmic dynein heavy chain, intraflagellar transport
-  - **ARL3** (#10, 0.683): small GTPase, ciliary protein trafficking, retinal degeneration in mice
-  - **MAPRE3** (#15): microtubule plus-end tracking, LOEUF=0.163 (highly constrained), only 81 PubMed papers — exemplifies under-studied gene discovery
-  - **ATP2B2** (#8, 0.683): plasma membrane Ca²⁺ pump, deafness in mice (deafwaddler)
-- PKD1 (#9, 0.683) as internal validation: known ciliopathy gene ranks correctly
+- Highlight current top sufficient-evidence entries: **DYNC1H1** (0.8001), **VEGFA** (0.7983), **VANGL2** (0.7941), **DYNC1LI1** (0.7899), **ATP1A1** (0.7888), **ATP1B1** (0.7855), **ATP2B2** (0.7853), **PKD1** (0.7775), **NEUROD1** (0.7692), and **AHI1** (0.7672)
+- Current top-candidate values are descriptive model outputs, not disease evidence
 - Na⁺/K⁺-ATPase subunit convergence: ATP1A1, ATP1A3, ATP1B1 all in top 25
 
 ### 3.3 Positive control validation (~200 words)
-- 38 known genes (10 OMIM Usher + 28 SYSCILIA): all found in scored set
-- Median percentile rank: 83.3% (threshold: 75%)
-- OMIM Usher median: 82.3%; SYSCILIA median: 83.3%
+- 37 selected controls (9 established Usher + 28 SYSCILIA): 37/37 found
+- Median percentile rank: 92.8%; 35/37 in the top quartile
+- Top-10% recall: 56.8%; not an independent sensitivity estimate
 - **Figure 5: Validation box plots** [fig4_validation_controls]
-- Recall@10%: 23.7% (9/38 in top 10%); Recall@20%: 57.9%
 
 ### 3.4 Negative controls and specificity (~150 words)
-- 13 housekeeping genes: median 92.4% — higher than expected
-- Expected: constrained genes (low LOEUF) + well-annotated + literature-rich → high scores on 3/6 layers is biologically correct
-- Specificity relies on cilia-specific layers (localization, expression, animal models) for differentiation
-- Not a scoring defect but a design trade-off: sensitivity prioritized over specificity
+- 13 housekeeping genes: median 94.8%; 11/13 in the top quartile; 2 met raw composite ≥0.70 and 0 remained HIGH after the cilia-signal gate
+- State plainly: this is a specificity failure, not independent validation
 
 ### 3.5 Sensitivity analysis (~150 words)
 - 24 perturbations (6 layers × 4 deltas: ±5%, ±10%)
-- All stable: Spearman ρ range [0.9995, 1.0000], mean 0.9998
-- Most sensitive layer: annotation; most robust: expression
+- Each raw delta is applied to one weight and all six weights are renormalized; the final change is not literally the raw delta and other weights change
+- 16/24 stable (ρ ≥ 0.85); mean ρ 0.8548; range 0.6051–0.9770
+- Most sensitive layer: animal model; most robust: annotation
 - **Figure 6: Sensitivity heatmap** [fig5_sensitivity_heatmap]
 
 > **Table 2: Validation summary**
-> Positive controls: PASSED (83.3rd percentile)
-> Negative controls: NOTED (expected behavior)
-> Sensitivity: STABLE (ρ ≥ 0.999)
+> Positive controls: 37/37 present; median 92.8%; 35/37 top quartile; top-10% recall 56.8%
+> Negative controls: specificity failure (median 94.8%; 11/13 top quartile; 2 raw composite ≥0.70; 0 gated HIGH)
+> Sensitivity: 16/24 stable; mean ρ 0.8548; range 0.6051–0.9770
+
+### 3.6 Optional post-hoc narrowing and benchmark notes
+- Current HIGH shortlist: 62; GSE135913 local-only coverage 61/62; aggregate output restricted to 15,608 labels; the 23-week sample is excluded for insufficient marker separation
+- Strategy sizes: photoreceptor 16, fetal hair-cell 16, concordant 5, HPA-retina concordant NA/not evaluable, direct protein 23, expression OR protein 34, expression AND protein 5
+- Cached mantis-ml consensus uses the six tracked prediction CSVs on a shared 16,821-label universe; it is not retraining or a valid held-out benchmark
+- Old-versus-new impact audit only: HIGH overlap: 54; old-only: 14; new-only: 8; shared-candidate ρ: 0.9881; the pre-rebuild run is contaminated and not a valid benchmark
 
 ---
 
@@ -177,7 +174,7 @@
 - vs. mantis-ml: NULL-aware vs zero-imputation; cilia-specific layers
 - vs. CilioGenics/CiliaCarta: disease-specific scoring vs binary cilia classification
 - vs. seed-dependent tools: can discover genes dissimilar to known USH genes
-- Computational cost: full pipeline ~50 hours (literature layer dominates); other layers <1 hour total
+- Runtime is environment- and cache-dependent; do not state a fixed runtime without a recorded benchmark
 
 ### 4.2 The NULL-aware design choice (~150 words)
 - Why missing ≠ zero matters for under-studied genes
@@ -202,9 +199,9 @@
 ## 5. Conclusions (~150 words)
 - UsherPipe addresses a specific gap: genome-wide, Usher/cilia-specific, under-studied gene prioritization
 - NULL-aware scoring prevents systematic bias against poorly characterized genes
-- Validated against 38 known disease/ciliopathy genes
-- Top candidates (ARL3, MAPRE3, ATP2B2) warrant experimental follow-up
-- Open source, reproducible, configurable weights for other rare diseases
+- Internally recovered 37 selected controls; specificity failure in housekeeping controls must remain explicit
+- Top candidates (DYNC1H1, VEGFA, VANGL2, DYNC1LI1, ATP1A1, ATP1B1, ATP2B2) warrant experimental follow-up
+- Reproducible, configurable weights for other rare diseases; broad utility and licensing require separate validation and author confirmation
 
 ---
 
@@ -212,11 +209,11 @@
 
 - **Project name:** UsherPipe (usher-pipeline)
 - **Project home page:** [GitHub URL]
-- **Operating system(s):** Platform independent (tested on macOS, Linux)
-- **Programming language:** Python 3.11+
+- **Operating system(s):** AUTHOR ACTION REQUIRED: confirm supported/tested systems; current manifest does not record this field
+- **Programming language:** Python ≥3.11 (current recorded runtime: 3.13.1)
 - **Other requirements:** DuckDB ≥0.9, Polars ≥0.19, Click ≥8.1 (see pyproject.toml)
-- **License:** MIT
-- **Any restrictions to use by non-academics:** None
+- **License:** [AUTHOR ACTION REQUIRED: add the complete license file and confirm the exact license]
+- **Any restrictions to use by non-academics:** [AUTHOR ACTION REQUIRED: confirm after licensing and third-party data terms are settled]
 
 ---
 
@@ -276,8 +273,11 @@
 ## Writing Priority Order
 
 1. **Table 1** (comparison) — anchors the Background novelty argument
-2. **Section 2 Implementation** — most straightforward, maps directly to code
+2. **Methods** — most straightforward, maps directly to code
 3. **Section 3 Results** — data is ready, just needs prose
 4. **Section 1 Background** — requires most literature work
 5. **Section 4 Discussion** — write after 1–3 are solid
 6. **Abstract** — write last
+# Submission note
+
+> This is a planning outline, not the submission source. Its counts and candidate statistics are obsolete; use `manuscript/draft.md`, `data/report/reproducibility.md`, and the final generated tables for current values.

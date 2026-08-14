@@ -2,6 +2,7 @@
 
 from typing import Optional
 
+import duckdb
 import polars as pl
 import structlog
 
@@ -15,7 +16,7 @@ def load_to_duckdb(
     store: PipelineStore,
     provenance: ProvenanceTracker,
     description: str = ""
-) -> None:
+) -> pl.DataFrame:
     """Save gnomAD constraint DataFrame to DuckDB with provenance.
 
     Creates or replaces the gnomad_constraint table (idempotent).
@@ -32,11 +33,21 @@ def load_to_duckdb(
     # Enrich with Ensembl gene_id from gene_universe
     # gnomAD gene_id is mixed: some Ensembl (ENSG...), some NCBI numeric (4622).
     # For rows without a valid Ensembl ID, fall back to gene_symbol lookup.
-    gene_map = store.conn.execute(
-        "SELECT gene_id AS ensembl_id, gene_symbol FROM gene_universe"
-    ).pl()
+    try:
+        gene_map = store.conn.execute(
+            "SELECT gene_id AS ensembl_id, gene_symbol FROM gene_universe"
+        ).pl()
+    except duckdb.CatalogException:
+        # Standalone evidence-layer runs and small integration fixtures may
+        # load gnomAD before the full gene universe exists.  Preserve valid
+        # IDs already present in the input; enrichment is best-effort here.
+        gene_map = None
+        logger.warning("gnomad_gene_universe_unavailable", action="skip_id_enrichment")
 
-    if "gene_id" not in df.columns:
+    if gene_map is None:
+        if "gene_id" not in df.columns:
+            df = df.with_columns(pl.lit(None).cast(pl.String).alias("gene_id"))
+    elif "gene_id" not in df.columns:
         # No gene_id column at all — join entirely via gene_symbol
         logger.info("gnomad_enriching_gene_ids", msg="No gene_id column; mapping via gene_symbol")
         df = df.join(gene_map.rename({"ensembl_id": "gene_id"}), on="gene_symbol", how="left")
@@ -62,6 +73,30 @@ def load_to_duckdb(
             after_ensembl=after_ensembl,
             rescued=after_ensembl - before_ensembl,
             total=len(df),
+        )
+
+    if gene_map is not None:
+        # A raw gnomAD file is transcript-level and contains records outside
+        # the frozen production universe.  Once IDs have been enriched, the
+        # target universe is the sole membership authority: discard unmapped
+        # and stale rows, and refresh the symbol from the current exact-ID map.
+        target_ids = gene_map["ensembl_id"].to_list()
+        before_filter = len(df)
+        df = df.filter(pl.col("gene_id").is_in(target_ids))
+        current_symbols = gene_map.rename({
+            "ensembl_id": "gene_id",
+            "gene_symbol": "current_gene_symbol",
+        })
+        df = df.join(current_symbols, on="gene_id", how="left")
+        df = df.with_columns(
+            pl.col("current_gene_symbol").alias("gene_symbol")
+        ).drop("current_gene_symbol")
+        logger.info(
+            "gnomad_frozen_universe_filter",
+            before=before_filter,
+            after=len(df),
+            dropped=before_filter - len(df),
+            target_universe_count=len(target_ids),
         )
 
     # Calculate summary statistics for provenance
@@ -95,6 +130,7 @@ def load_to_duckdb(
         no_data=no_data_count,
         null_loeuf=null_loeuf_count,
     )
+    return df
 
 
 def query_constrained_genes(
@@ -104,8 +140,8 @@ def query_constrained_genes(
     """Query highly constrained genes from DuckDB.
 
     Demonstrates DuckDB query capability and validates GCON-03 interpretation:
-    constrained genes are "important but under-studied" signals, not direct
-    cilia involvement evidence.
+    constrained genes are signals of possible functional importance, not
+    direct cilia involvement or research-status evidence.
 
     Args:
         store: PipelineStore instance

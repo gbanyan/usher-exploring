@@ -38,7 +38,7 @@ logging.basicConfig(
 )
 @click.pass_context
 def cli(ctx, config, verbose):
-    """Usher-pipeline: Reproducible pipeline for discovering under-studied cilia/Usher candidate genes.
+    """Usher-pipeline: Reproducible pipeline for prioritizing cilia/Usher candidate-gene hypotheses.
 
     Provides data infrastructure, gene ID mapping, evidence layer aggregation,
     and scoring for candidate gene prioritization.
@@ -69,7 +69,10 @@ def info(ctx):
 
         # Display config hash
         config_hash = config.config_hash()
-        click.echo(f"Config Hash: {config_hash[:16]}...")
+        # Keep the historical label for scripts and users that parse it; the
+        # full value is the canonical SHA-256 configuration digest.
+        click.echo(f"Config Hash: {config_hash}")
+        click.echo(f"Config SHA-256: {config_hash}")
         click.echo()
 
         # Display data source versions

@@ -9,6 +9,7 @@ Instead of querying PubMed per-gene (135K API calls, ~46 hours), this module:
 Total runtime: ~5-10 minutes (vs 46 hours).
 """
 
+import json
 import time
 from pathlib import Path
 from typing import Optional
@@ -71,18 +72,33 @@ def _download_gz(url: str, dest: Path, force: bool = False) -> Path:
     return dest
 
 
-def download_bulk_files(data_dir: Path, force: bool = False) -> tuple[Path, Path]:
+def download_bulk_files(
+    data_dir: Path,
+    force: bool = False,
+    cache_only: bool = False,
+) -> tuple[Path, Path]:
     """Download gene2pubmed.gz and gene_info.gz from NCBI.
 
     Args:
         data_dir: Directory to save downloaded files.
         force: Re-download even if files exist.
+        cache_only: Require both local files and never download.
 
     Returns:
         Tuple of (gene2pubmed_path, gene_info_path).
     """
     data_dir = Path(data_dir)
     lit_dir = data_dir / "literature"
+
+    if cache_only:
+        paths = (lit_dir / "gene2pubmed.gz", lit_dir / "gene_info.gz")
+        missing = [path for path in paths if not path.is_file()]
+        if missing:
+            raise FileNotFoundError(
+                "Cache-only literature processing requires local bulk sources; "
+                f"missing: {', '.join(str(path) for path in missing)}"
+            )
+        return paths
 
     g2p_path = _download_gz(GENE2PUBMED_URL, lit_dir / "gene2pubmed.gz", force)
     gi_path = _download_gz(GENE_INFO_URL, lit_dir / "gene_info.gz", force)
@@ -291,6 +307,8 @@ def _esearch_all_pmids(
 def fetch_context_pmid_sets(
     email: str,
     api_key: Optional[str] = None,
+    cache_path: Optional[Path] = None,
+    cache_only: bool = False,
 ) -> tuple[dict[str, set[int]], set[int], set[int]]:
     """Fetch PMID sets for each context via batch PubMed queries.
 
@@ -299,10 +317,35 @@ def fetch_context_pmid_sets(
     Args:
         email: Email for NCBI E-utilities.
         api_key: Optional NCBI API key.
+        cache_path: Optional JSON path for cached query result sets.
+        cache_only: Require the JSON cache and never query PubMed.
 
     Returns:
         Tuple of (context_pmid_sets, direct_experimental_pmids, hts_pmids).
     """
+    if cache_path is not None and cache_path.exists():
+        logger.info("context_pmid_cache_hit", path=str(cache_path))
+        cached = json.loads(cache_path.read_text())
+        required_keys = {"contexts", "direct_experimental", "hts"}
+        if not required_keys.issubset(cached):
+            raise ValueError(
+                f"Local PubMed context cache is schema-mismatched: {cache_path}"
+            )
+        return (
+            {
+                name: {int(pmid) for pmid in pmids}
+                for name, pmids in cached["contexts"].items()
+            },
+            {int(pmid) for pmid in cached["direct_experimental"]},
+            {int(pmid) for pmid in cached["hts"]},
+        )
+
+    if cache_only:
+        raise FileNotFoundError(
+            "Cache-only literature processing requires the local PubMed context "
+            f"cache; missing {cache_path}"
+        )
+
     logger.info("fetch_context_pmid_sets_start")
 
     context_sets = {}
@@ -321,6 +364,16 @@ def fetch_context_pmid_sets(
         direct_experimental=len(direct_pmids),
         hts=len(hts_pmids),
     )
+    if cache_path is not None:
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        cache_path.write_text(json.dumps({
+            "contexts": {
+                name: sorted(pmids) for name, pmids in context_sets.items()
+            },
+            "direct_experimental": sorted(direct_pmids),
+            "hts": sorted(hts_pmids),
+        }))
+        logger.info("context_pmid_cache_written", path=str(cache_path))
     return context_sets, direct_pmids, hts_pmids
 
 
@@ -352,7 +405,8 @@ def count_context_intersections(
         DataFrame with columns: gene_symbol, total_pubmed_count,
         cilia_context_count, sensory_context_count,
         cytoskeleton_context_count, cell_polarity_context_count,
-        direct_experimental_count, hts_screen_count.
+        direct_experimental_count, direct_experimental_context_count,
+        hts_screen_count.
     """
     rows = []
     for symbol in pipeline_symbols:
@@ -368,9 +422,14 @@ def count_context_intersections(
                 "cytoskeleton_context_count": None,
                 "cell_polarity_context_count": None,
                 "direct_experimental_count": None,
+                "direct_experimental_context_count": None,
                 "hts_screen_count": None,
             })
         else:
+            context_pmids = (
+                context_pmid_sets.get("cilia", set())
+                | context_pmid_sets.get("sensory", set())
+            )
             rows.append({
                 "gene_symbol": symbol,
                 "total_pubmed_count": len(pmids),
@@ -379,6 +438,9 @@ def count_context_intersections(
                 "cytoskeleton_context_count": len(pmids & context_pmid_sets.get("cytoskeleton", set())),
                 "cell_polarity_context_count": len(pmids & context_pmid_sets.get("cell_polarity", set())),
                 "direct_experimental_count": len(pmids & direct_experimental_pmids),
+                "direct_experimental_context_count": len(
+                    pmids & direct_experimental_pmids & context_pmids
+                ),
                 "hts_screen_count": len(pmids & hts_pmids),
             })
 
@@ -401,6 +463,61 @@ def count_context_intersections(
     return df
 
 
+# -- Compatibility path ------------------------------------------------------
+
+
+def fetch_legacy_literature_evidence(
+    gene_symbols: list[str],
+    email: str,
+    api_key: Optional[str] = None,
+) -> pl.DataFrame:
+    """Fetch per-gene counts for callers that do not provide a data directory.
+
+    The production path is :func:`fetch_literature_evidence`, which uses the
+    bulk NCBI files and six global PMID-set queries.  A small compatibility
+    path is retained for older library callers and lightweight test fixtures
+    that historically called ``process_literature_evidence`` without a
+    ``data_dir``.  It is deliberately not used by the CLI or manuscript
+    reruns, because per-gene E-utilities calls are much slower and less
+    reproducible than the bulk path.
+    """
+    Entrez.email = email
+    if api_key:
+        Entrez.api_key = api_key
+
+    def _count(query: str) -> int:
+        handle = Entrez.esearch(db="pubmed", term=query, retmax=0)
+        record = Entrez.read(handle)
+        close = getattr(handle, "close", None)
+        if callable(close):
+            close()
+        return int(record.get("Count", 0))
+
+    rows = []
+    for symbol in gene_symbols:
+        gene_query = f"({symbol}[Gene Name])"
+        context_counts = {
+            name: _count(f"{gene_query} AND {query}")
+            for name, query in MESH_CONTEXT_QUERIES.items()
+        }
+        direct_count = _count(
+            f"{gene_query} AND {DIRECT_EVIDENCE_QUERY} AND {MESH_CONTEXT_QUERIES['cilia']}"
+        )
+        rows.append({
+            "gene_symbol": symbol,
+            "total_pubmed_count": _count(gene_query),
+            "cilia_context_count": context_counts["cilia"],
+            "sensory_context_count": context_counts["sensory"],
+            "cytoskeleton_context_count": context_counts["cytoskeleton"],
+            "cell_polarity_context_count": context_counts["cell_polarity"],
+            "direct_experimental_count": direct_count,
+            "direct_experimental_context_count": direct_count,
+            "hts_screen_count": _count(f"{gene_query} AND {HTS_QUERY}"),
+        })
+
+    return pl.DataFrame(rows)
+
+
 # -- High-level orchestration --------------------------------------------------
 
 
@@ -410,6 +527,7 @@ def fetch_literature_evidence(
     data_dir: Path,
     api_key: Optional[str] = None,
     force: bool = False,
+    cache_only: bool = False,
 ) -> pl.DataFrame:
     """Fetch literature evidence for all genes using bulk data.
 
@@ -424,17 +542,23 @@ def fetch_literature_evidence(
         data_dir: Directory for downloading bulk files.
         api_key: Optional NCBI API key.
         force: Re-download bulk files even if cached.
+        cache_only: Require local bulk/context caches and never access the network.
 
     Returns:
         DataFrame with columns: gene_symbol, total_pubmed_count,
         cilia_context_count, sensory_context_count,
         cytoskeleton_context_count, cell_polarity_context_count,
-        direct_experimental_count, hts_screen_count.
+        direct_experimental_count, direct_experimental_context_count,
+        hts_screen_count.
     """
     logger.info("literature_bulk_fetch_start", gene_count=len(gene_symbols))
 
     # Step 1: Download bulk files
-    g2p_path, gi_path = download_bulk_files(data_dir, force=force)
+    g2p_path, gi_path = download_bulk_files(
+        data_dir,
+        force=force and not cache_only,
+        cache_only=cache_only,
+    )
 
     # Step 2: Parse bulk files
     gene2pubmed = parse_gene2pubmed(g2p_path)
@@ -444,7 +568,12 @@ def fetch_literature_evidence(
     gene_pmid_map = build_gene_pmid_map(gene2pubmed, gene_info)
 
     # Step 4: Fetch context PMID sets (6 batch queries)
-    context_sets, direct_pmids, hts_pmids = fetch_context_pmid_sets(email, api_key)
+    context_sets, direct_pmids, hts_pmids = fetch_context_pmid_sets(
+        email,
+        api_key,
+        cache_path=data_dir / "pubmed_context_sets.json",
+        cache_only=cache_only,
+    )
 
     # Step 5: Count intersections
     df = count_context_intersections(

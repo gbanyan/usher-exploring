@@ -1,20 +1,102 @@
-"""Comprehensive validation report generation combining all validation prongs."""
+"""Internal evaluation report generation for control recovery and sensitivity."""
 
 from pathlib import Path
+from math import isclose, isfinite
 
 import structlog
 
 logger = structlog.get_logger(__name__)
 
 
-def generate_comprehensive_validation_report(
+def _assess_control_metrics(
+    metrics: dict,
+    *,
+    expected_key: str,
+    found_key: str,
+    denominator_key: str = "total_scored_non_null",
+) -> dict:
+    """Validate counts and summary metrics before rendering a control report."""
+    expected = metrics.get(expected_key)
+    found = metrics.get(found_key)
+    denominator = metrics.get(denominator_key)
+    median = metrics.get("median_percentile")
+    top_quartile_count = metrics.get("top_quartile_count")
+    top_quartile_fraction = metrics.get("top_quartile_fraction")
+    errors: list[str] = []
+
+    def count_value(value: object) -> int | None:
+        if isinstance(value, bool):
+            return None
+        if isinstance(value, int):
+            return value
+        if isinstance(value, float) and value.is_integer():
+            return int(value)
+        return None
+
+    expected_count = count_value(expected)
+    found_count = count_value(found)
+    denominator_count = count_value(denominator)
+    if expected_count is None or found_count is None:
+        errors.append("expected/found counts are missing or non-integer")
+    elif expected_count < 0 or found_count < 0:
+        errors.append("expected/found counts cannot be negative")
+    elif found_count > expected_count:
+        errors.append("found count exceeds expected count")
+    elif expected_count == 0 or found_count == 0:
+        errors.append("no evaluable controls are available")
+
+    if denominator_count is None:
+        errors.append("non-NULL scored-gene denominator is missing or non-integer")
+    elif denominator_count <= 0:
+        errors.append("non-NULL scored-gene denominator must be positive")
+    elif found_count is not None and found_count > denominator_count:
+        errors.append("found count exceeds the scored-gene denominator")
+
+    if median is None or not isinstance(median, (int, float)) or not isfinite(median):
+        errors.append("median percentile is missing or non-finite")
+    elif not 0.0 <= median <= 1.0:
+        errors.append("median percentile is outside [0, 1]")
+
+    if top_quartile_count is None or count_value(top_quartile_count) is None:
+        errors.append("top-quartile count is missing or non-integer")
+    elif found_count is not None and not 0 <= int(top_quartile_count) <= found_count:
+        errors.append("top-quartile count is outside the found-count range")
+
+    if (
+        top_quartile_fraction is None
+        or not isinstance(top_quartile_fraction, (int, float))
+        or not isfinite(top_quartile_fraction)
+    ):
+        errors.append("top-quartile fraction is missing or non-finite")
+    elif not 0.0 <= top_quartile_fraction <= 1.0:
+        errors.append("top-quartile fraction is outside [0, 1]")
+    elif found_count and not isclose(
+        top_quartile_fraction,
+        int(top_quartile_count) / found_count,
+        abs_tol=0.02,
+    ):
+        errors.append("top-quartile fraction disagrees with count/found")
+
+    return {
+        "coherent": not errors,
+        "expected": expected_count,
+        "found": found_count,
+        "denominator": denominator_count,
+        "median": median if not errors else None,
+        "top_quartile_count": int(top_quartile_count) if not errors else None,
+        "top_quartile_fraction": top_quartile_fraction if not errors else None,
+        "errors": errors,
+    }
+
+
+def generate_internal_evaluation_report(
     positive_metrics: dict,
     negative_metrics: dict,
     sensitivity_result: dict,
     sensitivity_summary: dict,
 ) -> str:
     """
-    Generate comprehensive validation report combining all three validation prongs.
+    Generate an internal evaluation report combining three diagnostic components.
 
     Args:
         positive_metrics: Dict from validate_positive_controls_extended()
@@ -23,37 +105,60 @@ def generate_comprehensive_validation_report(
         sensitivity_summary: Dict from summarize_sensitivity()
 
     Returns:
-        Multi-section Markdown report as string
+        Multi-section Markdown report as string.  The wording deliberately
+        describes reference checks and control recovery; it does not present
+        these diagnostics as a substitute for independent outcome evidence.
 
     Sections:
-        1. Positive Control Validation (known genes rank high)
-        2. Negative Control Validation (housekeeping genes rank low)
+        1. Internal Control Recovery (known genes rank high)
+        2. Negative Control Recovery (housekeeping genes rank low)
         3. Sensitivity Analysis (weight perturbation stability)
-        4. Overall Validation Summary (all-pass/partial-fail/fail)
-        5. Weight Tuning Recommendations (based on validation results)
+        4. Internal Evaluation Summary
+        5. Weight Tuning Recommendations (based on diagnostic results)
     """
-    logger.info("generate_comprehensive_validation_report_start")
+    logger.info("generate_internal_evaluation_report_start")
 
     sections = []
 
-    # Section 1: Positive Control Validation
-    sections.append("# Comprehensive Validation Report")
+    # Section 1: Positive Control Recovery
+    sections.append("# Internal Evaluation and Control-Recovery Report")
     sections.append("")
-    sections.append("## 1. Positive Control Validation")
+    sections.append("## 1. Internal Control Recovery")
     sections.append("")
 
-    pos_passed = positive_metrics.get("validation_passed", False)
-    pos_status = "PASSED ✓" if pos_passed else "FAILED ✗"
+    positive_quality = _assess_control_metrics(
+        positive_metrics,
+        expected_key="total_known_expected",
+        found_key="total_known_in_dataset",
+    )
+    pos_passed = positive_quality["coherent"] and positive_metrics.get("validation_passed", False)
+    pos_status = (
+        "INCOMPLETE ⚠" if not positive_quality["coherent"]
+        else "MEETS REFERENCE ✓" if pos_passed
+        else "BELOW REFERENCE ✗"
+    )
     sections.append(f"**Status:** {pos_status}")
     sections.append("")
 
-    median_pct = positive_metrics.get("median_percentile", 0.0) * 100
+    median_pct = positive_quality["median"]
     sections.append("### Summary")
-    sections.append(f"- Known genes expected: {positive_metrics.get('total_known_expected', 0)}")
-    sections.append(f"- Known genes found: {positive_metrics.get('total_known_in_dataset', 0)}")
-    sections.append(f"- Median percentile: {median_pct:.1f}%")
-    sections.append(f"- Top quartile count: {positive_metrics.get('top_quartile_count', 0)}")
-    sections.append(f"- Top quartile fraction: {positive_metrics.get('top_quartile_fraction', 0.0) * 100:.1f}%")
+    if positive_quality["coherent"]:
+        sections.append(f"- Known genes expected: {positive_quality['expected']}")
+        sections.append(f"- Known genes found: {positive_quality['found']}")
+        sections.append(f"- Percentile denominator (non-NULL scored genes): {positive_quality['denominator']:,}")
+        sections.append(f"- Median percentile: {median_pct * 100:.1f}%")
+        sections.append(f"- Top quartile count: {positive_quality['top_quartile_count']}")
+        sections.append(f"- Top quartile fraction: {positive_quality['top_quartile_fraction'] * 100:.1f}%")
+    else:
+        sections.extend([
+            "- Known genes expected: N/A",
+            "- Known genes found: N/A",
+            "- Percentile denominator (non-NULL scored genes): N/A",
+            "- Median percentile: N/A",
+            "- Top quartile count: N/A",
+            "- Top quartile fraction: N/A",
+            f"- **Error:** Incomplete positive-control metrics ({'; '.join(positive_quality['errors'])}).",
+        ])
     sections.append("")
 
     # Recall@k table
@@ -83,6 +188,10 @@ def generate_comprehensive_validation_report(
         sections.append("|--------|-------|-------------------|--------------|")
 
         for source, metrics in per_source.items():
+            display_source = {
+                "omim_usher": "established_usher",
+                "syscilia_scgs_v2": "syscilia_scgs_v2",
+            }.get(source, source)
             count = metrics.get("count", 0)
             median = metrics.get("median_percentile")
             top_q = metrics.get("top_quartile_count", 0)
@@ -92,43 +201,69 @@ def generate_comprehensive_validation_report(
             else:
                 median_str = "N/A"
 
-            sections.append(f"| {source} | {count} | {median_str} | {top_q} |")
+            sections.append(f"| {display_source} | {count} | {median_str} | {top_q} |")
 
         sections.append("")
 
     # Verdict
-    if pos_passed:
-        sections.append("**Verdict:** Known cilia/Usher genes rank highly (median >= 75th percentile), validating scoring system sensitivity.")
+    if not positive_quality["coherent"]:
+        sections.append("**Interpretation:** Positive-control metrics are incomplete or inconsistent; no control-recovery conclusion is assigned.")
+    elif pos_passed:
+        sections.append("**Interpretation:** The selected cilia/Usher controls show the expected internal recovery pattern. The control set is curated and the cilia-signal gate was informed by control behavior, so this is a diagnostic recovery check rather than an independent sensitivity estimate.")
     else:
         sections.append("**Verdict:** Known genes rank below expected threshold, suggesting potential issues with evidence layer weights or data quality.")
 
     sections.append("")
 
-    # Section 2: Negative Control Validation
-    sections.append("## 2. Negative Control Validation")
+    # Section 2: Negative Control Recovery
+    sections.append("## 2. Negative Control Recovery")
     sections.append("")
 
-    neg_passed = negative_metrics.get("validation_passed", False)
-    neg_status = "PASSED ✓" if neg_passed else "FAILED ✗"
+    negative_quality = _assess_control_metrics(
+        negative_metrics,
+        expected_key="total_expected",
+        found_key="total_in_dataset",
+    )
+    neg_passed = negative_quality["coherent"] and negative_metrics.get("validation_passed", False)
+    neg_status = (
+        "INCOMPLETE ⚠" if not negative_quality["coherent"]
+        else "MEETS REFERENCE ✓" if neg_passed
+        else "BELOW REFERENCE ✗"
+    )
     sections.append(f"**Status:** {neg_status}")
     sections.append("")
 
-    neg_median_pct = negative_metrics.get("median_percentile", 0.0) * 100
+    neg_median_pct = negative_quality["median"]
     sections.append("### Summary")
-    sections.append(f"- Housekeeping genes expected: {negative_metrics.get('total_expected', 0)}")
-    sections.append(f"- Housekeeping genes found: {negative_metrics.get('total_in_dataset', 0)}")
-    sections.append(f"- Median percentile: {neg_median_pct:.1f}%")
-    sections.append(f"- Top quartile count: {negative_metrics.get('top_quartile_count', 0)}")
-    sections.append(f"- Meeting the HIGH-tier composite-score threshold (composite >= 0.70): {negative_metrics.get('in_high_tier_count', 0)}")
-    gated_count = negative_metrics.get('gated_high_tier_count', 0)
-    gated_genes = negative_metrics.get('gated_high_tier_genes', [])
-    gated_suffix = f" ({', '.join(gated_genes)})" if gated_genes else ""
-    sections.append(f"- In HIGH tier after cilia-signal gate: {gated_count}{gated_suffix}")
+    if negative_quality["coherent"]:
+        sections.append(f"- Housekeeping genes expected: {negative_quality['expected']}")
+        sections.append(f"- Housekeeping genes found: {negative_quality['found']}")
+        sections.append(f"- Percentile denominator (non-NULL scored genes): {negative_quality['denominator']:,}")
+        sections.append(f"- Median percentile: {neg_median_pct * 100:.1f}%")
+        sections.append(f"- Top quartile count: {negative_quality['top_quartile_count']}")
+        sections.append(f"- Top quartile fraction: {negative_quality['top_quartile_fraction'] * 100:.1f}%")
+        sections.append(f"- Meeting the HIGH-tier composite-score threshold (composite >= 0.70): {negative_metrics.get('in_high_tier_count', 0)}")
+        gated_count = negative_metrics.get('gated_high_tier_count', 0)
+        gated_genes = negative_metrics.get('gated_high_tier_genes', [])
+        gated_suffix = f" ({', '.join(gated_genes)})" if gated_genes else ""
+        sections.append(f"- In HIGH tier after cilia-signal gate: {gated_count}{gated_suffix}")
+    else:
+        sections.extend([
+            "- Housekeeping genes expected: N/A",
+            "- Housekeeping genes found: N/A",
+            "- Percentile denominator (non-NULL scored genes): N/A",
+            "- Median percentile: N/A",
+            "- Top quartile count: N/A",
+            "- Top quartile fraction: N/A",
+            f"- **Error:** Incomplete negative-control metrics ({'; '.join(negative_quality['errors'])}).",
+        ])
     sections.append("")
 
     # Verdict
-    if neg_passed:
-        sections.append("**Verdict:** Housekeeping genes rank LOW (median < 50th percentile), confirming scoring system specificity.")
+    if not negative_quality["coherent"]:
+        sections.append("**Interpretation:** Negative-control metrics are incomplete or inconsistent; no control-recovery conclusion is assigned.")
+    elif neg_passed:
+        sections.append("**Interpretation:** Housekeeping genes rank LOW (median < 50th percentile) under this internal reference check.")
     else:
         sections.append("**Verdict:** Housekeeping genes rank higher than expected, indicating potential lack of specificity.")
 
@@ -138,17 +273,39 @@ def generate_comprehensive_validation_report(
     sections.append("## 3. Sensitivity Analysis")
     sections.append("")
 
-    sens_passed = sensitivity_summary.get("overall_stable", False)
-    sens_status = "STABLE ✓" if sens_passed else "UNSTABLE ✗"
+    sensitivity_state = sensitivity_summary.get("overall_stable")
+    sens_passed = sensitivity_state is True
+    sens_status = (
+        "STABLE ✓" if sensitivity_state is True
+        else "UNSTABLE ✗" if sensitivity_state is False
+        else "UNASSESSED" if sensitivity_summary.get("assessment_status") == "unassessed" else "NOT RUN"
+    )
     sections.append(f"**Status:** {sens_status}")
     sections.append("")
 
-    from usher_pipeline.scoring.sensitivity import STABILITY_THRESHOLD
+    from usher_pipeline.scoring.sensitivity import (
+        EVIDENCE_LAYERS,
+        STABILITY_THRESHOLD,
+        format_weight_vector,
+    )
 
     sections.append("### Summary")
     sections.append(f"- Total perturbations: {sensitivity_summary.get('total_perturbations', 0)}")
-    sections.append(f"- Stable perturbations (rho >= {STABILITY_THRESHOLD}): {sensitivity_summary.get('stable_count', 0)}")
-    sections.append(f"- Unstable perturbations: {sensitivity_summary.get('unstable_count', 0)}")
+    sections.append(
+        "- Raw delta protocol: apply the displayed delta to one baseline weight first, "
+        "then renormalize all six weights to sum to 1.0."
+    )
+    baseline_weights = sensitivity_result.get("baseline_weights", {})
+    if baseline_weights:
+        sections.append(f"- Baseline six-weight vector: {format_weight_vector(baseline_weights)}")
+    if sensitivity_summary.get("assessment_status") == "unassessed":
+        sections.append("- Assessed perturbations: 0")
+        sections.append(
+            f"- Unassessed perturbations (rho unavailable): {sensitivity_summary.get('unassessed_count', 0)}"
+        )
+    else:
+        sections.append(f"- Stable perturbations (rho >= {STABILITY_THRESHOLD}): {sensitivity_summary.get('stable_count', 0)}")
+        sections.append(f"- Unstable perturbations: {sensitivity_summary.get('unstable_count', 0)}")
 
     mean_rho = sensitivity_summary.get("mean_rho")
     if mean_rho is not None:
@@ -174,13 +331,16 @@ def generate_comprehensive_validation_report(
     # Spearman rho table
     sections.append("### Spearman Correlation by Perturbation")
     sections.append("")
-    sections.append("| Layer | Delta | Spearman rho | Stable? |")
-    sections.append("|-------|-------|--------------|---------|")
+    top_n = sensitivity_result.get("top_n", 100)
+    sections.append(f"| Layer | Raw Delta | Spearman rho | Top-{top_n} overlap | Jaccard | Stable? |")
+    sections.append("|-------|-------|--------------|-----------------|---------|---------|")
 
     for result in sensitivity_result.get("results", []):
         layer = result["layer"]
         delta = result["delta"]
         rho = result["spearman_rho"]
+        overlap = result.get("overlap_count", "N/A")
+        jaccard = result.get("top_n_jaccard")
 
         if rho is not None:
             stable_mark = "✓" if rho >= STABILITY_THRESHOLD else "✗"
@@ -189,47 +349,95 @@ def generate_comprehensive_validation_report(
             stable_mark = "N/A"
             rho_str = "N/A"
 
-        sections.append(f"| {layer} | {delta:+.2f} | {rho_str} | {stable_mark} |")
+        jaccard_str = f"{jaccard:.3f}" if jaccard is not None else "N/A"
+        sections.append(f"| {layer} | {delta:+.2f} | {rho_str} | {overlap} | {jaccard_str} | {stable_mark} |")
 
     sections.append("")
+
+    if sensitivity_result.get("results"):
+        sections.append("### Final Normalized Six-Weight Vectors")
+        sections.append("")
+        sections.append(
+            f"Order: {', '.join(EVIDENCE_LAYERS)}. Each vector is the final vector after renormalization."
+        )
+        sections.append("")
+        sections.append("| Layer | Raw Delta | Final normalized weights |")
+        sections.append("|-------|-----------|--------------------------|")
+        for result in sensitivity_result["results"]:
+            final_weights = result.get("final_weights") or result.get("perturbed_weights", {})
+            if final_weights:
+                vector = format_weight_vector(final_weights)
+            else:
+                vector = "N/A"
+            sections.append(
+                f"| {result['layer']} | {result['delta']:+.2f} | {vector} |"
+            )
+        sections.append("")
 
     # Verdict
-    if sens_passed:
-        sections.append(f"**Verdict:** All weight perturbations (±5-10%) produce stable rankings (rho >= {STABILITY_THRESHOLD}), validating result robustness.")
-    else:
+    if sensitivity_state is True:
+        sections.append(f"**Verdict:** All absolute weight-point perturbations produce stable rankings (rho >= {STABILITY_THRESHOLD}).")
+    elif sensitivity_state is False:
         sections.append(f"**Verdict:** Some perturbations produce unstable rankings (rho < {STABILITY_THRESHOLD}), suggesting results may be sensitive to weight choices.")
+    elif sensitivity_summary.get("assessment_status") == "unassessed":
+        sections.append(
+            "**Interpretation:** Perturbations were run, but rho was unavailable "
+            "for every comparison; sensitivity is UNASSESSED rather than unstable."
+        )
+    else:
+        sections.append("**Interpretation:** Sensitivity analysis was not run for this report.")
 
     sections.append("")
 
-    # Section 4: Overall Validation Summary
-    sections.append("## 4. Overall Validation Summary")
+    # Section 4: Internal Evaluation Summary
+    sections.append("## 4. Internal Evaluation Summary")
     sections.append("")
 
-    all_passed = pos_passed and neg_passed and sens_passed
+    incomplete_control = not positive_quality["coherent"] or not negative_quality["coherent"]
+    all_passed = pos_passed and neg_passed and sensitivity_state is True
 
     if all_passed:
-        overall_status = "ALL VALIDATIONS PASSED ✓"
+        overall_status = "ALL REFERENCE CHECKS MEET THRESHOLDS ✓"
         overall_verdict = (
-            "The scoring system demonstrates: (1) sensitivity to known cilia/Usher genes, "
-            "(2) specificity against housekeeping genes, and (3) robustness to weight perturbations. "
-            "Results are scientifically defensible."
+            "The scoring system shows the expected patterns for the selected internal controls "
+            "and tested weight perturbations. These diagnostics do not establish clinical, causal, "
+            "or prospective outcome performance."
         )
-    elif pos_passed and neg_passed:
-        overall_status = "PARTIAL PASS (Sensitivity Unstable)"
+    elif incomplete_control:
+        overall_status = "INTERNAL EVALUATION INCOMPLETE (Control Metrics)"
         overall_verdict = (
-            "Positive and negative control validations passed, but rankings are sensitive to weight perturbations. "
-            "Results are directionally correct but may require weight tuning for robustness."
+            "One or more control-recovery metric sets are incomplete or inconsistent. "
+            "No overall control-recovery conclusion is assigned."
+        )
+    elif sensitivity_state is None:
+        sensitivity_label = (
+            "Sensitivity Unassessed"
+            if sensitivity_summary.get("assessment_status") == "unassessed"
+            else "Sensitivity Not Run"
+        )
+        overall_status = "INTERNAL EVALUATION INCOMPLETE (Sensitivity Not Run)"
+        overall_verdict = (
+            "Positive and negative control recovery are reported, but sensitivity is "
+            f"{sensitivity_label.lower()}. No overall conclusion is assigned to that component."
+        )
+        overall_status = f"INTERNAL EVALUATION INCOMPLETE ({sensitivity_label})"
+    elif pos_passed and neg_passed:
+        overall_status = "REFERENCE CHECKS PARTLY MEET THRESHOLDS (Sensitivity Unstable)"
+        overall_verdict = (
+            "Positive and negative control recovery meet their reference thresholds, but rankings are "
+            "sensitive to tested weight perturbations."
         )
     elif pos_passed:
-        overall_status = "PARTIAL PASS (Specificity Issue)"
+        overall_status = "REFERENCE CHECKS PARTLY MEET THRESHOLDS (Control Separation Issue)"
         overall_verdict = (
             "Known genes rank highly, but housekeeping genes also rank higher than expected. "
-            "Scoring system is sensitive but may lack specificity. Review evidence layer weights."
+            "The internal control-separation diagnostic indicates a specificity concern; review evidence "
+            "layer behavior without tuning on these same controls."
         )
     else:
-        overall_status = "VALIDATION FAILED ✗"
+        overall_status = "REFERENCE CHECKS BELOW THRESHOLDS ✗"
         overall_verdict = (
-            "Known genes do not rank highly, indicating fundamental issues with scoring system. "
+            "Known genes do not rank highly in this internal recovery check, indicating that "
             "Evidence layer weights or data quality require investigation."
         )
 
@@ -238,11 +446,27 @@ def generate_comprehensive_validation_report(
     sections.append(f"**Verdict:** {overall_verdict}")
     sections.append("")
 
-    sections.append("| Validation Prong | Status | Verdict |")
+    sections.append("| Evaluation Component | Status | Interpretation |")
     sections.append("|------------------|--------|---------|")
-    sections.append(f"| Positive Controls | {pos_status} | Known genes rank {'high' if pos_passed else 'low'} |")
-    sections.append(f"| Negative Controls | {neg_status} | Housekeeping genes rank {'low' if neg_passed else 'high'} |")
-    sections.append(f"| Sensitivity Analysis | {sens_status} | Rankings {'stable' if sens_passed else 'unstable'} under perturbations |")
+    positive_interpretation = (
+        "Metrics incomplete" if not positive_quality["coherent"]
+        else "Known genes rank high" if pos_passed
+        else "Known genes rank low"
+    )
+    negative_interpretation = (
+        "Metrics incomplete" if not negative_quality["coherent"]
+        else "Housekeeping genes rank low" if neg_passed
+        else "Housekeeping genes rank high"
+    )
+    sections.append(f"| Positive control recovery | {pos_status} | {positive_interpretation} |")
+    sections.append(f"| Negative control recovery | {neg_status} | {negative_interpretation} |")
+    sensitivity_interpretation = (
+        "Rankings stable under perturbations" if sensitivity_state is True
+        else "Rankings unstable under perturbations" if sensitivity_state is False
+        else "UNASSESSED: rho unavailable" if sensitivity_summary.get("assessment_status") == "unassessed"
+        else "Not run"
+    )
+    sections.append(f"| Sensitivity analysis | {sens_status} | {sensitivity_interpretation} |")
     sections.append("")
 
     # Section 5: Weight Tuning Recommendations
@@ -258,23 +482,28 @@ def generate_comprehensive_validation_report(
         "metrics but collapse the six-layer integration onto one or two "
         "layers, so the a priori biologically-motivated weights are retained "
         "by design and HIGH-tier specificity is addressed through the "
-        "post-hoc cilia-signal gate. See the manuscript Discussion for the "
-        "full analysis."
+        "post-hoc cilia-signal gate."
     )
     sections.append("")
 
-    recommendations = recommend_weight_tuning(
-        positive_metrics,
-        negative_metrics,
-        sensitivity_summary
-    )
+    if incomplete_control:
+        recommendations = (
+            "**Recommendations unavailable:** control metrics are incomplete or inconsistent; "
+            "resolve the evaluation inputs before interpreting or tuning weights."
+        )
+    else:
+        recommendations = recommend_weight_tuning(
+            positive_metrics,
+            negative_metrics,
+            sensitivity_summary
+        )
 
     sections.append(recommendations)
 
     report_text = "\n".join(sections)
 
     logger.info(
-        "generate_comprehensive_validation_report_complete",
+        "generate_internal_evaluation_report_complete",
         positive_passed=pos_passed,
         negative_passed=neg_passed,
         sensitivity_stable=sens_passed,
@@ -284,13 +513,28 @@ def generate_comprehensive_validation_report(
     return report_text
 
 
+def generate_comprehensive_validation_report(
+    positive_metrics: dict,
+    negative_metrics: dict,
+    sensitivity_result: dict,
+    sensitivity_summary: dict,
+) -> str:
+    """Compatibility alias for the internal evaluation report generator."""
+    return generate_internal_evaluation_report(
+        positive_metrics,
+        negative_metrics,
+        sensitivity_result,
+        sensitivity_summary,
+    )
+
+
 def recommend_weight_tuning(
     positive_metrics: dict,
     negative_metrics: dict,
     sensitivity_summary: dict,
 ) -> str:
     """
-    Generate weight tuning recommendations based on validation results.
+    Generate weight-tuning recommendations based on internal evaluation results.
 
     Args:
         positive_metrics: Dict from validate_positive_controls_extended()
@@ -301,13 +545,13 @@ def recommend_weight_tuning(
         Formatted recommendation text
 
     Logic:
-        - If all pass: No tuning recommended
-        - If positive controls fail: Increase weights for layers where known genes score high
-        - If negative controls fail: Examine layers boosting housekeeping genes
-        - If sensitivity unstable: Reduce weight of most sensitive layer
+        - If all reference checks meet thresholds: No tuning recommended
+        - If positive controls are below reference: Review layers where known genes score high
+        - If negative controls are below reference: Examine layers boosting housekeeping genes
+        - If sensitivity is unstable: Reduce weight of most sensitive layer
 
     Notes:
-        - CRITICAL: Any tuning is "post-validation" and risks circular validation
+        - CRITICAL: Any tuning is post-hoc and risks reusing the same controls
         - Flag this pitfall per research guidance
         - Recommendations are guidance, not automatic actions
     """
@@ -315,16 +559,17 @@ def recommend_weight_tuning(
 
     pos_passed = positive_metrics.get("validation_passed", False)
     neg_passed = negative_metrics.get("validation_passed", False)
-    sens_passed = sensitivity_summary.get("overall_stable", False)
+    sensitivity_state = sensitivity_summary.get("overall_stable")
+    sens_passed = sensitivity_state is True
 
     recommendations = []
 
-    # All validations passed
+    # All internal reference checks meet thresholds
     if pos_passed and neg_passed and sens_passed:
-        recommendations.append("**Recommendation:** Current weights are validated. No tuning recommended.")
+        recommendations.append("**Recommendation:** Current weights meet all selected internal reference checks. No tuning recommended.")
         recommendations.append("")
         recommendations.append(
-            "The scoring system performs well across all validation prongs. "
+            "The scoring system performs as expected across the selected internal evaluation components. "
             "Weights achieve good balance between sensitivity (known genes rank high), "
             "specificity (housekeeping genes rank low), and robustness (stable under perturbations)."
         )
@@ -332,7 +577,7 @@ def recommend_weight_tuning(
         logger.info("recommend_weight_tuning_no_tuning_needed")
         return "\n".join(recommendations)
 
-    # Some validations failed - provide targeted recommendations
+    # Some reference checks are below threshold - provide targeted recommendations
     recommendations.append("**Recommendations for Weight Tuning:**")
     recommendations.append("")
 
@@ -346,7 +591,7 @@ def recommend_weight_tuning(
         )
         recommendations.append("")
         recommendations.append("**Suggested Actions:**")
-        recommendations.append("- Review per-source breakdown to identify which gene sets validate poorly")
+        recommendations.append("- Review per-source breakdown to identify which gene sets recover poorly")
         recommendations.append("- Examine evidence layer scores for top-ranked known genes")
         recommendations.append("- Consider increasing weights for layers where known genes consistently score high")
         recommendations.append("- Possible layers to increase: localization (ciliary proteomics), animal_model (cilia screens)")
@@ -369,10 +614,9 @@ def recommend_weight_tuning(
         recommendations.append("")
 
     # Sensitivity unstable
-    if not sens_passed:
+    if sensitivity_state is False:
         recommendations.append("### 3. Weight Sensitivity Issue (Stability)")
         recommendations.append("")
-
         most_sensitive = sensitivity_summary.get("most_sensitive_layer")
         unstable_count = sensitivity_summary.get("unstable_count", 0)
 
@@ -392,26 +636,41 @@ def recommend_weight_tuning(
         recommendations.append("- Consider smoothing evidence scores (e.g., log-transform, rank normalization)")
         recommendations.append("")
 
-    # Add critical warning about circular validation
+    elif sensitivity_state is None:
+        recommendations.append(
+            "### 3. Sensitivity Analysis Unassessed"
+            if sensitivity_summary.get("assessment_status") == "unassessed"
+            else "### 3. Sensitivity Analysis Not Run"
+        )
+        recommendations.append("")
+        recommendations.append(
+            "Sensitivity perturbations produced no usable rho, so ranking stability is "
+            "UNASSESSED and no instability conclusion is assigned."
+            if sensitivity_summary.get("assessment_status") == "unassessed"
+            else "Sensitivity analysis was omitted, so ranking stability is not assessed in this report."
+        )
+        recommendations.append("")
+
+    # Add critical warning about control reuse
     recommendations.append("---")
     recommendations.append("")
-    recommendations.append("### CRITICAL: Circular Validation Risk")
+    recommendations.append("### CRITICAL: Control-Reuse / Post-Hoc Tuning Risk")
     recommendations.append("")
     recommendations.append(
-        "**WARNING:** Any weight tuning based on these validation results constitutes "
-        "\"post-validation tuning\" and introduces circular validation risk."
+        "**WARNING:** Any weight tuning based on these internal evaluation results is "
+        "post-hoc tuning and introduces control-reuse risk."
     )
     recommendations.append("")
     recommendations.append(
         "If weights are adjusted based on positive/negative control performance, the same controls "
-        "CANNOT be used to validate the tuned weights (they were used to select the weights)."
+        "must not be treated as independent evidence for the tuned weights."
     )
     recommendations.append("")
     recommendations.append("**Best Practices:**")
-    recommendations.append("1. If tuning weights: Use independent validation set or cross-validation")
-    recommendations.append("2. Document weight selection rationale (biological justification, not validation optimization)")
+    recommendations.append("1. If tuning weights: Use an independent hold-out/control set or cross-fold evaluation")
+    recommendations.append("2. Document weight selection rationale (biological justification, not control optimization)")
     recommendations.append("3. Prefer a priori weight choices over post-hoc tuning")
-    recommendations.append("4. If tuning is essential, use hold-out validation genes not used in tuning")
+    recommendations.append("4. If tuning is essential, use hold-out control genes not used in tuning")
     recommendations.append("")
 
     logger.info(

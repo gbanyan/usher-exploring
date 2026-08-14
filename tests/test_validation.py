@@ -3,7 +3,9 @@
 import polars as pl
 import pytest
 from pathlib import Path
+from click.testing import CliRunner
 
+from usher_pipeline.cli.main import cli
 from usher_pipeline.persistence.duckdb_store import PipelineStore
 from usher_pipeline.config.schema import ScoringWeights
 from usher_pipeline.scoring import (
@@ -119,6 +121,14 @@ def create_synthetic_scored_db(tmp_path: Path) -> PipelineStore:
         ],
         "evidence_count": [6] * len(gene_symbols),
         "quality_flag": ["sufficient_evidence"] * len(gene_symbols),
+        # Source-level localization fields required by the HIGH gate.
+        "compartment_cilia": [False] * len(gene_symbols),
+        "compartment_centrosome": [False] * len(gene_symbols),
+        "compartment_basal_body": [False] * len(gene_symbols),
+        "compartment_transition_zone": [False] * len(gene_symbols),
+        "compartment_stereocilia": [False] * len(gene_symbols),
+        "in_cilia_compendium": [False] * len(gene_symbols),
+        "in_centrosome_compendium": [False] * len(gene_symbols),
     }
 
     scored_df = pl.DataFrame(scored_data)
@@ -186,7 +196,111 @@ def test_validate_negative_controls_with_synthetic_data(tmp_path):
 
         # Check found some housekeeping genes
         assert metrics["total_in_dataset"] > 0, "Should find at least one housekeeping gene"
+        assert metrics["total_scored_non_null"] == 20
+        assert metrics["top_quartile_fraction"] == pytest.approx(
+            metrics["top_quartile_count"] / metrics["total_in_dataset"]
+        )
 
+    finally:
+        store.close()
+
+
+def test_validate_negative_controls_empty_result_has_explicit_fraction(tmp_path):
+    store = PipelineStore(tmp_path / "empty_controls.duckdb")
+    store.conn.execute("""
+        CREATE TABLE scored_genes (
+            gene_symbol VARCHAR,
+            composite_score DOUBLE
+        )
+    """)
+    store.conn.execute("INSERT INTO scored_genes VALUES ('GENE1', 0.5)")
+
+    try:
+        metrics = validate_negative_controls(store)
+        assert metrics["total_in_dataset"] == 0
+        assert metrics["total_scored_non_null"] == 1
+        assert metrics["top_quartile_count"] == 0
+        assert metrics["top_quartile_fraction"] is None
+    finally:
+        store.close()
+
+
+def test_validate_cli_force_feeds_production_negative_metrics_into_report(tmp_path):
+    config_path = tmp_path / "validate_config.yaml"
+    config_path.write_text(f"""
+versions:
+  ensembl_release: 113
+  gnomad_version: v4.1
+  gtex_version: v8
+  hpa_version: v23
+data_dir: {tmp_path / 'data'}
+cache_dir: {tmp_path / 'cache'}
+duckdb_path: {tmp_path / 'test.duckdb'}
+api:
+  rate_limit_per_second: 3
+  max_retries: 3
+  cache_ttl_seconds: 3600
+  timeout_seconds: 30
+scoring:
+  gnomad: 0.20
+  expression: 0.20
+  annotation: 0.15
+  localization: 0.15
+  animal_model: 0.15
+  literature: 0.15
+    """)
+    store = create_synthetic_scored_db(tmp_path)
+    store.conn.execute("INSERT INTO _checkpoints (table_name) VALUES ('scored_genes')")
+    store.close()
+
+    output_dir = tmp_path / "validation"
+    result = CliRunner().invoke(cli, [
+        "--config", str(config_path),
+        "validate",
+        "--force",
+        "--skip-sensitivity",
+        "--output-dir", str(output_dir),
+    ])
+
+    assert result.exit_code == 0, result.output
+    report = (output_dir / "validation_report.md").read_text()
+    assert "Housekeeping genes expected: 13" in report
+    assert "Housekeeping genes found: 3" in report
+    assert "Top quartile fraction: 0.0%" in report
+    assert "Incomplete negative-control metrics" not in report
+
+
+def test_validation_report_uses_non_null_scored_universe_not_candidate_rows(tmp_path):
+    store = create_synthetic_scored_db(tmp_path)
+    try:
+        positive_metrics = validate_positive_controls_extended(store)
+        negative_metrics = validate_negative_controls(store)
+        scored_rows = store.load_dataframe("scored_genes")
+        candidate_rows = scored_rows.head(3)
+
+        report = generate_comprehensive_validation_report(
+            positive_metrics,
+            negative_metrics,
+            {
+                "baseline_weights": ScoringWeights().model_dump(),
+                "results": [],
+                "top_n": 100,
+            },
+            {
+                "overall_stable": None,
+                "total_perturbations": 0,
+            },
+        )
+
+        scored_non_null = scored_rows.filter(pl.col("composite_score").is_not_null()).height
+        assert scored_non_null == 20
+        assert candidate_rows.height == 3
+        assert positive_metrics["total_scored_non_null"] == scored_non_null
+        assert negative_metrics["total_scored_non_null"] == scored_non_null
+        assert report.count(
+            "Percentile denominator (non-NULL scored genes): 20"
+        ) == 2
+        assert "Percentile denominator (non-NULL scored genes): 3" not in report
     finally:
         store.close()
 
@@ -220,6 +334,14 @@ def test_validate_negative_controls_inverted_logic(tmp_path):
             "literature_score": [0.90, 0.85, 0.88, 0.20, 0.15],
             "evidence_count": [6] * len(gene_symbols),
             "quality_flag": ["sufficient_evidence"] * len(gene_symbols),
+            # Source-level localization fields required by the HIGH gate.
+            "compartment_cilia": [False] * len(gene_symbols),
+            "compartment_centrosome": [False] * len(gene_symbols),
+            "compartment_basal_body": [False] * len(gene_symbols),
+            "compartment_transition_zone": [False] * len(gene_symbols),
+            "compartment_stereocilia": [False] * len(gene_symbols),
+            "in_cilia_compendium": [False] * len(gene_symbols),
+            "in_centrosome_compendium": [False] * len(gene_symbols),
         })
         store.conn.execute("CREATE TABLE scored_genes AS SELECT * FROM scored_df")
 
@@ -260,15 +382,15 @@ def test_compute_recall_at_k(tmp_path):
         assert "5%" in metrics["recalls_percentage"]
         assert "10%" in metrics["recalls_percentage"]
 
-        # Note: compile_known_genes() returns all 38 known genes (OMIM + SYSCILIA),
+        # Note: compile_known_genes() returns all 37 established control genes,
         # but our synthetic DB only has 3 of them (MYO7A, IFT88, BBS1).
-        # So total_known_unique is 38, but only 3 are in dataset.
+        # So total_known_unique is 37, but only 3 are in dataset.
         total_known = metrics["total_known_unique"]
-        assert total_known == 38, f"Expected 38 known genes from compile_known_genes(), got {total_known}"
+        assert total_known == 37, f"Expected 37 known genes from compile_known_genes(), got {total_known}"
 
-        # All 3 genes in dataset have high scores, so recall should be 3/38 = 0.0789
+        # All 3 genes in dataset have high scores, so recall should be 3/37.
         recall_at_100 = metrics["recalls_absolute"].get(100, 0.0)
-        expected_recall = 3.0 / 38.0
+        expected_recall = 3.0 / 37.0
         assert abs(recall_at_100 - expected_recall) < 0.01, \
             f"Recall@100 should be {expected_recall:.4f} (3/38), got {recall_at_100:.4f}"
 
@@ -332,12 +454,13 @@ def test_perturb_weight_invalid_layer():
 
 
 def test_generate_comprehensive_validation_report_format():
-    """Test comprehensive validation report contains expected sections."""
+    """Test internal evaluation report contains expected sections."""
     # Create mock metrics
     positive_metrics = {
         "validation_passed": True,
         "total_known_expected": 38,
         "total_known_in_dataset": 35,
+        "total_scored_non_null": 20000,
         "median_percentile": 0.85,
         "top_quartile_count": 30,
         "top_quartile_fraction": 0.86,
@@ -357,8 +480,10 @@ def test_generate_comprehensive_validation_report_format():
         "validation_passed": True,
         "total_expected": 13,
         "total_in_dataset": 13,
+        "total_scored_non_null": 20000,
         "median_percentile": 0.35,
         "top_quartile_count": 1,
+        "top_quartile_fraction": 1 / 13,
         "in_high_tier_count": 0,
     }
 
@@ -372,6 +497,7 @@ def test_generate_comprehensive_validation_report_format():
                 "spearman_rho": 0.92,
                 "spearman_pval": 1e-10,
                 "overlap_count": 95,
+                "top_n_jaccard": 0.905,
                 "top_n": 100,
             }
         ],
@@ -400,14 +526,17 @@ def test_generate_comprehensive_validation_report_format():
     )
 
     # Check report contains expected sections
-    assert "Positive Control Validation" in report
-    assert "Negative Control Validation" in report
+    assert "Internal Control Recovery" in report
+    assert "Negative Control Recovery" in report
     assert "Sensitivity Analysis" in report
-    assert "Overall Validation Summary" in report
+    assert "Internal Evaluation Summary" in report
     assert "Weight Tuning Recommendations" in report
+    assert "Jaccard" in report
 
     # Check status appears
-    assert "PASSED" in report
+    assert "MEETS REFERENCE" in report
+    assert "PASSED" not in report
+    assert "Comprehensive Validation Report" not in report
 
 
 def test_recommend_weight_tuning_all_pass():

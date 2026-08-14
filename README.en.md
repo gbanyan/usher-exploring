@@ -4,7 +4,7 @@
 
 A reproducible bioinformatics pipeline for systematic screening of candidate genes associated with Usher syndrome and ciliopathies.
 
-This pipeline evaluates approximately 22,600 human protein-coding genes across six complementary evidence layers, producing weighted composite scores and tiered candidate gene lists for downstream experimental validation.
+This pipeline evaluates 20,116 human protein-coding Ensembl identifiers from the frozen Ensembl 113 GRCh38 GTF across six complementary evidence layers, producing weighted composite scores and tiered candidate hypotheses for downstream experimental validation. HGNC remapping and downstream counts are regenerated from the frozen source. A high score is not evidence of a causal gene–disease relationship.
 
 ---
 
@@ -32,14 +32,14 @@ This pipeline evaluates approximately 22,600 human protein-coding genes across s
 
 ## Research Background
 
-**Usher syndrome** is the most common cause of hereditary deaf-blindness, characterized by sensorineural hearing loss and retinitis pigmentosa. Approximately 10 causative genes have been identified to date (e.g., MYO7A, USH2A, CDH23), yet a subset of clinically diagnosed patients carry no pathogenic variants in known genes — suggesting that additional causative or modifier genes remain to be discovered.
+**Usher syndrome** is the most common cause of hereditary deaf-blindness, characterized by sensorineural hearing loss and retinitis pigmentosa. Several established Usher genes are known, yet a subset of clinically diagnosed patients carry no pathogenic variants in those genes. Additional genes, modifiers, and noncoding mechanisms remain hypotheses for investigation.
 
-Usher proteins play critical roles in cilia and cilia-associated structures, particularly the connecting cilium of retinal photoreceptors and the stereocilia of inner ear hair cells. This pipeline therefore adopts **ciliary biology** as its central framework, integrating multi-dimensional genomic and functional data to systematically identify overlooked candidate genes.
+Usher proteins play critical roles in cilia and cilia-associated structures, particularly the connecting cilium of retinal photoreceptors and the stereocilia of inner ear hair cells. This pipeline therefore adopts **ciliary biology** as its central framework, integrating multi-dimensional genomic and functional data to prioritize candidate hypotheses for follow-up.
 
 ### Core Design Principles
 
-- **Missing data ≠ zero score**: If a gene lacks data in a given evidence layer (NULL), it is not penalized. Only layers with available data contribute to the weighted average. This prevents systematic bias against understudied genes.
-- **Complementary multi-evidence validation**: Six evidence layers assess cilia/Usher relevance from complementary angles, reducing the impact of any single data source bias.
+- **Missing data ≠ zero score**: If a gene lacks data in a given evidence layer (NULL), it is not treated as negative evidence. Only layers with available data contribute to the weighted average. This does not prove that sparse-evidence genes are understudied or relevant.
+- **Complementary multi-evidence prioritization**: Six evidence layers assess cilia/Usher relevance from complementary angles, while preserving the limitations and biases of each source.
 - **Full reproducibility**: All data versions, parameters, and analysis steps are recorded with provenance tracking.
 
 ---
@@ -49,8 +49,8 @@ Usher proteins play critical roles in cilia and cilia-associated structures, par
 ```
 ┌──────────────────────────────────────────────────────┐
 │  Step 1: Build Gene Universe                         │
-│  Retrieve ~22,600 human protein-coding genes         │
-│  via mygene API                                      │
+│  Load 20,116 protein-coding Ensembl IDs              │
+│  from the frozen Ensembl 113 GRCh38 GTF              │
 └────────────────────────┬─────────────────────────────┘
                          ▼
 ┌──────────────────────────────────────────────────────┐
@@ -102,6 +102,12 @@ source .venv/bin/activate    # macOS / Linux
 pip install -e ".[dev]"
 ```
 
+For the optional CELLxGENE Census integration, install the expression extra as well:
+
+```bash
+pip install -e ".[dev,expression]"
+```
+
 To verify the installation:
 
 ```bash
@@ -131,9 +137,14 @@ usher-pipeline setup
 ```
 
 This step will:
-- Query all human protein-coding genes (~22,600) via the mygene API
+- Load the locally cached Ensembl 113 GRCh38 GTF and retain only `gene` records whose per-ID `gene_biotype` is exactly `protein_coding`
 - Establish mappings between Ensembl Gene ID, HGNC Symbol, and UniProt Accession
 - Store results in a local DuckDB database (`data/pipeline.duckdb`)
+
+The frozen source is configured by `versions.ensembl_gene_source` and its
+SHA-256 digest. Setup fails if the cache is absent or has changed; MyGene is
+used only for identifier annotation after the release-pinned universe is
+loaded.
 
 ### Step 2: Run the Six Evidence Layers
 
@@ -159,7 +170,7 @@ usher-pipeline evidence animal-models
 usher-pipeline evidence literature --email your@email.com --api-key YOUR_KEY
 ```
 
-> **Note**: The literature mining layer queries PubMed records for all ~22,600 genes, which is rate-limited (~8 genes/minute). A full run may take a considerable amount of time. This layer supports checkpoint-restart — if interrupted, simply re-run the same command to resume from where it left off.
+> **Note**: The literature mining layer queries PubMed records for the remapped frozen gene universe, which is rate-limited. Bulk source files and PubMed context sets are cached locally. To recompute transforms from existing local caches without forcing source downloads, use `--reprocess-cached` with the expression or literature evidence command. If a run is interrupted, re-run the same command to resume from its checkpoint.
 
 ### Step 3: Composite Scoring
 
@@ -235,7 +246,7 @@ Higher score = stronger constraint = greater functional importance.
 - KEGG / Reactome — metabolic and signaling pathway membership
 
 **Scientific rationale**:
-The completeness of functional annotation reflects how thoroughly a gene has been studied. Importantly, this layer is **inversely correlated with novelty** — genes with fewer annotations may represent undiscovered biology. To account for this, annotation carries only 15% weight in the composite score, allowing novel candidates with evidence from other layers to still rank highly.
+The completeness of functional annotation measures available annotation, not how thoroughly a gene has been studied. Genes with fewer annotations may reflect many different situations, including recent discovery or incomplete database coverage; this layer therefore carries only 15% weight and must be interpreted with the other evidence layers.
 
 **Scoring**:
 
@@ -257,10 +268,10 @@ where:
 **Data sources**:
 - **HPA** (Human Protein Atlas) v23 — tissue-level RNA expression (TPM)
 - **GTEx** v8 — bulk RNA-seq across 54 human tissues
-- **CellxGene** — single-cell RNA-seq (photoreceptor and hair cell populations)
+- **CELLxGENE Census** — single-cell RNA-seq (photoreceptor data in the frozen production score; hair-cell data are not included in that score)
 
 **Scientific rationale**:
-Usher syndrome affects retinal photoreceptors and cochlear hair cells. Genes highly enriched in these tissues are likely to have specialized functions there, making them candidates of interest.
+Usher syndrome affects retinal photoreceptors and cochlear hair cells. Genes enriched in these tissues may provide a tissue-relevance signal, but expression alone does not establish disease relevance.
 
 **Key metrics**:
 
@@ -269,7 +280,7 @@ Usher syndrome affects retinal photoreceptors and cochlear hair cells. Genes hig
    - τ = 1: Highly tissue-specific
    - Formula: `τ = Σ(1 − xᵢ/x_max) / (n − 1)`
 
-2. **Usher tissue enrichment**: Mean expression in target tissues (retina, cerebellum, photoreceptors, hair cells) divided by mean expression across all tissues. A ratio > 1 indicates enrichment in target tissues.
+2. **Usher tissue enrichment**: Source-specific mean expression in the production target tissues (retina-related measures, cerebellum, and photoreceptors) relative to the relevant background. A ratio > 1 indicates enrichment in the selected target set; raw HPA, GTEx, and CELLxGENE units are not mixed directly.
 
 **Scoring**:
 
@@ -416,7 +427,7 @@ composite_score = (0.8 × 0.20 + 0.6 × 0.20 + 0.9 × 0.15) / (0.20 + 0.20 + 0.1
 
 | Tier | Criteria | Interpretation |
 |------|----------|----------------|
-| **HIGH** | Composite score ≥ 0.7 and ≥ 3 layers with data | High-priority candidate; recommended for experimental validation |
+| **HIGH** | Composite score ≥ 0.7, ≥ 3 layers with data, and cilia-signal gate | Higher-priority computational hypothesis; requires independent experimental validation |
 | **MEDIUM** | Composite score ≥ 0.4 and ≥ 2 layers with data | Moderate evidence; warrants further literature investigation |
 | **LOW** | Composite score ≥ 0.2 | Weak evidence; additional data needed |
 | EXCLUDED | Below LOW threshold | Excluded from candidate list |
@@ -434,19 +445,19 @@ composite_score = (0.8 × 0.20 + 0.6 × 0.20 + 0.9 × 0.15) / (0.20 + 0.20 + 0.1
 
 ## Validation
 
-The pipeline includes built-in positive control validation to confirm the effectiveness of the scoring system.
+The pipeline includes built-in internal control recovery diagnostics. These diagnostics do not establish clinical sensitivity or causal validity.
 
 ### Positive Control Gene Sets
 
-1. **OMIM Usher genes** (10 genes): MYO7A, USH1C, CDH23, PCDH15, USH1G, CIB2, USH2A, ADGRV1, WHRN, CLRN1
+1. **Established Usher genes** (9 genes): MYO7A, USH1C, CDH23, PCDH15, USH1G, USH2A, ADGRV1, WHRN, CLRN1. CIB2 is excluded because its historical USH1J assignment is disputed in current curation.
 2. **SYSCILIA SCGS v2 core ciliary genes** (28 genes): IFT88, IFT140, BBS1, CEP290, RPGR, and others
 
 ### Validation Criteria
 
-- Median percentile rank of known genes should be ≥ 75% (top quartile)
-- Top 10% of candidates should contain > 70% of known genes (Recall@10%)
+- Median percentile rank of the selected controls is monitored against a ≥75% top-quartile threshold
+- Recall@10% is reported as a descriptive recovery metric; the final rerun achieved 59.5% and does not meet the former >70% screening target
 
-If validation fails, it indicates potential issues with weight configuration or data quality that require investigation and adjustment.
+These thresholds are diagnostic checks, not proof of clinical sensitivity or causal validity. Failure should trigger review of data versions and control definitions rather than automatic weight tuning.
 
 ---
 
@@ -495,9 +506,13 @@ The pipeline configuration file is located at `config/default.yaml`:
 # Data versions
 versions:
   ensembl_release: 113
+  ensembl_gene_source: annotation/Homo_sapiens.GRCh38.113.gtf.gz
+  ensembl_gene_source_url: https://ftp.ensembl.org/pub/release-113/gtf/homo_sapiens/Homo_sapiens.GRCh38.113.gtf.gz
+  ensembl_gene_source_sha256: 62f1709b40e083ce9d4cdc64a86b5ffec2c5d5371434bb7095c74dc89079c466
   gnomad_version: v4.1
   gtex_version: v8
   hpa_version: "23.0"
+  cellxgene_census_version: "2025-11-08"
 
 # Scoring weights (adjustable; must sum to 1.0)
 scoring:
@@ -528,7 +543,8 @@ To adjust weights (e.g., to place greater emphasis on tissue expression), modify
 | gnomAD transcript-level IDs | gnomAD uses transcript IDs rather than gene-level IDs | Some genes may produce NaN on JOIN |
 | Literature mining speed | NCBI API rate limits; ~8 genes/minute | Full run requires considerable time; use API key for faster throughput |
 | Single-writer constraint | DuckDB does not support concurrent writers | Do not run two pipeline steps simultaneously |
-| Limited inner ear data | Bulk transcriptome data for human cochlear tissue is scarce | Cerebellum (cilia-rich) and CellxGene hair cell data used as proxies |
+| Limited inner ear data | Bulk transcriptome data for human cochlear tissue is scarce and no CELLxGENE hair-cell query was included in the frozen production score | Cerebellum and photoreceptor data are used as production proxies; fetal cochlear data remain exploratory |
+| Research-status inference | Missing annotation or publication is not evidence that a gene is genuinely understudied | Treat tiers as hypotheses requiring independent validation |
 
 ---
 
@@ -537,9 +553,10 @@ To adjust weights (e.g., to place greater emphasis on tissue expression), modify
 This pipeline integrates the following public databases and tools:
 
 - **gnomAD** v4.1 — Karczewski et al. (2020) *Nature* 581:434–443
+- **Ensembl** release 113, GRCh38 GTF — frozen `Homo_sapiens.GRCh38.113.gtf.gz` source; SHA-256 is recorded in `config/default.yaml` and setup provenance
 - **Human Protein Atlas** v23 — Uhlén et al. (2015) *Science* 347:1260419
 - **GTEx** v8 — GTEx Consortium (2020) *Science* 369:1318–1330
-- **CellxGene** — Chan Zuckerberg Initiative single-cell atlas
+- **CELLxGENE Census** `2025-11-08` — Chan Zuckerberg Initiative single-cell atlas build used in the frozen run
 - **Gene Ontology** — Gene Ontology Consortium (2021) *Nucleic Acids Res* 49:D325–D334
 - **UniProt** — UniProt Consortium (2023) *Nucleic Acids Res* 51:D523–D531
 - **MGI** — Mouse Genome Informatics, The Jackson Laboratory
@@ -553,4 +570,4 @@ This pipeline integrates the following public databases and tools:
 
 ## License
 
-MIT License
+[AUTHOR ACTION REQUIRED: add a complete license file and state the intended license here before release.]

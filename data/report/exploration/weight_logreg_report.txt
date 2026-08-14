@@ -1,0 +1,42 @@
+20081 genes; 37 known positives, 70 study-matched negatives, 13 housekeeping sentinel
+
+=== Matched-negative quality (mean layer score) ===
+  layer        known  matched-neg  all genes
+  gnomAD       0.537        0.537      0.534
+  expr         0.558        0.547      0.522
+  annot        0.771        0.775      0.645
+  local        0.226        0.222      0.043
+  animal       0.334        0.113      0.032
+  lit          0.992        0.981      0.401
+  (matched on gnomAD/annot/lit; cilia layers left free)
+
+=== Ridge logistic-regression coefficients (bootstrap) ===
+  gnomAD  coef=-0.132  95% CI [-0.792, +0.463]
+  expr    coef=-0.035  95% CI [-0.811, +0.765]
+  annot   coef=-0.174  95% CI [-0.834, +0.437]
+  local   coef=+0.107  95% CI [-0.747, +1.046]
+  animal  coef=+3.027  95% CI [+2.283, +3.721]
+  lit     coef=+0.219  95% CI [+0.101, +0.323]
+
+  derived weights (clip<0, normalise):
+    gnomAD  0.000   (default 0.20)
+    expr    0.000   (default 0.20)
+    annot   0.000   (default 0.15)
+    local   0.032   (default 0.15)
+    animal  0.903   (default 0.15)
+    lit     0.065   (default 0.15)
+
+=== Specificity / sensitivity ===
+                           default    logreg
+  known median %ile           92.8      98.7
+  housekeeping median         94.8      75.1
+  housekeeping in HIGH           2         0
+  known median %ile (5-fold held-out): 98.2
+
+=== Discovery-survival check ===
+  Spearman rho (default vs logreg full ranking): 0.646
+  mean percentile shift, genes with 2-3 layers: +5.6
+  mean percentile shift, genes with 4-5 layers: -1.9
+  mean percentile shift, genes with 6 layers: -0.3
+  new top-15 candidates (>=4 layers):
+    ARMS2, DCD, LACRT, BLID, MLN, GDF6, CEP290, IFT88, DAOA, VANGL2, USH2A, NPIPB15, CHM, CHD7, NPIPB6

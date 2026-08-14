@@ -5,17 +5,17 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "usher-pipeline"
 version = "0.1.0"
-description = "Reproducible pipeline for discovering under-studied cilia/Usher candidate genes"
+description = "Reproducible pipeline for prioritizing Usher syndrome and related ciliopathy candidate genes"
 requires-python = ">=3.11"
 authors = [
     {name = "Research Team"}
 ]
 readme = "README.md"
-license = {text = "MIT"}
+# License metadata is intentionally omitted until the authors add and confirm
+# the complete repository license for the public release.
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
@@ -48,15 +48,14 @@ dev = [
     "pytest-cov>=4.1.0",
 ]
 expression = [
-    "cellxgene-census>=1.15",
+    "cellxgene-census>=1.17,<2",
 ]
 
 [project.scripts]
 usher-pipeline = "usher_pipeline.cli.main:cli"
 
-[tool.setuptools]
-packages = ["usher_pipeline"]
-package-dir = {"" = "src"}
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,6 +1,7 @@
 """Multi-evidence scoring and known gene compilation for cilia/Usher syndrome genes."""
 
 from usher_pipeline.scoring.known_genes import (
+    ESTABLISHED_USHER_GENES,
     OMIM_USHER_GENES,
     SYSCILIA_SCGS_V2_CORE,
     compile_known_genes,
@@ -35,12 +36,14 @@ from usher_pipeline.scoring.sensitivity import (
     STABILITY_THRESHOLD,
 )
 from usher_pipeline.scoring.validation_report import (
+    generate_internal_evaluation_report,
     generate_comprehensive_validation_report,
     recommend_weight_tuning,
     save_validation_report,
 )
 
 __all__ = [
+    "ESTABLISHED_USHER_GENES",
     "OMIM_USHER_GENES",
     "SYSCILIA_SCGS_V2_CORE",
     "compile_known_genes",
@@ -64,6 +67,7 @@ __all__ = [
     "EVIDENCE_LAYERS",
     "STABILITY_THRESHOLD",
     "generate_comprehensive_validation_report",
+    "generate_internal_evaluation_report",
     "recommend_weight_tuning",
     "save_validation_report",
 ]

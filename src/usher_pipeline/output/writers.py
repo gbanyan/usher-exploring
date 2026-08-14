@@ -1,16 +1,31 @@
 """Dual-format TSV+Parquet writer with provenance sidecar."""
 
+import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import polars as pl
 import yaml
+
+if TYPE_CHECKING:
+    from usher_pipeline.persistence.provenance import ProvenanceTracker
+
+
+def _sha256_file(path: Path) -> str:
+    """Compute a streaming SHA-256 checksum for a generated artifact."""
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def write_candidate_output(
     df: pl.DataFrame | pl.LazyFrame,
     output_dir: Path,
     filename_base: str = "candidates",
+    provenance: "ProvenanceTracker | None" = None,
 ) -> dict:
     """
     Write candidate genes to TSV and Parquet formats with provenance sidecar.
@@ -68,6 +83,11 @@ def write_candidate_output(
     # Write Parquet
     df.write_parquet(parquet_path, compression="snappy", use_pyarrow=True)
 
+    output_checksums = {
+        tsv_path.name: _sha256_file(tsv_path),
+        parquet_path.name: _sha256_file(parquet_path),
+    }
+
     # Collect statistics for provenance
     total_candidates = df.height
 
@@ -91,6 +111,24 @@ def write_candidate_output(
         },
         "column_count": len(df.columns),
         "column_names": df.columns,
+        "config_hash": provenance.config_hash if provenance is not None else None,
+        "output_checksums": output_checksums,
+        "data_source_records": (
+            provenance.data_sources.copy() if provenance is not None else []
+        ),
+        "rejected_sidecars": (
+            provenance.rejected_sidecars.copy() if provenance is not None else []
+        ),
+        "provenance_coverage": (
+            provenance.provenance_coverage()
+            if provenance is not None
+            else {
+                "status": "incomplete",
+                "recorded_source_count": 0,
+                "covered_fields": {},
+                "note": "No provenance tracker was supplied; source metadata is incomplete.",
+            }
+        ),
     }
 
     # Write provenance YAML

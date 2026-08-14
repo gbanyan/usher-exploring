@@ -12,6 +12,12 @@
     "SLC17A8"
   ],
   "minimum_markers": 4,
+  "source_mode": "local_cache_only",
+  "target_scored_state": {
+    "database": "data/pipeline.duckdb",
+    "label_count": 20081,
+    "retained_label_count": 15608
+  },
   "samples": [
     {
       "sample": "GSM4037819",

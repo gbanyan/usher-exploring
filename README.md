@@ -4,7 +4,7 @@
 
 一套可重現的生物資訊分析管線，用於系統性篩選與 Usher 症候群及纖毛病變（ciliopathies）相關的候選基因。
 
-本管線對人類約 22,600 個蛋白質編碼基因，透過六個獨立的證據層面進行評分與排序，最終產出分層候選基因清單，供後續實驗驗證參考。
+本管線對來自凍結 Ensembl 113 GRCh38 GTF 的 20,116 個蛋白質編碼 Ensembl 基因識別碼，透過六個證據層面進行評分與排序，產出供後續實驗驗證的候選假說。HGNC 對應與下游統計會從凍結來源重新產生。高分不代表已建立因果性的基因—疾病關係。
 
 ---
 
@@ -32,14 +32,14 @@
 
 ## 研究背景
 
-**Usher 症候群**是最常見的遺傳性聾盲症候群，患者同時出現感音神經性聽力損失與視網膜色素變性。目前已知的致病基因（如 MYO7A、USH2A、CDH23 等）約 10 個，但臨床上仍有部分患者無法找到已知基因的致病變異，暗示可能存在尚未被發現的致病或修飾基因。
+**Usher 症候群**是最常見的遺傳性聾盲症候群，患者同時出現感音神經性聽力損失與視網膜色素變性。目前已有多個基因具有 established Usher gene–disease relationship，但仍有部分臨床患者無法在這些基因中找到致病變異。其他致病基因、修飾基因與非編碼機制仍屬待檢驗假說。
 
 Usher 蛋白在纖毛（cilia）與纖毛相關結構中扮演關鍵角色，特別是視網膜光受器細胞的連接纖毛（connecting cilium）及內耳毛細胞的靜纖毛（stereocilia）。因此，本管線以**纖毛生物學**為核心，整合多面向的基因體與功能體學資料，系統性地搜尋可能被忽略的候選基因。
 
 ### 核心設計理念
 
-- **缺失資料 ≠ 零分**：若某基因在特定證據層無資料（NULL），不會被扣分，僅以有資料的層面計算加權平均。這避免了對研究不足基因的系統性懲罰。
-- **多面向正交驗證**：六個證據層面分別從不同角度衡量基因與纖毛/Usher 的關聯性，降低單一資料來源偏差的影響。
+- **缺失資料 ≠ 零分**：若某基因在特定證據層無資料（NULL），不會被當作反面證據，僅以有資料的層面計算加權平均；這不代表資料稀疏的基因一定是研究不足或具有疾病相關性。
+- **多面向候選排序**：六個證據層面從不同角度衡量基因與纖毛/Usher 的關聯性，但各資料來源的限制與偏差仍然存在。
 - **可重現性**：所有資料版本、參數設定、分析步驟均有完整記錄。
 
 ---
@@ -49,7 +49,7 @@ Usher 蛋白在纖毛（cilia）與纖毛相關結構中扮演關鍵角色，特
 ```
 ┌─────────────────────────────────────────────────────┐
 │  Step 1: 建立基因宇宙 (Gene Universe)                  │
-│  透過 mygene API 取得 ~22,600 個人類蛋白質編碼基因          │
+│  從凍結的 Ensembl 113 GRCh38 GTF 載入 20,116 個蛋白質編碼 ID │
 └────────────────────────┬────────────────────────────┘
                          ▼
 ┌─────────────────────────────────────────────────────┐
@@ -100,6 +100,12 @@ source .venv/bin/activate    # macOS / Linux
 pip install -e ".[dev]"
 ```
 
+若要使用選用的 CELLxGENE Census 整合，請一併安裝 expression extra：
+
+```bash
+pip install -e ".[dev,expression]"
+```
+
 安裝完成後，可以用以下指令確認是否成功：
 
 ```bash
@@ -129,9 +135,11 @@ usher-pipeline setup
 ```
 
 這一步會：
-- 透過 mygene API 查詢所有人類蛋白質編碼基因（約 22,600 個）
+- 載入本地快取的 Ensembl 113 GRCh38 GTF，逐一保留 `gene_biotype` 嚴格等於 `protein_coding` 的 `gene` 記錄
 - 建立 Ensembl Gene ID ↔ HGNC Symbol ↔ UniProt Accession 的對應關係
 - 結果儲存至本地 DuckDB 資料庫（`data/pipeline.duckdb`）
+
+凍結來源由 `versions.ensembl_gene_source` 與 SHA-256 摘要設定；快取缺失或內容變更時 setup 會失敗。MyGene 僅在載入版本固定的基因宇宙後用於識別碼註釋。
 
 ### Step 2：執行六大證據層面
 
@@ -157,7 +165,7 @@ usher-pipeline evidence animal-models
 usher-pipeline evidence literature --email your@email.com --api-key YOUR_KEY
 ```
 
-> **注意**：文獻探勘層需要查詢 22,600 個基因的 PubMed 記錄，速度較慢（約 8 基因/分鐘），完整執行可能需要較長時間。此層支援中斷後續跑（checkpoint-restart），如果中途斷線，重新執行同一指令即可從上次進度繼續。
+> **注意**：文獻探勘層需要查詢凍結基因宇宙完成 HGNC 對應後的 PubMed 記錄，速度受限於 API。大型來源檔案與 PubMed context set 會快取在本地；若只想使用既有快取重算，可對 expression 或 literature 指令加上 `--reprocess-cached`，不會強制重新下載。
 
 ### Step 3：綜合評分
 
@@ -191,7 +199,7 @@ usher-pipeline report
 usher-pipeline validate
 ```
 
-驗證已知 Usher 基因與 SYSCILIA 纖毛基因是否排名在前 25%，確認評分系統的有效性。
+報告選定 Usher 與 SCGSv2 控制基因的內部回收情形。由於控制集是人工整理，且 cilia-signal gate 曾參考控制表現，這不是獨立敏感度估計。
 
 ---
 
@@ -233,7 +241,7 @@ loeuf_normalized = (LOEUF_max − LOEUF) / (LOEUF_max − LOEUF_min)
 - KEGG / Reactome — 代謝與訊號傳遞路徑
 
 **科學依據**：
-功能註釋的完整程度反映了一個基因被研究的深度。注意：此層面與「新穎性」呈**負相關**——註釋越少的基因可能代表尚未被發現的生物學。因此在綜合評分中，此層僅佔 15% 權重，讓缺乏註釋但有其他證據支持的新穎候選基因仍能獲得高排名。
+功能註釋的完整程度反映目前資料庫中的可用註釋，不等同於基因被研究的深度或新穎性。註釋較少可能有多種原因，因此此層僅佔 15% 權重，必須與其他證據層一併解讀。
 
 **評分方式**：
 
@@ -255,10 +263,10 @@ annotation_score = 0.5 × GO 組分 + 0.3 × UniProt 組分 + 0.2 × Pathway 組
 **資料來源**：
 - **HPA**（Human Protein Atlas）v23 — 組織層級 RNA 表達量（TPM）
 - **GTEx** v8 — 54 個人體組織的大量 RNA 定序資料
-- **CellxGene** — 單細胞 RNA 定序（光受器細胞、毛細胞群體）
+- **CELLxGENE Census** `2025-11-08` — 單細胞 RNA 定序；凍結 production score 使用光受器資料，未納入毛細胞查詢
 
 **科學依據**：
-Usher 症候群影響視網膜光受器細胞與耳蝸毛細胞。若一個基因在這些組織中高度富集表達，暗示其在這些組織具有特化功能，是值得關注的候選基因。
+Usher 症候群影響視網膜光受器細胞與耳蝸毛細胞。若一個基因在這些組織中富集表達，可能提供組織相關性線索；但表達本身不建立疾病相關性。
 
 **關鍵指標**：
 
@@ -267,7 +275,7 @@ Usher 症候群影響視網膜光受器細胞與耳蝸毛細胞。若一個基�
    - τ = 1：高度組織特異性
    - 公式：`τ = Σ(1 − xᵢ/x_max) / (n − 1)`
 
-2. **Usher 組織富集度**：目標組織（視網膜、小腦、光受器、毛細胞）的平均表達量，除以所有組織的整體平均表達量。比值 > 1 代表在目標組織富集。
+2. **Usher 組織富集度**：production target（視網膜相關量測、小腦、光受器）的 source-specific 平均表達量，相對於對應背景的比值。比值 > 1 代表在選定 target set 富集；不同來源的原始單位不直接混合。
 
 **評分方式**：
 
@@ -412,7 +420,7 @@ composite_score = (0.8×0.20 + 0.6×0.20 + 0.9×0.15) / (0.20 + 0.20 + 0.15)
 
 | 層級 | 條件 | 意義 |
 |------|------|------|
-| **HIGH** | 綜合分數 ≥ 0.7 且 ≥ 3 層有資料 | 高優先候選基因，建議進入實驗驗證 |
+| **HIGH** | 綜合分數 ≥ 0.7、≥ 3 層有資料，且通過 cilia-signal gate | 較高優先的計算假說，仍需獨立實驗驗證 |
 | **MEDIUM** | 綜合分數 ≥ 0.4 且 ≥ 2 層有資料 | 中等證據，值得進一步文獻調查 |
 | **LOW** | 綜合分數 ≥ 0.2 | 證據薄弱，需要更多資料 |
 | EXCLUDED | 低於以上條件 | 排除，不列入候選清單 |
@@ -434,15 +442,15 @@ composite_score = (0.8×0.20 + 0.6×0.20 + 0.9×0.15) / (0.20 + 0.20 + 0.15)
 
 ### 正控制基因集
 
-1. **OMIM Usher 基因**（10 個）：MYO7A、USH1C、CDH23、PCDH15、USH1G、CIB2、USH2A、ADGRV1、WHRN、CLRN1
+1. **已建立的 Usher 基因**（9 個）：MYO7A、USH1C、CDH23、PCDH15、USH1G、USH2A、ADGRV1、WHRN、CLRN1。CIB2 的歷史 USH1J 歸類在目前基因—疾病策展中具爭議，因此不納入。
 2. **SYSCILIA SCGS v2 核心纖毛基因**（28 個）：IFT88、IFT140、BBS1、CEP290、RPGR 等
 
 ### 驗證標準
 
-- 已知基因的中位百分位排名應 ≥ 75%（前四分之一）
-- 前 10% 候選基因應包含 > 70% 的已知基因（Recall@10%）
+- 監測選定控制基因的中位百分位是否達到 ≥75%（前四分之一）
+- Recall@10% 作為描述性回收指標；final rerun 為 59.5%，未達原先 >70% 的篩檢目標
 
-如果驗證未通過，表示權重設定或資料品質可能有問題，需要檢視並調整。
+這些門檻是診斷性檢查，不是臨床敏感度或因果有效性的證明；若未通過，應先檢視資料版本與控制集定義，不應自動調整權重。
 
 ---
 
@@ -491,9 +499,13 @@ composite_score = (0.8×0.20 + 0.6×0.20 + 0.9×0.15) / (0.20 + 0.20 + 0.15)
 # 資料版本
 versions:
   ensembl_release: 113
+  ensembl_gene_source: annotation/Homo_sapiens.GRCh38.113.gtf.gz
+  ensembl_gene_source_url: https://ftp.ensembl.org/pub/release-113/gtf/homo_sapiens/Homo_sapiens.GRCh38.113.gtf.gz
+  ensembl_gene_source_sha256: 62f1709b40e083ce9d4cdc64a86b5ffec2c5d5371434bb7095c74dc89079c466
   gnomad_version: v4.1
   gtex_version: v8
   hpa_version: "23.0"
+  cellxgene_census_version: "2025-11-08"
 
 # 評分權重（可依研究需求調整，總和必須為 1.0）
 scoring:
@@ -524,7 +536,8 @@ api:
 | gnomAD 轉錄本層級 ID | gnomAD 使用轉錄本 ID，非基因層級 | 部分基因 JOIN 時可能產生 NaN |
 | 文獻探勘速度 | NCBI API 限制，~8 基因/分鐘 | 完整執行需要較長時間；可使用 API key 加速 |
 | 單一寫入限制 | DuckDB 不支援多行程同時寫入 | 請勿同時執行兩個管線步驟 |
-| 內耳資料稀缺 | 人類耳蝸組織的大量轉錄體資料有限 | 以小腦（含纖毛）及 CellxGene 毛細胞資料作為替代 |
+| 內耳資料稀缺 | 人類耳蝸組織的大量轉錄體資料有限；凍結的 production score 未納入 CELLxGENE 毛細胞查詢 | production 使用小腦與光受器資料作為代理；胎兒耳蝸資料僅作探索性分析 |
+| 研究狀態推論 | 缺少註釋或文獻不等於基因確實是研究不足 | 將分層結果視為需要獨立驗證的假說 |
 
 ---
 
@@ -533,9 +546,10 @@ api:
 本管線整合以下公開資料庫與工具：
 
 - **gnomAD** v4.1 — Karczewski et al. (2020) *Nature* 581:434-443
+- **Ensembl** release 113, GRCh38 GTF — 凍結的 `Homo_sapiens.GRCh38.113.gtf.gz`，SHA-256 記錄於 `config/default.yaml` 與 setup provenance
 - **Human Protein Atlas** v23 — Uhlén et al. (2015) *Science* 347:1260419
 - **GTEx** v8 — GTEx Consortium (2020) *Science* 369:1318-1330
-- **CellxGene** — Chan Zuckerberg Initiative single-cell atlas
+- **CELLxGENE Census** `2025-11-08` — 凍結分析所使用的 Chan Zuckerberg Initiative 單細胞資料版本
 - **Gene Ontology** — Gene Ontology Consortium (2021) *Nucleic Acids Res* 49:D325-D334
 - **UniProt** — UniProt Consortium (2023) *Nucleic Acids Res* 51:D523-D531
 - **MGI** — Mouse Genome Informatics, The Jackson Laboratory
@@ -549,4 +563,4 @@ api:
 
 ## 授權
 
-MIT License
+【作者待辦：加入完整 LICENSE 檔，並在此確認正式授權條款。】

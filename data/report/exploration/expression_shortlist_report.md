@@ -5,14 +5,14 @@ composite scores or production confidence tiers.
 
 ## Data availability
 
-- HIGH candidates: 83
-- OMIM Usher genes already in HIGH: 3
-- OMIM + SYSCILIA controls already in HIGH: 4
-- CellxGene hair-cell coverage within HIGH: 0/83
-- GSE135913 fetal cochlear coverage within HIGH: 82/83
-- Photoreceptor Q75 within HIGH: 0.7518645226955414
-- Fetal cochlear hair-cell Q75 within HIGH: 0.5778035311531147
-- HPA retina Q75 within HIGH: 3.0
+- HIGH candidates: 62
+- Established Usher genes already in HIGH: 2
+- Established Usher + SYSCILIA controls already in HIGH: 3
+- CellxGene hair-cell coverage within HIGH: 0/62
+- GSE135913 fetal cochlear coverage within HIGH: 61/62
+- Photoreceptor Q75 within HIGH: 0.8252069354057312
+- Fetal cochlear hair-cell Q75 within HIGH: 0.484961650905941
+- HPA retina Q75 within HIGH: NA (unavailable in the current local inputs)
 
 > CellxGene hair-cell expression is unavailable. The cochlear value is an
 > exploratory aggregate from marker-validated fetal GSE135913 clusters and
@@ -20,15 +20,15 @@ composite scores or production confidence tiers.
 
 ## Strategy comparison
 
-| Strategy | Genes | Reduction | OMIM retained | Known retained |
-|---|---:|---:|---:|---:|
-| Photoreceptor expression >= Q75 | 21 | 74.7% | 2/3 | 3/4 |
-| Fetal cochlear hair-cell expression >= Q75 | 21 | 74.7% | 3/3 | 3/4 |
-| Photoreceptor and hair-cell expression >= Q75 | 7 | 91.6% | 2/3 | 2/4 |
-| Photoreceptor and HPA retina >= Q75 | 1 | 98.8% | 0/3 | 0/4 |
-| Direct cilia/centrosome protein evidence | 31 | 62.7% | 0/3 | 1/4 |
-| Photoreceptor >= Q75 OR direct protein | 46 | 44.6% | 2/3 | 3/4 |
-| Photoreceptor >= Q75 AND direct protein | 6 | 92.8% | 0/3 | 1/4 |
+| Strategy | Status | Genes | Reduction | Established Usher retained | Known retained |
+|---|---|---:|---:|---:|---:|
+| Photoreceptor expression >= Q75 | available | 16 | 74.2% | 1/2 | 2/3 |
+| Fetal cochlear hair-cell expression >= Q75 | available | 16 | 74.2% | 2/2 | 2/3 |
+| Photoreceptor and hair-cell expression >= Q75 | available | 5 | 91.9% | 1/2 | 1/3 |
+| Photoreceptor and HPA retina >= Q75 | NA | NA | NA | NA/NA | NA/NA |
+| Direct cilia/centrosome protein evidence | available | 23 | 62.9% | 0/2 | 1/3 |
+| Photoreceptor >= Q75 OR direct protein | available | 34 | 45.2% | 1/2 | 2/3 |
+| Photoreceptor >= Q75 AND direct protein | available | 5 | 91.9% | 0/2 | 1/3 |
 
 ## Interpretation rule
 

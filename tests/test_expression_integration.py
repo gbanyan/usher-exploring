@@ -10,7 +10,12 @@ from pathlib import Path
 from unittest.mock import Mock, patch, MagicMock
 
 from usher_pipeline.evidence.expression.transform import process_expression_evidence
-from usher_pipeline.evidence.expression.load import load_to_duckdb
+from usher_pipeline.evidence.expression.load import load_to_duckdb, query_tissue_enriched
+from usher_pipeline.evidence.expression.models import (
+    EXPRESSION_SCHEMA_VERSION,
+    RESTRICTED_ENRICHMENT_COLUMN,
+    RESTRICTED_TAU_COLUMN,
+)
 from usher_pipeline.persistence import PipelineStore, ProvenanceTracker
 
 
@@ -33,10 +38,10 @@ def mock_hpa_data():
     """Synthetic HPA expression data."""
     return pl.LazyFrame({
         "gene_symbol": ["GENE1", "GENE2", "GENE3"],
-        "hpa_retina_tpm": [50.0, 10.0, None],
-        "hpa_cerebellum_tpm": [40.0, 10.0, 5.0],
-        "hpa_testis_tpm": [5.0, 50.0, 50.0],
-        "hpa_fallopian_tube_tpm": [5.0, 50.0, None],
+        "hpa_retina_protein_level": [3, 1, None],
+        "hpa_cerebellum_protein_level": [3, 1, 1],
+        "hpa_testis_protein_level": [1, 3, 3],
+        "hpa_fallopian_tube_protein_level": [1, 3, None],
     })
 
 
@@ -80,13 +85,21 @@ def test_process_expression_pipeline_with_mocks(
             gene_ids=mock_gene_ids,
             cache_dir=temp_cache_dir,
             skip_cellxgene=True,
+            gene_symbol_map=pl.DataFrame({
+                "gene_id": mock_gene_ids,
+                "gene_symbol": ["GENE1", "GENE2", "GENE3"],
+            }),
         )
 
         # Verify output structure
         assert len(df) == len(mock_gene_ids)
         assert "gene_id" in df.columns
-        assert "tau_specificity" in df.columns
-        assert "usher_tissue_enrichment" in df.columns
+        assert "gene_symbol" in df.columns
+        assert df["gene_symbol"].to_list() == ["GENE1", "GENE2", "GENE3"]
+        assert "hpa_retina_protein_level" in df.columns
+        assert "hpa_retina_tpm" not in df.columns
+        assert RESTRICTED_TAU_COLUMN in df.columns
+        assert RESTRICTED_ENRICHMENT_COLUMN in df.columns
         assert "expression_score_normalized" in df.columns
 
 
@@ -99,8 +112,8 @@ def test_checkpoint_restart(temp_cache_dir, mock_gene_ids):
     # Mock load_dataframe to return synthetic data
     existing_data = pl.DataFrame({
         "gene_id": mock_gene_ids,
-        "tau_specificity": [0.5, 0.3, 0.2],
-        "usher_tissue_enrichment": [2.0, 1.0, 0.5],
+        RESTRICTED_TAU_COLUMN: [0.5, 0.3, 0.2],
+        RESTRICTED_ENRICHMENT_COLUMN: [2.0, 1.0, 0.5],
         "expression_score_normalized": [0.8, 0.5, 0.3],
     })
     mock_store.load_dataframe.return_value = existing_data
@@ -116,12 +129,12 @@ def test_provenance_recording():
     # Create synthetic expression data
     df = pl.DataFrame({
         "gene_id": ["ENSG00000001", "ENSG00000002"],
-        "hpa_retina_tpm": [50.0, None],
+        "hpa_retina_protein_level": [3, None],
         "gtex_retina_tpm": [60.0, 10.0],
         "cellxgene_photoreceptor_expr": [None, None],
         "cellxgene_hair_cell_expr": [None, None],
-        "tau_specificity": [0.5, None],
-        "usher_tissue_enrichment": [2.0, 1.0],
+        RESTRICTED_TAU_COLUMN: [0.5, None],
+        RESTRICTED_ENRICHMENT_COLUMN: [2.0, 1.0],
         "expression_score_normalized": [0.8, 0.5],
     })
 
@@ -143,19 +156,21 @@ def test_provenance_recording():
     assert step_name == "load_tissue_expression"
     assert "row_count" in step_details
     assert step_details["row_count"] == 2
+    assert step_details["schema_version"] == EXPRESSION_SCHEMA_VERSION
+    assert step_details["coverage"]["gtex_tpm"]["gtex_retina_tpm"]["non_null_count"] == 2
 
 
 def test_null_expression_handling():
     """Test that genes with all NULL expression data are handled gracefully."""
     df = pl.DataFrame({
         "gene_id": ["ENSG00000001", "ENSG00000002"],
-        "hpa_retina_tpm": [None, 50.0],
-        "hpa_cerebellum_tpm": [None, 40.0],
+        "hpa_retina_protein_level": [None, 3],
+        "hpa_cerebellum_protein_level": [None, 3],
         "gtex_retina_tpm": [None, 60.0],
         "cellxgene_photoreceptor_expr": [None, None],
         "cellxgene_hair_cell_expr": [None, None],
-        "tau_specificity": [None, 0.5],
-        "usher_tissue_enrichment": [None, 2.0],
+        RESTRICTED_TAU_COLUMN: [None, 0.5],
+        RESTRICTED_ENRICHMENT_COLUMN: [None, 2.0],
         "expression_score_normalized": [None, 0.8],
     })
 
@@ -168,3 +183,48 @@ def test_null_expression_handling():
 
     # Verify store was called
     mock_store.save_dataframe.assert_called_once()
+
+
+def test_query_tissue_enriched_reads_gene_symbol_from_produced_table(tmp_path):
+    """The enriched query must expose symbols persisted by the expression load."""
+    store = PipelineStore(tmp_path / "expression.duckdb")
+    provenance = Mock(spec=ProvenanceTracker)
+    df = pl.DataFrame({
+        "gene_id": ["ENSG1", "ENSG2"],
+        "gene_symbol": ["GENE1", "GENE2"],
+        RESTRICTED_TAU_COLUMN: [0.0, 0.5],
+        RESTRICTED_ENRICHMENT_COLUMN: [3.0, 1.0],
+        "expression_score_normalized": [0.8, 0.2],
+        "hpa_retina_protein_level": [3, 0],
+        "hpa_retina_ntpm": [None, None],
+        "gtex_retina_tpm": [10.0, 0.0],
+        "cellxgene_photoreceptor_expr": [None, None],
+        "cellxgene_hair_cell_expr": [None, None],
+    })
+    load_to_duckdb(df, store, provenance)
+
+    result = query_tissue_enriched(store, min_enrichment=2.0)
+
+    assert result["gene_symbol"].to_list() == ["GENE1"]
+    assert result[RESTRICTED_ENRICHMENT_COLUMN].to_list() == [3.0]
+    store.close()
+
+
+def test_all_null_gtex_does_not_infer_structural_absence():
+    """Only raw-source metadata can establish structural GTEx absence."""
+    df = pl.DataFrame({
+        "gene_id": ["ENSG1"],
+        "gene_symbol": ["GENE1"],
+        "gtex_retina_tpm": [None],
+        RESTRICTED_TAU_COLUMN: [0.0],
+        RESTRICTED_ENRICHMENT_COLUMN: [None],
+        "expression_score_normalized": [None],
+    })
+    mock_store = Mock(spec=PipelineStore)
+    mock_provenance = Mock(spec=ProvenanceTracker)
+
+    load_to_duckdb(df, mock_store, mock_provenance)
+
+    details = mock_provenance.record_step.call_args[0][1]
+    assert details["structurally_absent"] == {}
+    assert details["mean_tau_restricted_panel_specificity"] == 0.0

@@ -43,9 +43,24 @@ from usher_pipeline.evidence.animal_models import (
     process_animal_model_evidence,
     load_to_duckdb as animal_models_load_to_duckdb,
 )
+from usher_pipeline.evidence.derived_cache import (
+    reindex_annotation_from_donor,
+    reindex_animal_models_from_donor,
+    write_derived_cache_audit,
+)
 from usher_pipeline.evidence.expression import (
     process_expression_evidence,
     load_to_duckdb as expression_load_to_duckdb,
+    expression_source_metadata,
+    validate_expression_cache,
+)
+from usher_pipeline.evidence.expression.models import (
+    EXPRESSION_SCHEMA_VERSION,
+    LEGACY_EXPRESSION_CONTRACT_COLUMNS,
+    LEGACY_HPA_TPM_COLUMNS,
+    RESTRICTED_ENRICHMENT_COLUMN,
+    RESTRICTED_TAU_COLUMN,
+    RETINA_EVIDENCE_COLUMNS,
 )
 
 logger = logging.getLogger(__name__)
@@ -71,6 +86,11 @@ def evidence():
     help='Re-download and reprocess data even if checkpoint exists'
 )
 @click.option(
+    '--reprocess-cached',
+    is_flag=True,
+    help='Reprocess the existing local constraint_metrics.tsv without downloading',
+)
+@click.option(
     '--url',
     default=GNOMAD_CONSTRAINT_URL,
     help='Override gnomAD constraint file URL'
@@ -88,7 +108,7 @@ def evidence():
     help='Minimum CDS coverage percentage for quality filtering (default: 0.9 = 90%%)'
 )
 @click.pass_context
-def gnomad(ctx, force, url, min_depth, min_cds_pct):
+def gnomad(ctx, force, reprocess_cached, url, min_depth, min_cds_pct):
     """Fetch and load gnomAD constraint metrics (pLI, LOEUF).
 
     Downloads gnomAD v4.1 constraint metrics, filters by coverage quality,
@@ -129,10 +149,24 @@ def gnomad(ctx, force, url, min_depth, min_cds_pct):
         click.echo(click.style("  Storage initialized", fg='green'))
         click.echo()
 
+        if force and reprocess_cached:
+            raise click.ClickException(
+                "--force and --reprocess-cached are mutually exclusive: "
+                "cache-only raw reprocessing cannot refresh source files"
+            )
+
+        gnomad_dir = Path(config.data_dir) / "gnomad"
+        tsv_path = gnomad_dir / "constraint_metrics.tsv"
+        if reprocess_cached and not tsv_path.is_file():
+            raise click.ClickException(
+                "Cache-only gnomAD reprocessing requires the local raw source; "
+                f"missing {tsv_path}"
+            )
+
         # Check checkpoint
         has_checkpoint = store.has_checkpoint('gnomad_constraint')
 
-        if has_checkpoint and not force:
+        if has_checkpoint and not force and not reprocess_cached:
             click.echo(click.style(
                 "gnomAD constraint checkpoint exists. Skipping processing (use --force to re-run).",
                 fg='yellow'
@@ -157,35 +191,38 @@ def gnomad(ctx, force, url, min_depth, min_cds_pct):
                 click.echo(click.style("Evidence layer ready (used existing checkpoint)", fg='green'))
                 return
 
-        # Download gnomAD constraint metrics
-        click.echo("Downloading gnomAD constraint metrics...")
-        click.echo(f"  URL: {url}")
-        click.echo(f"  Version: {config.versions.gnomad_version}")
-
-        gnomad_dir = Path(config.data_dir) / "gnomad"
-        gnomad_dir.mkdir(parents=True, exist_ok=True)
-        tsv_path = gnomad_dir / "constraint_metrics.tsv"
-
-        try:
-            tsv_path = download_constraint_metrics(
-                output_path=tsv_path,
-                url=url,
-                force=force
-            )
-            click.echo(click.style(
-                f"  Downloaded to: {tsv_path}",
-                fg='green'
-            ))
-        except Exception as e:
-            click.echo(click.style(f"  Error downloading: {e}", fg='red'), err=True)
-            logger.exception("Failed to download gnomAD constraint metrics")
-            sys.exit(1)
+        # Download only in the normal mode.  The explicit cached mode fails
+        # closed above and never reaches the network helper.
+        if reprocess_cached:
+            click.echo("Using local gnomAD raw source (cache-only; no download)...")
+            click.echo(click.style(f"  Source: {tsv_path}", fg='green'))
+        else:
+            click.echo("Downloading gnomAD constraint metrics...")
+            click.echo(f"  URL: {url}")
+            click.echo(f"  Version: {config.versions.gnomad_version}")
+            gnomad_dir.mkdir(parents=True, exist_ok=True)
+            try:
+                tsv_path = download_constraint_metrics(
+                    output_path=tsv_path,
+                    url=url,
+                    force=force
+                )
+                click.echo(click.style(
+                    f"  Downloaded to: {tsv_path}",
+                    fg='green'
+                ))
+            except Exception as e:
+                click.echo(click.style(f"  Error downloading: {e}", fg='red'), err=True)
+                logger.exception("Failed to download gnomAD constraint metrics")
+                sys.exit(1)
 
         click.echo()
         provenance.record_step('download_gnomad_constraint', {
             'url': url,
             'version': config.versions.gnomad_version,
             'output_path': str(tsv_path),
+            'mode': 'raw_local_reprocess' if reprocess_cached else 'download_or_cached_fetch',
+            'reprocess_cached': reprocess_cached,
         })
 
         # Process constraint data
@@ -213,13 +250,14 @@ def gnomad(ctx, force, url, min_depth, min_cds_pct):
             'min_depth': min_depth,
             'min_cds_pct': min_cds_pct,
             'total_genes': len(df),
+            'mode': 'raw_local_reprocess' if reprocess_cached else 'download_or_cached_fetch',
         })
 
         # Load to DuckDB
         click.echo("Loading to DuckDB...")
 
         try:
-            gnomad_load_to_duckdb(
+            loaded_df = gnomad_load_to_duckdb(
                 df=df,
                 store=store,
                 provenance=provenance,
@@ -244,12 +282,13 @@ def gnomad(ctx, force, url, min_depth, min_cds_pct):
         click.echo()
 
         # Display summary
-        measured = df.filter(df['quality_flag'] == 'measured').height
-        incomplete = df.filter(df['quality_flag'] == 'incomplete_coverage').height
-        no_data = df.filter(df['quality_flag'] == 'no_data').height
+        summary_df = loaded_df if 'loaded_df' in locals() else df
+        measured = summary_df.filter(summary_df['quality_flag'] == 'measured').height
+        incomplete = summary_df.filter(summary_df['quality_flag'] == 'incomplete_coverage').height
+        no_data = summary_df.filter(summary_df['quality_flag'] == 'no_data').height
 
         click.echo(click.style("=== Summary ===", bold=True))
-        click.echo(f"Total Genes: {len(df)}")
+        click.echo(f"Total Genes: {len(summary_df)}")
         click.echo(f"  Measured (good coverage): {measured}")
         click.echo(f"  Incomplete coverage: {incomplete}")
         click.echo(f"  No data: {no_data}")
@@ -274,8 +313,14 @@ def gnomad(ctx, force, url, min_depth, min_cds_pct):
     is_flag=True,
     help='Reprocess data even if checkpoint exists'
 )
+@click.option(
+    '--derived-cache',
+    type=click.Path(path_type=Path, dir_okay=False),
+    default=None,
+    help='Explicit donor DuckDB for exact-ID derived-cache migration (no raw rerun or network access)',
+)
 @click.pass_context
-def annotation(ctx, force):
+def annotation(ctx, force, derived_cache):
     """Fetch and load gene annotation completeness metrics.
 
     Retrieves GO term counts from mygene.info and UniProt annotation scores,
@@ -312,6 +357,48 @@ def annotation(ctx, force):
         provenance = ProvenanceTracker.from_config(config)
         click.echo(click.style("  Storage initialized", fg='green'))
         click.echo()
+
+        if force and derived_cache is not None:
+            raise click.ClickException(
+                "--force and --derived-cache are mutually exclusive; derived-cache "
+                "migration is read-only with respect to its donor and never fetches"
+            )
+
+        # An explicit derived-cache invocation always replaces the target
+        # layer, even if a stale checkpoint is present.
+        if derived_cache is not None:
+            gene_universe = store.load_dataframe('gene_universe')
+            if gene_universe is None or gene_universe.height == 0:
+                raise click.ClickException(
+                    "gene_universe table not found. Run cache-only setup first."
+                )
+            click.echo("Migrating annotation from the local donor cache by exact stable Ensembl ID...")
+            df, audit, migration = reindex_annotation_from_donor(
+                derived_cache,
+                gene_universe,
+                provenance=provenance,
+            )
+            audit_path = write_derived_cache_audit(
+                audit,
+                Path(config.data_dir) / "report" / "derived_cache_annotation_mapping.tsv",
+            )
+            annotation_load_to_duckdb(
+                df=df,
+                store=store,
+                provenance=provenance,
+                description="Annotation derived-cache migration; exact-ID donor reuse with recomputed gates/scores",
+            )
+            annotation_dir = Path(config.data_dir) / "annotation"
+            provenance.save_sidecar(annotation_dir / "completeness.provenance.json")
+            click.echo(click.style(
+                f"  Derived-cache result: {df.height} genes; audit: {audit_path}",
+                fg='green',
+            ))
+            click.echo(f"  Donor SHA-256: {migration['source_artifact_hash']}")
+            click.echo(f"  Rogue donor IDs rejected: {migration['rogue_id_count']}")
+            click.echo(f"  Duplicate IDs merged: {migration['merged_duplicate_id_count']}")
+            click.echo("  Raw-source coverage: incomplete (derived_cache_reuse; not a raw rerun)")
+            return
 
         # Check checkpoint
         has_checkpoint = store.has_checkpoint('annotation_completeness')
@@ -448,12 +535,18 @@ def annotation(ctx, force):
     is_flag=True,
     help='Re-download and reprocess data even if checkpoint exists'
 )
+@click.option(
+    '--reprocess-cached',
+    is_flag=True,
+    help='Reprocess the existing local HPA TSV without downloading',
+)
 @click.pass_context
-def localization(ctx, force):
-    """Fetch and load subcellular localization evidence (HPA + proteomics).
+def localization(ctx, force, reprocess_cached):
+    """Fetch and load subcellular localization evidence (HPA + curated compendia).
 
     Integrates HPA subcellular location data with curated cilia/centrosome
-    proteomics datasets. Classifies evidence as experimental vs computational,
+    compendium membership. Classifies HPA staining separately from curated
+    compendium evidence,
     scores cilia proximity, and loads to DuckDB.
 
     Supports checkpoint-restart: skips processing if data already exists
@@ -487,10 +580,24 @@ def localization(ctx, force):
         click.echo(click.style("  Storage initialized", fg='green'))
         click.echo()
 
+        if force and reprocess_cached:
+            raise click.ClickException(
+                "--force and --reprocess-cached are mutually exclusive: "
+                "cache-only raw reprocessing cannot refresh source files"
+            )
+
+        localization_dir = Path(config.data_dir) / "localization"
+        hpa_path = localization_dir / "hpa_subcellular_location.tsv"
+        if reprocess_cached and not hpa_path.is_file():
+            raise click.ClickException(
+                "Cache-only localization reprocessing requires the local HPA raw "
+                f"source; missing {hpa_path}"
+            )
+
         # Check checkpoint
         has_checkpoint = store.has_checkpoint('subcellular_localization')
 
-        if has_checkpoint and not force:
+        if has_checkpoint and not force and not reprocess_cached:
             click.echo(click.style(
                 "Localization checkpoint exists. Skipping processing (use --force to re-run).",
                 fg='yellow'
@@ -502,13 +609,17 @@ def localization(ctx, force):
             if df is not None:
                 total_genes = len(df)
                 experimental = df.filter(df['evidence_type'] == 'experimental').height
+                curated_compendium = df.filter(df['evidence_type'] == 'curated_compendium').height
                 computational = df.filter(df['evidence_type'] == 'computational').height
-                both = df.filter(df['evidence_type'] == 'both').height
+                both = df.filter(
+                    (df['evidence_type'] == 'mixed') | (df['evidence_type'] == 'both')
+                ).height
                 cilia_localized = df.filter(df['cilia_proximity_score'] > 0.5).height
 
                 click.echo(click.style("=== Summary ===", bold=True))
                 click.echo(f"Total Genes: {total_genes}")
                 click.echo(f"  Experimental evidence: {experimental}")
+                click.echo(f"  Curated compendium evidence: {curated_compendium}")
                 click.echo(f"  Computational evidence: {computational}")
                 click.echo(f"  Both: {both}")
                 click.echo(f"  Cilia-localized (proximity > 0.5): {cilia_localized}")
@@ -537,21 +648,28 @@ def localization(ctx, force):
         ))
         click.echo()
 
-        # Create localization data directory
-        localization_dir = Path(config.data_dir) / "localization"
-        localization_dir.mkdir(parents=True, exist_ok=True)
+        # Create the directory only for normal fetches.  Cache-only mode has
+        # already proven that its source file exists and must not synthesize a
+        # missing cache or fall through to a downloader.
+        if not reprocess_cached:
+            localization_dir.mkdir(parents=True, exist_ok=True)
 
         # Process localization evidence
         click.echo("Fetching and processing localization data...")
-        click.echo("  Downloading HPA subcellular location data (~10MB)...")
-        click.echo("  Cross-referencing cilia/centrosome proteomics datasets...")
+        click.echo(
+            "  Using local HPA subcellular location TSV (cache-only)..."
+            if reprocess_cached
+            else "  Downloading HPA subcellular location data (~10MB)..."
+        )
+        click.echo("  Cross-referencing curated ciliary/centrosomal compendia...")
 
         try:
             df = process_localization_evidence(
                 gene_ids=gene_ids,
                 gene_symbol_map=gene_symbol_map,
                 cache_dir=localization_dir,
-                force=force,
+                force=force and not reprocess_cached,
+                cache_only=reprocess_cached,
             )
             click.echo(click.style(
                 f"  Processed {len(df)} genes",
@@ -565,6 +683,9 @@ def localization(ctx, force):
         click.echo()
         provenance.record_step('process_localization_evidence', {
             'total_genes': len(df),
+            'mode': 'raw_local_reprocess' if reprocess_cached else 'download_or_cached_fetch',
+            'reprocess_cached': reprocess_cached,
+            'source_path': str(hpa_path),
         })
 
         # Load to DuckDB
@@ -575,7 +696,7 @@ def localization(ctx, force):
                 df=df,
                 store=store,
                 provenance=provenance,
-                description="HPA subcellular localization with cilia/centrosome proteomics cross-references"
+                description="HPA localization with curated ciliary/centrosomal compendium cross-references"
             )
             click.echo(click.style(
                 f"  Saved to 'subcellular_localization' table",
@@ -597,13 +718,17 @@ def localization(ctx, force):
 
         # Display summary
         experimental = df.filter(df['evidence_type'] == 'experimental').height
+        curated_compendium = df.filter(df['evidence_type'] == 'curated_compendium').height
         computational = df.filter(df['evidence_type'] == 'computational').height
-        both = df.filter(df['evidence_type'] == 'both').height
+        both = df.filter(
+            (df['evidence_type'] == 'mixed') | (df['evidence_type'] == 'both')
+        ).height
         cilia_localized = df.filter(df['cilia_proximity_score'] > 0.5).height
 
         click.echo(click.style("=== Summary ===", bold=True))
         click.echo(f"Total Genes: {len(df)}")
         click.echo(f"  Experimental evidence: {experimental}")
+        click.echo(f"  Curated compendium evidence: {curated_compendium}")
         click.echo(f"  Computational evidence: {computational}")
         click.echo(f"  Both: {both}")
         click.echo(f"  Cilia-localized (proximity > 0.5): {cilia_localized}")
@@ -803,8 +928,14 @@ def protein(ctx, force):
     is_flag=True,
     help='Reprocess data even if checkpoint exists'
 )
+@click.option(
+    '--derived-cache',
+    type=click.Path(path_type=Path, dir_okay=False),
+    default=None,
+    help='Explicit donor DuckDB for exact-ID derived-cache migration (no raw rerun or network access)',
+)
 @click.pass_context
-def animal_models(ctx, force):
+def animal_models(ctx, force, derived_cache):
     """Fetch and load animal model phenotype evidence.
 
     Retrieves knockout/perturbation phenotypes from MGI (mouse), ZFIN (zebrafish),
@@ -841,6 +972,46 @@ def animal_models(ctx, force):
         provenance = ProvenanceTracker.from_config(config)
         click.echo(click.style("  Storage initialized", fg='green'))
         click.echo()
+
+        if force and derived_cache is not None:
+            raise click.ClickException(
+                "--force and --derived-cache are mutually exclusive; derived-cache "
+                "migration is read-only with respect to its donor and never fetches"
+            )
+
+        if derived_cache is not None:
+            gene_universe = store.load_dataframe('gene_universe')
+            if gene_universe is None or gene_universe.height == 0:
+                raise click.ClickException(
+                    "gene_universe table not found. Run cache-only setup first."
+                )
+            click.echo("Migrating animal-model evidence from the local donor cache by exact stable Ensembl ID...")
+            df, audit, migration = reindex_animal_models_from_donor(
+                derived_cache,
+                gene_universe,
+                provenance=provenance,
+            )
+            audit_path = write_derived_cache_audit(
+                audit,
+                Path(config.data_dir) / "report" / "derived_cache_animal_model_mapping.tsv",
+            )
+            animal_models_load_to_duckdb(
+                df=df,
+                store=store,
+                provenance=provenance,
+                description="Animal-model derived-cache migration; exact-ID donor reuse with recomputed scores",
+            )
+            animal_models_dir = Path(config.data_dir) / "animal_models"
+            provenance.save_sidecar(animal_models_dir / "phenotypes.provenance.json")
+            click.echo(click.style(
+                f"  Derived-cache result: {df.height} genes; audit: {audit_path}",
+                fg='green',
+            ))
+            click.echo(f"  Donor SHA-256: {migration['source_artifact_hash']}")
+            click.echo(f"  Rogue donor IDs rejected: {migration['rogue_id_count']}")
+            click.echo(f"  Duplicate IDs merged: {migration['merged_duplicate_id_count']}")
+            click.echo("  Raw-source coverage: incomplete (derived_cache_reuse; not a raw rerun)")
+            return
 
         # Check checkpoint
         has_checkpoint = store.has_checkpoint('animal_model_phenotypes')
@@ -991,8 +1162,13 @@ def animal_models(ctx, force):
     default=None,
     help='NCBI API key (optional, speeds up batch context queries)'
 )
+@click.option(
+    '--reprocess-cached',
+    is_flag=True,
+    help='Recompute from local literature bulk/context caches without downloading or querying PubMed'
+)
 @click.pass_context
-def literature(ctx, force, email, api_key):
+def literature(ctx, force, email, api_key, reprocess_cached):
     """Fetch and load literature evidence using bulk data.
 
     Downloads gene2pubmed (~150MB) and gene_info (~20MB) from NCBI,
@@ -1035,10 +1211,16 @@ def literature(ctx, force, email, api_key):
         click.echo(click.style("  Storage initialized", fg='green'))
         click.echo()
 
+        if force and reprocess_cached:
+            raise click.ClickException(
+                "--force and --reprocess-cached are mutually exclusive: "
+                "cache-only raw reprocessing cannot refresh source files or query PubMed"
+            )
+
         # Check checkpoint
         has_checkpoint = store.has_checkpoint('literature_evidence')
 
-        if has_checkpoint and not force:
+        if has_checkpoint and not force and not reprocess_cached:
             click.echo(click.style(
                 "Literature evidence checkpoint exists. Skipping processing (use --force to re-run).",
                 fg='yellow'
@@ -1103,6 +1285,7 @@ def literature(ctx, force, email, api_key):
                 data_dir=config.data_dir,
                 api_key=api_key,
                 force=force,
+                cache_only=reprocess_cached,
             )
             click.echo(click.style(
                 f"  Processed {len(df)} genes",
@@ -1118,7 +1301,10 @@ def literature(ctx, force, email, api_key):
             'total_genes': len(df),
             'email': email,
             'has_api_key': api_key is not None,
-            'mode': 'bulk',
+            'mode': 'raw_local_reprocess' if reprocess_cached else 'bulk',
+            'processing_mode': 'bulk',
+            'reprocess_cached': reprocess_cached,
+            'source_mode': 'raw_local_reprocess' if reprocess_cached else 'download_or_cached_fetch',
         })
 
         # Load to DuckDB
@@ -1199,13 +1385,18 @@ def literature(ctx, force, email, api_key):
     is_flag=True,
     help='Skip CellxGene single-cell data (requires optional cellxgene-census dependency)'
 )
+@click.option(
+    '--reprocess-cached',
+    is_flag=True,
+    help='Recompute the layer from existing local source files/caches without downloading'
+)
 @click.pass_context
-def expression_cmd(ctx, force, skip_cellxgene):
+def expression_cmd(ctx, force, skip_cellxgene, reprocess_cached):
     """Fetch and load tissue expression evidence (HPA, GTEx, CellxGene).
 
     Retrieves expression data from HPA (Human Protein Atlas), GTEx (tissue-level RNA-seq),
     and optionally CellxGene (single-cell RNA-seq for photoreceptor/hair cells). Computes
-    tissue specificity (Tau index) and Usher-tissue enrichment scores.
+    restricted-panel tissue specificity (Tau index) and Usher-panel contrast scores.
 
     Supports checkpoint-restart: skips processing if data already exists
     in DuckDB (use --force to re-run).
@@ -1245,10 +1436,57 @@ def expression_cmd(ctx, force, skip_cellxgene):
         click.echo(click.style("  Storage initialized", fg='green'))
         click.echo()
 
-        # Check checkpoint
-        has_checkpoint = store.has_checkpoint('tissue_expression')
+        expression_dir = Path(config.data_dir) / "expression"
+        if force and reprocess_cached:
+            raise click.ClickException(
+                "--force and --reprocess-cached are mutually exclusive: "
+                "cache-only reprocessing cannot refresh source files"
+            )
 
-        if has_checkpoint and not force:
+        # Check checkpoint.  --reprocess-cached is useful when transformation
+        # logic changed but the downloaded source files are already present.
+        has_checkpoint = store.has_checkpoint('tissue_expression')
+        existing_expression = (
+            store.load_dataframe('tissue_expression') if has_checkpoint else None
+        )
+        legacy_checkpoint = bool(
+            existing_expression is not None
+            and (
+                any(column in existing_expression.columns for column in LEGACY_HPA_TPM_COLUMNS)
+                or any(
+                    column in existing_expression.columns
+                    for column in LEGACY_EXPRESSION_CONTRACT_COLUMNS
+                )
+                or "gene_symbol" not in existing_expression.columns
+                or RESTRICTED_TAU_COLUMN not in existing_expression.columns
+                or RESTRICTED_ENRICHMENT_COLUMN not in existing_expression.columns
+            )
+        )
+
+        # Automatic legacy migration is cache-only only when --force was not
+        # requested. Explicit --reprocess-cached remains strict cache-only.
+        cache_only = reprocess_cached or (legacy_checkpoint and not force)
+        if cache_only:
+            if legacy_checkpoint:
+                click.echo(click.style(
+                    "Legacy expression checkpoint detected; reprocessing cached raw sources to migrate the expression schema.",
+                    fg='yellow'
+                ))
+            click.echo("Checking required local expression caches...")
+            validate_expression_cache(
+                expression_dir,
+                census_version=config.versions.cellxgene_census_version,
+                require_cellxgene=not skip_cellxgene,
+            )
+            click.echo(click.style("  Cache-only preflight passed", fg='green'))
+            click.echo()
+        elif legacy_checkpoint and force:
+            click.echo(click.style(
+                "Legacy expression checkpoint detected; --force refreshes source files before migration.",
+                fg='yellow'
+            ))
+
+        if has_checkpoint and not legacy_checkpoint and not force and not reprocess_cached:
             click.echo(click.style(
                 "Tissue expression checkpoint exists. Skipping processing (use --force to re-run).",
                 fg='yellow'
@@ -1256,22 +1494,33 @@ def expression_cmd(ctx, force, skip_cellxgene):
             click.echo()
 
             # Load existing data for summary display
-            df = store.load_dataframe('tissue_expression')
+            df = existing_expression
             if df is not None:
                 total_genes = len(df)
+                retina_columns = [
+                    pl.col(column) > 0
+                    for column in RETINA_EVIDENCE_COLUMNS
+                    if column in df.columns
+                ]
                 retina_expr = df.filter(
-                    df['hpa_retina_tpm'].is_not_null() |
-                    df['gtex_retina_tpm'].is_not_null() |
-                    df['cellxgene_photoreceptor_expr'].is_not_null()
+                    pl.any_horizontal(retina_columns)
+                    if retina_columns else pl.lit(False)
                 ).height
-                inner_ear_expr = df.filter(df['cellxgene_hair_cell_expr'].is_not_null()).height
-                mean_tau = df.select('tau_specificity').mean().item()
+                inner_ear_expr = (
+                    df.filter(
+                        pl.col('cellxgene_hair_cell_expr').cast(
+                            pl.Float64, strict=False
+                        ) > 0
+                    ).height
+                    if 'cellxgene_hair_cell_expr' in df.columns else 0
+                )
+                mean_tau = df.select(RESTRICTED_TAU_COLUMN).mean().item()
 
                 click.echo(click.style("=== Summary ===", bold=True))
                 click.echo(f"Total Genes: {total_genes}")
                 click.echo(f"  With retina expression: {retina_expr}")
                 click.echo(f"  With inner ear expression: {inner_ear_expr}")
-                click.echo(f"  Mean Tau specificity: {mean_tau:.3f}" if mean_tau else "  Mean Tau specificity: N/A")
+                click.echo(f"  Mean Tau specificity: {mean_tau:.3f}" if mean_tau is not None else "  Mean Tau specificity: N/A")
                 click.echo(f"DuckDB Path: {config.duckdb_path}")
                 click.echo()
                 click.echo(click.style("Evidence layer ready (used existing checkpoint)", fg='green'))
@@ -1296,15 +1545,21 @@ def expression_cmd(ctx, force, skip_cellxgene):
         ))
         click.echo()
 
-        # Create expression data directory
-        expression_dir = Path(config.data_dir) / "expression"
-        expression_dir.mkdir(parents=True, exist_ok=True)
+        # Create the cache directory only for a normal fetch. Cache-only
+        # preflight above must not create a path or trigger a source fallback.
+        if not cache_only:
+            expression_dir.mkdir(parents=True, exist_ok=True)
 
         # Process expression evidence
         click.echo("Fetching and processing expression data...")
-        click.echo("  Downloading HPA normal tissue data (~30MB)...")
-        click.echo("  Downloading GTEx median expression data (~20MB)...")
-        if not skip_cellxgene:
+        if cache_only:
+            click.echo("  Using cached HPA and GTEx source files (cache-only)")
+        else:
+            click.echo("  Downloading HPA normal tissue data (~30MB)...")
+            click.echo("  Downloading GTEx median expression data (~20MB)...")
+        if not skip_cellxgene and cache_only:
+            click.echo("  Using cached CellxGene census result (cache-only)")
+        elif not skip_cellxgene:
             click.echo("  Querying CellxGene census for single-cell data...")
         else:
             click.echo("  Skipping CellxGene (--skip-cellxgene flag)")
@@ -1313,12 +1568,18 @@ def expression_cmd(ctx, force, skip_cellxgene):
             # Build gene_symbol_map for HPA merge (HPA uses gene_symbol, not gene_id)
             gene_symbol_map = gene_universe.select(["gene_id", "gene_symbol"])
 
+            cellxgene_metadata = {}
             df = process_expression_evidence(
                 gene_ids=gene_ids,
                 cache_dir=expression_dir,
-                force=force,
+                # --force refreshes source files; --reprocess-cached only
+                # recomputes from the local files/caches.
+                force=force and not cache_only,
+                cache_only=cache_only,
                 skip_cellxgene=skip_cellxgene,
                 gene_symbol_map=gene_symbol_map,
+                census_version=config.versions.cellxgene_census_version,
+                cellxgene_metadata=cellxgene_metadata,
             )
             click.echo(click.style(
                 f"  Processed {len(df)} genes",
@@ -1330,9 +1591,20 @@ def expression_cmd(ctx, force, skip_cellxgene):
             sys.exit(1)
 
         click.echo()
+        source_metadata = expression_source_metadata(
+            expression_dir,
+            df,
+            census_version=config.versions.cellxgene_census_version,
+            cellxgene_metadata=cellxgene_metadata,
+        )
         provenance.record_step('process_expression_evidence', {
             'total_genes': len(df),
+            'schema_version': EXPRESSION_SCHEMA_VERSION,
+            'mode': 'raw_local_reprocess' if reprocess_cached else 'download_or_cached_fetch',
             'skip_cellxgene': skip_cellxgene,
+            'cellxgene_census_version': config.versions.cellxgene_census_version,
+            'reprocess_cached': reprocess_cached,
+            'source_metadata': source_metadata,
         })
 
         # Load to DuckDB
@@ -1343,6 +1615,7 @@ def expression_cmd(ctx, force, skip_cellxgene):
                 df=df,
                 store=store,
                 provenance=provenance,
+                source_metadata=source_metadata,
                 description="HPA, GTEx, and CellxGene tissue expression with Tau specificity and Usher enrichment scores"
             )
             click.echo(click.style(
@@ -1364,30 +1637,41 @@ def expression_cmd(ctx, force, skip_cellxgene):
         click.echo()
 
         # Display summary
+        retina_columns = [
+            pl.col(column) > 0
+            for column in RETINA_EVIDENCE_COLUMNS
+            if column in df.columns
+        ]
         retina_expr = df.filter(
-            df['hpa_retina_tpm'].is_not_null() |
-            df['gtex_retina_tpm'].is_not_null() |
-            df['cellxgene_photoreceptor_expr'].is_not_null()
+            pl.any_horizontal(retina_columns)
+            if retina_columns else pl.lit(False)
         ).height
-        inner_ear_expr = df.filter(df['cellxgene_hair_cell_expr'].is_not_null()).height
-        mean_tau = df.select('tau_specificity').mean().item()
+        inner_ear_expr = (
+            df.filter(
+                pl.col('cellxgene_hair_cell_expr').cast(
+                    pl.Float64, strict=False
+                ) > 0
+            ).height
+            if 'cellxgene_hair_cell_expr' in df.columns else 0
+        )
+        mean_tau = df.select(RESTRICTED_TAU_COLUMN).mean().item()
 
         # Top enriched genes
-        top_genes = df.filter(df['usher_tissue_enrichment'].is_not_null()).sort(
-            'usher_tissue_enrichment', descending=True
-        ).head(10).select(['gene_id', 'usher_tissue_enrichment', 'tau_specificity', 'expression_score_normalized'])
+        top_genes = df.filter(df[RESTRICTED_ENRICHMENT_COLUMN].is_not_null()).sort(
+            RESTRICTED_ENRICHMENT_COLUMN, descending=True
+        ).head(10).select(['gene_id', RESTRICTED_ENRICHMENT_COLUMN, RESTRICTED_TAU_COLUMN, 'expression_score_normalized'])
 
         click.echo(click.style("=== Summary ===", bold=True))
         click.echo(f"Total Genes: {len(df)}")
         click.echo(f"  With retina expression: {retina_expr}")
         click.echo(f"  With inner ear expression: {inner_ear_expr}")
-        click.echo(f"  Mean Tau specificity: {mean_tau:.3f}" if mean_tau else "  Mean Tau specificity: N/A")
+        click.echo(f"  Mean Tau specificity: {mean_tau:.3f}" if mean_tau is not None else "  Mean Tau specificity: N/A")
         click.echo()
         click.echo("Top 10 enriched genes:")
         for row in top_genes.iter_rows(named=True):
-            tau_str = f"{row['tau_specificity']:.3f}" if row['tau_specificity'] else "N/A"
-            expr_str = f"{row['expression_score_normalized']:.3f}" if row['expression_score_normalized'] else "N/A"
-            click.echo(f"  {row['gene_id']}: enrichment={row['usher_tissue_enrichment']:.2f}, tau={tau_str}, score={expr_str}")
+            tau_str = f"{row[RESTRICTED_TAU_COLUMN]:.3f}" if row[RESTRICTED_TAU_COLUMN] is not None else "N/A"
+            expr_str = f"{row['expression_score_normalized']:.3f}" if row['expression_score_normalized'] is not None else "N/A"
+            click.echo(f"  {row['gene_id']}: restricted_contrast={row[RESTRICTED_ENRICHMENT_COLUMN]:.2f}, tau={tau_str}, score={expr_str}")
         click.echo()
         click.echo(f"DuckDB Path: {config.duckdb_path}")
         click.echo(f"Provenance: {provenance_path}")

@@ -269,6 +269,15 @@ def synthetic_scored_genes() -> pl.DataFrame:
             None,
             None,
         ],
+        # Source-level direct evidence used by the HIGH cilia gate. The three
+        # intended synthetic HIGH rows have explicit cilia observations.
+        "compartment_cilia": [True, True, True] + [False] * 17,
+        "compartment_centrosome": [False] * 20,
+        "compartment_basal_body": [False] * 20,
+        "compartment_transition_zone": [False] * 20,
+        "compartment_stereocilia": [False] * 20,
+        "in_cilia_compendium": [False] * 20,
+        "in_centrosome_compendium": [False] * 20,
         "animal_model_score": [
             0.9,
             0.8,
@@ -499,6 +508,102 @@ def test_assign_tiers_sorting(synthetic_scored_genes):
 
     # Check first gene is the highest scorer
     assert result[0, "gene_id"] == "ENSG001", "Highest scorer should be ENSG001"
+
+
+def test_high_gate_rejects_tubb2b_like_adjacent_localization():
+    """Adjacent cytoskeleton/microtubule signal must not satisfy HIGH."""
+    scored = pl.DataFrame({
+        "gene_id": ["ENSG_TUBB2B"],
+        "gene_symbol": ["TUBB2B"],
+        "composite_score": [0.90],
+        "evidence_count": [5],
+        "quality_flag": ["sufficient_evidence"],
+        # This is the old shortcut's positive aggregate localization score.
+        "localization_score": [0.5],
+        "animal_model_score": [None],
+        "compartment_cilia": [False],
+        "compartment_centrosome": [False],
+        "compartment_basal_body": [False],
+        "compartment_transition_zone": [False],
+        "compartment_stereocilia": [False],
+        "in_cilia_compendium": [False],
+        "in_centrosome_compendium": [False],
+    })
+
+    result = assign_tiers(scored)
+
+    assert result["confidence_tier"][0] == "MEDIUM"
+    assert result["has_direct_localization_signal"][0] is False
+    assert result["has_cilia_signal"][0] is True
+
+
+def test_high_gate_accepts_explicit_direct_source_evidence():
+    """A direct compartment source flag is an independent HIGH route."""
+    scored = pl.DataFrame({
+        "gene_id": ["ENSG_DIRECT"],
+        "gene_symbol": ["DIRECT_CILIA"],
+        "composite_score": [0.90],
+        "evidence_count": [5],
+        "quality_flag": ["sufficient_evidence"],
+        "localization_score": [0.5],
+        "animal_model_score": [None],
+        "compartment_cilia": [False],
+        "compartment_centrosome": [True],
+        "compartment_basal_body": [False],
+        "compartment_transition_zone": [False],
+        "compartment_stereocilia": [False],
+        "in_cilia_compendium": [False],
+        "in_centrosome_compendium": [False],
+    })
+
+    result = assign_tiers(scored)
+
+    assert result["confidence_tier"][0] == "HIGH"
+    assert result["has_direct_localization_signal"][0] is True
+    assert result["has_cilia_signal"][0] is True
+
+
+def test_high_gate_keeps_animal_model_route_separate_from_direct_signal():
+    """Animal-model-only HIGH remains a cilia signal without direct localization."""
+    scored = pl.DataFrame({
+        "gene_id": ["ENSG_ANIMAL"],
+        "gene_symbol": ["SENSORY_MODEL_GENE"],
+        "composite_score": [0.90],
+        "evidence_count": [5],
+        "quality_flag": ["sufficient_evidence"],
+        "localization_score": [None],
+        "animal_model_score": [0.95],
+        "compartment_cilia": [False],
+        "compartment_centrosome": [False],
+        "compartment_basal_body": [False],
+        "compartment_transition_zone": [False],
+        "compartment_stereocilia": [False],
+        "in_cilia_compendium": [False],
+        "in_centrosome_compendium": [False],
+    })
+
+    result = assign_tiers(scored)
+
+    assert result["confidence_tier"][0] == "HIGH"
+    assert result["has_direct_localization_signal"][0] is False
+    assert result["has_cilia_signal"][0] is True
+    assert result["has_cilia_signal_semantics_version"][0].startswith("v2:")
+
+
+def test_legacy_scored_checkpoint_requires_reprocessing():
+    """Tiering must not silently demote score-only legacy checkpoints."""
+    scored = pl.DataFrame({
+        "gene_id": ["ENSG_LEGACY"],
+        "gene_symbol": ["LEGACY"],
+        "composite_score": [0.9],
+        "evidence_count": [5],
+        "quality_flag": ["sufficient_evidence"],
+        "localization_score": [0.8],
+        "animal_model_score": [None],
+    })
+
+    with pytest.raises(ValueError, match="source-level localization fields"):
+        assign_tiers(scored)
 
 
 def test_add_evidence_summary_supporting_layers(synthetic_scored_genes):

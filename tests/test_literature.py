@@ -227,6 +227,30 @@ def test_context_weighting(synthetic_literature_data):
     assert cilia_score > cyto_score
 
 
+def test_direct_experimental_requires_same_pmid_context():
+    """A direct paper without cilia/sensory context is not direct evidence."""
+    df = pl.DataFrame({
+        "gene_id": ["ENSG00000008", "ENSG00000009"],
+        "gene_symbol": ["SEPARATE_EVIDENCE", "ZERO_CONTEXT"],
+        "total_pubmed_count": [5, 10],
+        "cilia_context_count": [2, 0],
+        "sensory_context_count": [0, 0],
+        "cytoskeleton_context_count": [0, 0],
+        "cell_polarity_context_count": [0, 0],
+        "direct_experimental_count": [1, 1],
+        "direct_experimental_context_count": [0, 0],
+        "hts_screen_count": [0, 0],
+    })
+
+    classified = classify_evidence_tier(df)
+    scored = compute_literature_score(classified)
+
+    assert classified["evidence_tier"].to_list() == ["functional_mention", "incidental"]
+    assert scored.filter(pl.col("gene_symbol") == "ZERO_CONTEXT")[
+        "literature_score_normalized"
+    ][0] == 0.0
+
+
 def test_score_normalization(synthetic_literature_data):
     """Final literature_score_normalized should be in [0, 1] range."""
     df = classify_evidence_tier(synthetic_literature_data)
@@ -237,5 +261,4 @@ def test_score_normalization(synthetic_literature_data):
 
     assert scores.min() >= 0.0
     assert scores.max() <= 1.0
-
 

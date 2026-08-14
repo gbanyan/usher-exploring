@@ -17,6 +17,7 @@ import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+import duckdb
 import httpx
 import polars as pl
 
@@ -84,6 +85,33 @@ def download_file(url: str, destination: Path, force: bool = False) -> Path:
                 handle.write(chunk)
     temporary.replace(destination)
     return destination
+
+
+def load_scored_labels(scored_db: Path) -> set[str]:
+    """Load and validate the current symbol-level scored state."""
+    if not scored_db.is_file():
+        raise FileNotFoundError(f"Missing scored-state database: {scored_db}")
+    con = duckdb.connect(str(scored_db), read_only=True)
+    try:
+        rows = con.execute(
+            "SELECT gene_id, gene_symbol FROM scored_genes"
+        ).fetchall()
+        universe_ids = {
+            row[0] for row in con.execute("SELECT gene_id FROM gene_universe").fetchall()
+        }
+    finally:
+        con.close()
+    if len(rows) != 20081 or len({row[0] for row in rows}) != 20081:
+        raise ValueError(
+            "Expected the current 20,081-row scored state with unique gene IDs; "
+            f"found {len(rows)} rows and {len({row[0] for row in rows})} IDs"
+        )
+    if any(row[0] not in universe_ids for row in rows):
+        raise ValueError("scored_genes contains an ID outside gene_universe")
+    labels = {row[1] for row in rows if row[1] is not None}
+    if len(labels) != 20081:
+        raise ValueError(f"Expected 20,081 unique scored labels; found {len(labels)}")
+    return labels
 
 
 def identify_hair_cell_cluster(
@@ -185,11 +213,24 @@ def aggregate_samples(sample_frames: list[pl.DataFrame]) -> pl.DataFrame:
     )
 
 
-def build_dataset(cache_dir: Path, force: bool = False) -> tuple[pl.DataFrame, list[SampleAudit]]:
+def build_dataset(
+    cache_dir: Path,
+    force: bool = False,
+    *,
+    cache_only: bool = True,
+    target_labels: set[str] | None = None,
+) -> tuple[pl.DataFrame, list[SampleAudit]]:
     frames: list[pl.DataFrame] = []
     audits: list[SampleAudit] = []
     for sample, metadata in SAMPLES.items():
-        path = download_file(metadata["url"], cache_dir / metadata["filename"], force)
+        path = cache_dir / metadata["filename"]
+        if cache_only:
+            if not path.is_file():
+                raise FileNotFoundError(
+                    f"Offline cache-only mode requires local GSE input: {path}"
+                )
+        else:
+            path = download_file(metadata["url"], path, force)
         matrix = pl.read_csv(path)
         cluster, detail = identify_hair_cell_cluster(matrix)
         loo_stable, loo_assignments = leave_one_marker_out_sensitivity(matrix)
@@ -211,16 +252,41 @@ def build_dataset(cache_dir: Path, force: bool = False) -> tuple[pl.DataFrame, l
         ))
         if included:
             frames.append(extract_cluster_expression(matrix, cluster, sample))
-    return aggregate_samples(frames), audits
+    dataset = aggregate_samples(frames)
+    if target_labels is not None:
+        dataset = dataset.filter(pl.col("gene_symbol").is_in(target_labels))
+    return dataset, audits
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--cache-dir", type=Path, default=Path("data/expression"))
     parser.add_argument("--output-dir", type=Path, default=Path("data/report/exploration"))
+    parser.add_argument("--scored-db", type=Path, default=Path("data/pipeline.duckdb"))
+    parser.add_argument(
+        "--cache-only",
+        action="store_true",
+        help="Require all GEO inputs to exist locally; this is the default behavior.",
+    )
+    parser.add_argument(
+        "--allow-download",
+        action="store_true",
+        help="Explicitly allow GEO downloads (never used for the production rebuild).",
+    )
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
-    dataset, audits = build_dataset(args.cache_dir, args.force)
+    if args.cache_only and args.allow_download:
+        parser.error("--cache-only and --allow-download are mutually exclusive")
+    if args.force and not args.allow_download:
+        parser.error("--force requires explicit --allow-download")
+    target_labels = load_scored_labels(args.scored_db)
+    cache_only = not args.allow_download
+    dataset, audits = build_dataset(
+        args.cache_dir,
+        args.force,
+        cache_only=cache_only,
+        target_labels=target_labels,
+    )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     dataset.write_parquet(args.output_dir / "gse135913_hair_cell_expression.parquet")
     dataset.write_csv(args.output_dir / "gse135913_hair_cell_expression.tsv", separator="\t")
@@ -229,13 +295,19 @@ def main() -> None:
         "method": "non-Usher-marker-guided CellFindR cluster mean",
         "markers": list(HAIR_CELL_MARKERS),
         "minimum_markers": MIN_MARKERS,
+        "source_mode": "local_cache_only" if cache_only else "download_allowed",
+        "target_scored_state": {
+            "database": str(args.scored_db),
+            "label_count": len(target_labels),
+            "retained_label_count": dataset.height,
+        },
         "samples": [asdict(audit) for audit in audits],
     }
     (args.output_dir / "gse135913_hair_cell_provenance.json").write_text(
         json.dumps(provenance, indent=2) + "\n", encoding="utf-8"
     )
     print(json.dumps(provenance, indent=2))
-    print(f"genes={dataset.height}")
+    print(f"genes={dataset.height} scored_labels={len(target_labels)}")
 
 
 if __name__ == "__main__":

@@ -36,6 +36,25 @@ def test_direct_protein_accepts_proteomics_or_compartment():
     assert kept == ["MYO7A", "CEP290", "NOVEL1"]
 
 
+def test_unavailable_threshold_propagates_na_strategy_status():
+    high = fixture_high().with_columns(pl.lit(None, dtype=pl.Float64).alias("hpa_retina_tpm"))
+    result, thresholds = add_shortlist_strategies(high)
+    summary = summarize_strategies(result)
+
+    assert thresholds["hpa_retina_q75"] is None
+    retina = summary.filter(pl.col("strategy") == "retina_concordant_q75").row(
+        0, named=True
+    )
+    expression_or = summary.filter(pl.col("strategy") == "expression_or_protein").row(
+        0, named=True
+    )
+    assert retina["status"] == "NA"
+    assert retina["shortlist_size"] is None
+    assert expression_or["status"] == "available"
+    assert expression_or["shortlist_size"] == 3
+    assert result["retina_concordant_q75"].null_count() == result.height
+
+
 def test_summary_reports_reduction_and_control_retention():
     result, _ = add_shortlist_strategies(fixture_high())
     summary = summarize_strategies(result)

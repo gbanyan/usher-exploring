@@ -150,6 +150,27 @@ def report(ctx, output_dir, force, skip_viz, skip_report,
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
 
+        # Report generation is the final aggregation point.  Merge the
+        # already-written setup/evidence/scoring/validation sidecars before
+        # writing candidate and reproducibility artifacts; a fresh tracker
+        # alone would falsely report zero source provenance.
+        loaded_sidecars = provenance.load_existing_sidecars(
+            Path(config.data_dir),
+            exclude_paths=(output_dir,),
+        )
+        if loaded_sidecars:
+            click.echo(
+                f"  Loaded {len(loaded_sidecars)} existing provenance sidecars"
+            )
+        else:
+            click.echo("  No existing per-layer provenance sidecars found")
+        if provenance.rejected_sidecars:
+            click.echo(
+                f"  Rejected {len(provenance.rejected_sidecars)} provenance sidecars "
+                "(config hash missing or mismatched)"
+            )
+        click.echo()
+
         # Check for existing files
         candidate_tsv = output_dir / "candidates.tsv"
         candidate_parquet = output_dir / "candidates.parquet"
@@ -268,7 +289,8 @@ def report(ctx, output_dir, force, skip_viz, skip_report,
             output_paths = write_candidate_output(
                 tiered_df,
                 output_dir=output_dir,
-                filename_base="candidates"
+                filename_base="candidates",
+                provenance=provenance,
             )
 
             click.echo(click.style(

@@ -1,6 +1,6 @@
 """Prototype: derive UsherPipe layer weights by L2 logistic regression.
 
-Fits a transparent linear classifier (ridge logistic regression) on the 38
+Fits a transparent linear classifier (ridge logistic regression) on the 37
 known disease genes (positives) vs. resampled background genes (treated as
 presumed-negative), keeping the 13 housekeeping controls as a held-aside
 specificity sentinel that never enters training. The six fitted coefficients
@@ -17,7 +17,9 @@ This is a PROTOTYPE for evaluation, not wired into the pipeline.
 Run:  .venv312/bin/python scripts/weight_logreg.py
 """
 
+import argparse
 import statistics
+from pathlib import Path
 
 import duckdb
 import numpy as np
@@ -29,7 +31,7 @@ LAYERS = ["gnomad_score", "expression_score", "annotation_score",
 SHORT = ["gnomAD", "expr", "annot", "local", "animal", "lit"]
 DEFAULT_W = np.array([0.20, 0.20, 0.15, 0.15, 0.15, 0.15])
 
-OMIM_USHER = ["ADGRV1", "CDH23", "CIB2", "CLRN1", "MYO7A",
+OMIM_USHER = ["ADGRV1", "CDH23", "CLRN1", "MYO7A",
               "PCDH15", "USH1C", "USH1G", "USH2A", "WHRN"]
 SYSCILIA = ["ARL13B", "BBS1", "BBS2", "BBS4", "BBS5", "BBS7", "BBS9", "BBS10",
             "CC2D2A", "CEP164", "CEP290", "IFT88", "IFT140", "IFT172", "INPP5E",
@@ -45,17 +47,26 @@ N_BOOT = 400
 RNG = np.random.default_rng(42)
 
 
-def load():
-    con = duckdb.connect("data/pipeline.duckdb", read_only=True)
+def load(db_path: Path = Path("data/pipeline.duckdb")):
+    if not db_path.is_file():
+        raise FileNotFoundError(f"Missing scored-state database: {db_path}")
+    con = duckdb.connect(str(db_path), read_only=True)
     rows = con.execute(
-        f"select gene_symbol, {', '.join(LAYERS)}, evidence_count "
+        f"select gene_id, gene_symbol, {', '.join(LAYERS)}, evidence_count "
         f"from scored_genes"
     ).fetchall()
+    universe = {
+        row[0] for row in con.execute("select gene_id from gene_universe").fetchall()
+    }
     con.close()
-    genes = [r[0] for r in rows]
-    mat = np.array([[np.nan if v is None else float(v) for v in r[1:7]]
+    if len(rows) != 20081 or len({r[0] for r in rows}) != 20081:
+        raise ValueError(f"Expected 20,081 scored rows; found {len(rows)}")
+    if any(r[0] not in universe for r in rows):
+        raise ValueError("scored_genes contains an ID outside gene_universe")
+    genes = [r[1] for r in rows]
+    mat = np.array([[np.nan if v is None else float(v) for v in r[2:8]]
                     for r in rows])
-    evc = np.array([r[7] for r in rows])
+    evc = np.array([r[8] for r in rows])
     return genes, mat, evc
 
 
@@ -135,7 +146,10 @@ def coef_to_weights(coef):
 
 
 def main():
-    genes, mat, evc = load()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--db", type=Path, default=Path("data/pipeline.duckdb"))
+    args = parser.parse_args()
+    genes, mat, evc = load(args.db)
     gidx = {g: i for i, g in enumerate(genes)}
     known = [gidx[g] for g in KNOWN if g in gidx]
     hk = [gidx[g] for g in HOUSEKEEPING if g in gidx]

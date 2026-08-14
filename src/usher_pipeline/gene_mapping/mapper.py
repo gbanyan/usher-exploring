@@ -5,12 +5,40 @@ Handles edge cases like missing data, notfound results, and nested data structur
 """
 
 import logging
+import re
 from dataclasses import dataclass, field
 from typing import Any
 
 import mygene
 
 logger = logging.getLogger(__name__)
+ENSEMBL_GENE_ID_RE = re.compile(r"^ENSG[0-9]+(?:\.[0-9]+)?$")
+
+
+def _ensembl_gene_ids_from_hit(hit: dict[str, Any]) -> set[str]:
+    """Extract bare Ensembl gene IDs returned for a MyGene hit."""
+
+    ensembl_data = hit.get("ensembl")
+    if not ensembl_data:
+        return set()
+    entries = [ensembl_data] if isinstance(ensembl_data, dict) else ensembl_data
+    if isinstance(entries, str):
+        entries = [{"gene": entries}]
+    if not isinstance(entries, list):
+        return set()
+
+    gene_ids: set[str] = set()
+    for entry in entries:
+        gene_id = entry.get("gene") if isinstance(entry, dict) else entry
+        candidate_ids = gene_id if isinstance(gene_id, list) else [gene_id]
+        for candidate_id in candidate_ids:
+            if (
+                not isinstance(candidate_id, str)
+                or not ENSEMBL_GENE_ID_RE.fullmatch(candidate_id)
+            ):
+                continue
+            gene_ids.add(candidate_id.split(".", 1)[0])
+    return gene_ids
 
 
 @dataclass
@@ -91,17 +119,21 @@ class GeneMapper:
 
         Notes:
             - Queries mygene with scopes='ensembl.gene'
-            - Retrieves fields: symbol (HGNC), uniprot.Swiss-Prot
+            - Retrieves fields: ensembl.gene, symbol (HGNC),
+              uniprot.Swiss-Prot, and type_of_gene
             - Handles 'notfound' results, missing keys, and nested structures
             - For duplicate query results, takes first non-null value
         """
         total_genes = len(ensembl_ids)
         logger.info(f"Mapping {total_genes} Ensembl IDs to HGNC/UniProt")
 
-        results: list[MappingResult] = []
-        unmapped_ids: list[str] = []
-        mapped_hgnc = 0
-        mapped_uniprot = 0
+        # MyGene can return multiple hits for one query (especially for
+        # alternate loci).  Keep one mutable record per input ID and merge
+        # duplicate hits instead of inflating the output row count.
+        mapping_by_id = {
+            ensembl_id: MappingResult(ensembl_id=ensembl_id)
+            for ensembl_id in ensembl_ids
+        }
 
         # Process in batches
         for i in range(0, total_genes, self.batch_size):
@@ -118,7 +150,7 @@ class GeneMapper:
             batch_results = self.mg.querymany(
                 batch,
                 scopes='ensembl.gene',
-                fields='symbol,uniprot.Swiss-Prot',
+                fields='ensembl.gene,symbol,uniprot.Swiss-Prot,type_of_gene',
                 species=9606,
                 returnall=True,
             )
@@ -131,11 +163,42 @@ class GeneMapper:
             for hit in out_results:
                 ensembl_id = hit.get('query', '')
 
+                if ensembl_id not in mapping_by_id:
+                    logger.warning(
+                        "Ignoring MyGene hit for an ID not present in the input batch: %s",
+                        ensembl_id,
+                    )
+                    continue
+
                 # Check if gene was not found
                 if hit.get('notfound', False):
-                    results.append(MappingResult(ensembl_id=ensembl_id))
-                    unmapped_ids.append(ensembl_id)
                     continue
+
+                # A stale cross-mapping can retain the requested query key
+                # while describing a different Ensembl record.  Require the
+                # returned Ensembl field to contain the exact requested ID.
+                returned_ensembl_ids = _ensembl_gene_ids_from_hit(hit)
+                if ensembl_id not in returned_ensembl_ids:
+                    logger.warning(
+                        "Ignoring stale cross-mapping for %s; MyGene returned %s",
+                        ensembl_id,
+                        sorted(returned_ensembl_ids) or "no Ensembl ID",
+                    )
+                    continue
+
+                # This is a defensive check in addition to the release-pinned
+                # source filter.  It prevents a noncoding MyGene record from
+                # contributing mappings if the upstream index is stale.
+                type_of_gene = hit.get("type_of_gene")
+                if type_of_gene is not None:
+                    normalized_type = str(type_of_gene).replace("-", "_")
+                    if normalized_type != "protein_coding":
+                        logger.warning(
+                            "Ignoring noncoding mapping for %s: type_of_gene=%s",
+                            ensembl_id,
+                            type_of_gene,
+                        )
+                        continue
 
                 # Extract HGNC symbol
                 hgnc_symbol = hit.get('symbol')
@@ -155,21 +218,21 @@ class GeneMapper:
                             # Take first accession if list
                             uniprot_accession = swiss_prot[0]
 
-                # Create mapping result
-                results.append(MappingResult(
-                    ensembl_id=ensembl_id,
-                    hgnc_symbol=hgnc_symbol,
-                    uniprot_accession=uniprot_accession,
-                ))
+                # Merge duplicate hits deterministically: retain the first
+                # non-null symbol/accession returned for the input ID.
+                current = mapping_by_id[ensembl_id]
+                if current.hgnc_symbol is None and hgnc_symbol:
+                    current.hgnc_symbol = hgnc_symbol
+                if current.uniprot_accession is None and uniprot_accession:
+                    current.uniprot_accession = uniprot_accession
 
-                # Track success counts
-                if hgnc_symbol:
-                    mapped_hgnc += 1
-                else:
-                    unmapped_ids.append(ensembl_id)
-
-                if uniprot_accession:
-                    mapped_uniprot += 1
+        # Preserve input order and guarantee one result per input ID.
+        results = [mapping_by_id[ensembl_id] for ensembl_id in ensembl_ids]
+        mapped_hgnc = sum(1 for result in results if result.hgnc_symbol)
+        mapped_uniprot = sum(1 for result in results if result.uniprot_accession)
+        unmapped_ids = [
+            result.ensembl_id for result in results if result.hgnc_symbol is None
+        ]
 
         # Create summary report
         report = MappingReport(

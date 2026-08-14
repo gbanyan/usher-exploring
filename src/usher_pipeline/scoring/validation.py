@@ -29,6 +29,8 @@ def validate_known_gene_ranking(
         Dict with keys:
         - total_known_expected: int - count of known genes in reference list
         - total_known_in_dataset: int - count of known genes found in scored_genes
+        - total_scored_non_null: int - all scored_genes rows with non-NULL composite_score;
+          denominator for PERCENT_RANK
         - median_percentile: float - median percentile rank of known genes
         - top_quartile_count: int - count of known genes >= 75th percentile
         - top_quartile_fraction: float - fraction in top quartile
@@ -47,6 +49,9 @@ def validate_known_gene_ranking(
     # Compile known genes
     known_df = compile_known_genes()
     total_known_expected = known_df["gene_symbol"].n_unique()
+    total_scored_non_null = store.conn.execute(
+        "SELECT COUNT(*) FROM scored_genes WHERE composite_score IS NOT NULL"
+    ).fetchone()[0]
 
     # Register known genes as temporary DuckDB table
     store.conn.execute("DROP TABLE IF EXISTS _known_genes")
@@ -88,6 +93,7 @@ def validate_known_gene_ranking(
         return {
             "total_known_expected": total_known_expected,
             "total_known_in_dataset": 0,
+            "total_scored_non_null": total_scored_non_null,
             "median_percentile": None,
             "top_quartile_count": 0,
             "top_quartile_fraction": 0.0,
@@ -138,6 +144,7 @@ def validate_known_gene_ranking(
     return {
         "total_known_expected": total_known_expected,
         "total_known_in_dataset": total_known_in_dataset,
+        "total_scored_non_null": total_scored_non_null,
         "median_percentile": median_percentile,
         "top_quartile_count": top_quartile_count,
         "top_quartile_fraction": top_quartile_fraction,
@@ -159,19 +166,20 @@ def generate_validation_report(metrics: dict) -> str:
     Notes:
         - Formats percentiles as percentages (e.g., "87.3%")
         - Includes table of top-ranked known genes
-        - Shows pass/fail status prominently
+        - Shows whether the controls meet the internal reference threshold
     """
     passed = metrics["validation_passed"]
-    status = "PASSED ✓" if passed else "FAILED ✗"
+    status = "MEETS REFERENCE ✓" if passed else "BELOW REFERENCE ✗"
 
     # Handle case where no known genes found
     if metrics["total_known_in_dataset"] == 0:
         return f"""
-Positive Control Validation: {status}
+Internal Control Recovery: {status}
 
 Reason: No known genes found in scored dataset
-Expected: {metrics['total_known_expected']} known genes
-Found: 0 genes
+        Expected: {metrics['total_known_expected']} known genes
+        Found: 0 genes
+Percentile denominator (non-NULL scored genes): {metrics.get('total_scored_non_null', 'N/A')}
 
 This indicates either:
 1. Known genes were already filtered out
@@ -183,11 +191,12 @@ This indicates either:
     top_q_frac = metrics["top_quartile_fraction"] * 100
 
     report = [
-        f"Positive Control Validation: {status}",
+        f"Internal Control Recovery: {status}",
         "",
         "Summary:",
         f"  Known genes expected: {metrics['total_known_expected']}",
         f"  Known genes found: {metrics['total_known_in_dataset']}",
+        f"  Percentile denominator (non-NULL scored genes): {metrics.get('total_scored_non_null', 'N/A'):,}" if isinstance(metrics.get('total_scored_non_null'), int) else "  Percentile denominator (non-NULL scored genes): N/A",
         f"  Median percentile: {median_pct:.1f}%",
         f"  Top quartile count: {metrics['top_quartile_count']}",
         f"  Top quartile fraction: {top_q_frac:.1f}%",
@@ -197,8 +206,8 @@ This indicates either:
     # Add interpretation
     if passed:
         report.append(
-            f"Known cilia/Usher genes rank highly (median >= 75th percentile), "
-            "validating the scoring system."
+            f"The selected cilia/Usher controls rank highly (median >= 75th percentile); "
+            "this is internal control recovery, not an independent sensitivity estimate."
         )
     else:
         report.append(
@@ -348,7 +357,7 @@ def validate_positive_controls_extended(
     Extended positive control validation with recall@k and per-source breakdown.
 
     Combines base percentile validation with recall@k metrics and per-source analysis
-    to provide comprehensive validation for Phase 6.
+    to provide a structured internal evaluation for Phase 6.
 
     Args:
         store: PipelineStore with scored_genes table
@@ -361,7 +370,7 @@ def validate_positive_controls_extended(
         - per_source_breakdown: dict mapping source -> {median_percentile, count, top_quartile_count}
 
     Notes:
-        - Per-source breakdown separates OMIM Usher (10 genes) from SYSCILIA SCGS v2 (28 genes)
+        - Per-source breakdown separates established Usher (9 genes) from SYSCILIA SCGS v2 (28 genes)
         - Uses same PERCENT_RANK CTE pattern but filters JOIN by source
         - Allows detecting if one gene set validates better than the other
     """

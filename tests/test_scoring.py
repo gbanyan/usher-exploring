@@ -26,8 +26,8 @@ def test_compile_known_genes_returns_expected_structure():
     assert isinstance(df, pl.DataFrame)
     assert set(df.columns) == {"gene_symbol", "source", "confidence"}
 
-    # Assert minimum expected count (10 OMIM Usher + 28 SYSCILIA SCGS v2 core)
-    assert df.height >= 38, f"Expected at least 38 genes, got {df.height}"
+    # Assert minimum expected count (9 established Usher + 28 SYSCILIA SCGS v2 core)
+    assert df.height >= 37, f"Expected at least 37 genes, got {df.height}"
 
     # Assert known genes are present
     gene_symbols = df.select("gene_symbol").to_series().to_list()

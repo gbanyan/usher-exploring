@@ -155,9 +155,9 @@ def score(ctx, force, skip_qc, skip_validation):
         try:
             load_known_genes_to_duckdb(store)
             known_genes_df = store.load_dataframe('known_genes')
-            known_gene_count = known_genes_df.height if known_genes_df else 0
+            known_gene_count = known_genes_df.height if known_genes_df is not None else 0
             click.echo(click.style(
-                f"  Loaded {known_gene_count} known genes (OMIM Usher + SYSCILIA SCGS)",
+                f"  Loaded {known_gene_count} known genes (established Usher + SYSCILIA SCGS)",
                 fg='green'
             ))
         except Exception as e:
@@ -266,10 +266,10 @@ def score(ctx, force, skip_qc, skip_validation):
             click.echo(click.style("Step 4: Skipping QC checks (--skip-qc)", fg='yellow'))
             click.echo()
 
-        # Step 5: Validation (unless --skip-validation)
+        # Step 5: Internal control-recovery evaluation (unless skipped)
         validation_passed = True
         if not skip_validation:
-            click.echo(click.style("Step 5: Validating known gene rankings...", bold=True))
+            click.echo(click.style("Step 5: Evaluating known-gene control recovery...", bold=True))
 
             try:
                 validation_result = validate_known_gene_ranking(store)
@@ -280,9 +280,9 @@ def score(ctx, force, skip_qc, skip_validation):
                 click.echo(report)
 
                 if validation_passed:
-                    click.echo(click.style("  Validation PASSED", fg='green', bold=True))
+                    click.echo(click.style("  Control recovery meets reference", fg='green', bold=True))
                 else:
-                    click.echo(click.style("  Validation FAILED", fg='red', bold=True))
+                    click.echo(click.style("  Control recovery below reference", fg='red', bold=True))
 
             except Exception as e:
                 click.echo(click.style(f"  Error running validation: {e}", fg='red'), err=True)
@@ -290,11 +290,11 @@ def score(ctx, force, skip_qc, skip_validation):
                 validation_passed = False
 
             click.echo()
-            provenance.record_step('validate_known_gene_ranking', {
+            provenance.record_step('evaluate_known_gene_control_recovery', {
                 'passed': validation_passed,
             })
         else:
-            click.echo(click.style("Step 5: Skipping validation (--skip-validation)", fg='yellow'))
+            click.echo(click.style("Step 5: Skipping control-recovery evaluation (--skip-validation)", fg='yellow'))
             click.echo()
 
         # Save provenance sidecar
@@ -324,7 +324,12 @@ def score(ctx, force, skip_qc, skip_validation):
         click.echo(f"  No evidence: {no_evidence}")
         click.echo()
         click.echo(f"QC Status: {'PASS' if qc_passed else 'FAIL'}")
-        click.echo(f"Validation Status: {'PASS' if validation_passed or skip_validation else 'FAIL'}")
+        evaluation_status = (
+            "NOT RUN" if skip_validation
+            else "MEETS REFERENCE" if validation_passed
+            else "BELOW REFERENCE"
+        )
+        click.echo(f"Control-Recovery Status: {evaluation_status}")
         click.echo()
         click.echo(f"DuckDB Path: {config.duckdb_path}")
         click.echo(f"Provenance: {provenance_path}")
