@@ -312,12 +312,12 @@ No individual-level data, personal details, images, or videos are included in th
 
 ### Availability of data and materials
 
-The analysis uses publicly available resources: mygene.info, Ensembl, gnomAD, GTEx, the Human Protein Atlas, CELLxGENE Census, NCBI gene2pubmed/PubMed, HCOP, MGI, ZFIN, IMPC, and the SYSCILIA SCGSv2 resource. The current reproducibility artifacts record configured data-version labels, the configuration hash, stage input/output counts, and the software environment in `data/report/reproducibility.json` and `data/report/reproducibility.md`; they provide incomplete source-level provenance, with six source records, six checksums, two URLs, two versions, and no retrieval times. The locally cached inputs and generated tables are not yet linked to a public immutable archive in this working draft; configured labels do not prove source immutability. [AUTHOR ACTION REQUIRED: deposit the code, minimal derived data, permitted local inputs or source manifests, and generated tables in a public repository; provide the reviewer-access link and the immutable release DOI/URL here and cite the archive in the reference list.]
+The analysis uses publicly available resources: mygene.info, Ensembl, gnomAD, GTEx, the Human Protein Atlas, CELLxGENE Census, NCBI gene2pubmed/PubMed, HCOP, MGI, ZFIN, IMPC, and the SYSCILIA SCGSv2 resource. The code, generated tables, figures, provenance records, and permitted derived artifacts are publicly available in the UsherPipe repository. The current reproducibility artifacts record configured data-version labels, the configuration hash, stage input/output counts, and the software environment in `data/report/reproducibility.json` and `data/report/reproducibility.md`; they provide incomplete source-level provenance, with six source records, six checksums, two URLs, two versions, and no retrieval times. An immutable archive DOI or other persistent identifier for this release is still pending; configured labels do not prove source immutability.
 
 - **Project name:** UsherPipe (`usher-pipeline`)
-- **Project home page:** [AUTHOR ACTION REQUIRED: insert the public project URL]
-- **Reviewer-access version:** [AUTHOR ACTION REQUIRED: insert a reviewer-accessible link to the exact code/data version, preserving reviewer anonymity]
-- **Archived version:** [AUTHOR ACTION REQUIRED: insert the immutable archive DOI or other persistent identifier]
+- **Project home page:** https://github.com/gbanyan/usher-exploring
+- **Reviewer-access version:** https://github.com/gbanyan/usher-exploring/tree/4cf8c5b (exact submitted code/data version)
+- **Archived version:** [AUTHOR ACTION REQUIRED: create a DOI-backed immutable archive for this release and insert its DOI or other persistent identifier before submission]
 - **Operating system(s):** [AUTHOR ACTION REQUIRED: verify the supported/tested operating systems before submission; the current manifest does not record this field.]
 - **Programming language:** Python ≥3.11
 - **Other requirements:** See `pyproject.toml`; the current reproducibility record reports Python 3.13.1, Polars 1.43.2, DuckDB 1.5.5, and CELLxGENE Census 2025-11-08. [AUTHOR ACTION REQUIRED: verify these versions against the immutable release and update if the production rerun changes them.]
