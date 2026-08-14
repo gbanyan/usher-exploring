@@ -312,17 +312,12 @@ No individual-level data, personal details, images, or videos are included in th
 
 ### Availability of data and materials
 
-The analysis uses publicly available resources: mygene.info, Ensembl, gnomAD, GTEx, the Human Protein Atlas, CELLxGENE Census, NCBI gene2pubmed/PubMed, HCOP, MGI, ZFIN, IMPC, and the SYSCILIA SCGSv2 resource. The code, generated tables, figures, provenance records, and permitted derived artifacts are publicly available in the UsherPipe repository. The current reproducibility artifacts record configured data-version labels, the configuration hash, stage input/output counts, and the software environment in `data/report/reproducibility.json` and `data/report/reproducibility.md`; they provide incomplete source-level provenance, with six source records, six checksums, two URLs, two versions, and no retrieval times. An immutable archive DOI or other persistent identifier for this release is still pending; configured labels do not prove source immutability.
+The analysis uses publicly available resources: mygene.info, Ensembl, gnomAD, GTEx, the Human Protein Atlas, CELLxGENE Census, NCBI gene2pubmed/PubMed, HCOP, MGI, ZFIN, IMPC, and the SYSCILIA SCGSv2 resource. The code, generated tables, figures, provenance records, and permitted derived artifacts needed to reproduce the reported analyses are publicly available in the UsherPipe repository.
 
-- **Project name:** UsherPipe (`usher-pipeline`)
-- **Project home page:** https://github.com/gbanyan/usher-exploring
-- **Reviewer-access version:** https://github.com/gbanyan/usher-exploring/tree/4cf8c5b (exact submitted code/data version)
-- **Archived version:** [AUTHOR ACTION REQUIRED: create a DOI-backed immutable archive for this release and insert its DOI or other persistent identifier before submission]
-- **Operating system(s):** [AUTHOR ACTION REQUIRED: verify the supported/tested operating systems before submission; the current manifest does not record this field.]
-- **Programming language:** Python ≥3.11
-- **Other requirements:** See `pyproject.toml`; the current reproducibility record reports Python 3.13.1, Polars 1.43.2, DuckDB 1.5.5, and CELLxGENE Census 2025-11-08. [AUTHOR ACTION REQUIRED: verify these versions against the immutable release and update if the production rerun changes them.]
-- **License:** [AUTHOR ACTION REQUIRED: add the complete license file, choose and state the exact license here, and ensure it matches the repository metadata. The current `pyproject.toml` intentionally has no license declaration until this is confirmed.]
-- **Any restrictions to use by non-academics:** [AUTHOR ACTION REQUIRED: state the restrictions, if any, after the license and third-party data terms are confirmed; do not state “None” without author/legal confirmation.]
+- **Repository:** https://github.com/gbanyan/usher-exploring
+- **Submitted code/data version:** https://github.com/gbanyan/usher-exploring/tree/4cf8c5b
+
+The current reproducibility artifacts record configured data-version labels, the configuration hash, stage input/output counts, and the software environment in `data/report/reproducibility.json` and `data/report/reproducibility.md`; they provide incomplete source-level provenance, with six source records, six checksums, two URLs, two versions, and no retrieval times. Raw third-party inputs are not redistributed where excluded by source terms or size limits; their configured versions and recorded checksums are included where available.
 
 ### Competing interests
 J-R.H. has personal lived experience of Usher syndrome but no financial competing interests. Y-H.C. and W-H.L. declare no competing interests.
