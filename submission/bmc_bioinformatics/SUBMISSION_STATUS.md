@@ -1,6 +1,6 @@
 # BMC Bioinformatics submission status
 
-**Status:** Submitted  
+**Status:** Technical-check amendment prepared; resubmission pending  
 **Submitted:** 15 August 2026 (Asia/Taipei)  
 **Journal:** BMC Bioinformatics  
 **Article type:** Research  
@@ -15,6 +15,14 @@ The submitted package was prepared from the following local files:
 - `Cover_Letter.docx` (condensed version)
 
 Figures and tables were retained in the main manuscript rather than uploaded separately. No collection or related files were selected. The supplementary-file display order in the portal was nonsequential, but the filenames retained the `Additional_file_1`–`Additional_file_10` numbering.
+
+## Technical-check amendment
+
+- **Notice received:** 17 August 2026.
+- **Issue:** Figure 3 was present, but it was not cited in the main text and its intended placement was unclear.
+- **Resolution:** Added `(Fig. 3)` to the Results section under `Pipeline output` and added a `[Figure 3 near here]` placement marker. The figure artwork, legend, and analysis results were not changed.
+- **Prepared file:** `Manuscript_technical_check_fixed.docx` (original `Manuscript.docx` retained unchanged).
+- **Resubmission:** Pending upload through the Springer Nature submission portal.
 
 ## Portal declarations recorded during submission
 

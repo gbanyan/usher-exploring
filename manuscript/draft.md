@@ -183,7 +183,9 @@ Runtime depends on network conditions, cache state, and the execution environmen
 
 Applying UsherPipe to the human protein-coding gene universe (20,116 Ensembl 113 IDs) produced 20,081 analysis labels after 35 duplicate-symbol consolidations, including 573 unresolved ENSG fallback labels. The remaining names derive from the Ensembl GTF `gene_name` field or exact-ID legacy-cache fallback; these are not validated current canonical HGNC symbols. Of these analysis labels, 20,053 had non-NULL composite scores and 28 had no evidence in any layer. Tier classification assigned 18,387 analysis labels to a non-excluded tier: 62 HIGH, 9,673 MEDIUM, and 8,652 LOW (Figure 2). The remaining 1,694 labels were excluded (1,666 with composite score < 0.2 and 28 with no evidence in any layer; Additional file 2, Table S2).
 
-Evidence-layer coverage is reported in the tracked score table and remains layer-specific; the localization gap reflects the limited availability of systematic subcellular localization data. Genes without a layer score receive NULL and are evaluated on remaining layers. Missing gnomAD values correspond to genes for which gnomAD v4.1 reports no usable LOEUF estimate.
+Evidence-layer coverage is reported in the tracked score table and remains layer-specific (Fig. 3); the localization gap reflects the limited availability of systematic subcellular localization data. Genes without a layer score receive NULL and are evaluated on remaining layers. Missing gnomAD values correspond to genes for which gnomAD v4.1 reports no usable LOEUF estimate.
+
+[Figure 3 near here]
 
 ### Optional refinement of the HIGH-tier shortlist
 
