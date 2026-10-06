@@ -34,6 +34,11 @@ OLD = ROOT / "data/cache/temporal-extension-20261006/raw"
 LAYERS = ["gnomad", "expression", "annotation", "localization", "animal", "literature"]
 
 
+def gtex_gene_key(name):
+    """Remove the annotation version while preserving the distinct PAR_Y key."""
+    return re.sub(r'\.\d+(?=_PAR_Y$|$)', '', name)
+
+
 def unique_index(rows, column):
     mapping = defaultdict(set)
     for row in rows:
@@ -129,7 +134,7 @@ def expression_inputs(frame, genes):
         rows = list(csv.DictReader(handle, delimiter="\t"))
     if len(rows) != dimensions[0]:
         raise ValueError("Incomplete GTEx GCT")
-    gtex = {row["Name"].split(".")[0]: row for row in rows}
+    gtex = {gtex_gene_key(row["Name"]): row for row in rows}
     if len(gtex) != len(rows):
         raise ValueError("GTEx duplicate unversioned IDs")
     gtex_columns = []
@@ -146,7 +151,9 @@ def expression_inputs(frame, genes):
         part = result.with_columns(pl.Series("cellxgene_photoreceptor_expr",
             [values.get(gid) for gid in frame["gene_id"]], dtype=pl.Float64))
         variants[name] = compute_expression_score(part)
-    return variants, dict(hpa=hpa_date, gtex_dimensions=dimensions, photo=photo_audit)
+    return variants, dict(hpa=hpa_date, gtex_dimensions=dimensions,
+                          gtex_par_y_rows_kept_as_distinct_keys=sum(r['Name'].endswith('_PAR_Y') for r in rows),
+                          photo=photo_audit)
 
 
 def channel_count(term_ids, vocabulary, keywords):

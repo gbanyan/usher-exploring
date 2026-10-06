@@ -85,3 +85,10 @@ def test_historical_gate_uses_production_polars_half_index_rounding():
     assert animal_gate_threshold([0, np.nan, 1, 2, 3, 4, 5, 6, 7]) == 6
     assert animal_gate_threshold(np.arange(1, 16)) == 12
     assert animal_gate_threshold([0, np.nan]) is None
+
+
+def test_gtex_version_removal_preserves_pseudoautosomal_y_identity():
+    from revision_temporal_v2_reconstruct import gtex_gene_key
+    assert gtex_gene_key('ENSG00000182378.13') == 'ENSG00000182378'
+    assert gtex_gene_key('ENSG00000182378.13_PAR_Y') == 'ENSG00000182378_PAR_Y'
+    assert gtex_gene_key('ENSG00000182378_PAR_Y') == 'ENSG00000182378_PAR_Y'

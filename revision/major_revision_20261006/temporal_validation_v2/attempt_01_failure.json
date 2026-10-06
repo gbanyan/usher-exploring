@@ -1,0 +1,14 @@
+{
+  "attempt": 1,
+  "freeze_commit": "bd6bb2f",
+  "exit_code": 1,
+  "stage": "GTEx parsing before photoreceptor/animal/literature reconstruction and before composite/ranking/HIGH/recall",
+  "error": "ValueError: GTEx duplicate unversioned IDs",
+  "observed_duplicate_keys": 44,
+  "observed_duplicate_rows": 88,
+  "cause": "Splitting on period erased both the version and the distinct _PAR_Y suffix, conflating canonical and Y-pseudoautosomal records.",
+  "correction": "Remove only terminal annotation version digits while preserving _PAR_Y as a distinct key. Such suffixed keys do not match canonical historical ENSG IDs.",
+  "clinical_or_weight_changes": false,
+  "original_freeze_retained": true,
+  "new_output_directory": "results"
+}
