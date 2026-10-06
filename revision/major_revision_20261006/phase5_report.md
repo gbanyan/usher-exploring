@@ -49,3 +49,7 @@ The author explicitly confirmed **none of the 45 principal cases has been indivi
 Prioritize near-cutoff dates, interval dates, AP5B1/C19orf44/SPATA5L1 replication routes, CTNND1/VWA8 prior-phenotype references and XXYLT1. If a decision changes, document a new amendment and rerun affected outcomes transparently without overwriting the original/amended freezes. Do not call the temporal cohort human-adjudicated or independently clinically validated until that work is complete.
 
 All authors must approve the text, AI disclosure, response and cover-letter declarations; confirm the manuscript ID and corresponding-author details before journal upload. An archive DOI has not been minted. Numerical/editorial completion and remote publication do not resolve these author requirements.
+
+## Published author-review checkpoint
+
+The fixed tag points to `3dbbd8c578f319a45b492dc1c96654a3f34762b6`. Branch/tag pushes to both Gitea and GitHub succeeded, each uploading both ZIP LFS objects. Remote branch and peeled-tag refs matched that commit at verification; six public GitHub version endpoints were accessible. The subsequent bookkeeping record preserves those checks without modifying the release tag or audited package. Journal upload and human clinical verification remain outstanding.

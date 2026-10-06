@@ -36,7 +36,13 @@
     "environment": "pinned Python3.13.1 local macOS arm64",
     "timing": "executed earlier in this writing session; no score changes since"
   },
-  "lfs_push_verification": "See post-commit publication_verification.json",
+  "lfs_push_verification": {
+    "origin_uploaded_objects": 2,
+    "github_uploaded_objects": 2,
+    "both_pushes_exit_code": 0,
+    "both_remote_refs_match_release": true,
+    "evidence": "publication_verification.json"
+  },
   "original_public_commit_sha": "4cf8c5b7aa4aea4a444c3447a9e7c16dcd04641f",
   "final_artifact_manifest_sha256": "15704c570940ea6b284aef596ab8bf582c95cb1d9ed707837c10a883579139b3",
   "actual_artifacts": 45,
@@ -44,5 +50,6 @@
   "zip_payload_entries": 431,
   "independent_model": "claude-opus-5-5 (firstParty), high effort",
   "independent_review_rounds": 4,
-  "final_audit_verdict": "ready for author review; no material error remains; not journal-submission-ready"
+  "final_audit_verdict": "ready for author review; no material error remains; not journal-submission-ready",
+  "fixed_author_review_release_commit": "3dbbd8c578f319a45b492dc1c96654a3f34762b6"
 }

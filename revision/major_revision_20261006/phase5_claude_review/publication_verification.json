@@ -1,0 +1,80 @@
+{
+  "verified_utc": "2026-10-06T18:40:55.000124+00:00",
+  "fixed_author_review_release_tag": "major-revision-author-review-20261007",
+  "release_commit": "3dbbd8c578f319a45b492dc1c96654a3f34762b6",
+  "publication_scope": "Author-review draft; not journal upload or human clinical verification",
+  "remotes": {
+    "origin": {
+      "refs_at_verification": {
+        "refs/heads/revision/major-revision": "3dbbd8c578f319a45b492dc1c96654a3f34762b6",
+        "refs/tags/major-revision-author-review-20261007": "7b84b0507dfd6a64647e698da956c7503b6ae76e",
+        "refs/tags/major-revision-author-review-20261007^{}": "3dbbd8c578f319a45b492dc1c96654a3f34762b6"
+      },
+      "lfs_push_exit_code": 0,
+      "lfs_objects_uploaded": 2,
+      "lfs_transfer_report": "100% (2/2), 25 MB, done"
+    },
+    "github": {
+      "refs_at_verification": {
+        "refs/heads/revision/major-revision": "3dbbd8c578f319a45b492dc1c96654a3f34762b6",
+        "refs/tags/major-revision-author-review-20261007": "7b84b0507dfd6a64647e698da956c7503b6ae76e",
+        "refs/tags/major-revision-author-review-20261007^{}": "3dbbd8c578f319a45b492dc1c96654a3f34762b6"
+      },
+      "lfs_push_exit_code": 0,
+      "lfs_objects_uploaded": 2,
+      "lfs_transfer_report": "100% (2/2), 25 MB, done"
+    }
+  },
+  "public_github_version_checks": {
+    "commits/3dbbd8c578f319a45b492dc1c96654a3f34762b6": {
+      "url": "https://api.github.com/repos/gbanyan/usher-exploring/commits/3dbbd8c578f319a45b492dc1c96654a3f34762b6",
+      "status": 200,
+      "sha": "3dbbd8c578f319a45b492dc1c96654a3f34762b6",
+      "html_url": "https://github.com/gbanyan/usher-exploring/commit/3dbbd8c578f319a45b492dc1c96654a3f34762b6"
+    },
+    "commits/736e16f": {
+      "url": "https://api.github.com/repos/gbanyan/usher-exploring/commits/736e16f",
+      "status": 200,
+      "sha": "736e16f0ffa18a60c85114266cd12a48d49ecea5",
+      "html_url": "https://github.com/gbanyan/usher-exploring/commit/736e16f0ffa18a60c85114266cd12a48d49ecea5"
+    },
+    "commits/0e1634a": {
+      "url": "https://api.github.com/repos/gbanyan/usher-exploring/commits/0e1634a",
+      "status": 200,
+      "sha": "0e1634a31d812b4b9caf4023142a840984e1b20c",
+      "html_url": "https://github.com/gbanyan/usher-exploring/commit/0e1634a31d812b4b9caf4023142a840984e1b20c"
+    },
+    "commits/ed2d00d": {
+      "url": "https://api.github.com/repos/gbanyan/usher-exploring/commits/ed2d00d",
+      "status": 200,
+      "sha": "ed2d00d9be0de3fbdf692bd46acbf0102bfc8d35",
+      "html_url": "https://github.com/gbanyan/usher-exploring/commit/ed2d00d9be0de3fbdf692bd46acbf0102bfc8d35"
+    },
+    "commits/4cf8c5b": {
+      "url": "https://api.github.com/repos/gbanyan/usher-exploring/commits/4cf8c5b",
+      "status": 200,
+      "sha": "4cf8c5b7aa4aea4a444c3447a9e7c16dcd04641f",
+      "html_url": "https://github.com/gbanyan/usher-exploring/commit/4cf8c5b7aa4aea4a444c3447a9e7c16dcd04641f"
+    },
+    "git/ref/tags/major-revision-author-review-20261007": {
+      "url": "https://api.github.com/repos/gbanyan/usher-exploring/git/ref/tags/major-revision-author-review-20261007",
+      "status": 200,
+      "sha": "7b84b0507dfd6a64647e698da956c7503b6ae76e",
+      "html_url": null
+    }
+  },
+  "lfs_assets": {
+    "Additional_file_11_Revision_Diagnostics_and_Replay.zip": {
+      "sha256": "6e38d3ab0d160720452e2024f0abfb378234f46e84152297c4f896ae84dab475",
+      "bytes": 18054183
+    },
+    "Additional_file_12_Temporal_Evaluation.zip": {
+      "sha256": "d63889b34408de308b5a7c3f236ca8fbf90edd4a6484486e37091a49b5ea8235",
+      "bytes": 6559956
+    }
+  },
+  "local_lfs_fsck": "passed",
+  "clinical_human_checks_complete": 0,
+  "clinical_human_checks_pending": 45,
+  "original_submission_and_frozen_numerical_inputs_unchanged": true
+}
