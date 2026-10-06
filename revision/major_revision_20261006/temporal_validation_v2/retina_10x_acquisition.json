@@ -1,0 +1,50 @@
+[
+  {
+    "name": "GSE137537_counts.mtx.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE137nnn/GSE137537/suppl/GSE137537_counts.mtx.gz",
+    "started_utc": "2026-10-06T12:08:53.825745+00:00",
+    "path": "data/cache/temporal-validation-v2-20261006/raw/GSE137537_counts.mtx.gz",
+    "complete": true,
+    "status": 200,
+    "final_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE137nnn/GSE137537/suppl/GSE137537_counts.mtx.gz",
+    "content_type": "application/x-gzip",
+    "last_modified": "Mon, 16 Sep 2019 20:28:58 GMT",
+    "content_length": "46892219",
+    "sha256": "626e96cb832a7df5cd208df043767d39a5c996332c859eeb23d120c500af4d86",
+    "bytes": 46892219,
+    "error": null,
+    "finished_utc": "2026-10-06T12:08:59.294582+00:00"
+  },
+  {
+    "name": "GSE137537_gene_names.txt.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE137nnn/GSE137537/suppl/GSE137537_gene_names.txt.gz",
+    "started_utc": "2026-10-06T12:08:53.826084+00:00",
+    "path": "data/cache/temporal-validation-v2-20261006/raw/GSE137537_gene_names.txt.gz",
+    "complete": true,
+    "status": 200,
+    "final_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE137nnn/GSE137537/suppl/GSE137537_gene_names.txt.gz",
+    "content_type": "application/x-gzip",
+    "last_modified": "Mon, 16 Sep 2019 20:28:58 GMT",
+    "content_length": "74523",
+    "sha256": "f51c7e2f3a0c2f83f7ef5d862adc625bc22e853df100d766dbd4d3c84719a970",
+    "bytes": 74523,
+    "error": null,
+    "finished_utc": "2026-10-06T12:08:54.848207+00:00"
+  },
+  {
+    "name": "GSE137537_sample_annotations.tsv.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE137nnn/GSE137537/suppl/GSE137537_sample_annotations.tsv.gz",
+    "started_utc": "2026-10-06T12:08:53.826226+00:00",
+    "path": "data/cache/temporal-validation-v2-20261006/raw/GSE137537_sample_annotations.tsv.gz",
+    "complete": true,
+    "status": 200,
+    "final_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE137nnn/GSE137537/suppl/GSE137537_sample_annotations.tsv.gz",
+    "content_type": "application/x-gzip",
+    "last_modified": "Mon, 16 Sep 2019 20:28:59 GMT",
+    "content_length": "3155456",
+    "sha256": "f167da050b88c145265823217d0ddfd9109fd45adea9f5e0c686bda5b4e8103e",
+    "bytes": 3155456,
+    "error": null,
+    "finished_utc": "2026-10-06T12:08:55.823311+00:00"
+  }
+]

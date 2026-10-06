@@ -1,0 +1,110 @@
+{
+  "reason": "Retain exact pre-outcome failed/corrected trial ledgers locally; keep adopted ledger and hashes in Git without duplicate megabyte snapshots.",
+  "attempts": [
+    {
+      "original_path": "revision/major_revision_20261006/temporal_validation_v2/cohort_screening_initial_attempt",
+      "retained_cache_path": "data/cache/temporal-validation-v2-20261006/catalog_ledger_attempts/cohort_screening_initial_attempt",
+      "files": [
+        {
+          "file": "catalog_records.json",
+          "bytes": 1681741,
+          "sha256": "a20e3c04d34295d24397220bcf475cdfcd7f9cda307754e07f79bf92cdf2fa10"
+        },
+        {
+          "file": "gene_screening_ledger.json",
+          "bytes": 1395964,
+          "sha256": "123e6cb6d068ba403b295b46b58a1787f2da7dbfd8ecac6c8ad014f5cede6d48"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 11158,
+          "sha256": "cbc210fe90d21bae60fcb0ad46059fa14e2ee30ca227dab3c28854d7b43262e3"
+        },
+        {
+          "file": "standardized_screen_requests.json",
+          "bytes": 207473,
+          "sha256": "6de0147e4da5fc4e0acec1858ca0eea123619836053712062509539fb0f66681"
+        }
+      ]
+    },
+    {
+      "original_path": "revision/major_revision_20261006/temporal_validation_v2/cohort_screening_reference_before_correction",
+      "retained_cache_path": "data/cache/temporal-validation-v2-20261006/catalog_ledger_attempts/cohort_screening_reference_before_correction",
+      "files": [
+        {
+          "file": "catalog_records.json",
+          "bytes": 1681765,
+          "sha256": "7999fe422509bc7c3a88171cf7b8a1796867e4e5d0f15f9118329a28e3f84758"
+        },
+        {
+          "file": "gene_screening_ledger.json",
+          "bytes": 1398060,
+          "sha256": "48de86dc0348c869f477be405e7c25a09ff03f3e3d9b91698b515d8826e110ed"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 11158,
+          "sha256": "93aaacabb1e8aad91ad328c368afb2bd2fab4c3bfd4f7984f10953379532c652"
+        },
+        {
+          "file": "standardized_screen_requests.json",
+          "bytes": 207233,
+          "sha256": "9396e215f1116543456065a452a82750550aa536ddff43e1dd15506bf5089ade"
+        }
+      ]
+    },
+    {
+      "original_path": "revision/major_revision_20261006/temporal_validation_v2/cohort_screening_reference_corrected",
+      "retained_cache_path": "data/cache/temporal-validation-v2-20261006/catalog_ledger_attempts/cohort_screening_reference_corrected",
+      "files": [
+        {
+          "file": "catalog_records.json",
+          "bytes": 1682449,
+          "sha256": "0b5e434c87f018a06eb6063412cf6451454e2403b8a1863d3422be80ee016f64"
+        },
+        {
+          "file": "gene_screening_ledger.json",
+          "bytes": 1398136,
+          "sha256": "9802ff808d90f7f294a0bffa1bcdee3f9022d1dc7cf0dfb44270651fb1a7d9f9"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 11158,
+          "sha256": "429df8fddb8dd317b2521d48af6f011b1e33cd96c90c07c43f59600b8513da55"
+        },
+        {
+          "file": "standardized_screen_requests.json",
+          "bytes": 207233,
+          "sha256": "9396e215f1116543456065a452a82750550aa536ddff43e1dd15506bf5089ade"
+        }
+      ]
+    },
+    {
+      "original_path": "revision/major_revision_20261006/temporal_validation_v2/cohort_screening_reference_final",
+      "retained_cache_path": "data/cache/temporal-validation-v2-20261006/catalog_ledger_attempts/cohort_screening_reference_final",
+      "files": [
+        {
+          "file": "catalog_records.json",
+          "bytes": 1682449,
+          "sha256": "0b5e434c87f018a06eb6063412cf6451454e2403b8a1863d3422be80ee016f64"
+        },
+        {
+          "file": "gene_screening_ledger.json",
+          "bytes": 1398096,
+          "sha256": "f02fa60e028775194edc9d4ef5fbe75de13cc9c0f177de335fe73f3d9a70773d"
+        },
+        {
+          "file": "manifest.json",
+          "bytes": 11482,
+          "sha256": "e994c10f683dad34e0ecf0a7a947ab561ec383f39619e82d0f78c606005b95d0"
+        },
+        {
+          "file": "standardized_screen_requests.json",
+          "bytes": 207233,
+          "sha256": "9396e215f1116543456065a452a82750550aa536ddff43e1dd15506bf5089ade"
+        }
+      ]
+    }
+  ],
+  "warning": "Ignored raw cache is not backed up by Git."
+}

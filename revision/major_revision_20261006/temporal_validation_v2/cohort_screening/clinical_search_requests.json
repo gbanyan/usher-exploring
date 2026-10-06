@@ -1,0 +1,1096 @@
+[
+  {
+    "gene_key": "HGNC:10193",
+    "symbols": [
+      "RNU4-1B",
+      "RNU4-2",
+      "RNU4B1",
+      "RNU4C"
+    ]
+  },
+  {
+    "gene_key": "HGNC:10227",
+    "symbols": [
+      "RNU6-1",
+      "RNU6A"
+    ]
+  },
+  {
+    "gene_key": "HGNC:10537",
+    "symbols": [
+      "SARS",
+      "SARS1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:10938",
+    "symbols": [
+      "SLC19A2",
+      "TRMA"
+    ]
+  },
+  {
+    "gene_key": "HGNC:11226",
+    "symbols": [
+      "ALS5",
+      "KIAA1840",
+      "SPG11"
+    ]
+  },
+  {
+    "gene_key": "HGNC:11317",
+    "symbols": [
+      "SSBP1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:11397",
+    "symbols": [
+      "PLK4",
+      "STK18"
+    ]
+  },
+  {
+    "gene_key": "HGNC:11438",
+    "symbols": [
+      "STX3",
+      "STX3A"
+    ]
+  },
+  {
+    "gene_key": "HGNC:11439",
+    "symbols": [
+      "STX4",
+      "STX4A"
+    ]
+  },
+  {
+    "gene_key": "HGNC:11446",
+    "symbols": [
+      "STXBP3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:11597",
+    "symbols": [
+      "TBX2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:11714",
+    "symbols": [
+      "AA",
+      "TCF13",
+      "TEAD1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:1176",
+    "symbols": [
+      "C11orf4",
+      "MRPL49"
+    ]
+  },
+  {
+    "gene_key": "HGNC:11799",
+    "symbols": [
+      "ERBA2",
+      "PRTH",
+      "THRB"
+    ]
+  },
+  {
+    "gene_key": "HGNC:11891",
+    "symbols": [
+      "CLEC3B",
+      "TNA"
+    ]
+  },
+  {
+    "gene_key": "HGNC:12003",
+    "symbols": [
+      "TP73"
+    ]
+  },
+  {
+    "gene_key": "HGNC:12565",
+    "symbols": [
+      "UNC119"
+    ]
+  },
+  {
+    "gene_key": "HGNC:12760",
+    "symbols": [
+      "BRWD1",
+      "C21orf107",
+      "WDR9"
+    ]
+  },
+  {
+    "gene_key": "HGNC:12814",
+    "symbols": [
+      "XPA"
+    ]
+  },
+  {
+    "gene_key": "HGNC:13356",
+    "symbols": [
+      "MCOLN1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:13552",
+    "symbols": [
+      "ATP11A"
+    ]
+  },
+  {
+    "gene_key": "HGNC:13753",
+    "symbols": [
+      "CCDC10",
+      "CSDUFD1",
+      "FSD1CL",
+      "FSD1L",
+      "FSD1NL"
+    ]
+  },
+  {
+    "gene_key": "HGNC:13869",
+    "symbols": [
+      "LOXL3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:13872",
+    "symbols": [
+      "C6orf32",
+      "FAM65B",
+      "RIPOR2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:15480",
+    "symbols": [
+      "AUNA1",
+      "DIAPH3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:15625",
+    "symbols": [
+      "NBAS"
+    ]
+  },
+  {
+    "gene_key": "HGNC:15822",
+    "symbols": [
+      "OXR1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:15939",
+    "symbols": [
+      "WFDC2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:16148",
+    "symbols": [
+      "C20orf155",
+      "CRLS1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:16187",
+    "symbols": [
+      "C20orf54",
+      "SLC52A3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:1632",
+    "symbols": [
+      "CD164"
+    ]
+  },
+  {
+    "gene_key": "HGNC:16410",
+    "symbols": [
+      "DNAJC30",
+      "WBSCR18"
+    ]
+  },
+  {
+    "gene_key": "HGNC:16466",
+    "symbols": [
+      "SUFU"
+    ]
+  },
+  {
+    "gene_key": "HGNC:17211",
+    "symbols": [
+      "DDX38",
+      "DHX38"
+    ]
+  },
+  {
+    "gene_key": "HGNC:17367",
+    "symbols": [
+      "ESRRBL1",
+      "IFT57"
+    ]
+  },
+  {
+    "gene_key": "HGNC:17759",
+    "symbols": [
+      "PDSS1",
+      "TPRT"
+    ]
+  },
+  {
+    "gene_key": "HGNC:17964",
+    "symbols": [
+      "RDH11"
+    ]
+  },
+  {
+    "gene_key": "HGNC:18399",
+    "symbols": [
+      "DHRSX"
+    ]
+  },
+  {
+    "gene_key": "HGNC:18525",
+    "symbols": [
+      "CYS1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:18533",
+    "symbols": [
+      "USP31",
+      "USP48"
+    ]
+  },
+  {
+    "gene_key": "HGNC:18592",
+    "symbols": [
+      "NEK10"
+    ]
+  },
+  {
+    "gene_key": "HGNC:19041",
+    "symbols": [
+      "ADCK4",
+      "COQ8B"
+    ]
+  },
+  {
+    "gene_key": "HGNC:19693",
+    "symbols": [
+      "COQ4"
+    ]
+  },
+  {
+    "gene_key": "HGNC:1975",
+    "symbols": [
+      "CHX10",
+      "HOX10",
+      "VSX2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:19958",
+    "symbols": [
+      "KIAA0391",
+      "PRORP"
+    ]
+  },
+  {
+    "gene_key": "HGNC:19987",
+    "symbols": [
+      "EPHA10"
+    ]
+  },
+  {
+    "gene_key": "HGNC:20192",
+    "symbols": [
+      "AP5M1",
+      "C14orf108",
+      "MUDENG"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2020",
+    "symbols": [
+      "CLCN2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:20313",
+    "symbols": [
+      "PKHD1L1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:20376",
+    "symbols": [
+      "SUMF1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2051",
+    "symbols": [
+      "CLDN9"
+    ]
+  },
+  {
+    "gene_key": "HGNC:20582",
+    "symbols": [
+      "CYP2U1",
+      "SPG56"
+    ]
+  },
+  {
+    "gene_key": "HGNC:20651",
+    "symbols": [
+      "SLC37A3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:20771",
+    "symbols": [
+      "TUBB2C",
+      "TUBB4B"
+    ]
+  },
+  {
+    "gene_key": "HGNC:20844",
+    "symbols": [
+      "GPR156"
+    ]
+  },
+  {
+    "gene_key": "HGNC:20860",
+    "symbols": [
+      "SLC39A12"
+    ]
+  },
+  {
+    "gene_key": "HGNC:20893",
+    "symbols": [
+      "BCOR"
+    ]
+  },
+  {
+    "gene_key": "HGNC:20917",
+    "symbols": [
+      "ALPK1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:21107",
+    "symbols": [
+      "C6orf84",
+      "CEP162",
+      "KIAA1009"
+    ]
+  },
+  {
+    "gene_key": "HGNC:21424",
+    "symbols": [
+      "CCDC2",
+      "IFT74"
+    ]
+  },
+  {
+    "gene_key": "HGNC:21485",
+    "symbols": [
+      "C6orf170",
+      "C6orf171",
+      "TBC1D32"
+    ]
+  },
+  {
+    "gene_key": "HGNC:21882",
+    "symbols": [
+      "TTC26"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2219",
+    "symbols": [
+      "COL9A3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:22197",
+    "symbols": [
+      "AP5Z1",
+      "KIAA0415"
+    ]
+  },
+  {
+    "gene_key": "HGNC:23136",
+    "symbols": [
+      "SCNM1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:23338",
+    "symbols": [
+      "ACBD5"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2347",
+    "symbols": [
+      "CREB3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:23573",
+    "symbols": [
+      "MORC2",
+      "ZCWCC1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:23700",
+    "symbols": [
+      "TTC12"
+    ]
+  },
+  {
+    "gene_key": "HGNC:24102",
+    "symbols": [
+      "ARSG"
+    ]
+  },
+  {
+    "gene_key": "HGNC:24846",
+    "symbols": [
+      "GAS2L2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2509",
+    "symbols": [
+      "CTNNA1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25104",
+    "symbols": [
+      "AP5B1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2515",
+    "symbols": [
+      "CTNND",
+      "CTNND1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25223",
+    "symbols": [
+      "COQ2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25247",
+    "symbols": [
+      "C10orf123",
+      "C10orf124",
+      "C10orf92",
+      "C10orf93",
+      "CFAP46",
+      "TTC40"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25394",
+    "symbols": [
+      "SAMD7"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25513",
+    "symbols": [
+      "ATPBD1B",
+      "GPN2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25552",
+    "symbols": [
+      "C1orf164",
+      "RNF220"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25590",
+    "symbols": [
+      "OGDHL"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25678",
+    "symbols": [
+      "EFCAB1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25714",
+    "symbols": [
+      "CCDC51"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25727",
+    "symbols": [
+      "C18orf9",
+      "CEP76"
+    ]
+  },
+  {
+    "gene_key": "HGNC:25979",
+    "symbols": [
+      "MIEF1",
+      "SMCR7L"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26001",
+    "symbols": [
+      "PQLC2",
+      "SLC66A1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26052",
+    "symbols": [
+      "CPSF3L",
+      "INTS11"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26141",
+    "symbols": [
+      "C19orf44"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26200",
+    "symbols": [
+      "OBFC1",
+      "STN1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26383",
+    "symbols": [
+      "DAW1",
+      "WDR69"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26456",
+    "symbols": [
+      "C12orf55",
+      "C12orf63",
+      "CFAP54"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26623",
+    "symbols": [
+      "TMEM17"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26639",
+    "symbols": [
+      "C3orf21",
+      "XXYLT1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26658",
+    "symbols": [
+      "C5orf37",
+      "POC5"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2673",
+    "symbols": [
+      "DAP3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26768",
+    "symbols": [
+      "CCDC75",
+      "GPATCH11"
+    ]
+  },
+  {
+    "gene_key": "HGNC:26810",
+    "symbols": [
+      "EGFLAM"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2709",
+    "symbols": [
+      "DCT",
+      "TYRP2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:27344",
+    "symbols": [
+      "TMEM218"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2739",
+    "symbols": [
+      "DDX16",
+      "DHX16"
+    ]
+  },
+  {
+    "gene_key": "HGNC:28093",
+    "symbols": [
+      "BBIP1",
+      "NCRNA00081"
+    ]
+  },
+  {
+    "gene_key": "HGNC:28127",
+    "symbols": [
+      "C1orf89",
+      "CPLANE2",
+      "RSG1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:28295",
+    "symbols": [
+      "C15orf57",
+      "CCDC32"
+    ]
+  },
+  {
+    "gene_key": "HGNC:28302",
+    "symbols": [
+      "LRRC45"
+    ]
+  },
+  {
+    "gene_key": "HGNC:28722",
+    "symbols": [
+      "COQ5"
+    ]
+  },
+  {
+    "gene_key": "HGNC:28762",
+    "symbols": [
+      "SPATA5L1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2904",
+    "symbols": [
+      "DLG5"
+    ]
+  },
+  {
+    "gene_key": "HGNC:29068",
+    "symbols": [
+      "KATNIP",
+      "KIAA0556"
+    ]
+  },
+  {
+    "gene_key": "HGNC:29071",
+    "symbols": [
+      "KIAA0564",
+      "VWA8"
+    ]
+  },
+  {
+    "gene_key": "HGNC:29162",
+    "symbols": [
+      "FAM149B1",
+      "KIAA0974"
+    ]
+  },
+  {
+    "gene_key": "HGNC:29368",
+    "symbols": [
+      "C1orf222",
+      "CFAP74",
+      "KIAA1751"
+    ]
+  },
+  {
+    "gene_key": "HGNC:2941",
+    "symbols": [
+      "DNAH10"
+    ]
+  },
+  {
+    "gene_key": "HGNC:29523",
+    "symbols": [
+      "C16orf80",
+      "CFAP20"
+    ]
+  },
+  {
+    "gene_key": "HGNC:29678",
+    "symbols": [
+      "MSTO1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:29917",
+    "symbols": [
+      "MDM1",
+      "SAXO6"
+    ]
+  },
+  {
+    "gene_key": "HGNC:30162",
+    "symbols": [
+      "EXOC3L2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:30168",
+    "symbols": [
+      "PDIA6",
+      "TXNDC7"
+    ]
+  },
+  {
+    "gene_key": "HGNC:30224",
+    "symbols": [
+      "GPR172A",
+      "SLC52A2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:3091",
+    "symbols": [
+      "DYRK",
+      "DYRK1",
+      "DYRK1A",
+      "MNBH"
+    ]
+  },
+  {
+    "gene_key": "HGNC:31582",
+    "symbols": [
+      "MIR204",
+      "MIRN204"
+    ]
+  },
+  {
+    "gene_key": "HGNC:31658",
+    "symbols": [
+      "C10orf127",
+      "TMEM72"
+    ]
+  },
+  {
+    "gene_key": "HGNC:326",
+    "symbols": [
+      "AGPAT3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:328",
+    "symbols": [
+      "AGR2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:33720",
+    "symbols": [
+      "CFAP221"
+    ]
+  },
+  {
+    "gene_key": "HGNC:33862",
+    "symbols": [
+      "GRXCR2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:33914",
+    "symbols": [
+      "KIAA1024L",
+      "MINAR2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:33939",
+    "symbols": [
+      "CLRN2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:34269",
+    "symbols": [
+      "RNU6-9"
+    ]
+  },
+  {
+    "gene_key": "HGNC:34270",
+    "symbols": [
+      "RNU6-2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:34285",
+    "symbols": [
+      "RNU6-8"
+    ]
+  },
+  {
+    "gene_key": "HGNC:348",
+    "symbols": [
+      "AHR"
+    ]
+  },
+  {
+    "gene_key": "HGNC:3815",
+    "symbols": [
+      "FKHL10",
+      "FOXI1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:3816",
+    "symbols": [
+      "FKHL13",
+      "FOXJ1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:40028",
+    "symbols": [
+      "UBAP1L"
+    ]
+  },
+  {
+    "gene_key": "HGNC:4161",
+    "symbols": [
+      "D11S833E",
+      "GARP",
+      "LRRC32"
+    ]
+  },
+  {
+    "gene_key": "HGNC:4288",
+    "symbols": [
+      "DFNA3",
+      "ED2",
+      "GJB6"
+    ]
+  },
+  {
+    "gene_key": "HGNC:4817",
+    "symbols": [
+      "HARS2",
+      "HARSL"
+    ]
+  },
+  {
+    "gene_key": "HGNC:5386",
+    "symbols": [
+      "IDH3G"
+    ]
+  },
+  {
+    "gene_key": "HGNC:554",
+    "symbols": [
+      "ADTB1",
+      "AP1B1",
+      "CLAPB2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:6188",
+    "symbols": [
+      "AGS",
+      "JAG1",
+      "JAGL1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:6262",
+    "symbols": [
+      "KCNJ16"
+    ]
+  },
+  {
+    "gene_key": "HGNC:6481",
+    "symbols": [
+      "LAMA",
+      "LAMA1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:6501",
+    "symbols": [
+      "LAMP2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:6556",
+    "symbols": [
+      "LETM1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:6595",
+    "symbols": [
+      "LHX3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:6600",
+    "symbols": [
+      "LIG2",
+      "LIG3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:6653",
+    "symbols": [
+      "LMX1",
+      "LMX1A"
+    ]
+  },
+  {
+    "gene_key": "HGNC:694",
+    "symbols": [
+      "ARL3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:7208",
+    "symbols": [
+      "MPDZ"
+    ]
+  },
+  {
+    "gene_key": "HGNC:7414",
+    "symbols": [
+      "MT-ATP6",
+      "MTATP6",
+      "RP"
+    ]
+  },
+  {
+    "gene_key": "HGNC:7490",
+    "symbols": [
+      "MT-TL1",
+      "MTTL1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:7530",
+    "symbols": [
+      "MVK"
+    ]
+  },
+  {
+    "gene_key": "HGNC:7853",
+    "symbols": [
+      "NME5"
+    ]
+  },
+  {
+    "gene_key": "HGNC:797",
+    "symbols": [
+      "ATOH1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:7985",
+    "symbols": [
+      "GCNF",
+      "NR6A1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:8029",
+    "symbols": [
+      "NTN1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:8079",
+    "symbols": [
+      "FRMD7",
+      "NYS",
+      "NYS1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:8591",
+    "symbols": [
+      "PAK2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:8790",
+    "symbols": [
+      "PDE6H"
+    ]
+  },
+  {
+    "gene_key": "HGNC:9065",
+    "symbols": [
+      "PLC1",
+      "PLCG1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:9104",
+    "symbols": [
+      "PLXNB2"
+    ]
+  },
+  {
+    "gene_key": "HGNC:9439",
+    "symbols": [
+      "DNAJC3",
+      "PRKRI"
+    ]
+  },
+  {
+    "gene_key": "HGNC:9529",
+    "symbols": [
+      "PSKH1"
+    ]
+  },
+  {
+    "gene_key": "HGNC:9549",
+    "symbols": [
+      "PSMC3"
+    ]
+  },
+  {
+    "gene_key": "HGNC:9972",
+    "symbols": [
+      "RFC4"
+    ]
+  }
+]

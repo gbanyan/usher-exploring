@@ -1,0 +1,3090 @@
+[
+  {
+    "pmid": "41513982",
+    "pmcid": "PMC12807869",
+    "doi": "10.1038/s41588-025-02451-4",
+    "title": "De novo and inherited dominant variants in U4 and U6 snRNA genes cause retinitis pigmentosa.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12807869/fullTextXML",
+    "started_utc": "2026-10-06T12:21:11.232255+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12807869.xml",
+    "sha256": "2fabeb75f078e263dcfcf67df7aa8436cb0fe4ddc4b5fe0fbf7448abfb4c9ee6",
+    "bytes": 272142,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2026-1-9"
+      },
+      {
+        "pub-type": "ppub",
+        "value": "2026--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:21:15.200129+00:00"
+  },
+  {
+    "pmid": "38037112",
+    "pmcid": "PMC10691017",
+    "doi": "10.1186/s13052-023-01553-1",
+    "title": "An Italian case series' description of thiamine responsive megaloblastic anemia syndrome: importance of early\u00a0diagnosis and treatment.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10691017/fullTextXML",
+    "started_utc": "2026-10-06T12:21:11.232556+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10691017.xml",
+    "sha256": "249d70e1cdb9ed0cfbb56710630c8ec503bdaea6110f2235ed38f3d8701f1483",
+    "bytes": 77107,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2023-11-30"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2023--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:21:13.425259+00:00"
+  },
+  {
+    "pmid": "40220483",
+    "pmcid": "PMC12017973",
+    "doi": "10.1016/j.bjorl.2025.101581",
+    "title": "Diagnosis of a patient with severe sensorineural hearing loss as the initial symptom caused by novel compound heterozygous variant in SLC19A2 gene.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12017973/fullTextXML",
+    "started_utc": "2026-10-06T12:21:11.234017+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12017973.xml",
+    "sha256": "d6af97cf10e2778fc7c478bd4ba7a192557279b6edab97da9050f8b179b878e2",
+    "bytes": 61231,
+    "publication_dates": [
+      {
+        "pub-type": "collection",
+        "value": "2025--"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2025-4-11"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:21:13.242506+00:00"
+  },
+  {
+    "pmid": "39391989",
+    "pmcid": "PMC12005084",
+    "doi": "10.1111/neup.13007",
+    "title": "Hereditary spastic paraplegia with thin corpus callosum and SPG11 mutation: A neuropathological evaluation.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12005084/fullTextXML",
+    "started_utc": "2026-10-06T12:21:13.242896+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:21:40.626225+00:00"
+  },
+  {
+    "pmid": "34905022",
+    "pmcid": "PMC8684315",
+    "doi": "10.1167/iovs.62.15.12",
+    "title": "SSBP1-Disease Update: Expanding the Genetic and Clinical Spectrum, Reporting Variable Penetrance and Confirming Recessive Inheritance.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8684315/fullTextXML",
+    "started_utc": "2026-10-06T12:21:13.425623+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8684315.xml",
+    "sha256": "9fe1b1f8bb1969f3d668846c0a3bff994f0d9a9b4c90bd400b9fee30e39449e5",
+    "bytes": 104512,
+    "publication_dates": [
+      {
+        "value": "2021-12-14"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:21:15.677865+00:00"
+  },
+  {
+    "pmid": "34556108",
+    "pmcid": "PMC8461892",
+    "doi": "10.1186/s12920-021-01084-w",
+    "title": "Whole genome sequencing in the diagnosis of primary ciliary dyskinesia.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8461892/fullTextXML",
+    "started_utc": "2026-10-06T12:21:15.200803+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8461892.xml",
+    "sha256": "7f2f7c7cd828233268a4fd4e1a51f0293b24eca0c85012c9442590c381ec2b78",
+    "bytes": 139318,
+    "publication_dates": [
+      {
+        "value": "2021-9-23"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:21:21.370185+00:00"
+  },
+  {
+    "pmid": "33974130",
+    "pmcid": "PMC8263458",
+    "doi": "10.1007/s00439-021-02284-1",
+    "title": "Pathogenic STX3 variants affecting the retinal and intestinal transcripts cause an early-onset severe retinal dystrophy in microvillus inclusion disease subjects.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8263458/fullTextXML",
+    "started_utc": "2026-10-06T12:21:15.678259+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:21:46.818173+00:00"
+  },
+  {
+    "pmid": "36355422",
+    "pmcid": "PMC10026253",
+    "doi": "10.1093/hmg/ddac257",
+    "title": "Syntaxin 4 is essential for hearing in human and zebrafish.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10026253/fullTextXML",
+    "started_utc": "2026-10-06T12:21:21.370851+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:21:53.385698+00:00"
+  },
+  {
+    "pmid": "33346580",
+    "pmcid": "PMC8221730",
+    "doi": "10.1097/mpg.0000000000003017",
+    "title": "Clinical Genomics for the Diagnosis of Monogenic Forms of Inflammatory Bowel Disease: A Position Paper From the Paediatric IBD Porto Group of European Society of Paediatric Gastroenterology, Hepatology and Nutrition.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8221730/fullTextXML",
+    "started_utc": "2026-10-06T12:21:40.626469+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:22:09.221451+00:00"
+  },
+  {
+    "pmid": "33891011",
+    "pmcid": "PMC8575043",
+    "doi": "10.1093/ecco-jcc/jjab077",
+    "title": "Variants in STXBP3 are Associated with Very Early Onset Inflammatory Bowel Disease, Bilateral Sensorineural Hearing Loss and Immune Dysregulation.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8575043/fullTextXML",
+    "started_utc": "2026-10-06T12:21:46.818818+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:22:15.402586+00:00"
+  },
+  {
+    "pmid": "35508658",
+    "pmcid": "PMC9803360",
+    "doi": "10.1038/s41586-022-04668-3",
+    "title": "Tbx2 is a master regulator of inner versus outer hair cell differentiation.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9803360/fullTextXML",
+    "started_utc": "2026-10-06T12:21:53.386213+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:22:25.081723+00:00"
+  },
+  {
+    "pmid": "40984966",
+    "pmcid": "PMC12450282",
+    "doi": "10.7759/cureus.90588",
+    "title": "Sveinsson Chorioretinal Atrophy: A New Gene Variant.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12450282/fullTextXML",
+    "started_utc": "2026-10-06T12:22:09.222042+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12450282.xml",
+    "sha256": "5063eb9905f7f3cde7b26bed45272c7c4368120f3ea7bcad9dd26da0cc020141",
+    "bytes": 38144,
+    "publication_dates": [
+      {
+        "date-type": "pub",
+        "publication-format": "electronic",
+        "value": "2025-8-20"
+      },
+      {
+        "date-type": "collection",
+        "publication-format": "electronic",
+        "value": "2025-8-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:11.329608+00:00"
+  },
+  {
+    "pmid": "40043708",
+    "pmcid": "PMC12081275",
+    "doi": "10.1016/j.ajhg.2025.02.005",
+    "title": "Bi-allelic variants in MRPL49 cause variable clinical presentations, including sensorineural hearing loss, leukodystrophy, and ovarian insufficiency.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12081275/fullTextXML",
+    "started_utc": "2026-10-06T12:22:11.330092+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12081275.xml",
+    "sha256": "3d0be80d6cb805df099d6d80ebad8eb5f1d9cb07748158dacbac6cdb26396664",
+    "bytes": 120787,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2025-4-03"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2025-3-04"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:15.515504+00:00"
+  },
+  {
+    "pmid": "37547476",
+    "pmcid": "PMC10401274",
+    "doi": "10.3389/fcell.2023.1197744",
+    "title": "Expanding the phenotype of <i>THRB</i>: a range of macular dystrophies as the major clinical manifestations in patients with a dominant splicing variant.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10401274/fullTextXML",
+    "started_utc": "2026-10-06T12:22:15.403431+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10401274.xml",
+    "sha256": "d9be73cbe25bbedda60df148d06b57ab91d9f5234b46c0e80a9307f6fe778d93",
+    "bytes": 147301,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2023-7-21"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2023--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:19.147059+00:00"
+  },
+  {
+    "pmid": "40295579",
+    "pmcid": "PMC12037757",
+    "doi": "10.1038/s41598-025-97768-9",
+    "title": "Identification of new families and variants in autosomal dominant macular dystrophy associated with THRB.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12037757/fullTextXML",
+    "started_utc": "2026-10-06T12:22:15.516218+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12037757.xml",
+    "sha256": "88ea72b5576ed0583c3180b140cba4756952112a6895eed8f20eb22e864ee698",
+    "bytes": 105763,
+    "publication_dates": [
+      {
+        "value": "2025-4-28"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:19.388044+00:00"
+  },
+  {
+    "pmid": "41153457",
+    "pmcid": "PMC12564572",
+    "doi": "10.3390/genes16101240",
+    "title": "Mutation of the Thyroid Hormone Receptor Beta Gene (&lt;i&gt;THRB&lt;/i&gt;) Causes Vitelliform Macular Dystrophy with High Intrafamilial Variability.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12564572/fullTextXML",
+    "started_utc": "2026-10-06T12:22:19.147542+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12564572.xml",
+    "sha256": "6575904555052c1a3fd1f19b6e459770209185659414e21cee01fb2cd4ed1a6d",
+    "bytes": 56298,
+    "publication_dates": [
+      {
+        "value": "2025-10-20"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:21.857788+00:00"
+  },
+  {
+    "pmid": "34077761",
+    "pmcid": "PMC8322810",
+    "doi": "10.1016/j.ajhg.2021.05.002",
+    "title": "Mutations in TP73 cause impaired mucociliary clearance and lissencephaly.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8322810/fullTextXML",
+    "started_utc": "2026-10-06T12:22:19.388515+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:22:49.346581+00:00"
+  },
+  {
+    "pmid": "39621777",
+    "pmcid": "PMC11637439",
+    "doi": "10.1371/journal.pgen.1011265",
+    "title": "Different germline variants in the XPA gene are associated with severe, intermediate, or mild neurodegeneration in xeroderma pigmentosum patients.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11637439/fullTextXML",
+    "started_utc": "2026-10-06T12:22:21.858657+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11637439.xml",
+    "sha256": "8be6ad9b8c842bd316e133e1875716aea680e015456c0a2b0fb4067d74a89896",
+    "bytes": 212372,
+    "publication_dates": [
+      {
+        "value": "2024-12-2"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:27.090675+00:00"
+  },
+  {
+    "pmid": "33965501",
+    "pmcid": "PMC8253105",
+    "doi": "10.1016/j.neulet.2021.135944",
+    "title": "Progress in elucidating pathophysiology of mucolipidosis IV.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8253105/fullTextXML",
+    "started_utc": "2026-10-06T12:22:25.082224+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:22:54.265463+00:00"
+  },
+  {
+    "pmid": "35205297",
+    "pmcid": "PMC8872508",
+    "doi": "10.3390/genes13020248",
+    "title": "Mucolipidosis Type IV in Omani Families with a Novel <i>MCOLN1</i> Mutation: Search for Evidence of Founder Effect.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8872508/fullTextXML",
+    "started_utc": "2026-10-06T12:22:27.091120+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8872508.xml",
+    "sha256": "57be32136d5e98c69213fc35c5a4e0854e150b674ce80bf2a57764e1982e8edb",
+    "bytes": 56150,
+    "publication_dates": [
+      {
+        "value": "2022-1-28"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:29.052803+00:00"
+  },
+  {
+    "pmid": "35278131",
+    "pmcid": "PMC9035003",
+    "doi": "10.1007/s00439-022-02444-x",
+    "title": "Autosomal dominant non-syndromic hearing loss maps to DFNA33 (13q34) and co-segregates with splice and frameshift variants in ATP11A, a phospholipid flippase gene.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9035003/fullTextXML",
+    "started_utc": "2026-10-06T12:22:29.053252+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9035003.xml",
+    "sha256": "af7c29c1afa12ffd71fe40cd9932d3f188cf46f9eadf27312541382d32da8e79",
+    "bytes": 118543,
+    "publication_dates": [
+      {
+        "value": "2022-3-12"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:31.093635+00:00"
+  },
+  {
+    "pmid": "41720098",
+    "pmcid": "PMC13087397",
+    "doi": "10.1016/j.ajhg.2026.01.014",
+    "title": "Bi-allelic variants in FSD1L cause a neurodevelopmental disorder overlapping with L1 syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13087397/fullTextXML",
+    "started_utc": "2026-10-06T12:22:31.094034+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC13087397.xml",
+    "sha256": "2c3f67321981f8f35f5c98cebb5096bc85e3a0f01cfd7ea8706452af5904c87c",
+    "bytes": 148619,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2026-3-05"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2026-2-19"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:35.151141+00:00"
+  },
+  {
+    "pmid": "41720099",
+    "pmcid": "PMC13087403",
+    "doi": "10.1016/j.ajhg.2026.01.015",
+    "title": "Bi-allelic variants in FSD1L cause retinitis pigmentosa with or without neurological involvement.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13087403/fullTextXML",
+    "started_utc": "2026-10-06T12:22:35.151811+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:23:00.940265+00:00"
+  },
+  {
+    "pmid": "34150778",
+    "pmcid": "PMC8212933",
+    "doi": "10.3389/fcell.2021.683495",
+    "title": "Targeted Deletion of Loxl3 by Col2a1-Cre Leads to Progressive Hearing Loss.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8212933/fullTextXML",
+    "started_utc": "2026-10-06T12:22:49.347032+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8212933.xml",
+    "sha256": "5d9bdd580620940cb15c72b7cc66aca6491661c95c4a75a7f1fa22e63f612ea5",
+    "bytes": 106294,
+    "publication_dates": [
+      {
+        "value": "2021-6-4"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:53.133485+00:00"
+  },
+  {
+    "pmid": "36917121",
+    "pmcid": "PMC10019489",
+    "doi": "10.1167/iovs.64.3.24",
+    "title": "The Genetic Confirmation and Clinical Characterization of LOXL3-Associated MYP28: A Common Type of Recessive Extreme High Myopia.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10019489/fullTextXML",
+    "started_utc": "2026-10-06T12:22:53.133911+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10019489.xml",
+    "sha256": "2557608e33d0b024d3025a789d5ab67c69f6f6cd91568467e418334984864af9",
+    "bytes": 126166,
+    "publication_dates": [
+      {
+        "value": "2023-3-14"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:57.123270+00:00"
+  },
+  {
+    "pmid": "38860500",
+    "pmcid": "PMC11165335",
+    "doi": "10.1002/mgg3.2434",
+    "title": "Mutation spectrum of hearing loss patients in Northwest China: Identification of 20 novel variants.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11165335/fullTextXML",
+    "started_utc": "2026-10-06T12:22:54.266473+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11165335.xml",
+    "sha256": "d77e77858005fb23b406d188f77ee08d6c292c05503cfe59c9e411eb31a7c386",
+    "bytes": 150244,
+    "publication_dates": [
+      {
+        "value": "2024-6-11"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:59.137472+00:00"
+  },
+  {
+    "pmid": "39767564",
+    "pmcid": "PMC11673014",
+    "doi": "10.3390/biomedicines12122657",
+    "title": "Next-Generation Sequencing of Chinese Children with Congenital Hearing Loss Reveals Rare and Novel Variants in Known and Candidate Genes.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11673014/fullTextXML",
+    "started_utc": "2026-10-06T12:22:57.123774+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11673014.xml",
+    "sha256": "4e20c232feea63ca47def3d16dd1a98fe395602f44027f24e7863d8ed72e7f1a",
+    "bytes": 117602,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2024-11-21"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2024-12-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:22:59.696145+00:00"
+  },
+  {
+    "pmid": "40040362",
+    "pmcid": "PMC12046200",
+    "doi": "10.7874/jao.2024.00143",
+    "title": "Advances in Understanding the Molecular Dynamics of Autosomal Dominant Auditory Neuropathy: Unveiling a Novel DIAPH3 Gene Variant Associated With Sensorineural Hearing Loss and Bilateral Vestibular Aqueduct Enlargement.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12046200/fullTextXML",
+    "started_utc": "2026-10-06T12:22:59.138162+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12046200.xml",
+    "sha256": "033d8c3d1f3eaf57f53da548c5e891ebf113a265ee3d44517db20e885992e107",
+    "bytes": 47387,
+    "publication_dates": [
+      {
+        "value": "2025-3-6"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:03.806383+00:00"
+  },
+  {
+    "pmid": "41511813",
+    "pmcid": "PMC12787307",
+    "doi": "10.1002/mgg3.70179",
+    "title": "Identification of a Novel Likely Pathogenic Variant of DIAPH3 Associated With New Phenotype of Sensorineural Hearing Loss.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12787307/fullTextXML",
+    "started_utc": "2026-10-06T12:22:59.696775+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12787307.xml",
+    "sha256": "f1ef291faf640749dc4d2ccf048514e300f239a9ee49efd258aa67e5765d5777",
+    "bytes": 93854,
+    "publication_dates": [
+      {
+        "value": "2026-1-9"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:02.150172+00:00"
+  },
+  {
+    "pmid": "36479642",
+    "pmcid": "PMC10009903",
+    "doi": "10.1002/mgg3.2120",
+    "title": "Characterization of a novel non-canonical splice site variant (c.886-5T>A) in NBAS and description of the associated phenotype.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10009903/fullTextXML",
+    "started_utc": "2026-10-06T12:23:00.941117+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10009903.xml",
+    "sha256": "c40d6ef31af378c4d838db71ae5331e744246eca7a6f2b977013de74a468b61a",
+    "bytes": 78649,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2022-12-08"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2023-3-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:03.518267+00:00"
+  },
+  {
+    "pmid": "36130215",
+    "pmcid": "PMC10365843",
+    "doi": "10.1093/hmg/ddac229",
+    "title": "A novel recessive mutation in OXR1 is identified in patient with hearing loss recapitulated by the knockdown zebrafish.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10365843/fullTextXML",
+    "started_utc": "2026-10-06T12:23:02.150988+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:23:31.573796+00:00"
+  },
+  {
+    "pmid": "38626355",
+    "pmcid": "PMC11197063",
+    "doi": "10.1164/rccm.202308-1370oc",
+    "title": "Recessively Inherited Deficiency of Secreted WFDC2 (HE4) Causes Nasal Polyposis and Bronchiectasis.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11197063/fullTextXML",
+    "started_utc": "2026-10-06T12:23:03.518934+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11197063.xml",
+    "sha256": "c6d332e9ff8bcd2596fcf18aca8426ba21b6c9655890132905476dbf2e1b7d49",
+    "bytes": 135189,
+    "publication_dates": [
+      {
+        "date-type": "pub",
+        "publication-format": "electronic",
+        "value": "2024-4-16"
+      },
+      {
+        "date-type": "collection",
+        "publication-format": "electronic",
+        "value": "2024-7-1"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:07.124090+00:00"
+  },
+  {
+    "pmid": "40401042",
+    "pmcid": "PMC12093231",
+    "doi": "10.1016/j.rmcr.2025.102214",
+    "title": "Severe bronchiectasis and chronic rhinosinusitis due to homozygous &lt;i&gt;WFDC2&lt;/i&gt; Variants: The first three cases reported from Japan.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12093231/fullTextXML",
+    "started_utc": "2026-10-06T12:23:03.807169+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12093231.xml",
+    "sha256": "f969dc6336f4b02ba498a07d308a8c71f27c03525eb1b274e973444c8497bc73",
+    "bytes": 63220,
+    "publication_dates": [
+      {
+        "value": "2025-4-19"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:06.017804+00:00"
+  },
+  {
+    "pmid": "38469093",
+    "pmcid": "PMC10926195",
+    "doi": "10.1016/j.ymgmr.2024.101051",
+    "title": "A case report of riboflavin transporter deficiency: A novel heterozygous pathogenic variant in the <i>SLC52A3</i> gene.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10926195/fullTextXML",
+    "started_utc": "2026-10-06T12:23:06.018188+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:23:34.462730+00:00"
+  },
+  {
+    "pmid": "40539137",
+    "pmcid": "PMC12178585",
+    "doi": "10.7759/cureus.84491",
+    "title": "Long-Term Survival in Brown-Vialetto-Van Laere Syndrome: A Case Report Highlighting Respiratory Care.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12178585/fullTextXML",
+    "started_utc": "2026-10-06T12:23:07.124796+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12178585.xml",
+    "sha256": "8134209dcb78aeb95c61fc28c69ac4386cfa8851ff7b516f1392f2f4baa4b677",
+    "bytes": 48879,
+    "publication_dates": [
+      {
+        "value": "2025-5-20"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:09.066375+00:00"
+  },
+  {
+    "pmid": "33465056",
+    "pmcid": "PMC7954600",
+    "doi": "10.1172/jci138267",
+    "title": "Impaired complex I repair causes recessive Leber's hereditary optic neuropathy.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7954600/fullTextXML",
+    "started_utc": "2026-10-06T12:23:09.066753+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC7954600.xml",
+    "sha256": "247bcbaee70b94b3528b8072e78ee7ec9764ac5b357f8f550a8acc14415d908c",
+    "bytes": 131872,
+    "publication_dates": [
+      {
+        "value": "2021-3-15"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:13.030608+00:00"
+  },
+  {
+    "pmid": "34675124",
+    "pmcid": "PMC9411896",
+    "doi": "10.1136/jmedgenet-2021-108114",
+    "title": "<i>SUFU</i> haploinsufficiency causes a recognisable neurodevelopmental phenotype at the mild end of the Joubert syndrome spectrum.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9411896/fullTextXML",
+    "started_utc": "2026-10-06T12:23:13.031161+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9411896.xml",
+    "sha256": "f5882191f19be9b3411674f87d87c1e1d787975ba269dd87539cfc60bd644737",
+    "bytes": 134462,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2022-9-"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2021-10-21"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:15.564903+00:00"
+  },
+  {
+    "pmid": "35719279",
+    "pmcid": "PMC9198537",
+    "doi": "10.4103/meajo.meajo_40_21",
+    "title": "A Novel Missense Variant C.2571 (P.Ala857=) of the DHX38 Gene in a Saudi Family Causes an Autosomal Recessive Retinitis Pigmentosa.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9198537/fullTextXML",
+    "started_utc": "2026-10-06T12:23:15.566012+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9198537.xml",
+    "sha256": "eb584b9c40fbafc05466c6c96b5058e8fa1b6515941f542da5e98ed71d894cb5",
+    "bytes": 24130,
+    "publication_dates": [
+      {
+        "value": "2022-4-30"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:19.734870+00:00"
+  },
+  {
+    "pmid": "37867960",
+    "pmcid": "PMC10589891",
+    "doi": "10.1016/j.isci.2023.108103",
+    "title": "The splicing factor DHX38 enables retinal development through safeguarding genome integrity.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10589891/fullTextXML",
+    "started_utc": "2026-10-06T12:23:19.735600+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10589891.xml",
+    "sha256": "df8b76963672d1d7609b14c971ce573d888a5dec86eb15b4a1d0afe9e131ee6f",
+    "bytes": 142115,
+    "publication_dates": [
+      {
+        "pub-type": "collection",
+        "value": "2023-11-17"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2023-9-30"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:25.477294+00:00"
+  },
+  {
+    "pmid": "40273360",
+    "pmcid": "PMC12199350",
+    "doi": "10.1093/hmg/ddaf058",
+    "title": "Defective IFT57 underlies a novel cause of Bardet-Biedl syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12199350/fullTextXML",
+    "started_utc": "2026-10-06T12:23:25.478224+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12199350.xml",
+    "sha256": "52cd67787450792cd2fcb43f68fd45177fa7ca0705affc50c9f7572d6e7d96c2",
+    "bytes": 150710,
+    "publication_dates": [
+      {
+        "pub-type": "collection",
+        "value": "2025-7-01"
+      },
+      {
+        "pub-type": "epub",
+        "iso-8601-date": "2025-04-24",
+        "value": "2025-4-24"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:30.345964+00:00"
+  },
+  {
+    "pmid": "36266294",
+    "pmcid": "PMC9581764",
+    "doi": "10.1038/s41525-022-00330-z",
+    "title": "Biallelic variants in coenzyme Q10 biosynthesis pathway genes cause a retinitis pigmentosa phenotype.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9581764/fullTextXML",
+    "started_utc": "2026-10-06T12:23:30.346692+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9581764.xml",
+    "sha256": "93c01b286d281d3d3f207f70adaeeddaadf789818af7c4c3d2177425d2c535d4",
+    "bytes": 138567,
+    "publication_dates": [
+      {
+        "value": "2022-10-20"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:32.791624+00:00"
+  },
+  {
+    "pmid": "41459630",
+    "pmcid": "PMC13066773",
+    "doi": "10.1111/cge.70128",
+    "title": "Retinal Pigment Epitheliopathy due to Sub-Optimal Recycling of Vitamin A (RESORVA): A Novel RDH11 -Related Phenotype.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13066773/fullTextXML",
+    "started_utc": "2026-10-06T12:23:31.574395+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC13066773.xml",
+    "sha256": "142db14a57131b04d12b85a6e9ee2c5d7186a11f6290838e6d978a2600d1754a",
+    "bytes": 62260,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2025-12-29"
+      },
+      {
+        "pub-type": "ppub",
+        "value": "2026-5-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:34.251374+00:00"
+  },
+  {
+    "pmid": "38821050",
+    "pmcid": "PMC11250103",
+    "doi": "10.1016/j.cell.2024.04.041",
+    "title": "A pseudoautosomal glycosylation disorder prompts the revision of dolichol biosynthesis.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11250103/fullTextXML",
+    "started_utc": "2026-10-06T12:23:32.792491+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11250103.xml",
+    "sha256": "90e45bb0f861679b96f5a565958ef95ab7e7a1d9fd154f19eab4e0f07be45d5c",
+    "bytes": 280813,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2024-7-11"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:36.766038+00:00"
+  },
+  {
+    "pmid": "34521872",
+    "pmcid": "PMC8440558",
+    "doi": "10.1038/s41598-021-97046-4",
+    "title": "Cystin genetic variants cause autosomal recessive polycystic kidney disease associated with altered Myc expression.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8440558/fullTextXML",
+    "started_utc": "2026-10-06T12:23:34.252383+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8440558.xml",
+    "sha256": "72a07b3d97a3ef70cc7819aeb8e853444527240dcf1462ab7370dbe6ab5d5b51",
+    "bytes": 158825,
+    "publication_dates": [
+      {
+        "value": "2021-9-14"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:36.985855+00:00"
+  },
+  {
+    "pmid": "39226897",
+    "pmcid": "PMC11480794",
+    "doi": "10.1016/j.ajhg.2024.08.005",
+    "title": "Bi-allelic variants in COQ8B, a gene involved in the biosynthesis of coenzyme Q10, lead to non-syndromic retinitis pigmentosa.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11480794/fullTextXML",
+    "started_utc": "2026-10-06T12:23:34.464118+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11480794.xml",
+    "sha256": "3a5a940698be38c55766eec09af134a11f2d9ad90270877229b44bee6ec8cbc6",
+    "bytes": 123211,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2024-10-03"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2024-9-02"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:37.514084+00:00"
+  },
+  {
+    "pmid": "36264558",
+    "pmcid": "PMC9585472",
+    "doi": "10.1001/jamaophthalmol.2022.4146",
+    "title": "Association of Missense Variants in VSX2 With a Peculiar Form of Congenital Stationary Night Blindness Affecting All Bipolar Cells.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9585472/fullTextXML",
+    "started_utc": "2026-10-06T12:23:36.766839+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:24:05.703848+00:00"
+  },
+  {
+    "pmid": "34715011",
+    "pmcid": "PMC8595931",
+    "doi": "10.1016/j.ajhg.2021.10.002",
+    "title": "Bi-allelic variants in the mitochondrial RNase P subunit PRORP cause mitochondrial tRNA processing defects and pleiotropic multisystem presentations.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8595931/fullTextXML",
+    "started_utc": "2026-10-06T12:23:36.986497+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8595931.xml",
+    "sha256": "f7e92ec8597302fc48a9700ae6f6b261627c03bbfe20f6ed98f3396bac887bc4",
+    "bytes": 103571,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2021-11-04"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2021-10-28"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:39.275754+00:00"
+  },
+  {
+    "pmid": "37558808",
+    "pmcid": "PMC10545766",
+    "doi": "10.1038/s41431-023-01437-2",
+    "title": "Novel homozygous variants in PRORP expand the genotypic spectrum of combined oxidative phosphorylation deficiency 54.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10545766/fullTextXML",
+    "started_utc": "2026-10-06T12:23:37.514800+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10545766.xml",
+    "sha256": "434d389ca622fcc9aab7199b3fa94aa097971746d9cce2497fccd83ae3024a12",
+    "bytes": 50193,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2023-8-9"
+      },
+      {
+        "pub-type": "ppub",
+        "value": "2023-10-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:39.737116+00:00"
+  },
+  {
+    "pmid": "40081374",
+    "pmcid": "PMC12081239",
+    "doi": "10.1016/j.ajhg.2025.02.015",
+    "title": "Bi-allelic variants in three genes encoding distinct subunits of the vesicular AP-5 complex cause hereditary macular dystrophy.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12081239/fullTextXML",
+    "started_utc": "2026-10-06T12:23:39.275989+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12081239.xml",
+    "sha256": "9441b391714f39a051230e7825a6df013c5034df2a1bef7f264819b59bc7ec47",
+    "bytes": 256554,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2025-4-03"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2025-3-12"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:44.432308+00:00"
+  },
+  {
+    "pmid": "38459354",
+    "pmcid": "PMC11043200",
+    "doi": "10.1007/s00439-024-02649-2",
+    "title": "PKHD1L1, a gene involved in the stereocilia coat, causes autosomal recessive nonsyndromic hearing loss.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11043200/fullTextXML",
+    "started_utc": "2026-10-06T12:23:39.738079+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11043200.xml",
+    "sha256": "ab1a9cd06a6da97d8db4a9080de70f30cb599cc1623e7a2cc37dafafe74310b2",
+    "bytes": 196452,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2024-3-9"
+      },
+      {
+        "pub-type": "ppub",
+        "value": "2024--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:44.162497+00:00"
+  },
+  {
+    "pmid": "38863195",
+    "pmcid": "PMC7616411",
+    "doi": "10.1111/cge.14573",
+    "title": "Non-syndromic retinal dystrophy associated with biallelic variation of SUMF1 and reduced leukocyte sulfatase activity.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7616411/fullTextXML",
+    "started_utc": "2026-10-06T12:23:44.163579+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC7616411.xml",
+    "sha256": "ce9e3368dd7340b1c3b217659b2fe9c9519b68312a9cb476ec868648f6701553",
+    "bytes": 65282,
+    "publication_dates": [
+      {
+        "value": "2024-6-11"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:47.321502+00:00"
+  },
+  {
+    "pmid": "34265170",
+    "pmcid": "PMC8435009",
+    "doi": "10.1002/humu.24260",
+    "title": "Variants of human CLDN9 cause mild to profound hearing loss.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8435009/fullTextXML",
+    "started_utc": "2026-10-06T12:23:44.433055+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:24:13.978443+00:00"
+  },
+  {
+    "pmid": "34546337",
+    "pmcid": "PMC8480666",
+    "doi": "10.1084/jem.20210846",
+    "title": "Implication of folate deficiency in CYP2U1 loss of function.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8480666/fullTextXML",
+    "started_utc": "2026-10-06T12:23:47.322020+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8480666.xml",
+    "sha256": "0a29f6886b34ed59a58fa53c8a367462d0bb6d361ee23e6b6b479d8bac655e1d",
+    "bytes": 186669,
+    "publication_dates": [
+      {
+        "iso-8601-date": "2021-11-01",
+        "pub-type": "collection",
+        "value": "2021-11-01"
+      },
+      {
+        "pub-type": "epub",
+        "iso-8601-date": "2021-09-21",
+        "value": "2021-9-21"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:50.787175+00:00"
+  },
+  {
+    "pmid": "34828401",
+    "pmcid": "PMC8618989",
+    "doi": "10.3390/genes12111795",
+    "title": "Macular Dystrophy with Bilateral Macular Telangiectasia Related to the CYP2U1 Pathogenic Variant Assessed with Multimodal Imaging Including OCT-Angiography.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8618989/fullTextXML",
+    "started_utc": "2026-10-06T12:23:50.788022+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8618989.xml",
+    "sha256": "ac9130724ef14e84c480d749e6cd70cef711cf0c5bbf4b2e92d2e9bbcf036671",
+    "bytes": 59491,
+    "publication_dates": [
+      {
+        "value": "2021-11-15"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:52.676150+00:00"
+  },
+  {
+    "pmid": "38058766",
+    "pmcid": "PMC10696413",
+    "doi": "10.1016/j.ymgmr.2023.101023",
+    "title": "CYP2U1: An emerging treatable neurometabolic disease with cerebral folate deficiency in 2 Chinese brothers.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10696413/fullTextXML",
+    "started_utc": "2026-10-06T12:23:52.677247+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10696413.xml",
+    "sha256": "5bdf8b631f38e1e1a87b1e4201e8251037e2afe07007ea7097501b87533700a0",
+    "bytes": 47780,
+    "publication_dates": [
+      {
+        "value": "2023-11-21"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:54.479288+00:00"
+  },
+  {
+    "pmid": "39605873",
+    "pmcid": "PMC11599445",
+    "doi": "10.1016/j.xops.2024.100618",
+    "title": "Characterization of the Retinal Phenotype Using Multimodal Imaging in Novel Compound Heterozygote Variants of CYP2U1.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11599445/fullTextXML",
+    "started_utc": "2026-10-06T12:23:54.480086+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11599445.xml",
+    "sha256": "aecd73126d84b14f9c7f4c2ff9082447e52ce9e22fc2befe1baac93509ad9712",
+    "bytes": 106464,
+    "publication_dates": [
+      {
+        "value": "2024-9-11"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:23:56.709221+00:00"
+  },
+  {
+    "pmid": "38662826",
+    "pmcid": "PMC7616230",
+    "doi": "10.1126/science.adf5489",
+    "title": "Ciliopathy patient variants reveal organelle-specific functions for TUBB4B in axonemal microtubules.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7616230/fullTextXML",
+    "started_utc": "2026-10-06T12:23:56.710214+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC7616230.xml",
+    "sha256": "b7e0de4376dda72b5b2636b6f5da3a754bbe107adec3b26ebfe2a70cc9b989b1",
+    "bytes": 257227,
+    "publication_dates": [
+      {
+        "value": "2024-4-26"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:02.221247+00:00"
+  },
+  {
+    "pmid": "39115449",
+    "pmcid": "PMC11600997",
+    "doi": "10.1002/ppul.27200",
+    "title": "Whole genome sequencing enhances molecular diagnosis of primary ciliary dyskinesia.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11600997/fullTextXML",
+    "started_utc": "2026-10-06T12:24:02.222250+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11600997.xml",
+    "sha256": "8a1a0c961fa2fcca8534c8061bf06ae33411b61ac66b710807ebb26165d34db3",
+    "bytes": 167208,
+    "publication_dates": [
+      {
+        "value": "2024-8-8"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:06.544476+00:00"
+  },
+  {
+    "pmid": "36928819",
+    "pmcid": "PMC10033407",
+    "doi": "10.1038/s41591-023-02211-z",
+    "title": "Genetic association analysis of 77,539 genomes reveals rare disease etiologies.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10033407/fullTextXML",
+    "started_utc": "2026-10-06T12:24:05.705325+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10033407.xml",
+    "sha256": "f4d140299e3b2a30ae6783e1ac0e6ce8694769c548e01784860a7ea938f1b4c5",
+    "bytes": 184083,
+    "publication_dates": [
+      {
+        "value": "2023-3-16"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:09.782605+00:00"
+  },
+  {
+    "pmid": "35868845",
+    "pmcid": "PMC9484401",
+    "doi": "10.1136/annrheumdis-2022-222629",
+    "title": "Gain-of-function mutations in &lt;i&gt;ALPK1&lt;/i&gt; cause an NF-\u03baB-mediated autoinflammatory disease: functional assessment, clinical phenotyping and disease course of patients with ROSAH syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9484401/fullTextXML",
+    "started_utc": "2026-10-06T12:24:06.545334+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9484401.xml",
+    "sha256": "d0923c16bf80bcbe19aac73af26375eddf60173fc55f7905bf905420c7760ea7",
+    "bytes": 148951,
+    "publication_dates": [
+      {
+        "value": "2022-7-22"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:11.450712+00:00"
+  },
+  {
+    "pmid": "36862503",
+    "pmcid": "PMC10104899",
+    "doi": "10.1172/jci161156",
+    "title": "CEP162 deficiency causes human retinal degeneration and reveals a dual role in ciliogenesis and neurogenesis.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10104899/fullTextXML",
+    "started_utc": "2026-10-06T12:24:09.783672+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:24:38.395418+00:00"
+  },
+  {
+    "pmid": "35875813",
+    "pmcid": "PMC9304914",
+    "doi": "10.1016/j.eclinm.2022.101556",
+    "title": "Presentation and diagnosis of childhood-onset combined pituitary hormone deficiency: A single center experience from over 30 years.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9304914/fullTextXML",
+    "started_utc": "2026-10-06T12:24:11.451634+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9304914.xml",
+    "sha256": "355763ff379fbe095c884cac79863fce4838f4b46227c25f99efa9001e6848b8",
+    "bytes": 195079,
+    "publication_dates": [
+      {
+        "value": "2022-7-18"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:14.562714+00:00"
+  },
+  {
+    "pmid": "37768732",
+    "pmcid": "PMC10721274",
+    "doi": "10.1172/jci.insight.169426",
+    "title": "TBC1D32 variants disrupt retinal ciliogenesis and cause retinitis pigmentosa.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10721274/fullTextXML",
+    "started_utc": "2026-10-06T12:24:13.979830+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10721274.xml",
+    "sha256": "32aa44b1794ab2b95e792e07ebc401b1a915c7d621290450cbe508b51ff6e516",
+    "bytes": 160284,
+    "publication_dates": [
+      {
+        "date-type": "pub",
+        "publication-format": "electronic",
+        "iso-8601-date": "2023-11-08T12:00:00-0500",
+        "value": "2023-11-8"
+      },
+      {
+        "date-type": "collection",
+        "publication-format": "electronic",
+        "iso-8601-date": "2023-11-08T12:00:00-0500",
+        "value": "2023-11-8"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:16.643015+00:00"
+  },
+  {
+    "pmid": "34177428",
+    "pmcid": "PMC8215951",
+    "doi": "10.1159/000513829",
+    "title": "Identification of the <i>TTC26</i> Splice Variant in a Novel Complex Ciliopathy Syndrome with Biliary, Renal, Neurological, and Skeletal Manifestations.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8215951/fullTextXML",
+    "started_utc": "2026-10-06T12:24:14.563929+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:24:43.344735+00:00"
+  },
+  {
+    "pmid": "33570243",
+    "pmcid": "PMC8104176",
+    "doi": "10.1002/mgg3.1620",
+    "title": "Clinical and genetic characterization of autosomal recessive stickler syndrome caused by novel compound heterozygous mutations in the COL9A3 gene.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8104176/fullTextXML",
+    "started_utc": "2026-10-06T12:24:16.644253+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8104176.xml",
+    "sha256": "c61cd9e4d1fa977b2fe3c54aee68ac73851c4f3e21a789e744418021064705cd",
+    "bytes": 56383,
+    "publication_dates": [
+      {
+        "value": "2021-2-11"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:18.736267+00:00"
+  },
+  {
+    "pmid": "33633367",
+    "pmcid": "PMC8110976",
+    "doi": "10.1038/s41431-021-00820-1",
+    "title": "Heterozygous COL9A3 variants cause severe peripheral vitreoretinal degeneration and retinal detachment.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8110976/fullTextXML",
+    "started_utc": "2026-10-06T12:24:18.737048+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:24:43.963574+00:00"
+  },
+  {
+    "pmid": "36084634",
+    "pmcid": "PMC9606384",
+    "doi": "10.1016/j.ajhg.2022.08.009",
+    "title": "Mutations in SCNM1 cause orofaciodigital syndrome due to minor intron splicing defects affecting primary cilia.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9606384/fullTextXML",
+    "started_utc": "2026-10-06T12:24:38.396899+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:25:10.898437+00:00"
+  },
+  {
+    "pmid": "41291844",
+    "pmcid": "PMC12750831",
+    "doi": "10.1186/s40246-025-00868-w",
+    "title": "Expanding the phenotype associated with biallelic SCNM1 variants.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12750831/fullTextXML",
+    "started_utc": "2026-10-06T12:24:43.345742+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12750831.xml",
+    "sha256": "2032d5244198f4845db0ce147063c6fa242166c6509a52282b5c9f7631c91c34",
+    "bytes": 71685,
+    "publication_dates": [
+      {
+        "value": "2025-11-25"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:46.364920+00:00"
+  },
+  {
+    "pmid": "40674075",
+    "pmcid": "PMC12272359",
+    "doi": "10.1001/jamaophthalmol.2025.2187",
+    "title": "Founder Homozygous Nonsense CREB3 Variant and Variable-Onset Retinal Degeneration.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12272359/fullTextXML",
+    "started_utc": "2026-10-06T12:24:43.964118+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:25:11.409592+00:00"
+  },
+  {
+    "pmid": "36791574",
+    "pmcid": "PMC10098370",
+    "doi": "10.1016/j.pediatrneurol.2023.01.011",
+    "title": "The Spectrum of MORC2-Related Disorders: A Potential Link to Cockayne Syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10098370/fullTextXML",
+    "started_utc": "2026-10-06T12:24:46.365485+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10098370.xml",
+    "sha256": "87e5e8be8fdb2e8d733ef7a7f72e46a8d8352e18ec19c7bc914d0664f93b00f0",
+    "bytes": 100683,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2023-4-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:49.310847+00:00"
+  },
+  {
+    "pmid": "39143067",
+    "pmcid": "PMC11324651",
+    "doi": "10.1038/s41439-024-00287-8",
+    "title": "Intermediate phenotype between CMT2Z and DIGFAN associated with a novel MORC2 variant: a case report.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11324651/fullTextXML",
+    "started_utc": "2026-10-06T12:24:49.311556+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11324651.xml",
+    "sha256": "212bc47b9f612f43c78aba4b03ad0201e30f3d61184517a92767987ceabc7380",
+    "bytes": 37136,
+    "publication_dates": [
+      {
+        "value": "2024-8-15"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:52.009590+00:00"
+  },
+  {
+    "pmid": "40302207",
+    "pmcid": "PMC12782172",
+    "doi": "10.1093/brain/awaf159",
+    "title": "Pleiotropic effects of MORC2 derive from its epigenetic signature.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12782172/fullTextXML",
+    "started_utc": "2026-10-06T12:24:52.010290+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12782172.xml",
+    "sha256": "eaa8d1e5559d2b17c71a66f1fabcc5921468f0a514867ef7de304d1e092f35ad",
+    "bytes": 155436,
+    "publication_dates": [
+      {
+        "pub-type": "collection",
+        "value": "2026-1-"
+      },
+      {
+        "pub-type": "epub",
+        "iso-8601-date": "2025-04-30",
+        "value": "2025-4-30"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:54.819597+00:00"
+  },
+  {
+    "pmid": "36273201",
+    "pmcid": "PMC9587637",
+    "doi": "10.1186/s40246-022-00421-z",
+    "title": "Biallelic mutations of TTC12 and TTC21B were identified in Chinese patients with multisystem ciliopathy syndromes.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9587637/fullTextXML",
+    "started_utc": "2026-10-06T12:24:54.820388+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9587637.xml",
+    "sha256": "0452206831292fdd3185433ec9cbafa9b191138d49d93ea9528577d4f9e79596",
+    "bytes": 115225,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2022-10-22"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2022--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:57.440997+00:00"
+  },
+  {
+    "pmid": "37325566",
+    "pmcid": "PMC10267457",
+    "doi": "10.3389/fcell.2023.1184331",
+    "title": "Novel homozygous variants in <i>TTC12</i> cause male infertility with asthenoteratozoospermia owing to dynein arm complex and mitochondrial sheath defects in flagella.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10267457/fullTextXML",
+    "started_utc": "2026-10-06T12:24:57.441989+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10267457.xml",
+    "sha256": "c5d1096c975b26f5c172e34e8fb6d9e53c6904d962437dd4318a1e3504ba4104",
+    "bytes": 89575,
+    "publication_dates": [
+      {
+        "value": "2023-6-1"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:24:59.546479+00:00"
+  },
+  {
+    "pmid": "33629623",
+    "pmcid": "PMC8154670",
+    "doi": "10.1080/13816810.2021.1891552",
+    "title": "Multimodal imaging and genetic findings in a case of ARSG-related atypical Usher syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8154670/fullTextXML",
+    "started_utc": "2026-10-06T12:24:59.547279+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:25:28.826309+00:00"
+  },
+  {
+    "pmid": "35226187",
+    "pmcid": "PMC9556359",
+    "doi": "10.1007/s00439-022-02441-0",
+    "title": "Usher syndrome type IV: clinically and molecularly confirmed by novel ARSG variants.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9556359/fullTextXML",
+    "started_utc": "2026-10-06T12:25:10.899063+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9556359.xml",
+    "sha256": "ba89cab3d6d4f9c13626839eb8ed48d9a4b5646560f5f81f66ae2ea3ffc9ccd4",
+    "bytes": 190902,
+    "publication_dates": [
+      {
+        "value": "2022-2-28"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:25:15.419246+00:00"
+  },
+  {
+    "pmid": "36104176",
+    "pmcid": "PMC9556235",
+    "doi": "10.2169/internalmedicine.8884-21",
+    "title": "A Novel Homozygous Variant in GAS2L2 in Two Sisters with Primary Ciliary Dyskinesia.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9556235/fullTextXML",
+    "started_utc": "2026-10-06T12:25:11.410932+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9556235.xml",
+    "sha256": "3dd4d5c81b7ecd5a035fbb7e1b4be03c5c1a477d668656dea8e96f0b74d95be4",
+    "bytes": 44471,
+    "publication_dates": [
+      {
+        "value": "2022-9-15"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:25:13.262644+00:00"
+  },
+  {
+    "pmid": "33497368",
+    "pmcid": "PMC7954601",
+    "doi": "10.1172/jci139869",
+    "title": "Catenin \u03b1 1 mutations cause familial exudative vitreoretinopathy by overactivating Norrin/\u03b2-catenin signaling.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7954601/fullTextXML",
+    "started_utc": "2026-10-06T12:25:13.263867+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:25:43.486216+00:00"
+  },
+  {
+    "pmid": "41830174",
+    "pmcid": "PMC13050037",
+    "doi": "10.1016/j.xhgg.2026.100584",
+    "title": "Bi-allelic variants in AP5Z1 and AP5B1 lead to retinal degeneration.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13050037/fullTextXML",
+    "started_utc": "2026-10-06T12:25:15.419673+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC13050037.xml",
+    "sha256": "973d50ddbd7aa038e2c8b41209e0073a7cf7ebe0d9c87beb7d0ebf18c6710fb8",
+    "bytes": 117050,
+    "publication_dates": [
+      {
+        "value": "2026-3-12"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:25:19.493725+00:00"
+  },
+  {
+    "pmid": "35700046",
+    "pmcid": "PMC9431724",
+    "doi": "10.1172/jci.insight.158428",
+    "title": "CTNND1 variants cause familial exudative vitreoretinopathy through the Wnt/cadherin axis.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9431724/fullTextXML",
+    "started_utc": "2026-10-06T12:25:19.494656+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9431724.xml",
+    "sha256": "0e79667b1a923ed9c69e7f97a38dd424aebcec6af4e4b7a162e69f038564abca",
+    "bytes": 165521,
+    "publication_dates": [
+      {
+        "value": "2022-7-22"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:25:22.573813+00:00"
+  },
+  {
+    "pmid": "38272031",
+    "pmcid": "PMC10870129",
+    "doi": "10.1016/j.ajhg.2024.01.001",
+    "title": "Mutations in SAMD7 cause autosomal-recessive macular dystrophy with or without cone dysfunction.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10870129/fullTextXML",
+    "started_utc": "2026-10-06T12:25:22.574764+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:25:58.260707+00:00"
+  },
+  {
+    "pmid": "42392036",
+    "pmcid": "PMC13504329",
+    "doi": "10.1016/j.ajhg.2026.05.016",
+    "title": "Bi-allelic missense variants in human GPN2 result in Perrault syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13504329/fullTextXML",
+    "started_utc": "2026-10-06T12:25:28.826987+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC13504329.xml",
+    "sha256": "b88f68c6972f87752e2059891fcf3a2b316dc948978640b191fd61b70a9b2ba7",
+    "bytes": 32583,
+    "publication_dates": [
+      {
+        "value": "2026-7-2"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:25:30.763523+00:00"
+  },
+  {
+    "pmid": "34800363",
+    "pmcid": "PMC8715183",
+    "doi": "10.1016/j.ajhg.2021.11.003",
+    "title": "Bi-allelic variants in OGDHL cause a neurodevelopmental spectrum disease featuring epilepsy, hearing loss, visual impairment, and ataxia.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8715183/fullTextXML",
+    "started_utc": "2026-10-06T12:25:30.764325+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:26:05.803091+00:00"
+  },
+  {
+    "pmid": "34360642",
+    "pmcid": "PMC8346125",
+    "doi": "10.3390/ijms22157875",
+    "title": "Mutated <i>CCDC51</i> Coding for a Mitochondrial Protein, MITOK Is a Candidate Gene Defect for Autosomal Recessive Rod-Cone Dystrophy.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8346125/fullTextXML",
+    "started_utc": "2026-10-06T12:25:43.487626+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8346125.xml",
+    "sha256": "85a31b3e8a4ed4f5fbc4162405caf2a7280dac865a609910f6c0150084682ac1",
+    "bytes": 153102,
+    "publication_dates": [
+      {
+        "value": "2021-7-23"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:25:46.671315+00:00"
+  },
+  {
+    "pmid": "41105778",
+    "pmcid": "PMC12533646",
+    "doi": "10.1126/sciadv.adw3717",
+    "title": "CEP76 impairment at the centrosome-cilium interface contributes to a spectrum of ciliopathies.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12533646/fullTextXML",
+    "started_utc": "2026-10-06T12:25:46.672122+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12533646.xml",
+    "sha256": "fd6e794aeac1f01aee833fd0cd9ab0e3101c26dcf143db4fbcbb679ac236e22c",
+    "bytes": 262510,
+    "publication_dates": [
+      {
+        "value": "2025-10-17"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:25:50.994478+00:00"
+  },
+  {
+    "pmid": "33632269",
+    "pmcid": "PMC7905578",
+    "doi": "10.1186/s13024-021-00431-w",
+    "title": "Dominant mutations in MIEF1 affect mitochondrial dynamics and cause a singular late onset optic neuropathy.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7905578/fullTextXML",
+    "started_utc": "2026-10-06T12:25:50.995196+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC7905578.xml",
+    "sha256": "0d2c5c9cace1b9646ccb02f7a3740cf26eecae2fb2ba05955c30bdca279e15ac",
+    "bytes": 86979,
+    "publication_dates": [
+      {
+        "value": "2021-2-25"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:25:57.116756+00:00"
+  },
+  {
+    "pmid": "37054711",
+    "pmcid": "PMC10183469",
+    "doi": "10.1016/j.ajhg.2023.03.012",
+    "title": "Bi-allelic variants in INTS11 are associated with a complex neurological disorder.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10183469/fullTextXML",
+    "started_utc": "2026-10-06T12:25:57.117930+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:26:31.788736+00:00"
+  },
+  {
+    "pmid": "41810893",
+    "pmcid": "PMC12988679",
+    "doi": "10.1167/iovs.67.3.21",
+    "title": "Characterizing a Unique Retinal Phenotype in INTS11-Associated Neurodevelopmental Disorder.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12988679/fullTextXML",
+    "started_utc": "2026-10-06T12:25:58.261630+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12988679.xml",
+    "sha256": "9431b782382fc668410752cc340f49cf024dce5a88032ef19c595e15b86c6767",
+    "bytes": 112191,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2026-3-11"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2026-3-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:01.001550+00:00"
+  },
+  {
+    "pmid": "40079362",
+    "pmcid": "PMC12284815",
+    "doi": "10.1016/j.gim.2025.101401",
+    "title": "Biallelic null variants in C19orf44 cause a unique late-onset retinal dystrophy phenotype characterized by patchy perifoveal chorioretinal atrophy.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12284815/fullTextXML",
+    "started_utc": "2026-10-06T12:26:01.002145+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12284815.xml",
+    "sha256": "6da4c9b491392e61b083644462cbc35de4183789c8045a5ec533e35f5ceeb62b",
+    "bytes": 147532,
+    "publication_dates": [
+      {
+        "value": "2025-3-10"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:03.322991+00:00"
+  },
+  {
+    "pmid": "34110109",
+    "pmcid": "PMC8683631",
+    "doi": "10.1002/mgg3.1708",
+    "title": "Novel compound heterozygous STN1 variants are associated with Coats Plus syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8683631/fullTextXML",
+    "started_utc": "2026-10-06T12:26:03.323848+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8683631.xml",
+    "sha256": "6b1d164ab577eff50da550b897c7d4455f2a8f22cc6bb123f4ac5f74ceb24e3c",
+    "bytes": 60077,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2021-6-10"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2021-12-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:05.390355+00:00"
+  },
+  {
+    "pmid": "39362668",
+    "pmcid": "PMC11651342",
+    "doi": "10.1183/13993003.00790-2024",
+    "title": "Pathogenic variants in <i>CFAP46</i>, <i>CFAP54</i>, <i>CFAP74</i> and <i>CFAP221</i> cause primary ciliary dyskinesia with a defective C1d projection of the central apparatus.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11651342/fullTextXML",
+    "started_utc": "2026-10-06T12:26:05.391473+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11651342.xml",
+    "sha256": "49cc6c03f3c824d1fa11442dafff51500be52a5ff482ced7a8d19478ee368307",
+    "bytes": 125209,
+    "publication_dates": [
+      {
+        "value": "2024-12-12"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:12.044263+00:00"
+  },
+  {
+    "pmid": "40841990",
+    "pmcid": "PMC12779253",
+    "doi": "10.1111/cge.70042",
+    "title": "Missense Variants in the Second Transmembrane Domain of TMEM17 Disrupt Its Stability and Function and Lead to a Wide Phenotypic Spectrum of Ciliopathies.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12779253/fullTextXML",
+    "started_utc": "2026-10-06T12:26:05.804405+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12779253.xml",
+    "sha256": "dc5e41e60977bd70355a07a15140063fe73e347d57c1b29ca23ac862b5be57a7",
+    "bytes": 130891,
+    "publication_dates": [
+      {
+        "value": "2025-8-21"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:08.631318+00:00"
+  },
+  {
+    "pmid": "42530953",
+    "pmcid": "PMC13425242",
+    "doi": "10.1001/jamaophthalmol.2026.2795",
+    "title": "XXYLT1 and Mendelian Retinal Dystrophy.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13425242/fullTextXML",
+    "started_utc": "2026-10-06T12:26:08.632238+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC13425242.xml",
+    "sha256": "18cf00384d97d08701c4e702b02ec67af583033b8599ac6be5bfbcd68a3cddc3",
+    "bytes": 137227,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "iso-8601-date": "2026-07-30T10:00",
+        "value": "2026-7-30"
+      },
+      {
+        "pub-type": "ppub",
+        "value": "2026-9-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:14.970221+00:00"
+  },
+  {
+    "pmid": "40590205",
+    "pmcid": "PMC12622366",
+    "doi": "10.1016/j.gim.2025.101513",
+    "title": "Bi-allelic loss-of-function variants in POC5 cause a syndromic retinal, endocrine, and neuromuscular ciliopathy.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12622366/fullTextXML",
+    "started_utc": "2026-10-06T12:26:12.045100+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12622366.xml",
+    "sha256": "175ffdad1d32b57481a2f693f779ce9c5fc8a4b5e4864bd905685e27bbcd4494",
+    "bytes": 128843,
+    "publication_dates": [
+      {
+        "value": "2025-6-28"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:14.475697+00:00"
+  },
+  {
+    "pmid": "39701103",
+    "pmcid": "PMC11739875",
+    "doi": "10.1016/j.ajhg.2024.11.007",
+    "title": "Bi-allelic variants in DAP3 result in reduced assembly of the mitoribosomal small subunit with altered apoptosis and a Perrault-syndrome-spectrum phenotype.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11739875/fullTextXML",
+    "started_utc": "2026-10-06T12:26:14.476733+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11739875.xml",
+    "sha256": "0eb1cbe0ab452c10e9aa2f99305b2aa2bf45ba229fce3ddd8a6bf48aa31f8957",
+    "bytes": 185772,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2025-1-02"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2024-12-18"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:17.873850+00:00"
+  },
+  {
+    "pmid": "39572588",
+    "pmcid": "PMC11582697",
+    "doi": "10.1038/s41467-024-54549-8",
+    "title": "GPATCH11 variants cause mis-splicing and early-onset retinal dystrophy with neurological impairment.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11582697/fullTextXML",
+    "started_utc": "2026-10-06T12:26:14.970947+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11582697.xml",
+    "sha256": "bb8c1039742cdb6dcfca0d36a5720edc8103b3ac25016d6dcc6ca7719faedef5",
+    "bytes": 237900,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2024-11-21"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2024--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:18.156635+00:00"
+  },
+  {
+    "pmid": "41343198",
+    "pmcid": "PMC12679428",
+    "doi": "10.1001/jamaophthalmol.2025.4888",
+    "title": "EGFLAM Pathogenic Variants and Congenital Stationary Night Blindness.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12679428/fullTextXML",
+    "started_utc": "2026-10-06T12:26:17.874808+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12679428.xml",
+    "sha256": "ed568c8914a7e7f200193a3fc0b9d70ea4816de6ea61107eb280af39bd33e293",
+    "bytes": 132664,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "iso-8601-date": "2025-12-04T10:00",
+        "value": "2025-12-4"
+      },
+      {
+        "pub-type": "ppub",
+        "value": "2026-1-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:24.900573+00:00"
+  },
+  {
+    "pmid": "36211162",
+    "pmcid": "PMC9540915",
+    "doi": "10.4103/aian.aian_67_22",
+    "title": "A Rare Case of Neuromuscular Oculoauditory Syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9540915/fullTextXML",
+    "started_utc": "2026-10-06T12:26:18.157482+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9540915.xml",
+    "sha256": "06bfc3ae4a469d38812bb2b046c291e92f8a0ceaa21bb8c6ea92bc8015cbbc0f",
+    "bytes": 20199,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2022--"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2022-7-15"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:25.826114+00:00"
+  },
+  {
+    "pmid": "36212160",
+    "pmcid": "PMC9533195",
+    "doi": "10.3389/fgene.2022.990015",
+    "title": "Systematic analysis of inheritance pattern determination in genes that cause rare neurodevelopmental diseases.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9533195/fullTextXML",
+    "started_utc": "2026-10-06T12:26:24.901372+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9533195.xml",
+    "sha256": "7438cf5e7ece5fe9e8c7e29c3d8ce5a4fc42160b9cf8d6e039f70ffc61d80d28",
+    "bytes": 128380,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2022-9-12"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2022--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:27.693439+00:00"
+  },
+  {
+    "pmid": "40141454",
+    "pmcid": "PMC11943138",
+    "doi": "10.3390/ijms26062812",
+    "title": "Rare Case with Pathogenic Variant in DHX16 Gene Causing Neuromuscular Disease and Oculomotor Anomalies.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11943138/fullTextXML",
+    "started_utc": "2026-10-06T12:26:25.826952+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11943138.xml",
+    "sha256": "d3e36bf5f92e8e51ef18c3b9aa1983b69d928f6ee8c3696c671373e00b38c860",
+    "bytes": 76496,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2025-3-20"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2025-3-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:35.307457+00:00"
+  },
+  {
+    "pmid": "41555919",
+    "pmcid": "PMC12812389",
+    "doi": "10.3389/fgene.2025.1685906",
+    "title": "Retinitis pigmentosa and sensorineural deafness associated with a &lt;i&gt;de novo DHX16&lt;/i&gt; mutation: case report.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12812389/fullTextXML",
+    "started_utc": "2026-10-06T12:26:27.694405+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12812389.xml",
+    "sha256": "b84df3de5506849215fdce7537373eef112e0f55b1e01f418f83ba931733b723",
+    "bytes": 82210,
+    "publication_dates": [
+      {
+        "publication-format": "electronic",
+        "date-type": "pub",
+        "iso-8601-date": "2026-01-05",
+        "value": "2026-1-05"
+      },
+      {
+        "publication-format": "electronic",
+        "date-type": "collection",
+        "value": "2025--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:31.156057+00:00"
+  },
+  {
+    "pmid": "37239474",
+    "pmcid": "PMC10217928",
+    "doi": "10.3390/genes14051113",
+    "title": "Biallelic Variants in Seven Different Genes Associated with Clinically Suspected Bardet-Biedl Syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10217928/fullTextXML",
+    "started_utc": "2026-10-06T12:26:31.156754+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10217928.xml",
+    "sha256": "0bbd406782b5b90128a169987636a7d0c408563b3373cabb88702904f233aa50",
+    "bytes": 173198,
+    "publication_dates": [
+      {
+        "value": "2023-5-19"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:36.455139+00:00"
+  },
+  {
+    "pmid": "40593758",
+    "pmcid": "PMC12219219",
+    "doi": "10.1038/s41467-025-61005-8",
+    "title": "The human ciliopathy protein RSG1 links the CPLANE complex to transition zone architecture.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12219219/fullTextXML",
+    "started_utc": "2026-10-06T12:26:31.790264+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12219219.xml",
+    "sha256": "eb69c8a38f9b0e803174aaa28306ac5848284e2c773245ab521c82b1ee1d8f90",
+    "bytes": 185458,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2025-7-1"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2025--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:34.748862+00:00"
+  },
+  {
+    "pmid": "34716235",
+    "pmcid": "PMC9340050",
+    "doi": "10.1136/jmedgenet-2021-108065",
+    "title": "Molecular diagnoses in the congenital malformations caused by ciliopathies cohort of the 100,000 Genomes Project.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9340050/fullTextXML",
+    "started_utc": "2026-10-06T12:26:34.749702+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9340050.xml",
+    "sha256": "172d6f0184d3f46e0af199f62f9485403fd68f091f323d9cb89ffbd13f4e8e61",
+    "bytes": 167694,
+    "publication_dates": [
+      {
+        "value": "2021-10-29"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:38.132694+00:00"
+  },
+  {
+    "pmid": "39638757",
+    "pmcid": "PMC11790379",
+    "doi": "10.1111/cge.14663",
+    "title": "Biallelic Variants in LRRC45 Impair Ciliogenesis and Cause a Severe Neurological Disorder.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11790379/fullTextXML",
+    "started_utc": "2026-10-06T12:26:35.308395+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:27:04.151296+00:00"
+  },
+  {
+    "pmid": "37599337",
+    "pmcid": "PMC10457220",
+    "doi": "10.1007/s13353-023-00773-9",
+    "title": "Congenital coenzyme Q5-linked pathology: causal genetic association, core phenotype, and molecular mechanism.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10457220/fullTextXML",
+    "started_utc": "2026-10-06T12:26:36.456006+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10457220.xml",
+    "sha256": "ff7481356f02156775b035399c8d3be7c1e440aba61bb9c0dff9b843e18b0f3e",
+    "bytes": 52475,
+    "publication_dates": [
+      {
+        "value": "2023-8-21"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:38.800999+00:00"
+  },
+  {
+    "pmid": "41199775",
+    "pmcid": "PMC12588166",
+    "doi": "10.1002/jmd2.70038",
+    "title": "Severe Neurological Presentation in Siblings With &lt;i&gt;COQ5&lt;/i&gt;-Related Primary Coenzyme Q10 Deficiency: Expanding Clinical and Molecular Spectrum.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12588166/fullTextXML",
+    "started_utc": "2026-10-06T12:26:38.133779+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12588166.xml",
+    "sha256": "a8c24da6c176ae4021a132e0e66356c210640836896f4c8c25917c2b204e7744",
+    "bytes": 96873,
+    "publication_dates": [
+      {
+        "value": "2025-11-5"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:40.243068+00:00"
+  },
+  {
+    "pmid": "34626583",
+    "pmcid": "PMC8546233",
+    "doi": "10.1016/j.ajhg.2021.08.003",
+    "title": "Bi-allelic variants in SPATA5L1 lead to intellectual disability, spastic-dystonic cerebral palsy, epilepsy, and hearing loss.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8546233/fullTextXML",
+    "started_utc": "2026-10-06T12:26:38.801741+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:27:05.272490+00:00"
+  },
+  {
+    "pmid": "35361250",
+    "pmcid": "PMC8969342",
+    "doi": "10.1186/s40246-022-00385-0",
+    "title": "Variants in genes related to development of the urinary system are associated with Mayer-Rokitansky-K\u00fcster-Hauser syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8969342/fullTextXML",
+    "started_utc": "2026-10-06T12:26:40.243913+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8969342.xml",
+    "sha256": "0da4e96ebc90b7399f420811f8f62395df754861a73997baf7b5b7b6ebc99934",
+    "bytes": 108119,
+    "publication_dates": [
+      {
+        "value": "2022-3-31"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:44.836743+00:00"
+  },
+  {
+    "pmid": "40428346",
+    "pmcid": "PMC12111208",
+    "doi": "10.3390/genes16050524",
+    "title": "Phenotypic Spectrum of <i>KATNIP</i>-Associated Joubert Syndrome: Possible Association with Esophageal Atresia and Review of the Literature.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12111208/fullTextXML",
+    "started_utc": "2026-10-06T12:26:44.837651+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12111208.xml",
+    "sha256": "038ffb97a787aedd1edc3f50324eadfe223ec88acaede12d23b7e0aa292e0ca0",
+    "bytes": 65672,
+    "publication_dates": [
+      {
+        "value": "2025-4-29"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:47.553899+00:00"
+  },
+  {
+    "pmid": "40725402",
+    "pmcid": "PMC12295353",
+    "doi": "10.3390/genes16070745",
+    "title": "Phenotypic and Genotypic Characterization of 171 Patients with Syndromic Inherited Retinal Diseases Highlights the Importance of Genetic Testing for Accurate Clinical Diagnosis.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12295353/fullTextXML",
+    "started_utc": "2026-10-06T12:26:47.554629+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12295353.xml",
+    "sha256": "c366bb7ba1a9fab2a44539b7be2998063a34ac5befbf4f06a4f4d7b81eb7b22d",
+    "bytes": 200978,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2025-6-26"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2025-7-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:50.654748+00:00"
+  },
+  {
+    "pmid": "34660594",
+    "pmcid": "PMC8517341",
+    "doi": "10.3389/fcell.2021.736960",
+    "title": "Mutated <i>VWA8</i> Is Associated With Developmental Delay, Microcephaly, and Scoliosis and Plays a Novel Role in Early Development and Skeletal Morphogenesis in Zebrafish.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8517341/fullTextXML",
+    "started_utc": "2026-10-06T12:26:50.655949+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8517341.xml",
+    "sha256": "6b437293e2e5f51a1d23e97721d71e2bae596a8fb25a8d30e5e86659d2048cdb",
+    "bytes": 106384,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2021-10-01"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2021--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:56.084954+00:00"
+  },
+  {
+    "pmid": "42120427",
+    "pmcid": "PMC13376219",
+    "doi": "10.1038/s41467-026-72988-3",
+    "title": "Intra-mitochondrial glycolysis maintains mitochondrial function and underlies the pathogenesis of retinitis pigmentosa.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13376219/fullTextXML",
+    "started_utc": "2026-10-06T12:26:56.085831+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC13376219.xml",
+    "sha256": "d119441af12d3ff3c70e4fd434253240b69acfa54e385b29f2558eb9823aee6b",
+    "bytes": 171093,
+    "publication_dates": [
+      {
+        "value": "2026-5-12"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:26:59.735685+00:00"
+  },
+  {
+    "pmid": "34828254",
+    "pmcid": "PMC8622907",
+    "doi": "10.3390/genes12111648",
+    "title": "Expanding the Phenotype of the <i>FAM149B1</i>-Related Ciliopathy and Identification of Three Neurogenetic Disorders in a Single Family.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8622907/fullTextXML",
+    "started_utc": "2026-10-06T12:26:59.735887+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8622907.xml",
+    "sha256": "0acbb187a26252f34ec1421f6720185383c6313465de6d88dea40ec04dc9632d",
+    "bytes": 132293,
+    "publication_dates": [
+      {
+        "value": "2021-10-20"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:04.466826+00:00"
+  },
+  {
+    "pmid": "36047773",
+    "pmcid": "PMC9447143",
+    "doi": "10.1165/rcmb.2022-0032le",
+    "title": "Recessive Mutations in <i>CFAP74</i> Cause Primary Ciliary Dyskinesia with Normal Ciliary Ultrastructure.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9447143/fullTextXML",
+    "started_utc": "2026-10-06T12:27:04.152674+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9447143.xml",
+    "sha256": "3b89b1c20ccd95a88c3b5bf97c081f5fc8917f3bcc44e0aec65aa61a1889e863",
+    "bytes": 44562,
+    "publication_dates": [
+      {
+        "value": "2022-9-1"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:06.644129+00:00"
+  },
+  {
+    "pmid": "35246562",
+    "pmcid": "PMC8897414",
+    "doi": "10.1038/s41525-022-00286-0",
+    "title": "A comprehensive WGS-based pipeline for the identification of new candidate genes in inherited retinal dystrophies.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8897414/fullTextXML",
+    "started_utc": "2026-10-06T12:27:04.467617+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8897414.xml",
+    "sha256": "75a1aff8cb57819b274a55bdb5ec584f3f1f5703cf2f3f371cf132f80c541918",
+    "bytes": 204378,
+    "publication_dates": [
+      {
+        "value": "2022-3-4"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:07.282801+00:00"
+  },
+  {
+    "pmid": "36329026",
+    "pmcid": "PMC9633640",
+    "doi": "10.1038/s41467-022-33820-w",
+    "title": "The inner junction protein CFAP20 functions in motile and non-motile cilia and is critical for vision.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9633640/fullTextXML",
+    "started_utc": "2026-10-06T12:27:05.273937+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9633640.xml",
+    "sha256": "838f93d0f05efd58830218fd45b81edb7464cd6a66ac6a617140a586f1185f25",
+    "bytes": 280168,
+    "publication_dates": [
+      {
+        "value": "2022-11-3"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:12.059532+00:00"
+  },
+  {
+    "pmid": "37431817",
+    "pmcid": "PMC10405051",
+    "doi": "10.15252/emmm.202317911",
+    "title": "MSTO1 is a cytoplasmic pro-mitochondrial fusion protein, whose mutation induces myopathy and ataxia in humans.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10405051/fullTextXML",
+    "started_utc": "2026-10-06T12:27:06.645145+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10405051.xml",
+    "sha256": "8d6fb05637d4cf4095d2cf8fcf54942dcae3e55f2ee5d60b16c714fbdc91f4d1",
+    "bytes": 24389,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2023-7-11"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2023-8-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:09.177734+00:00"
+  },
+  {
+    "pmid": "41742423",
+    "pmcid": "PMC13087473",
+    "doi": "10.1016/j.ajhg.2026.02.001",
+    "title": "Loss-of-function variants in SAXO6, encoding a microtubule inner protein of photoreceptor cilia, cause a late-onset retinal dystrophy.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13087473/fullTextXML",
+    "started_utc": "2026-10-06T12:27:07.283933+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC13087473.xml",
+    "sha256": "34075b6e58bef80b70725a20597fb78de048b942335b88c75ec7cb4c02e4db67",
+    "bytes": 227954,
+    "publication_dates": [
+      {
+        "value": "2026-2-24"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:11.047869+00:00"
+  },
+  {
+    "pmid": "34974531",
+    "pmcid": "PMC8991249",
+    "doi": "10.1038/s41431-021-01012-7",
+    "title": "Singleton exome sequencing of 90 fetuses with ultrasound anomalies revealing novel disease-causing variants and genotype-phenotype correlations.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8991249/fullTextXML",
+    "started_utc": "2026-10-06T12:27:09.178359+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8991249.xml",
+    "sha256": "7690d5e6b342716efef5a03ed3d8e1f82e42c68d2038342f828afb575ad1650f",
+    "bytes": 122543,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2022-1-1"
+      },
+      {
+        "pub-type": "ppub",
+        "value": "2022-4-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:12.371002+00:00"
+  },
+  {
+    "pmid": "34487921",
+    "pmcid": "PMC8515296",
+    "doi": "10.1016/j.molmet.2021.101334",
+    "title": "A point mutation in the Pdia6 gene results in loss of pancreatic \u03b2-cell identity causing overt diabetes.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8515296/fullTextXML",
+    "started_utc": "2026-10-06T12:27:11.048464+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8515296.xml",
+    "sha256": "322d48a3752a31f77531492a665b64c98f42d0185d151b175153153d40e831d5",
+    "bytes": 95842,
+    "publication_dates": [
+      {
+        "value": "2021-9-4"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:15.719497+00:00"
+  },
+  {
+    "pmid": "35856135",
+    "pmcid": "PMC9796798",
+    "doi": "10.1111/cge.14187",
+    "title": "A biallelic loss-of-function PDIA6 variant in a second patient with polycystic kidney disease, infancy-onset diabetes, and microcephaly.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9796798/fullTextXML",
+    "started_utc": "2026-10-06T12:27:12.060583+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9796798.xml",
+    "sha256": "60fa8698ebc487aecef33db50b621f0e2ac9e594268d2eec0f86bfe011d7a8be",
+    "bytes": 20614,
+    "publication_dates": [
+      {
+        "value": "2022-7-18"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:14.669859+00:00"
+  },
+  {
+    "pmid": "39044457",
+    "pmcid": "PMC11524824",
+    "doi": null,
+    "title": "Increased ER stress by depletion of PDIA6 impairs primary ciliogenesis and enhances sensitivity to ferroptosis in kidney cells.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11524824/fullTextXML",
+    "started_utc": "2026-10-06T12:27:12.372118+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11524824.xml",
+    "sha256": "531a30a6943dc6023ad3c37d44d56dfbc2c2a670fbf951085034634536ea6d7b",
+    "bytes": 74805,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2024-10-31"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2024-5-14"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:16.365781+00:00"
+  },
+  {
+    "pmid": "36186484",
+    "pmcid": "PMC9520306",
+    "doi": "10.3389/fgene.2022.977914",
+    "title": "First report of paternal uniparental disomy of chromosome 8 with <i>SLC52A2</i> mutation in Brown-vialetto-van laere syndrome type 2 and an analysis of genotype-phenotype correlations.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9520306/fullTextXML",
+    "started_utc": "2026-10-06T12:27:14.670600+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9520306.xml",
+    "sha256": "93e443c025770b0aa407c15c3557687fac211617ea19edd53ef3391a64e2755a",
+    "bytes": 142858,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2022-9-15"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2022--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:17.028939+00:00"
+  },
+  {
+    "pmid": "40405340",
+    "pmcid": "PMC12312742",
+    "doi": "10.1080/13816810.2025.2503388",
+    "title": "&lt;i&gt;DYRK1A&lt;/i&gt; syndrome presenting with a familial exudative vitreoretinopathy (FEVR)-like retinovascular phenotype.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12312742/fullTextXML",
+    "started_utc": "2026-10-06T12:27:15.720647+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12312742.xml",
+    "sha256": "eededd61e08683602fe97a07f5c48238a14f61c31031548c3893d7ab1ac7fe67",
+    "bytes": 48383,
+    "publication_dates": [
+      {
+        "value": "2025-5-22"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:18.402545+00:00"
+  },
+  {
+    "pmid": "41308066",
+    "pmcid": "PMC12782617",
+    "doi": "10.1159/000549598",
+    "title": "Biallelic TMEM72 Variants in Patients with a Nephronophthisis-Like Phenotype.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12782617/fullTextXML",
+    "started_utc": "2026-10-06T12:27:16.366840+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12782617.xml",
+    "sha256": "9a6cd8f42ac8b3655d317c41ebe83d9b98a46358946a178389e898863b7bd753",
+    "bytes": 171882,
+    "publication_dates": [
+      {
+        "value": "2025-11-27"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:18.746957+00:00"
+  },
+  {
+    "pmid": "37821758",
+    "pmcid": "PMC10689475",
+    "doi": "10.1038/s41431-023-01475-w",
+    "title": "A loss of function variant in AGPAT3 underlies intellectual disability and retinitis pigmentosa (IDRP) syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10689475/fullTextXML",
+    "started_utc": "2026-10-06T12:27:17.029511+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:27:44.587439+00:00"
+  },
+  {
+    "pmid": "34952832",
+    "pmcid": "PMC9554030",
+    "doi": "10.1136/jmedgenet-2021-108150",
+    "title": "A disorder clinically resembling cystic fibrosis caused by biallelic variants in the <i>AGR2</i> gene.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9554030/fullTextXML",
+    "started_utc": "2026-10-06T12:27:18.402845+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9554030.xml",
+    "sha256": "b7d16d557662d4d88a52e8f9686246ac16fa9ecf8edfe28fada1a3dea832d2ef",
+    "bytes": 128864,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2022-10-"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2021-12-24"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:20.946504+00:00"
+  },
+  {
+    "pmid": "38960684",
+    "pmcid": "PMC11867755",
+    "doi": "10.2169/internalmedicine.3978-24",
+    "title": "Primary Ciliary Dyskinesia Due to Compound Heterozygous Variants in CFAP221 with Obstructive Azoospermia: Young's Syndrome May Be a Phenotype of Primary Ciliary Dyskinesia.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11867755/fullTextXML",
+    "started_utc": "2026-10-06T12:27:18.747865+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11867755.xml",
+    "sha256": "6328f6a0d5a546cb7ec13ec5b23d75fdfbe1e9978f33892001c7c9dac02322f7",
+    "bytes": 63222,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2024-7-4"
+      },
+      {
+        "pub-type": "ppub",
+        "value": "2025-2-1"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:20.946412+00:00"
+  },
+  {
+    "pmid": "33528103",
+    "pmcid": "PMC8104159",
+    "doi": "10.1002/mgg3.1609",
+    "title": "Whole exome sequencing reveals a biallelic frameshift mutation in GRXCR2 in hearing impairment in Cameroon.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8104159/fullTextXML",
+    "started_utc": "2026-10-06T12:27:20.946868+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8104159.xml",
+    "sha256": "8c9094494916b1c810e5bf042890af5064f7ab8ef01cca54c03a86c86b0726ad",
+    "bytes": 121477,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2021-2-02"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2021-3-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:25.761503+00:00"
+  },
+  {
+    "pmid": "35727972",
+    "pmcid": "PMC9245706",
+    "doi": "10.1073/pnas.2204084119",
+    "title": "Mutations in &lt;i&gt;MINAR2&lt;/i&gt; encoding membrane integral NOTCH2-associated receptor 2 cause deafness in humans and mice.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9245706/fullTextXML",
+    "started_utc": "2026-10-06T12:27:20.947457+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9245706.xml",
+    "sha256": "6db1cff2816663caa4887a22be3084cca3222eae448171a00928b4ce84a0c6c4",
+    "bytes": 108124,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2022-6-28"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2022-6-21"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:24.156082+00:00"
+  },
+  {
+    "pmid": "33496845",
+    "pmcid": "PMC8099798",
+    "doi": "10.1007/s00439-020-02254-z",
+    "title": "A biallelic variant in CLRN2 causes non-syndromic hearing loss in humans.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8099798/fullTextXML",
+    "started_utc": "2026-10-06T12:27:24.157113+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:27:54.034496+00:00"
+  },
+  {
+    "pmid": "41833579",
+    "pmcid": "PMC12999288",
+    "doi": "10.1016/j.ebiom.2026.106211",
+    "title": "The landscape of gene mutations in a cohort of 3353 Han Chinese children with nonsyndromic hearing loss.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12999288/fullTextXML",
+    "started_utc": "2026-10-06T12:27:25.762623+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12999288.xml",
+    "sha256": "e5192194d8fac61f27a64574b44cbef55f4913b064a799ea5d7e2700bf81f815",
+    "bytes": 151179,
+    "publication_dates": [
+      {
+        "pub-type": "collection",
+        "value": "2026-4-"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2026-3-14"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:30.212884+00:00"
+  },
+  {
+    "pmid": "37469238",
+    "pmcid": "PMC10496049",
+    "doi": "10.1002/mgg3.2235",
+    "title": "A novel heterozygous variant of FOXJ1 in a Chinese female with primary ciliary dyskinesia and hydrocephalus: A case report and literature review.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10496049/fullTextXML",
+    "started_utc": "2026-10-06T12:27:30.213905+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10496049.xml",
+    "sha256": "bc5d1b9724165cd74cd8b0137b0102c7e9b297e7bc831dc7feb3b9ea81f9bec2",
+    "bytes": 93828,
+    "publication_dates": [
+      {
+        "value": "2023-7-19"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:32.601422+00:00"
+  },
+  {
+    "pmid": "35656379",
+    "pmcid": "PMC9152136",
+    "doi": "10.3389/fped.2022.859034",
+    "title": "A Novel Homozygous Missense Variant in the <i>LRRC32</i> Gene Is Associated With a New Syndrome of Cleft Palate, Progressive Vitreoretinopathy, Growth Retardation, and Developmental Delay.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9152136/fullTextXML",
+    "started_utc": "2026-10-06T12:27:32.602321+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9152136.xml",
+    "sha256": "8539fe044c84ab75df63110b93d5d21db3383dd4b65d3b257a995f1edcc905ea",
+    "bytes": 77141,
+    "publication_dates": [
+      {
+        "value": "2022-5-17"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:35.029740+00:00"
+  },
+  {
+    "pmid": "39498320",
+    "pmcid": "PMC11532063",
+    "doi": "10.3389/fgene.2024.1409306",
+    "title": "Genetic heterogeneity in autosomal recessive hearing loss: a survey of Brazilian families.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11532063/fullTextXML",
+    "started_utc": "2026-10-06T12:27:35.030354+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11532063.xml",
+    "sha256": "8f1b7dbd5102163f604b914823c3b59a997d30c83bd5163ea13ac0ef95cb3eeb",
+    "bytes": 158931,
+    "publication_dates": [
+      {
+        "value": "2024-10-21"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:38.156884+00:00"
+  },
+  {
+    "pmid": "40369851",
+    "pmcid": "PMC12078196",
+    "doi": "10.1002/mgg3.2474",
+    "title": "A new syndromic case of hearing loss and ectodermal anomalies associated with a recurrent missense variation in GJB6 gene.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12078196/fullTextXML",
+    "started_utc": "2026-10-06T12:27:38.157790+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12078196.xml",
+    "sha256": "d394499fa3fd62465623ca952ef3cbab69ce8c015f2940da523ba8e8b27cd87c",
+    "bytes": 60033,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2025-5-14"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2025-5-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:41.424799+00:00"
+  },
+  {
+    "pmid": "34338890",
+    "pmcid": "PMC11330641",
+    "doi": "10.1007/s00439-021-02319-7",
+    "title": "New insights into Perrault syndrome, a clinically and genetically heterogeneous disorder.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11330641/fullTextXML",
+    "started_utc": "2026-10-06T12:27:41.425839+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:28:07.480290+00:00"
+  },
+  {
+    "pmid": "34185059",
+    "pmcid": "PMC8254011",
+    "doi": "10.1167/iovs.62.7.27",
+    "title": "Characterization of the Spectrum of Ophthalmic Changes in Patients With Alagille Syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8254011/fullTextXML",
+    "started_utc": "2026-10-06T12:27:44.587691+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8254011.xml",
+    "sha256": "11b8788d7d386f3ce60bb458674eec0b1fdfe42fb043acd318000046f5769de5",
+    "bytes": 122777,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2021-6-29"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2021-6-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:47.959886+00:00"
+  },
+  {
+    "pmid": "33811157",
+    "pmcid": "PMC8259640",
+    "doi": "10.1681/asn.2020111587",
+    "title": "Defects in KCNJ16 Cause a Novel Tubulopathy with Hypokalemia, Salt Wasting, Disturbed Acid-Base Homeostasis, and Sensorineural Deafness.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8259640/fullTextXML",
+    "started_utc": "2026-10-06T12:27:47.960854+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:28:14.494139+00:00"
+  },
+  {
+    "pmid": "33840812",
+    "pmcid": "PMC8484552",
+    "doi": "10.1038/s41431-021-00883-0",
+    "title": "Biallelic loss-of-function variants in KCNJ16 presenting with hypokalemic metabolic acidosis.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8484552/fullTextXML",
+    "started_utc": "2026-10-06T12:27:54.036040+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8484552.xml",
+    "sha256": "9d77dbeac438a614819c4130b5fba209402cea96460aff60cb3c364be4c23e91",
+    "bytes": 35599,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2021-4-12"
+      },
+      {
+        "pub-type": "ppub",
+        "value": "2021-10-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:56.138602+00:00"
+  },
+  {
+    "pmid": "34423300",
+    "pmcid": "PMC8374969",
+    "doi": "10.1093/braincomms/fcab163",
+    "title": "Identification of <i>LAMA1</i> mutations ends diagnostic odyssey and has prognostic implications for patients with presumed Joubert syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8374969/fullTextXML",
+    "started_utc": "2026-10-06T12:27:56.139653+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8374969.xml",
+    "sha256": "089c198e21aff7e2209225d768a6efe7125e22aa1a53c061997faedd6c363f17",
+    "bytes": 95250,
+    "publication_dates": [
+      {
+        "value": "2021-7-16"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:27:58.158900+00:00"
+  },
+  {
+    "pmid": "33815143",
+    "pmcid": "PMC8012663",
+    "doi": "10.3389/fphys.2021.637852",
+    "title": "LETM1: A Single Entity With Diverse Impact on Mitochondrial Metabolism and Cellular Signaling.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8012663/fullTextXML",
+    "started_utc": "2026-10-06T12:27:58.160059+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8012663.xml",
+    "sha256": "3eade2ca02f02b46b30c21f85231aaa9cbde44f3707819677bea2e21afdc33c1",
+    "bytes": 139125,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2021-3-18"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2021--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:00.728199+00:00"
+  },
+  {
+    "pmid": "36055214",
+    "pmcid": "PMC9502063",
+    "doi": "10.1016/j.ajhg.2022.07.007",
+    "title": "Bi-allelic LETM1 variants perturb mitochondrial ion homeostasis leading to a clinical spectrum with predominant nervous system involvement.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9502063/fullTextXML",
+    "started_utc": "2026-10-06T12:28:00.729394+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9502063.xml",
+    "sha256": "068966fdcc6eed11e55547bf16a04c5a23974d285e22f45db606ffa15bde2a3a",
+    "bytes": 245700,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2022-9-01"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2022-9-01"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:04.612075+00:00"
+  },
+  {
+    "pmid": "39548529",
+    "pmcid": "PMC11568590",
+    "doi": "10.1186/s12920-024-02049-5",
+    "title": "Hearing impairment and vestibular function in patients with a pathogenic splice variant in the LHX3 gene.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11568590/fullTextXML",
+    "started_utc": "2026-10-06T12:28:04.613220+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11568590.xml",
+    "sha256": "ccdfbbd62f04dcabffd1f8dd5c46f13615045b16ddc01acd533c1716b6248b02",
+    "bytes": 111707,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2024-11-15"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2024--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:07.335897+00:00"
+  },
+  {
+    "pmid": "33748123",
+    "pmcid": "PMC7969994",
+    "doi": "10.3389/fcell.2021.635424",
+    "title": "Autosomal Recessive Rod-Cone Dystrophy Associated With Compound Heterozygous Variants in <i>ARL3</i> Gene.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7969994/fullTextXML",
+    "started_utc": "2026-10-06T12:28:07.337158+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC7969994.xml",
+    "sha256": "1dd58cf450b426c08d7d7dddd5da089fb94e37e1b83eb504023541be637c0533",
+    "bytes": 90932,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2021-3-04"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2021--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:09.522336+00:00"
+  },
+  {
+    "pmid": "34485303",
+    "pmcid": "PMC8416110",
+    "doi": "10.3389/fcell.2021.720782",
+    "title": "A Novel &lt;i&gt;ARL3&lt;/i&gt; Gene Mutation Associated With Autosomal Dominant Retinal Degeneration.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8416110/fullTextXML",
+    "started_utc": "2026-10-06T12:28:07.481183+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC8416110.xml",
+    "sha256": "3468f8806cc821e3f9d62cc7582830745e39556c6d9a9421a2a0ceba62ebbf85",
+    "bytes": 132727,
+    "publication_dates": [
+      {
+        "value": "2021-8-17"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:11.191617+00:00"
+  },
+  {
+    "pmid": "36429029",
+    "pmcid": "PMC9688216",
+    "doi": "10.3390/cells11223602",
+    "title": "Novel Compound Heterozygous Variations in <i>MPDZ</i> Gene Caused Isolated Bilateral Macular Coloboma in a Chinese Family.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9688216/fullTextXML",
+    "started_utc": "2026-10-06T12:28:09.523275+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9688216.xml",
+    "sha256": "9f98e4a97b60191555e1df192a890e1cc8624de309d78f48aaed5c0c4a2d5ddf",
+    "bytes": 119684,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2022-11-14"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2022-11-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:12.478485+00:00"
+  },
+  {
+    "pmid": "36594712",
+    "pmcid": "PMC10315413",
+    "doi": "10.1080/13816810.2022.2161580",
+    "title": "Retinal manifestations in autosomal recessive &lt;i&gt;MPDZ&lt;/i&gt; maculopathy: report of two cases and literature review.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10315413/fullTextXML",
+    "started_utc": "2026-10-06T12:28:11.192427+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:28:38.969867+00:00"
+  },
+  {
+    "pmid": "33600551",
+    "pmcid": "PMC8098111",
+    "doi": "10.1093/hmg/ddab043",
+    "title": "The pathogenic m.8993\u00a0T\u2009>\u2009G mutation in mitochondrial ATP6 gene prevents proton release from the subunit c-ring rotor of ATP synthase.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8098111/fullTextXML",
+    "started_utc": "2026-10-06T12:28:12.479817+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:28:38.194447+00:00"
+  },
+  {
+    "pmid": "35455034",
+    "pmcid": "PMC9033132",
+    "doi": "10.3390/life12040543",
+    "title": "Long-Term Progression and Rapid Decline in Hearing Loss in Patients with a Point Mutation at Nucleotide 3243 of the Mitochondrial DNA.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9033132/fullTextXML",
+    "started_utc": "2026-10-06T12:28:14.495642+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9033132.xml",
+    "sha256": "e00bb09d05071400cdb39907951571ff23b32e3f642859b25e0c96a85cd45a3b",
+    "bytes": 118493,
+    "publication_dates": [
+      {
+        "value": "2022-4-6"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:16.815925+00:00"
+  },
+  {
+    "pmid": "37957793",
+    "pmcid": "PMC10643857",
+    "doi": "10.4168/aair.2023.15.6.757",
+    "title": "Clinical Manifestations and Genotype of Primary Ciliary Dyskinesia Diagnosed in Korea: Multicenter Study.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10643857/fullTextXML",
+    "started_utc": "2026-10-06T12:28:16.816503+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10643857.xml",
+    "sha256": "d6e4e1864ff95b83fa70c496321d1259cfae284e3a1847b8ad44ccde6520fc9c",
+    "bytes": 88882,
+    "publication_dates": [
+      {
+        "value": "2023-9-4"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:21.264113+00:00"
+  },
+  {
+    "pmid": "35518571",
+    "pmcid": "PMC9067583",
+    "doi": "10.1212/nxg.0000000000000677",
+    "title": "Biallelic <i>ATOH1</i> Gene Variant in Siblings With Pontocerebellar Hypoplasia, Developmental Delay, and Hearing Loss.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9067583/fullTextXML",
+    "started_utc": "2026-10-06T12:28:21.264729+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9067583.xml",
+    "sha256": "65dc8c53a8000ab994cddb9d7df7c600d733c67a13e55d1d8bfb1f85d13d36eb",
+    "bytes": 69922,
+    "publication_dates": [
+      {
+        "value": "2022-5-3"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:23.467575+00:00"
+  },
+  {
+    "pmid": "41592563",
+    "pmcid": "PMC13087419",
+    "doi": "10.1016/j.ajhg.2025.12.016",
+    "title": "Dominant and recessive ATOH1 variants cause distinct neurodevelopmental disorders with hearing loss.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13087419/fullTextXML",
+    "started_utc": "2026-10-06T12:28:23.468489+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:28:51.655735+00:00"
+  },
+  {
+    "pmid": "40610405",
+    "pmcid": "PMC12226721",
+    "doi": "10.1038/s41467-025-60574-y",
+    "title": "Variants in NR6A1 cause a novel oculo vertebral renal syndrome.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12226721/fullTextXML",
+    "started_utc": "2026-10-06T12:28:38.195571+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12226721.xml",
+    "sha256": "a358664318694327e43214c4766ec6d66269f336d2b91cd0f7d52f1613fd6a5f",
+    "bytes": 153417,
+    "publication_dates": [
+      {
+        "value": "2025-7-3"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:40.984184+00:00"
+  },
+  {
+    "pmid": "39648562",
+    "pmcid": "PMC11790524",
+    "doi": "10.1111/cge.14651",
+    "title": "A Novel De Novo Missense Variant in Netrin-1 (NTN1) Associated With Chorioretinal Coloboma, Sensorineural Hearing Loss and Polydactyly.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11790524/fullTextXML",
+    "started_utc": "2026-10-06T12:28:38.970855+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11790524.xml",
+    "sha256": "d33f44c9bb8f09493c6a5a302802210c7163a74c6412909290f6c2db13cc68e1",
+    "bytes": 87954,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2024-12-08"
+      },
+      {
+        "pub-type": "ppub",
+        "value": "2025-3-"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:44.571380+00:00"
+  },
+  {
+    "pmid": "33531592",
+    "pmcid": "PMC7854608",
+    "doi": "10.1038/s41598-021-82368-0",
+    "title": "Discordant phenotypes in twins with infantile nystagmus.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7854608/fullTextXML",
+    "started_utc": "2026-10-06T12:28:40.984852+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC7854608.xml",
+    "sha256": "be2eb0628d953afe7d9ce175113834c7db521e32e6047def7736085a8a777082",
+    "bytes": 67164,
+    "publication_dates": [
+      {
+        "pub-type": "epub",
+        "value": "2021-2-2"
+      },
+      {
+        "pub-type": "collection",
+        "value": "2021--"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:48.310301+00:00"
+  },
+  {
+    "pmid": "35157951",
+    "pmcid": "PMC9341240",
+    "doi": "10.1016/j.ophtha.2022.02.010",
+    "title": "Genotypic and Phenotypic Spectrum of Foveal Hypoplasia: A Multicenter Study.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9341240/fullTextXML",
+    "started_utc": "2026-10-06T12:28:44.572386+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:29:15.142719+00:00"
+  },
+  {
+    "pmid": "39876536",
+    "pmcid": "PMC12052494",
+    "doi": "10.1002/ajmg.a.64006",
+    "title": "Phenotypic Expansion of Knobloch Syndrome Type 2 in an Individual With a De Novo PAK2 Variant.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12052494/fullTextXML",
+    "started_utc": "2026-10-06T12:28:48.311419+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:29:15.706531+00:00"
+  },
+  {
+    "pmid": "39994693",
+    "pmcid": "PMC11853806",
+    "doi": "10.1186/s12920-025-02096-6",
+    "title": "Antenatal phenotype associated with PAK2 pathogenic variants: bilateral pleural effusion as a warning sign.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11853806/fullTextXML",
+    "started_utc": "2026-10-06T12:28:51.657140+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11853806.xml",
+    "sha256": "9162daf3cf9e16aaa429245c6fc61f517ea0db52ec9336697ee39de6428c2106",
+    "bytes": 70768,
+    "publication_dates": [
+      {
+        "value": "2025-2-24"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:54.098171+00:00"
+  },
+  {
+    "pmid": "40247748",
+    "pmcid": "PMC12006727",
+    "doi": "10.1002/mgg3.70099",
+    "title": "Chinese Family With Knobloch Syndrome Associated With a Novel PAK2 Variant Leading to Reduced Phosphorylation Levels.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12006727/fullTextXML",
+    "started_utc": "2026-10-06T12:28:54.098961+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12006727.xml",
+    "sha256": "479e12255a98b0ebc87f6d4282a6bb8cb7509a3a3d4b2f7fd707bb877069875b",
+    "bytes": 57747,
+    "publication_dates": [
+      {
+        "value": "2025-4-18"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:28:56.559371+00:00"
+  },
+  {
+    "pmid": "40262506",
+    "pmcid": "PMC12047482",
+    "doi": "10.1016/j.ijscr.2025.111341",
+    "title": "Retinal detachment in a neonate with congenital chylothorax and purpura fulminans associated with the PAK2 genetic variant: A case report.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12047482/fullTextXML",
+    "started_utc": "2026-10-06T12:28:56.560502+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12047482.xml",
+    "sha256": "f56b6db68763f9be1919c18fb8f63024c8e3f41b9fbcc06bfadbaeaa7890eb8f",
+    "bytes": 42777,
+    "publication_dates": [
+      {
+        "value": "2025-4-19"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:29:01.848526+00:00"
+  },
+  {
+    "pmid": "35567543",
+    "pmcid": "PMC9523556",
+    "doi": "10.1093/hmg/ddac113",
+    "title": "Whole exome sequencing of known eye genes reveals genetic causes for high myopia.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9523556/fullTextXML",
+    "started_utc": "2026-10-06T12:29:01.849482+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9523556.xml",
+    "sha256": "e75ec3bd4f7e5b2368d89e0e78ccb92d3414c897e3da55a212d5d3ca919fb306",
+    "bytes": 110505,
+    "publication_dates": [
+      {
+        "pub-type": "collection",
+        "value": "2022-10-01"
+      },
+      {
+        "pub-type": "epub",
+        "iso-8601-date": "2022-05-14",
+        "value": "2022-5-14"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:29:04.236375+00:00"
+  },
+  {
+    "pmid": "36980963",
+    "pmcid": "PMC10048638",
+    "doi": "10.3390/genes14030690",
+    "title": "Genetic and Clinical Characterization of Danish Achromatopsia Patients.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10048638/fullTextXML",
+    "started_utc": "2026-10-06T12:29:04.237294+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC10048638.xml",
+    "sha256": "dd2a5cd2235f85c84c75dacb3ef4c6c88c2d7de63c2679d0838d9fc3f9b7782b",
+    "bytes": 120387,
+    "publication_dates": [
+      {
+        "value": "2023-3-10"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:29:07.269118+00:00"
+  },
+  {
+    "pmid": "37422272",
+    "pmcid": "PMC10770301",
+    "doi": "10.1016/j.jaci.2023.06.020",
+    "title": "A gain-of-function variation in PLCG1 causes a new immune dysregulation disease.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10770301/fullTextXML",
+    "started_utc": "2026-10-06T12:29:07.270177+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:29:35.575513+00:00"
+  },
+  {
+    "pmid": "40862571",
+    "pmcid": "PMC12387771",
+    "doi": "10.7554/elife.95887",
+    "title": "Heterozygous variants in &lt;i&gt;PLCG1&lt;/i&gt; affect hearing, vision, cardiac, and immune function.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12387771/fullTextXML",
+    "started_utc": "2026-10-06T12:29:15.143911+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12387771.xml",
+    "sha256": "0891389e9213930c40cb60f4cc2574c277e0dd9b65301e4373e58ef6dbdb1d05",
+    "bytes": 330537,
+    "publication_dates": [
+      {
+        "value": "2025-8-27"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:29:19.607317+00:00"
+  },
+  {
+    "pmid": "38458752",
+    "pmcid": "PMC11228227",
+    "doi": "10.1136/jmg-2023-109728",
+    "title": "Biallelic variants in Plexin B2 (&lt;i&gt;PLXNB2&lt;/i&gt;) cause amelogenesis imperfecta, hearing loss and intellectual disability.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11228227/fullTextXML",
+    "started_utc": "2026-10-06T12:29:15.707531+00:00",
+    "complete": true,
+    "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC11228227.xml",
+    "sha256": "98d264bcd4d85c9e8eb0911551ef3cc293a5922ec55b6e585fe70df6ce699d40",
+    "bytes": 133189,
+    "publication_dates": [
+      {
+        "pub-type": "ppub",
+        "value": "2024-7-"
+      },
+      {
+        "pub-type": "epub",
+        "value": "2024-3-8"
+      }
+    ],
+    "finished_utc": "2026-10-06T12:29:20.074553+00:00"
+  },
+  {
+    "pmid": "37256937",
+    "pmcid": "PMC10506367",
+    "doi": "10.1126/scitranslmed.abo3189",
+    "title": "PSMC3 proteasome subunit variants are associated with neurodevelopmental delay and type I interferon production.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10506367/fullTextXML",
+    "started_utc": "2026-10-06T12:29:19.608263+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:29:45.886132+00:00"
+  },
+  {
+    "pmid": "39106866",
+    "pmcid": "PMC11393705",
+    "doi": "10.1016/j.ajhg.2024.07.008",
+    "title": "Expanding the genetic and phenotypic landscape of replication factor C complex-related disorders: RFC4 deficiency is linked to a multisystemic disorder.",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11393705/fullTextXML",
+    "started_utc": "2026-10-06T12:29:20.075641+00:00",
+    "complete": false,
+    "error": "HTTPError: HTTP Error 500: ",
+    "finished_utc": "2026-10-06T12:29:46.319120+00:00"
+  }
+]

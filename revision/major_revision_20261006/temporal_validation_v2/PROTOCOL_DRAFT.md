@@ -30,6 +30,18 @@ Systematically screen the acquired complete RetNet catalog and PanelApp panels
 RetNet mapping/cloning dates and panel reference dates nominate records for
 adjudication; they are not sufficient proof of first human association.
 
+Use two-stage screening. Every catalog gene/domain receives a ledger record;
+reliable pre-cutoff clinical human target evidence can close its novel-target
+eligibility without redoing its entire earliest-paper history. Confirm that a
+historical green record actually describes a human target disorder with clinical
+inheritance/phenotype, rather than animal/function evidence only. Historical
+panel absence is not evidence that the association was unknown. All remaining
+records, including red/no-reference genes, receive a standardized symbol/alias,
+target-human-phenotype and genetic-variant search. Deeply review the union of
+unexcluded green/amber records, post-cutoff citations (even when older functional
+papers are cited), date/identifier uncertainties and changed phenotype/clinical
+evidence. No-hit and unresolved records are not biological negatives.
+
 Review source references and search pre-cutoff human disease reports for each
 candidate using official symbol, historical symbol/aliases and disease domain.
 Preserve all screened records and exclusions, including unresolvable dates,
@@ -52,6 +64,18 @@ classification uses independent disease reports, not predictor localization or
 animal score. Broad sensory cases are a prespecified comparison stratum and
 must not be represented as new Usher genes.
 
+Here, human disease novelty concerns germline Mendelian disease association;
+somatic cancer mutations and common-variant risk associations are not equivalent
+to first Mendelian disease-gene reports and are documented separately. Record
+the first public proposed causal human report and the first report meeting the
+stronger clinical rubric as distinct dates. A pre-cutoff candidate association
+confirmed after the cutoff is evidence maturation, not a newly discovered gene.
+For primary eligibility the first proposed target human report must be post-cutoff,
+and stronger evidence must have accumulated by 6 October 2026. Prior proposed
+non-target germline associations conservatively prevent claiming category (a);
+record their strength and whether they existed at the cutoff. An earlier
+non-target association can also have occurred within the validation period.
+
 Use the same clinical rubric across all sources. The main clinical cohort requires
 human genotype/phenotype evidence in at least two unrelated families, consistent
 inheritance/segregation, and either supporting functional evidence or an independent
@@ -61,6 +85,11 @@ meeting the rubric can enter the main clinical cohort. Current PanelApp status i
 supporting curation, not proof of novelty, mechanism or clinical strength. Document
 the actual relevant phenotype for multi-domain genes and separate strong evidence
 for another phenotype from evidence for the target association.
+
+Separately tag post-cutoff confirmation/replication of an already reported target
+association as evidence maturation. Phenotype-expansion/maturation events are
+descriptive secondary cases nominated by late references/catalog changes; their
+capture is not claimed exhaustive. They never enter novel-target recovery.
 
 Exclude all original nine Usher and 28 SYSCILIA development controls from the
 novel-case test set. Show their recovery only as development/reference biology.
@@ -88,9 +117,24 @@ manuscript and pilot result hashes during numerical runs.
    expression transform. GTEx has no retina or hair cells. Downloaded HPA v20
    `rna_tissue_hpa.tsv` has neither retina nor cerebellum: its background-only
    TPM values cannot supply a target/background contrast or target-relevant Tau
-   and are excluded from this variant. They are not mislabeled as nTPM. Census
-   and hair-cell channels remain unavailable historically. Do not import 2023+
-   Census or undated single-cell matrices.
+   and are excluded from this variant. They are not mislabeled as nTPM. Recover
+   the photoreceptor channel from the published 2019 Menon retinal datasets
+   GSE137537 (10X) and GSE137846 (Seq-Well), using their original count matrices,
+   gene features and author-provided cell labels. Select all cells labeled Rods
+   or Cones without new clustering or case/control-driven filtering: 9,356 and
+   847 cells, respectively. Map features through exact archived HGNC approved
+   symbols followed by unique archived previous/alias symbols. Sum features that
+   map to the same gene within each matrix. Calculate raw UMI means, including
+   zero counts, and pool counts and cell denominators across platforms only where
+   the gene is an observed feature. Absence from both feature lists gives NULL;
+   an observed feature with zero selected-cell counts gives observed zero.
+   The source replaces the production photoreceptor raw-count mean input before
+   its independent percentile transform; it is neither TPM nor a historical
+   Census API snapshot. Add no-photoreceptor and individual-platform expression
+   variants before outcomes to quantify this substitution. Correct the Seq-Well
+   annotation header's omitted barcode column explicitly; verify dimensions,
+   row widths, unique barcodes and feature counts against each matrix. Modern
+   Census annotations and direct hair-cell data remain excluded.
 3. Annotation: GO GAF 8 December 2020, unique positive GO terms, exclude NOT,
    mapped using archived HGNC UniProt accessions and unambiguous historical
    symbol fallback. Same production annotation formula with unavailable
@@ -177,7 +221,8 @@ above-boundary recovery are sensitivities. Percent recovery cutoffs use
 
 Report all of: default; equal weights; each single family; each leave-one-family
 out; joint animal/literature omission; fully archived no-literature variant;
-animal uniform-weight and unique-native-link variants; available-GO renormalization
+animal uniform-weight and unique-native-link variants; expression without
+photoreceptors and with each individual retinal platform; available-GO renormalization
 (GO subscore divided by 0.5) as a named annotation-scale sensitivity. Retain all cases in every comparison, and
 report missing scores explicitly. Do not select the favorable scheme as final.
 

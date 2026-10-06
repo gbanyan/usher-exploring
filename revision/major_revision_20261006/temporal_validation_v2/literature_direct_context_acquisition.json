@@ -1,0 +1,25 @@
+{
+  "name": "direct_context",
+  "query": "(TITLE_ABS:knockout OR TITLE_ABS:knockdown OR TITLE_ABS:mutation OR TITLE_ABS:CRISPR OR TITLE_ABS:siRNA OR TITLE_ABS:morpholino OR TITLE_ABS:\"null allele\") AND ((TITLE_ABS:cilia OR TITLE_ABS:cilium OR TITLE_ABS:ciliary OR TITLE_ABS:intraflagellar) OR (TITLE_ABS:retina OR TITLE_ABS:cochlea OR TITLE_ABS:\"hair cell\" OR TITLE_ABS:photoreceptor OR TITLE_ABS:vestibular OR TITLE_ABS:hearing OR TITLE_ABS:\"usher syndrome\")) AND SRC:MED AND FIRST_PDATE:[1800-01-01 TO 2020-12-31] AND FIRST_IDATE:[1800-01-01 TO 2020-12-31] sort_date:y",
+  "unique_pmids": 11935,
+  "api_hit_count": 11935,
+  "path": "data/cache/temporal-validation-v2-20261006/literature_date_sorted/direct_context_pmids.txt.gz",
+  "sha256": "8b889064fef1baefa7bae70d1b39ffa1a49495cf1354f6d3bed57e400d7d10c7",
+  "page_sha256": {
+    "page_0000.json": "3b10cf60a1a9c19878b9c778f035ac0f7f37bf350a8c700c11db6a39720f58b3",
+    "page_0001.json": "6e086d39c2af55a48035a54b0c9cdabb238ff3c59913cd85ebfab5e402506863",
+    "page_0002.json": "aa170f004d9796ea1b3b8ac9a71937eb37ea6fd39219b69791796c93671c56ad",
+    "page_0003.json": "4824ccbb81c5b0ba1ef99a12e508310ae30482cee17060574af684d0b800e19e",
+    "page_0004.json": "8964a88d7546ac608d075ec6988885d5b796565dfaa0b6db8a1e029c9f8f8306",
+    "page_0005.json": "bd546bbfc23149f7714de790363502ea03ad4bfd940d246e4ca9f4f64fec06a9",
+    "page_0006.json": "86cfc34aaf13d3b9b09341e3107e5565d6b3b5082002ed83a0f9ea32fc3cfba6",
+    "page_0007.json": "921a66b2f2785fe3b0ce1470fc152a0b5b1740ce151b935dedc6e2ff7a9d0102",
+    "page_0008.json": "c3b82e9ecd5d7cef52804698f5e41d540b3f6cf4b6768495cb89209fa7628376",
+    "page_0009.json": "e050f65b4ab3bc270d91840a56a5533b386b4a1673b1a36e36a673bf298314fb",
+    "page_0010.json": "5ae4e91745a06684391cee013aa316c68323fc3e67869c5c55762910f0d2dcd1",
+    "page_0011.json": "132f1e83c7029240d05e5e8b7fd2a61723c569a423eaadda814405c9e0c476cf",
+    "page_0012.json": "a2da3926596c0c34a6bed22677e3a34dfa2e7312fb64b081b47fa0737d4aaa4c"
+  },
+  "complete": true,
+  "finished_utc": "2026-10-06T12:01:14.638029+00:00"
+}

@@ -19,6 +19,17 @@ underway; see `temporal_validation_v2/STATUS.md`. **The expanded protocol/cohort
 are not yet frozen and no expanded numerical rankings have been computed.** Do
 not confuse complete archive acquisition with completed validation.
 
+Latest pre-outcome progress: checkpoint `e54b883` is on both remotes. All six
+literature context queries, full gene2pubmed, MGI/IMPC/ZFIN, GTEx v8 and two
+published 2019 retinal single-cell datasets are acquired. The latter recover the
+photoreceptor channel without backdating Census. Catalog ledger contains 2,100
+records / 1,081 gene/locus keys. Clinical adjudication is underway; broader
+682-gene searches and pagination corrections are active. Draft reconstruction
+code has not run on real evidence. Five source/cohort parser checks pass. Read
+`temporal_validation_v2/STATUS.md`, `PROTOCOL_DRAFT.md`, the new
+`astra_cohort_review_20261006.md` and `cohort_screening/adjudication_notes_draft.json`
+before continuing. **Do not compute outcomes before protocol/source/roster freeze.**
+
 ## Why there are two routes
 
 1. **Original conservative revision route, completed at source level.** Additional
