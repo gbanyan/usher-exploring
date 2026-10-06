@@ -1,0 +1,99 @@
+{
+  "universe_labels": 20081,
+  "ranked_baseline": 20053,
+  "animal_q75_threshold": 0.12765713253595054,
+  "schemes": 39,
+  "modest_weight_configurations": 25,
+  "loo_configurations": 6,
+  "production_tiers": {
+    "HIGH": 62,
+    "MEDIUM": 9673,
+    "LOW": 8652,
+    "EXCLUDED": 1694
+  },
+  "high_observed_layer_counts": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 33,
+    "6": 29
+  },
+  "completeness_score_spearman": 0.24018354256645102,
+  "completeness_score_paired_n": 20053,
+  "retinal_target_source_observed_n_in_20116_universe": {
+    "hpa_retina_ntpm": 0,
+    "hpa_retina_protein_level": 112,
+    "gtex_retina_tpm": 0,
+    "cellxgene_photoreceptor_expr": 20078
+  },
+  "proxy_removed_background_only_expression_score_n": 2,
+  "proxy_removed_tiers": {
+    "HIGH": 60,
+    "MEDIUM": 9399,
+    "LOW": 9113,
+    "EXCLUDED": 1509
+  },
+  "proxy_high_overlap": 37,
+  "proxy_high_lost": 25,
+  "proxy_high_gained": 23,
+  "proxy_full_rank_spearman": 0.9496314753275044,
+  "proxy_median_absolute_percentile_change": 0.04922202274087373,
+  "protected_input_sha256": {
+    "data/pipeline.duckdb": "0beb4f61c62ebff2ba6358069d9eb37cb6c4a9366140bb1c1c486cd2d59f2c65",
+    "config/default.yaml": "bfd187da7e5fc2b887b99626b14b950fecdeae80668e871c5650c1643a019b15",
+    "manuscript/draft.md": "14e2906d0693fb90544c4d73eb0c432be42548198c92d034cbf454cf6e1a3128",
+    "submission/bmc_bioinformatics/Additional_file_10_Checksum_Manifest.json": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729",
+    "submission/bmc_bioinformatics/Additional_file_1_Table_S1.tsv": "d6cb4e64b499a7e508f07b4ab4506b1a1402d3ff1796f959896d8288e595f82f",
+    "submission/bmc_bioinformatics/Additional_file_2_Table_S2.tsv": "f5acb99751554c370e85fad1d8f8712ef96cafe822a33180dfe084a7b47656a3",
+    "submission/bmc_bioinformatics/Additional_file_3_Supplementary_Methods.txt": "e035a65e3dafd880ec01f9a21a0235bcef08fa5dd53d97ab2a19730fdfaa48dc",
+    "submission/bmc_bioinformatics/Additional_file_4_Reproducibility_Manifest.json": "3e03a8627cae95317874109408ccf1e989f0cbb76ea3f182d84f5c1c4868ecc2",
+    "submission/bmc_bioinformatics/Additional_file_5_Expression_Shortlist_Candidates.tsv": "0dde4c327187a09ab6d4569d55dbf84a82d25883ddf1bb679deea3093277bf67",
+    "submission/bmc_bioinformatics/Additional_file_6_Expression_Shortlist_Report.txt": "13fc6ddd5f3ef1f2b27d4812f70944a61824a394f3ec4e6f54619bc883ce9461",
+    "submission/bmc_bioinformatics/Additional_file_7_Expression_Shortlist_Summary.tsv": "cf325dbd5a2b545b471eee2dfe0deebd30cdf6e3cd34f443f841dd74fafb47e8",
+    "submission/bmc_bioinformatics/Additional_file_8_GSE135913_Hair_Cell_Expression.tsv": "3e475010971d403bab43848f18ae70412bbe1977cb81a66283559f56405f7017",
+    "submission/bmc_bioinformatics/Additional_file_9_GSE135913_Provenance.json": "470de16bba054a7e3782cd2fd831383b897d856fb5c8c8c8b542f2e5b2bc618f",
+    "submission/bmc_bioinformatics/Cover_Letter.docx": "63748e8c59e72940fe7fd704f890d3a3c4b30a05429a5a63856b9aa80e35a381",
+    "submission/bmc_bioinformatics/Cover_Letter.txt": "9925f73a04fa3efaa9ccb945ef2b698270a7f1a0996e079cf13cee0bbf008006",
+    "submission/bmc_bioinformatics/Manuscript.docx": "4ef40ce1cad3fbe7e67e0d8b476dbca6da6e35027856bb0339591c6eb4086c4a",
+    "submission/bmc_bioinformatics/Manuscript_preview.pdf": "5c13e7512ac3ba2b68b90d5b5e352a3d956568d778f327219d3c693fa51a82c1",
+    "submission/bmc_bioinformatics/Manuscript_technical_check_fixed.docx": "888562b8b85f4801d6404c28e5896e6cef5a03b1b46304c0d103ded40a3ccaef",
+    "submission/bmc_bioinformatics/SUBMISSION_STATUS.md": "402c9bc5cc741fe2679c87dee816077944466b4250cb267fc9aa93b003931edb",
+    "data/report/candidates.tsv": "9d9a288e7beb7fea580898b856631452a5720567a7b321e8b7f51206afac76a0",
+    "data/report/checksum_manifest.json": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729"
+  },
+  "code_commit": "282a087736ce6a4c55714b0bd55dfbd3fce3a694",
+  "script_sha256": "2be41e3b497b30dce7b28ecac830be6ef04a7403ef45d8161d87d17244f5224f",
+  "analysis_spec_sha256": "9952d4f0d60231981da0d9917b2a703fcc62e4632308974e56000a58921ab774",
+  "software": {
+    "python": "3.13.1 (main, Dec  6 2024, 20:13:21) [Clang 18.1.8 ]",
+    "duckdb": "1.5.5",
+    "polars": "1.44.2",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "execution_command": [
+    "rtk",
+    "proxy",
+    "/Users/gbanyan/Project/usher/usher-exploring/.venv/bin/python",
+    "scripts/revision_phase2.py"
+  ],
+  "execution_location": "local macOS",
+  "database_access": "read-only",
+  "mapping_policy": "fixed production retained Ensembl IDs",
+  "protected_inputs_unchanged": true,
+  "output_sha256": {
+    "baseline_comparison.tsv": "13265090dd586418fdf418529d149095d1bfbcdf09eb2e7a6b10c011720c7f64",
+    "candidate_membership_stability.tsv": "25d7bf7cd35592b27d46f68714b66b89cd59b3b41d4cec6aa628042416874d64",
+    "control_rankings.tsv": "a3bd1241a30d385e4719cc900ea702e4c5e4431f793295ad22c2063c40a0c795",
+    "control_tier_trace.tsv": "5bb695f67137badb0eebe2a2b6e5caa33bf9102a48f138e8dcc38e03e4ec9048",
+    "evidence_completeness.tsv": "8ee702417f3b0c097d8d1dc027054994660e44e722241cf5d9c4d6735ed16a7b",
+    "layer_correlations.tsv": "b6994e2b210d82bb723e4184a48ca073ad57ba4e96f09cc8da4de3bac985ef2d",
+    "per_gene_diagnostics.tsv": "643f51bdbd2f87710307b7c25428bef6481c54a38db793aae7c49c7c38265fa1",
+    "phase2_diagnostics.png": "14c3bc47f962e95754a4dc1fc6089737748eb900a220db6dad292b2a2330034d",
+    "threshold_sensitivity.tsv": "8a4ab6a5ad840c539053f754871b265687639396562e6d6fb77cfe5429d0010a",
+    "usher_expression_diagnostics.tsv": "77d1ef289fdd253c094266472e373cc8e58202218f1840ceb153be7ea0ac09df"
+  }
+}

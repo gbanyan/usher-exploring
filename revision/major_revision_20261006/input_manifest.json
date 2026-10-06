@@ -1,0 +1,51 @@
+{
+  "baseline_commit": "ebdc793",
+  "specification_commit": "282a087",
+  "snapshot_database": "data/cache/submission-recovery-20261006/data/pipeline.duckdb",
+  "active_database": "data/pipeline.duckdb",
+  "input_sha256": {
+    "data/pipeline.duckdb": "0beb4f61c62ebff2ba6358069d9eb37cb6c4a9366140bb1c1c486cd2d59f2c65",
+    "config/default.yaml": "bfd187da7e5fc2b887b99626b14b950fecdeae80668e871c5650c1643a019b15",
+    "manuscript/draft.md": "14e2906d0693fb90544c4d73eb0c432be42548198c92d034cbf454cf6e1a3128",
+    "submission/bmc_bioinformatics/Additional_file_10_Checksum_Manifest.json": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729",
+    "submission/bmc_bioinformatics/Additional_file_1_Table_S1.tsv": "d6cb4e64b499a7e508f07b4ab4506b1a1402d3ff1796f959896d8288e595f82f",
+    "submission/bmc_bioinformatics/Additional_file_2_Table_S2.tsv": "f5acb99751554c370e85fad1d8f8712ef96cafe822a33180dfe084a7b47656a3",
+    "submission/bmc_bioinformatics/Additional_file_3_Supplementary_Methods.txt": "e035a65e3dafd880ec01f9a21a0235bcef08fa5dd53d97ab2a19730fdfaa48dc",
+    "submission/bmc_bioinformatics/Additional_file_4_Reproducibility_Manifest.json": "3e03a8627cae95317874109408ccf1e989f0cbb76ea3f182d84f5c1c4868ecc2",
+    "submission/bmc_bioinformatics/Additional_file_5_Expression_Shortlist_Candidates.tsv": "0dde4c327187a09ab6d4569d55dbf84a82d25883ddf1bb679deea3093277bf67",
+    "submission/bmc_bioinformatics/Additional_file_6_Expression_Shortlist_Report.txt": "13fc6ddd5f3ef1f2b27d4812f70944a61824a394f3ec4e6f54619bc883ce9461",
+    "submission/bmc_bioinformatics/Additional_file_7_Expression_Shortlist_Summary.tsv": "cf325dbd5a2b545b471eee2dfe0deebd30cdf6e3cd34f443f841dd74fafb47e8",
+    "submission/bmc_bioinformatics/Additional_file_8_GSE135913_Hair_Cell_Expression.tsv": "3e475010971d403bab43848f18ae70412bbe1977cb81a66283559f56405f7017",
+    "submission/bmc_bioinformatics/Additional_file_9_GSE135913_Provenance.json": "470de16bba054a7e3782cd2fd831383b897d856fb5c8c8c8b542f2e5b2bc618f",
+    "submission/bmc_bioinformatics/Cover_Letter.docx": "63748e8c59e72940fe7fd704f890d3a3c4b30a05429a5a63856b9aa80e35a381",
+    "submission/bmc_bioinformatics/Cover_Letter.txt": "9925f73a04fa3efaa9ccb945ef2b698270a7f1a0996e079cf13cee0bbf008006",
+    "submission/bmc_bioinformatics/Manuscript.docx": "4ef40ce1cad3fbe7e67e0d8b476dbca6da6e35027856bb0339591c6eb4086c4a",
+    "submission/bmc_bioinformatics/Manuscript_preview.pdf": "5c13e7512ac3ba2b68b90d5b5e352a3d956568d778f327219d3c693fa51a82c1",
+    "submission/bmc_bioinformatics/Manuscript_technical_check_fixed.docx": "888562b8b85f4801d6404c28e5896e6cef5a03b1b46304c0d103ded40a3ccaef",
+    "submission/bmc_bioinformatics/SUBMISSION_STATUS.md": "402c9bc5cc741fe2679c87dee816077944466b4250cb267fc9aa93b003931edb",
+    "data/report/candidates.tsv": "9d9a288e7beb7fea580898b856631452a5720567a7b321e8b7f51206afac76a0",
+    "data/report/checksum_manifest.json": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729"
+  },
+  "historical_raw_sources": {
+    "pipeline.duckdb": "1f5f606d0fb1d1ea3ca90386416c804ea70c809b8ea670c4a94e7659dac641d8",
+    "annotation/Homo_sapiens.GRCh38.113.gtf.gz": "62f1709b40e083ce9d4cdc64a86b5ffec2c5d5371434bb7095c74dc89079c466",
+    "MANE.GRCh38.v1.3.summary.txt.gz": "06637bc2d1f04f54635a8a09ff535ed44e5f7a2ced2d2a30a03f50b233379c35",
+    "gnomad/constraint_metrics.tsv": "68d8abdb7fc48f570869b02dfaa74b9fecaece7fcc5f301ddca40ec1ce12da00",
+    "expression/gtex_median_tpm.gct": "73215808fcbec246639aaf1f8eadba30ceb31dd74aa6074222a5c081ce3a9e72",
+    "expression/hpa_normal_tissue.tsv": "1fa9111070f23290d29a32eaa30695689599b5231e7d0bc935b60a777ad3a1cc",
+    "expression/cellxgene_expression_2025-11-08.parquet": "359ec5ebd9b6f162c1fbf308537ff5231629240ccdda4b20821101a6c5e6ac1a",
+    "localization/hpa_subcellular_location.tsv": "65a7a197c11525b782767df4a23446c7c2ce8aefeb6b446cd6dc549cb6bf5841",
+    "literature/gene2pubmed.gz": "80b830310b91ae1a86819ddfa8959c7627101e7d596af12714bbdbe97f72d78a",
+    "literature/gene_info.gz": "9e225b3840456ee5458c7c5ffd96abb706a4b58422f35f3c32f7e0b3ca958731",
+    "pubmed_context_sets.json": "d07949dfc9dae0d021fc09c4776cfcc1aa27340e31086ce92f68a47f4cd4def8"
+  },
+  "software": {
+    "python": "3.13.1 (main, Dec  6 2024, 20:13:21) [Clang 18.1.8 ]",
+    "duckdb": "1.5.5",
+    "polars": "1.44.2",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "working_reviewer_labels": "download_report and pasted_comment identify supplied sources, not journal reviewer numbers"
+}
