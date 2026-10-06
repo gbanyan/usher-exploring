@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-07",
+  "execution_location": "local macOS arm64",
+  "protected_baseline_hashes": 21,
+  "all_protected_hashes_unchanged": true,
+  "production_database_sha256": "0beb4f61c62ebff2ba6358069d9eb37cb6c4a9366140bb1c1c486cd2d59f2c65",
+  "source_hashes_match_delivered_manifest": true,
+  "original_comment_quotes_preserved": 23,
+  "page_location_rows": 83,
+  "pdf_pages": {
+    "Manuscript": 48,
+    "Supplementary_Methods": 10,
+    "Response_to_Reviewers": 14,
+    "Cover_Letter": 1
+  },
+  "out_of_page_blocks": {
+    "Manuscript": [],
+    "Supplementary_Methods": [],
+    "Response_to_Reviewers": [],
+    "Cover_Letter": []
+  },
+  "main_editable_tables": 4,
+  "continuous_main_line_numbering_count_by": 5,
+  "all_final_pages_visually_checked": true,
+  "human_case_checks_complete": 0,
+  "human_case_checks_pending": 45,
+  "status": "author-review draft; not journal-submission-ready",
+  "additional_zip_bytes": {
+    "Additional_file_11_Revision_Diagnostics_and_Replay.zip": 18054183,
+    "Additional_file_12_Temporal_Evaluation.zip": 6559956
+  },
+  "replay_evidence": "archive_only_replay_verification.json",
+  "test_suite": {
+    "passed": 354,
+    "warnings": 17,
+    "environment": "pinned Python3.13.1 local macOS arm64",
+    "timing": "executed earlier in this writing session; no score changes since"
+  },
+  "lfs_push_verification": "See post-commit publication_verification.json",
+  "original_public_commit_sha": "4cf8c5b7aa4aea4a444c3447a9e7c16dcd04641f",
+  "final_artifact_manifest_sha256": "15704c570940ea6b284aef596ab8bf582c95cb1d9ed707837c10a883579139b3",
+  "actual_artifacts": 45,
+  "additional_file_checksums": 11,
+  "zip_payload_entries": 431,
+  "independent_model": "claude-opus-5-5 (firstParty), high effort",
+  "independent_review_rounds": 4,
+  "final_audit_verdict": "ready for author review; no material error remains; not journal-submission-ready"
+}

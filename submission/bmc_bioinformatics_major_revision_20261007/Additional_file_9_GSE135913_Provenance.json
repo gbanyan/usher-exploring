@@ -1,0 +1,86 @@
+{
+  "geo_accession": "GSE135913",
+  "method": "non-Usher-marker-guided CellFindR cluster mean",
+  "markers": [
+    "ATOH1",
+    "OTOF",
+    "POU4F3",
+    "GFI1",
+    "RBM24",
+    "LMO7",
+    "EPS8L2",
+    "SLC17A8"
+  ],
+  "minimum_markers": 4,
+  "source_mode": "local_cache_only",
+  "target_scored_state": {
+    "database": "data/pipeline.duckdb",
+    "label_count": 20081,
+    "retained_label_count": 15608
+  },
+  "samples": [
+    {
+      "sample": "GSM4037819",
+      "developmental_week": 15,
+      "source_file": "data/expression/GSM4037819_human_cochlea_15w_processed.csv.gz",
+      "sha256": "a9a092d3f3a3ee845728656918126eb9062a134e32ab03abe04d2a2d0355dff2",
+      "marker_coverage": 8,
+      "selected_cluster": "11",
+      "marker_mean": 4.841035513264856,
+      "runner_up_mean": 0.10622181404346154,
+      "margin": 4.7348136992213945,
+      "included": true,
+      "exclusion_reason": null,
+      "leave_one_marker_out_stable": true,
+      "leave_one_marker_out_assignments": {
+        "ATOH1": "11",
+        "OTOF": "11",
+        "POU4F3": "11",
+        "GFI1": "11",
+        "RBM24": "11",
+        "LMO7": "11",
+        "EPS8L2": "11",
+        "SLC17A8": "11"
+      }
+    },
+    {
+      "sample": "GSM4037820",
+      "developmental_week": 17,
+      "source_file": "data/expression/GSM4037820_human_cochlea_17w_processed.csv.gz",
+      "sha256": "94633229af0bbd99cb6626986ac6bf5fbdd09e253488b1c12c92b25f30bd00de",
+      "marker_coverage": 8,
+      "selected_cluster": "10",
+      "marker_mean": 5.713185698693771,
+      "runner_up_mean": 0.4923817374949722,
+      "margin": 5.220803961198798,
+      "included": true,
+      "exclusion_reason": null,
+      "leave_one_marker_out_stable": true,
+      "leave_one_marker_out_assignments": {
+        "ATOH1": "10",
+        "OTOF": "10",
+        "POU4F3": "10",
+        "GFI1": "10",
+        "RBM24": "10",
+        "LMO7": "10",
+        "EPS8L2": "10",
+        "SLC17A8": "10"
+      }
+    },
+    {
+      "sample": "GSM4037821",
+      "developmental_week": 23,
+      "source_file": "data/expression/GSM4037821_human_cochlea_23w_processed.csv.gz",
+      "sha256": "fc62f28c620acd37d28ed6543f7759adca8b7d3614c3fc5aa3c9e8b508d4ea45",
+      "marker_coverage": 5,
+      "selected_cluster": null,
+      "marker_mean": 0.5662432470745528,
+      "runner_up_mean": 0.4690954111285427,
+      "margin": 0.09714783594601006,
+      "included": false,
+      "exclusion_reason": "hair-cell marker signal is not sufficiently separated",
+      "leave_one_marker_out_stable": null,
+      "leave_one_marker_out_assignments": {}
+    }
+  ]
+}

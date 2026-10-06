@@ -1,0 +1,128 @@
+{
+  "environment": "Existing pinned analysis environment, local macOS; extracted Additional file11 with task-owned DuckDB; no repository data inputs beyond archive",
+  "replayed_tables": [
+    {
+      "source": "revision/major_revision_20261006/results/baseline_comparison.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase2/baseline_comparison.tsv",
+      "sha256": "13265090dd586418fdf418529d149095d1bfbcdf09eb2e7a6b10c011720c7f64",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/results/candidate_membership_stability.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase2/candidate_membership_stability.tsv",
+      "sha256": "25d7bf7cd35592b27d46f68714b66b89cd59b3b41d4cec6aa628042416874d64",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/results/control_rankings.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase2/control_rankings.tsv",
+      "sha256": "a3bd1241a30d385e4719cc900ea702e4c5e4431f793295ad22c2063c40a0c795",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/results/control_tier_trace.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase2/control_tier_trace.tsv",
+      "sha256": "5bb695f67137badb0eebe2a2b6e5caa33bf9102a48f138e8dcc38e03e4ec9048",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/results/evidence_completeness.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase2/evidence_completeness.tsv",
+      "sha256": "8ee702417f3b0c097d8d1dc027054994660e44e722241cf5d9c4d6735ed16a7b",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/results/layer_correlations.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase2/layer_correlations.tsv",
+      "sha256": "b6994e2b210d82bb723e4184a48ca073ad57ba4e96f09cc8da4de3bac985ef2d",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/results/per_gene_diagnostics.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase2/per_gene_diagnostics.tsv",
+      "sha256": "643f51bdbd2f87710307b7c25428bef6481c54a38db793aae7c49c7c38265fa1",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/results/threshold_sensitivity.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase2/threshold_sensitivity.tsv",
+      "sha256": "8a4ab6a5ad840c539053f754871b265687639396562e6d6fb77cfe5429d0010a",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/results/usher_expression_diagnostics.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase2/usher_expression_diagnostics.tsv",
+      "sha256": "77d1ef289fdd253c094266472e373cc8e58202218f1840ceb153be7ea0ac09df",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/phase3_results/comparator_summary.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase3/comparator_summary.tsv",
+      "sha256": "888235bae9ea56ddf052d2dadd4dc5f5a8446297d5ed68713c2f6a852f8473cf",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/phase3_results/eligible_gene_outcomes.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase3/eligible_gene_outcomes.tsv",
+      "sha256": "27454a8d95feed75f0dbc10438711e3d73a4cd330163e27dc3120d6c5c6f621e",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/phase3_results/matched_concordance.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase3/matched_concordance.tsv",
+      "sha256": "32049f6cc9fe691209fcf37cc8416d2cff89f650d42563e875a409b936cdc64e",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/phase3_results/matched_pair_outcomes.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase3/matched_pair_outcomes.tsv",
+      "sha256": "0d1619ab760499e2c1fe4f1bd6afcd8e9c5aa7021a14684192c1c0b44365594b",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/phase4_results/fixed_pair_sensitivities.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase4/fixed_pair_sensitivities.tsv",
+      "sha256": "cf54dbf0e3ab6ec3ffb0b6b010e8047548b3355bcb2acfd76a3b9598a9a49f7c",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/phase4_results/fixed_pair_summary.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase4/fixed_pair_summary.tsv",
+      "sha256": "5a6f631f1bb596e91ee59cca7042b34cb885827df9666fe3ea3ddb57ca60a663",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/phase4_results/historical_case_expression_sources.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase4/historical_case_expression_sources.tsv",
+      "sha256": "eea058ef2b8b5f5532a64dcffb12f37f1559250a29c14b61826fbb3c95a0e0f5",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/phase4_results/historical_tissue_coverage.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase4/historical_tissue_coverage.tsv",
+      "sha256": "becd2630c7f782a39dd85206abc1e28e9cabfe94effca71bea4a1dd246b8ff0e",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/phase4_results/historical_topk_completeness.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase4/historical_topk_completeness.tsv",
+      "sha256": "80813150a7a1cdd1a6b1746e3c495a483db565df7eaceaff522d2a25dd747387",
+      "byte_identical": true
+    },
+    {
+      "source": "revision/major_revision_20261006/phase4_results/matching_completeness_balance.tsv",
+      "archive_replay": "data/cache/revision-writing-20261007/archive-only-check/11/data/cache/phase4/matching_completeness_balance.tsv",
+      "sha256": "4cfa426684fe5f471e69cc443a9d45864b8c323ba0ab50c48bac293675e58cd8",
+      "byte_identical": true
+    }
+  ],
+  "count": 19,
+  "temporal_archive12_derived_rows": 38334,
+  "scope_exclusions": [
+    "fresh environment installation",
+    "raw historical source reconstruction",
+    "clinical/date adjudication",
+    "HIGH raw source flags",
+    "alternative global expression vectors"
+  ]
+}

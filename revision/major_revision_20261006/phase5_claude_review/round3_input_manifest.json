@@ -1,0 +1,54 @@
+{
+  "manuscript/draft.md": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/draft.md",
+    "sha256": "4e0f77f8115641aa020222a256f0fe7ae52e7f5b6cb85cbafebd7dd32b332003"
+  },
+  "manuscript/supplementary_methods.md": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/supplementary_methods.md",
+    "sha256": "8fed951f16ff6ce894549fd7e284b73eb0e17643304a55dacbdc078380c36e50"
+  },
+  "revision/major_revision_20261006/rebuttal.md": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/rebuttal.md",
+    "sha256": "1c43129805b74e21d111fd38aa4ab2cc11a9bfc4c343aea54cea84c338422f7b"
+  },
+  "revision/major_revision_20261006/cover_letter_revision.md": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/cover_letter_revision.md",
+    "sha256": "74043efd25b80d4397e04c43f4b064a34524fd44e2d2af2fcc7f57f71a2e84e6"
+  },
+  "revision/major_revision_20261006/reviewer_source_comments_20261007.json": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/reviewer_source_comments_20261007.json",
+    "sha256": "e383878d9136f938dbf990a26a48cb966cd641b0b79269a97d141c7de3ae46d9"
+  },
+  "submission/bmc_bioinformatics_major_revision_20261007/package_manifest.json": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/package_manifest.json",
+    "sha256": "118e27d70ac1a445bd4a13a24722860f6310ab9619f0dfcc0dc8e0ee8ffa7288"
+  },
+  "submission/bmc_bioinformatics_major_revision_20261007/Page_location_index.tsv": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/Page_location_index.tsv",
+    "sha256": "8a82bf57aa3de4fc03e768860558a3159645d3422cf454043716a410214cbfd6"
+  },
+  "submission/bmc_bioinformatics_major_revision_20261007/README.md": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/README.md",
+    "sha256": "5a442548b56724f7fe3e674ea0cc781ae7ae28e2844794b219b3496d1f243e15"
+  },
+  "submission/bmc_bioinformatics_major_revision_20261007/Manuscript.pdf": {
+    "sha256": "939126ae5ed768ebb630a37c94e54e80680f8ecbfda411c9b6f07410165f34d2",
+    "extracted_text": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/Manuscript_pdf_text.txt",
+    "pages": 48
+  },
+  "submission/bmc_bioinformatics_major_revision_20261007/Supplementary_Methods.pdf": {
+    "sha256": "523a3b0b51168b4a00c9cb939baf4239e6f836e08df8e7a23bb3e053ca29ad55",
+    "extracted_text": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/Supplementary_Methods_pdf_text.txt",
+    "pages": 10
+  },
+  "submission/bmc_bioinformatics_major_revision_20261007/Response_to_Reviewers.pdf": {
+    "sha256": "23f3ff962fb4fa0116cda2e92f334d9306718c65183abfbaf0915cd3835f88ef",
+    "extracted_text": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/Response_to_Reviewers_pdf_text.txt",
+    "pages": 14
+  },
+  "submission/bmc_bioinformatics_major_revision_20261007/Cover_Letter.pdf": {
+    "sha256": "9e749766196040dba5cff3ea9e17ddd26ae6bfa5b9901a30cf9f624a8b4b2b04",
+    "extracted_text": "revision/major_revision_20261006/phase5_claude_review/round3_inputs/Cover_Letter_pdf_text.txt",
+    "pages": 1
+  }
+}

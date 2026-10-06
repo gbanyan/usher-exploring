@@ -213,8 +213,7 @@ def main():
     for i, d in enumerate(data, 1):
         ax1.scatter([i] * len(d), d, s=14, color="black", alpha=0.45, zorder=3)
     ax1.axhline(75, ls="--", color="gray", lw=1)
-    ax1.set_ylabel(f"Percentile rank of {len(known_common)} known genes "
-                   f"(shared universe)")
+    ax1.set_ylabel("Known-gene percentile")
     ax1.set_title("Known-gene recovery")
     ax1.set_ylim(0, 102)
 
@@ -232,7 +231,7 @@ def main():
     ax2.set_xticklabels(labels, fontsize=9)
     ax2.set_ylabel("Value")
     ax2.set_title("Benchmark metrics")
-    ax2.legend()
+    ax2.legend(loc="upper center", bbox_to_anchor=(0.5, -0.24), ncol=2)
 
     ax1.text(-0.08, 1.05, "A", transform=ax1.transAxes, fontsize=16,
              fontweight="bold", va="bottom", ha="right")

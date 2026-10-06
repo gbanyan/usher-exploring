@@ -1,0 +1,13 @@
+{
+  "api_url": "https://api.github.com/repos/gbanyan/usher-exploring/commits/4cf8c5b",
+  "public_html_url": "https://github.com/gbanyan/usher-exploring/commit/4cf8c5b7aa4aea4a444c3447a9e7c16dcd04641f",
+  "full_sha": "4cf8c5b7aa4aea4a444c3447a9e7c16dcd04641f",
+  "message": "Merge pull request #1 from gbanyan/explore/expression-shortlist\n\nPublish reproducible UsherPipe results and manuscript package",
+  "parents": [
+    "ee33ed4a97831b599a2ba64de67bbbf1842f4b68",
+    "a9f81f5caa0819c9c4a88905354513bd22e28d56"
+  ],
+  "verified_date": "2026-10-07",
+  "local_object_missing_before_fetch": true,
+  "conclusion": "Original cited public commit exists; local absence is not evidence of an incorrect citation"
+}

@@ -1,3 +1,9 @@
 # Frozen TSV trailing tabs are empty fields; retain hashes and exact line endings.
 revision/major_revision_20261006/**/*.tsv -text whitespace=-blank-at-eol
 revision/major_revision_20261006/reproducibility/phase3_live_snapshots/*.csv -text
+submission/bmc_bioinformatics_major_revision_20261007/*.zip filter=lfs diff=lfs merge=lfs -text
+# Preserve exact review snapshots/PDF extraction bytes and TSV empty fields.
+revision/major_revision_20261006/phase5_claude_review/round*_inputs/** -text whitespace=-blank-at-eol,-blank-at-eof
+revision/major_revision_20261006/cover_letter_revision.md whitespace=-blank-at-eol
+revision/major_revision_20261006/rebuttal.md whitespace=-blank-at-eof
+submission/bmc_bioinformatics_major_revision_20261007/*.tsv -text whitespace=-blank-at-eol

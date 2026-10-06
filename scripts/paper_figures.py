@@ -102,7 +102,7 @@ def fig2_score_distribution(df: pl.DataFrame):
     ax.set_title("")
     handles = [Patch(facecolor=PALETTE[tier], label=tier)
                for tier in ["HIGH", "MEDIUM", "LOW"]]
-    ax.legend(handles=handles, title="Confidence Tier", loc="upper right")
+    ax.legend(handles=handles, title="Priority tier", loc="upper right")
 
     # Annotate key stats
     n_total = len(pdf)

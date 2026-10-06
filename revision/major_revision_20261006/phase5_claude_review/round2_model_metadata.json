@@ -1,0 +1,43 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 100,
+      "outputTokens": 40239,
+      "cacheReadInputTokens": 8443276,
+      "cacheCreationInputTokens": 248844,
+      "webSearchRequests": 0,
+      "costUSD": 4.484587200000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 23477,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "errors": null,
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_015JB6TkEkGzuML1Xy5f8kyc",
+      "tool_input": {
+        "command": "rtk proxy .venv/bin/python scripts/revision_temporal_derived_replay.py --help",
+        "description": "Show help for temporal replay script"
+      }
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01NPx3hNesneUSHMNAr7oQB3",
+      "tool_input": {
+        "command": "head -1 revision/major_revision_20261006/results/baseline_comparison.tsv | tr '\\t' '\\n' | cat -n; grep -E $'^(single_literature|single_animal|single_expression|single_localization|default)\\t[^\\t]*\\t(usher|syscilia)\\t100\\t' revision/major_revision_20261006/results/baseline_comparison.tsv",
+        "description": "Show baseline TSV header and top-100 rows"
+      }
+    }
+  ],
+  "total_cost_usd": 4.484587200000001,
+  "duration_ms": 465796,
+  "num_turns": 76
+}

@@ -1,0 +1,51 @@
+{
+  "algorithm": "SHA-256",
+  "files": {
+    "Additional_file_11_Revision_Diagnostics_and_Replay.zip": {
+      "bytes": 18054183,
+      "sha256": "6e38d3ab0d160720452e2024f0abfb378234f46e84152297c4f896ae84dab475"
+    },
+    "Additional_file_12_Temporal_Evaluation.zip": {
+      "bytes": 6559956,
+      "sha256": "d63889b34408de308b5a7c3f236ca8fbf90edd4a6484486e37091a49b5ea8235"
+    },
+    "Additional_file_1_Table_S1.tsv": {
+      "bytes": 2875,
+      "sha256": "d6cb4e64b499a7e508f07b4ab4506b1a1402d3ff1796f959896d8288e595f82f"
+    },
+    "Additional_file_2_Table_S2.tsv": {
+      "bytes": 145892,
+      "sha256": "f5acb99751554c370e85fad1d8f8712ef96cafe822a33180dfe084a7b47656a3"
+    },
+    "Additional_file_3_Supplementary_Methods.txt": {
+      "bytes": 43241,
+      "sha256": "b0f73abaaaac54615dd4141401f1880408fe3a26ffcbece1410232e5ba09bad2"
+    },
+    "Additional_file_4_Reproducibility_Manifest.json": {
+      "bytes": 8188,
+      "sha256": "3e03a8627cae95317874109408ccf1e989f0cbb76ea3f182d84f5c1c4868ecc2"
+    },
+    "Additional_file_5_Expression_Shortlist_Candidates.tsv": {
+      "bytes": 37211,
+      "sha256": "0dde4c327187a09ab6d4569d55dbf84a82d25883ddf1bb679deea3093277bf67"
+    },
+    "Additional_file_6_Expression_Shortlist_Report.txt": {
+      "bytes": 2688,
+      "sha256": "a1e1e3200421716c5a79e865bdd0f8efc96c04f91fdbcd9e73852086c3a84117"
+    },
+    "Additional_file_7_Expression_Shortlist_Summary.tsv": {
+      "bytes": 669,
+      "sha256": "cf325dbd5a2b545b471eee2dfe0deebd30cdf6e3cd34f443f841dd74fafb47e8"
+    },
+    "Additional_file_8_GSE135913_Hair_Cell_Expression.tsv": {
+      "bytes": 1288046,
+      "sha256": "3e475010971d403bab43848f18ae70412bbe1977cb81a66283559f56405f7017"
+    },
+    "Additional_file_9_GSE135913_Provenance.json": {
+      "bytes": 2576,
+      "sha256": "470de16bba054a7e3782cd2fd831383b897d856fb5c8c8c8b542f2e5b2bc618f"
+    }
+  },
+  "scope": "Actual delivered additional files 1-9 and 11-12",
+  "self_hash_excluded": true
+}

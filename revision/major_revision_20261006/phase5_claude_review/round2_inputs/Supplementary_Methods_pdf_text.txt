@@ -1,0 +1,523 @@
+
+--- PDF PAGE 1 ---
+Page 1
+Supplementary Methods and Analyses
+S1. Optional post-hoc shortlist refinement
+The production scoring and tiering procedure starts from 20,116 Ensembl 113 protein-coding IDs, yields 
+20,081 analysis labels after 35 duplicate-symbol consolidations (including 573 unresolved ENSG fallback 
+labels), and ends at the 62-gene HIGH tier. Remaining names derive from the Ensembl GTF gene_name field 
+or an exact-ID legacy-cache fallback; these sources do not validate current canonical HGNC symbols. Table S1 
+contains the 35 merged-symbol mappings (34 MANE Select mappings and one fallback); Table S2 contains 
+1,694 excluded labels (1,666 below the LOW threshold and 28 with NULL composite scores). The analyses 
+below are optional, post-hoc annotations evaluated within HIGH and do not alter composite scores, priority 
+tiers, or the six production evidence layers.
+S1.1 Tau tissue-specificity thresholds
+Tau specificity was propagated from tissue_expression into the scored-gene output and evaluated only as an 
+exploratory annotation after production tier assignment. The final HIGH tier contains 62 genes. Threshold-
+specific Tau counts are reported in the generated expression-shortlist artifacts rather than treated as a 
+production result. Duplicate tissue-expression records are aggregated before thresholding, and missing Tau is 
+retained as missing.
+S1.2 GSE135913 fetal cochlear data
+Processed cluster-level matrices from GEO series GSE135913 [41] were used in local-cache-only mode for 
+human cochlea samples GSM4037819 (15 weeks), GSM4037820 (17 weeks), and GSM4037821 (23 weeks). 
+The local input relative paths and SHA-256 checksums are recorded in 
+data/report/exploration/gse1359 13_hair_cell_provenance.json; this manifest contains no source URLs and 
+should not be read as complete source-level provenance or proof of immutable inputs for the broader 
+production run. The aggregate output is restricted to 15,608 of the 20,081 current analysis labels.
+The matrices provide standardized CellFindR mean expression by cluster but do not include cell-type labels. 
+Putative hair-cell clusters were therefore identified with a prespecified panel that excludes all Usher and 
+SYSCILIA positive-control genes: ATOH1, OTOF, POU4F3, GFI1, RBM24, LMO7, EPS8L2, and SLC17A8. 
+A sample was accepted only when at least four markers were represented, the highest aggregate marker mean 
+was positive, and its margin over the next-ranked cluster was at least 0.5. The 15-week sample selected cluster 
+11 (8/8 markers; margin 4.735) and the 17-week sample selected cluster 10 (8/8; margin 5.221). The 23-week 
+sample was excluded: five markers were represented, but the margin between the first and second clusters was 
+only 0.097.
+To test marker dependence, cluster selection was repeated after removing each marker individually. Every 
+leave-one-marker-out run selected cluster 11 at 15 weeks and cluster 10 at 17 weeks. Because the primary 
+marker panel contains neither MYO7A nor PCDH15, retention of these or other Usher controls is not used to 
+define the clusters. In the final HIGH tier, 61 of 62 genes had a non-NULL GSE135913 aggregate; this 
+exploratory resource is not part of the production expression layer.
+Per-gene standardized means from accepted clusters were averaged across samples with NULL preservation. 
+The output also records contributing sample count and a developmental-consistency measure. In the final 
+HIGH tier, the fetal hair-cell Q75 strategy retained 16 genes and retained two of the two established Usher 
+controls present in HIGH, but only two of the three total positive controls present in HIGH. Hair-cell Q75 
+denotes the 75th percentile calculated among genes already assigned to HIGH; it is a relative experimental-
+priority annotation, not a claim of absent expression below the threshold.
+
+
+--- PDF PAGE 2 ---
+Page 2
+S1.3 Interpretation
+Tau, hair-cell Q75, photoreceptor Q75, HPA-retina concordance, and the hair-cell/photoreceptor intersection 
+represent alternative biological assumptions. In the final rerun, photoreceptor Q75 retained 16 genes, the hair-
+cell/photoreceptor intersection retained five, and HPA-retina concordance was NA/not evaluable because the 
+local HPA-retina threshold was unavailable. Direct protein evidence retained 23 genes, the expression-OR-
+protein strategy retained 34, and the expression-AND-protein strategy retained five. They are not a sequential 
+filtering cascade. Missing or below-threshold expression does not change the production tier and is not treated 
+as evidence against disease relevance.
+S2. Data-driven weight fitting
+As post-hoc internal robustness analyses, we evaluated cross-validated grid search over the weight simplex and 
+L2-penalized logistic regression using the selected disease controls. The grid search evaluated 8,856 candidate 
+weight vectors. Logistic regression produced clipped-and-normalized weights [0, 0, 0, 0.032, 0.903, 0.065] for 
+gnomAD, expression, annotation, localization, animal model, and literature, respectively. It changed the 
+known-control median from 92.8% to 98.7% and the housekeeping median from 94.8% to 75.1%. The default 
+raw composite ≥0.70 housekeeping count was 2, whereas the logistic-regression count was 0; the default gated 
+HIGH count was already 0. The default-versus-logistic-regression full-ranking Spearman correlation was 
+0.646. In a five-fold positive-label-held-out internal cross-validation summary, the held-out positive median 
+was 98.2%; the matched negatives were constructed globally rather than held out within each fold, so leakage 
+is possible and this is not independent held-out validation. These analyses concentrated weight on the animal-
+model layer and substantially altered the genome-wide ranking. Because the same limited control set would 
+influence model selection and evaluation, they were treated as tests of possible over-specialization, not as 
+independent validation or a basis for replacing the biologically specified production weights. The production 
+sensitivity analysis used absolute ±0.05 and ±0.10 weight-point perturbations: each raw delta was applied to 
+one weight and then all six weights were renormalized to sum to one, so the final change is not literally the raw 
+delta and the other weights also change. Sixteen of 24 met ρ ≥ 0.85, with mean ρ = 0.8548 and range 0.6051–
+0.9770. Implementations and detailed outputs are provided by scripts/weight_tuning.py and 
+scripts/weight_logreg.py.
+S3. Implemented evidence semantics and source coverage
+The raw composite is the sum of observed weighted layer values divided by the sum of observed weights. 
+Weights are constraint/expression 0.20 each and annotation/localization/animal/literature 0.15 each. These are 
+heuristic priorities, not fitted probabilities. An observed zero participates in the denominator; NULL does not. 
+The legacy output column confid ence_tier is retained for schema compatibility but denotes a priority tier. 
+HIGH requires score ≥0.70, at least three observed layers and the source-level gate described in the main 
+Methods. MEDIUM requires score ≥0.40 and at least two layers; LOW requires score ≥0.20. The gate is not 
+applied to raw ranks.
+S3.1 Expression
+Within each quantitative source, target means (retina/cerebellum) are divided by background means 
+(testis/fallopian tube) only when both exist and the background is positive. HPA quantitative measurements 
+take precedence over the ordinal HPA fallback when target and background columns are available in the source 
+table. For ordinal HPA fallback, categories Not detected/Low/Medium/High are coded 0/1/2/3, then 
+normalized within tissue using average ranks among positive observations; zero stays zero and NULL stays 
+NULL. Target/background contrast is computed on these tissue percentiles, never on the raw ordinal codes. 
+Available HPA and GTEx contrasts are averaged. Their resulting positive contrast values are percentile-
+normalized before combination.
+
+
+--- PDF PAGE 3 ---
+Page 3
+Quantitative restricted-panel Tau is Σ(1−xᵢ/max(x))/(n−1), requiring at least two observed tissues and a positive 
+maximum, calculated separately for HPA nTPM and GTEx TPM. Available source Taus are averaged. This is 
+specificity within the four-tissue panel, not whole-body specificity. Census photoreceptor expression is an 
+independently ranked target feature. Quantitative/ordinal target values are normalized within their respective 
+source columns, with positive average ranks divided by the positive-observation count and observed zeros 
+retained as zero. The maximum available target percentile supplies the third component. Expression combines 
+contrast percentile (0.4), source Tau (0.3) and maximum target percentile (0.3), renormalizing over non-NULL 
+components. A gene may therefore receive partial expression evidence from background-only quantitative Tau 
+even with no measured retinal target. No hair-cell component enters production scoring.
+The stored 20,116-ID table has 0 HPA quantitative-retina observations, 0 GTEx-retina observations, 112 
+retinal HPA protein observations and 20,078 non-NULL Census photoreceptor values including zeros. The 
+production proxy-removal sensitivity removes cerebellum columns and recomputes source transforms and 
+genome-wide ranks rather than simply subtracting a component. It retains the original remaining measurements 
+and weights. Per-control source values, expression contribution and resulting rank/tier changes are in the Phase 
+2 expression audit.
+S3.2 Annotation, localization, animal and literature
+Annotation uses 0.5 × log₂(GO count+1)/maximum log₂(GO count+1), 0.3 × UniProt score/5 and 0.2 × binary 
+pathway membership. Missing subcomponents contribute zero; all three missing yields NULL. This differs 
+from the between-layer available-weight denominator.
+Localization proximity checks direct compartment flags first (1.0), recognized adjacent compartments second 
+(0.5), embedded compendium fallback third (0.3), then observed non-ciliary location (0). Adjacent strings 
+include cytoskeleton, microtubule, cell junction and focal adhesion. HPA reliability factors are 
+Enhanced/Supported=1.0 and Approved/Uncertain=0.6; all are antibody-staining modalities. If HPA reliability 
+is unavailable, curated compendium evidence has factor 0.5. Mixed evidence uses the HPA factor rather than 
+adding two scores. No usable modality yields NULL. Embedded lists have no validated historical snapshot date 
+and are not an acquired complete experimental/proteomics atlas. The HIGH gate ORs the five direct 
+compartment flags and two compendium flags, or animal score ≥0.12765713253595054. A positive adjacent 
+localization score alone is insufficient. has_cilia_signal instead records positive aggregate localization or 
+animal evidence and is not equivalent to gate passage.
+Animal evidence unions distinct MGI/IMPC mouse term names and adds the zebrafish count to obtain a 
+combined sensory count. The base score is 0.4 × mouse phenotype-presence flag × mouse HCOP confidence + 
+0.3 × zebrafish phenotype-presence flag × zebrafish confidence (HIGH=1.0, MEDIUM=0.7, LOW=0.4). It is 
+multiplied by log₂(combined sensory count+1)/log₂(global maximum combined count+1), then clipped to [0,1]; 
+counts are not separately log-normalized per species. The absence of an ortholog is NULL; an observed 
+mapping without recorded sensory phenotype can be zero. Human curation and animal experiments may share 
+published knowledge.
+Literature context counts have weights cilia=2, sensory=2, cytoskeleton=1 and polarity=1; missing contextual 
+subcounts contribute zero. Implemented classification checks direct experimental first, then high-throughput, 
+functional, incidental and none, with factors 1.0/0.3/0.6/0.1/0.0. Direct classification requires one shared PMID 
+in the gene, experimental and cilia/sensory context sets. The quality-weighted count is divided by log₂(total 
+gene-linked publications+1). Positive raw values receive their average rank among all non-NULL raw values 
+divided by the non-NULL count; nonpositive values are zero and missing raw scores remain NULL. This does 
+not fully correct ascertainment, nor does “direct” establish clinical causality.
+
+
+--- PDF PAGE 4 ---
+Page 4
+S4. Control traces, completeness, correlations and ranking sensitivities
+Phase 2 was specified before the added outcomes. Its complete tables are in 
+revision/major_revision_20261006/results/, with definitions in analysis_spec.md and summaries in 
+phase2_report.md. The nine established Usher and 28 selected SYSCILIA controls are distinct evaluation 
+groups, not a random validation cohort. Percentiles use (minimum tied rank−1)/(n−1) among non-NULL 
+scores; top-K positions break ties by retained Ensembl ID.
+All 62 HIGH labels have five or six layers (33 and 29), with zero supported by only three or four. Raising the 
+minimum to four/five changes none; six retains 29. Eight raw top-100 labels have only one layer, all classified 
+LOW. Layer count correlates with composite score at ρ=0.2401835 (n=20,053). Pairwise layer correlations use 
+pair-specific observed genes and retain zeros. Annotation–literature is the largest (ρ=0.370354; n=19,114); 
+correlations are descriptive and do not demonstrate independent information sources.
+Each of 24 absolute ±0.05/±0.10 perturbations changes one raw weight, then renormalizes all weights to one. 
+Together with equal weights these form a finite 25-configuration family. Membership is reported for every 
+gene in the default top 25/50/100, including unstable candidates; 8/17/41 survive every configuration. Whole-
+universe correlation and exact shared top-K counts are reported alongside the earlier conditional Spearman 
+statistic on overlapping top-100 genes. The latter has mean 0.8548 and 16/24 above 0.85; it must not be 
+described as full-ranking correlation. Each of six leave-one-layer-out analyses renormalizes the available 
+remaining weights. Single-layer baselines use observed genes only, with their own denominators; no NULL-to-
+zero substitution is made. Default top 100 recovery is Usher 2/SYSCILIA 1, compared with animal-only 4/11. 
+Literature-only recovers 2/9 Usher and 21/28 SYSCILIA controls in the top 100 (medians 99.13%/99.78%), 
+whereas animal-only recovers 4/9 and 11/28. The integrated score has not been shown to outperform the 
+strongest layer for either internal group.
+S5. Frozen disease-comparator analysis and review-prompted diagnostics
+The comparator protocol was committed at 0ae2c3d, and roster at 61abb61, before score-outcome inspection. 
+Sources were the exact 2026-10-06 ClinGen validity export, exact HGNC live export and HPO v2026-09-01; 
+SHA-256, download completion times and URLs are in phase3_roster/manifest.json. The current revision 
+distributes the two otherwise mutable live exports. Require Strong/Definitive validity, an Approved 
+unambiguous HGNC Ensembl/Entrez mapping to the retained universe and HPO annotations. Exclude original 
+controls and assertions/panels matching auditory, retinal or ciliary terms; exclude all descendants of the ten 
+frozen HPO hearing, eye, motile-cilium, mucociliary and situs roots listed in the manifest. Reasons overlap and 
+are not disjoint counts.
+The eligibility pool contains 420 genes, of which 418 have non-NULL publication and GO counts. Matching 
+log1p-transforms both raw counts and divides by their SD in the combined complete comparator/control 
+population. Maximum-cardinality/minimum-squared-distance assignment supplies three unique matches per 
+control, with no reuse and each absolute coordinate difference ≤0.75 SD (observed maximum 0.70945). All 37 
+controls matched: 27 Usher and 84 SYSCILIA comparators. Within-control averaging gives every control 
+equal weight. Covariate SD differences after matching are publication/GO +0.0093/+0.0105 for Usher and 
+−0.0412/+0.0385 for SYSCILIA. This balances two measured nuisance quantities rather than full research 
+intensity or every layer.
+Default median percentiles are Usher 97.77 versus matches 64.21, and SYSCILIA 91.93 versus matches 60.30. 
+Default wins are 24/27 and 72/84; no pair is unranked. There are zero HIGH genes among the matches, but 
+110/111 already fail the raw threshold. The broader pool retains three HIGH genes, 
+CRB2/ATP1A1/DYNC1H1. They were not removed after outcomes. A subsequent, non-systematic primary-
+source check found pre-existing sensory biology: CRB2 retinal degeneration 
+(https://pmc.ncbi.nlm.nih.gov/articles/PMC6747345/), ATP1A1 cochlear barrier 
+
+
+--- PDF PAGE 5 ---
+Page 5
+(https://pmc.ncbi.nlm.nih.gov/articles/PMC3031570/) and DYNC1H1 photoreceptors 
+(https://pmc.ncbi.nlm.nih.gov/articles/PMC7951903/). These explain residual overlap rather than validate 
+novel Usher associations. Neither the frozen pool nor its remaining genes are verified biological negatives.
+An independent review prompted additional post-outcome diagnostics, specified in phase4_spec.md. No 
+production score, threshold, matching caliper or roster changed. Common-observed-layer scores compare each 
+pair using only shared non-NULL layers, retaining original weights over those layers; they are pair-dependent 
+means, not a new genome-wide ranking. All six single omissions and joint animal/literature omission use the 
+original 111 pairs without rematching. A tie contributes 0.5 and an unranked pair stays missing. Every pair was 
+ranked and no tie occurred. Pair means and equally weighted control means agree because every control has 
+three matches.
+Pair scheme
+Usher wins / 27
+SYSCILIA wins / 84
+Default
+24
+72
+Common observed layers
+23
+75
+Omit constraint
+25
+76
+Omit expression
+27
+78
+Omit annotation
+24
+72
+Omit localization
+23
+73
+Omit animal
+21
+64
+Omit literature
+18
+55
+Omit animal and literature
+15
+48
+Controls/comparators have different source coverage. Usher controls: seven five-layer/two six-layer, 
+localization observed 2/9; their 27 matches: one four-layer/ten five-layer/16 six-layer, localization 17/27. 
+SYSCILIA controls: two five-layer/26 six-layer, localization 28/28; their 84 matches: three four-layer/25 five-
+layer/56 six-layer, localization 61/84. Common-layer results limit one missingness explanation but do not 
+remove ascertainment, shared curation or eligibility–feature overlap. Joint omission reduces concordance to 
+55.6%/57.1%. Full paired scores, denominators and source-observation balance are in phase4_results/.
+S6. Retrospective temporal evaluation
+S6.1 Preserved restricted pilot
+The cutoff protocol (temporal_extension/protocol.md, commit 377eae3) preceded rank inspection. Three 
+manually ascertained examples have later initial human associations located in the audit: CEP162 (2023 
+journal report; a subsequently located preprint was public on 23 November 2021), CFAP20 (initial candidate 
+March 2022, subsequent independent November 2022 report) and LRRC45 (putative October 2021 report, later 
+stronger evidence). Pre-cutoff ciliary biology was allowed; they are not a newly discovered Usher-positive 
+cohort. Candidate and causal reports are distinguished. TMEM218 was excluded after primary full-text 
+publication date 2020-11-21 contradicted apparent 2021 indexing. Other known pre-cutoff associations were 
+excluded. Ascertainment was non-exhaustive.
+The historical population uses Approved protein-coding HGNC entries in the 2020-10-01 archive with unique 
+Ensembl mappings (19,167; two ambiguous rows excluded). Sources actually reconstructed were gnomAD 
+2.1.1 gene LOEUF, GO 2020-12-08 human GAF, HPA v20 normal-tissue ordinal protein and subcellular 
+tables. Positive GO terms exclude NOT annotations and map through historical UniProt IDs, then 
+unambiguous archived symbols. Annotation retains only its 0.5 GO component with missing UniProt/pathway 
+subcomponents contributing zero, unlike wholly unavailable animal/literature layers omitted from the 
+denominator. HPA ordinal data receive no quantitative Tau. Undated present-day compendia and modern 
+identifiers/scores were not imported. Four layer weights remain 0.20/0.20/0.15/0.15, renormalized per observed 
+
+
+--- PDF PAGE 6 ---
+Page 6
+gene. All-gene components, six ranking schemes and case traces are preserved; no historical HIGH tiers were 
+assigned.
+Of 19,033 scored genes, default ranks for CEP162/CFAP20/LRRC45 were 8,289/11,004/253. Equal-weight 
+ranks were 8,460/11,327/161; no default case entered top 100. LRRC45 localization was tied at the maximum 
+with 77 genes; its favorable localization rank does not establish integrated success. All three lacked accepted 
+retinal HPA observations. CEP162 protein categories were cerebellum/testis/fallopian 2/2/2; LRRC45 3/2/3; 
+CFAP20 lacked all four panel observations. Ordinal categories are not quantitative fold changes.
+Accepted HPA protein coverage in the historical population was retina 107 genes (all positive), cerebellum 
+10,894 (7,061 positive/3,833 observed zero), testis 10,917 (8,836/2,081), fallopian tube 10,898 (7,309/3,589). 
+Top25/50/100 contained 10/11/11 one-layer genes. Historical top 100 comprised 11 one-layer, ten two-layer, 
+67 three-layer and 12 four-layer genes; 83 lacked localization, 22 expression, 12 annotation and three 
+constraint. Missingness counts overlap. The earlier independent-review shorthand “63 localization-missing” 
+counted only the three-layer subgroup; the full count is 83.
+This pilot is an archive/scoring diagnostic, not a complete historical six-family evaluation. Its original 
+restricted protocol and numerical outputs remain unchanged; the expanded study below uses separate sources 
+and a separately fixed cohort. Historical MGI/MP, ZFIN and IMPC resources were partially accessible, but full 
+production-compatible animal reconstruction including historical orthology confidence was not completed. An 
+archived gene2pubmed transfer was incomplete, not an acquired full source. GTEx v8 and historical HPA 
+RNA archives were available but outside the executed restricted source contract, not proven inaccessible. 
+Modern Census data cannot be assumed available at the cutoff. Manual case selection, partial layers, changed 
+measurement coverage and sparse means prevent estimation of novel-gene sensitivity or independent HIGH 
+specificity.
+S6.2 Expanded ascertainment and pre-outcome specification
+The evidence cutoff was 31 December 2020, a common boundary for available dated archives, with clinical 
+literature searched through 6 October 2026. The adopted RetNet catalog and ten PanelApp panels supplied 
+2,100 domain/source records and 1,081 gene/locus keys. Panels were 307, 126, 543, 724, 722, 178, 150, 725, 
+550 and 726, covering retinal, hearing and ciliary domains. Current and located pre-cutoff panel versions were 
+retained with URLs/hashes. Reference metadata, gene/alias searches and primary reports were used to identify 
+candidate later associations and check pre-cutoff reports. All 682 non-historical-green keys received complete 
+broad searches across supported publication sources, including preprints: 57,153 records after full cursor 
+pagination. Four ordinary-language aliases (ALL, LARGE, GAP and AT-1) were removed from the search 
+aliases before outcome calculation; original attempts remain recorded. Titles/abstracts, references and full text 
+were used for clinical review, but inaccessible reports and nomination filters can miss cases.
+The target comprised inherited retinal/optic or hearing disease, or explicitly supported primary/motile 
+ciliopathy, including ciliary renal, skeletal, hepatorenal, or laterality disorders. A broader sensory phenotype in 
+a systemic disease required qualifying sensory genotype/phenotype evidence in at least two unrelated families. 
+Isolated cataract, anterior-eye malformation or generic non-ciliary airway/renal disease did not automatically 
+qualify. A first proposed target association had to occur after the cutoff; stronger evidence had to accumulate 
+by the ascertainment date. The earliest located public human report included online publication, preprints and 
+public theses rather than issue year, index date, catalog entry date or thesis award date. An earlier target 
+candidate or modifier subsequently confirmed was maturation, not a new target association.
+Principal clinical evidence required at least two unrelated target-phenotype families, consistent 
+inheritance/segregation, and either functional support or independent target replication in a new family. 
+Functional evidence required a variant effect, disease-related patient-cell/biochemical defect, relevant 
+perturbation or rescue; healthy expression/localization or in silico predictions alone were insufficient. Source-
+specific family counts were distinguished from all-phenotype family totals. Material contrary human 
+
+
+--- PDF PAGE 7 ---
+Page 7
+segregation or alternative diagnoses placed contested reports in the exploratory group. Existing 
+Usher/SYSCILIA development controls and the three previously inspected pilot genes were excluded from 
+principal recovery.
+Clinical novelty was classified as A (no earlier causal human germline disease report located in the adopted 
+audit), B (first target-domain report after other human disease evidence), phenotype expansion, maturation or 
+unresolved evidence. A is an audit classification, not proof of universal literature absence. Prior somatic 
+cancer/common-variant risk associations were documented separately. A/B were combined for principal first-
+target recovery and reported separately; B was not described as first-ever disease-gene discovery. Cases were 
+provisionally selected through AI-assisted clinical/date evidence review without using newly calculated scores 
+or historical source coverage to favor inclusion. Modern production outputs were accessible, so selection was 
+not blinded. The authors have not yet individually verified the 45 cases against the original reports. The roster 
+is a provisional literature-screened cohort, not an independently human-adjudicated clinical benchmark.
+The final roster contains 1,092 unique keys, including 11 appended development controls absent from the 
+catalogs: 45 principal strong cases, 18 candidates, three unresolved-novelty cases, 68 maturation records, six 
+phenotype expansions, four scope comparisons, 50 development references and three pilot references. The 
+remaining 358 historical curated records requiring target confirmation, 96 historical RetNet records requiring 
+confirmation and 441 records without accepted later nomination retain clinical uncertainty. A closed selection 
+decision is not completed clinical adjudication; these 895 entries are neither verified negatives nor an 
+exhaustive clinically resolved background. Out-of-catalog associations were not added ad hoc. Recovery 
+therefore applies to this ascertained positive cohort.
+First-publicity intervals were retained for CREB3 (2024-05-01 to 2025-07-17), MRPL49 (2022-01-01 to 2024-
+10-11) and TMEM72 (2021-01-01 to 2022-04-30), where identified thesis/conference evidence lacked an exact 
+verified public day. These intervals lie wholly after the cutoff. DAP3, LETM1 and TBX2 remained 
+unresolved-novelty cases outside the principal cohort. The clinical ledger records dates, citations, target 
+families, inheritance and functional/replication support.
+The protocol, source inventory, implementation and roster were committed at bd6bb2f before any expanded 
+composite/rank/HIGH/recall calculation. This was an internal pre-outcome specification, not prospective 
+registration. A guarded initial reconstruction stopped at a GTEx duplicate-ID check: version removal had 
+conflated 44 canonical and _PAR_Y pairs. The correction removed version digits while preserving the Y suffix 
+as a distinct key, and was committed with its regression test and amended dependency manifest at 53da295 
+before the successful ranking run. No cohort, source, weights or gate changed. The original freeze and failed-
+attempt record remain preserved. Protocol/evidence design and production calibration occurred after 2020, so 
+even a pre-outcome expanded specification cannot make this a prospectively developed predictor.
+S6.3 Historical sources and changes from production
+The archived HGNC 1 October 2020 Approved protein-coding set with unique nonempty Ensembl mappings 
+contains 19,167 genes; two ambiguous identifier rows were excluded. Identifiers were resolved through frozen 
+HGNC/Entrez/Ensembl keys and unique archived aliases. The production score table was not imported into 
+historical evidence construction. Source dates differ within the cutoff; the reconstruction does not represent 
+complete evidence accumulated through 31 December 2020.
+Family
+Adopted historical source
+Difference or limitation
+Constraint
+gnomAD v2.1.1 gene LOEUF
+Inverse min-max transform over the 
+historical universe; older release than 
+production
+Expression
+HPA v20 ordinal protein, GTEx v8 and 
+original Menon 2019 retinal data [45]
+GTEx has no retina or cochlear hair cells; 
+retinal matrices replace modern Census
+
+
+--- PDF PAGE 8 ---
+Page 8
+Family
+Adopted historical source
+Difference or limitation
+Annotation
+GO human GAF 8 December 2020
+Available GO term component only; 
+UniProt annotation-score/pathway 
+channels not recovered, maximum family 
+score 0.5
+Localization
+HPA v20 subcellular observations
+Undated embedded compendia excluded; 
+absent observations NULL and recorded 
+non-ciliary location zero
+Animal
+MGI human/mouse links/phenotypes 2 
+February 2020, MP vocabulary 29 
+January 2019, IMPC release 11 and ZFIN 
+30 December 2020
+Native curated ortholog links with unit 
+weight; historical HCOP confidence votes 
+not recovered
+Literature
+June 2020 gene2pubmed plus six date-
+bounded context PMID sets
+Modern title/abstract text; residual later 
+text-revision uncertainty
+GTEx v8 was publicly released 26 August 2019. Its GCT contains 56,200 rows across 54 tissues, including 44 
+preserved _PAR_Y keys; only canonical historical identifiers join the corresponding canonical rows. 
+Quantitative restricted-panel Tau uses available GTEx cerebellum, testis and fallopian-tube TPM columns. 
+Downloaded HPA v20 RNA contained neither retina nor cerebellum, so its background-only TPM was 
+excluded rather than mislabeled as nTPM or used as a target contrast. Ordinal HPA protein categories use the 
+existing within-tissue percentile fallback, not raw quantitative ratios.
+GSE137537 (10X; public 21 September 2019) and GSE137846 (Seq-Well; public 23 September 2019) supply 
+original raw-count matrices, gene features and author cell labels. All originally labeled Rods/Cones were 
+selected without new clustering: 9,356 and 847 cells. The Seq-Well header omitted the barcode column, which 
+was restored explicitly after checking row widths, barcodes and matrix dimensions. Features map by exact 
+archived symbol followed by unique historical previous/alias symbol; duplicate features assigned to one gene 
+are summed. Per-gene raw UMI means include zero counts. Pooling sums counts and cell denominators only 
+across platforms where the gene is an observed feature; absence from both feature lists is NULL. Counts are 
+independently percentile-normalized within the expression transform and are not claimed to be TPM or a 
+historical Census snapshot. No direct hair-cell component was introduced.
+GO positive unique terms exclude NOT annotations; archived HGNC UniProt accessions and unambiguous 
+symbol fallback provide mappings. The production annotation formula retains its 0.5 GO component, with 
+unavailable UniProt/pathway subcomponents contributing zero and wholly absent GO yielding family-level 
+NULL. A named GO-rescale sensitivity divides available annotation by 0.5; the primary family was not 
+rescaled after outcomes.
+Mouse phenotype terms are unioned across native mapped orthologs and MGI/IMPC, deduplicated by relevant 
+term name. Historical IMPC names supplement the older MP vocabulary. Recognized positives with unknown 
+terms yield a documented lower bound; unresolved-label-only channels yield NULL. ZFIN abnormal records 
+require an unambiguous native gene ID, with compound/multigene assignments excluded; native 
+gene/structure/name tuples are deduplicated across publication/figure rows before human-ortholog union. The 
+30 December archive avoids the 31 December file’s 1 January 2021 modification boundary. No new p-value 
+filter was imposed. A mapped, interpretable channel without relevant terms supplies observed zero, not a 
+biological negative. The primary animal score is (0.4*mouse_positive + 
+0.3*zfish_positive)*log2(combined_relevant_count+1)/log2(global_maximum+1) with native-link unit weights; 
+no channel mapping yields NULL.
+Literature uses complete human Entrez/PMID links from the June 2020 archive. Europe PMC [44] supplied 
+clinical searches and historical context queries. All six contexts require MEDLINE source (SRC:MED), 
+FIRST_PDATE (earliest electronic/print publication) and FIRST_IDATE (first Europe PMC search indexing) 
+<=2020-12-31, using title/abstract text rather than modern MeSH. Clinical searches can include preprints 
+separately; these context sets cannot. Unique context-set sizes were cilia 32,887, sensory 230,790, cytoskeleton 
+
+
+--- PDF PAGE 9 ---
+Page 9
+171,720, polarity 17,767, high-throughput 180,886 and direct-experimental 11,935; each acquisition completed 
+pagination with IDs matching returned hits. Counts, same-PMID direct evidence, tier precedence and 
+publication normalization follow S3. A mapped Entrez gene without links is observed zero; absent identifiers 
+would remain NULL. Date filters do not recreate historical text, so the five-layer no-literature and six-layer 
+augmented versions are co-primary. Held-out association PMIDs were checked against corresponding archived 
+gene links; none leaked.
+S6.4 Comparisons, endpoints and HIGH convention
+The two co-primary schemes use production weights 0.20/0.20/0.15/0.15/0.15/0.15, with literature weight zero 
+for five layers and available-family renormalization. Observed zero contributes to the denominator; NULL 
+does not. The 21 additional schemes comprise equal weights, six individual families, six single weight 
+omissions, joint animal/literature omission, uniform animal multipliers 0.7/0.4, unique-native-link animal 
+evidence, no-photoreceptor and each-platform expression, and available-GO rescaling. No parameters were 
+fitted using principal case recovery.
+Every scheme reports top 25/50/100/500/1000 and top 1/5/10% (ceiling of fraction times its scored universe). 
+Deterministic descending-score positions break ties by ascending Ensembl ID. Statistical minimum/maximum 
+tie ranks and ascending average score percentiles 100*(rank-1)/(n-1) are separately saved. Tie-inclusive 
+recovery accepts a tie starting within the cutoff; the conservative whole-tie rule requires its maximum rank 
+within the cutoff. A NULL or absent-universe case fails all recovery rules.
+Three denominators are reported: eligible historical-universe cases including unscored failures, all clinically 
+eligible cases including absent-universe failures, and scored-only cases for descriptive comparison. The 
+principal denominators are 41 and 45: all 41 historical cases are scored, while 
+RNU4-2/RNU6-2/RNU6-8/RNU6-9 are noncoding and outside the fixed protein-coding universe. Novelty, 
+target-domain and mechanism strata retain original labels; target domains overlap and cannot be summed. 
+Candidate, unresolved-novelty, expansion/maturation and development/pilot results are separate. Wilson 95% 
+bounds are descriptive within this nonrandom cohort, not population validation intervals. No clinical negative 
+cohort, specificity, precision or false-positive rate was estimated.
+Historical HIGH requires score>=0.7, at least three observed positively weighted families, and either one of the 
+five direct HPA compartment flags or animal score at least the historical positive-score Q75. Q75 uses Polars 
+nearest interpolation, matching production; it was 0.13475306857428798 in the primary historical animal 
+vector. Animal-source variants recompute it over the full historical universe without case labels. Uniform 
+scaling preserves the Q75 gate but can alter composite scores. Count>=4 and the original fixed production 
+animal threshold 0.12765713253595054 are named sensitivities with cross-version scale limitations.
+Leave-one-family analyses are weight omissions: evidence tables and both gate routes remain available, while 
+count uses positively weighted observed families. They are not complete removal of that source from HIGH. 
+Animal-source variants change gate inputs; localization-weight omission retains direct HPA flags. A single-
+family baseline has only one active family and cannot pass the count criterion. The gate architecture remains 
+development-control-calibrated and is not revalidated as disease probability by later-case recovery.
+S6.5 Outcomes and validation
+The five-/six-layer versions score 19,157/19,167 historical genes. Principal top 100/HIGH recovery is 0/41 
+(0/45 end-to-end), top 1,000 is 2/41 versus 3/41, and top 10% is 5/41 versus 6/41. Median ascending 
+percentiles are 46.23/44.95. All 41 have at least four observed weighted families but none score>=0.7. Thus the 
+absence of HIGH recovery is not explained solely by the gate. Constraint, expression and GO are positive for 
+all 41; localization is positive/zero/NULL for 2/29/10, animal positive/zero for 13/28, and literature 
+positive/zero for 25/16. Across the whole genome HIGH counts are zero/five, illustrating source-scale 
+differences as well as limited later-case recovery.
+
+
+--- PDF PAGE 10 ---
+Page 10
+No principal case reaches HIGH in any of 23 schemes. Single localization recovers SAXO6 at deterministic 
+top 100 (position 19, tied 1-77); localization-weight omission recovers PLCG1 at 90 without a boundary tie. 
+Both satisfy the whole-tie rule, but neither replaces the co-primary results. Five-versus-six ranking correlation 
+is 0.870708 across 19,157 shared scored genes; full top 100 sets overlap by 57. These findings do not establish 
+superiority, broad novel-gene recovery or a formal below-chance result.
+All unchanged historical constraint/GO/localization components reproduce the preserved pilot. All nine output 
+TSVs and the manifest were byte-identical in a separate clean reconstruction. The installed Python 
+3.13.1/macOS-arm64 environment passed 354 tests, with 17 existing warnings. A separate internal OpenAI 
+gpt-6-astra/high AI-agent audit (not human clinical adjudication or external validation) rebuilt the raw sources 
+and all case/summary arithmetic; agreement supports implementation consistency, not external clinical 
+validity. Original production and baseline hashes remained unchanged. Additional file 12 supplies the final 
+protocol, clinical reference ledger, source inventory, environment lock, all outputs and 
+reconstruction/evaluation scripts. Large raw archives and clinical search/full-text caches remain outside the 
+distributed bundle; hashes and original acquisition records identify them.
+S7. Numerical replay, provenance and submission-file checksums
+The revision freezes the original 20,081-label score table plus tissue-expression, annotation and literature tables 
+as canonical sorted TSVs with schemas, explicit NULL tokens and SHA-256 hashes. A rebuilt task-owned 
+DuckDB must reproduce all four canonical table hashes before analyses proceed. This derived bundle includes 
+restored donor-derived annotation/animal fields and enables numerical replay, not reconstruction of every 
+original raw source. Original unrecorded retrieval dates remain unknown. Submission manuscript text is 
+preserved separately for numerical baseline checks, so editing the revision does not invalidate replay.
+revision/major_revision_20261006/reproducibility/README.md provides exact commands, the tested 
+dependency lock, source inventory and limits. Phase2, frozen Phase3 outcomes, the restricted historical 
+reconstruction and post-review diagnostics were replayed in a clean Python 3.13.1 macOS arm64 environment 
+with pinned versions. Dependency compatibility was checked; the original 343-test suite passed; with two new 
+replay/missingness tests, the Phase4 suite passed all 345 tests before the expanded temporal implementation; 
+the subsequent suite passed 354 tests. Numerical TSV outputs are compared by bytes rather than merely 
+matching rounded summaries. Figure sampling uses 500 of 20,016 non-control scored labels without 
+replacement, NumPy default_rng(42), ordered by retained Ensembl ID; exported sampled IDs permit checking 
+the display population.
+The submission checksum issue is real: the original Additional file 10 entry identifies repository Markdown 
+expression_shortlist_report.md, not the submitted TXT bytes. The Markdown SHA-256 is 
+e046dbcd6b9eebd8190ad75a9c1cc4d0f0396cd887e48b6558f7d25633a1967f; submitted Additional file 6 TXT is 
+13fc6ddd5f3ef1f2b27d4812f709 44a61824a394f3ec4e6f54619bc883ce9461. The revision records source and 
+converted artifact separately. The revised upload set was assembled under 
+submission/bmc_bioinformatics_major_revision_20261007/. Additional file 10 hashes the actual delivered 
+additional files 1-9 and 11-12, including the converted Supplementary Methods and expression-shortlist TXT 
+files, without self-hashing. The separate package manifest records manuscript/response DOCX and PDF hashes 
+plus their source hashes and numerical checkpoints. Rendered page checks and page-based response locations 
+apply to this generated version. No DOI-bearing archive has been minted; exact Git analysis checkpoints and 
+artifact hashes are provided instead. Source-file hashes do not substitute for converted-file hashes.

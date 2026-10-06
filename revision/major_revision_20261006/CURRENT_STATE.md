@@ -1,3 +1,19 @@
+# Phase5 author-review status — 7 October 2026
+
+This update supersedes the next-step paragraph below; the earlier conservative and expanded-temporal decision history remains preserved.
+
+The revised manuscript, Supplementary Methods, all 23 responses to Reviewer 1 (downloaded report) and Reviewer 3 (pasted report), and cover letter are prepared. Reviewer 2 supplied only a supplementary-file access complaint; the user instructed us to leave it outside the current response scope. New author-review artifacts are in `submission/bmc_bioinformatics_major_revision_20261007/`; the original submission is preserved.
+
+**Important author clarification:** on 7 October the author confirmed that none of the 45 principal cases had yet been individually verified by a human author. Clinical eligibility and association dates therefore remain provisional AI-assisted screening classifications. This qualification now appears in the main manuscript, supplement, response, cover letter and package README. Numerical execution and reproducibility are complete; individual human case/date review is not. Do not call the package submission-ready or the cohort independently clinically validated. Use `phase5_claude_review/principal_case_human_verification.tsv` to record the remaining human work.
+
+Actual Claude Opus5.5 first-party CLI review is recorded in `phase5_claude_review/round1_*`. Its substantive findings were addressed in `round1_resolution.md`, including known-gene compendium circularity, literature-only control baselines, empty/near-empty historical HIGH tiers, weak temporal recovery, case-category distinctions, ATP2B2 phenotype-extension wording, and explicit AI/source limitations. Rounds 2–4 audited the actual final artifacts; the final Opus verdict is ready for author review with no remaining material error, but not journal-submission-ready. See phase5_report.md and phase5_claude_review/round4_review.md. No production weights, gate thresholds or frozen scores were changed to improve outcomes. All 21 protected baseline hashes remain unchanged; 354 tests pass. The new derived temporal checker exactly reproduces 38,334 co-primary score/count/rank rows, without claiming raw HIGH or clinical verification.
+
+Version correction: the previously cited public commit 4cf8c5b is real on GitHub despite its absence from the local object history. Direct page/API verification restored the original reference, separately from the preserved submitted-files checkpoint ed2d00d. The fixed final author-review release tag is major-revision-author-review-20261007; post-commit dual-remote/LFS publication evidence is recorded in phase5_claude_review/publication_verification.json.
+
+Remaining author work: verify the 45 original-report eligibility/date decisions, resolve any affected cohort/outcome changes transparently, approve revised text and AI disclosure, and confirm cover-letter declarations and manuscript ID before journal upload. No journal upload or DOI deposition has been performed.
+
+---
+
 # Major revision continuation state — 6 October 2026
 
 Read this file before continuing the major revision. It supersedes any earlier

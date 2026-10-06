@@ -1,0 +1,18 @@
+{
+  "manuscript/draft.md": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round1_inputs/draft.md",
+    "sha256": "5c9f3fd84cd5ded8b902169a2cee71d5681225709929b7208ee2d9f2a2beb55a"
+  },
+  "manuscript/supplementary_methods.md": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round1_inputs/supplementary_methods.md",
+    "sha256": "eeb05aad9f18174e63aed9f40b82c665022e26259bd6e920a14c6407163a31de"
+  },
+  "revision/major_revision_20261006/rebuttal.md": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round1_inputs/rebuttal.md",
+    "sha256": "e90bb283d6ade17029c340a8d00b08cb82213e604eff39632ffa0ead4e42c3af"
+  },
+  "revision/major_revision_20261006/reviewer_source_comments_20261007.json": {
+    "snapshot": "revision/major_revision_20261006/phase5_claude_review/round1_inputs/reviewer_source_comments_20261007.json",
+    "sha256": "e383878d9136f938dbf990a26a48cb966cd641b0b79269a97d141c7de3ae46d9"
+  }
+}

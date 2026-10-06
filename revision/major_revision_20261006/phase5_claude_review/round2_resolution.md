@@ -1,0 +1,21 @@
+# Round 2 resolution — 7 October 2026
+
+The actual first-party Claude Opus 5.5 high-effort audit completed successfully in 76 turns. It found the 23 substantive responses adequate for author review and no unresolved critical scientific defect. Its final-artifact issues were corrected without changing frozen numerical inputs or outcomes.
+
+| Finding | Correction and evidence |
+|---|---|
+| MA-1 page locations | `revision_response_locations.py` now locates the ordered Markdown headings in actual PDF content, excludes footers/line numbers, and reports complete section spans through the next heading of equal or higher level. Abstract and the evidence-count/sensitivity section were added where requested. The index contains 76 rows for 23 comments; recovery spans 19–20, NULL-aware scoring 11–12, temporal Results 24–26, mantis comparison 26–27, and Limitations 29–30. The response was regenerated after the index. |
+| MA-2 Figure 9 | Caption restricted to the four plotted metrics. The cached-output plotting command was exercised again, with the legend below the bars; no classifier training or scoring change. Frozen original Figure 8 remains unchanged. |
+| MA-3 version availability | Active texts cite the fixed release tag `major-revision-author-review-20261007`, to be assigned to the final committed/pushed author-review package after the audit. Conservative checkpoint `0e1634a` is explicitly listed. `4cf8c5b` does not exist in the complete local history (`git cat-file -t` fails; repository is not shallow); original files are instead cited at real checkpoint `ed2d00d`. The old claim is preserved in immutable baseline/review snapshots, not repeated as an active version fact. Commit/tag publication is verified separately after finalization. |
+| MA-4 statistics rendering | Multiplication changed to Unicode ×; no unescaped asterisk remains to swallow the later italic P. Formula and meaning unchanged. |
+| MA-5 reviewer numbering | Remaining `Reviewer B` section heading changed to `Reviewer 3`. Reviewer 2 remains outside scope by explicit author instruction. |
+
+Minor corrections: group-specific animal/literature baseline wording; explicit 0–8.6% descriptive Wilson interval for 0/41; AI-assisted S5 wording; observed zero with positive family weight in S6; pooled S2 medians labeled; reviewer quote paragraphs separated without changing words; DOI capitalization, cover-letter universe wording and log(1+x) typography corrected. ZIP 12 identifies earlier frozen outcome/adjudication labels as AI-agent screening records, not human adjudication.
+
+The pending 45-case worksheet now includes frozen independent-replication PMID/evidence fields. The generic original AI inheritance summary is labeled as not case-specific; a separate human genotype/inheritance field remains pending. No eligibility/date/novelty labels were amended and no human review was invented. Close-cutoff dates, interval dates, replication-route cases and prior-phenotype references require author attention as described in the review.
+
+Primary full texts Mathur/Yang (PMC4312720) and Reiter/Leroux (PMC5851292) were fetched through NCBI to local ignored review cache. Mathur/Yang supports the hair-bundle and photoreceptor compartment biology, including localization uncertainties; Reiter/Leroux supplies the broader sensory-ciliopathy framework, rather than a universal Usher-specific localization assertion. The cautious “may be viewed” wording and distinction between actin stereocilia and microtubule cilia are retained. The Géléoc/El-Amraoui publisher record was found; its full text was not independently retrieved in this final pass.
+
+Remaining status: author-review draft. All 45 cases still await human eligibility/date and inheritance verification; all-author approval, manuscript ID, final cover-letter declarations and journal upload remain author tasks. A DOI was not minted. Numerical/packaging checks do not establish clinical validity or submission completion.
+
+Subsequent correction: direct public GitHub/API verification confirms that 4cf8c5b exists despite its local absence. The original public reference has been restored; see round3_resolution.md and original_public_commit_verification.json. Local absence was not evidence of an incorrect original citation.
