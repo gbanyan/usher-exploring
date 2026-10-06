@@ -1,0 +1,93 @@
+{
+  "spec_sha256": "eddaf87f646e2cc71ffbd9b6e7e1ba204b3c47fe8ad7ea7c04ecc38acade0b9e",
+  "script_sha256": "1e7c88ba899f024ad87e20b3115f54662d16a1a8aa7c88d1ad3d0684a0b70d9e",
+  "baseline_commit": "0ae2c3da830044ee3559adf49c924235363fed74",
+  "sources": {
+    "clingen.csv": {
+      "url": "https://search.clinicalgenome.org/kb/gene-validity/download",
+      "sha256": "979e814b2371a13133ab11ef14b613c58f11967928634b2af128df0632865016",
+      "bytes": 1129673,
+      "download_completed_utc": "2026-10-06T08:47:47.342092+00:00"
+    },
+    "hgnc.tsv": {
+      "url": "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+      "sha256": "2b4224ea847df2fc6982f5b2a52804c5d92fbb8810b134afb636f6029452dc03",
+      "bytes": 16963116,
+      "download_completed_utc": "2026-10-06T08:47:52.001530+00:00"
+    },
+    "hp.obo": {
+      "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/hp.obo",
+      "sha256": "93dace952fcb3ec4728818857f6ba76bc2d5312f4d83266519b8694b8e798f22",
+      "bytes": 10863613,
+      "download_completed_utc": "2026-10-06T08:47:54.665003+00:00"
+    },
+    "genes_to_phenotype.txt": {
+      "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/genes_to_phenotype.txt",
+      "sha256": "507a17bff9c49e6329fbd88b1f91734fa7e9fdea5c06304044c0892eb6ab248c",
+      "bytes": 20821704,
+      "download_completed_utc": "2026-10-06T08:48:14.029221+00:00"
+    }
+  },
+  "source_versions": {
+    "clingen_file_date": "\"FILE CREATED: 2026-10-06\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"",
+    "hpo_release": "v2026-09-01",
+    "hgnc": "live export, hash frozen"
+  },
+  "hpo_root_names": {
+    "HP:0000365": "Hearing impairment",
+    "HP:0000478": "Abnormality of the eye",
+    "HP:0005938": "Abnormal respiratory motile cilium morphology",
+    "HP:0011538": "Atrial situs inversus",
+    "HP:0011539": "Atrial situs ambiguous",
+    "HP:0011615": "Abnormal pulmonary situs morphology",
+    "HP:0011620": "Abnormality of abdominal situs",
+    "HP:0012261": "Abnormal respiratory motile cilium physiology",
+    "HP:0030853": "Heterotaxy",
+    "HP:0031602": "Abnormal mucociliary clearance"
+  },
+  "clingen_genes_audited": 3056,
+  "eligible_pool": 420,
+  "complete_covariate_pool": 418,
+  "matched_pairs": 111,
+  "matched_controls": 37,
+  "protected_input_sha256": {
+    "data/pipeline.duckdb": "0beb4f61c62ebff2ba6358069d9eb37cb6c4a9366140bb1c1c486cd2d59f2c65",
+    "config/default.yaml": "bfd187da7e5fc2b887b99626b14b950fecdeae80668e871c5650c1643a019b15",
+    "manuscript/draft.md": "14e2906d0693fb90544c4d73eb0c432be42548198c92d034cbf454cf6e1a3128",
+    "submission/bmc_bioinformatics/Additional_file_10_Checksum_Manifest.json": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729",
+    "submission/bmc_bioinformatics/Additional_file_1_Table_S1.tsv": "d6cb4e64b499a7e508f07b4ab4506b1a1402d3ff1796f959896d8288e595f82f",
+    "submission/bmc_bioinformatics/Additional_file_2_Table_S2.tsv": "f5acb99751554c370e85fad1d8f8712ef96cafe822a33180dfe084a7b47656a3",
+    "submission/bmc_bioinformatics/Additional_file_3_Supplementary_Methods.txt": "e035a65e3dafd880ec01f9a21a0235bcef08fa5dd53d97ab2a19730fdfaa48dc",
+    "submission/bmc_bioinformatics/Additional_file_4_Reproducibility_Manifest.json": "3e03a8627cae95317874109408ccf1e989f0cbb76ea3f182d84f5c1c4868ecc2",
+    "submission/bmc_bioinformatics/Additional_file_5_Expression_Shortlist_Candidates.tsv": "0dde4c327187a09ab6d4569d55dbf84a82d25883ddf1bb679deea3093277bf67",
+    "submission/bmc_bioinformatics/Additional_file_6_Expression_Shortlist_Report.txt": "13fc6ddd5f3ef1f2b27d4812f70944a61824a394f3ec4e6f54619bc883ce9461",
+    "submission/bmc_bioinformatics/Additional_file_7_Expression_Shortlist_Summary.tsv": "cf325dbd5a2b545b471eee2dfe0deebd30cdf6e3cd34f443f841dd74fafb47e8",
+    "submission/bmc_bioinformatics/Additional_file_8_GSE135913_Hair_Cell_Expression.tsv": "3e475010971d403bab43848f18ae70412bbe1977cb81a66283559f56405f7017",
+    "submission/bmc_bioinformatics/Additional_file_9_GSE135913_Provenance.json": "470de16bba054a7e3782cd2fd831383b897d856fb5c8c8c8b542f2e5b2bc618f",
+    "submission/bmc_bioinformatics/Cover_Letter.docx": "63748e8c59e72940fe7fd704f890d3a3c4b30a05429a5a63856b9aa80e35a381",
+    "submission/bmc_bioinformatics/Cover_Letter.txt": "9925f73a04fa3efaa9ccb945ef2b698270a7f1a0996e079cf13cee0bbf008006",
+    "submission/bmc_bioinformatics/Manuscript.docx": "4ef40ce1cad3fbe7e67e0d8b476dbca6da6e35027856bb0339591c6eb4086c4a",
+    "submission/bmc_bioinformatics/Manuscript_preview.pdf": "5c13e7512ac3ba2b68b90d5b5e352a3d956568d778f327219d3c693fa51a82c1",
+    "submission/bmc_bioinformatics/Manuscript_technical_check_fixed.docx": "888562b8b85f4801d6404c28e5896e6cef5a03b1b46304c0d103ded40a3ccaef",
+    "submission/bmc_bioinformatics/SUBMISSION_STATUS.md": "402c9bc5cc741fe2679c87dee816077944466b4250cb267fc9aa93b003931edb",
+    "data/report/candidates.tsv": "9d9a288e7beb7fea580898b856631452a5720567a7b321e8b7f51206afac76a0",
+    "data/report/checksum_manifest.json": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729"
+  },
+  "outcomes_accessed": false,
+  "software": {
+    "python": "3.13.1 (main, Dec  6 2024, 20:13:21) [Clang 18.1.8 ]",
+    "duckdb": "1.5.5",
+    "polars": "1.44.2",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "execution_command": "rtk proxy .venv/bin/python scripts/revision_phase3_roster.py --source-dir /Users/gbanyan/Project/usher/usher-exploring/data/cache/phase3-sources-20261006 --output-dir /Users/gbanyan/Project/usher/usher-exploring/revision/major_revision_20261006/phase3_roster",
+  "output_sha256": {
+    "control_matching_coverage.tsv": "947c7209e74b6ef41d4555af602d9316ebd1cd646f12d32ff7feda46aa41a774",
+    "eligibility_audit.tsv": "77398704debb72f3fbb9f4ae7de0a5b952eab957cbcf3401e7d01d19dc657abb",
+    "eligible_pool.tsv": "d23f59bda16e4a7da5f26ad38bac45605a49d6151bad7d49107b35e9cdff6e10",
+    "matched_pairs.tsv": "04f8aca0a3ce269eb7e3bd1c9a31ab5f846b9566e518e593d0aa583fe2eb7112",
+    "matching_diagnostics.tsv": "76f24d2b2c965316d9744f747438f973e7b5489a2268aa9111bcd857ba739c5c"
+  }
+}

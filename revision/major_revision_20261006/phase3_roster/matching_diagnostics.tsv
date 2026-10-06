@@ -1,0 +1,5 @@
+control_group	feature	scaling_population_sd_log1p	complete_controls	matched_controls	matched_comparators	before_standardized_mean_difference	after_standardized_mean_difference
+usher	total_pubmed_count	0.9770271167661427	9	9	27	-0.41185879845752416	0.0093113687047397
+usher	go_term_count	0.6035374933351163	9	9	27	0.30734786757357013	0.010506878559869304
+syscilia	total_pubmed_count	0.9770271167661427	28	28	84	-0.7932068427744534	-0.04122396933401997
+syscilia	go_term_count	0.6035374933351163	28	28	84	-0.2618596909378941	0.03853710867227471
