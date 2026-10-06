@@ -59,3 +59,11 @@ def test_matching_caliper_and_no_replacement_with_unmatched_slots():
     assert all(i == 0 for i, _, _ in pairs)
     for i, j, _ in pairs:
         assert np.all(np.abs(targets[i] - candidates[j]) <= .75)
+
+
+def test_concordance_keeps_ties_and_unranked_pairs_distinct():
+    from revision_phase3_outcomes import concordance
+    assert concordance(.8, .4) == 1
+    assert concordance(.4, .8) == 0
+    assert concordance(.4, .4) == .5
+    assert np.isnan(concordance(np.nan, .4))

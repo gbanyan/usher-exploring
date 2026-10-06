@@ -1,0 +1,7 @@
+layer	available_local_evidence	cutoff_reconstruction_status	limitation
+gnomad	Version-labelled v4.1 constraint snapshot with recorded hash	not_demonstrated	A fixed modern population snapshot does not reconstruct an arbitrary pre-association feature set; no cutoff was selected or tested
+expression	GTEx v8 and HPA cached measurements; Census 2025-11-08 cache	not_demonstrated	Source snapshot labels do not date each underlying experiment or provide corresponding historical retinal measurements
+annotation	Derived annotation fields reused from historical donor DuckDB	blocked_by_derived_cache	No complete versioned historical raw GO/UniProt/pathway evidence and assertion dates available for cutoff filtering
+localization	Cached HPA subcellular observations and production compendium fields	not_demonstrated	No complete per-assertion dates or cutoff-specific source snapshots established for all localization/gate inputs
+animal_model	Derived phenotype fields reused from historical donor DuckDB	blocked_by_derived_cache	No complete historical raw HCOP/MGI/ZFIN/IMPC evidence and per-annotation dates available for cutoff filtering
+literature	gene2pubmed links and cached PMID context sets	incomplete_dates	gene2pubmed cache has tax_id/GeneID/PubMed_ID only; context cache holds PMID sets rather than per-publication dates and historical gene annotation states

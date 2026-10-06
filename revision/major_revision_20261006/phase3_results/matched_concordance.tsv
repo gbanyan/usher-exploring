@@ -1,0 +1,3 @@
+control_group	controls_expected	controls_matched	matched_pairs	pairs_ranked	mean_within_control_score_concordance	mean_within_control_percentile_difference	median_within_control_percentile_difference
+usher	9	9	27	27	0.8888888888888888	0.3115769370008349	0.32738213976993147
+syscilia	28	28	84	84	0.8571428571428573	0.2996370151890798	0.3319785225081455
