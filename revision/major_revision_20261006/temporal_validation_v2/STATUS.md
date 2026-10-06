@@ -85,3 +85,64 @@ No v2 score, case rank, HIGH outcome or recall statistic exists yet.
 
 Next: finish broader screening and uniform clinical/date/scope closure, freeze
 protocol/source manifest/clinical roster in Git, then reconstruct and evaluate.
+
+
+## Latest pre-outcome closure work
+
+Broad screening is now complete: 682/682 requests, 57,153 adopted records.
+The aliases ALL (BCR), LARGE (LARGE1), GAP (RASA1) and AT-1 (SLC33A1) produced
+large ordinary-language result sets and were omitted from corrected requests.
+Genes/official symbols were retained; all superseded pages remain in the ignored
+cache. `broad_target_search_manifest.json` selects the adopted paths. The
+nomination helper now consumes that manifest, including its corrected subdirectory.
+
+`source_inventory_draft.json` inventories 24 adopted numerical source files,
+204,322,926 bytes. This is still a draft source contract, not an outcome freeze.
+`clinical_roster_draft.json` retains all 1,081 catalog keys and 11 additional
+previously inspected controls. Its 45 proposed strong cases are not final:
+functional/date/target-family fields and independent review must close first.
+No unresolved or unnominated catalog record is called a clinical negative.
+
+Important new source adjudications: STXBP3's primary2018 hearing abstract precedes
+its2021 journal report; EGFLAM was proposed in a2015 familial-Meniere study;
+DAP3 appears in a2017 thesis whose public-deposit date is not verified. OGDHL
+has substantial contrary human-validity evidence and is exploratory rather than
+principal. TBX2's earlier CNV/negative-screen claim remains unresolved. RNF220,
+DHRSX, MRPL49, DAP3, PLCG1 and KCNJ16 family counts have been checked without
+substituting total multisystem patient/family counts for target-family counts.
+RNU noncoding cases remain explicit universe exclusions; RNU6-1's per-paralog
+family count is unresolved. Publisher SSL failures and an interrupted EPMC ZIP
+attempt are recorded; the partial ZIP is not an accepted workbook.
+
+New evaluator enforces a committed freeze before numerical reconstruction and
+principal cohort rules. Full local suite:352 passed,17 existing warnings on
+Python3.13.1/macOS arm64. No numerical reconstruction or Linux parity claim.
+Next: finish pre-outcome independent roster review, commit the final freeze,
+then execute both co-primary versions and every declared sensitivity.
+
+
+## Pre-outcome v2 freeze ready (6 October 2026)
+
+The final `temporal_validation_v2/PROTOCOL.md`, source inventory, reference index
+and clinical roster are ready for a Git checkpoint before any real v2 reconstruction.
+There are 45 principal strong later-target associations, 18 exploratory candidates,
+three unresolved-novelty cases, 50 previously inspected controls and three pilot
+references. All 1,092 selection decisions are closed; this is not exhaustive
+clinical adjudication. The 358 historical curated, 96 historical RetNet and 441
+unaccepted-nomination records retain explicit clinical uncertainty.
+
+The freeze covers 24 numerical source files and 3,122 total dependencies, including
+adopted search pages, clinical XML/metadata, source provenance, all production Python
+modules, revision scripts and the exact installed v2 environment. Raw caches remain
+local-only. Mutable progress STATUS is deliberately outside the experimental freeze.
+Astra's clinical/numerical pre-outcome review is saved; latest test command
+`.venv/bin/python -m pytest tests/ -q` passed 353 tests, with 17 existing warnings
+on local macOS arm64/Python 3.13.1. A first accidental invocation of system pytest
+failed collection because it used Python 3.14 without project dependencies; the
+correct .venv run above passed.
+
+No case score, rank, HIGH recovery or recall has been calculated yet. Commit the
+freeze before running `scripts/revision_temporal_v2_evaluate.py --freeze-commit HASH`.
+Any subsequent implementation correction must preserve original attempts, record
+its post-outcome timing, and use a new output directory. Conservative Phase4 and
+the restricted pilot are unchanged.

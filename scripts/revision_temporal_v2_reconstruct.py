@@ -212,7 +212,7 @@ def animal_inputs(genes):
     records = []
     for gene in genes:
         gid = gene["ensembl_gene_id"]
-        mids, zids = mgi_links[gid], zlinks[gid]
+        mids, zids = mgi_links.get(gid, set()), zlinks.get(gid, set())
         terms = set().union(*(mouse_terms[mid] for mid in mids)) if mids else set()
         mc, positive, unknown = channel_count(terms, vocabulary, SENSORY_MP_KEYWORDS)
         if not mids:

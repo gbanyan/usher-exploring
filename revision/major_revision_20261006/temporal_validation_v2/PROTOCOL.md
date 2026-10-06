@@ -1,10 +1,10 @@
-# Expanded temporal validation protocol — pre-outcome draft
+# Expanded temporal validation protocol — frozen before outcomes
 
-Status: source acquisition and cohort adjudication are underway. No v2 ranking
-has been calculated or inspected. Freeze the final protocol and adjudicated
-roster in Git before generating v2 outcomes. This study is separate from the
-unchanged four-layer pilot. Its three cases have known pilot ranks and must be
-reported separately from newly ascertained cases.
+Status: sources, implementation and selection decisions are frozen before any v2 score/rank/recovery calculation. The freeze commit records that ordering. The original pilot and conservative Phase4 revision are preserved.
+
+The adopted ascertainment contains 1,081 catalog keys plus 11 previously inspected reference controls. The principal cohort is 45 strong later target associations. There are 18 exploratory candidates and three unresolved-novelty cases; none are promoted after observing results. The 358 historical curated and 96 historical RetNet records still requiring target confirmation, and 441 records without an accepted later nomination, retain clinical uncertainty. Their exclusion is a fixed selection decision, not confirmation of clinical absence. Broad searches completed for 682 non-historical-green keys (57,153 records), but nomination filters and unavailable full texts can miss associations. Out-of-catalog cases are not added ad hoc. Accordingly, recovery is conditional on this ascertained positive cohort, not an exhaustive census of all later disease genes.
+
+First-publicity intervals are retained for CREB3 (2024-05-01 to 2025-07-17), MRPL49 (2022-01-01 to 2024-10-11) and TMEM72 (2021-01-01 to 2022-04-30). They bound identified post-cutoff evidence without inventing exact thesis or conference release days. DAP3, LETM1 and TBX2 remain unresolved-novelty cases outside the principal cohort.
 
 ## Question and temporal boundary
 

@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-10-06T13:31:41.573391+00:00",
+  "scores_read": false,
+  "status": "interrupted after over6minutes without completedfile; no workbook used",
+  "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12807869/supplementaryFiles",
+  "publisher_attempt": "SSL EOF earlier; no sourceabsence claim",
+  "bounded_retry": {
+    "command": "curl --fail --location --connect-timeout10 --max-time45",
+    "status": "timeout",
+    "received_bytes": 326971,
+    "partial_file": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC12807869_supplementary.zip.part",
+    "used_for_adjudication": false
+  }
+}

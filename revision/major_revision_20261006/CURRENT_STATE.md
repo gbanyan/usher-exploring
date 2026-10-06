@@ -19,16 +19,31 @@ underway; see `temporal_validation_v2/STATUS.md`. **The expanded protocol/cohort
 are not yet frozen and no expanded numerical rankings have been computed.** Do
 not confuse complete archive acquisition with completed validation.
 
-Latest pre-outcome progress: checkpoint `e54b883` is on both remotes. All six
-literature context queries, full gene2pubmed, MGI/IMPC/ZFIN, GTEx v8 and two
-published 2019 retinal single-cell datasets are acquired. The latter recover the
-photoreceptor channel without backdating Census. Catalog ledger contains 2,100
-records / 1,081 gene/locus keys. Clinical adjudication is underway; broader
-682-gene searches and pagination corrections are active. Draft reconstruction
-code has not run on real evidence. Five source/cohort parser checks pass. Read
-`temporal_validation_v2/STATUS.md`, `PROTOCOL_DRAFT.md`, the new
-`astra_cohort_review_20261006.md` and `cohort_screening/adjudication_notes_draft.json`
-before continuing. **Do not compute outcomes before protocol/source/roster freeze.**
+Latest pre-outcome progress: checkpoint `9f903d3` is on both remotes; subsequent
+work is awaiting a new checkpoint. All 24 adopted scoring files are inventoried
+(204,322,926 bytes with individual SHA-256 hashes). Broad all-source target
+searches completed for all 682 non-historical-green genes: 57,153 records with
+complete pagination. Four ordinary-English aliases were corrected before
+outcomes; earlier raw requests/pages are preserved. Read the adopted aggregate
+manifest, not a glob of obsolete query attempts.
+
+Clinical working notes contain 143 records (not 143 accepted cases). A draft
+roster preserves 1,081 catalog gene/locus keys plus 11 appended reference
+controls, with 45 proposed strong cases before final independent review.
+Do not treat draft statuses as eligibility approval or unresolved catalog records
+as clinical negatives. New findings include pre-cutoff STXBP3 conference evidence,
+EGFLAM hearing candidate evidence, DAP3 thesis-date uncertainty, corrected target
+family counts and contested OGDHL validity. Astra is continuing pre-outcome review.
+
+Reconstruction/evaluation adapters are written but have not run on real evidence.
+The evaluator requires a committed protocol/source/clinical freeze and rejects
+development/pilot contamination, insufficient target-family evidence and dates
+crossing the cutoff. Local Python3.13.1/macOS-arm64 full suite: **352 passed,
+17 existing warnings**. This test run does not demonstrate reconstruction parity
+or outcome reproducibility. **No v2 score, rank, HIGH outcome or recall statistic
+has been computed; do not compute outcomes before the committed freeze.**
+Read `temporal_validation_v2/STATUS.md`, `PROTOCOL_DRAFT.md`, clinical drafts and
+the independent review documents before continuing.
 
 ## Why there are two routes
 
@@ -209,3 +224,30 @@ Markdown versus converted TXT, documented in `reproducibility/submission_convers
 Do not claim new converted-file verification, a DOI, full temporal validation or
 independent novel Usher-gene prediction until actually completed. Keep the current
 manuscript/rebuttal as the conservative checkpoint while the expanded study runs.
+
+
+## Pre-outcome v2 freeze ready (6 October 2026)
+
+The final `temporal_validation_v2/PROTOCOL.md`, source inventory, reference index
+and clinical roster are ready for a Git checkpoint before any real v2 reconstruction.
+There are 45 principal strong later-target associations, 18 exploratory candidates,
+three unresolved-novelty cases, 50 previously inspected controls and three pilot
+references. All 1,092 selection decisions are closed; this is not exhaustive
+clinical adjudication. The 358 historical curated, 96 historical RetNet and 441
+unaccepted-nomination records retain explicit clinical uncertainty.
+
+The freeze covers 24 numerical source files and 3,122 total dependencies, including
+adopted search pages, clinical XML/metadata, source provenance, all production Python
+modules, revision scripts and the exact installed v2 environment. Raw caches remain
+local-only. Mutable progress STATUS is deliberately outside the experimental freeze.
+Astra's clinical/numerical pre-outcome review is saved; latest test command
+`.venv/bin/python -m pytest tests/ -q` passed 353 tests, with 17 existing warnings
+on local macOS arm64/Python 3.13.1. A first accidental invocation of system pytest
+failed collection because it used Python 3.14 without project dependencies; the
+correct .venv run above passed.
+
+No case score, rank, HIGH recovery or recall has been calculated yet. Commit the
+freeze before running `scripts/revision_temporal_v2_evaluate.py --freeze-commit HASH`.
+Any subsequent implementation correction must preserve original attempts, record
+its post-outcome timing, and use a new output directory. Conservative Phase4 and
+the restricted pilot are unchanged.

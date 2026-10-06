@@ -16,17 +16,25 @@ from revision_temporal_v2_human_screen import TARGET
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "revision/major_revision_20261006/temporal_validation_v2"
 CACHE = ROOT / "data/cache/temporal-validation-v2-20261006/broad_target_screen"
+# Preserved broad attempts showed ordinary-language/tokenization collisions,
+# before scores were generated. Keep official symbols and other aliases.
+GENERIC_ALIASES = {'ALL', 'LARGE', 'GAP', 'AT-1'}
 
 
 def acquire(row):
     key = row["gene_key"].replace(":", "_")
-    terms = " OR ".join(f'TITLE_ABS:"{symbol}"' for symbol in row["symbols"])
+    symbols = [symbol for symbol in row['symbols'] if symbol not in GENERIC_ALIASES]
+    omitted_generic = sorted(set(row['symbols']) & GENERIC_ALIASES)
+    terms = " OR ".join(f'TITLE_ABS:"{symbol}"' for symbol in symbols)
     query = (f"({terms}) AND TITLE_ABS:({TARGET} OR heterotaxy OR laterality OR coloboma OR hydrocephalus) "
              "AND FIRST_PDATE:[1800-01-01 TO 2026-10-06] sort_date:y")
-    record = dict(gene_key=row["gene_key"], symbols=row["symbols"],
+    record = dict(gene_key=row["gene_key"], symbols=symbols,
+                  omitted_generic_english_aliases=omitted_generic,
                   omitted_text_aliases=row["omitted_text_aliases"], query=query,
                   started_utc=datetime.now(timezone.utc).isoformat(), pages=[], complete=False)
-    existing = CACHE / f"{key}.manifest.json"
+    destination = CACHE / 'generic_alias_corrected' if omitted_generic else CACHE
+    destination.mkdir(exist_ok=True)
+    existing = destination / f"{key}.manifest.json"
     if existing.exists():
         prior = json.loads(existing.read_text())
         if prior["query"] != query:
@@ -37,7 +45,7 @@ def acquire(row):
     for page in range(500):
         url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?" + urllib.parse.urlencode(
             dict(query=query, format="json", resultType="core", pageSize=1000, cursorMark=cursor))
-        path = CACHE / f"{key}.page_{page:04d}.json"
+        path = destination / f"{key}.page_{page:04d}.json"
         try:
             if path.exists():
                 data = path.read_bytes()

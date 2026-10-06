@@ -12,7 +12,11 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "Independent familial sensorineural hearing and auditory neuropathy reports; splice/flippase and mouse evidence.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "first_verified_target_date": "2021-05-28",
+      "first_public_preprint": "PPR349560",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Independent familial sensorineural hearing and auditory neuropathy reports; splice/flippase and mouse evidence."
     },
     {
       "symbol": "CRLS1",
@@ -23,18 +27,27 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "Four individuals including siblings; auditory neuropathy and retinal maculopathy, cardiolipin/mitochondrial functional assays. Earlier C20orf7 paper is a different causal gene, not automatically prior CRLS1 disease.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "unrelated_target_families_lower_bound": 3,
+      "primary_fulltext_verified": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9616573/",
+      "first_verified_target_date": "2022-02-11",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Four individuals including siblings; auditory neuropathy and retinal maculopathy, cardiolipin/mitochondrial functional assays. Earlier C20orf7 paper is a different causal gene, not automatically prior CRLS1 disease."
     },
     {
       "symbol": "DAP3",
-      "proposed_status": "strong_novel_target",
+      "proposed_status": "prior_candidate_public_date_unresolved",
       "domain": "hearing_mitochondrial",
       "clinical_pmids": [
         "39701103"
       ],
       "unrelated_families": 5,
-      "evidence_summary": "Five unrelated Perrault-spectrum families; mitoribosome assembly and apoptosis assays. Preprint PPR900759 first posted 2024-08-21.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "evidence_summary": "2017thesis explicitlynominates DAP3 p.C395Y intranslarge deletion inhumanPerraultfamily; EPMCyear2017 is dissertationyear and firstIndexDate2024-08-02. Award2017-11-28 is not verifiedpublicreleasedate. Excludeprimarybecause earliercandidate/publicdate unresolved, preservingfive-family laterfunctionalreport.",
+      "remaining_checks": "Need datedpublicdeposit/archivedprimaryrelease to close preciseearliestdate; unresolvedexclusionfixedbeforeoutcomes.",
+      "unrelated_target_families_lower_bound": 4,
+      "clinical_status": "candidate_novelty_unresolved",
+      "novelty": "U",
+      "prior_candidate_source": "ETH:799252 / Demain2017 doctoral thesis"
     },
     {
       "symbol": "DNAJC30",
@@ -45,7 +58,11 @@
       ],
       "unrelated_families": 29,
       "evidence_summary": "Recessive LHON in 29 families; complex I repair defect and rescue.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "first_verified_target_date": "2021-01-19",
+      "primary_date_source_url": "https://www.jci.org/articles/view/138267",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Recessive LHON in 29 families; complex I repair defect and rescue."
     },
     {
       "symbol": "DHRSX",
@@ -56,7 +73,11 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "JATS results document four people from three families, sensorineural hearing loss and dolichol synthesis/glycosylation defect.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "unrelated_target_families_lower_bound": 2,
+      "first_verified_target_date": "2024-05-30",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "JATS results document four people from three families, sensorineural hearing loss and dolichol synthesis/glycosylation defect."
     },
     {
       "symbol": "GPR156",
@@ -67,7 +88,9 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "JATS GPR156 section documents eight affected individuals in three pedigrees; truncating variants and receptor dysfunction assays.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "JATS GPR156 section documents eight affected individuals in three pedigrees; truncating variants and receptor dysfunction assays."
     },
     {
       "symbol": "GPATCH11",
@@ -78,7 +101,13 @@
       ],
       "unrelated_families": 6,
       "evidence_summary": "JATS documents six unrelated families, retinal dystrophy, patient splice defect and matching mouse phenotype. First located preprint PPR705483 2023-08-21, not 2024 journal date.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "unrelated_target_families_lower_bound": 3,
+      "first_verified_target_date": "2023-08-21",
+      "first_public_preprint": "PPR705483",
+      "target_family_evidence": "Primarybody explicitly visualdysfunctionbirthfamilies1/6 andRPfamily4; conservativeminimum3targetfamiliesofsixoverall.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "JATS documents six unrelated families, retinal dystrophy, patient splice defect and matching mouse phenotype. First located preprint PPR705483 2023-08-21, not 2024 journal date."
     },
     {
       "symbol": "IDH3G",
@@ -89,7 +118,9 @@
       ],
       "unrelated_families": 5,
       "evidence_summary": "Five unrelated men; segregation of variants/deletion with RP and mitochondrial/protein assays.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Five unrelated men; segregation of variants/deletion with RP and mitochondrial/protein assays."
     },
     {
       "symbol": "KCNJ16",
@@ -101,7 +132,11 @@
       ],
       "unrelated_families": null,
       "evidence_summary": "Eight affected people and subsequent case; channel electrophysiology. Pre-2020 search hits concern causal KCNJ10, not KCNJ16.",
-      "remaining_checks": "Verify unrelated pedigree count in first paper; 2012 linkage paper includes retinitis pigmentosa but no established KCNJ16 variant claim in abstract."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "unrelated_target_families_lower_bound": 7,
+      "target_family_evidence": "OriginalTable1 patients1\u20138 in familiesA\u2013G, allsensorineuraldeafness=yes; table/pedigree overrides inconsistentintrocount. Followup33840812 hearingnotreported and notusedassensoryreplication.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Eight affected people and subsequent case; channel electrophysiology. Pre-2020 search hits concern causal KCNJ10, not KCNJ16."
     },
     {
       "symbol": "KIAA1024L",
@@ -112,7 +147,9 @@
       ],
       "unrelated_families": 4,
       "evidence_summary": "MINAR2: thirteen affected individuals in four unrelated families and animal hair-cell/function assays. The 2020 paper explicitly says minar2 had no human ortholog in its screened set; it does not report MINAR2 pathogenic human variants.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "MINAR2: thirteen affected individuals in four unrelated families and animal hair-cell/function assays. The 2020 paper explicitly says minar2 had no human ortholog in its screened set; it does not report MINAR2 pathogenic human variants."
     },
     {
       "symbol": "MRPL49",
@@ -123,18 +160,34 @@
       ],
       "unrelated_families": 9,
       "evidence_summary": "Nine families with hearing loss, leukodystrophy/ovarian insufficiency and retinal involvement; complexome/function support. PPR923018 posted 2024-10-11.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "unrelated_target_families_lower_bound": 7,
+      "target_family_evidence": "Primary body F1,F3,F4,F5,F7,F9 have SNHL, F8 has RP; F2 hearing unassessed/no deficit and F6 no hearing impairment. Seven confirmed target families of nine total, no division of patient count into family count.",
+      "first_verified_target_date": "2024-10-11",
+      "first_public_preprint": "PPR923018",
+      "earlier_thesis_uncertainty": "Rea thesis award2022/submissionJan2023 precedespeerpreprint; exactpublicdepositnotverified. Recordpostcutoffthesis-versus2024preprintfirstdateuncertainty, notprecisefirst2024claim.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Nine families with hearing loss, leukodystrophy/ovarian insufficiency and retinal involvement; complexome/function support. PPR923018 posted 2024-10-11.",
+      "target_public_date_interval": [
+        "2022-01-01",
+        "2024-10-11"
+      ]
     },
     {
       "symbol": "OGDHL",
-      "proposed_status": "strong_novel_target",
+      "proposed_status": "candidate_contested_human_validity",
       "domain": "hearing_visual_mitochondrial",
       "clinical_pmids": [
         "34800363"
       ],
       "unrelated_families": 8,
-      "evidence_summary": "Nine individuals in eight unrelated families; hearing/visual features and variant-specific fly rescue/respiration assays.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "evidence_summary": "Nine individuals in eight unrelated families; hearing/visual features and variant-specific fly rescue/respiration assays. Contrary2023primary GenomeMedicine study questionsgenevalidity, unaffectedhomozygousfamily9sibling andalternative diagnoses. Functionalone doesnotsettle humanvalidity; excludefromstrongprimary beforeoutcomes, reportcontestedcandidate separately.",
+      "remaining_checks": "Preserve contestation flag and prior-other categoryB; do not count2023 as uncomplicated replication.",
+      "novelty": "B",
+      "unrelated_target_families_lower_bound": 4,
+      "target_family_evidence": "Original2021 Table1: hearing families1/2/8; retinopathyfamily2 and bilateralopticatrophyfamily5. Earlier2017 Ser778Leu comparator has hearing=no and ophthalmology=no.",
+      "clinical_status": "candidate_novel_target",
+      "contested_primary_pmcid": "PMC10688095"
     },
     {
       "symbol": "PKHD1L1",
@@ -145,7 +198,11 @@
       ],
       "unrelated_families": 4,
       "evidence_summary": "Four recessive hearing families with splicing/protein support; PPR737916 posted 2023-10-09. Earlier diabetic retinopathy common-risk/candidate screen is not automatically Mendelian hearing association.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "first_verified_target_date": "2023-10-09",
+      "first_public_preprint": "PPR737916",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Four recessive hearing families with splicing/protein support; PPR737916 posted 2023-10-09. Earlier diabetic retinopathy common-risk/candidate screen is not automatically Mendelian hearing association."
     },
     {
       "symbol": "RFC4",
@@ -156,9 +213,11 @@
       ],
       "unrelated_families": 8,
       "evidence_summary": "Nine people from eight unrelated families per PanelApp primary-reference curation; RFC complex instability and variant assays.",
-      "remaining_checks": "Confirm earliest public report/possible preprint and retain full primary provenance before freeze.",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
       "primary_fulltext_verified": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11393705/",
-      "target_family_evidence": "Table1 hearing impairment in individuals2,3,4,5,8,9; multiple unrelated pedigrees."
+      "target_family_evidence": "Table1 hearing impairment in individuals2,3,4,5,8,9; multiple unrelated pedigrees.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Nine people from eight unrelated families per PanelApp primary-reference curation; RFC complex instability and variant assays."
     },
     {
       "symbol": "RNF220",
@@ -167,9 +226,13 @@
       "clinical_pmids": [
         "33964137"
       ],
-      "unrelated_families": 7,
-      "evidence_summary": "Seven consanguineous families with leukodystrophy/deafness; lamin binding and nuclear/fly assays.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "unrelated_families": 5,
+      "evidence_summary": "Original nine people in four Roma pedigrees plus one Italian family; shared Roma founder haplotype does not create four independent backgrounds. Independent Chinese report36083980 supports replication; variant lamin-binding assays.",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "first_verified_target_date": "2021-05-08",
+      "primary_date_source_url": "https://academic.oup.com/brain/article/144/10/3020/6272579",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Original nine people in four Roma pedigrees plus one Italian family; shared Roma founder haplotype does not create four independent backgrounds. Independent Chinese report36083980 supports replication; variant lamin-binding assays."
     },
     {
       "symbol": "SPATA5L1",
@@ -180,7 +243,13 @@
       ],
       "unrelated_families": 26,
       "evidence_summary": "47 individuals in 26 unrelated families; hearing/neurodevelopmental phenotype.",
-      "remaining_checks": "Verify experimental support beyond modelling/expression or identify an independent replication report meeting the rubric."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "independent_replication_pmid": "37902276",
+      "independent_replication_evidence": "New girl with sensorineural hearing loss, compound heterozygous AFG2B variants in 2023 report; not the preprint family solely counted twice.",
+      "first_verified_target_date": "2021-10-07",
+      "primary_date_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8546233/",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": null
     },
     {
       "symbol": "USP48",
@@ -191,7 +260,10 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "Large family plus unrelated inherited and de novo cases; ubiquitin hydrolase activity assays.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "first_verified_target_date": "2021-05-31",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Large family plus unrelated inherited and de novo cases; ubiquitin hydrolase activity assays."
     },
     {
       "symbol": "CLEC3B",
@@ -202,7 +274,9 @@
       ],
       "unrelated_families": 5,
       "evidence_summary": "Five multigenerational maculoretinopathy families; mutant-gene delivery recapitulates retinal structural/functional defects.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Five multigenerational maculoretinopathy families; mutant-gene delivery recapitulates retinal structural/functional defects."
     },
     {
       "symbol": "CREB3",
@@ -213,7 +287,16 @@
       ],
       "unrelated_families": 4,
       "evidence_summary": "Thirteen retinal cases in four unrelated families; founder nonsense variant produces truncated protein in patient fibroblasts.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "first_verified_target_date": "2024-05",
+      "primary_date_source_url": "https://step-gtp.org/step-accomplishments/",
+      "earlier_conference_date_uncertainty": "Author-program record explicitCREB3retinalpresentation IIRDCMay2024/ISVERJuly2024; originalabstract/programnotcached. Journalonline2025-07-17. Retain2024\u20132025firstpublicinterval, notprecisefirstMaydate.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Thirteen retinal cases in four unrelated families; founder nonsense variant produces truncated protein in patient fibroblasts.",
+      "target_public_date_interval": [
+        "2024-05-01",
+        "2025-07-17"
+      ]
     },
     {
       "symbol": "FSD1L",
@@ -225,7 +308,9 @@
       ],
       "unrelated_families": 4,
       "evidence_summary": "Retinal paper has six affected individuals from four families; splice assays and retina axoneme localization, companion neurodevelopmental/cilia functional report same public date.",
-      "remaining_checks": "Check public preprints/online dates of both companion reports and do not classify simultaneous reports as prior non-target disease."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Retinal paper has six affected individuals from four families; splice assays and retina axoneme localization, companion neurodevelopmental/cilia functional report same public date."
     },
     {
       "symbol": "UBAP1L",
@@ -236,7 +321,9 @@
       ],
       "unrelated_families": 4,
       "evidence_summary": "Four independent recessive retinal cases; retinal organoid/in vitro evidence for truncated ubiquitin-binding domain.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Four independent recessive retinal cases; retinal organoid/in vitro evidence for truncated ubiquitin-binding domain."
     },
     {
       "symbol": "XXYLT1",
@@ -247,7 +334,9 @@
       ],
       "unrelated_families": 6,
       "evidence_summary": "Clinical replication in at least four Finnish and two UK families after GWAS; splice defect demonstrated experimentally. This is supported Mendelian association, not GWAS-only evidence.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Clinical replication in at least four Finnish and two UK families after GWAS; splice defect demonstrated experimentally. This is supported Mendelian association, not GWAS-only evidence."
     },
     {
       "symbol": "TP73",
@@ -258,7 +347,9 @@
       ],
       "unrelated_families": 5,
       "evidence_summary": "Seven affected individuals in five unrelated families; patient airway multiciliogenesis/ultrastructure assays. Older cancer/risk reports are not germline Mendelian disease claims.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Seven affected individuals in five unrelated families; patient airway multiciliogenesis/ultrastructure assays. Older cancer/risk reports are not germline Mendelian disease claims."
     },
     {
       "symbol": "SCNM1",
@@ -270,7 +361,9 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "Three OFD families initially, four additional families later; minor intron splicing and cilia defects with rescue.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Three OFD families initially, four additional families later; minor intron splicing and cilia defects with rescue."
     },
     {
       "symbol": "CEP76",
@@ -281,7 +374,9 @@
       ],
       "unrelated_families": 8,
       "evidence_summary": "Eight unrelated individuals with multisystem ciliopathy; patient cells, variant complementation and zebrafish.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Eight unrelated individuals with multisystem ciliopathy; patient cells, variant complementation and zebrafish."
     },
     {
       "symbol": "CFAP54",
@@ -293,7 +388,9 @@
       ],
       "unrelated_families": 2,
       "evidence_summary": "First paper has two unrelated PCD patients and variant/knock-in mouse support; second paper adds four CFAP54 families, not four CFAP46 families.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "First paper has two unrelated PCD patients and variant/knock-in mouse support; second paper adds four CFAP54 families, not four CFAP46 families."
     },
     {
       "symbol": "PSKH1",
@@ -304,7 +401,13 @@
       ],
       "unrelated_families": 4,
       "evidence_summary": "Four hepatorenal ciliopathy families; patient cilia, mutant mouse and variant kinase assays.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "domains": [
+        "primary_cilia"
+      ],
+      "mechanism": "ciliary_clinical_association",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Four hepatorenal ciliopathy families; patient cilia, mutant mouse and variant kinase assays."
     },
     {
       "symbol": "RSG1",
@@ -315,7 +418,11 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "Three OFD families; variants disrupt basal-body docking/IFT recruitment and CPLANE/transition-zone architecture.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "first_verified_target_date": "2024-09-26",
+      "first_public_preprint": "PPR915961",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Three OFD families; variants disrupt basal-body docking/IFT recruitment and CPLANE/transition-zone architecture."
     },
     {
       "symbol": "PDIA6",
@@ -328,7 +435,15 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "Initial ATD/polycystic kidney case with loss-of-function support, independent second patient and later third report; gene depletion cilia assays in 2024.",
-      "remaining_checks": "Check independence of published families and target association date, retain candidate-mechanism caveat distinct from confirmed clinical gene association."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "first_verified_target_date": "2021-01-26",
+      "primary_date_source_url": "https://onlinelibrary.wiley.com/doi/10.1111/cge.13930",
+      "domains": [
+        "primary_cilia"
+      ],
+      "mechanism": "ciliary_clinical_association",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Initial ATD/polycystic kidney case with loss-of-function support, independent second patient and later third report; gene depletion cilia assays in 2024."
     },
     {
       "symbol": "EFCAB1",
@@ -339,7 +454,9 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "CLXN/ODAD5: three unrelated families with three distinct homozygous variants per PanelApp curation of primary report; ODA defects and functional planaria/animal evidence.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "CLXN/ODAD5: three unrelated families with three distinct homozygous variants per PanelApp curation of primary report; ODA defects and functional planaria/animal evidence."
     },
     {
       "symbol": "STX3",
@@ -350,7 +467,11 @@
       ],
       "unrelated_families": null,
       "evidence_summary": "Prior microvillus inclusion disease and proposed congenital cataract association; 2021 retinal dystrophy cohort and photoreceptor-specific knockout.",
-      "remaining_checks": "Count unrelated retinal families in original paper; define target retinal/optic disease separately from cataract and intestinal disease."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "unrelated_target_families_lower_bound": 6,
+      "target_family_evidence": "Primary2021 cohort:10patients8familiesoverallMVID; sixretinalfamilies. Earlier2014 intestinal/cataractassociation notretinal/optic underfrozen scope.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Prior microvillus inclusion disease and proposed congenital cataract association; 2021 retinal dystrophy cohort and photoreceptor-specific knockout."
     },
     {
       "symbol": "CTNND1",
@@ -361,7 +482,11 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "Three FEVR variant probands, variant/cadherin/Wnt and mouse vascular assays; earlier non-target developmental disease needs explicit reference/date.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "first_verified_target_date": "2022-06-14",
+      "primary_date_source_url": "https://insight.jci.org/articles/view/158428",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Three FEVR variant probands, variant/cadherin/Wnt and mouse vascular assays; earlier non-target developmental disease needs explicit reference/date."
     },
     {
       "symbol": "PLCG1",
@@ -373,13 +498,19 @@
       ],
       "unrelated_families": null,
       "evidence_summary": "Earlier germline immune disorder in 2023, later seven hearing/ocular cases plus variant-specific fly functional assays; 2024 preprint precedes 2025 publication.",
-      "remaining_checks": "Confirm unrelated target families and earliest preprint version (PMID38260438/DOI10.1101/2024.01.08.23300523); somatic cancers excluded from first germline novelty.",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
       "earliest_located_target_preprint": {
         "id": "PPR785159",
         "date": "2024-01-09",
         "doi": "10.1101/2024.01.08.23300523",
         "date_provenance": "cached all-source clinical_search/HGNC_9065.json"
-      }
+      },
+      "unrelated_target_families_lower_bound": 3,
+      "target_family_evidence": "Primary Table1 three de novo people and one inherited pedigree; hearing in individuals1/3 and inherited4/5/7 gives conservative at least3 target families; individual2 also optic atrophy. Seven individuals are not seven families.",
+      "first_verified_target_date": "2024-01-09",
+      "first_public_preprint": "PPR785159",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Earlier germline immune disorder in 2023, later seven hearing/ocular cases plus variant-specific fly functional assays; 2024 preprint precedes 2025 publication."
     },
     {
       "symbol": "BRWD1",
@@ -390,7 +521,9 @@
       ],
       "unrelated_families": 3,
       "evidence_summary": "Astra located red-panel nomination: three unrelated PCD individuals plus ciliary structural/function evidence; publisher public date 2021-01-03.",
-      "remaining_checks": "Confirm no pre-cutoff preprint/early-online version and save primary evidence."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Astra located red-panel nomination: three unrelated PCD individuals plus ciliary structural/function evidence; publisher public date 2021-01-03."
     },
     {
       "symbol": "STX4",
@@ -587,31 +720,42 @@
         "36055214"
       ],
       "unrelated_families": null,
-      "evidence_summary": "2019 combined retinal/hearing/mitochondrial case proposes LETM1 as additional modifier/candidate alongside causal OTX2. Distinguish modifier nomination from primary Mendelian disease association.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "evidence_summary": "Strong2022 cohort18people11familieswith opticatrophy/hearing andpatientbiochemistry. Accessible2019originalabstractattributes sensorycontexttoOTX2 andnominatesLETM1 forunexplainedataxia/myopathy/respiratorydefects; co-mentiondoesnotproveprior target. Originalfulltextunavailable, so retainBplausibilitywithunresolvedtargetattributionandexcludeprimarybeforeoutcomes ratherassertpretargetcausality.",
+      "remaining_checks": "Finalexcluded-Udecision; do notinferprior targetfromco-mention alone.",
+      "novelty": "U",
+      "clinical_status": "candidate_novelty_unresolved",
+      "prior_nontarget_candidate_pmid": "30773800"
     },
     {
       "symbol": "SAMD7",
-      "proposed_status": "prior_candidate_requires_resolution",
+      "proposed_status": "precutoff_candidate_maturation",
       "domain": "retinal",
       "clinical_pmids": [
         "26887858",
         "38272031"
       ],
       "unrelated_families": null,
-      "evidence_summary": "2016 SAMD7 cis-regulatory variants proposed as modifying RHO RP phenotype; cannot decide first causal gene novelty from abstract co-mentions alone.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "evidence_summary": "Primary2016 PMC4758057 explicitly proposesSAMD7 cis-regulatoryvariants ascontributors/modifiers ofRHO-E150K familialRP phenotype withreporteractivityeffect. Priorcandidate-modifier qualifiesexclusionfirstproposedtarget, withoutclaimingestablishedprimaryMendelianproof.",
+      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze.",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "prior_target_date": "2016-02-18"
     },
     {
       "symbol": "MIEF1",
-      "proposed_status": "prior_candidate_requires_resolution",
+      "proposed_status": "candidate_support_insufficient",
       "domain": "optic_mitochondrial",
       "clinical_pmids": [
         "33632269"
       ],
       "unrelated_families": null,
-      "evidence_summary": "2021 dominant optic neuropathy; earlier Parkinson candidate-gene preprint PPR243603 posted 2020-11-25 needs gene-specific causal-claim adjudication.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "evidence_summary": "Primary2021 PMC7905578 twoindependentopticprobands (Maghreb/Egyptian women), distinctheterozygousvariants and live-cellmitochondrialfusiondefects. No pedigrees/relativegenotyping orobservedsegregation; candidateundercurrentrubric, notestablishedAD transmission. EarlierParkinsoncandidatepreprint remainspriornontargetnoveltyuncertainty.",
+      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze.",
+      "clinical_status": "candidate_novel_target",
+      "novelty": "U",
+      "first_verified_target_date": "2021-02-25",
+      "unrelated_target_families_lower_bound": 2,
+      "observed_human_segregation": false
     },
     {
       "symbol": "AP5M1",
@@ -627,64 +771,94 @@
     },
     {
       "symbol": "AP5Z1",
-      "proposed_status": "clinical_strength_requires_resolution",
+      "proposed_status": "phenotype_expansion",
       "domain": "retinal",
       "clinical_pmids": [
-        "40081374",
-        "41830174"
+        "27606357",
+        "40081374"
       ],
       "unrelated_families": null,
-      "evidence_summary": "First paper covers 19 families across three genes; use each gene-specific pedigree count. Healthy-RPE localization alone is not qualifying functional validation; independent 2026 AP5Z1/AP5B1 replication may meet rubric. AP5Z1 had prior spastic paraplegia.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "evidence_summary": "Original 2016 fulltext PMC5001803 describes macular degeneration and hearing loss in patient1 and pigmentary retinopathy in three siblings of a separate Belgian family. Later retina reports cannot enter first-target recovery.",
+      "remaining_checks": "Finalize reference cache/provenance and earliest-date search before committed freeze.",
+      "clinical_status": "phenotype_expansion",
+      "novelty": "C",
+      "prior_target_date": "2016-08-25"
     },
     {
       "symbol": "AP5B1",
-      "proposed_status": "clinical_strength_requires_resolution",
+      "proposed_status": "strong_novel_target",
       "domain": "retinal",
       "clinical_pmids": [
         "40081374",
         "41830174"
       ],
-      "unrelated_families": null,
+      "unrelated_families": 20,
       "evidence_summary": "First paper covers 19 families across three genes; use each gene-specific pedigree count. Healthy-RPE localization alone is not qualifying functional validation; independent 2026 AP5Z1/AP5B1 replication may meet rubric. AP5Z1 had prior spastic paraplegia.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "independent_replication_pmids": [
+        "41830174",
+        "42568187"
+      ],
+      "independent_replication_evidence": "2026 report includes 22 affected people in 20 families; use per-gene counts, not all 19 families in first multi-gene study.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": null
     },
     {
       "symbol": "C19orf44",
-      "proposed_status": "clinical_strength_requires_resolution",
+      "proposed_status": "strong_novel_target",
       "domain": "retinal",
       "clinical_pmids": [
-        "40079362"
+        "40079362",
+        "40744518"
       ],
       "unrelated_families": 11,
       "evidence_summary": "Eleven unrelated retinal families; abstract reports expression/localization only, so locate variant functional evidence or independent replication before assigning strong cohort.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "independent_replication_pmid": "40744518",
+      "independent_replication_evidence": "Independent EastAsianpatient3 has c.1168C>T/c.976_977del, absent originalfourvariantlist andancestries; at leastone genuinelynewtargetfamily established without assumingallthree are independent.",
+      "unrelated_target_families_lower_bound": 2,
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": null
     },
     {
       "symbol": "TMEM72",
-      "proposed_status": "clinical_strength_requires_resolution",
+      "proposed_status": "strong_novel_target",
       "domain": "renal_cilia",
       "clinical_pmids": [
         "41308066"
       ],
       "unrelated_families": 6,
-      "evidence_summary": "Six NPHP-like families, altered expression/localization in patient kidney and ciliary binding assays. Authors call gene candidate; assess experimental evidence against uniform rubric, not label alone.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "evidence_summary": "Five coreNPHP-likefamilies, sixthprenatalrenal/neurodifferent. PatientkidneyIF showsabnormallocalization/reducedprotein comparedhealthy,CKD andheterozygousparent controls, qualifies patient-cell moleculardefectcriterion. Healthycilialocalization alone notproof; zfishKO no renalphenotype; no ciliaryrescueclaim.",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "unrelated_target_families_lower_bound": 5,
+      "first_verified_target_date": "2021-08-31",
+      "earlier_conference_date_uncertainty": "ESHG C23.1 program TuesdayAug31 aligns2021; institutional abstractrecord Apr2022. Retain2021\u20132022 firstpublicinterval, not2025fullpaper asfirst.",
+      "primary_meeting_url": "https://researchinformation.umcutrecht.nl/en/publications/biallelic-tmem72-variants-in-patients-with-nephronophthisis-like-/",
+      "domains": [
+        "primary_cilia"
+      ],
+      "mechanism": "ciliary_clinical_association",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Five coreNPHP-likefamilies, sixthprenatalrenal/neurodifferent. PatientkidneyIF showsabnormallocalization/reducedprotein comparedhealthy,CKD andheterozygousparent controls, qualifies patient-cell moleculardefectcriterion. Healthycilialocalization alone notproof; zfishKO no renalphenotype; no ciliaryrescueclaim.",
+      "target_public_date_interval": [
+        "2021-01-01",
+        "2022-04-30"
+      ]
     },
     {
       "symbol": "NR6A1",
-      "proposed_status": "scope_requires_resolution",
+      "proposed_status": "outside_primary_scope_structural_ocular_comparison",
       "domain": "congenital_ocular_renal",
       "clinical_pmids": [
         "40610405"
       ],
       "unrelated_families": 6,
       "evidence_summary": "Six OVR families, variant rescue and cell assays; define inclusion of structural ocular/renal conditions before assigning broad sensory versus cilia mechanism stratum.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Retain six-family genotype/function evidence as separate structural ocular comparison; no automatic ciliary disease inference."
     },
     {
       "symbol": "WFDC2",
-      "proposed_status": "scope_requires_resolution",
+      "proposed_status": "outside_primary_scope_non_ciliary_respiratory_comparison",
       "domain": "respiratory_mimic",
       "clinical_pmids": [
         "38626355",
@@ -692,11 +866,11 @@
       ],
       "unrelated_families": null,
       "evidence_summary": "Strong new genetic sinopulmonary disorders, secreted airway/CF-like biology. Source panel includes respiratory mimics; they are not automatically disease-specific ciliopathy cases.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Retain independently supported airway disorder as separate clinical comparison, without labeling true biological negative or confirmed ciliopathy."
     },
     {
       "symbol": "AGR2",
-      "proposed_status": "scope_requires_resolution",
+      "proposed_status": "outside_primary_scope_non_ciliary_respiratory_comparison",
       "domain": "respiratory_mimic",
       "clinical_pmids": [
         "38626355",
@@ -704,30 +878,976 @@
       ],
       "unrelated_families": null,
       "evidence_summary": "Strong new genetic sinopulmonary disorders, secreted airway/CF-like biology. Source panel includes respiratory mimics; they are not automatically disease-specific ciliopathy cases.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "remaining_checks": "Retain independently supported airway disorder as separate clinical comparison, without labeling true biological negative or confirmed ciliopathy."
     },
     {
       "symbol": "BCOR",
-      "proposed_status": "phenotype_expansion_requires_resolution",
+      "proposed_status": "phenotype_expansion",
       "domain": "retinal",
       "clinical_pmids": [
+        "19367324",
         "36070393"
       ],
       "unrelated_families": 5,
-      "evidence_summary": "Astra located no-reference red-panel retinal report with five families and functional support; earlier OFCD ocular/hearing manifestations need target-domain adjudication.",
-      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze."
+      "evidence_summary": "Primary2009 PMC2826145 Tables2/3: genotyped OFCDfamiliesII/IV/VI/XIII hearingimpairment (bothconductive/sensorineural),5/34total. Later2022RP association is expansion, not first target.",
+      "remaining_checks": "Confirm earliest public report, prior association context, and final source provenance before freeze.",
+      "clinical_status": "phenotype_expansion",
+      "novelty": "C",
+      "prior_target_date": "2009-04-15"
     },
     {
       "symbol": "STXBP3",
-      "proposed_status": "first_target_prior_other_requires_resolution",
+      "proposed_status": "precutoff_target",
       "domain": "hearing_immune",
       "clinical_pmids": [
         "33346580",
         "33891011"
       ],
       "unrelated_families": 5,
-      "evidence_summary": "Five families with hearing/IBD/immune disease and cell polarity assays in 2021 primary report. Earlier position statement already lists STXBP3 as AD/AR monogenic IBD defect; public PubMed indexing December2020 and exact early-online date require verification. A pre-cutoff non-target clinical claim prevents first-any-disease classification.",
-      "remaining_checks": "Inspect old review for prior hearing target phenotype versus non-target IBD claim and verify early-public date, including supplement/table. Do not treat report as novel first-any-disease by issue year alone."
+      "evidence_summary": "Primary2018 conference abstract reports eightpatients/four unrelatedfamilies with severebilateralSNHL and damagingSTXBP3variants. DOIs10.1093/ibd/izy019.087 and10.1053/j.gastro.2017.11.120. Later2021 report is maturation, independentof2020review.",
+      "remaining_checks": "Inspect old review for prior hearing target phenotype versus non-target IBD claim and verify early-public date, including supplement/table. Do not treat report as novel first-any-disease by issue year alone.",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "prior_target_date": "2018-01",
+      "prior_primary_dois": [
+        "10.1093/ibd/izy019.087",
+        "10.1053/j.gastro.2017.11.120"
+      ]
+    },
+    {
+      "symbol": "INTS11",
+      "proposed_status": "strong_novel_target_pending_first_target_date",
+      "domain": "retinal_neuro",
+      "clinical_pmids": [
+        "37054711",
+        "37980560",
+        "41810893"
+      ],
+      "unrelated_target_families": 2,
+      "evidence_summary": "First germline neurological report in 2023 already noted retinal dystrophy in one family; 2026 independent family gives two retinal families with detailed electrophysiology. Variant-specific catalytic/mitotic assays in 2023. First target and stronger-target dates separate; post-cutoff maturation within holdout does not exclude genewise novel-target case.",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "First germline neurological report in 2023 already noted retinal dystrophy in one family; 2026 independent family gives two retinal families with detailed electrophysiology. Variant-specific catalytic/mitotic assays in 2023. First target and stronger-target dates separate; post-cutoff maturation within holdout does not exclude genewise novel-target case."
+    },
+    {
+      "symbol": "POC5",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "29272404",
+        "40590205"
+      ],
+      "prior_target_date": "2017-12",
+      "evidence_summary": "2017 human retinitis pigmentosa candidate with zebrafish rescue predates cutoff; 2025 twelve-family syndromic series is maturation/expansion, not first-target novelty.",
+      "proposed_status": "evidence_maturation",
+      "remaining_checks": "Finalize reference cache/provenance and earliest-date search before committed freeze."
+    },
+    {
+      "symbol": "SLC66A1",
+      "historical_symbol": "PQLC2",
+      "clinical_status": "strong_novel_target",
+      "novelty": "A",
+      "domains": [
+        "retinal"
+      ],
+      "clinical_pmids": [
+        "35486108",
+        "39669628"
+      ],
+      "unrelated_target_families_lower_bound": 5,
+      "evidence_summary": "2022 two retinal families; independent 2024 report DOI10.1016/j.gimo.2024.101834 online2024-02-29 adds four families, three without the alternative homozygous SPATA7 diagnosis. Supporting 2026 Portuguese family not required. Multigene replication abstract omits symbol and was missed by gene-title/abstract search; catalog/fulltext review is essential.",
+      "proposed_status": "strong_novel_target",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "2022 two retinal families; independent 2024 report DOI10.1016/j.gimo.2024.101834 online2024-02-29 adds four families, three without the alternative homozygous SPATA7 diagnosis. Supporting 2026 Portuguese family not required. Multigene replication abstract omits symbol and was missed by gene-title/abstract search; catalog/fulltext review is essential."
+    },
+    {
+      "symbol": "VWA8",
+      "clinical_status": "strong_novel_target",
+      "novelty": "B",
+      "domains": [
+        "retinal"
+      ],
+      "clinical_pmids": [
+        "34660594",
+        "37012052",
+        "40638000"
+      ],
+      "first_verified_target_date": "2023-04-03",
+      "unrelated_target_families_lower_bound": 2,
+      "evidence_summary": "2023 Chinese dominant RP pedigree with variant reduction, zebrafish perturbation and mitophagy assays; independent Mexican RP family2025. Prior2021 neurodevelopmental association is non-target and must be separately cited.",
+      "proposed_status": "strong_novel_target",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "2023 Chinese dominant RP pedigree with variant reduction, zebrafish perturbation and mitophagy assays; independent Mexican RP family2025. Prior2021 neurodevelopmental association is non-target and must be separately cited."
+    },
+    {
+      "symbol": "EGFLAM",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "domains": [
+        "retinal"
+      ],
+      "clinical_pmids": [
+        "26887996",
+        "41343198"
+      ],
+      "supporting_functional_pmids": [
+        "18641643",
+        "30282023"
+      ],
+      "first_verified_target_date": "2025-12-04",
+      "unrelated_target_families_lower_bound": 2,
+      "evidence_summary": "Primary2015 humanfamilialMeniere SNHL study nominates EGFLAM c.2057G>A alongside ITGA8 in twofamily1007184members. This is a priorcandidate, notestablishedMendelianproof; later2025retinaassociationcannot countfirst proposedtarget underuniformrule.",
+      "proposed_status": "precutoff_candidate_maturation",
+      "remaining_checks": "Finalize reference cache/provenance and earliest-date search before committed freeze.",
+      "prior_target_date": "2015-11"
+    },
+    {
+      "symbol": "SAXO6",
+      "historical_symbol": "MDM1",
+      "clinical_status": "strong_novel_target",
+      "novelty": "A",
+      "domains": [
+        "retinal"
+      ],
+      "mechanism": "ciliary",
+      "clinical_pmids": [
+        "41742423"
+      ],
+      "supporting_functional_pmids": [
+        "18805803",
+        "36171205"
+      ],
+      "first_verified_target_date": "2026-02-24",
+      "unrelated_target_families_lower_bound": 5,
+      "evidence_summary": "Clinical PMC13087473: six subjects/five families with six biallelic predicted-null variants. Earlier spontaneous Mdm1 nonsense and engineered knockout mice show retinal degeneration. Human healthy localization/protein interaction alone is not functional proof.",
+      "proposed_status": "strong_novel_target",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Clinical PMC13087473: six subjects/five families with six biallelic predicted-null variants. Earlier spontaneous Mdm1 nonsense and engineered knockout mice show retinal degeneration. Human healthy localization/protein interaction alone is not functional proof."
+    },
+    {
+      "symbol": "LIG3",
+      "clinical_status": "strong_novel_target",
+      "novelty": "A",
+      "domains": [
+        "retinal",
+        "hearing"
+      ],
+      "clinical_pmids": [
+        "33855352"
+      ],
+      "first_verified_target_date": "2021-04-15",
+      "unrelated_target_families_lower_bound": 2,
+      "evidence_summary": "Original Bonora2021 Table1: macular degeneration in patients1-1/1-2/2-1/2-2 establishes two unrelated retinal families; patient3-2 also has hearing loss. Patient-cell ligase/mtDNA functional defects and zebrafish phenotype. Received/accepted2020 are not public dates.",
+      "primary_table_url": "https://mhlw-grants.niph.go.jp/system/files/report_pdf/202011010A-betsuzuri.pdf",
+      "proposed_status": "strong_novel_target",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Original Bonora2021 Table1: macular degeneration in patients1-1/1-2/2-1/2-2 establishes two unrelated retinal families; patient3-2 also has hearing loss. Patient-cell ligase/mtDNA functional defects and zebrafish phenotype. Received/accepted2020 are not public dates."
+    },
+    {
+      "symbol": "THRB",
+      "clinical_status": "phenotype_expansion",
+      "novelty": "C",
+      "clinical_pmids": [
+        "8768826",
+        "22319036",
+        "40295579"
+      ],
+      "prior_target_date": "1996",
+      "evidence_summary": "Original human RTH series1996 reports hearing loss;2012 PMC3319181 lists hearing loss in multiple THRB-genotyped families. Postcutoff macular dystrophy is target phenotype expansion. 2011 mouse-only study is not the human prior.",
+      "proposed_status": "phenotype_expansion",
+      "remaining_checks": "Finalize reference cache/provenance and earliest-date search before committed freeze."
+    },
+    {
+      "symbol": "TBX2",
+      "clinical_status": "candidate_novelty_unresolved",
+      "novelty": "U",
+      "domains": [
+        "hearing"
+      ],
+      "clinical_pmids": [
+        "29726930",
+        "29522511",
+        "40962492"
+      ],
+      "first_verified_target_date": "2024-07-19",
+      "first_public_preprint": "PPR883671",
+      "unrelated_target_families_lower_bound": 2,
+      "evidence_summary": "Two unrelated dominant hearing-loss families with different frameshift variants, segregation, reporter activity loss and earlier knockout hearing phenotype. Prior2018 cardiovascular/skeletal/immune/corectopia and superior-coloboma reports concern non-target phenotypes under explicit scope. Earlier2011 multi-geneCNVhearingintervalstudy screened41patientsforTBX2 mutationsandfoundnone. AbstractdoesnotestablishspecificTBX2causality; fulltextunavailable. Neitherlabelasprovenpretargetnorassertunambiguousfirstproposal; keepdate/claimboundaryUbeforeoutcomes.",
+      "preprint_doi": "10.1101/2024.07.18.24310488",
+      "proposed_status": "prior_candidate_requires_resolution",
+      "remaining_checks": "Primarycohortexclusiondueunresolvedpriorgene-specificclaim; exploratorycasepreserved.",
+      "prior_candidate_pmid": "22052739"
+    },
+    {
+      "symbol": "NOTCH2NLC",
+      "clinical_status": "phenotype_expansion",
+      "novelty": "C",
+      "clinical_pmids": [
+        "32931575",
+        "32039647",
+        "37131242"
+      ],
+      "prior_target_date": "2020-02-10",
+      "evidence_summary": "Human retinal dystrophy and independent retinal series predating cutoff; later pathology cannot be counted as novel-target association.",
+      "proposed_status": "phenotype_expansion",
+      "remaining_checks": "Finalize reference cache/provenance and earliest-date search before committed freeze."
+    },
+    {
+      "symbol": "MSTO1",
+      "clinical_status": "phenotype_expansion",
+      "novelty": "C",
+      "clinical_pmids": [
+        "37431815"
+      ],
+      "prior_target_date": "2017-2018",
+      "evidence_summary": "Real recessive retinal findings predate cutoff in Nasca2017 and Iwama2018 (DOI10.1038/s10038-017-0405-8), reproduced in PMC6913144 Table1. Separate disputed dominant allele actually belongs to MSTO2P pseudogene and is not used as the prior evidence.",
+      "proposed_status": "phenotype_expansion",
+      "remaining_checks": "Finalize reference cache/provenance and earliest-date search before committed freeze."
+    },
+    {
+      "symbol": "CLCN2",
+      "clinical_status": "phenotype_expansion",
+      "novelty": "C",
+      "clinical_pmids": [
+        "23707145",
+        "36964785"
+      ],
+      "prior_target_date": "2013",
+      "evidence_summary": "Initial2013 human leukodystrophy abstract explicitly includes chorioretinopathy/optic neuropathy;2023 retinal report is expansion, not first-target novelty.",
+      "proposed_status": "phenotype_expansion",
+      "remaining_checks": "Finalize reference cache/provenance and earliest-date search before committed freeze."
+    },
+    {
+      "symbol": "SLC19A2",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "10391221"
+      ],
+      "evidence_summary": "Six TRMA families with SLC19A2 mutations and sensorineural deafness;1999.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "SPG11",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "19194956"
+      ],
+      "evidence_summary": "Four unrelated genotyped kindreds with central retinal degeneration;2009.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "SSBP1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "31298765"
+      ],
+      "evidence_summary": "Dominant optic atrophy with retinal degeneration;2019. Earlier modifier report is not necessary for exclusion.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "TEAD1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "15016762"
+      ],
+      "evidence_summary": "Causal human chorioretinal atrophy allele in Icelandic pedigree;2004.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "UNC119",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "11006213"
+      ],
+      "evidence_summary": "Human cone-rod dystrophy premature-stop candidate plus transgenic phenotype;2000. Candidate before cutoff suffices to exclude novelty.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "CD164",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "26197441"
+      ],
+      "evidence_summary": "Segregating nonsense allele in a large Danish hearing-loss family;2015.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "DHX38",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "24737827"
+      ],
+      "evidence_summary": "Recessive RP with macular coloboma in a genotyped Pakistani family;2014.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "IFT57",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "27060890"
+      ],
+      "evidence_summary": "Human OFD hypomorphic variant and patient fibroblast ciliary defect;2016.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "RDH11",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "24916380"
+      ],
+      "evidence_summary": "Three human siblings with syndromic RP and biallelic stop mutations;2014.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "NEK10",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "32414360"
+      ],
+      "evidence_summary": "Human PCD siblings with homozygous truncation and decreased protein;2020.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "CLDN9",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "31175426"
+      ],
+      "evidence_summary": "Segregating truncating variant and hearing impairment in Turkish family;2019.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "TUBB4B",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "29198720"
+      ],
+      "evidence_summary": "Human LCA/hearing families plus microtubule-growth variant assays;2017.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "ALPK1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "30967659"
+      ],
+      "evidence_summary": "Five unrelated ROSAH retinal/optic families with causal variant and patient ciliary assays;2019.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "IFT74",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "32144365"
+      ],
+      "evidence_summary": "Second human BBS case with retinal dystrophy and biallelic variants;2020; prior report earlier.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "TBC1D32",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "24285566"
+      ],
+      "evidence_summary": "Human OFDIX truncating candidate;2013.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "COL9A3",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "15917166"
+      ],
+      "evidence_summary": "Two possible causal variants in hearing-loss patients;2005; candidate before cutoff.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "TTC12",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "31978331"
+      ],
+      "evidence_summary": "Four independent PCD families, loss-of-function alleles and ciliary studies;2020.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "ARSG",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "32455177"
+      ],
+      "evidence_summary": "Independent Usher4 variant/patient report;2020 cites earlier three-family report.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "GAS2L2",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "30665704"
+      ],
+      "evidence_summary": "Two human PCD probands with biallelic variants and nasal-cell phenotype;2019.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "CTNNA1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "26691986"
+      ],
+      "evidence_summary": "Three human butterfly-pattern macular dystrophy families;2015.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "STN1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "32627942"
+      ],
+      "evidence_summary": "Genotyped Coats-plus child with retinal exudates;2020.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "BBIP1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "24026985"
+      ],
+      "evidence_summary": "Human BBS18 stop mutation and absent patient protein;2013.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "DLG5",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "32631816"
+      ],
+      "evidence_summary": "Four human ciliopathy families, kidney/hydrocephalus/ciliary defects and rescue;2020.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "KIAA0556",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "26714646"
+      ],
+      "evidence_summary": "Null variant in human Joubert family and patient-cell ciliogenesis phenotype;2015.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "FAM149B1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "30905400"
+      ],
+      "evidence_summary": "Human Joubert/OFD families and ciliopathy-associated fibroblast defects;2019.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "GRXCR2",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "24619944"
+      ],
+      "evidence_summary": "Pakistani hearing-loss family with frameshift and variant protein assays;2014.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "FOXI1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "29242249"
+      ],
+      "evidence_summary": "Human recessive deafness/renal-acidosis variants;2017. Do not use negative2013 screen as causal evidence.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "FOXJ1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "31630787"
+      ],
+      "evidence_summary": "Human motile ciliopathy/PCD variants;2019. Negative2000 mutation screen is not causal proof.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "LRRC32",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "30976112"
+      ],
+      "evidence_summary": "Two human cleft-palate/proliferative-retinopathy candidate families;2019.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "HARS2",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "21464306"
+      ],
+      "evidence_summary": "Human Perrault deafness family and mutant aminoacylation/rescue;2011.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "AP1B1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "31630791"
+      ],
+      "evidence_summary": "Two human MEDNIK-like families with null variants;2019.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "LAMA1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "25105227"
+      ],
+      "evidence_summary": "Human biallelic lamininopathy families including retinal dystrophy;2014.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "LAMP2",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "31264915"
+      ],
+      "evidence_summary": "Human peripheral pigmentary retinal dystrophy with de novo LAMP2 mutation;2019.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "LHX3",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "18407919"
+      ],
+      "evidence_summary": "Four genotyped human patients in two unrelated hearing-loss pedigrees;2008.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "LMX1A",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "29754270"
+      ],
+      "evidence_summary": "Two Dutch hearing-impairment families with heterozygous variants;2018.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "ARL3",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "30269812"
+      ],
+      "evidence_summary": "Two human Joubert families and variant ciliary cargo defects;2018.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "MPDZ",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "21862650"
+      ],
+      "evidence_summary": "Human RP/LCA variants proposed as retinal-disease candidates;2011. Animal-only evidence is not the exclusion reason.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "NME5",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "32185794"
+      ],
+      "evidence_summary": "First human PCD nonsense-variant report;March2020.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "ATOH1",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "33111345"
+      ],
+      "evidence_summary": "Five-generation human hearing-loss family in 2020 study;earlier2020 preprint also exists.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "DNAJC3",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "25466870"
+      ],
+      "evidence_summary": "Human recessive multisystemic diabetes/neurodegeneration with hearing loss;2014.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "PSMC3",
+      "proposed_status": "precutoff_target",
+      "clinical_pmids": [
+        "32500975"
+      ],
+      "evidence_summary": "Human neurosensory syndrome with severe deafness and intronic causal variant;June2020;earlier2019 preprint.",
+      "remaining_checks": "Archive final reference provenance and classification in full ascertainment ledger."
+    },
+    {
+      "symbol": "CLUAP1",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "26820066"
+      ],
+      "prior_target_date": "2016-01-28",
+      "evidence_summary": "Human LCA and variant rescue.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "COQ8B",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "25967120"
+      ],
+      "prior_target_date": "2015-05-12",
+      "evidence_summary": "Molecularly characterized ADCK4/COQ8B patient with RP.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "DHX16",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "31256877"
+      ],
+      "prior_target_date": "2019",
+      "evidence_summary": "Individuals8/9 have deafness/retinopathy.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "INTU",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "27158779"
+      ],
+      "prior_target_date": "2016",
+      "evidence_summary": "Human OFD/NPHP/SRPS with variant evidence.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "TMEM17",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "26982032"
+      ],
+      "prior_target_date": "2016",
+      "evidence_summary": "Two OFD6 siblings with p.N102K; patient-fibroblast ciliogenesis defects.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "PAK2",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "33693784"
+      ],
+      "prior_target_date": "2020-10-07",
+      "evidence_summary": "Same Knobloch family and assays in precutoff PPR222568 DOI10.1101/2020.10.06.328419.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "PYGM",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "30316539"
+      ],
+      "prior_target_date": "2018-10-11",
+      "evidence_summary": "Four unrelated molecularly characterized retinopathy patients.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "VSX2",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "20414678"
+      ],
+      "prior_target_date": "2010-04-23",
+      "evidence_summary": "Explicit semidominant inner retinal dystrophy proposal in heterozygous parents.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "KDM3B",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "30929739"
+      ],
+      "prior_target_date": "2019-03-28",
+      "evidence_summary": "Hearing loss in4/17 genotyped individuals; heterotaxy also reported.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "SUMF1",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "32749716"
+      ],
+      "prior_target_date": "2020-08-20",
+      "evidence_summary": "Hearing loss17/26 assessed; molecular results24/35 individuals; at least6 must overlap, not all35 genetically confirmed.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "SUFU",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "28965847"
+      ],
+      "prior_target_date": "2017-09-28",
+      "evidence_summary": "Joubert in four children/two families with variant assays.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "CFAP221",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "31636325"
+      ],
+      "prior_target_date": "2019-10-21",
+      "evidence_summary": "Three siblings with PCD and nasal ciliary waveform abnormalities.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "CFAP57",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "32764743"
+      ],
+      "prior_target_date": "2019-09-24",
+      "evidence_summary": "PCD patient and function; earlier bioRxiv773028, journal2020Aug7.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "DNAH1",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "25927852"
+      ],
+      "prior_target_date": "2015-03-17",
+      "evidence_summary": "Two Saudi sisters with PCD and proposed homozygous candidate; excludes first proposed novelty without claiming established validity.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "DNAH6",
+      "proposed_status": "precutoff_target",
+      "clinical_status": "evidence_maturation",
+      "novelty": "D",
+      "clinical_pmids": [
+        "26918822"
+      ],
+      "prior_target_date": "2016-02-26",
+      "evidence_summary": "Human heterotaxy with ciliary dysfunction and proposed oligogenic contribution; preserve candidate qualification.",
+      "remaining_checks": "Reference caching and final roster closure; source adjudication reviewed independently before scores."
+    },
+    {
+      "symbol": "COQ5",
+      "proposed_status": "strong_first_target_prior_other",
+      "novelty": "B",
+      "domains": [
+        "retinal"
+      ],
+      "clinical_pmids": [
+        "36266294"
+      ],
+      "first_verified_target_date": "2022-10-20",
+      "unrelated_target_families_lower_bound": 2,
+      "evidence_summary": "Primary PMC9581764: retinal families11/12, in-trans alleles and splice defect c.682-7T>G. Earlier2017 PMC5722658 neurological report explicitly normal fundoscopy, no target sensory phenotype.",
+      "primary_fulltext_verified": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9581764/",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "incorrect_identifier_probe_not_used": "36300345 resolves to unrelated materials-science article; never use this trial as clinical evidence.",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Primary PMC9581764: retinal families11/12, in-trans alleles and splice defect c.682-7T>G. Earlier2017 PMC5722658 neurological report explicitly normal fundoscopy, no target sensory phenotype."
+    },
+    {
+      "symbol": "PLXNB2",
+      "proposed_status": "candidate_support_insufficient",
+      "clinical_pmids": [
+        "38458752"
+      ],
+      "unrelated_target_families_lower_bound": 5,
+      "first_verified_target_date": "2024-03-08",
+      "domain": "hearing",
+      "evidence_summary": "Five confirmed target families, sixth unassessed. Healthy expression/predicted splicing and CNS knockout are not verified sensory perturbation or independent sensory replication.",
+      "remaining_checks": "Preserve candidate classification, not strong."
+    },
+    {
+      "symbol": "GPN2",
+      "proposed_status": "candidate_support_insufficient",
+      "clinical_pmids": [
+        "42392036"
+      ],
+      "unrelated_target_families_lower_bound": 2,
+      "domain": "hearing",
+      "evidence_summary": "Primary PMC13504329 three reported families, Pakistani and Irish genetic backgrounds. No variant/patient RNAPII assays in retrieved body; healthy cochlear expression only. ResearchGate claims differ from current primary version. Manchester thesis public-deposit date and detailed functional work remain unverified.",
+      "remaining_checks": "Earliest-public interval/thesis uncertainty recorded; remains candidate."
+    },
+    {
+      "symbol": "BSN",
+      "proposed_status": "candidate_support_insufficient",
+      "clinical_pmids": [
+        "39302268"
+      ],
+      "unrelated_families": 1,
+      "domain": "hearing",
+      "evidence_summary": "One extended chronic-otitis family, imperfect segregation and alternative variants, computational evidence only. Prior ear-infection GWAS is not Mendelian proof.",
+      "remaining_checks": "Scope/strength explicitly exploratory."
+    },
+    {
+      "symbol": "ITCH",
+      "proposed_status": "outside_primary_scope_non_ciliary_respiratory_comparison",
+      "clinical_pmids": [
+        "41130596"
+      ],
+      "domain": "respiratory_mimic",
+      "evidence_summary": "Single immune-dysregulation/bronchiectasis case without documented primary ciliary or sensory evidence.",
+      "remaining_checks": "Outside primary scope, not biological negative."
+    },
+    {
+      "symbol": "SLC39A12",
+      "clinical_pmids": [
+        "35486108"
+      ],
+      "domain": "retinal",
+      "evidence_summary": "One isolated RP family MOL0812, no independent target family verified.",
+      "remaining_checks": "Finalize source and date provenance before outcomes.",
+      "proposed_status": "candidate_single_family"
+    },
+    {
+      "symbol": "NTN1",
+      "clinical_pmids": [
+        "39648562"
+      ],
+      "domain": "hearing",
+      "evidence_summary": "One child with coloboma and SNHL, variant effects and prior non-target mirror movements; remains single-family.",
+      "remaining_checks": "Finalize source and date provenance before outcomes.",
+      "proposed_status": "candidate_single_family",
+      "novelty": "B"
+    },
+    {
+      "symbol": "RNU4-2",
+      "clinical_pmids": [
+        "41513982"
+      ],
+      "domain": "retinal",
+      "evidence_summary": "41 individuals from15 retinalfamilies; mutant RNA mechanistic assays. Prior2024 NDD association is non-target. Noncoding gene retained for end-to-end universe attrition.",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "proposed_status": "strong_first_target_prior_other",
+      "first_verified_target_date": "2025-01-06",
+      "unrelated_target_families_lower_bound": 15,
+      "novelty": "B",
+      "preprint_pmid": "39830270",
+      "preprint_doi": "10.1101/2025.01.06.24317169",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "41 individuals from15 retinalfamilies; mutant RNA mechanistic assays. Prior2024 NDD association is non-target. Noncoding gene retained for end-to-end universe attrition."
+    },
+    {
+      "symbol": "RNU6-2",
+      "clinical_pmids": [
+        "41513982"
+      ],
+      "domain": "retinal",
+      "evidence_summary": "Original cohortfour retinalfamilies per gene and shared RNA mutant-mechanism experiments; noncoding universe attrition.",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "proposed_status": "strong_novel_target",
+      "first_verified_target_date": "2025-01-06",
+      "unrelated_target_families_lower_bound": 4,
+      "novelty": "A",
+      "preprint_pmid": "39830270",
+      "preprint_doi": "10.1101/2025.01.06.24317169",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Original cohortfour retinalfamilies per gene and shared RNA mutant-mechanism experiments; noncoding universe attrition."
+    },
+    {
+      "symbol": "RNU6-8",
+      "clinical_pmids": [
+        "41513982"
+      ],
+      "domain": "retinal",
+      "evidence_summary": "Original cohortfour retinalfamilies per gene and shared RNA mutant-mechanism experiments; noncoding universe attrition.",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "proposed_status": "strong_novel_target",
+      "first_verified_target_date": "2025-01-06",
+      "unrelated_target_families_lower_bound": 4,
+      "novelty": "A",
+      "preprint_pmid": "39830270",
+      "preprint_doi": "10.1101/2025.01.06.24317169",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Original cohortfour retinalfamilies per gene and shared RNA mutant-mechanism experiments; noncoding universe attrition."
+    },
+    {
+      "symbol": "RNU6-9",
+      "clinical_pmids": [
+        "41513982"
+      ],
+      "domain": "retinal",
+      "evidence_summary": "Original cohortfour retinalfamilies per gene and RNA mutant-mechanism experiments; noncoding universe attrition.",
+      "remaining_checks": "Pre-outcome source/clinical decision ready for final frozen roster; uncertainty fields remain explicit.",
+      "proposed_status": "strong_novel_target",
+      "first_verified_target_date": "2025-01-06",
+      "unrelated_target_families_lower_bound": 4,
+      "novelty": "A",
+      "preprint_pmid": "39830270",
+      "preprint_doi": "10.1101/2025.01.06.24317169",
+      "observed_human_inheritance_evidence": "Reported segregating biallelic/dominant or confirmed de novo genotypes consistent with the target phenotype; source-specific details in cited primary studies.",
+      "qualifying_functional_evidence": "Original cohortfour retinalfamilies per gene and RNA mutant-mechanism experiments; noncoding universe attrition."
+    },
+    {
+      "symbol": "RNU6-1",
+      "clinical_pmids": [
+        "41513982"
+      ],
+      "domain": "retinal",
+      "evidence_summary": "At leastone retinalfamily and mutantmechanism; individualparalog unrelatedfamilycount pending supplementaryTable2. Do not divide52 allparalog families byfour.",
+      "remaining_checks": "Finalize source and date provenance before outcomes.",
+      "proposed_status": "candidate_support_insufficient",
+      "first_verified_target_date": "2025-01-06",
+      "unrelated_target_families_lower_bound": 1,
+      "novelty": "A",
+      "preprint_pmid": "39830270",
+      "preprint_doi": "10.1101/2025.01.06.24317169"
+    },
+    {
+      "symbol": "COQ4",
+      "proposed_status": "candidate_single_family",
+      "novelty": "U",
+      "domain": "retinal_mitochondrial",
+      "clinical_pmids": [
+        "36266294"
+      ],
+      "unrelated_target_families_lower_bound": 1,
+      "evidence_summary": "2022 multi-gene retinalstudy provides oneCOQ4family; twoCOQ5familiesmustnottransfer. Olderhearingassociation andindependenttargetfamilycoverageunresolved. Doesnotqualifystrongonthispaperalone.",
+      "remaining_checks": "Exploratorysingle-family/sourceuncertaintydecisionfixedbeforeoutcomes."
     }
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "recorded_utc": "2026-10-06T13:23:49.193850+00:00",
+  "scores_read": false,
+  "records": [
+    {
+      "pmcid": "PMC9616573",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9616573/fullTextXML",
+      "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC9616573.xml",
+      "bytes": 146074,
+      "sha256": "9dbba1f2cbb05c8d24dfca40a8ca6c2b89c09a3b3cab2d1b88d5fdd362bbe3a6",
+      "status": "complete"
+    },
+    {
+      "pmcid": "PMC8715183",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8715183/fullTextXML",
+      "status": "failed",
+      "error": "HTTP Error 500: "
+    },
+    {
+      "pmcid": "PMC13504329",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13504329/fullTextXML",
+      "path": "data/cache/temporal-validation-v2-20261006/clinical_fulltext/PMC13504329.xml",
+      "bytes": 32583,
+      "sha256": "b88f68c6972f87752e2059891fcf3a2b316dc948978640b191fd61b70a9b2ba7",
+      "status": "complete"
+    }
+  ]
+}
