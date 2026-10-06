@@ -1,0 +1,62 @@
+[
+  {
+    "name": "mgi_2020_wayback_file",
+    "requested_url": "https://web.archive.org/web/20200202074056id_/http://www.informatics.jax.org:80/downloads/reports/HMD_HumanPhenotype.rpt",
+    "retrieved_utc": "2026-10-06T09:13:57.561813+00:00",
+    "status": 200,
+    "final_url": "https://web.archive.org/web/20200202074056id_/http://www.informatics.jax.org:80/downloads/reports/HMD_HumanPhenotype.rpt",
+    "content_type": null,
+    "content_length": "1545444",
+    "last_modified": null,
+    "truncated": true,
+    "error": null,
+    "saved_bytes": 262145,
+    "prefix_sha256": "b8bd19770fb1adbdc9a4c7576d85d2e389ccf9d6dc7fb6414dcea8b52c520362",
+    "prefix_path": "data/cache/temporal-extension-20261006/probes/mgi_2020_wayback_file.prefix"
+  },
+  {
+    "name": "mgi_mp_wayback_catalog",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=informatics.jax.org/downloads/reports/VOC_MammalianPhenotype.rpt&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4",
+    "retrieved_utc": "2026-10-06T09:13:57.562297+00:00",
+    "status": 200,
+    "final_url": "https://web.archive.org/cdx/search/cdx?url=informatics.jax.org/downloads/reports/VOC_MammalianPhenotype.rpt&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4",
+    "content_type": "application/json",
+    "content_length": null,
+    "last_modified": null,
+    "truncated": false,
+    "error": null,
+    "saved_bytes": 1003,
+    "prefix_sha256": "fbe37253fb01079a7f66456d5366b69bf04d6fa059476d4ca8c6f89186e03480",
+    "prefix_path": "data/cache/temporal-extension-20261006/probes/mgi_mp_wayback_catalog.prefix"
+  },
+  {
+    "name": "gene2pubmed_wayback_https",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=ftp.ncbi.nlm.nih.gov/gene/DATA/gene2pubmed.gz&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4",
+    "retrieved_utc": "2026-10-06T09:13:57.562255+00:00",
+    "status": 200,
+    "final_url": "https://web.archive.org/cdx/search/cdx?url=ftp.ncbi.nlm.nih.gov/gene/DATA/gene2pubmed.gz&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4",
+    "content_type": "application/json",
+    "content_length": null,
+    "last_modified": null,
+    "truncated": false,
+    "error": null,
+    "saved_bytes": 474,
+    "prefix_sha256": "10f05c76084a80f5fa56351ca58f28df4928a81ddd71a9d33dd2a7501f3c7c76",
+    "prefix_path": "data/cache/temporal-extension-20261006/probes/gene2pubmed_wayback_https.prefix"
+  },
+  {
+    "name": "hcop_old_wayback_catalog",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=ftp.ebi.ac.uk/pub/databases/genenames/hcop/human_mouse_hcop_fifteen_column.txt.gz&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4",
+    "retrieved_utc": "2026-10-06T09:13:57.562193+00:00",
+    "status": 200,
+    "final_url": "https://web.archive.org/cdx/search/cdx?url=ftp.ebi.ac.uk/pub/databases/genenames/hcop/human_mouse_hcop_fifteen_column.txt.gz&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4",
+    "content_type": "application/json",
+    "content_length": null,
+    "last_modified": null,
+    "truncated": false,
+    "error": null,
+    "saved_bytes": 3,
+    "prefix_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "prefix_path": "data/cache/temporal-extension-20261006/probes/hcop_old_wayback_catalog.prefix"
+  }
+]

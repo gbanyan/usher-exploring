@@ -1,0 +1,108 @@
+[
+  {
+    "file": "data/cache/temporal-extension-20261006/tmem218_paper.xml",
+    "sha256": "3065c6b4aad78337412fd977a2c65dd9ba63aecc2a882e5ed0145b3180d47a77",
+    "primary_full_text_endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8009330/fullTextXML",
+    "publication_dates": [
+      {
+        "year": "2020",
+        "month": "11",
+        "day": "21"
+      }
+    ],
+    "article_ids": [
+      {
+        "pub-id-type": "pmcid",
+        "value": "PMC8009330"
+      },
+      {
+        "pub-id-type": "pmcaid",
+        "value": "8009330"
+      },
+      {
+        "pub-id-type": "pmcaiid",
+        "value": "8756510"
+      },
+      {
+        "pub-id-type": "pmid",
+        "value": "33791682"
+      },
+      {
+        "pub-id-type": "doi",
+        "value": "10.1016/j.xhgg.2020.100016"
+      },
+      {
+        "pub-id-type": "nihmsid",
+        "value": "NIHMS1663070"
+      }
+    ]
+  },
+  {
+    "file": "data/cache/temporal-extension-20261006/PMC9340050.xml",
+    "sha256": "172d6f0184d3f46e0af199f62f9485403fd68f091f323d9cb89ffbd13f4e8e61",
+    "primary_full_text_endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9340050/fullTextXML",
+    "publication_dates": [
+      {
+        "year": "2021",
+        "month": "10",
+        "day": "29"
+      }
+    ],
+    "article_ids": [
+      {
+        "pub-id-type": "pmcid",
+        "value": "PMC9340050"
+      },
+      {
+        "pub-id-type": "pmcaid",
+        "value": "9340050"
+      },
+      {
+        "pub-id-type": "pmcaiid",
+        "value": "9340050"
+      },
+      {
+        "pub-id-type": "pmid",
+        "value": "34716235"
+      },
+      {
+        "pub-id-type": "doi",
+        "value": "10.1136/jmedgenet-2021-108065"
+      }
+    ]
+  },
+  {
+    "file": "data/cache/temporal-extension-20261006/PMC9633640.xml",
+    "sha256": "838f93d0f05efd58830218fd45b81edb7464cd6a66ac6a617140a586f1185f25",
+    "primary_full_text_endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9633640/fullTextXML",
+    "publication_dates": [
+      {
+        "year": "2022",
+        "month": "11",
+        "day": "3"
+      }
+    ],
+    "article_ids": [
+      {
+        "pub-id-type": "pmcid",
+        "value": "PMC9633640"
+      },
+      {
+        "pub-id-type": "pmcaid",
+        "value": "9633640"
+      },
+      {
+        "pub-id-type": "pmcaiid",
+        "value": "9633640"
+      },
+      {
+        "pub-id-type": "pmid",
+        "value": "36329026"
+      },
+      {
+        "pub-id-type": "doi",
+        "value": "10.1038/s41467-022-33820-w"
+      }
+    ]
+  }
+]

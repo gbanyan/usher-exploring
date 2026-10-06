@@ -1,0 +1,73 @@
+scheme	gene_id	gene_symbol	score	percentile	rank_position	rank_denominator	evidence_count	top25	top50	top100	role
+historical_default_available	ENSG00000006611	USH1C	0.23308736104453354	30.32261454392602	13262	19033	4	False	False	False	precutoff_known_usher_reference
+historical_default_available	ENSG00000042781	USH2A	0.47518504035676085	85.27742749054225	2803	19033	2	False	False	False	precutoff_known_usher_reference
+historical_default_available	ENSG00000070761	CFAP20	0.28276823067301243	42.18684321143338	11004	19033	3	False	False	False	later_human_retinal_candidate
+historical_default_available	ENSG00000095397	WHRN	0.523346228584763	91.58259773013872	1603	19033	2	False	False	False	precutoff_known_usher_reference
+historical_default_available	ENSG00000107736	CDH23	0.44717624757968955	80.34888608659101	3741	19033	3	False	False	False	precutoff_known_usher_reference
+historical_default_available	ENSG00000135315	CEP162	0.34200895012436844	56.45229087852039	8289	19033	4	False	False	False	later_human_retinal_association
+historical_default_available	ENSG00000137474	MYO7A	0.3440442111066292	57.01450189155107	8182	19033	3	False	False	False	precutoff_known_usher_reference
+historical_default_available	ENSG00000150275	PCDH15	0.45815162897768963	82.50315258511979	3331	19033	2	False	False	False	precutoff_known_usher_reference
+historical_default_available	ENSG00000163646	CLRN1	0.17900138404244376	18.80517023959647	15454	19033	2	False	False	False	precutoff_known_usher_reference
+historical_default_available	ENSG00000164199	ADGRV1	0.31965526317995396	51.2557797393863	9278	19033	4	False	False	False	precutoff_known_usher_reference
+historical_default_available	ENSG00000169683	LRRC45	0.6380074981225996	98.67591424968474	253	19033	4	False	False	False	later_putative_human_ciliopathy
+historical_default_available	ENSG00000182040	USH1G	0.3784938467642915	65.03257671290457	6656	19033	2	False	False	False	precutoff_known_usher_reference
+historical_equal_available	ENSG00000006611	USH1C	0.22497018164588595	31.257881462799496	13084	19033	4	False	False	False	precutoff_known_usher_reference
+historical_equal_available	ENSG00000042781	USH2A	0.45782439177600387	88.0464480874317	2276	19033	2	False	False	False	precutoff_known_usher_reference
+historical_equal_available	ENSG00000070761	CFAP20	0.2583487857483568	40.489701555275325	11327	19033	3	False	False	False	later_human_retinal_candidate
+historical_equal_available	ENSG00000095397	WHRN	0.49799006424071784	92.93295502311895	1346	19033	2	False	False	False	precutoff_known_usher_reference
+historical_equal_available	ENSG00000107736	CDH23	0.4343138251684932	84.4367381252627	2963	19033	3	False	False	False	precutoff_known_usher_reference
+historical_equal_available	ENSG00000135315	CEP162	0.31309948284449085	55.553804119377894	8460	19033	4	False	False	False	later_human_retinal_association
+historical_equal_available	ENSG00000137474	MYO7A	0.31739059513712725	56.74127784783523	8234	19033	3	False	False	False	precutoff_known_usher_reference
+historical_equal_available	ENSG00000150275	PCDH15	0.43261128501110235	84.15300546448088	3017	19033	2	False	False	False	precutoff_known_usher_reference
+historical_equal_available	ENSG00000163646	CLRN1	0.19264301858190153	23.034888608659102	14649	19033	2	False	False	False	precutoff_known_usher_reference
+historical_equal_available	ENSG00000164199	ADGRV1	0.3021668062345062	52.5115594787726	9039	19033	4	False	False	False	precutoff_known_usher_reference
+historical_equal_available	ENSG00000169683	LRRC45	0.6315274592682222	99.15931063472047	161	19033	4	False	False	False	later_putative_human_ciliopathy
+historical_equal_available	ENSG00000182040	USH1G	0.36451613421246	68.86296763345943	5927	19033	2	False	False	False	precutoff_known_usher_reference
+historical_single_gnomad	ENSG00000006611	USH1C	0.5635808748728383	49.36722851616469	9153	18096	1	False	False	False	precutoff_known_usher_reference
+historical_single_gnomad	ENSG00000042781	USH2A	0.5793489318413022	51.340149212489635	8791	18096	1	False	False	False	precutoff_known_usher_reference
+historical_single_gnomad	ENSG00000070761	CFAP20	0.5025432349949135	41.50317767339044	10576	18096	1	False	False	False	later_human_retinal_candidate
+historical_single_gnomad	ENSG00000095397	WHRN	0.6754832146490335	63.30478032605692	6632	18096	1	False	False	False	precutoff_known_usher_reference
+historical_single_gnomad	ENSG00000107736	CDH23	0.7268565615462869	69.3727549046698	5531	18096	1	False	False	False	precutoff_known_usher_reference
+historical_single_gnomad	ENSG00000135315	CEP162	0.5183112919633774	43.64741641337386	10193	18096	1	False	False	False	later_human_retinal_association
+historical_single_gnomad	ENSG00000137474	MYO7A	0.5839267548321465	51.90936722851617	8695	18096	1	False	False	False	precutoff_known_usher_reference
+historical_single_gnomad	ENSG00000150275	PCDH15	0.6113936927772126	55.39099198673667	8068	18096	1	False	False	False	precutoff_known_usher_reference
+historical_single_gnomad	ENSG00000163646	CLRN1	0.09715157680569687	6.825089803813208	16858	18096	1	False	False	False	precutoff_known_usher_reference
+historical_single_gnomad	ENSG00000164199	ADGRV1	0.7527975584944049	72.60569218016026	4957	18096	1	False	False	False	precutoff_known_usher_reference
+historical_single_gnomad	ENSG00000169683	LRRC45	0.569175991861648	50.05250069079856	9033	18096	1	False	False	False	later_putative_human_ciliopathy
+historical_single_gnomad	ENSG00000182040	USH1G	0.46236012207527977	36.822326609560655	11431	18096	1	False	False	False	precutoff_known_usher_reference
+historical_single_expression	ENSG00000006611	USH1C	0.0	0.0	7181	10894	1	False	False	False	precutoff_known_usher_reference
+historical_single_expression	ENSG00000042781	USH2A				10894	0	False	False	False	precutoff_known_usher_reference
+historical_single_expression	ENSG00000070761	CFAP20				10894	0	False	False	False	later_human_retinal_candidate
+historical_single_expression	ENSG00000095397	WHRN				10894	0	False	False	False	precutoff_known_usher_reference
+historical_single_expression	ENSG00000107736	CDH23	0.28325773531385967	45.71743321399064	5625	10894	1	False	False	False	precutoff_known_usher_reference
+historical_single_expression	ENSG00000135315	CEP162	0.5126202156438899	60.53428807491049	3761	10894	1	False	False	False	later_human_retinal_association
+historical_single_expression	ENSG00000137474	MYO7A				10894	0	False	False	False	precutoff_known_usher_reference
+historical_single_expression	ENSG00000150275	PCDH15				10894	0	False	False	False	precutoff_known_usher_reference
+historical_single_expression	ENSG00000163646	CLRN1				10894	0	False	False	False	precutoff_known_usher_reference
+historical_single_expression	ENSG00000164199	ADGRV1	0.09637445121087664	39.006701551455066	6615	10894	1	False	False	False	precutoff_known_usher_reference
+historical_single_expression	ENSG00000169683	LRRC45	0.7845994706360796	88.846047920683	1178	10894	1	False	False	False	later_putative_human_ciliopathy
+historical_single_expression	ENSG00000182040	USH1G				10894	0	False	False	False	precutoff_known_usher_reference
+historical_single_annotation	ENSG00000006611	USH1C	0.33629985171070553	90.68698989243825	1627	18502	1	False	False	False	precutoff_known_usher_reference
+historical_single_annotation	ENSG00000042781	USH2A	0.33629985171070553	90.68698989243825	1630	18502	1	False	False	False	precutoff_known_usher_reference
+historical_single_annotation	ENSG00000070761	CFAP20	0.27250312225015677	65.73698718988162	5825	18502	1	False	False	False	later_human_retinal_candidate
+historical_single_annotation	ENSG00000095397	WHRN	0.3204969138324022	86.54667315280255	2348	18502	1	False	False	False	precutoff_known_usher_reference
+historical_single_annotation	ENSG00000107736	CDH23	0.2928271786453331	76.08237392573375	4125	18502	1	False	False	False	precutoff_known_usher_reference
+historical_single_annotation	ENSG00000135315	CEP162	0.2214664237706961	36.376412085833195	11163	18502	1	False	False	False	later_human_retinal_association
+historical_single_annotation	ENSG00000137474	MYO7A	0.36824503057923524	95.63266850440517	790	18502	1	False	False	False	precutoff_known_usher_reference
+historical_single_annotation	ENSG00000150275	PCDH15	0.25382887724499215	55.26187773633857	7946	18502	1	False	False	False	precutoff_known_usher_reference
+historical_single_annotation	ENSG00000163646	CLRN1	0.2881344603581062	73.92573374412194	4708	18502	1	False	False	False	precutoff_known_usher_reference
+historical_single_annotation	ENSG00000164199	ADGRV1	0.3594952152327432	94.51381006432085	1001	18502	1	False	False	False	precutoff_known_usher_reference
+historical_single_annotation	ENSG00000169683	LRRC45	0.17233437457516104	13.464137073671695	15589	18502	1	False	False	False	later_putative_human_ciliopathy
+historical_single_annotation	ENSG00000182040	USH1G	0.26667214634964026	62.59121128587643	6839	18502	1	False	False	False	precutoff_known_usher_reference
+historical_single_localization	ENSG00000006611	USH1C	0.0	0.0	794	12595	1	False	False	False	precutoff_known_usher_reference
+historical_single_localization	ENSG00000042781	USH2A				12595	0	False	False	False	precutoff_known_usher_reference
+historical_single_localization	ENSG00000070761	CFAP20	0.0	0.0	1504	12595	1	False	False	False	later_human_retinal_candidate
+historical_single_localization	ENSG00000095397	WHRN				12595	0	False	False	False	precutoff_known_usher_reference
+historical_single_localization	ENSG00000107736	CDH23				12595	0	False	False	False	precutoff_known_usher_reference
+historical_single_localization	ENSG00000135315	CEP162	0.0	0.0	5474	12595	1	False	False	False	later_human_retinal_association
+historical_single_localization	ENSG00000137474	MYO7A	0.0	0.0	5764	12595	1	False	False	False	precutoff_known_usher_reference
+historical_single_localization	ENSG00000150275	PCDH15				12595	0	False	False	False	precutoff_known_usher_reference
+historical_single_localization	ENSG00000163646	CLRN1				12595	0	False	False	False	precutoff_known_usher_reference
+historical_single_localization	ENSG00000164199	ADGRV1	0.0	0.0	8240	12595	1	False	False	False	precutoff_known_usher_reference
+historical_single_localization	ENSG00000169683	LRRC45	1.0	99.39653803398444	60	12595	1	False	False	True	later_putative_human_ciliopathy
+historical_single_localization	ENSG00000182040	USH1G				12595	0	False	False	False	precutoff_known_usher_reference

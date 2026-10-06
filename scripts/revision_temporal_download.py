@@ -1,5 +1,6 @@
 """Download archival evidence into a separate cache; preserve provenance and failures."""
 from concurrent.futures import ThreadPoolExecutor
+import argparse
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -26,7 +27,10 @@ def download(item):
     destination = CACHE / name
     row = {"name": name, "url": url, "retrieval_started_utc": datetime.now(timezone.utc).isoformat()}
     if destination.exists():
-        raise FileExistsError(destination)
+        row.update(bytes=destination.stat().st_size, sha256=hashlib.sha256(destination.read_bytes()).hexdigest(), path=str(destination.relative_to(ROOT)), error=None,
+                   cached_existing=True, original_completion_utc_from_file_mtime=datetime.fromtimestamp(destination.stat().st_mtime, timezone.utc).isoformat(),
+                   retrieval_finished_utc=None, response_metadata_available=False)
+        return row
     temporary = destination.with_suffix(destination.suffix + ".part")
     try:
         request = urllib.request.Request(url, headers={"User-Agent": "UsherPipe-revision-archive-audit/1.0"})
@@ -48,12 +52,24 @@ def download(item):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--preserve-completed-only", action="store_true", help="Inventory completed downloads after interruption; do not retry incomplete network transfers")
+    args = parser.parse_args()
     CACHE.mkdir(parents=True, exist_ok=True)
     output = OUT / "download_manifest.json"
     if output.exists():
         raise FileExistsError(output)
-    with ThreadPoolExecutor(max_workers=4) as pool:
-        rows = list(pool.map(download, SOURCES.items()))
+    if args.preserve_completed_only:
+        rows = []
+        for name, url in SOURCES.items():
+            if (CACHE / name).exists():
+                rows.append(download((name, url)))
+            else:
+                partial = CACHE / (name + ".part")
+                rows.append({"name": name, "url": url, "error": "Transfer interrupted after slow direct archive progress; complete-file validation not established", "partial_bytes": partial.stat().st_size if partial.exists() else 0, "path": None, "sha256": None})
+    else:
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            rows = list(pool.map(download, SOURCES.items()))
     output.write_text(json.dumps(rows, indent=2) + "\n")
     print(json.dumps(rows, indent=2))
 

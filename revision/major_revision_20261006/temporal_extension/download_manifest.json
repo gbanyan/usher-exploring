@@ -1,0 +1,101 @@
+[
+  {
+    "name": "hgnc_20201001.tsv",
+    "url": "https://storage.googleapis.com/public-download-files/hgnc/archive/archive/quarterly/tsv/hgnc_complete_set_2020-10-01.txt",
+    "retrieval_started_utc": "2026-10-06T09:25:29.752599+00:00",
+    "bytes": 15468596,
+    "sha256": "22e58f4dee9ea11a76fca7f62b9c61467dd6aab80539a12c4f0c6cd9c4cd9822",
+    "path": "data/cache/temporal-extension-20261006/raw/hgnc_20201001.tsv",
+    "error": null,
+    "cached_existing": true,
+    "original_completion_utc_from_file_mtime": "2026-10-06T09:20:46.835315+00:00",
+    "retrieval_finished_utc": null,
+    "response_metadata_available": false
+  },
+  {
+    "name": "go_20201208.gaf.gz",
+    "url": "https://go-data-product-release.s3.amazonaws.com/2020-12-08/annotations/goa_human.gaf.gz",
+    "retrieval_started_utc": "2026-10-06T09:25:29.758541+00:00",
+    "bytes": 11195512,
+    "sha256": "a8a8945fd0ebcd91696f0e645ef17140cbd03825fa4424ef92f5f20afd10d2a1",
+    "path": "data/cache/temporal-extension-20261006/raw/go_20201208.gaf.gz",
+    "error": null,
+    "cached_existing": true,
+    "original_completion_utc_from_file_mtime": "2026-10-06T09:20:45.436270+00:00",
+    "retrieval_finished_utc": null,
+    "response_metadata_available": false
+  },
+  {
+    "name": "gnomad_v211.bgz",
+    "url": "https://storage.googleapis.com/gcp-public-data--gnomad/release/2.1.1/constraint/gnomad.v2.1.1.lof_metrics.by_gene.txt.bgz",
+    "retrieval_started_utc": "2026-10-06T09:25:29.762395+00:00",
+    "bytes": 4609488,
+    "sha256": "153031d34b6794e8e99eb0306bc3c50b13b18accda8b0ffef91c2623dd3affd5",
+    "path": "data/cache/temporal-extension-20261006/raw/gnomad_v211.bgz",
+    "error": null,
+    "cached_existing": true,
+    "original_completion_utc_from_file_mtime": "2026-10-06T09:20:43.599756+00:00",
+    "retrieval_finished_utc": null,
+    "response_metadata_available": false
+  },
+  {
+    "name": "hpa_v20_subcellular.zip",
+    "url": "https://v20.proteinatlas.org/download/subcellular_location.tsv.zip",
+    "retrieval_started_utc": "2026-10-06T09:25:29.764180+00:00",
+    "bytes": 211964,
+    "sha256": "871f4e97b49b712c1e4dac257cec3098f61f7350438000321a53644e6fc7a094",
+    "path": "data/cache/temporal-extension-20261006/raw/hpa_v20_subcellular.zip",
+    "error": null,
+    "cached_existing": true,
+    "original_completion_utc_from_file_mtime": "2026-10-06T09:20:43.443859+00:00",
+    "retrieval_finished_utc": null,
+    "response_metadata_available": false
+  },
+  {
+    "name": "hpa_v20_normal_tissue.zip",
+    "url": "https://v20.proteinatlas.org/download/normal_tissue.tsv.zip",
+    "retrieval_started_utc": "2026-10-06T09:25:29.764304+00:00",
+    "bytes": 5110246,
+    "sha256": "98f865eea8692a9c8e4f96235500c0aa44f7785eb76326d783c2ec81768f6dfe",
+    "path": "data/cache/temporal-extension-20261006/raw/hpa_v20_normal_tissue.zip",
+    "error": null,
+    "cached_existing": true,
+    "original_completion_utc_from_file_mtime": "2026-10-06T09:20:46.012043+00:00",
+    "retrieval_finished_utc": null,
+    "response_metadata_available": false
+  },
+  {
+    "name": "mgi_20200202.rpt",
+    "url": "https://web.archive.org/web/20200202074056id_/http://www.informatics.jax.org:80/downloads/reports/HMD_HumanPhenotype.rpt",
+    "retrieval_started_utc": "2026-10-06T09:25:29.766209+00:00",
+    "bytes": 1545444,
+    "sha256": "3431943138ffa75781db8f3a367f9945f2ea5eefd0d321e61b638acbf55bec05",
+    "path": "data/cache/temporal-extension-20261006/raw/mgi_20200202.rpt",
+    "error": null,
+    "cached_existing": true,
+    "original_completion_utc_from_file_mtime": "2026-10-06T09:23:37.295221+00:00",
+    "retrieval_finished_utc": null,
+    "response_metadata_available": false
+  },
+  {
+    "name": "mgi_vocab_20190129.rpt",
+    "url": "https://web.archive.org/web/20190129050929id_/http://www.informatics.jax.org:80/downloads/reports/VOC_MammalianPhenotype.rpt",
+    "retrieval_started_utc": "2026-10-06T09:25:29.766825+00:00",
+    "bytes": 2548030,
+    "sha256": "507b3e35ec9b5be5ecdf295a2e3197a1ad65156b7ca1de8249069a41e9785a42",
+    "path": "data/cache/temporal-extension-20261006/raw/mgi_vocab_20190129.rpt",
+    "error": null,
+    "cached_existing": true,
+    "original_completion_utc_from_file_mtime": "2026-10-06T09:25:11.880481+00:00",
+    "retrieval_finished_utc": null,
+    "response_metadata_available": false
+  },
+  {
+    "name": "gene2pubmed_20200629.gz",
+    "url": "https://web.archive.org/web/20200629060937id_/https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene2pubmed.gz",
+    "error": "Transfer interrupted after slow direct archive progress; complete-file validation not established",
+    "partial_bytes": 2097152,
+    "path": null,
+    "sha256": null
+  }
+]

@@ -1,12 +1,12 @@
 working_reviewer	comment_id	request	phase	planned_evidence	status
 download_report	major_1	Define prediction target and separate Usher/SYSCILIA	1,2,4	Scope statement; separate control metrics	phase_2_evidence_ready; manuscript_edit_pending
-download_report	major_2	Separate calibration/evaluation; clarify HIGH	1,3,4	Calibration caveat; independent-evidence feasibility	phase_3_feasibility_audited; no_independent_validation; manuscript_edit_pending
+download_report	major_2	Separate calibration/evaluation; clarify HIGH	1,3,4	Calibration caveat; independent-evidence feasibility	temporal_extension_executed; full_production_not_independently_validated; manuscript_edit_pending
 download_report	major_3	Show final control tiers and filtering losses	2,4	Control trace; threshold grid	phase_2_evidence_ready; manuscript_edit_pending
 download_report	major_4	Specificity concern; larger matched disease controls	3,4	Frozen unrelated-disease comparator design	phase_3_comparator_evidence_ready; residual_overlap_disclosed; manuscript_edit_pending
 download_report	major_5	Heuristic weights; baselines and top-K persistence	2,4	Baselines; LOO; weight-family membership	phase_2_evidence_ready; manuscript_edit_pending
 download_report	major_6	Sparse evidence and minimum layer requirements	2,4	Completeness strata; threshold grid	phase_2_evidence_ready; manuscript_edit_pending
 download_report	major_7	Layer overlap and within-layer combination	2,4	Pairwise correlations/N; source-method description	phase_2_evidence_ready; manuscript_edit_pending
-download_report	major_8	Limit mantis-ml claims; simple baselines/temporal feasibility	2,3,4	Single-layer/equal baselines; cutoff feasibility	phase_2_baselines_ready; phase_3_temporal_infeasible; manuscript_edit_pending
+download_report	major_8	Limit mantis-ml claims; simple baselines/temporal feasibility	2,3,4	Single-layer/equal baselines; cutoff feasibility	phase_2_baselines_ready; restricted_historical_series_executed; full_temporal_validation_not_established; manuscript_edit_pending
 download_report	major_9	Provenance; environment; actual submission checksums	1,5	Input manifest; reproducibility packaging; converted-file hashes	baseline_hashes_recorded; final_packaging_pending
 download_report	major_10	Retina-oriented expression; cerebellum proxy	2,4	Expression contribution and proxy removal	phase_2_evidence_ready; manuscript_edit_pending
 download_report	minor_1	Define seed-free at first use	4	Definition separating raw score from calibration	planned
@@ -19,6 +19,6 @@ download_report	minor_7	Consider shortening detailed biological background	4	Eva
 pasted_comment	point_1	Add Background supporting reference	4	Claim-level reference verification	planned
 pasted_comment	point_2	Clarify post-hoc gate and HIGH interpretation	1,2,4	Scope/gate caveats; control trace	phase_2_evidence_ready; manuscript_edit_pending
 pasted_comment	point_3	Justify predefined weights and ranking sensitivity	2,4	Baselines and membership stability	phase_2_evidence_ready; manuscript_edit_pending
-pasted_comment	point_4	Independent evidence for novel disease genes	3,4	Independent-evidence feasibility; limit discovery claim	phase_3_feasibility_audited; no_novel_gene_validation; manuscript_edit_pending
+pasted_comment	point_4	Independent evidence for novel disease genes	3,4	Independent-evidence feasibility; limit discovery claim	external_archives_audited; restricted_historical_series_executed; no_novel_usher_validation; manuscript_edit_pending
 pasted_comment	point_5	Impact of absent production hair-cell evidence	2,4	Expression coverage; proxy analysis; limitation discussion	phase_2_evidence_ready; manuscript_edit_pending
 pasted_comment	point_6	General importance versus biological specificity	2,3,4	Layer overlap; matched comparator study	phase_2_and_3_evidence_ready; manuscript_edit_pending

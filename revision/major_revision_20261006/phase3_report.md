@@ -136,6 +136,12 @@ remaining pool cannot be promoted to a verified negative set.
 
 ## Independent and temporal validation feasibility
 
+**Subsequent extension:** the paragraphs below record the original local-cache
+audit. External archives have since been investigated and a restricted historical
+case series executed; see [the temporal extension report](temporal_extension/report.md).
+Several historical sources are available. The restricted reconstruction gives
+mixed results and does not validate the complete production score or HIGH gate.
+
 No independent novel Usher-gene validation was performed. The new comparator
 roster was not used in the original production calibration, but the positive
 controls and calibrated gate remain reused. Separating them from new comparators

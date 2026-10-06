@@ -1,0 +1,54 @@
+{
+  "protocol_sha256": "2bd02b4b467c82e34f1dc554085c81ffd5e91698b7eb3c6ebcd4cfe8e92e166a",
+  "protocol_commit": "377eae3",
+  "script_sha256": "20c856a183e18df3dff1b44f9ea9080789f2986754d97bac0b15f75dc11ea3ac",
+  "population": 19167,
+  "hgnc_duplicate_identifier_rows_excluded": 2,
+  "go_mapping_audit": {
+    "gaf_rows": 607460,
+    "positive_mapped_rows": 593834,
+    "symbol_fallback_rows": 185,
+    "unmapped_rows": 10587,
+    "not_rows_excluded": 1256,
+    "ambiguous_accession_rows": 1783
+  },
+  "hpa_unknown_ordinal_labels_mapped_to_null": [
+    {
+      "Level": "Not representative",
+      "len": 1
+    }
+  ],
+  "hpa_normal_tissue_archive": {
+    "member": "normal_tissue.tsv",
+    "internal_date": [
+      2020,
+      11,
+      16,
+      23,
+      26,
+      20
+    ],
+    "uncompressed_bytes": 77610720
+  },
+  "hpa_subcellular_archive": {
+    "member": "subcellular_location.tsv",
+    "internal_date": [
+      2020,
+      11,
+      16,
+      23,
+      26,
+      40
+    ],
+    "uncompressed_bytes": 1713733
+  },
+  "protected_production_unchanged": true,
+  "full_production_temporal_validation": false,
+  "source_manifest_sha256": "a97c0217238c7746a6f4a20da26db410069aaf73b0f58c3a0a160a682e927a40",
+  "output_sha256": {
+    "case_rankings.tsv": "520a825f1bd643c1fcd99b2cb94093a92e9343f40778c8c4e7c979782b5e0dce",
+    "historical_components.tsv": "d18fd079de69d1f8a6ea7de00e0e6b9f2da595c8d363d9985ad38f0dac489a75",
+    "historical_rankings.tsv": "50964fe5dd3e9373c204cf957a0f280e096225ff78fb8ba187ceb548e1d9e61c",
+    "source_coverage.tsv": "68f1472ba17ff74303e61c3720c46891fb00ffc175baa80fc78a0d12d0950b10"
+  }
+}

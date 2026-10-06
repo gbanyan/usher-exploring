@@ -1,0 +1,29 @@
+{
+  "execution_location": "local macOS .venv",
+  "python": "3.13.1 (main, Dec  6 2024, 20:13:21) [Clang 18.1.8 ]",
+  "software": {
+    "numpy": "2.5.3",
+    "polars": "1.44.2",
+    "scipy": "1.18.1",
+    "duckdb": "1.5.5",
+    "pytest": "9.0.3"
+  },
+  "all_rank_rows": 115002,
+  "case_rows": 72,
+  "independent_composite_max_abs_error": 2.220446049250313e-16,
+  "independent_all_scheme_position_percentile_topk_checks": true,
+  "gaf_primary_taxa": {
+    "taxon:9606": 607460
+  },
+  "gaf_latest_annotation_year": "2020",
+  "historical_mgi_column_counts": {
+    "8": 18771
+  },
+  "protected_hashes_unchanged": true,
+  "output_hashes_match": true,
+  "transform_sha256": {
+    "src/usher_pipeline/evidence/expression/transform.py": "39180389ea4a4a81f0d36a93042a5dbd77fc643cd69cd77e4df4665c78863ad7",
+    "src/usher_pipeline/evidence/annotation/transform.py": "e93a44ab5e30c444a1841654b7f166c6bc8d41743bf0d02652a4c3513c66e2a9",
+    "src/usher_pipeline/evidence/localization/transform.py": "cf368bc89851a8771d36befd6c754a52838e344ebe2094cdc1d10ebe47ef5b66"
+  }
+}

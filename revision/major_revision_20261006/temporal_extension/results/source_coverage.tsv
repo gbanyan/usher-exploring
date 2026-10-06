@@ -1,0 +1,5 @@
+layer	population	observed	positive	observed_zero	missing
+gnomad	19167	18096	18095	1	1071
+expression	19167	10894	7144	3750	8273
+annotation	19167	18502	18502	0	665
+localization	19167	12595	686	11909	6572
