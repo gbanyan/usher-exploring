@@ -40,3 +40,11 @@ rtk pip list            rtk pnpm install        rtk npm run <script>
 - For debugging, use raw command without rtk prefix
 - `rtk proxy <cmd>` runs command without filtering but tracks usage
 <!-- /headroom:rtk-instructions -->
+
+## Major revision continuation
+
+Before continuing the journal revision or temporal-validation work, read
+`revision/major_revision_20261006/CURRENT_STATE.md`. It records the completed
+conservative revision, the restricted historical pilot, and the user's decision
+to pursue expanded temporal validation before 20 October 2026. Preserve frozen
+outcomes and ignored local databases/raw caches; Git alone does not back them up.

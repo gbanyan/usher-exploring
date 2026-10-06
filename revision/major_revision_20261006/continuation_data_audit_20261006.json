@@ -1,0 +1,751 @@
+{
+  "checked_utc": "2026-10-06T11:07:44.570774+00:00",
+  "purpose": "Continuation checkpoint before expanded temporal validation",
+  "hash_checks": [
+    {
+      "group": "protected_submission_baseline",
+      "path": "data/pipeline.duckdb",
+      "exists": true,
+      "bytes": 17313792,
+      "expected_sha256": "0beb4f61c62ebff2ba6358069d9eb37cb6c4a9366140bb1c1c486cd2d59f2c65",
+      "actual_sha256": "0beb4f61c62ebff2ba6358069d9eb37cb6c4a9366140bb1c1c486cd2d59f2c65",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "config/default.yaml",
+      "exists": true,
+      "bytes": 764,
+      "expected_sha256": "bfd187da7e5fc2b887b99626b14b950fecdeae80668e871c5650c1643a019b15",
+      "actual_sha256": "bfd187da7e5fc2b887b99626b14b950fecdeae80668e871c5650c1643a019b15",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "revision/major_revision_20261006/baseline/manuscript_draft.md",
+      "exists": true,
+      "bytes": 71356,
+      "expected_sha256": "14e2906d0693fb90544c4d73eb0c432be42548198c92d034cbf454cf6e1a3128",
+      "actual_sha256": "14e2906d0693fb90544c4d73eb0c432be42548198c92d034cbf454cf6e1a3128",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Additional_file_10_Checksum_Manifest.json",
+      "exists": true,
+      "bytes": 4503,
+      "expected_sha256": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729",
+      "actual_sha256": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Additional_file_1_Table_S1.tsv",
+      "exists": true,
+      "bytes": 2875,
+      "expected_sha256": "d6cb4e64b499a7e508f07b4ab4506b1a1402d3ff1796f959896d8288e595f82f",
+      "actual_sha256": "d6cb4e64b499a7e508f07b4ab4506b1a1402d3ff1796f959896d8288e595f82f",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Additional_file_2_Table_S2.tsv",
+      "exists": true,
+      "bytes": 145892,
+      "expected_sha256": "f5acb99751554c370e85fad1d8f8712ef96cafe822a33180dfe084a7b47656a3",
+      "actual_sha256": "f5acb99751554c370e85fad1d8f8712ef96cafe822a33180dfe084a7b47656a3",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Additional_file_3_Supplementary_Methods.txt",
+      "exists": true,
+      "bytes": 6418,
+      "expected_sha256": "e035a65e3dafd880ec01f9a21a0235bcef08fa5dd53d97ab2a19730fdfaa48dc",
+      "actual_sha256": "e035a65e3dafd880ec01f9a21a0235bcef08fa5dd53d97ab2a19730fdfaa48dc",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Additional_file_4_Reproducibility_Manifest.json",
+      "exists": true,
+      "bytes": 8188,
+      "expected_sha256": "3e03a8627cae95317874109408ccf1e989f0cbb76ea3f182d84f5c1c4868ecc2",
+      "actual_sha256": "3e03a8627cae95317874109408ccf1e989f0cbb76ea3f182d84f5c1c4868ecc2",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Additional_file_5_Expression_Shortlist_Candidates.tsv",
+      "exists": true,
+      "bytes": 37211,
+      "expected_sha256": "0dde4c327187a09ab6d4569d55dbf84a82d25883ddf1bb679deea3093277bf67",
+      "actual_sha256": "0dde4c327187a09ab6d4569d55dbf84a82d25883ddf1bb679deea3093277bf67",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Additional_file_6_Expression_Shortlist_Report.txt",
+      "exists": true,
+      "bytes": 2360,
+      "expected_sha256": "13fc6ddd5f3ef1f2b27d4812f70944a61824a394f3ec4e6f54619bc883ce9461",
+      "actual_sha256": "13fc6ddd5f3ef1f2b27d4812f70944a61824a394f3ec4e6f54619bc883ce9461",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Additional_file_7_Expression_Shortlist_Summary.tsv",
+      "exists": true,
+      "bytes": 669,
+      "expected_sha256": "cf325dbd5a2b545b471eee2dfe0deebd30cdf6e3cd34f443f841dd74fafb47e8",
+      "actual_sha256": "cf325dbd5a2b545b471eee2dfe0deebd30cdf6e3cd34f443f841dd74fafb47e8",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Additional_file_8_GSE135913_Hair_Cell_Expression.tsv",
+      "exists": true,
+      "bytes": 1288046,
+      "expected_sha256": "3e475010971d403bab43848f18ae70412bbe1977cb81a66283559f56405f7017",
+      "actual_sha256": "3e475010971d403bab43848f18ae70412bbe1977cb81a66283559f56405f7017",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Additional_file_9_GSE135913_Provenance.json",
+      "exists": true,
+      "bytes": 2576,
+      "expected_sha256": "470de16bba054a7e3782cd2fd831383b897d856fb5c8c8c8b542f2e5b2bc618f",
+      "actual_sha256": "470de16bba054a7e3782cd2fd831383b897d856fb5c8c8c8b542f2e5b2bc618f",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Cover_Letter.docx",
+      "exists": true,
+      "bytes": 11441,
+      "expected_sha256": "63748e8c59e72940fe7fd704f890d3a3c4b30a05429a5a63856b9aa80e35a381",
+      "actual_sha256": "63748e8c59e72940fe7fd704f890d3a3c4b30a05429a5a63856b9aa80e35a381",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Cover_Letter.txt",
+      "exists": true,
+      "bytes": 2058,
+      "expected_sha256": "9925f73a04fa3efaa9ccb945ef2b698270a7f1a0996e079cf13cee0bbf008006",
+      "actual_sha256": "9925f73a04fa3efaa9ccb945ef2b698270a7f1a0996e079cf13cee0bbf008006",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Manuscript.docx",
+      "exists": true,
+      "bytes": 41295,
+      "expected_sha256": "4ef40ce1cad3fbe7e67e0d8b476dbca6da6e35027856bb0339591c6eb4086c4a",
+      "actual_sha256": "4ef40ce1cad3fbe7e67e0d8b476dbca6da6e35027856bb0339591c6eb4086c4a",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Manuscript_preview.pdf",
+      "exists": true,
+      "bytes": 1511841,
+      "expected_sha256": "5c13e7512ac3ba2b68b90d5b5e352a3d956568d778f327219d3c693fa51a82c1",
+      "actual_sha256": "5c13e7512ac3ba2b68b90d5b5e352a3d956568d778f327219d3c693fa51a82c1",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/Manuscript_technical_check_fixed.docx",
+      "exists": true,
+      "bytes": 41152,
+      "expected_sha256": "888562b8b85f4801d6404c28e5896e6cef5a03b1b46304c0d103ded40a3ccaef",
+      "actual_sha256": "888562b8b85f4801d6404c28e5896e6cef5a03b1b46304c0d103ded40a3ccaef",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "submission/bmc_bioinformatics/SUBMISSION_STATUS.md",
+      "exists": true,
+      "bytes": 3045,
+      "expected_sha256": "402c9bc5cc741fe2679c87dee816077944466b4250cb267fc9aa93b003931edb",
+      "actual_sha256": "402c9bc5cc741fe2679c87dee816077944466b4250cb267fc9aa93b003931edb",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "data/report/candidates.tsv",
+      "exists": true,
+      "bytes": 8851178,
+      "expected_sha256": "9d9a288e7beb7fea580898b856631452a5720567a7b321e8b7f51206afac76a0",
+      "actual_sha256": "9d9a288e7beb7fea580898b856631452a5720567a7b321e8b7f51206afac76a0",
+      "matches": true
+    },
+    {
+      "group": "protected_submission_baseline",
+      "path": "data/report/checksum_manifest.json",
+      "exists": true,
+      "bytes": 4503,
+      "expected_sha256": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729",
+      "actual_sha256": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/pipeline_source.duckdb",
+      "exists": true,
+      "bytes": 23605248,
+      "expected_sha256": "1f5f606d0fb1d1ea3ca90386416c804ea70c809b8ea670c4a94e7659dac641d8",
+      "actual_sha256": "1f5f606d0fb1d1ea3ca90386416c804ea70c809b8ea670c4a94e7659dac641d8",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/annotation/Homo_sapiens.GRCh38.113.gtf.gz",
+      "exists": true,
+      "bytes": 64141785,
+      "expected_sha256": "62f1709b40e083ce9d4cdc64a86b5ffec2c5d5371434bb7095c74dc89079c466",
+      "actual_sha256": "62f1709b40e083ce9d4cdc64a86b5ffec2c5d5371434bb7095c74dc89079c466",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/MANE.GRCh38.v1.3.summary.txt.gz",
+      "exists": true,
+      "bytes": 1109620,
+      "expected_sha256": "06637bc2d1f04f54635a8a09ff535ed44e5f7a2ced2d2a30a03f50b233379c35",
+      "actual_sha256": "06637bc2d1f04f54635a8a09ff535ed44e5f7a2ced2d2a30a03f50b233379c35",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/gnomad/constraint_metrics.tsv",
+      "exists": true,
+      "bytes": 95546041,
+      "expected_sha256": "68d8abdb7fc48f570869b02dfaa74b9fecaece7fcc5f301ddca40ec1ce12da00",
+      "actual_sha256": "68d8abdb7fc48f570869b02dfaa74b9fecaece7fcc5f301ddca40ec1ce12da00",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/expression/gtex_median_tpm.gct",
+      "exists": true,
+      "bytes": 17780477,
+      "expected_sha256": "73215808fcbec246639aaf1f8eadba30ceb31dd74aa6074222a5c081ce3a9e72",
+      "actual_sha256": "73215808fcbec246639aaf1f8eadba30ceb31dd74aa6074222a5c081ce3a9e72",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/expression/hpa_normal_tissue.tsv",
+      "exists": true,
+      "bytes": 82941549,
+      "expected_sha256": "1fa9111070f23290d29a32eaa30695689599b5231e7d0bc935b60a777ad3a1cc",
+      "actual_sha256": "1fa9111070f23290d29a32eaa30695689599b5231e7d0bc935b60a777ad3a1cc",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/expression/cellxgene_expression_2025-11-08.parquet",
+      "exists": true,
+      "bytes": 353859,
+      "expected_sha256": "359ec5ebd9b6f162c1fbf308537ff5231629240ccdda4b20821101a6c5e6ac1a",
+      "actual_sha256": "359ec5ebd9b6f162c1fbf308537ff5231629240ccdda4b20821101a6c5e6ac1a",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/localization/hpa_subcellular_location.tsv",
+      "exists": true,
+      "bytes": 1774474,
+      "expected_sha256": "65a7a197c11525b782767df4a23446c7c2ce8aefeb6b446cd6dc549cb6bf5841",
+      "actual_sha256": "65a7a197c11525b782767df4a23446c7c2ce8aefeb6b446cd6dc549cb6bf5841",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/literature/gene2pubmed.gz",
+      "exists": true,
+      "bytes": 260630473,
+      "expected_sha256": "80b830310b91ae1a86819ddfa8959c7627101e7d596af12714bbdbe97f72d78a",
+      "actual_sha256": "80b830310b91ae1a86819ddfa8959c7627101e7d596af12714bbdbe97f72d78a",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/literature/gene_info.gz",
+      "exists": true,
+      "bytes": 1478053420,
+      "expected_sha256": "9e225b3840456ee5458c7c5ffd96abb706a4b58422f35f3c32f7e0b3ca958731",
+      "actual_sha256": "9e225b3840456ee5458c7c5ffd96abb706a4b58422f35f3c32f7e0b3ca958731",
+      "matches": true
+    },
+    {
+      "group": "original_recovery_input",
+      "path": "data/pubmed_context_sets.json",
+      "exists": true,
+      "bytes": 2953314,
+      "expected_sha256": "d07949dfc9dae0d021fc09c4776cfcc1aa27340e31086ce92f68a47f4cd4def8",
+      "actual_sha256": "d07949dfc9dae0d021fc09c4776cfcc1aa27340e31086ce92f68a47f4cd4def8",
+      "matches": true
+    },
+    {
+      "group": "complete_historical_source",
+      "path": "data/cache/temporal-extension-20261006/raw/hgnc_20201001.tsv",
+      "exists": true,
+      "bytes": 15468596,
+      "expected_sha256": "22e58f4dee9ea11a76fca7f62b9c61467dd6aab80539a12c4f0c6cd9c4cd9822",
+      "actual_sha256": "22e58f4dee9ea11a76fca7f62b9c61467dd6aab80539a12c4f0c6cd9c4cd9822",
+      "matches": true
+    },
+    {
+      "group": "complete_historical_source",
+      "path": "data/cache/temporal-extension-20261006/raw/go_20201208.gaf.gz",
+      "exists": true,
+      "bytes": 11195512,
+      "expected_sha256": "a8a8945fd0ebcd91696f0e645ef17140cbd03825fa4424ef92f5f20afd10d2a1",
+      "actual_sha256": "a8a8945fd0ebcd91696f0e645ef17140cbd03825fa4424ef92f5f20afd10d2a1",
+      "matches": true
+    },
+    {
+      "group": "complete_historical_source",
+      "path": "data/cache/temporal-extension-20261006/raw/gnomad_v211.bgz",
+      "exists": true,
+      "bytes": 4609488,
+      "expected_sha256": "153031d34b6794e8e99eb0306bc3c50b13b18accda8b0ffef91c2623dd3affd5",
+      "actual_sha256": "153031d34b6794e8e99eb0306bc3c50b13b18accda8b0ffef91c2623dd3affd5",
+      "matches": true
+    },
+    {
+      "group": "complete_historical_source",
+      "path": "data/cache/temporal-extension-20261006/raw/hpa_v20_subcellular.zip",
+      "exists": true,
+      "bytes": 211964,
+      "expected_sha256": "871f4e97b49b712c1e4dac257cec3098f61f7350438000321a53644e6fc7a094",
+      "actual_sha256": "871f4e97b49b712c1e4dac257cec3098f61f7350438000321a53644e6fc7a094",
+      "matches": true
+    },
+    {
+      "group": "complete_historical_source",
+      "path": "data/cache/temporal-extension-20261006/raw/hpa_v20_normal_tissue.zip",
+      "exists": true,
+      "bytes": 5110246,
+      "expected_sha256": "98f865eea8692a9c8e4f96235500c0aa44f7785eb76326d783c2ec81768f6dfe",
+      "actual_sha256": "98f865eea8692a9c8e4f96235500c0aa44f7785eb76326d783c2ec81768f6dfe",
+      "matches": true
+    },
+    {
+      "group": "complete_historical_source",
+      "path": "data/cache/temporal-extension-20261006/raw/mgi_20200202.rpt",
+      "exists": true,
+      "bytes": 1545444,
+      "expected_sha256": "3431943138ffa75781db8f3a367f9945f2ea5eefd0d321e61b638acbf55bec05",
+      "actual_sha256": "3431943138ffa75781db8f3a367f9945f2ea5eefd0d321e61b638acbf55bec05",
+      "matches": true
+    },
+    {
+      "group": "complete_historical_source",
+      "path": "data/cache/temporal-extension-20261006/raw/mgi_vocab_20190129.rpt",
+      "exists": true,
+      "bytes": 2548030,
+      "expected_sha256": "507b3e35ec9b5be5ecdf295a2e3197a1ad65156b7ca1de8249069a41e9785a42",
+      "actual_sha256": "507b3e35ec9b5be5ecdf295a2e3197a1ad65156b7ca1de8249069a41e9785a42",
+      "matches": true
+    },
+    {
+      "group": "comparator_source_cache",
+      "path": "data/cache/phase3-sources-20261006/clingen.csv",
+      "exists": true,
+      "bytes": 1129673,
+      "expected_sha256": "979e814b2371a13133ab11ef14b613c58f11967928634b2af128df0632865016",
+      "actual_sha256": "979e814b2371a13133ab11ef14b613c58f11967928634b2af128df0632865016",
+      "matches": true
+    },
+    {
+      "group": "comparator_source_cache",
+      "path": "data/cache/phase3-sources-20261006/hgnc.tsv",
+      "exists": true,
+      "bytes": 16963116,
+      "expected_sha256": "2b4224ea847df2fc6982f5b2a52804c5d92fbb8810b134afb636f6029452dc03",
+      "actual_sha256": "2b4224ea847df2fc6982f5b2a52804c5d92fbb8810b134afb636f6029452dc03",
+      "matches": true
+    },
+    {
+      "group": "comparator_source_cache",
+      "path": "data/cache/phase3-sources-20261006/hp.obo",
+      "exists": true,
+      "bytes": 10863613,
+      "expected_sha256": "93dace952fcb3ec4728818857f6ba76bc2d5312f4d83266519b8694b8e798f22",
+      "actual_sha256": "93dace952fcb3ec4728818857f6ba76bc2d5312f4d83266519b8694b8e798f22",
+      "matches": true
+    },
+    {
+      "group": "comparator_source_cache",
+      "path": "data/cache/phase3-sources-20261006/genes_to_phenotype.txt",
+      "exists": true,
+      "bytes": 20821704,
+      "expected_sha256": "507a17bff9c49e6329fbd88b1f91734fa7e9fdea5c06304044c0892eb6ab248c",
+      "actual_sha256": "507a17bff9c49e6329fbd88b1f91734fa7e9fdea5c06304044c0892eb6ab248c",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/results/baseline_comparison.tsv",
+      "exists": true,
+      "bytes": 103608,
+      "expected_sha256": "13265090dd586418fdf418529d149095d1bfbcdf09eb2e7a6b10c011720c7f64",
+      "actual_sha256": "13265090dd586418fdf418529d149095d1bfbcdf09eb2e7a6b10c011720c7f64",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/results/candidate_membership_stability.tsv",
+      "exists": true,
+      "bytes": 89120,
+      "expected_sha256": "25d7bf7cd35592b27d46f68714b66b89cd59b3b41d4cec6aa628042416874d64",
+      "actual_sha256": "25d7bf7cd35592b27d46f68714b66b89cd59b3b41d4cec6aa628042416874d64",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/results/control_rankings.tsv",
+      "exists": true,
+      "bytes": 195592,
+      "expected_sha256": "a3bd1241a30d385e4719cc900ea702e4c5e4431f793295ad22c2063c40a0c795",
+      "actual_sha256": "a3bd1241a30d385e4719cc900ea702e4c5e4431f793295ad22c2063c40a0c795",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/results/control_tier_trace.tsv",
+      "exists": true,
+      "bytes": 6173,
+      "expected_sha256": "5bb695f67137badb0eebe2a2b6e5caa33bf9102a48f138e8dcc38e03e4ec9048",
+      "actual_sha256": "5bb695f67137badb0eebe2a2b6e5caa33bf9102a48f138e8dcc38e03e4ec9048",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/results/evidence_completeness.tsv",
+      "exists": true,
+      "bytes": 534,
+      "expected_sha256": "8ee702417f3b0c097d8d1dc027054994660e44e722241cf5d9c4d6735ed16a7b",
+      "actual_sha256": "8ee702417f3b0c097d8d1dc027054994660e44e722241cf5d9c4d6735ed16a7b",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/results/layer_correlations.tsv",
+      "exists": true,
+      "bytes": 3036,
+      "expected_sha256": "b6994e2b210d82bb723e4184a48ca073ad57ba4e96f09cc8da4de3bac985ef2d",
+      "actual_sha256": "b6994e2b210d82bb723e4184a48ca073ad57ba4e96f09cc8da4de3bac985ef2d",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/results/per_gene_diagnostics.tsv",
+      "exists": true,
+      "bytes": 5275190,
+      "expected_sha256": "643f51bdbd2f87710307b7c25428bef6481c54a38db793aae7c49c7c38265fa1",
+      "actual_sha256": "643f51bdbd2f87710307b7c25428bef6481c54a38db793aae7c49c7c38265fa1",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/results/threshold_sensitivity.tsv",
+      "exists": true,
+      "bytes": 3902,
+      "expected_sha256": "8a4ab6a5ad840c539053f754871b265687639396562e6d6fb77cfe5429d0010a",
+      "actual_sha256": "8a4ab6a5ad840c539053f754871b265687639396562e6d6fb77cfe5429d0010a",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/results/usher_expression_diagnostics.tsv",
+      "exists": true,
+      "bytes": 2709,
+      "expected_sha256": "77d1ef289fdd253c094266472e373cc8e58202218f1840ceb153be7ea0ac09df",
+      "actual_sha256": "77d1ef289fdd253c094266472e373cc8e58202218f1840ceb153be7ea0ac09df",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase3_results/comparator_summary.tsv",
+      "exists": true,
+      "bytes": 8028,
+      "expected_sha256": "888235bae9ea56ddf052d2dadd4dc5f5a8446297d5ed68713c2f6a852f8473cf",
+      "actual_sha256": "888235bae9ea56ddf052d2dadd4dc5f5a8446297d5ed68713c2f6a852f8473cf",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase3_results/eligible_gene_outcomes.tsv",
+      "exists": true,
+      "bytes": 79419,
+      "expected_sha256": "27454a8d95feed75f0dbc10438711e3d73a4cd330163e27dc3120d6c5c6f621e",
+      "actual_sha256": "27454a8d95feed75f0dbc10438711e3d73a4cd330163e27dc3120d6c5c6f621e",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase3_results/matched_concordance.tsv",
+      "exists": true,
+      "bytes": 352,
+      "expected_sha256": "32049f6cc9fe691209fcf37cc8416d2cff89f650d42563e875a409b936cdc64e",
+      "actual_sha256": "32049f6cc9fe691209fcf37cc8416d2cff89f650d42563e875a409b936cdc64e",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase3_results/matched_pair_outcomes.tsv",
+      "exists": true,
+      "bytes": 24852,
+      "expected_sha256": "0d1619ab760499e2c1fe4f1bd6afcd8e9c5aa7021a14684192c1c0b44365594b",
+      "actual_sha256": "0d1619ab760499e2c1fe4f1bd6afcd8e9c5aa7021a14684192c1c0b44365594b",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/temporal_extension/results/case_rankings.tsv",
+      "exists": true,
+      "bytes": 10283,
+      "expected_sha256": "520a825f1bd643c1fcd99b2cb94093a92e9343f40778c8c4e7c979782b5e0dce",
+      "actual_sha256": "520a825f1bd643c1fcd99b2cb94093a92e9343f40778c8c4e7c979782b5e0dce",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/temporal_extension/results/historical_components.tsv",
+      "exists": true,
+      "bytes": 1585332,
+      "expected_sha256": "d18fd079de69d1f8a6ea7de00e0e6b9f2da595c8d363d9985ad38f0dac489a75",
+      "actual_sha256": "d18fd079de69d1f8a6ea7de00e0e6b9f2da595c8d363d9985ad38f0dac489a75",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/temporal_extension/results/historical_rankings.tsv",
+      "exists": true,
+      "bytes": 12593204,
+      "expected_sha256": "50964fe5dd3e9373c204cf957a0f280e096225ff78fb8ba187ceb548e1d9e61c",
+      "actual_sha256": "50964fe5dd3e9373c204cf957a0f280e096225ff78fb8ba187ceb548e1d9e61c",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/temporal_extension/results/source_coverage.tsv",
+      "exists": true,
+      "bytes": 202,
+      "expected_sha256": "68f1472ba17ff74303e61c3720c46891fb00ffc175baa80fc78a0d12d0950b10",
+      "actual_sha256": "68f1472ba17ff74303e61c3720c46891fb00ffc175baa80fc78a0d12d0950b10",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase4_results/fixed_pair_sensitivities.tsv",
+      "exists": true,
+      "bytes": 169673,
+      "expected_sha256": "cf54dbf0e3ab6ec3ffb0b6b010e8047548b3355bcb2acfd76a3b9598a9a49f7c",
+      "actual_sha256": "cf54dbf0e3ab6ec3ffb0b6b010e8047548b3355bcb2acfd76a3b9598a9a49f7c",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase4_results/fixed_pair_summary.tsv",
+      "exists": true,
+      "bytes": 1395,
+      "expected_sha256": "5a6f631f1bb596e91ee59cca7042b34cb885827df9666fe3ea3ddb57ca60a663",
+      "actual_sha256": "5a6f631f1bb596e91ee59cca7042b34cb885827df9666fe3ea3ddb57ca60a663",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase4_results/historical_case_expression_sources.tsv",
+      "exists": true,
+      "bytes": 259,
+      "expected_sha256": "eea058ef2b8b5f5532a64dcffb12f37f1559250a29c14b61826fbb3c95a0e0f5",
+      "actual_sha256": "eea058ef2b8b5f5532a64dcffb12f37f1559250a29c14b61826fbb3c95a0e0f5",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase4_results/historical_tissue_coverage.tsv",
+      "exists": true,
+      "bytes": 220,
+      "expected_sha256": "becd2630c7f782a39dd85206abc1e28e9cabfe94effca71bea4a1dd246b8ff0e",
+      "actual_sha256": "becd2630c7f782a39dd85206abc1e28e9cabfe94effca71bea4a1dd246b8ff0e",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase4_results/historical_topk_completeness.tsv",
+      "exists": true,
+      "bytes": 206,
+      "expected_sha256": "80813150a7a1cdd1a6b1746e3c495a483db565df7eaceaff522d2a25dd747387",
+      "actual_sha256": "80813150a7a1cdd1a6b1746e3c495a483db565df7eaceaff522d2a25dd747387",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase4_results/matching_completeness_balance.tsv",
+      "exists": true,
+      "bytes": 430,
+      "expected_sha256": "4cfa426684fe5f471e69cc443a9d45864b8c323ba0ab50c48bac293675e58cd8",
+      "actual_sha256": "4cfa426684fe5f471e69cc443a9d45864b8c323ba0ab50c48bac293675e58cd8",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase3_roster/control_matching_coverage.tsv",
+      "exists": true,
+      "bytes": 1728,
+      "expected_sha256": "947c7209e74b6ef41d4555af602d9316ebd1cd646f12d32ff7feda46aa41a774",
+      "actual_sha256": "947c7209e74b6ef41d4555af602d9316ebd1cd646f12d32ff7feda46aa41a774",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase3_roster/eligibility_audit.tsv",
+      "exists": true,
+      "bytes": 2045566,
+      "expected_sha256": "77398704debb72f3fbb9f4ae7de0a5b952eab957cbcf3401e7d01d19dc657abb",
+      "actual_sha256": "77398704debb72f3fbb9f4ae7de0a5b952eab957cbcf3401e7d01d19dc657abb",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase3_roster/eligible_pool.tsv",
+      "exists": true,
+      "bytes": 18890,
+      "expected_sha256": "d23f59bda16e4a7da5f26ad38bac45605a49d6151bad7d49107b35e9cdff6e10",
+      "actual_sha256": "d23f59bda16e4a7da5f26ad38bac45605a49d6151bad7d49107b35e9cdff6e10",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase3_roster/matched_pairs.tsv",
+      "exists": true,
+      "bytes": 12240,
+      "expected_sha256": "04f8aca0a3ce269eb7e3bd1c9a31ab5f846b9566e518e593d0aa583fe2eb7112",
+      "actual_sha256": "04f8aca0a3ce269eb7e3bd1c9a31ab5f846b9566e518e593d0aa583fe2eb7112",
+      "matches": true
+    },
+    {
+      "group": "frozen_numerical_result",
+      "path": "revision/major_revision_20261006/phase3_roster/matching_diagnostics.tsv",
+      "exists": true,
+      "bytes": 542,
+      "expected_sha256": "76f24d2b2c965316d9744f747438f973e7b5489a2268aa9111bcd857ba739c5c",
+      "actual_sha256": "76f24d2b2c965316d9744f747438f973e7b5489a2268aa9111bcd857ba739c5c",
+      "matches": true
+    },
+    {
+      "group": "distributed_replay_input",
+      "path": "revision/major_revision_20261006/replay_inputs/scored_genes.tsv",
+      "exists": true,
+      "bytes": 6502026,
+      "expected_sha256": "e20bdf59a2444fbdc09d07599fd7caf6a2f6d159cfe7d6457855f33e36ba3876",
+      "actual_sha256": "e20bdf59a2444fbdc09d07599fd7caf6a2f6d159cfe7d6457855f33e36ba3876",
+      "matches": true
+    },
+    {
+      "group": "distributed_replay_input",
+      "path": "revision/major_revision_20261006/replay_inputs/tissue_expression.tsv",
+      "exists": true,
+      "bytes": 3355411,
+      "expected_sha256": "f212ff9ffb530ffaee78a1a2b40fa1075ac59575b89ca1b6d9c2ff11da2191d3",
+      "actual_sha256": "f212ff9ffb530ffaee78a1a2b40fa1075ac59575b89ca1b6d9c2ff11da2191d3",
+      "matches": true
+    },
+    {
+      "group": "distributed_replay_input",
+      "path": "revision/major_revision_20261006/replay_inputs/annotation_completeness.tsv",
+      "exists": true,
+      "bytes": 1500791,
+      "expected_sha256": "c8647dbfc77f82df5c372cf01df4f45094a7bd7576df07a15ae08e3160e1ab6b",
+      "actual_sha256": "c8647dbfc77f82df5c372cf01df4f45094a7bd7576df07a15ae08e3160e1ab6b",
+      "matches": true
+    },
+    {
+      "group": "distributed_replay_input",
+      "path": "revision/major_revision_20261006/replay_inputs/literature_evidence.tsv",
+      "exists": true,
+      "bytes": 1281214,
+      "expected_sha256": "2ad3f37909168de22f89905f5ffdfc59efb733fe89797ac429c32747f4951c07",
+      "actual_sha256": "2ad3f37909168de22f89905f5ffdfc59efb733fe89797ac429c32747f4951c07",
+      "matches": true
+    },
+    {
+      "group": "distributed_historical_panel",
+      "path": "revision/major_revision_20261006/replay_inputs/historical_hpa_panel.tsv",
+      "exists": true,
+      "bytes": 1092243,
+      "expected_sha256": "cd26f9044ab3587d4360cea9a63c996c8875bcedda8f89672cb35374c07dd7e4",
+      "actual_sha256": "cd26f9044ab3587d4360cea9a63c996c8875bcedda8f89672cb35374c07dd7e4",
+      "matches": true
+    },
+    {
+      "group": "distributed_live_snapshot",
+      "path": "revision/major_revision_20261006/reproducibility/phase3_live_snapshots/clingen.csv",
+      "exists": true,
+      "bytes": 1129673,
+      "expected_sha256": "979e814b2371a13133ab11ef14b613c58f11967928634b2af128df0632865016",
+      "actual_sha256": "979e814b2371a13133ab11ef14b613c58f11967928634b2af128df0632865016",
+      "matches": true
+    },
+    {
+      "group": "distributed_live_snapshot",
+      "path": "revision/major_revision_20261006/reproducibility/phase3_live_snapshots/hgnc.tsv",
+      "exists": true,
+      "bytes": 16963116,
+      "expected_sha256": "2b4224ea847df2fc6982f5b2a52804c5d92fbb8810b134afb636f6029452dc03",
+      "actual_sha256": "2b4224ea847df2fc6982f5b2a52804c5d92fbb8810b134afb636f6029452dc03",
+      "matches": true
+    }
+  ],
+  "all_recorded_hash_checks_pass": true,
+  "check_count": 78,
+  "production_rows": 20081,
+  "production_non_null_composites": 20053,
+  "additional_local_paths": [
+    {
+      "path": "data/pipeline.duckdb.bak-prerecovery-20261006",
+      "exists": true,
+      "status": "local runtime/cache; existence checked only"
+    },
+    {
+      "path": "data/cache/submission-recovery-20261006",
+      "exists": true,
+      "status": "local runtime/cache; existence checked only"
+    },
+    {
+      "path": "data/cache/phase4-replay-20261006",
+      "exists": true,
+      "status": "local runtime/cache; existence checked only"
+    },
+    {
+      "path": "data/cache/temporal-extension-20261006/probes",
+      "exists": true,
+      "status": "local runtime/cache; existence checked only"
+    },
+    {
+      "path": ".venv/bin/python",
+      "exists": true,
+      "status": "local runtime/cache; existence checked only"
+    },
+    {
+      "path": "data/cache/phase4-replay-20261006/venv/bin/python",
+      "exists": true,
+      "status": "local runtime/cache; existence checked only"
+    },
+    {
+      "path": "data/cache/temporal-extension-20261006/raw/gene2pubmed_20200629.gz.part",
+      "exists": true,
+      "status": "incomplete transfer; not a validated source"
+    }
+  ],
+  "backup_scope": "Committed derived inputs/results are recoverable from Git. Ignored live databases and raw caches remain local; this audit is not a separate off-machine backup.",
+  "expanded_temporal_status": "Authorized; protocol and data expansion not yet executed. Prior four-layer pilot is preserved."
+}

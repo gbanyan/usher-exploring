@@ -1,5 +1,7 @@
 # Phase 4 completion: revised claims and numerical replay
 
+**Continuation decision:** the user subsequently authorized expanded temporal validation. See [CURRENT_STATE.md](CURRENT_STATE.md) for the preserved conservative route, restricted pilot, current data audit and reopened research workstream. The review conclusion below is conditional on conservative claims; it is not an instruction to stop temporal work.
+
 Phase4 completes revised source content, post-review diagnostics and replay infrastructure. Final journal artifacts are not yet packaged. The production database/configuration, weights, source-level HIGH gate, comparator selection and frozen primary outcomes are preserved. The manuscript is now revised; immutable submission prose is in `baseline/` rather than used as a mutable replay input.
 
 ## Scientific results and interpretation
