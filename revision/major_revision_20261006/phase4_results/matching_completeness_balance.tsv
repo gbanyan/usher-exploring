@@ -1,0 +1,5 @@
+control_group	role	genes	layers_0	layers_1	layers_2	layers_3	layers_4	layers_5	layers_6	gnomad_observed	expression_observed	annotation_observed	localization_observed	animal_model_observed	literature_observed
+usher	control	9	0	0	0	0	0	7	2	9	9	9	2	9	9
+usher	matched_comparator	27	0	0	0	0	1	10	16	25	27	27	17	27	27
+syscilia	control	28	0	0	0	0	0	2	26	26	28	28	28	28	28
+syscilia	matched_comparator	84	0	0	0	0	3	25	56	76	84	84	61	84	84

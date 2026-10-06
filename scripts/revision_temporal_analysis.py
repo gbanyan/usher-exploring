@@ -1,5 +1,6 @@
 """Restricted archive-only reconstruction; never reads production gene scores."""
 from collections import Counter, defaultdict
+import argparse
 import csv
 import gzip
 import io
@@ -15,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 from revision_phase2 import digest, weighted_mean, percentile, order, write_table, clean
+from revision_replay import protected_inputs
 from usher_pipeline.evidence.annotation.transform import normalize_annotation_score
 from usher_pipeline.evidence.expression.models import HPA_LEVEL_ORDINAL, HPA_TISSUE_KEYS, RESTRICTED_TAU_COLUMN
 from usher_pipeline.evidence.expression.transform import compute_expression_score
@@ -72,8 +74,8 @@ def go_counts(lines, genes):
     return {gid: len(values) for gid, values in terms.items()}, dict(audit)
 
 
-def zip_table(name):
-    with zipfile.ZipFile(CACHE / name) as archive:
+def zip_table(name, cache=CACHE):
+    with zipfile.ZipFile(cache / name) as archive:
         members = archive.infolist()
         if len(members) != 1:
             raise ValueError("Unexpected HPA ZIP members")
@@ -84,27 +86,31 @@ def zip_table(name):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--cache-dir", type=Path, default=CACHE)
+    parser.add_argument("--source-manifest", type=Path, default=BASE / "download_manifest.json")
+    parser.add_argument("--output-dir", type=Path, default=BASE / "results")
+    parser.add_argument("--baseline-database", type=Path, default=ROOT / "data/pipeline.duckdb")
+    args = parser.parse_args()
+    cache = args.cache_dir
     if digest(BASE / "protocol.md") != PROTOCOL_SHA256:
         raise ValueError("Frozen protocol changed")
-    out = BASE / "results"
+    out = args.output_dir
     if out.exists():
         raise FileExistsError("Preserve prior outcomes")
-    protected = json.loads((BASE.parent / "input_manifest.json").read_text())["input_sha256"]
-    for path, expected in protected.items():
-        if digest(ROOT / path) != expected:
-            raise ValueError(f"Protected production artifact changed: {path}")
-    source_manifest = json.loads((BASE / "download_manifest.json").read_text())
+    protected = protected_inputs(args.baseline_database)
+    source_manifest = json.loads(args.source_manifest.read_text())
     required = ["hgnc_20201001.tsv", "go_20201208.gaf.gz", "gnomad_v211.bgz", "hpa_v20_subcellular.zip", "hpa_v20_normal_tissue.zip"]
     for name in required:
         item = next(r for r in source_manifest if r["name"] == name)
-        if item.get("error") or digest(CACHE / name) != item["sha256"]:
+        if item.get("error") or digest(cache / name) != item["sha256"]:
             raise ValueError(f"Missing or altered archive: {name}")
-    with (CACHE / required[0]).open() as handle:
+    with (cache / required[0]).open() as handle:
         genes, excluded = historical_genes(list(csv.DictReader(handle, delimiter="\t")))
     ids = np.array([g["ensembl_gene_id"] for g in genes])
     symbols = np.array([g["symbol"] for g in genes])
     frame = pl.DataFrame({"gene_id": ids, "gene_symbol": symbols})
-    with gzip.open(CACHE / "gnomad_v211.bgz", "rt") as handle:
+    with gzip.open(cache / "gnomad_v211.bgz", "rt") as handle:
         constraint = list(csv.DictReader(handle, delimiter="\t"))
     if len({r["gene_id"] for r in constraint}) != len(constraint):
         raise ValueError("Duplicate constraint genes")
@@ -113,7 +119,7 @@ def main():
     measured = np.isfinite(loeuf)
     constraint_score = np.full(len(ids), np.nan)
     constraint_score[measured] = (np.nanmax(loeuf) - loeuf[measured]) / (np.nanmax(loeuf) - np.nanmin(loeuf))
-    with gzip.open(CACHE / "go_20201208.gaf.gz", "rt") as handle:
+    with gzip.open(cache / "go_20201208.gaf.gz", "rt") as handle:
         counts, go_audit = go_counts(handle, genes)
     annotation = frame.with_columns([
         pl.Series("go_term_count", [counts.get(gid) for gid in ids], dtype=pl.Int64),
@@ -121,7 +127,7 @@ def main():
         pl.lit(None, dtype=pl.Boolean).alias("has_pathway_membership"),
     ])
     annotation = normalize_annotation_score(annotation)
-    hpa, hpa_date = zip_table("hpa_v20_normal_tissue.zip")
+    hpa, hpa_date = zip_table("hpa_v20_normal_tissue.zip", cache)
     tissue_keys = {key.replace("_", " "): key for key in HPA_TISSUE_KEYS}
     hpa = hpa.filter(pl.col("Tissue").is_in(list(tissue_keys)) & pl.col("Reliability").is_in(["Approved", "Enhanced", "Supported"]))
     unknown_levels = hpa.filter(~pl.col("Level").is_in(list(HPA_LEVEL_ORDINAL))).group_by("Level").len().to_dicts()
@@ -133,7 +139,7 @@ def main():
         expression = expression.join(part, on="gene_id", how="left")
     expression = expression.with_columns(pl.lit(None, dtype=pl.Float64).alias(RESTRICTED_TAU_COLUMN))
     expression = compute_expression_score(expression)
-    hpa_local, local_date = zip_table("hpa_v20_subcellular.zip")
+    hpa_local, local_date = zip_table("hpa_v20_subcellular.zip", cache)
     if hpa_local["Gene"].n_unique() != hpa_local.height:
         raise ValueError("Duplicate HPA localization genes")
     localization = frame.join(hpa_local.select([pl.col("Gene").alias("gene_id"), pl.col("Reliability").alias("hpa_reliability"), pl.col("Main location").alias("hpa_main_location")]), on="gene_id", how="left")
@@ -164,12 +170,12 @@ def main():
     for path, expected in protected.items():
         if digest(ROOT / path) != expected:
             raise ValueError(f"Production changed during analysis: {path}")
-    out.mkdir()
+    out.mkdir(parents=True)
     write_table(out / "historical_components.tsv", raw_components)
     write_table(out / "historical_rankings.tsv", rows)
     write_table(out / "case_rankings.tsv", case_rows)
     write_table(out / "source_coverage.tsv", coverage)
-    manifest = {"protocol_sha256": PROTOCOL_SHA256, "protocol_commit": "377eae3", "script_sha256": digest(Path(__file__)), "population": len(ids), "hgnc_duplicate_identifier_rows_excluded": excluded, "go_mapping_audit": go_audit, "hpa_unknown_ordinal_labels_mapped_to_null": unknown_levels, "hpa_normal_tissue_archive": hpa_date, "hpa_subcellular_archive": local_date, "protected_production_unchanged": True, "full_production_temporal_validation": False, "source_manifest_sha256": digest(BASE / "download_manifest.json"), "output_sha256": {p.name:digest(p) for p in sorted(out.glob("*.tsv"))}}
+    manifest = {"protocol_sha256": PROTOCOL_SHA256, "protocol_commit": "377eae3", "script_sha256": digest(Path(__file__)), "population": len(ids), "hgnc_duplicate_identifier_rows_excluded": excluded, "go_mapping_audit": go_audit, "hpa_unknown_ordinal_labels_mapped_to_null": unknown_levels, "hpa_normal_tissue_archive": hpa_date, "hpa_subcellular_archive": local_date, "protected_production_unchanged": True, "full_production_temporal_validation": False, "source_manifest_sha256": digest(args.source_manifest), "output_sha256": {p.name:digest(p) for p in sorted(out.glob("*.tsv"))}}
     (out / "manifest.json").write_text(json.dumps(clean(manifest), indent=2) + "\n")
     print(json.dumps(clean(manifest), indent=2))
 

@@ -14,6 +14,8 @@ import sys
 import duckdb
 import numpy as np
 import polars as pl
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from revision_replay import protected_inputs
 from scipy.stats import rankdata, spearmanr
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -146,18 +148,13 @@ def scheme_vectors(default):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, default=ROOT / "revision/major_revision_20261006/results")
+    parser.add_argument("--database", type=Path, default=ROOT / "data/pipeline.duckdb")
     args = parser.parse_args()
     out = args.output_dir.resolve()
     if out.exists():
         raise FileExistsError("Use a new output directory; preserve previous analysis results")
-    db = ROOT / "data/pipeline.duckdb"
-    recovery = json.loads((ROOT / "data/report/database_recovery_20261006.json").read_text())
-    if digest(db) != recovery["database_sha256"]:
-        raise ValueError("Active DB differs from verified submission recovery")
-    protected = [db, ROOT / "config/default.yaml", ROOT / "manuscript/draft.md"]
-    protected += sorted((ROOT / "submission/bmc_bioinformatics").glob("*"))
-    protected += [ROOT / "data/report/candidates.tsv", ROOT / "data/report/checksum_manifest.json"]
-    before = {str(p.relative_to(ROOT)): digest(p) for p in protected if p.is_file()}
+    db = args.database
+    before = protected_inputs(db)
     con = duckdb.connect(str(db), read_only=True)
     try:
         for table in ("scored_genes", "tissue_expression"):

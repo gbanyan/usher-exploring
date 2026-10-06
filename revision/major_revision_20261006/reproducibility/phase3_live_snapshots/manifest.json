@@ -1,0 +1,14 @@
+{
+  "clingen.csv": {
+    "url": "https://search.clinicalgenome.org/kb/gene-validity/download",
+    "sha256": "979e814b2371a13133ab11ef14b613c58f11967928634b2af128df0632865016",
+    "bytes": 1129673,
+    "download_completed_utc": "2026-10-06T08:47:47.342092+00:00"
+  },
+  "hgnc.tsv": {
+    "url": "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+    "sha256": "2b4224ea847df2fc6982f5b2a52804c5d92fbb8810b134afb636f6029452dc03",
+    "bytes": 16963116,
+    "download_completed_utc": "2026-10-06T08:47:52.001530+00:00"
+  }
+}

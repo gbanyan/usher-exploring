@@ -1,0 +1,4 @@
+gene_id	gene_symbol	expression_score	retina_protein_level	cerebellum_protein_level	testis_protein_level	fallopian_tube_protein_level
+ENSG00000070761	CFAP20					
+ENSG00000135315	CEP162	0.5126202156438899		2	2	2
+ENSG00000169683	LRRC45	0.7845994706360796		3	2	3

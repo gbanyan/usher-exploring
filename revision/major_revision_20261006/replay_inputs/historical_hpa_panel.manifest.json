@@ -1,0 +1,6 @@
+{
+  "sha256": "cd26f9044ab3587d4360cea9a63c996c8875bcedda8f89672cb35374c07dd7e4",
+  "source_sha256": "98f865eea8692a9c8e4f96235500c0aa44f7785eb76326d783c2ec81768f6dfe",
+  "source_url": "https://v20.proteinatlas.org/download/normal_tissue.tsv.zip",
+  "measurement": "ordinal HPA protein category; accepted reliability; max across cell types"
+}

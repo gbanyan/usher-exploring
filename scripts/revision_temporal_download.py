@@ -22,12 +22,12 @@ SOURCES = {
 }
 
 
-def download(item):
+def download(item, cache=CACHE):
     name, url = item
-    destination = CACHE / name
+    destination = cache / name
     row = {"name": name, "url": url, "retrieval_started_utc": datetime.now(timezone.utc).isoformat()}
     if destination.exists():
-        row.update(bytes=destination.stat().st_size, sha256=hashlib.sha256(destination.read_bytes()).hexdigest(), path=str(destination.relative_to(ROOT)), error=None,
+        row.update(bytes=destination.stat().st_size, sha256=hashlib.sha256(destination.read_bytes()).hexdigest(), path=str(destination.resolve()), error=None,
                    cached_existing=True, original_completion_utc_from_file_mtime=datetime.fromtimestamp(destination.stat().st_mtime, timezone.utc).isoformat(),
                    retrieval_finished_utc=None, response_metadata_available=False)
         return row
@@ -43,7 +43,7 @@ def download(item):
                     raise ValueError("Archive exceeds the 150 MiB audit limit")
                 output.write(block)
         temporary.rename(destination)
-        row.update(bytes=destination.stat().st_size, sha256=hashlib.sha256(destination.read_bytes()).hexdigest(), path=str(destination.relative_to(ROOT)), error=None)
+        row.update(bytes=destination.stat().st_size, sha256=hashlib.sha256(destination.read_bytes()).hexdigest(), path=str(destination.resolve()), error=None)
     except Exception as error:
         temporary.unlink(missing_ok=True)
         row.update(error=f"{type(error).__name__}: {error}")
@@ -54,22 +54,28 @@ def download(item):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--preserve-completed-only", action="store_true", help="Inventory completed downloads after interruption; do not retry incomplete network transfers")
+    parser.add_argument("--cache-dir", type=Path, default=CACHE)
+    parser.add_argument("--output-manifest", type=Path, default=OUT / "download_manifest.json")
+    parser.add_argument("--required-only", action="store_true", help="Download only the five files used by the frozen four-layer reconstruction")
     args = parser.parse_args()
-    CACHE.mkdir(parents=True, exist_ok=True)
-    output = OUT / "download_manifest.json"
+    cache = args.cache_dir.resolve()
+    cache.mkdir(parents=True, exist_ok=True)
+    output = args.output_manifest
     if output.exists():
         raise FileExistsError(output)
+    sources = dict(list(SOURCES.items())[:5]) if args.required_only else SOURCES
     if args.preserve_completed_only:
         rows = []
-        for name, url in SOURCES.items():
-            if (CACHE / name).exists():
-                rows.append(download((name, url)))
+        for name, url in sources.items():
+            if (cache / name).exists():
+                rows.append(download((name, url), cache))
             else:
-                partial = CACHE / (name + ".part")
+                partial = cache / (name + ".part")
                 rows.append({"name": name, "url": url, "error": "Transfer interrupted after slow direct archive progress; complete-file validation not established", "partial_bytes": partial.stat().st_size if partial.exists() else 0, "path": None, "sha256": None})
     else:
         with ThreadPoolExecutor(max_workers=4) as pool:
-            rows = list(pool.map(download, SOURCES.items()))
+            rows = list(pool.map(lambda item: download(item, cache), sources.items()))
+    output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(rows, indent=2) + "\n")
     print(json.dumps(rows, indent=2))
 

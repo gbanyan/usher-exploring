@@ -1,0 +1,227 @@
+{
+  "scope": "Derived numerical replay plus separately frozen revision sources; not complete original raw regeneration",
+  "original_submission_sources": [
+    {
+      "relative_cache_label": "pipeline.duckdb",
+      "sha256": "1f5f606d0fb1d1ea3ca90386416c804ea70c809b8ea670c4a94e7659dac641d8",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    },
+    {
+      "relative_cache_label": "annotation/Homo_sapiens.GRCh38.113.gtf.gz",
+      "sha256": "62f1709b40e083ce9d4cdc64a86b5ffec2c5d5371434bb7095c74dc89079c466",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    },
+    {
+      "relative_cache_label": "MANE.GRCh38.v1.3.summary.txt.gz",
+      "sha256": "06637bc2d1f04f54635a8a09ff535ed44e5f7a2ced2d2a30a03f50b233379c35",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    },
+    {
+      "relative_cache_label": "gnomad/constraint_metrics.tsv",
+      "sha256": "68d8abdb7fc48f570869b02dfaa74b9fecaece7fcc5f301ddca40ec1ce12da00",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    },
+    {
+      "relative_cache_label": "expression/gtex_median_tpm.gct",
+      "sha256": "73215808fcbec246639aaf1f8eadba30ceb31dd74aa6074222a5c081ce3a9e72",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    },
+    {
+      "relative_cache_label": "expression/hpa_normal_tissue.tsv",
+      "sha256": "1fa9111070f23290d29a32eaa30695689599b5231e7d0bc935b60a777ad3a1cc",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    },
+    {
+      "relative_cache_label": "expression/cellxgene_expression_2025-11-08.parquet",
+      "sha256": "359ec5ebd9b6f162c1fbf308537ff5231629240ccdda4b20821101a6c5e6ac1a",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    },
+    {
+      "relative_cache_label": "localization/hpa_subcellular_location.tsv",
+      "sha256": "65a7a197c11525b782767df4a23446c7c2ce8aefeb6b446cd6dc549cb6bf5841",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    },
+    {
+      "relative_cache_label": "literature/gene2pubmed.gz",
+      "sha256": "80b830310b91ae1a86819ddfa8959c7627101e7d596af12714bbdbe97f72d78a",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    },
+    {
+      "relative_cache_label": "literature/gene_info.gz",
+      "sha256": "9e225b3840456ee5458c7c5ffd96abb706a4b58422f35f3c32f7e0b3ca958731",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    },
+    {
+      "relative_cache_label": "pubmed_context_sets.json",
+      "sha256": "d07949dfc9dae0d021fc09c4776cfcc1aa27340e31086ce92f68a47f4cd4def8",
+      "retrieval_date": null,
+      "source_url": null,
+      "version_status": "Configured labels and additional source details retained in original reproducibility/recovery records; not inferred here"
+    }
+  ],
+  "original_manifest": "data/report/reproducibility.json",
+  "recovery_report": "docs/submission-database-recovery.md",
+  "revision_comparator_sources": {
+    "clingen.csv": {
+      "url": "https://search.clinicalgenome.org/kb/gene-validity/download",
+      "sha256": "979e814b2371a13133ab11ef14b613c58f11967928634b2af128df0632865016",
+      "bytes": 1129673,
+      "download_completed_utc": "2026-10-06T08:47:47.342092+00:00"
+    },
+    "hgnc.tsv": {
+      "url": "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+      "sha256": "2b4224ea847df2fc6982f5b2a52804c5d92fbb8810b134afb636f6029452dc03",
+      "bytes": 16963116,
+      "download_completed_utc": "2026-10-06T08:47:52.001530+00:00"
+    },
+    "hp.obo": {
+      "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/hp.obo",
+      "sha256": "93dace952fcb3ec4728818857f6ba76bc2d5312f4d83266519b8694b8e798f22",
+      "bytes": 10863613,
+      "download_completed_utc": "2026-10-06T08:47:54.665003+00:00"
+    },
+    "genes_to_phenotype.txt": {
+      "url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/genes_to_phenotype.txt",
+      "sha256": "507a17bff9c49e6329fbd88b1f91734fa7e9fdea5c06304044c0892eb6ab248c",
+      "bytes": 20821704,
+      "download_completed_utc": "2026-10-06T08:48:14.029221+00:00"
+    }
+  },
+  "temporal_sources": [
+    {
+      "name": "hgnc_20201001.tsv",
+      "url": "https://storage.googleapis.com/public-download-files/hgnc/archive/archive/quarterly/tsv/hgnc_complete_set_2020-10-01.txt",
+      "retrieval_started_utc": "2026-10-06T09:25:29.752599+00:00",
+      "bytes": 15468596,
+      "sha256": "22e58f4dee9ea11a76fca7f62b9c61467dd6aab80539a12c4f0c6cd9c4cd9822",
+      "path": "data/cache/temporal-extension-20261006/raw/hgnc_20201001.tsv",
+      "error": null,
+      "cached_existing": true,
+      "original_completion_utc_from_file_mtime": "2026-10-06T09:20:46.835315+00:00",
+      "retrieval_finished_utc": null,
+      "response_metadata_available": false
+    },
+    {
+      "name": "go_20201208.gaf.gz",
+      "url": "https://go-data-product-release.s3.amazonaws.com/2020-12-08/annotations/goa_human.gaf.gz",
+      "retrieval_started_utc": "2026-10-06T09:25:29.758541+00:00",
+      "bytes": 11195512,
+      "sha256": "a8a8945fd0ebcd91696f0e645ef17140cbd03825fa4424ef92f5f20afd10d2a1",
+      "path": "data/cache/temporal-extension-20261006/raw/go_20201208.gaf.gz",
+      "error": null,
+      "cached_existing": true,
+      "original_completion_utc_from_file_mtime": "2026-10-06T09:20:45.436270+00:00",
+      "retrieval_finished_utc": null,
+      "response_metadata_available": false
+    },
+    {
+      "name": "gnomad_v211.bgz",
+      "url": "https://storage.googleapis.com/gcp-public-data--gnomad/release/2.1.1/constraint/gnomad.v2.1.1.lof_metrics.by_gene.txt.bgz",
+      "retrieval_started_utc": "2026-10-06T09:25:29.762395+00:00",
+      "bytes": 4609488,
+      "sha256": "153031d34b6794e8e99eb0306bc3c50b13b18accda8b0ffef91c2623dd3affd5",
+      "path": "data/cache/temporal-extension-20261006/raw/gnomad_v211.bgz",
+      "error": null,
+      "cached_existing": true,
+      "original_completion_utc_from_file_mtime": "2026-10-06T09:20:43.599756+00:00",
+      "retrieval_finished_utc": null,
+      "response_metadata_available": false
+    },
+    {
+      "name": "hpa_v20_subcellular.zip",
+      "url": "https://v20.proteinatlas.org/download/subcellular_location.tsv.zip",
+      "retrieval_started_utc": "2026-10-06T09:25:29.764180+00:00",
+      "bytes": 211964,
+      "sha256": "871f4e97b49b712c1e4dac257cec3098f61f7350438000321a53644e6fc7a094",
+      "path": "data/cache/temporal-extension-20261006/raw/hpa_v20_subcellular.zip",
+      "error": null,
+      "cached_existing": true,
+      "original_completion_utc_from_file_mtime": "2026-10-06T09:20:43.443859+00:00",
+      "retrieval_finished_utc": null,
+      "response_metadata_available": false
+    },
+    {
+      "name": "hpa_v20_normal_tissue.zip",
+      "url": "https://v20.proteinatlas.org/download/normal_tissue.tsv.zip",
+      "retrieval_started_utc": "2026-10-06T09:25:29.764304+00:00",
+      "bytes": 5110246,
+      "sha256": "98f865eea8692a9c8e4f96235500c0aa44f7785eb76326d783c2ec81768f6dfe",
+      "path": "data/cache/temporal-extension-20261006/raw/hpa_v20_normal_tissue.zip",
+      "error": null,
+      "cached_existing": true,
+      "original_completion_utc_from_file_mtime": "2026-10-06T09:20:46.012043+00:00",
+      "retrieval_finished_utc": null,
+      "response_metadata_available": false
+    },
+    {
+      "name": "mgi_20200202.rpt",
+      "url": "https://web.archive.org/web/20200202074056id_/http://www.informatics.jax.org:80/downloads/reports/HMD_HumanPhenotype.rpt",
+      "retrieval_started_utc": "2026-10-06T09:25:29.766209+00:00",
+      "bytes": 1545444,
+      "sha256": "3431943138ffa75781db8f3a367f9945f2ea5eefd0d321e61b638acbf55bec05",
+      "path": "data/cache/temporal-extension-20261006/raw/mgi_20200202.rpt",
+      "error": null,
+      "cached_existing": true,
+      "original_completion_utc_from_file_mtime": "2026-10-06T09:23:37.295221+00:00",
+      "retrieval_finished_utc": null,
+      "response_metadata_available": false
+    },
+    {
+      "name": "mgi_vocab_20190129.rpt",
+      "url": "https://web.archive.org/web/20190129050929id_/http://www.informatics.jax.org:80/downloads/reports/VOC_MammalianPhenotype.rpt",
+      "retrieval_started_utc": "2026-10-06T09:25:29.766825+00:00",
+      "bytes": 2548030,
+      "sha256": "507b3e35ec9b5be5ecdf295a2e3197a1ad65156b7ca1de8249069a41e9785a42",
+      "path": "data/cache/temporal-extension-20261006/raw/mgi_vocab_20190129.rpt",
+      "error": null,
+      "cached_existing": true,
+      "original_completion_utc_from_file_mtime": "2026-10-06T09:25:11.880481+00:00",
+      "retrieval_finished_utc": null,
+      "response_metadata_available": false
+    },
+    {
+      "name": "gene2pubmed_20200629.gz",
+      "url": "https://web.archive.org/web/20200629060937id_/https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene2pubmed.gz",
+      "error": "Transfer interrupted after slow direct archive progress; complete-file validation not established",
+      "partial_bytes": 2097152,
+      "path": null,
+      "sha256": null
+    }
+  ],
+  "derived_bundle_manifest": "revision/major_revision_20261006/replay_inputs/manifest.json",
+  "environment": {
+    "python": "3.13.1",
+    "os": "macOS",
+    "architecture": "arm64",
+    "uv": "0.12.23",
+    "dependencies": "requirements.lock.txt",
+    "lock_sha256": "9d9a032a801929c06c0fff7363eabbdcf6eeb4bf97a82f3d2330ffcc687dd173"
+  },
+  "limitations": [
+    "Original missing dates/URLs remain unknown; preserved hashes identify bytes, not acquisition events.",
+    "Animal and annotation fields were restored from historical donor-derived tables; no complete dated original raw source reconstruction.",
+    "Live comparator exports are distributed as fixed text snapshots.",
+    "Historical failed or partial probes are not complete acquired source files.",
+    "Exact numerical replay has been tested on macOS arm64; Linux/container parity has not been established."
+  ]
+}

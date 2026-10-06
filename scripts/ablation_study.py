@@ -13,6 +13,8 @@ Outputs:
 """
 
 import sys
+import argparse
+import duckdb
 from pathlib import Path
 
 import numpy as np
@@ -20,8 +22,6 @@ import polars as pl
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from usher_pipeline.config.loader import load_config
-from usher_pipeline.persistence.duckdb_store import PipelineStore
 from usher_pipeline.scoring.known_genes import OMIM_USHER_GENES, SYSCILIA_SCGS_V2_CORE
 
 import matplotlib
@@ -46,15 +46,14 @@ WEIGHTS = {
 }
 
 OUTDIR = Path("data/report/paper_figures")
-OUTDIR.mkdir(parents=True, exist_ok=True)
+DATABASE = Path("data/pipeline.duckdb")
+CSV_PATH = Path("data/report/ablation_comparison.csv")
 
 
 def load_scored() -> pl.DataFrame:
-    config = load_config("config/default.yaml")
-    store = PipelineStore.from_config(config)
-    df = store.load_dataframe("scored_genes")
-    store.close()
-    return df
+    with duckdb.connect(str(DATABASE), read_only=True) as con:
+        con.execute("DESCRIBE scored_genes").fetchall()
+        return con.execute("SELECT * FROM scored_genes ORDER BY gene_id").pl()
 
 
 def score_null_preserve(df: pl.DataFrame) -> pl.DataFrame:
@@ -274,6 +273,17 @@ def generate_ablation_figure(
 
 
 def main():
+    global DATABASE, OUTDIR, CSV_PATH
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--database", type=Path, default=DATABASE)
+    parser.add_argument("--output-dir", type=Path, default=OUTDIR)
+    parser.add_argument("--output-csv", type=Path, default=CSV_PATH)
+    args = parser.parse_args()
+    DATABASE, OUTDIR, CSV_PATH = args.database, args.output_dir, args.output_csv
+    if CSV_PATH.exists() or (OUTDIR.exists() and any(OUTDIR.iterdir())):
+        raise FileExistsError("Preserve existing results; use new output paths")
+    OUTDIR.mkdir(parents=True, exist_ok=True)
+    CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
     print("Loading scored genes...")
     df = load_scored()
     print(f"  {df.height} genes loaded\n")
@@ -419,10 +429,10 @@ def main():
 
     # ── Figure 6: two-panel ablation figure ────────────────────
     print("\nGenerating ablation figure...")
-    generate_ablation_figure(df)
+    generate_ablation_figure(df, output_dir=OUTDIR)
 
     # ── Save full comparison CSV ───────────────────────────────
-    csv_path = Path("data/report/ablation_comparison.csv")
+    csv_path = CSV_PATH
     df.select([
         "gene_id", "gene_symbol", "evidence_count",
         "composite_null_preserve", "composite_zero_impute", "composite_median_impute",

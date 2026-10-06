@@ -1,0 +1,21 @@
+{
+  "status": "Original manifest hashes repository Markdown, not delivered TXT; Phase 5 must hash actual converted files.",
+  "files": {
+    "data/report/exploration/expression_shortlist_report.md": {
+      "sha256": "e046dbcd6b9eebd8190ad75a9c1cc4d0f0396cd887e48b6558f7d25633a1967f",
+      "bytes": 1897
+    },
+    "submission/bmc_bioinformatics/Additional_file_6_Expression_Shortlist_Report.txt": {
+      "sha256": "13fc6ddd5f3ef1f2b27d4812f70944a61824a394f3ec4e6f54619bc883ce9461",
+      "bytes": 2360
+    },
+    "submission/bmc_bioinformatics/Additional_file_10_Checksum_Manifest.json": {
+      "sha256": "0135c14f8c2ba1f1e1779a5e0565b3a1c585bba8b8df8a77a646e7e8bc5c8729",
+      "bytes": 4503
+    }
+  },
+  "original_manifest_entry": {
+    "sha256": "e046dbcd6b9eebd8190ad75a9c1cc4d0f0396cd887e48b6558f7d25633a1967f",
+    "size_bytes": 1897
+  }
+}

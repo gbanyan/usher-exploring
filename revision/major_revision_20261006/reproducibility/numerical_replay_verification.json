@@ -1,0 +1,183 @@
+{
+  "environment": "task-owned clean venv, Python 3.13.1, macOS arm64",
+  "tables": [
+    {
+      "original": "revision/major_revision_20261006/results/baseline_comparison.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase2/baseline_comparison.tsv",
+      "sha256": "13265090dd586418fdf418529d149095d1bfbcdf09eb2e7a6b10c011720c7f64",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/results/candidate_membership_stability.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase2/candidate_membership_stability.tsv",
+      "sha256": "25d7bf7cd35592b27d46f68714b66b89cd59b3b41d4cec6aa628042416874d64",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/results/control_rankings.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase2/control_rankings.tsv",
+      "sha256": "a3bd1241a30d385e4719cc900ea702e4c5e4431f793295ad22c2063c40a0c795",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/results/control_tier_trace.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase2/control_tier_trace.tsv",
+      "sha256": "5bb695f67137badb0eebe2a2b6e5caa33bf9102a48f138e8dcc38e03e4ec9048",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/results/evidence_completeness.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase2/evidence_completeness.tsv",
+      "sha256": "8ee702417f3b0c097d8d1dc027054994660e44e722241cf5d9c4d6735ed16a7b",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/results/layer_correlations.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase2/layer_correlations.tsv",
+      "sha256": "b6994e2b210d82bb723e4184a48ca073ad57ba4e96f09cc8da4de3bac985ef2d",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/results/per_gene_diagnostics.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase2/per_gene_diagnostics.tsv",
+      "sha256": "643f51bdbd2f87710307b7c25428bef6481c54a38db793aae7c49c7c38265fa1",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/results/threshold_sensitivity.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase2/threshold_sensitivity.tsv",
+      "sha256": "8a4ab6a5ad840c539053f754871b265687639396562e6d6fb77cfe5429d0010a",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/results/usher_expression_diagnostics.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase2/usher_expression_diagnostics.tsv",
+      "sha256": "77d1ef289fdd253c094266472e373cc8e58202218f1840ceb153be7ea0ac09df",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase3_results/comparator_summary.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase3/comparator_summary.tsv",
+      "sha256": "888235bae9ea56ddf052d2dadd4dc5f5a8446297d5ed68713c2f6a852f8473cf",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase3_results/eligible_gene_outcomes.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase3/eligible_gene_outcomes.tsv",
+      "sha256": "27454a8d95feed75f0dbc10438711e3d73a4cd330163e27dc3120d6c5c6f621e",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase3_results/matched_concordance.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase3/matched_concordance.tsv",
+      "sha256": "32049f6cc9fe691209fcf37cc8416d2cff89f650d42563e875a409b936cdc64e",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase3_results/matched_pair_outcomes.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase3/matched_pair_outcomes.tsv",
+      "sha256": "0d1619ab760499e2c1fe4f1bd6afcd8e9c5aa7021a14684192c1c0b44365594b",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/temporal_extension/results/case_rankings.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-temporal/case_rankings.tsv",
+      "sha256": "520a825f1bd643c1fcd99b2cb94093a92e9343f40778c8c4e7c979782b5e0dce",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/temporal_extension/results/historical_components.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-temporal/historical_components.tsv",
+      "sha256": "d18fd079de69d1f8a6ea7de00e0e6b9f2da595c8d363d9985ad38f0dac489a75",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/temporal_extension/results/historical_rankings.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-temporal/historical_rankings.tsv",
+      "sha256": "50964fe5dd3e9373c204cf957a0f280e096225ff78fb8ba187ceb548e1d9e61c",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/temporal_extension/results/source_coverage.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-temporal/source_coverage.tsv",
+      "sha256": "68f1472ba17ff74303e61c3720c46891fb00ffc175baa80fc78a0d12d0950b10",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase4_results/fixed_pair_sensitivities.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase4/fixed_pair_sensitivities.tsv",
+      "sha256": "cf54dbf0e3ab6ec3ffb0b6b010e8047548b3355bcb2acfd76a3b9598a9a49f7c",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase4_results/fixed_pair_summary.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase4/fixed_pair_summary.tsv",
+      "sha256": "5a6f631f1bb596e91ee59cca7042b34cb885827df9666fe3ea3ddb57ca60a663",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase4_results/historical_case_expression_sources.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase4/historical_case_expression_sources.tsv",
+      "sha256": "eea058ef2b8b5f5532a64dcffb12f37f1559250a29c14b61826fbb3c95a0e0f5",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase4_results/historical_tissue_coverage.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase4/historical_tissue_coverage.tsv",
+      "sha256": "becd2630c7f782a39dd85206abc1e28e9cabfe94effca71bea4a1dd246b8ff0e",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase4_results/historical_topk_completeness.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase4/historical_topk_completeness.tsv",
+      "sha256": "80813150a7a1cdd1a6b1746e3c495a483db565df7eaceaff522d2a25dd747387",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase4_results/matching_completeness_balance.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-phase4/matching_completeness_balance.tsv",
+      "sha256": "4cfa426684fe5f471e69cc443a9d45864b8c323ba0ab50c48bac293675e58cd8",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase3_roster/control_matching_coverage.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-roster/control_matching_coverage.tsv",
+      "sha256": "947c7209e74b6ef41d4555af602d9316ebd1cd646f12d32ff7feda46aa41a774",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase3_roster/eligibility_audit.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-roster/eligibility_audit.tsv",
+      "sha256": "77398704debb72f3fbb9f4ae7de0a5b952eab957cbcf3401e7d01d19dc657abb",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase3_roster/eligible_pool.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-roster/eligible_pool.tsv",
+      "sha256": "d23f59bda16e4a7da5f26ad38bac45605a49d6151bad7d49107b35e9cdff6e10",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase3_roster/matched_pairs.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-roster/matched_pairs.tsv",
+      "sha256": "04f8aca0a3ce269eb7e3bd1c9a31ab5f846b9566e518e593d0aa583fe2eb7112",
+      "byte_identical": true
+    },
+    {
+      "original": "revision/major_revision_20261006/phase3_roster/matching_diagnostics.tsv",
+      "replay": "data/cache/phase4-replay-20261006/clean-roster/matching_diagnostics.tsv",
+      "sha256": "76f24d2b2c965316d9744f747438f973e7b5489a2268aa9111bcd857ba739c5c",
+      "byte_identical": true
+    }
+  ],
+  "count": 28,
+  "existing_tests_passed": 343,
+  "existing_test_warnings": 17,
+  "dependency_check": "106 packages compatible (105 pinned dependencies plus editable project)",
+  "uv_version": "0.12.23",
+  "final_tests_passed": 345,
+  "new_test_coverage": [
+    "NULL/zero/empty/quoted TSV schema round-trip and input integrity rejection",
+    "Pair-common-layer missingness and unshared-evidence exclusion"
+  ]
+}

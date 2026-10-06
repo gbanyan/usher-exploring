@@ -83,14 +83,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-dir", type=Path, default=ROOT / "data/cache/phase3-sources-20261006")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "revision/major_revision_20261006/phase3_roster")
+    parser.add_argument("--database", type=Path, default=ROOT / "data/pipeline.duckdb")
     args = parser.parse_args(); src = args.source_dir; out = args.output_dir
     if out.exists():
         raise FileExistsError("Preserve frozen rosters; use a new directory")
     phase2 = json.loads((ROOT / "revision/major_revision_20261006/results/manifest.json").read_text())
-    protected = phase2["protected_input_sha256"]
-    if any(digest(ROOT / path) != value for path, value in protected.items()):
-        raise ValueError("Protected baseline changed")
-    with duckdb.connect(str(ROOT / "data/pipeline.duckdb"), read_only=True) as con:
+    from revision_replay import protected_inputs
+    protected = protected_inputs(args.database)
+    with duckdb.connect(str(args.database), read_only=True) as con:
         for table in ("scored_genes", "literature_evidence", "annotation_completeness"):
             con.execute(f"DESCRIBE {table}").fetchall()
         # Deliberately do not select any composite, layer score, tier or gate field.

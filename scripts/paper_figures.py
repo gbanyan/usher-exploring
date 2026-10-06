@@ -1,6 +1,8 @@
 """Generate publication-quality figures for BMC Bioinformatics submission."""
 
 import sys
+import argparse
+import duckdb
 from pathlib import Path
 
 import matplotlib
@@ -15,14 +17,13 @@ import seaborn as sns
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from usher_pipeline.config.loader import load_config
-from usher_pipeline.persistence.duckdb_store import PipelineStore
 from usher_pipeline.scoring.known_genes import OMIM_USHER_GENES, SYSCILIA_SCGS_V2_CORE
 
 # Publication style
 sns.set_theme(style="whitegrid", context="paper", font_scale=1.2)
 FIGDIR = Path("data/report/paper_figures")
-FIGDIR.mkdir(parents=True, exist_ok=True)
+DATABASE = Path("data/pipeline.duckdb")
+CANDIDATES = Path("data/report/candidates.tsv")
 
 DPI = 300
 PALETTE = {
@@ -39,16 +40,14 @@ def background_sample_label(sample_size: int, population_size: int) -> str:
 
 def load_candidates() -> pl.DataFrame:
     """Load tiered candidates from TSV."""
-    return pl.read_csv("data/report/candidates.tsv", separator="\t")
+    return pl.read_csv(CANDIDATES, separator="\t")
 
 
 def load_scored_genes() -> pl.DataFrame:
     """Load scored genes directly from DuckDB."""
-    config = load_config("config/default.yaml")
-    store = PipelineStore.from_config(config)
-    df = store.load_dataframe("scored_genes")
-    store.close()
-    return df
+    with duckdb.connect(str(DATABASE), read_only=True) as con:
+        con.execute("DESCRIBE scored_genes").fetchall()
+        return con.execute("SELECT * FROM scored_genes ORDER BY gene_id").pl()
 
 
 def validation_percent_rank(
@@ -276,9 +275,10 @@ def fig5_validation_controls(df: pl.DataFrame):
         pl.col("gene_symbol").is_in(list(SYSCILIA_SCGS_V2_CORE - OMIM_USHER_GENES))
     )["percentile"].to_list()
 
-    background_pcts = ranked.filter(
+    background = ranked.filter(
         ~pl.col("gene_symbol").is_in(list(all_known))
-    )["percentile"].to_list()
+    ).sort("gene_id")
+    background_pcts = background["percentile"].to_list()
 
     fig, ax = plt.subplots(figsize=(8, 5))
 
@@ -290,7 +290,10 @@ def fig5_validation_controls(df: pl.DataFrame):
         data.append({"group": f"SYSCILIA\n(n={len(cilia_pcts)})", "percentile": p})
     # Sample background for display
     rng = np.random.default_rng(42)
-    bg_sample = rng.choice(background_pcts, size=min(500, len(background_pcts)), replace=False)
+    sample_indices = rng.choice(len(background_pcts), size=min(500, len(background_pcts)), replace=False)
+    sampled = background[sample_indices.tolist()]
+    sampled.select("gene_id", "gene_symbol", "percentile").write_csv(FIGDIR / "fig5_background_sample.tsv", separator="\t")
+    bg_sample = sampled["percentile"].to_list()
     for p in bg_sample:
         data.append({
             "group": background_sample_label(len(bg_sample), len(background_pcts)),
@@ -433,6 +436,15 @@ def fig7_sensitivity_heatmap():
 # ── Main ─────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--database", type=Path, default=DATABASE)
+    parser.add_argument("--candidates", type=Path, default=CANDIDATES)
+    parser.add_argument("--output-dir", type=Path, default=FIGDIR)
+    args = parser.parse_args()
+    DATABASE, CANDIDATES, FIGDIR = args.database, args.candidates, args.output_dir
+    if FIGDIR.exists() and any(FIGDIR.iterdir()):
+        raise FileExistsError("Preserve existing figures; choose a new output directory")
+    FIGDIR.mkdir(parents=True, exist_ok=True)
     print("Generating publication figures...")
     print(f"Output: {FIGDIR}/\n")
 

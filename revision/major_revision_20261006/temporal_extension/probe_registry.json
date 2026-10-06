@@ -1,0 +1,206 @@
+[
+  {
+    "name": "go_2020_s3_catalog",
+    "requested_url": "https://go-data-product-release.s3.amazonaws.com/?prefix=2020-12-08/annotations/&max-keys=1000"
+  },
+  {
+    "name": "go_2015_s3_catalog",
+    "requested_url": "https://go-data-product-release.s3.amazonaws.com/?prefix=2015-12-01/annotations/&max-keys=1000"
+  },
+  {
+    "name": "zfin_2020_archive",
+    "requested_url": "https://zfin.org/downloads/archive/2020.12.31"
+  },
+  {
+    "name": "impc_dr11_contents",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/release-11.0/"
+  },
+  {
+    "name": "uniprot_2020_contents",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/uniprot/previous_releases/release-2020_01/"
+  },
+  {
+    "name": "gnomad_v211_corrected",
+    "requested_url": "https://storage.googleapis.com/gcp-public-data--gnomad/release/2.1.1/constraint/gnomad.v2.1.1.lof_metrics.by_gene.txt.bgz"
+  },
+  {
+    "name": "hpa_v20_releases",
+    "requested_url": "https://v20.proteinatlas.org/about/releases"
+  },
+  {
+    "name": "hcop_archive",
+    "requested_url": "https://www.genenames.org/tools/hcop/"
+  },
+  {
+    "name": "hgnc_monthly_archive",
+    "requested_url": "https://www.genenames.org/download/archive/monthly/tsv/"
+  },
+  {
+    "name": "go_archive_docs",
+    "requested_url": "https://geneontology.org/docs/go-archives/"
+  },
+  {
+    "name": "go_2020_index",
+    "requested_url": "https://release.geneontology.org/2020-12-08/annotations/"
+  },
+  {
+    "name": "go_2015_index",
+    "requested_url": "https://release.geneontology.org/2015-12-01/annotations/"
+  },
+  {
+    "name": "hpa_v20_downloads",
+    "requested_url": "https://v20.proteinatlas.org/about/download"
+  },
+  {
+    "name": "hpa_v16_downloads",
+    "requested_url": "https://v16.proteinatlas.org/about/download"
+  },
+  {
+    "name": "hpa_v20_subcellular",
+    "requested_url": "https://v20.proteinatlas.org/download/subcellular_location.tsv.zip"
+  },
+  {
+    "name": "hpa_v20_normal_tissue",
+    "requested_url": "https://v20.proteinatlas.org/download/normal_tissue.tsv.zip"
+  },
+  {
+    "name": "mgi_reports_archive",
+    "requested_url": "https://www.informatics.jax.org/downloads/reports/archive/"
+  },
+  {
+    "name": "zfin_downloads_archive",
+    "requested_url": "https://zfin.org/downloads/archive"
+  },
+  {
+    "name": "impc_all_releases",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/"
+  },
+  {
+    "name": "impc_legacy_root",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/impc/"
+  },
+  {
+    "name": "uniprot_previous_releases",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/uniprot/previous_releases/"
+  },
+  {
+    "name": "mygene_release_docs",
+    "requested_url": "https://docs.mygene.info/en/latest/doc/release_changes.html"
+  },
+  {
+    "name": "gnomad_v211_constraint",
+    "requested_url": "https://storage.googleapis.com/gnomad-public/release/2.1.1/constraint/gnomad.v2.1.1.lof_metrics.by_gene.txt.bgz"
+  },
+  {
+    "name": "hgnc_archive",
+    "requested_url": "https://www.genenames.org/download/archive/"
+  },
+  {
+    "name": "reactome_archive",
+    "requested_url": "https://reactome.org/download-data"
+  },
+  {
+    "name": "census_release_history",
+    "requested_url": "https://chanzuckerberg.github.io/cellxgene-census/cellxgene_census_docsite_data_release_info.html"
+  },
+  {
+    "name": "impc_dr11_assertion_prefix",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/release-11.0/csv/IMPC_genotype_phenotype.csv.gz"
+  },
+  {
+    "name": "impc_dr11_csv_readme",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/release-11.0/csv/README"
+  },
+  {
+    "name": "uniprot_2020_relnotes",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/uniprot/previous_releases/release-2020_01/relnotes.txt"
+  },
+  {
+    "name": "hgnc_2020_snapshot",
+    "requested_url": "https://storage.googleapis.com/public-download-files/hgnc/archive/archive/monthly/tsv/hgnc_complete_set_2020-12-01.txt"
+  },
+  {
+    "name": "ncbi_gene_archive_listing",
+    "requested_url": "https://ftp.ncbi.nlm.nih.gov/gene/DATA/"
+  },
+  {
+    "name": "hpa_v20_rna_full",
+    "requested_url": "https://v20.proteinatlas.org/download/rna_tissue_hpa.tsv.zip"
+  },
+  {
+    "name": "hgnc_bucket_listing_2020",
+    "requested_url": "https://storage.googleapis.com/storage/v1/b/public-download-files/o?prefix=hgnc/archive/&maxResults=1000"
+  },
+  {
+    "name": "hgnc_archive_table_js",
+    "requested_url": "https://www.genenames.org/js/hgnc-downloads.js"
+  },
+  {
+    "name": "mgi_mp_2020_wayback_catalog_wild",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=*.informatics.jax.org/downloads/reports/VOC_MammalianPhenotype.rpt&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4"
+  },
+  {
+    "name": "gene2pubmed_wayback_wild",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=*.ncbi.nlm.nih.gov/gene/DATA/gene2pubmed.gz&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4"
+  },
+  {
+    "name": "gtx_release_history",
+    "requested_url": "https://gtexportal.org/home/releaseInfoPage"
+  },
+  {
+    "name": "go_human_2020_prefix",
+    "requested_url": "https://go-data-product-release.s3.amazonaws.com/2020-12-08/annotations/goa_human.gaf.gz"
+  },
+  {
+    "name": "go_human_2015_prefix",
+    "requested_url": "https://go-data-product-release.s3.amazonaws.com/2015-12-01/annotations/goa_human.gaf.gz"
+  },
+  {
+    "name": "zfin_2020_phenotype_prefix",
+    "requested_url": "https://zfin.org/downloads/archive/2020.12.31/phenoGeneCleanData_fish.txt"
+  },
+  {
+    "name": "zfin_2020_ortholog_prefix",
+    "requested_url": "https://zfin.org/downloads/archive/2020.12.31/human_orthos.txt"
+  },
+  {
+    "name": "impc_dr11_reports",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/release-11.0/reports/"
+  },
+  {
+    "name": "impc_dr11_csv",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/release-11.0/csv/"
+  },
+  {
+    "name": "uniprot_2020_knowledgebase",
+    "requested_url": "https://ftp.ebi.ac.uk/pub/databases/uniprot/previous_releases/release-2020_01/knowledgebase/"
+  },
+  {
+    "name": "mygene_metadata",
+    "requested_url": "https://mygene.info/v3/metadata"
+  },
+  {
+    "name": "mgi_wayback_catalog",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=informatics.jax.org/downloads/reports/HMD_HumanPhenotype.rpt&output=json&filter=statuscode:200&to=20201231&filter=mimetype:text/plain&collapse=timestamp:4"
+  },
+  {
+    "name": "hpa_v20_rna_prefix",
+    "requested_url": "https://v20.proteinatlas.org/download/rna_tissue_hpa.tsv.zip"
+  },
+  {
+    "name": "mgi_2020_wayback_file",
+    "requested_url": "https://web.archive.org/web/20200202074056id_/http://www.informatics.jax.org:80/downloads/reports/HMD_HumanPhenotype.rpt"
+  },
+  {
+    "name": "mgi_mp_wayback_catalog",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=informatics.jax.org/downloads/reports/VOC_MammalianPhenotype.rpt&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4"
+  },
+  {
+    "name": "gene2pubmed_wayback_https",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=ftp.ncbi.nlm.nih.gov/gene/DATA/gene2pubmed.gz&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4"
+  },
+  {
+    "name": "hcop_old_wayback_catalog",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=ftp.ebi.ac.uk/pub/databases/genenames/hcop/human_mouse_hcop_fifteen_column.txt.gz&output=json&filter=statuscode:200&to=20201231&collapse=timestamp:4"
+  }
+]

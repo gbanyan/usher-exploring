@@ -1,0 +1,4 @@
+top_k	genes	layers_1	layers_2	layers_3	layers_4	gnomad_missing	expression_missing	annotation_missing	localization_missing
+25	25	10	0	11	4	3	8	10	20
+50	50	11	2	32	5	3	12	11	43
+100	100	11	10	67	12	3	22	12	83

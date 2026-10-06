@@ -1,0 +1,20 @@
+{
+  "analysis_status": "post-outcome review-prompted sensitivity; no retuning/rematching",
+  "spec_sha256": "d19f7c9ead7ad8fa195094d3016695c3698a50b37cb595dbbd146b5c89fdac11",
+  "script_sha256": "94af17ddd74156a7223a6de8c0f7d695cfe754501c7499d69f48e45744f94e2c",
+  "score_input_sha256": "e20bdf59a2444fbdc09d07599fd7caf6a2f6d159cfe7d6457855f33e36ba3876",
+  "frozen_pairs_sha256": "04f8aca0a3ce269eb7e3bd1c9a31ab5f846b9566e518e593d0aa583fe2eb7112",
+  "historical_panel_sha256": "cd26f9044ab3587d4360cea9a63c996c8875bcedda8f89672cb35374c07dd7e4",
+  "historical_input_sha256": {
+    "historical_components.tsv": "d18fd079de69d1f8a6ea7de00e0e6b9f2da595c8d363d9985ad38f0dac489a75",
+    "historical_rankings.tsv": "50964fe5dd3e9373c204cf957a0f280e096225ff78fb8ba187ceb548e1d9e61c"
+  },
+  "output_sha256": {
+    "fixed_pair_sensitivities.tsv": "cf54dbf0e3ab6ec3ffb0b6b010e8047548b3355bcb2acfd76a3b9598a9a49f7c",
+    "historical_topk_completeness.tsv": "80813150a7a1cdd1a6b1746e3c495a483db565df7eaceaff522d2a25dd747387",
+    "matching_completeness_balance.tsv": "4cfa426684fe5f471e69cc443a9d45864b8c323ba0ab50c48bac293675e58cd8",
+    "historical_tissue_coverage.tsv": "becd2630c7f782a39dd85206abc1e28e9cabfe94effca71bea4a1dd246b8ff0e",
+    "historical_case_expression_sources.tsv": "eea058ef2b8b5f5532a64dcffb12f37f1559250a29c14b61826fbb3c95a0e0f5",
+    "fixed_pair_summary.tsv": "5a6f631f1bb596e91ee59cca7042b34cb885827df9666fe3ea3ddb57ca60a663"
+  }
+}

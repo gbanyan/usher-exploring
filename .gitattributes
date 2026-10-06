@@ -1,0 +1,3 @@
+# Frozen TSV trailing tabs are empty fields; retain hashes and exact line endings.
+revision/major_revision_20261006/**/*.tsv -text whitespace=-blank-at-eol
+revision/major_revision_20261006/reproducibility/phase3_live_snapshots/*.csv -text

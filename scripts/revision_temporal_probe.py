@@ -48,8 +48,10 @@ def probe(item, cache, limit=262144):
                    last_modified=None, truncated=None, error=f"{type(error).__name__}: {error}")
         body = b""
     destination = cache / f"{name}.prefix"
+    if destination.exists():
+        raise FileExistsError(f"Preserve prior prefix; use a new cache: {destination}")
     destination.write_bytes(body)
-    row.update(saved_bytes=len(body), prefix_sha256=hashlib.sha256(body).hexdigest(), prefix_path=str(destination.relative_to(ROOT)))
+    row.update(saved_bytes=len(body), prefix_sha256=hashlib.sha256(body).hexdigest(), prefix_path=str(destination))
     if row["content_type"] and ("html" in row["content_type"] or "text" in row["content_type"]):
         row["links"] = re.findall(r'href=["\']([^"\']+)', body.decode("utf-8", errors="replace"))
     return row
@@ -59,12 +61,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "revision/major_revision_20261006/temporal_extension/archive_probes.json")
     parser.add_argument("--cache-dir", type=Path, default=ROOT / "data/cache/temporal-extension-20261006/probes")
+    parser.add_argument("--registry-json", type=Path, help="Replay all recorded exploratory probes, not only the default 17 URLs")
     args = parser.parse_args()
     if args.output.exists():
         raise FileExistsError("Preserve the previous audit; choose a new output")
     args.cache_dir.mkdir(parents=True, exist_ok=True)
+    entries = PROBES.items() if args.registry_json is None else [(r["name"], r["requested_url"]) for r in json.loads(args.registry_json.read_text())]
     with ThreadPoolExecutor(max_workers=4) as pool:
-        rows = list(pool.map(lambda item: probe(item, args.cache_dir), PROBES.items()))
+        rows = list(pool.map(lambda item: probe(item, args.cache_dir), entries))
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(rows, indent=2) + "\n")
     print(json.dumps([{k: r[k] for k in ("name", "status", "saved_bytes", "truncated", "error")} for r in rows], indent=2))
 

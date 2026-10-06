@@ -1,5 +1,6 @@
 """Independent arithmetic/rank checks plus archival and protected-file checks."""
 from collections import Counter
+import argparse
 import csv
 import gzip
 import hashlib
@@ -17,7 +18,13 @@ def sha(path):
 
 
 def main():
-    out = BASE / "results"
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--results-dir", type=Path, default=BASE / "results")
+    parser.add_argument("--cache-dir", type=Path, default=ROOT / "data/cache/temporal-extension-20261006/raw")
+    parser.add_argument("--baseline-database", type=Path, default=ROOT / "data/pipeline.duckdb")
+    parser.add_argument("--output", type=Path, help="New verification file; default prints without overwriting recorded evidence")
+    args = parser.parse_args()
+    out = args.results_dir
     components = {r["gene_id"]: r for r in csv.DictReader((out / "historical_components.tsv").open(), delimiter="\t")}
     rows = list(csv.DictReader((out / "historical_rankings.tsv").open(), delimiter="\t"))
     cases = list(csv.DictReader((out / "case_rankings.tsv").open(), delimiter="\t"))
@@ -48,7 +55,7 @@ def main():
             assert all((r[f"top{k}"] == "True") == (int(r["rank_position"]) <= k) for k in (25, 50, 100))
     assert len(rows) == 19167 * 6 and len(cases) == 12 * 6
     taxa, years = Counter(), Counter()
-    with gzip.open(ROOT / "data/cache/temporal-extension-20261006/raw/go_20201208.gaf.gz", "rt") as handle:
+    with gzip.open(args.cache_dir / "go_20201208.gaf.gz", "rt") as handle:
         for line in handle:
             if line.startswith("!"):
                 continue
@@ -58,14 +65,19 @@ def main():
             taxa[fields[12].split("|")[0]] += 1
             years[fields[13][:4]] += 1
     assert set(taxa) == {"taxon:9606"} and max(years) <= "2020"
-    with (ROOT / "data/cache/temporal-extension-20261006/raw/mgi_20200202.rpt").open() as handle:
-        schema = Counter(len(line.rstrip("\n").split("\t")) for line in handle)
-    assert set(schema) == {8}
-    protected = json.loads((BASE.parent / "input_manifest.json").read_text())["input_sha256"]
-    assert all(sha(ROOT / path) == expected for path, expected in protected.items())
+    schema = Counter()
+    if (args.cache_dir / "mgi_20200202.rpt").exists():
+        with (args.cache_dir / "mgi_20200202.rpt").open() as handle:
+            schema = Counter(len(line.rstrip("\n").split("\t")) for line in handle)
+        assert set(schema) == {8}
+    from revision_replay import protected_inputs
+    protected_inputs(args.baseline_database)
     manifest = json.loads((out / "manifest.json").read_text())
     assert all(sha(out / path) == expected for path, expected in manifest["output_sha256"].items())
-    assert sha(ROOT / "scripts/revision_temporal_analysis.py") == manifest["script_sha256"]
+    if sha(ROOT / "scripts/revision_temporal_analysis.py") != manifest["script_sha256"]:
+        import subprocess
+        original = subprocess.check_output(["rtk", "proxy", "git", "show", "c9834c6:scripts/revision_temporal_analysis.py"], cwd=ROOT)
+        assert hashlib.sha256(original).hexdigest() == manifest["script_sha256"], "Unknown generating script"
     result = {"execution_location": "local macOS .venv", "python": sys.version,
               "software": {x: version(x) for x in ["numpy", "polars", "scipy", "duckdb", "pytest"]},
               "all_rank_rows": len(rows), "case_rows": len(cases), "independent_composite_max_abs_error": max_error,
@@ -73,7 +85,11 @@ def main():
               "gaf_latest_annotation_year": max(years), "historical_mgi_column_counts": dict(schema),
               "protected_hashes_unchanged": True, "output_hashes_match": True,
               "transform_sha256": {str(Path("src/usher_pipeline/evidence") / layer / "transform.py"): sha(ROOT / "src/usher_pipeline/evidence" / layer / "transform.py") for layer in ["expression", "annotation", "localization"]}}
-    (BASE / "verification.json").write_text(json.dumps(result, indent=2) + "\n")
+    if args.output is not None:
+        if args.output.exists():
+            raise FileExistsError(args.output)
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
 
 

@@ -10,6 +10,7 @@ import sys
 
 import duckdb
 import numpy as np
+from revision_replay import protected_inputs
 
 from revision_phase2 import (ROOT, GROUPS, LAYERS, digest, write_table, clean,
                              load_config, weighted_mean, percentile, order, production_gate, tiers)
@@ -29,6 +30,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--roster-dir", type=Path, default=ROOT / "revision/major_revision_20261006/phase3_roster")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "revision/major_revision_20261006/phase3_results")
+    parser.add_argument("--database", type=Path, default=ROOT / "data/pipeline.duckdb")
+    parser.add_argument("--frozen-roster-dir", type=Path, default=ROOT / "revision/major_revision_20261006/phase3_roster", help="Committed reference for replay of a byte-identical copied roster")
     args = parser.parse_args(); roster = args.roster_dir; out = args.output_dir
     if out.exists():
         raise FileExistsError("Use a new directory; preserve existing outcomes")
@@ -40,13 +43,12 @@ def main():
         raise ValueError("Specification changed after roster freeze")
     # Require these exact bytes to be in HEAD before reading outcomes.
     for path in (roster / "manifest.json", roster / "eligible_pool.tsv", roster / "matched_pairs.tsv"):
-        committed = subprocess.check_output(["rtk", "proxy", "git", "show", f"HEAD:{path.relative_to(ROOT)}"])
+        reference = args.frozen_roster_dir / path.name
+        committed = subprocess.check_output(["rtk", "proxy", "git", "show", f"HEAD:{reference.relative_to(ROOT)}"])
         if committed != path.read_bytes():
             raise ValueError("Roster has not been committed exactly")
-    protected = manifest["protected_input_sha256"]
-    if any(digest(ROOT / path) != value for path, value in protected.items()):
-        raise ValueError("Protected baseline changed")
-    with duckdb.connect(str(ROOT / "data/pipeline.duckdb"), read_only=True) as con:
+    protected = protected_inputs(args.database)
+    with duckdb.connect(str(args.database), read_only=True) as con:
         con.execute("DESCRIBE scored_genes").fetchall()
         df = con.execute("SELECT * FROM scored_genes ORDER BY gene_id").pl()
     ids = np.array(df["gene_id"].to_list()); symbols = np.array(df["gene_symbol"].to_list())

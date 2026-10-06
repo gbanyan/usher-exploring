@@ -1,0 +1,5 @@
+tissue	source_genes_observed	historical_genes_observed	historical_positive	historical_observed_zero
+retina	108	107	107	0
+cerebellum	10983	10894	7061	3833
+testis	11006	10917	8836	2081
+fallopian tube	10987	10898	7309	3589

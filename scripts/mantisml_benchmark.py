@@ -139,10 +139,19 @@ def evaluate(name, scores, known, housekeeping):
 
 
 def main():
+    global DUCKDB, OUT_CSV, OUT_FIG
     ap = argparse.ArgumentParser()
     ap.add_argument("--mantisml-dir", default="data/external/mantisml",
                     help="Directory of mantis-ml per-classifier *.mantis-ml_predictions.csv")
+    ap.add_argument("--database", default=DUCKDB)
+    ap.add_argument("--output-dir", type=Path, default=Path("data/report/mantis-replay"))
     args = ap.parse_args()
+    if args.output_dir.exists():
+        raise FileExistsError("Use a new output directory")
+    args.output_dir.mkdir(parents=True)
+    DUCKDB = args.database
+    OUT_CSV = str(args.output_dir / "mantisml_benchmark.csv")
+    OUT_FIG = str(args.output_dir / "fig8_mantisml_benchmark")
 
     up = load_usherpipe()
     mm, seeds, n_clf = load_mantisml(args.mantisml_dir)

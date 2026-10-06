@@ -9,13 +9,13 @@ Run:  python scripts/fig1_architecture.py
 
 from pathlib import Path
 
+import argparse
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse, FancyArrowPatch, FancyBboxPatch, Rectangle
 
 FIGDIR = Path("data/report/paper_figures")
-FIGDIR.mkdir(parents=True, exist_ok=True)
 DPI = 300
 
 C_STAGE, C_STAGE_EDGE = "#dbe9f6", "#2c6da4"      # stage boxes
@@ -109,7 +109,7 @@ def main():
     # Stage 3: composite scoring
     stage_box(ax, FX0, 4.8, FW, 1.05,
               "3. NULL-aware composite scoring",
-              "weighted mean over non-NULL layers; confidence tiers\n"
+              "weighted mean over non-NULL layers; priority tiers\n"
               "(HIGH / MEDIUM / LOW) with a HIGH-tier cilia-signal gate")
     down_arrow(ax, FX0 + FW / 2, 4.8, 3.9)
 
@@ -139,4 +139,11 @@ def main():
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir", type=Path, default=FIGDIR)
+    args = parser.parse_args()
+    FIGDIR = args.output_dir
+    if FIGDIR.exists() and any(FIGDIR.iterdir()):
+        raise FileExistsError("Use a new output directory")
+    FIGDIR.mkdir(parents=True, exist_ok=True)
     main()
