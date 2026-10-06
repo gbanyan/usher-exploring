@@ -151,6 +151,12 @@ def main():
         'held-out clinical association PMIDs do not leak into the historical gene links. '
         'Protected baseline/production hashes remain unchanged. A separate clean reconstruction '
         'produced all nine TSVs and the result manifest byte-for-byte identically.', '',
+        'The user-requested Astra high independent-agent audit found no critical numerical '
+        'or mapping error. Independent raw-source reconstruction reproduced constraint, GO, '
+        'localization, animal and literature evidence across the full universe; pooled expression '
+        'agreed to maximum absolute difference 2.22e-16. All 4,531 case-scheme rows and 37,950 '
+        'recovery rows reproduced. See `astra_outcome_review_20261006.md`. '
+        'This is an internal agent audit, not external peer review.', '',
         '```sh',
         'rtk proxy .venv/bin/python scripts/revision_temporal_v2_evaluate.py \\',
         '  --freeze revision/major_revision_20261006/temporal_validation_v2/freeze_amended.json \\',

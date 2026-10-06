@@ -48,5 +48,16 @@
   "heldout_clinical_pmid_links_checked": true,
   "full_historical_analogue_schemes": 23,
   "clinical_specificity_estimated": false,
-  "raw_cache_backup_off_machine": false
+  "raw_cache_backup_off_machine": false,
+  "independent_agent_outcome_audit": {
+    "reviewer": "user-requested Astra high independent review agent",
+    "critical_error_found": false,
+    "raw_constraint_go_localization_animal_literature_all_genes_match": true,
+    "independent_pooled_expression_max_abs_difference": 2.22e-16,
+    "case_scheme_rows_recomputed": 4531,
+    "recovery_strata_rows_recomputed": 37950,
+    "component_derivable_scheme_comparisons_recomputed": 200,
+    "frozen_files_and_outputs_edited_by_reviewer": false,
+    "review_path": "revision/major_revision_20261006/temporal_validation_v2/astra_outcome_review_20261006.md"
+  }
 }

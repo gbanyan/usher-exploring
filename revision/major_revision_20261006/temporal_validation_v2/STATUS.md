@@ -11,7 +11,10 @@ Read `OUTCOME_REPORT.md`, final `PROTOCOL.md`, `execution_verification.json`,
 `results/manifest.json` and the post-outcome independent review. The source
 contract is a historical analogue, not an exact production replay; conditional
 ascertainment and 895 unresolved/unaccepted catalog records remain explicit.
-Next is manuscript/rebuttal integration and Phase5 packaging.
+Results checkpoint `90f13d0` is on both remotes. Astra outcome review found no
+critical numerical or mapping error; independent raw-source reconstruction and
+all case/recovery arithmetic reproduce. Next is manuscript/rebuttal integration
+and Phase5 packaging.
 
 The dated acquisition/pre-outcome notes below are retained as decision history;
 their pending-status statements do not describe the latest execution state.

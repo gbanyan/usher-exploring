@@ -16,7 +16,8 @@ guarantee of completion.
 The expanded historical-analogue workstream has now been executed. The original
 pre-outcome freeze is **bd6bb2f**, followed by a guarded GTEx canonical/PAR_Y
 schema repair committed at **53da295** before any composite/rank/recovery result.
-Both checkpoints were pushed to Gitea and GitHub. Original protocol/manifest and
+Both checkpoints were pushed to Gitea and GitHub. Results/report/figure/replay evidence
+are checkpoint **90f13d0**, also on both remotes. Original protocol/manifest and
 the aborted-attempt record remain preserved.
 
 **Current outcome:** 45 principal strong later-target cases, 41 in the historical
@@ -43,6 +44,11 @@ Protected baseline hashes (including production DuckDB) are unchanged; shared
 pilot components reproduce exactly; held-out clinical PMIDs are absent from the
 historical links. Raw scoring data: 24 files, 204,322,926 bytes, retained locally.
 The caches have hash/provenance records, not an off-machine data backup.
+
+Astra outcome review found no critical numerical or mapping error. Independent
+raw-source reconstruction agrees; pooled expression differs by at most 2.22e-16;
+all 4,531 case-scheme rows and 37,950 recovery rows reproduce. The review is an
+internal independent-agent audit, not external peer review.
 
 Next: integrate the reviewed negative/weak temporal result into manuscript,
 supplementary methods and both reviewers' responses while preserving the earlier
