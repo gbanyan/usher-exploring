@@ -1,0 +1,451 @@
+{
+  "freeze_commit": "53da295",
+  "freeze_sha256": "344b00a2ef184e29b6e762769aa80f4c43a473e03fa60a240e603be432ee1220",
+  "population": 19167,
+  "duplicate_historical_identifier_rows_excluded": 2,
+  "source_audit": {
+    "go": {
+      "gaf_rows": 607460,
+      "positive_mapped_rows": 593834,
+      "symbol_fallback_rows": 185,
+      "unmapped_rows": 10587,
+      "not_rows_excluded": 1256,
+      "ambiguous_accession_rows": 1783
+    },
+    "expression": {
+      "hpa": {
+        "member": "normal_tissue.tsv",
+        "internal_date": [
+          2020,
+          11,
+          16,
+          23,
+          26,
+          20
+        ],
+        "uncompressed_bytes": 77610720
+      },
+      "gtex_dimensions": [
+        56200,
+        54
+      ],
+      "gtex_par_y_rows_kept_as_distinct_keys": 44,
+      "photo": {
+        "GSE137537": {
+          "header_barcode_restored": false,
+          "cells": 20091,
+          "labels": {
+            "Rods": 9145,
+            "ACs": 497,
+            "Macroglia": 5276,
+            "BPs": 3155,
+            "HCs": 146,
+            "Cones": 211,
+            "RGCs": 1514,
+            "Endo": 85,
+            "Microglia": 62
+          },
+          "selected_photoreceptors": 9356,
+          "features": 19719,
+          "nonzero_entries": 15399272,
+          "mapped_gene_features": 15133,
+          "feature_mapping": {
+            "unmapped": 4564,
+            "approved": 14527,
+            "unique_alias": 619,
+            "ambiguous_alias": 9
+          },
+          "original_feature_order_used": true
+        },
+        "GSE137846_Seq-Well": {
+          "header_barcode_restored": true,
+          "cells": 3248,
+          "labels": {
+            "BPs": 530,
+            "HCs": 35,
+            "Rods": 767,
+            "Macroglia": 617,
+            "Microglia": 153,
+            "RGCs": 920,
+            "Endo": 103,
+            "Cones": 80,
+            "ACs": 43
+          },
+          "selected_photoreceptors": 847,
+          "features": 18219,
+          "nonzero_entries": 5597902,
+          "mapped_gene_features": 14530,
+          "feature_mapping": {
+            "unmapped": 3658,
+            "approved": 13711,
+            "unique_alias": 839,
+            "ambiguous_alias": 11
+          },
+          "original_feature_order_used": true
+        }
+      }
+    },
+    "animal": {
+      "mapped_mgi_rows": 18019,
+      "zfin_rows": 126054,
+      "ambiguous_zfin_gene_rows_excluded": 855,
+      "mapped_mouse_genes": 17394,
+      "mapped_zfish_genes": 13316
+    },
+    "localization_archive": {
+      "member": "subcellular_location.tsv",
+      "internal_date": [
+        2020,
+        11,
+        16,
+        23,
+        26,
+        40
+      ],
+      "uncompressed_bytes": 1713733
+    }
+  },
+  "schemes": {
+    "archived_five": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.0
+      ],
+      "scored": 19157,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 0,
+      "score_count_direct_gate": 212
+    },
+    "augmented_six": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 5,
+      "score_count_direct_gate": 212
+    },
+    "equal_six": {
+      "weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 2,
+      "score_count_direct_gate": 212
+    },
+    "single_gnomad": {
+      "weights": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scored": 18096,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 0,
+      "score_count_direct_gate": 212
+    },
+    "omit_gnomad": {
+      "weights": [
+        0.0,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 2,
+      "score_count_direct_gate": 212
+    },
+    "single_expression": {
+      "weights": [
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scored": 19105,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 0,
+      "score_count_direct_gate": 212
+    },
+    "omit_expression": {
+      "weights": [
+        0.2,
+        0.0,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 4,
+      "score_count_direct_gate": 212
+    },
+    "single_annotation": {
+      "weights": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scored": 18502,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 0,
+      "score_count_direct_gate": 212
+    },
+    "omit_annotation": {
+      "weights": [
+        0.2,
+        0.2,
+        0.0,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 40,
+      "score_count_direct_gate": 212
+    },
+    "single_localization": {
+      "weights": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "scored": 12595,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 0,
+      "score_count_direct_gate": 212
+    },
+    "omit_localization": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.0,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 19,
+      "score_count_direct_gate": 212
+    },
+    "single_animal": {
+      "weights": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "scored": 17531,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 0,
+      "score_count_direct_gate": 212
+    },
+    "omit_animal": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.0,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 56,
+      "score_count_direct_gate": 212
+    },
+    "single_literature": {
+      "weights": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 0,
+      "score_count_direct_gate": 212
+    },
+    "omit_literature": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.0
+      ],
+      "scored": 19157,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 0,
+      "score_count_direct_gate": 212
+    },
+    "omit_animal_literature": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.0,
+        0.0
+      ],
+      "scored": 19152,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 30,
+      "score_count_direct_gate": 212
+    },
+    "animal_uniform_0.7": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.09432714800200158,
+      "high": 3,
+      "score_count_direct_gate": 212
+    },
+    "animal_uniform_0.4": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.0539012274297152,
+      "high": 1,
+      "score_count_direct_gate": 212
+    },
+    "animal_unique_native_link": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.11016462095047468,
+      "high": 3,
+      "score_count_direct_gate": 212
+    },
+    "expression_without_photo": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 5,
+      "score_count_direct_gate": 212
+    },
+    "expression_GSE137537": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 5,
+      "score_count_direct_gate": 212
+    },
+    "expression_GSE137846_Seq-Well": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 5,
+      "score_count_direct_gate": 212
+    },
+    "annotation_available_go_rescale": {
+      "weights": [
+        0.2,
+        0.2,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "scored": 19167,
+      "animal_positive_q75": 0.13475306857428798,
+      "high": 32,
+      "score_count_direct_gate": 212
+    }
+  },
+  "protected_unchanged": true,
+  "unchanged_pilot_components_reproduced": true,
+  "postcutoff_case_literature_leakage_checked": true,
+  "clinical_specificity_estimated": false,
+  "output_sha256": {
+    "animal_source_details.tsv": "3cc8bb3ccab606093625e2b4ff735f3aaca9887248a69e7a13d4d83fa4cdf3e4",
+    "case_gate_failures.tsv": "13df3c76da0cd655e93df884fe1c45fc85e7343c6ce45d62bdc7cac27a66dba6",
+    "case_rankings.tsv": "89e5ed5a1acf258af60fc6caf33c679a3b76e41fd9f4c8b7e38cb75856188a4c",
+    "historical_components.tsv": "6494c36489205bc158ad009f2a055acded06ab5608621ca27f82ced84847c63e",
+    "historical_primary_rankings.tsv": "f1ee1342b4bd6c3b8a85180119a42cb6ff6ee59d3e1f12e92dd2b73356ffb659",
+    "literature_source_details.tsv": "764fb26435072299881be4e8aeaf3bb66f894e5c9908eb5645f2b75dde86165e",
+    "recovery.tsv": "48febfcaa237195489c99f591193f79d8d48fbe9200e3ff8d72859eb5c413c6a",
+    "scheme_comparisons.tsv": "36748632fa262a29c2dca83f00ecccbbda94b6bcf9ee5ecc618209b16a37d3f8",
+    "source_coverage.tsv": "9f3f619beb1c492d6879899ed2c071e0049a759afffacd62c9e5d674fbc04701"
+  },
+  "code_sha256": {
+    "scripts/revision_temporal_v2_evaluate.py": "170190caadba632a3e50e92ced70993ce2bba7461d0e1428f9eb33f600446b3e",
+    "scripts/revision_temporal_v2_reconstruct.py": "9796c5e26d966e227c829243e2b135d37e1c29b1b739605c33f2b4a8c1adc859"
+  }
+}

@@ -1,4 +1,21 @@
-# Expanded temporal validation — workstream status
+# Expanded temporal validation — executed workstream
+
+Latest status (6 October 2026): all 23 historical-analogue schemes are executed;
+45 principal cases, 41 in the historical protein-coding universe. Co-primary
+top100/HIGH recovery is zero; top1000 is 2/41 (five layers) and 3/41 (six).
+Clean reconstruction replay matches nine TSVs and the manifest byte-for-byte.
+354 tests pass; protected baseline/production hashes are unchanged.
+
+Freeze commits: original `bd6bb2f`, technical GTEx identifier amendment `53da295`.
+Read `OUTCOME_REPORT.md`, final `PROTOCOL.md`, `execution_verification.json`,
+`results/manifest.json` and the post-outcome independent review. The source
+contract is a historical analogue, not an exact production replay; conditional
+ascertainment and 895 unresolved/unaccepted catalog records remain explicit.
+Next is manuscript/rebuttal integration and Phase5 packaging.
+
+The dated acquisition/pre-outcome notes below are retained as decision history;
+their pending-status statements do not describe the latest execution state.
+
 
 Authorized by the user on 6 October 2026, following the completed conservative
 Phase4 revision and restricted historical pilot. Submission target: 20 October.

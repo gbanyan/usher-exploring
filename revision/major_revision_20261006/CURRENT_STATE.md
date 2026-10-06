@@ -13,37 +13,41 @@ and proceed. Expanded temporal validation is now the next research workstream.
 The 14-day schedule is a planning target, not demonstrated feasibility or a
 guarantee of completion.
 
-Checkpoint `91f34dd` recorded state and verified retained data. The user then
-explicitly authorized execution. Expanded acquisition and design review are now
-underway; see `temporal_validation_v2/STATUS.md`. **The expanded protocol/cohort
-are not yet frozen and no expanded numerical rankings have been computed.** Do
-not confuse complete archive acquisition with completed validation.
+The expanded historical-analogue workstream has now been executed. The original
+pre-outcome freeze is **bd6bb2f**, followed by a guarded GTEx canonical/PAR_Y
+schema repair committed at **53da295** before any composite/rank/recovery result.
+Both checkpoints were pushed to Gitea and GitHub. Original protocol/manifest and
+the aborted-attempt record remain preserved.
 
-Latest pre-outcome progress: checkpoint `9f903d3` is on both remotes; subsequent
-work is awaiting a new checkpoint. All 24 adopted scoring files are inventoried
-(204,322,926 bytes with individual SHA-256 hashes). Broad all-source target
-searches completed for all 682 non-historical-green genes: 57,153 records with
-complete pagination. Four ordinary-English aliases were corrected before
-outcomes; earlier raw requests/pages are preserved. Read the adopted aggregate
-manifest, not a glob of obsolete query attempts.
+**Current outcome:** 45 principal strong later-target cases, 41 in the historical
+protein-coding universe and all scored. Four noncoding RNU genes remain in the
+45-case end-to-end denominator as nonrecoveries. Five-/six-layer top100 and HIGH
+recovery are both 0/41; top1000 is 2/41 and 3/41; top10% is 5/41 and 6/41. Median
+score percentiles are 46.23 and 44.95. All 23 prespecified schemes were executed.
+No principal case reaches HIGH under any scheme. Do not promote favorable
+sensitivity results or exploratory candidates to rescue the primary outcome.
 
-Clinical working notes contain 143 records (not 143 accepted cases). A draft
-roster preserves 1,081 catalog gene/locus keys plus 11 appended reference
-controls, with 45 proposed strong cases before final independent review.
-Do not treat draft statuses as eligibility approval or unresolved catalog records
-as clinical negatives. New findings include pre-cutoff STXBP3 conference evidence,
-EGFLAM hearing candidate evidence, DAP3 thesis-date uncertainty, corrected target
-family counts and contested OGDHL validity. Astra is continuing pre-outcome review.
+Read `temporal_validation_v2/OUTCOME_REPORT.md`, final `PROTOCOL.md`,
+`freeze_amended.json`, `results/manifest.json`, `execution_verification.json` and
+the post-outcome Astra review before changing scientific claims. This is an
+expanded retrospective temporal stress test of historical analogues, not an exact
+modern production replay or proof of prospective independent predictive validity.
+Source substitutions, modern text/date-bounded literature uncertainty, absent
+direct hair-cell data, bounded conference/thesis dates and conditional catalog
+ascertainment are explicit. The 895 unconfirmed/unnominated catalog records are
+not clinically established negatives.
 
-Reconstruction/evaluation adapters are written but have not run on real evidence.
-The evaluator requires a committed protocol/source/clinical freeze and rejects
-development/pilot contamination, insufficient target-family evidence and dates
-crossing the cutoff. Local Python3.13.1/macOS-arm64 full suite: **352 passed,
-17 existing warnings**. This test run does not demonstrate reconstruction parity
-or outcome reproducibility. **No v2 score, rank, HIGH outcome or recall statistic
-has been computed; do not compute outcomes before the committed freeze.**
-Read `temporal_validation_v2/STATUS.md`, `PROTOCOL_DRAFT.md`, clinical drafts and
-the independent review documents before continuing.
+Validation: **354 tests passed, 17 existing warnings**, local Python3.13.1/macOS
+arm64; clean reconstruction replay gives nine TSVs and manifest byte-identically.
+Protected baseline hashes (including production DuckDB) are unchanged; shared
+pilot components reproduce exactly; held-out clinical PMIDs are absent from the
+historical links. Raw scoring data: 24 files, 204,322,926 bytes, retained locally.
+The caches have hash/provenance records, not an off-machine data backup.
+
+Next: integrate the reviewed negative/weak temporal result into manuscript,
+supplementary methods and both reviewers' responses while preserving the earlier
+conservative checkpoint; then complete Phase5 journal packaging. Do not claim
+reliable novel-gene discovery, calibrated HIGH probability or clinical specificity.
 
 ## Why there are two routes
 
@@ -178,7 +182,7 @@ warnings; **28 TSVs byte-identical** in a clean Python3.13.1/macOS-arm64 environ
 Linux/container parity is not established. Commands and pinned versions are in
 the replay guide. A documentation checkpoint does not itself rerun that suite.
 
-## Expanded temporal work: next actions and decision boundaries
+## Original expanded-work plan and decision boundaries (historical record)
 
 Proposed work directories (create when needed; do not reuse pilot output paths):
 `revision/major_revision_20261006/temporal_validation_v2/` for committed protocol,
@@ -221,12 +225,13 @@ Phase5 final journal DOCX/PDF rendering, Additional-file assembly, actual delive
 file checksums, reviewer-number mapping/pagination and exact-version archive/DOI
 disposition remain required. The original Additional6 mismatch is repository
 Markdown versus converted TXT, documented in `reproducibility/submission_conversion_audit.json`.
-Do not claim new converted-file verification, a DOI, full temporal validation or
-independent novel Usher-gene prediction until actually completed. Keep the current
-manuscript/rebuttal as the conservative checkpoint while the expanded study runs.
+Do not claim new converted-file verification or a DOI before packaging is completed.
+The expanded historical-analogue study is executed; independent novel Usher-gene
+prediction remains unvalidated. Preserve the conservative checkpoint while
+integrating the new negative/weak findings.
 
 
-## Pre-outcome v2 freeze ready (6 October 2026)
+## Pre-outcome v2 freeze preparation (superseded execution-state record)
 
 The final `temporal_validation_v2/PROTOCOL.md`, source inventory, reference index
 and clinical roster are ready for a Git checkpoint before any real v2 reconstruction.
