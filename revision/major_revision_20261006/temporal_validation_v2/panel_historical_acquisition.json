@@ -1,0 +1,83 @@
+[
+  {
+    "panel_id": 126,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/126/?format=json&version=1.0",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel126_v1.json",
+    "sha256": "e5a79ce8e71bb52c7e1c3373c3ddb93ad9723ca1e6541f3416150f106a3ca83a",
+    "version": "1.0",
+    "version_created": "2017-11-05T14:23:13.177741Z",
+    "genes": 348
+  },
+  {
+    "panel_id": 543,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/543/?format=json&version=1.0",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel543_v1.json",
+    "sha256": "c95f2b134db9829045208e6bc2e9037b641740df888e57c73dc3ed213a011673",
+    "version": "1.0",
+    "version_created": "2019-10-02T14:32:04.185092Z",
+    "genes": 24
+  },
+  {
+    "panel_id": 724,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/724/?format=json&version=1.0",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel724_v1.json",
+    "sha256": "8e559d35cd91faaa5909cade8eb650340cfb55ccbfb94345dfbe23dcdbf98b0c",
+    "version": "1.0",
+    "version_created": "2019-12-11T17:04:47.126137Z",
+    "genes": 57
+  },
+  {
+    "panel_id": 722,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/722/?format=json&version=1.0",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel722_v1.json",
+    "sha256": "90259e33995824d2e497ebd418027b242bf5e3a60505d895253cbd13c3a4b3d6",
+    "version": "1.0",
+    "version_created": "2019-12-12T13:11:09.951073Z",
+    "genes": 89
+  },
+  {
+    "panel_id": 178,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/178/?format=json&version=1.0",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel178_v1.json",
+    "sha256": "ca2ec4c26e191211c80cbf0e4906dea294fb42b62c17871f8383cfeee81f2a1c",
+    "version": "1.0",
+    "version_created": "2017-11-05T15:41:37.728284Z",
+    "genes": 134
+  },
+  {
+    "panel_id": 150,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/150/?format=json&version=1.0",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel150_v1.json",
+    "sha256": "4b6542d5c70d43565da2f9209f14e352d0dc781729aaac5466231948d21b6da0",
+    "version": "1.0",
+    "version_created": "2017-11-05T17:59:32.150626Z",
+    "genes": 187
+  },
+  {
+    "panel_id": 725,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/725/?format=json&version=1.0",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel725_v1.json",
+    "sha256": "0e327247332328724e242c793ca56f0c01e4ec778f009effab448ddbebf2705d",
+    "version": "1.0",
+    "version_created": "2019-09-03T15:05:56.297619Z",
+    "genes": 97
+  },
+  {
+    "panel_id": 550,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/550/?format=json&version=1.0",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel550_v1.json",
+    "sha256": "a0ac5c029df8b283525f7de661cc04037195b1a8977fbf103b58b0b0280211aa",
+    "version": "1.0",
+    "version_created": "2019-11-05T13:01:16.865138Z",
+    "genes": 62
+  },
+  {
+    "panel_id": 726,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/726/?format=json&version=1.0",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel726_v1.json",
+    "sha256": "bce12a436b076e6e22eea65c3a2e8cafb8736a683cc768879b033a309f8ebd28",
+    "version": "1.0",
+    "version_created": "2019-12-10T11:37:43.908885Z",
+    "genes": 60
+  }
+]

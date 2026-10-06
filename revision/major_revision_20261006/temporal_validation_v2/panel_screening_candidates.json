@@ -1,0 +1,2053 @@
+[
+  {
+    "hgnc_id": "HGNC:118",
+    "symbol": "ACO2",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "34056600"
+        ],
+        "phenotypes": [
+          "Infantile cerebellar-retinal degeneration, 614559"
+        ],
+        "entity_name": "ACO2",
+        "panel": 307,
+        "hgnc": "HGNC:118"
+      }
+    ],
+    "earliest_cited_publication": "2021-04-07",
+    "references": [
+      {
+        "pmid": "34056600",
+        "title": "Dominant &lt;i&gt;ACO2&lt;/i&gt; mutations are a frequent cause of isolated optic atrophy.",
+        "date": "2021-04-07",
+        "first_index": "2021-06-01"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:20192",
+    "symbol": "AP5M1",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "40081374"
+        ],
+        "phenotypes": [
+          "Lysosomal macular dystrophy"
+        ],
+        "entity_name": "AP5M1",
+        "panel": 307,
+        "hgnc": "HGNC:20192"
+      }
+    ],
+    "earliest_cited_publication": "2025-03-12",
+    "references": [
+      {
+        "pmid": "40081374",
+        "title": "Bi-allelic variants in three genes encoding distinct subunits of the vesicular AP-5 complex cause hereditary macular dystrophy.",
+        "date": "2025-03-12",
+        "first_index": "2025-03-14"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:22197",
+    "symbol": "AP5Z1",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "40081374"
+        ],
+        "phenotypes": [
+          "Lysosomal macular dystrophy"
+        ],
+        "entity_name": "AP5Z1",
+        "panel": 307,
+        "hgnc": "HGNC:22197"
+      }
+    ],
+    "earliest_cited_publication": "2025-03-12",
+    "references": [
+      {
+        "pmid": "40081374",
+        "title": "Bi-allelic variants in three genes encoding distinct subunits of the vesicular AP-5 complex cause hereditary macular dystrophy.",
+        "date": "2025-03-12",
+        "first_index": "2025-03-14"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:26141",
+    "symbol": "C19orf44",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "40079362"
+        ],
+        "phenotypes": [
+          "late onset retinal dystrophy"
+        ],
+        "entity_name": "C19orf44",
+        "panel": 307,
+        "hgnc": "HGNC:26141"
+      }
+    ],
+    "earliest_cited_publication": "2025-03-10",
+    "references": [
+      {
+        "pmid": "40079362",
+        "title": "Biallelic null variants in C19orf44 cause a unique late-onset retinal dystrophy phenotype characterized by patchy perifoveal chorioretinal atrophy.",
+        "date": "2025-03-10",
+        "first_index": "2025-03-14"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:29523",
+    "symbol": "CFAP20",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "36329026"
+        ],
+        "phenotypes": [
+          "Retinitis pigmentosa (MONDO:0019200)"
+        ],
+        "entity_name": "CFAP20",
+        "panel": 307,
+        "hgnc": "HGNC:29523"
+      }
+    ],
+    "earliest_cited_publication": "2022-11-03",
+    "references": [
+      {
+        "pmid": "36329026",
+        "title": "The inner junction protein CFAP20 functions in motile and non-motile cilia and is critical for vision.",
+        "date": "2022-11-03",
+        "first_index": "2022-11-05"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:11891",
+    "symbol": "CLEC3B",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "35331648"
+        ],
+        "phenotypes": [
+          "Macular dystrophy, retinal, 4, OMIM:619977"
+        ],
+        "entity_name": "CLEC3B",
+        "panel": 307,
+        "hgnc": "HGNC:11891"
+      }
+    ],
+    "earliest_cited_publication": "2022-03-22",
+    "references": [
+      {
+        "pmid": "35331648",
+        "title": "CLEC3B is a novel causative gene for macular-retinal dystrophy.",
+        "date": "2022-03-22",
+        "first_index": "2022-03-28"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:25223",
+    "symbol": "COQ2",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "36266294"
+        ],
+        "phenotypes": [
+          "Coenzyme Q10 deficiency, primary, 1, OMIM:607426",
+          "coenzyme Q10 deficiency, primary, 1, MONDO:0011829"
+        ],
+        "entity_name": "COQ2",
+        "panel": 307,
+        "hgnc": "HGNC:25223"
+      }
+    ],
+    "earliest_cited_publication": "2022-10-20",
+    "references": [
+      {
+        "pmid": "36266294",
+        "title": "Biallelic variants in coenzyme Q10 biosynthesis pathway genes cause a retinitis pigmentosa phenotype.",
+        "date": "2022-10-20",
+        "first_index": "2022-10-21"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:19041",
+    "symbol": "COQ8B",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "39226897"
+        ],
+        "phenotypes": [
+          "Retinitis pigmentosa, MONDO:0019200"
+        ],
+        "entity_name": "COQ8B",
+        "panel": 307,
+        "hgnc": "HGNC:19041"
+      }
+    ],
+    "earliest_cited_publication": "2024-09-02",
+    "references": [
+      {
+        "pmid": "39226897",
+        "title": "Bi-allelic variants in COQ8B, a gene involved in the biosynthesis of coenzyme Q10, lead to non-syndromic retinitis pigmentosa.",
+        "date": "2024-09-02",
+        "first_index": "2024-09-04"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:2515",
+    "symbol": "CTNND1",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "35700046"
+        ],
+        "phenotypes": [
+          "exudative vitreoretinopathy, MONDO:0019516"
+        ],
+        "entity_name": "CTNND1",
+        "panel": 307,
+        "hgnc": "HGNC:2515"
+      }
+    ],
+    "earliest_cited_publication": "2022-07-22",
+    "references": [
+      {
+        "pmid": "35700046",
+        "title": "CTNND1 variants cause familial exudative vitreoretinopathy through the Wnt/cadherin axis.",
+        "date": "2022-07-22",
+        "first_index": "2022-06-15"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:5386",
+    "symbol": "IDH3G",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "40119724"
+        ],
+        "phenotypes": [
+          "Retinitis pigmentosa 99, OMIM:301148, retinitis pigmentosa 99, MONDO:0978291"
+        ],
+        "entity_name": "IDH3G",
+        "panel": 307,
+        "hgnc": "HGNC:5386"
+      }
+    ],
+    "earliest_cited_publication": "2025-03-19",
+    "references": [
+      {
+        "pmid": "40119724",
+        "title": "Identification of IDH3G, encoding the gamma subunit of mitochondrial isocitrate dehydrogenase, as a novel candidate gene for X-linked retinitis pigmentosa.",
+        "date": "2025-03-19",
+        "first_index": "2025-03-26"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:8786",
+    "symbol": "PDE6B",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "35075486"
+        ],
+        "phenotypes": [
+          "Night blindness,  congenital  stationary,  autosomal  dominant 2",
+          "Retinitis  pigmentosa 40",
+          "Congenital Stationary Night Blindness, Dominant",
+          "Congenital Stationary Night Blindness",
+          "Night blindness, congenital stationary, autosomal dominant 2, 163500",
+          "Retinitis pigmentosa",
+          "Retinitis Pigmentosa, Recessive"
+        ],
+        "entity_name": "PDE6B",
+        "panel": 307,
+        "hgnc": "HGNC:8786"
+      }
+    ],
+    "earliest_cited_publication": "2022-07-01",
+    "references": [
+      {
+        "pmid": "35075486",
+        "title": "Multiomics analyses reveal early metabolic imbalance and mitochondrial stress in neonatal photoreceptors leading to cell death in Pde6brd1/rd1 mouse model of retinal degeneration.",
+        "date": "2022-07-01",
+        "first_index": "2022-01-26"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:26001",
+    "symbol": "PQLC2",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "35486108"
+        ],
+        "phenotypes": [
+          "Retinitis pigmentosa, MONDO:0019200"
+        ],
+        "entity_name": "PQLC2",
+        "panel": 307,
+        "hgnc": "HGNC:26001"
+      }
+    ],
+    "earliest_cited_publication": "2022-04-29",
+    "references": [
+      {
+        "pmid": "35486108",
+        "title": "Identification of autosomal recessive novel genes and retinal phenotypes in members of the solute carrier (SLC) superfamily.",
+        "date": "2022-04-29",
+        "first_index": "2022-04-30"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:25394",
+    "symbol": "SAMD7",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "38272031"
+        ],
+        "phenotypes": [
+          "Macular dystrophy with or without cone dysfunction, OMIM:620762"
+        ],
+        "entity_name": "SAMD7",
+        "panel": 307,
+        "hgnc": "HGNC:25394"
+      }
+    ],
+    "earliest_cited_publication": "2024-01-24",
+    "references": [
+      {
+        "pmid": "38272031",
+        "title": "Mutations in SAMD7 cause autosomal-recessive macular dystrophy with or without cone dysfunction.",
+        "date": "2024-01-24",
+        "first_index": "2024-01-26"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:11438",
+    "symbol": "STX3",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "33974130"
+        ],
+        "phenotypes": [
+          "Retinal dystrophy and microvillus inclusion disease, OMIM:619446"
+        ],
+        "entity_name": "STX3",
+        "panel": 307,
+        "hgnc": "HGNC:11438"
+      }
+    ],
+    "earliest_cited_publication": "2021-05-11",
+    "references": [
+      {
+        "pmid": "33974130",
+        "title": "Pathogenic STX3 variants affecting the retinal and intestinal transcripts cause an early-onset severe retinal dystrophy in microvillus inclusion disease subjects.",
+        "date": "2021-05-11",
+        "first_index": "2021-05-12"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:20376",
+    "symbol": "SUMF1",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "38863195"
+        ],
+        "phenotypes": [
+          "Multiple sulfatase deficiency, OMIM:272200",
+          "inherited retinal dystrophy, MONDO:0019118"
+        ],
+        "entity_name": "SUMF1",
+        "panel": 307,
+        "hgnc": "HGNC:20376"
+      }
+    ],
+    "earliest_cited_publication": "2024-06-11",
+    "references": [
+      {
+        "pmid": "38863195",
+        "title": "Non-syndromic retinal dystrophy associated with biallelic variation of SUMF1 and reduced leukocyte sulfatase activity.",
+        "date": "2024-06-11",
+        "first_index": "2024-06-13"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:11799",
+    "symbol": "THRB",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "37547476",
+          "40295579",
+          "41153457"
+        ],
+        "phenotypes": [
+          "inherited retinal dystrophy, MONDO:0019118"
+        ],
+        "entity_name": "THRB",
+        "panel": 307,
+        "hgnc": "HGNC:11799"
+      },
+      {
+        "confidence_level": "1",
+        "publications": [],
+        "phenotypes": [],
+        "entity_name": "THRB",
+        "panel": 126,
+        "hgnc": "HGNC:11799"
+      }
+    ],
+    "earliest_cited_publication": "2023-07-21",
+    "references": [
+      {
+        "pmid": "37547476",
+        "title": "Expanding the phenotype of <i>THRB</i>: a range of macular dystrophies as the major clinical manifestations in patients with a dominant splicing variant.",
+        "date": "2023-07-21",
+        "first_index": "2023-08-08"
+      },
+      {
+        "pmid": "40295579",
+        "title": "Identification of new families and variants in autosomal dominant macular dystrophy associated with THRB.",
+        "date": "2025-04-28",
+        "first_index": "2025-04-29"
+      },
+      {
+        "pmid": "41153457",
+        "title": "Mutation of the Thyroid Hormone Receptor Beta Gene (&lt;i&gt;THRB&lt;/i&gt;) Causes Vitelliform Macular Dystrophy with High Intrafamilial Variability.",
+        "date": "2025-10-20",
+        "first_index": "2025-10-29"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:25104",
+    "symbol": "AP5B1",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "40081374",
+          "41830174"
+        ],
+        "phenotypes": [
+          "macular dystrophy, retinal, MONDO:0031166"
+        ],
+        "entity_name": "AP5B1",
+        "panel": 307,
+        "hgnc": "HGNC:25104"
+      }
+    ],
+    "earliest_cited_publication": "2025-03-12",
+    "references": [
+      {
+        "pmid": "40081374",
+        "title": "Bi-allelic variants in three genes encoding distinct subunits of the vesicular AP-5 complex cause hereditary macular dystrophy.",
+        "date": "2025-03-12",
+        "first_index": "2025-03-14"
+      },
+      {
+        "pmid": "41830174",
+        "title": "Bi-allelic variants in AP5Z1 and AP5B1 lead to retinal degeneration.",
+        "date": "2026-03-12",
+        "first_index": "2026-03-15"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:25727",
+    "symbol": "CEP76",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "41105778"
+        ],
+        "phenotypes": [
+          "retinitis pigmentosa, MONDO:0019200",
+          "Joubert syndrome, MONDO:0018772",
+          "Bardet-Biedl syndrome, MONDO:0015229"
+        ],
+        "entity_name": "CEP76",
+        "panel": 307,
+        "hgnc": "HGNC:25727"
+      },
+      {
+        "confidence_level": "2",
+        "publications": [
+          "41105778"
+        ],
+        "phenotypes": [
+          "ciliopathy, MONDO:0005308",
+          "Joubert syndrome, MONDO:0018772",
+          "Bardet-Biedl syndrome, MONDO:0015229"
+        ],
+        "entity_name": "CEP76",
+        "panel": 722,
+        "hgnc": "HGNC:25727"
+      },
+      {
+        "confidence_level": "2",
+        "publications": [
+          "41105778"
+        ],
+        "phenotypes": [
+          "retinitis pigmentosa, MONDO:0019200",
+          "Joubert syndrome, MONDO:0018772",
+          "Bardet-Biedl syndrome, MONDO:0015229"
+        ],
+        "entity_name": "CEP76",
+        "panel": 724,
+        "hgnc": "HGNC:25727"
+      }
+    ],
+    "earliest_cited_publication": "2025-10-17",
+    "references": [
+      {
+        "pmid": "41105778",
+        "title": "CEP76 impairment at the centrosome-cilium interface contributes to a spectrum of ciliopathies.",
+        "date": "2025-10-17",
+        "first_index": "2025-10-17"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:13753",
+    "symbol": "FSD1L",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "41720098",
+          "41720099"
+        ],
+        "phenotypes": [
+          "retinitis pigmentosa, MONDO:0019200",
+          "neurodevelopmental disorder, MONDO:0700092"
+        ],
+        "entity_name": "FSD1L",
+        "panel": 307,
+        "hgnc": "HGNC:13753"
+      }
+    ],
+    "earliest_cited_publication": "2026-02-19",
+    "references": [
+      {
+        "pmid": "41720098",
+        "title": "Bi-allelic variants in FSD1L cause a neurodevelopmental disorder overlapping with L1 syndrome.",
+        "date": "2026-02-19",
+        "first_index": "2026-02-21"
+      },
+      {
+        "pmid": "41720099",
+        "title": "Bi-allelic variants in FSD1L cause retinitis pigmentosa with or without neurological involvement.",
+        "date": "2026-02-19",
+        "first_index": "2026-02-21"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:26768",
+    "symbol": "GPATCH11",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "39572588"
+        ],
+        "phenotypes": [
+          "neurodevelopmental disorder, MONDO:0700092",
+          "retinal disorder, MONDO:0005283"
+        ],
+        "entity_name": "GPATCH11",
+        "panel": 307,
+        "hgnc": "HGNC:26768"
+      }
+    ],
+    "earliest_cited_publication": "2024-11-21",
+    "references": [
+      {
+        "pmid": "39572588",
+        "title": "GPATCH11 variants cause mis-splicing and early-onset retinal dystrophy with neurological impairment.",
+        "date": "2024-11-21",
+        "first_index": "2024-11-22"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:26052",
+    "symbol": "INTS11",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "37054711",
+          "41810893"
+        ],
+        "phenotypes": [
+          "Neurodevelopmental disorder with motor and language delay, ocular defects, and brain abnormalities, OMIM:620428"
+        ],
+        "entity_name": "INTS11",
+        "panel": 307,
+        "hgnc": "HGNC:26052"
+      }
+    ],
+    "earliest_cited_publication": "2023-04-12",
+    "references": [
+      {
+        "pmid": "37054711",
+        "title": "Bi-allelic variants in INTS11 are associated with a complex neurological disorder.",
+        "date": "2023-04-12",
+        "first_index": "2023-04-14"
+      },
+      {
+        "pmid": "41810893",
+        "title": "Characterizing a Unique Retinal Phenotype in INTS11-Associated Neurodevelopmental Disorder.",
+        "date": "2026-03-01",
+        "first_index": "2026-03-12"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:6600",
+    "symbol": "LIG3",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "33855352"
+        ],
+        "phenotypes": [
+          "gut dysmotility",
+          "spasticity",
+          "ataxia",
+          "repetitive behaviours",
+          "neurogenic bladder",
+          "macular degeneration",
+          "leukoencephalopathy",
+          "cerebellar atrophy",
+          "mitochondrial DNA depletion"
+        ],
+        "entity_name": "LIG3",
+        "panel": 307,
+        "hgnc": "HGNC:6600"
+      }
+    ],
+    "earliest_cited_publication": "2021-06-01",
+    "references": [
+      {
+        "pmid": "33855352",
+        "title": "Biallelic variants in LIG3 cause a novel mitochondrial neurogastrointestinal encephalomyopathy.",
+        "date": "2021-06-01",
+        "first_index": "2021-04-16"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:29917",
+    "symbol": "MDM1",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "41742423"
+        ],
+        "phenotypes": [
+          "Retinal dystrophy, HP:0000556"
+        ],
+        "entity_name": "MDM1",
+        "panel": 307,
+        "hgnc": "HGNC:29917"
+      },
+      {
+        "confidence_level": "2",
+        "publications": [
+          "41742423"
+        ],
+        "phenotypes": [
+          "Retinal dystrophy, HP:0000556"
+        ],
+        "entity_name": "MDM1",
+        "panel": 722,
+        "hgnc": "HGNC:29917"
+      }
+    ],
+    "earliest_cited_publication": "2026-02-24",
+    "references": [
+      {
+        "pmid": "41742423",
+        "title": "Loss-of-function variants in SAXO6, encoding a microtubule inner protein of photoreceptor cilia, cause a late-onset retinal dystrophy.",
+        "date": "2026-02-24",
+        "first_index": "2026-02-26"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:8591",
+    "symbol": "PAK2",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "33693784",
+          "38894571",
+          "39876536",
+          "39994693",
+          "40262506",
+          "40247748"
+        ],
+        "phenotypes": [
+          "Knobloch 2 syndrome, OMIM:618458"
+        ],
+        "entity_name": "PAK2",
+        "panel": 307,
+        "hgnc": "HGNC:8591"
+      }
+    ],
+    "earliest_cited_publication": "2021-12-01",
+    "references": [
+      {
+        "pmid": "33693784",
+        "title": "Dominant monoallelic variant in the PAK2 gene causes Knobloch syndrome type 2.",
+        "date": "2021-12-01",
+        "first_index": "2021-03-12"
+      },
+      {
+        "pmid": "38894571",
+        "title": "New kinase-deficient PAK2 variants associated with Knobloch syndrome type 2.",
+        "date": "2024-06-18",
+        "first_index": "2024-06-19"
+      },
+      {
+        "pmid": "39876536",
+        "title": "Phenotypic Expansion of Knobloch Syndrome Type 2 in an Individual With a De Novo PAK2 Variant.",
+        "date": "2025-01-28",
+        "first_index": "2025-01-29"
+      },
+      {
+        "pmid": "39994693",
+        "title": "Antenatal phenotype associated with PAK2 pathogenic variants: bilateral pleural effusion as a warning sign.",
+        "date": "2025-02-24",
+        "first_index": "2025-02-25"
+      },
+      {
+        "pmid": "40247748",
+        "title": "Chinese Family With Knobloch Syndrome Associated With a Novel PAK2 Variant Leading to Reduced Phosphorylation Levels.",
+        "date": "2025-04-01",
+        "first_index": "2025-04-18"
+      },
+      {
+        "pmid": "40262506",
+        "title": "Retinal detachment in a neonate with congenital chylothorax and purpura fulminans associated with the PAK2 genetic variant: A case report.",
+        "date": "2025-04-19",
+        "first_index": "2025-04-24"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:29071",
+    "symbol": "VWA8",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "37012052",
+          "34660594",
+          "40638000",
+          "42120427"
+        ],
+        "phenotypes": [
+          "?Retinitis pigmentosa 97, OMIM:620422",
+          "retinitis pigmentosa 97, MONDO:0957314"
+        ],
+        "entity_name": "VWA8",
+        "panel": 307,
+        "hgnc": "HGNC:29071"
+      }
+    ],
+    "earliest_cited_publication": "2021-10-01",
+    "references": [
+      {
+        "pmid": "34660594",
+        "title": "Mutated <i>VWA8</i> Is Associated With Developmental Delay, Microcephaly, and Scoliosis and Plays a Novel Role in Early Development and Skeletal Morphogenesis in Zebrafish.",
+        "date": "2021-10-01",
+        "first_index": "2021-10-19"
+      },
+      {
+        "pmid": "37012052",
+        "title": "Mutations in <i>VWA8</i> cause autosomal-dominant retinitis pigmentosa via aberrant mitophagy activation.",
+        "date": "2023-04-03",
+        "first_index": "2023-04-05"
+      },
+      {
+        "pmid": "40638000",
+        "title": "von Willebrand factor A domain containing 8 (VWA8)- associated retinitis pigmentosa: description of a novel case and expansion of the phenotype.",
+        "date": "2025-07-10",
+        "first_index": "2025-07-11"
+      },
+      {
+        "pmid": "42120427",
+        "title": "Intra-mitochondrial glycolysis maintains mitochondrial function and underlies the pathogenesis of retinitis pigmentosa.",
+        "date": "2026-05-12",
+        "first_index": "2026-05-15"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:26639",
+    "symbol": "XXYLT1",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "42530953"
+        ],
+        "phenotypes": [
+          "Cone-rod dystrophy, MONDO:0015993",
+          "Inherited retinal dystrophy, MONDO:0019118"
+        ],
+        "entity_name": "XXYLT1",
+        "panel": 307,
+        "hgnc": "HGNC:26639"
+      }
+    ],
+    "earliest_cited_publication": "2026-09-01",
+    "references": [
+      {
+        "pmid": "42530953",
+        "title": "XXYLT1 and Mendelian Retinal Dystrophy.",
+        "date": "2026-09-01",
+        "first_index": "2026-07-31"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:19693",
+    "symbol": "COQ4",
+    "panels": [
+      {
+        "confidence_level": "1",
+        "publications": [
+          "36266294"
+        ],
+        "phenotypes": [
+          "Coenzyme Q10 deficiency, primary, 7, OMIM:616276",
+          "neonatal encephalomyopathy-cardiomyopathy-respiratory distress syndrome, MONDO:0014562"
+        ],
+        "entity_name": "COQ4",
+        "panel": 307,
+        "hgnc": "HGNC:19693"
+      }
+    ],
+    "earliest_cited_publication": "2022-10-20",
+    "references": [
+      {
+        "pmid": "36266294",
+        "title": "Biallelic variants in coenzyme Q10 biosynthesis pathway genes cause a retinitis pigmentosa phenotype.",
+        "date": "2022-10-20",
+        "first_index": "2022-10-21"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:14675",
+    "symbol": "IRX6",
+    "panels": [
+      {
+        "confidence_level": "1",
+        "publications": [
+          "33891002"
+        ],
+        "phenotypes": [
+          "cone dystrophy, MONDO:0000455"
+        ],
+        "entity_name": "IRX6",
+        "panel": 307,
+        "hgnc": "HGNC:14675"
+      }
+    ],
+    "earliest_cited_publication": "2021-06-01",
+    "references": [
+      {
+        "pmid": "33891002",
+        "title": "A duplication on chromosome 16q12 affecting the IRXB gene cluster is associated with autosomal dominant cone dystrophy with early tritanopic color vision defect.",
+        "date": "2021-06-01",
+        "first_index": "2021-04-24"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:6692",
+    "symbol": "LRP1",
+    "panels": [
+      {
+        "confidence_level": "1",
+        "publications": [
+          "33776059"
+        ],
+        "phenotypes": [
+          "Macular drusen"
+        ],
+        "entity_name": "LRP1",
+        "panel": 307,
+        "hgnc": "HGNC:6692"
+      }
+    ],
+    "earliest_cited_publication": "2021-03-29",
+    "references": [
+      {
+        "pmid": "33776059",
+        "title": "Whole exome sequencing reveals putatively novel associations in retinopathies and drusen formation.",
+        "date": "2021-03-29",
+        "first_index": "2021-03-30"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:9583",
+    "symbol": "PTBP1",
+    "panels": [
+      {
+        "confidence_level": "1",
+        "publications": [
+          "40965981"
+        ],
+        "phenotypes": [
+          "Neurodevelopmental disorder, MONDO:0700092",
+          "STAD syndrome, OMIM:621495"
+        ],
+        "entity_name": "PTBP1",
+        "panel": 307,
+        "hgnc": "HGNC:9583"
+      }
+    ],
+    "earliest_cited_publication": "2025-09-18",
+    "references": [
+      {
+        "pmid": "40965981",
+        "title": "PTBP1 variants displaying altered nucleocytoplasmic distribution are responsible for a neurodevelopmental disorder with skeletal dysplasia.",
+        "date": "2025-09-18",
+        "first_index": "2025-09-19"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:13552",
+    "symbol": "ATP11A",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "35278131",
+          "36300302"
+        ],
+        "phenotypes": [
+          "Deafness, autosomal dominant 84, OMIM:619810"
+        ],
+        "entity_name": "ATP11A",
+        "panel": 126,
+        "hgnc": "HGNC:13552"
+      }
+    ],
+    "earliest_cited_publication": "2022-03-12",
+    "references": [
+      {
+        "pmid": "35278131",
+        "title": "Autosomal dominant non-syndromic hearing loss maps to DFNA33 (13q34) and co-segregates with splice and frameshift variants in ATP11A, a phospholipid flippase gene.",
+        "date": "2022-03-12",
+        "first_index": "2022-03-13"
+      },
+      {
+        "pmid": "36300302",
+        "title": "A mutation in ATP11A causes autosomal-dominant auditory neuropathy type 2.",
+        "date": "2023-03-01",
+        "first_index": "2022-10-28"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:16148",
+    "symbol": "CRLS1",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "35147173"
+        ],
+        "phenotypes": [
+          "Combined oxidative phosphorylation deficiency 57, OMIM:620167"
+        ],
+        "entity_name": "CRLS1",
+        "panel": 126,
+        "hgnc": "HGNC:16148"
+      }
+    ],
+    "earliest_cited_publication": "2022-10-01",
+    "references": [
+      {
+        "pmid": "35147173",
+        "title": "Deleterious variants in CRLS1 lead to cardiolipin deficiency and cause an autosomal recessive multi-system mitochondrial disease.",
+        "date": "2022-10-01",
+        "first_index": "2022-02-12"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:2673",
+    "symbol": "DAP3",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "39701103"
+        ],
+        "phenotypes": [
+          "Perrault syndrome 7, OMIM:621101"
+        ],
+        "entity_name": "DAP3",
+        "panel": 126,
+        "hgnc": "HGNC:2673"
+      }
+    ],
+    "earliest_cited_publication": "2024-12-18",
+    "references": [
+      {
+        "pmid": "39701103",
+        "title": "Bi-allelic variants in DAP3 result in reduced assembly of the mitoribosomal small subunit with altered apoptosis and a Perrault-syndrome-spectrum phenotype.",
+        "date": "2024-12-18",
+        "first_index": "2024-12-20"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:20844",
+    "symbol": "GPR156",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "36928819"
+        ],
+        "phenotypes": [
+          "sensorineural hearing loss disorder, MONDO:0020678"
+        ],
+        "entity_name": "GPR156",
+        "panel": 126,
+        "hgnc": "HGNC:20844"
+      }
+    ],
+    "earliest_cited_publication": "2023-03-16",
+    "references": [
+      {
+        "pmid": "36928819",
+        "title": "Genetic association analysis of 77,539 genomes reveals rare disease etiologies.",
+        "date": "2023-03-16",
+        "first_index": "2023-03-18"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:6262",
+    "symbol": "KCNJ16",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "33811157",
+          "33840812"
+        ],
+        "phenotypes": [
+          "Hypokalemic tubulopathy and deafness, OMIM:619406"
+        ],
+        "entity_name": "KCNJ16",
+        "panel": 126,
+        "hgnc": "HGNC:6262"
+      }
+    ],
+    "earliest_cited_publication": "2021-04-02",
+    "references": [
+      {
+        "pmid": "33811157",
+        "title": "Defects in KCNJ16 Cause a Novel Tubulopathy with Hypokalemia, Salt Wasting, Disturbed Acid-Base Homeostasis, and Sensorineural Deafness.",
+        "date": "2021-04-02",
+        "first_index": "2021-04-06"
+      },
+      {
+        "pmid": "33840812",
+        "title": "Biallelic loss-of-function variants in KCNJ16 presenting with hypokalemic metabolic acidosis.",
+        "date": "2021-04-12",
+        "first_index": "2021-04-13"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:33914",
+    "symbol": "KIAA1024L",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "35727972"
+        ],
+        "phenotypes": [
+          "Deafness, autosomal recessive 120, OMIM:620238"
+        ],
+        "entity_name": "KIAA1024L",
+        "panel": 126,
+        "hgnc": "HGNC:33914"
+      }
+    ],
+    "earliest_cited_publication": "2022-06-21",
+    "references": [
+      {
+        "pmid": "35727972",
+        "title": "Mutations in &lt;i&gt;MINAR2&lt;/i&gt; encoding membrane integral NOTCH2-associated receptor 2 cause deafness in humans and mice.",
+        "date": "2022-06-21",
+        "first_index": "2022-06-22"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:6556",
+    "symbol": "LETM1",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "36055214",
+          "33815143"
+        ],
+        "phenotypes": [
+          "Neurodegeneration, childhood-onset, with multisystem involvement due to mitochondrial dysfunction, OMIM:620089"
+        ],
+        "entity_name": "LETM1",
+        "panel": 126,
+        "hgnc": "HGNC:6556"
+      }
+    ],
+    "earliest_cited_publication": "2021-03-18",
+    "references": [
+      {
+        "pmid": "33815143",
+        "title": "LETM1: A Single Entity With Diverse Impact on Mitochondrial Metabolism and Cellular Signaling.",
+        "date": "2021-03-18",
+        "first_index": "2021-04-06"
+      },
+      {
+        "pmid": "36055214",
+        "title": "Bi-allelic LETM1 variants perturb mitochondrial ion homeostasis leading to a clinical spectrum with predominant nervous system involvement.",
+        "date": "2022-09-01",
+        "first_index": "2022-09-03"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:1176",
+    "symbol": "MRPL49",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "40043708"
+        ],
+        "phenotypes": [
+          "Combined oxidative phosphorylation deficiency 60, OMIM:621195",
+          "combined oxidative phosphorylation deficiency, MONDO:0000732"
+        ],
+        "entity_name": "MRPL49",
+        "panel": 126,
+        "hgnc": "HGNC:1176"
+      }
+    ],
+    "earliest_cited_publication": "2025-03-04",
+    "references": [
+      {
+        "pmid": "40043708",
+        "title": "Bi-allelic variants in MRPL49 cause variable clinical presentations, including sensorineural hearing loss, leukodystrophy, and ovarian insufficiency.",
+        "date": "2025-03-04",
+        "first_index": "2025-03-06"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:20313",
+    "symbol": "PKHD1L1",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "38459354"
+        ],
+        "phenotypes": [
+          "Deafness, autosomal recessive 124, OMIM:620794"
+        ],
+        "entity_name": "PKHD1L1",
+        "panel": 126,
+        "hgnc": "HGNC:20313"
+      }
+    ],
+    "earliest_cited_publication": "2024-03-09",
+    "references": [
+      {
+        "pmid": "38459354",
+        "title": "PKHD1L1, a gene involved in the stereocilia coat, causes autosomal recessive nonsyndromic hearing loss.",
+        "date": "2024-03-09",
+        "first_index": "2024-03-10"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:9104",
+    "symbol": "PLXNB2",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "38458752"
+        ],
+        "phenotypes": [
+          "amelogenesis imperfecta, MONDO:0019507",
+          "sensorineural hearing loss disorder, MONDO:0020678",
+          "intellectual disability, MONDO:0001071"
+        ],
+        "entity_name": "PLXNB2",
+        "panel": 126,
+        "hgnc": "HGNC:9104"
+      }
+    ],
+    "earliest_cited_publication": "2024-06-20",
+    "references": [
+      {
+        "pmid": "38458752",
+        "title": "Biallelic variants in Plexin B2 (&lt;i&gt;PLXNB2&lt;/i&gt;) cause amelogenesis imperfecta, hearing loss and intellectual disability.",
+        "date": "2024-06-20",
+        "first_index": "2024-03-10"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:9972",
+    "symbol": "RFC4",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "39106866"
+        ],
+        "phenotypes": [
+          "sensorineural hearing loss disorder, MONDO:0020678"
+        ],
+        "entity_name": "RFC4",
+        "panel": 126,
+        "hgnc": "HGNC:9972"
+      }
+    ],
+    "earliest_cited_publication": "2024-08-05",
+    "references": [
+      {
+        "pmid": "39106866",
+        "title": "Expanding the genetic and phenotypic landscape of replication factor C complex-related disorders: RFC4 deficiency is linked to a multisystemic disorder.",
+        "date": "2024-08-05",
+        "first_index": "2024-08-07"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:28762",
+    "symbol": "SPATA5L1",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "34626583"
+        ],
+        "phenotypes": [
+          "Neurodevelopmental disorder with hearing loss and spasticity, OMIM:619616",
+          "Deafness, autosomal recessive 119, OMIM:619615"
+        ],
+        "entity_name": "SPATA5L1",
+        "panel": 126,
+        "hgnc": "HGNC:28762"
+      }
+    ],
+    "earliest_cited_publication": "2021-10-01",
+    "references": [
+      {
+        "pmid": "34626583",
+        "title": "Bi-allelic variants in SPATA5L1 lead to intellectual disability, spastic-dystonic cerebral palsy, epilepsy, and hearing loss.",
+        "date": "2021-10-01",
+        "first_index": "2021-10-10"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:18533",
+    "symbol": "USP48",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "34059922"
+        ],
+        "phenotypes": [
+          "non-syndromic hearing loss",
+          "nonsyndromic genetic deafness, MONDO:0019497",
+          "Deafness, autosomal dominant 85, OMIM:620227"
+        ],
+        "entity_name": "USP48",
+        "panel": 126,
+        "hgnc": "HGNC:18533"
+      }
+    ],
+    "earliest_cited_publication": "2021-09-01",
+    "references": [
+      {
+        "pmid": "34059922",
+        "title": "Variants in USP48 encoding ubiquitin hydrolase are associated with autosomal dominant non-syndromic hereditary hearing loss.",
+        "date": "2021-09-01",
+        "first_index": "2021-06-02"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:12814",
+    "symbol": "XPA",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "39621777"
+        ],
+        "phenotypes": [
+          "Xeroderma pigmentosum, group A, OMIM: 278700"
+        ],
+        "entity_name": "XPA",
+        "panel": 126,
+        "hgnc": "HGNC:12814"
+      }
+    ],
+    "earliest_cited_publication": "2024-12-02",
+    "references": [
+      {
+        "pmid": "39621777",
+        "title": "Different germline variants in the XPA gene are associated with severe, intermediate, or mild neurodegeneration in xeroderma pigmentosum patients.",
+        "date": "2024-12-02",
+        "first_index": "2024-12-03"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:33939",
+    "symbol": "CLRN2",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "33496845",
+          "39446282"
+        ],
+        "phenotypes": [
+          "?Deafness, autosomal recessive 117, OMIM:619174",
+          "deafness, autosomal recessive 117, MONDO:0030905"
+        ],
+        "entity_name": "CLRN2",
+        "panel": 126,
+        "hgnc": "HGNC:33939"
+      }
+    ],
+    "earliest_cited_publication": "2021-01-26",
+    "references": [
+      {
+        "pmid": "33496845",
+        "title": "A biallelic variant in CLRN2 causes non-syndromic hearing loss in humans.",
+        "date": "2021-01-26",
+        "first_index": "2021-01-27"
+      },
+      {
+        "pmid": "39446282",
+        "title": "A novel CLRN2 variant: expanding the mutation spectrum and its critical role in isolated hearing impairment.",
+        "date": "2024-10-24",
+        "first_index": "2024-10-24"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:18399",
+    "symbol": "DHRSX",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "38821050"
+        ],
+        "phenotypes": [
+          "Congenital disorder of glycosylation, type 1DD, OMIM:301133"
+        ],
+        "entity_name": "DHRSX",
+        "panel": 126,
+        "hgnc": "HGNC:18399"
+      }
+    ],
+    "earliest_cited_publication": "2024-05-30",
+    "references": [
+      {
+        "pmid": "38821050",
+        "title": "A pseudoautosomal glycosylation disorder prompts the revision of dolichol biosynthesis.",
+        "date": "2024-05-30",
+        "first_index": "2024-06-02"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:25513",
+    "symbol": "GPN2",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "42392036"
+        ],
+        "phenotypes": [
+          "Sensorineural hearing loss disorder, MONDO:0020678"
+        ],
+        "entity_name": "GPN2",
+        "panel": 126,
+        "hgnc": "HGNC:25513"
+      }
+    ],
+    "earliest_cited_publication": "2026-07-01",
+    "references": [
+      {
+        "pmid": "42392036",
+        "title": "Bi-allelic missense variants in human GPN2 result in Perrault syndrome.",
+        "date": "2026-07-01",
+        "first_index": "2026-07-03"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:19958",
+    "symbol": "KIAA0391",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "34715011",
+          "37558808"
+        ],
+        "phenotypes": [
+          "Combined oxidative phosphorylation deficiency 54, OMIM:619737"
+        ],
+        "entity_name": "KIAA0391",
+        "panel": 126,
+        "hgnc": "HGNC:19958"
+      }
+    ],
+    "earliest_cited_publication": "2021-10-28",
+    "references": [
+      {
+        "pmid": "34715011",
+        "title": "Bi-allelic variants in the mitochondrial RNase P subunit PRORP cause mitochondrial tRNA processing defects and pleiotropic multisystem presentations.",
+        "date": "2021-10-28",
+        "first_index": "2021-11-26"
+      },
+      {
+        "pmid": "37558808",
+        "title": "Novel homozygous variants in PRORP expand the genotypic spectrum of combined oxidative phosphorylation deficiency 54.",
+        "date": "2023-08-09",
+        "first_index": "2023-08-11"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:15822",
+    "symbol": "OXR1",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "36130215"
+        ],
+        "phenotypes": [
+          "sensorineural hearing loss disorder, MONDO:0020678"
+        ],
+        "entity_name": "OXR1",
+        "panel": 126,
+        "hgnc": "HGNC:15822"
+      }
+    ],
+    "earliest_cited_publication": "2023-02-01",
+    "references": [
+      {
+        "pmid": "36130215",
+        "title": "A novel recessive mutation in OXR1 is identified in patient with hearing loss recapitulated by the knockdown zebrafish.",
+        "date": "2023-02-01",
+        "first_index": "2022-09-23"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:9065",
+    "symbol": "PLCG1",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "38260438",
+          "37422272",
+          "40862571"
+        ],
+        "phenotypes": [
+          "?Immune dysregulation, autoimmunity, and autoinflammation, OMIM:620514",
+          "immune dysregulation, autoimmunity, and autoinflammation, MONDO:0957790",
+          "hearing loss disorder, MONDO:0005365"
+        ],
+        "entity_name": "PLCG1",
+        "panel": 126,
+        "hgnc": "HGNC:9065"
+      }
+    ],
+    "earliest_cited_publication": "2023-07-06",
+    "references": [
+      {
+        "pmid": "37422272",
+        "title": "A gain-of-function variation in PLCG1 causes a new immune dysregulation disease.",
+        "date": "2023-07-06",
+        "first_index": "2023-07-09"
+      },
+      {
+        "pmid": "40862571",
+        "title": "Heterozygous variants in &lt;i&gt;PLCG1&lt;/i&gt; affect hearing, vision, cardiac, and immune function.",
+        "date": "2025-08-27",
+        "first_index": "2025-09-01"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:11439",
+    "symbol": "STX4",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "36355422"
+        ],
+        "phenotypes": [
+          "Hearing impairment, HP:0000365"
+        ],
+        "entity_name": "STX4",
+        "panel": 126,
+        "hgnc": "HGNC:11439"
+      }
+    ],
+    "earliest_cited_publication": "2023-03-01",
+    "references": [
+      {
+        "pmid": "36355422",
+        "title": "Syntaxin 4 is essential for hearing in human and zebrafish.",
+        "date": "2023-03-01",
+        "first_index": "2022-11-11"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:11446",
+    "symbol": "STXBP3",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "33346580",
+          "https://doi.org/10.1053/j.gastro.2017.11.120",
+          "33891011"
+        ],
+        "phenotypes": [
+          "Very Early Onset Inflammatory Bowel Disease",
+          "Sensorineural hearing loss"
+        ],
+        "entity_name": "STXBP3",
+        "panel": 126,
+        "hgnc": "HGNC:11446"
+      }
+    ],
+    "earliest_cited_publication": "2021-03-01",
+    "references": [
+      {
+        "pmid": "33346580",
+        "title": "Clinical Genomics for the Diagnosis of Monogenic Forms of Inflammatory Bowel Disease: A Position Paper From the Paediatric IBD Porto Group of European Society of Paediatric Gastroenterology, Hepatology and Nutrition.",
+        "date": "2021-03-01",
+        "first_index": "2020-12-24"
+      },
+      {
+        "pmid": "33891011",
+        "title": "Variants in STXBP3 are Associated with Very Early Onset Inflammatory Bowel Disease, Bilateral Sensorineural Hearing Loss and Immune Dysregulation.",
+        "date": "2021-11-01",
+        "first_index": "2021-04-24"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:19987",
+    "symbol": "EPHA10",
+    "panels": [
+      {
+        "confidence_level": "1",
+        "publications": [
+          "36048850"
+        ],
+        "phenotypes": [
+          "postlingual non-syndromic genetic hearing loss, MONDO:0016298"
+        ],
+        "entity_name": "EPHA10",
+        "panel": 126,
+        "hgnc": "HGNC:19987"
+      }
+    ],
+    "earliest_cited_publication": "2023-02-01",
+    "references": [
+      {
+        "pmid": "36048850",
+        "title": "A non-coding variant in 5' untranslated region drove up-regulation of pseudo-kinase EPHA10 and caused non-syndromic hearing loss in humans.",
+        "date": "2023-02-01",
+        "first_index": "2022-09-02"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:4431",
+    "symbol": "GOSR2",
+    "panels": [
+      {
+        "confidence_level": "1",
+        "publications": [
+          "37074134"
+        ],
+        "phenotypes": [
+          "hearing loss, autosomal recessive, MONDO:0019588"
+        ],
+        "entity_name": "GOSR2",
+        "panel": 126,
+        "hgnc": "HGNC:4431"
+      }
+    ],
+    "earliest_cited_publication": "2023-07-01",
+    "references": [
+      {
+        "pmid": "37074134",
+        "title": "A paradoxical genotype-phenotype relationship: Low level of GOSR2 translation from a non-AUG start codon in a family with profound hearing loss.",
+        "date": "2023-07-01",
+        "first_index": "2023-04-20"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:7670",
+    "symbol": "NCOA3",
+    "panels": [
+      {
+        "confidence_level": "1",
+        "publications": [
+          "33326993"
+        ],
+        "phenotypes": [
+          "non-syndromic hearing loss"
+        ],
+        "entity_name": "NCOA3",
+        "panel": 126,
+        "hgnc": "HGNC:7670"
+      }
+    ],
+    "earliest_cited_publication": "2021-01-01",
+    "references": [
+      {
+        "pmid": "33326993",
+        "title": "NCOA3 identified as a new candidate to explain autosomal dominant progressive hearing loss.",
+        "date": "2021-01-01",
+        "first_index": "2020-12-24"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:15939",
+    "symbol": "WFDC2",
+    "panels": [
+      {
+        "confidence_level": "1",
+        "publications": [
+          "38626355",
+          "40401042"
+        ],
+        "phenotypes": [
+          "Bronchiectasis and nasal polyposis, OMIM:620984"
+        ],
+        "entity_name": "WFDC2",
+        "panel": 178,
+        "hgnc": "HGNC:15939"
+      },
+      {
+        "confidence_level": "2",
+        "publications": [
+          "38626355",
+          "40401042"
+        ],
+        "phenotypes": [
+          "Bronchiectasis and nasal polyposis, OMIM:620984"
+        ],
+        "entity_name": "WFDC2",
+        "panel": 550,
+        "hgnc": "HGNC:15939"
+      }
+    ],
+    "earliest_cited_publication": "2024-07-01",
+    "references": [
+      {
+        "pmid": "38626355",
+        "title": "Recessively Inherited Deficiency of Secreted WFDC2 (HE4) Causes Nasal Polyposis and Bronchiectasis.",
+        "date": "2024-07-01",
+        "first_index": "2024-04-16"
+      },
+      {
+        "pmid": "40401042",
+        "title": "Severe bronchiectasis and chronic rhinosinusitis due to homozygous &lt;i&gt;WFDC2&lt;/i&gt; Variants: The first three cases reported from Japan.",
+        "date": "2025-04-19",
+        "first_index": "2025-05-23"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:328",
+    "symbol": "AGR2",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "34952832"
+        ],
+        "phenotypes": [
+          "Cystic fibrosis-like syndrome",
+          "chronic diarrhoea"
+        ],
+        "entity_name": "AGR2",
+        "panel": 550,
+        "hgnc": "HGNC:328"
+      }
+    ],
+    "earliest_cited_publication": "2021-12-24",
+    "references": [
+      {
+        "pmid": "34952832",
+        "title": "A disorder clinically resembling cystic fibrosis caused by biallelic variants in the <i>AGR2</i> gene.",
+        "date": "2021-12-24",
+        "first_index": "2021-12-26"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:25678",
+    "symbol": "EFCAB1",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "36727596"
+        ],
+        "phenotypes": [
+          "Ciliary dyskinesia, primary, 53, OMIM:620642"
+        ],
+        "entity_name": "EFCAB1",
+        "panel": 550,
+        "hgnc": "HGNC:25678"
+      }
+    ],
+    "earliest_cited_publication": "2023-01-31",
+    "references": [
+      {
+        "pmid": "36727596",
+        "title": "Pathogenic variants in CLXN encoding the outer dynein arm docking-associated calcium-binding protein calaxin cause primary ciliary dyskinesia.",
+        "date": "2023-01-31",
+        "first_index": "2023-02-03"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:12003",
+    "symbol": "TP73",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "34077761"
+        ],
+        "phenotypes": [
+          "Ciliary dyskinesia, primary, 47, and lissencephaly, OMIM:619466"
+        ],
+        "entity_name": "TP73",
+        "panel": 550,
+        "hgnc": "HGNC:12003"
+      }
+    ],
+    "earliest_cited_publication": "2021-06-01",
+    "references": [
+      {
+        "pmid": "34077761",
+        "title": "Mutations in TP73 cause impaired mucociliary clearance and lissencephaly.",
+        "date": "2021-06-01",
+        "first_index": "2021-06-03"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:12760",
+    "symbol": "BRWD1",
+    "panels": [
+      {
+        "confidence_level": "1",
+        "publications": [
+          "33389130"
+        ],
+        "phenotypes": [
+          "Primary ciliary dyskinesia, asthenoteratozoospermia"
+        ],
+        "entity_name": "BRWD1",
+        "panel": 550,
+        "hgnc": "HGNC:12760"
+      }
+    ],
+    "earliest_cited_publication": "2021-01-03",
+    "references": [
+      {
+        "pmid": "33389130",
+        "title": "Bi-allelic BRWD1 variants cause male infertility with asthenoteratozoospermia and likely primary ciliary dyskinesia.",
+        "date": "2021-01-03",
+        "first_index": "2021-01-05"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:9529",
+    "symbol": "PSKH1",
+    "panels": [
+      {
+        "confidence_level": "3",
+        "publications": [
+          "39132680"
+        ],
+        "phenotypes": [
+          "Cholestasis, progressive familial intrahepatic, 13, OMIM:620962"
+        ],
+        "entity_name": "PSKH1",
+        "panel": 725,
+        "hgnc": "HGNC:9529"
+      }
+    ],
+    "earliest_cited_publication": "2024-08-09",
+    "references": [
+      {
+        "pmid": "39132680",
+        "title": "Large-scale genomic investigation of pediatric cholestasis reveals a novel hepatorenal ciliopathy caused by PSKH1 mutations.",
+        "date": "2024-08-09",
+        "first_index": "2024-08-13"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:18525",
+    "symbol": "CYS1",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "34521872"
+        ],
+        "phenotypes": [
+          "Polycystic kidney disease, MONDO:0020642"
+        ],
+        "entity_name": "CYS1",
+        "panel": 725,
+        "hgnc": "HGNC:18525"
+      }
+    ],
+    "earliest_cited_publication": "2021-09-14",
+    "references": [
+      {
+        "pmid": "34521872",
+        "title": "Cystin genetic variants cause autosomal recessive polycystic kidney disease associated with altered Myc expression.",
+        "date": "2021-09-14",
+        "first_index": "2021-09-16"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:30168",
+    "symbol": "PDIA6",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "33495992",
+          "34487921",
+          "35856135",
+          "39044457",
+          "40974269"
+        ],
+        "phenotypes": [
+          "Asphyxiating thoracic dystrophy (ATD) syndrome and infantile\u2010onset diabetes",
+          "Polycystic kidney dysplasia, HP:0000113",
+          "Diabetes mellitus, HP:0000819",
+          "Microcephaly, HP:0000252"
+        ],
+        "entity_name": "PDIA6",
+        "panel": 725,
+        "hgnc": "HGNC:30168"
+      },
+      {
+        "confidence_level": "2",
+        "publications": [
+          "33495992"
+        ],
+        "phenotypes": [
+          "Asphyxiating thoracic dystrophy (ATD) syndrome and infantile\u2010onset diabetes"
+        ],
+        "entity_name": "PDIA6",
+        "panel": 726,
+        "hgnc": "HGNC:30168"
+      }
+    ],
+    "earliest_cited_publication": "2021-02-17",
+    "references": [
+      {
+        "pmid": "33495992",
+        "title": "Biallelic loss of function variant in the unfolded protein response gene PDIA6 is associated with asphyxiating thoracic dystrophy and neonatal-onset diabetes.",
+        "date": "2021-02-17",
+        "first_index": "2021-01-27"
+      },
+      {
+        "pmid": "34487921",
+        "title": "A point mutation in the Pdia6 gene results in loss of pancreatic \u03b2-cell identity causing overt diabetes.",
+        "date": "2021-09-04",
+        "first_index": "2021-09-07"
+      },
+      {
+        "pmid": "35856135",
+        "title": "A biallelic loss-of-function PDIA6 variant in a second patient with polycystic kidney disease, infancy-onset diabetes, and microcephaly.",
+        "date": "2022-07-18",
+        "first_index": "2022-07-21"
+      },
+      {
+        "pmid": "39044457",
+        "title": "Increased ER stress by depletion of PDIA6 impairs primary ciliogenesis and enhances sensitivity to ferroptosis in kidney cells.",
+        "date": "2024-10-01",
+        "first_index": "2024-07-25"
+      },
+      {
+        "pmid": "40974269",
+        "title": "Identification of PDIA6 Mutation in a Case of Autosomal Recessive Polycystic Kidney Disease: A Case Report and Review of Literature.",
+        "date": "2025-09-20",
+        "first_index": "2025-09-21"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:31658",
+    "symbol": "TMEM72",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "41308066"
+        ],
+        "phenotypes": [
+          "nephronophthisis, MONDO:0019005"
+        ],
+        "entity_name": "TMEM72",
+        "panel": 725,
+        "hgnc": "HGNC:31658"
+      }
+    ],
+    "earliest_cited_publication": "2025-11-27",
+    "references": [
+      {
+        "pmid": "41308066",
+        "title": "Biallelic TMEM72 Variants in Patients with a Nephronophthisis-Like Phenotype.",
+        "date": "2025-11-27",
+        "first_index": "2025-11-27"
+      }
+    ]
+  },
+  {
+    "hgnc_id": "HGNC:23136",
+    "symbol": "SCNM1",
+    "panels": [
+      {
+        "confidence_level": "2",
+        "publications": [
+          "36084634",
+          "41291844"
+        ],
+        "phenotypes": [
+          "Orofaciodigital syndrome XIX, OMIM:620107",
+          "orofaciodigital syndrome 19, MONDO:0859310"
+        ],
+        "entity_name": "SCNM1",
+        "panel": 726,
+        "hgnc": "HGNC:23136"
+      }
+    ],
+    "earliest_cited_publication": "2022-09-08",
+    "references": [
+      {
+        "pmid": "36084634",
+        "title": "Mutations in SCNM1 cause orofaciodigital syndrome due to minor intron splicing defects affecting primary cilia.",
+        "date": "2022-09-08",
+        "first_index": "2022-09-10"
+      },
+      {
+        "pmid": "41291844",
+        "title": "Expanding the phenotype associated with biallelic SCNM1 variants.",
+        "date": "2025-11-25",
+        "first_index": "2025-11-26"
+      }
+    ]
+  }
+]

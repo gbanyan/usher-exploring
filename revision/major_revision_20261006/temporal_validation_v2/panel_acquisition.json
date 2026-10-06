@@ -1,0 +1,92 @@
+[
+  {
+    "panel_id": 126,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/126/?format=json",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel126_current.json",
+    "sha256": "a3fdb6abe111cb8a76f357a08b6a691660e6df86afbb3087b2efe58190e5eb04",
+    "name": "Monogenic hearing loss",
+    "version": "6.43",
+    "version_created": "2026-10-02T11:44:00.619932Z",
+    "genes": 442
+  },
+  {
+    "panel_id": 543,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/543/?format=json",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel543_current.json",
+    "sha256": "02d172ee80c885fd969180a3c3b516a8ee61c1c6d82366208360b88a30fdd0b4",
+    "name": "Bardet Biedl syndrome",
+    "version": "2.19",
+    "version_created": "2026-08-12T16:08:13.969357Z",
+    "genes": 25
+  },
+  {
+    "panel_id": 724,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/724/?format=json",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel724_current.json",
+    "sha256": "79fa11b0287cfe7189a302457926db31386c7fd1ebf9dde2df1685d39542247e",
+    "name": "Neurological ciliopathies",
+    "version": "7.2",
+    "version_created": "2026-08-12T16:08:13.969357Z",
+    "genes": 69
+  },
+  {
+    "panel_id": 722,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/722/?format=json",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel722_current.json",
+    "sha256": "4a6b7c56ebebb8b266475f08f194be5447e581229101086edac2501d704a8a55",
+    "name": "Ophthalmological ciliopathies",
+    "version": "6.2",
+    "version_created": "2026-08-12T16:08:13.969357Z",
+    "genes": 97
+  },
+  {
+    "panel_id": 178,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/178/?format=json",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel178_current.json",
+    "sha256": "9af6e834a7a59f08a5da70c1a44ed12059c4d1449f40cf8fe307904ca11487ff",
+    "name": "Primary ciliary disorders",
+    "version": "1.56",
+    "version_created": "2025-11-23T17:43:46.660437Z",
+    "genes": 145
+  },
+  {
+    "panel_id": 150,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/150/?format=json",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel150_current.json",
+    "sha256": "ecc7d727353e34c67d6048d6f953a39c5ed11d27df0b31b7691279a40dda3891",
+    "name": "Rare multisystem ciliopathy disorders",
+    "version": "1.182",
+    "version_created": "2026-04-22T13:01:09.977514Z",
+    "genes": 205
+  },
+  {
+    "panel_id": 725,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/725/?format=json",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel725_current.json",
+    "sha256": "4cfb4c3d562311cd9734be2ce23f8b207fbed3f1a4caeab4e62104b11d4bbe5c",
+    "name": "Renal ciliopathies",
+    "version": "5.2",
+    "version_created": "2026-08-12T16:08:13.969357Z",
+    "genes": 105
+  },
+  {
+    "panel_id": 550,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/550/?format=json",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel550_current.json",
+    "sha256": "6478c2b8d4498073a0c1bc4e403927491307bcc6d1f888a3614dfa6f752e9419",
+    "name": "Respiratory ciliopathies including non-CF bronchiectasis",
+    "version": "5.4",
+    "version_created": "2026-08-12T16:08:13.969357Z",
+    "genes": 91
+  },
+  {
+    "panel_id": 726,
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/726/?format=json",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panel726_current.json",
+    "sha256": "5f2f385bf0cf0a22b865f23a154180763fbf9082724b131cfb65658c75d85114",
+    "name": "Skeletal ciliopathies",
+    "version": "7.2",
+    "version_created": "2026-08-12T16:08:13.969357Z",
+    "genes": 71
+  }
+]

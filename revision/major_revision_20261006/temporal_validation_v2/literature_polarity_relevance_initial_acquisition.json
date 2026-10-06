@@ -1,0 +1,31 @@
+{
+  "name": "polarity",
+  "query": "(TITLE_ABS:\"cell polarity\" OR TITLE_ABS:\"planar cell polarity\" OR TITLE_ABS:apicobasal OR TITLE_ABS:\"tight junction\") AND SRC:MED AND FIRST_PDATE:[1800-01-01 TO 2020-12-31] AND FIRST_IDATE:[1800-01-01 TO 2020-12-31]",
+  "unique_pmids": 17767,
+  "api_hit_count": 17767,
+  "path": "data/cache/temporal-validation-v2-20261006/literature/polarity_pmids.txt.gz",
+  "sha256": "4b1109c92007818f98626feaa392dc68c604db02e8c8bc313783afd080c0bda3",
+  "page_sha256": {
+    "page_0000.json": "76f1ba7e6f0470784f04cbf3f337d5d0313064c20a0c8d9ab7e8dfcbb392bf37",
+    "page_0001.json": "0486262658b70af247fd3b896ca10321f23e416cc369e22bef50bd15c20919ed",
+    "page_0002.json": "e73b5a8038de8cae577f6afaf20e8b6356fe421b512352739772f56e6e3c8e49",
+    "page_0003.json": "5f06b8aae25bf73624c5569ebcd601dd8dbab0cc468672845efbd2de4c4485fb",
+    "page_0004.json": "d62f46a425cfd3338ecaadc80a594114c0dfd4153b7566955911ac90ea626c5a",
+    "page_0005.json": "0058b7d00e5806b741aa9a77aeefcd222fd13292940735d62c727c88aabfcc35",
+    "page_0006.json": "decb65bff74ddda72efa75a3dfdce4c8bd33c9d2d080a72b8d204c43f929d7dd",
+    "page_0007.json": "3666428de8e5d6a653e25bec099954e9d4692a75d3a342ecdff0266fbf24b6cb",
+    "page_0008.json": "5a2d6d3b87632d70e68ac1e30cd735b01907c70b6cc3da646a4bbfb1a07726ce",
+    "page_0009.json": "5f114ab1e7693cd00b4ac1badac7cb4fc332946f7f3ee09ed79415cd1bb51aba",
+    "page_0010.json": "3a792d9d4b70c68a7c4737559cb9fea61f7893b551c95a1ce7daec077205cbb8",
+    "page_0011.json": "5961c329edb2b0780f320765d76c6255d9fad3ec39497ac6ac8d9ae82de23e5e",
+    "page_0012.json": "25dd06fcc1626d191917ec4beaa62aa9d2ab0f57909d7e01a378362f709f882d",
+    "page_0013.json": "98ca3317e208e5c9b770ff25045910e6c508cd87c0d97f7ece76392485a78a44",
+    "page_0014.json": "8fc67da14e9853fa5d8e61254ca14099119551838908d90fa4255c1b33916c67",
+    "page_0015.json": "fad64af9708ff0aaa5db83b5aab2a8e44057eaa61b3a5bf6f0db12ea38a1d8aa",
+    "page_0016.json": "8b04e6338b82d69126be248f7479abab1dba31a80f62cda7a17e58acf235e83d",
+    "page_0017.json": "b6ac0d9cff4c50d82b06593879223f48e5c4b21d39bf902a489fe847f8f34952",
+    "page_0018.json": "3428057abf4fbb9e1a94bddf69ece99ee895e16363c2c0b193d4ce8c239a0a82"
+  },
+  "complete": true,
+  "finished_utc": "2026-10-06T11:34:29.661548+00:00"
+}

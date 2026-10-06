@@ -1,0 +1,26 @@
+[
+  {
+    "name": "cilia",
+    "query": "(TITLE_ABS:cilia OR TITLE_ABS:cilium OR TITLE_ABS:ciliary OR TITLE_ABS:intraflagellar) AND SRC:MED AND FIRST_PDATE:[1800-01-01 TO 2020-12-31] AND FIRST_IDATE:[1800-01-01 TO 2020-12-31] sort_date:y"
+  },
+  {
+    "name": "sensory",
+    "query": "(TITLE_ABS:retina OR TITLE_ABS:cochlea OR TITLE_ABS:\"hair cell\" OR TITLE_ABS:photoreceptor OR TITLE_ABS:vestibular OR TITLE_ABS:hearing OR TITLE_ABS:\"usher syndrome\") AND SRC:MED AND FIRST_PDATE:[1800-01-01 TO 2020-12-31] AND FIRST_IDATE:[1800-01-01 TO 2020-12-31] sort_date:y"
+  },
+  {
+    "name": "cytoskeleton",
+    "query": "(TITLE_ABS:cytoskeleton OR TITLE_ABS:actin OR TITLE_ABS:microtubule OR TITLE_ABS:\"molecular motor\") AND SRC:MED AND FIRST_PDATE:[1800-01-01 TO 2020-12-31] AND FIRST_IDATE:[1800-01-01 TO 2020-12-31] sort_date:y"
+  },
+  {
+    "name": "polarity",
+    "query": "(TITLE_ABS:\"cell polarity\" OR TITLE_ABS:\"planar cell polarity\" OR TITLE_ABS:apicobasal OR TITLE_ABS:\"tight junction\") AND SRC:MED AND FIRST_PDATE:[1800-01-01 TO 2020-12-31] AND FIRST_IDATE:[1800-01-01 TO 2020-12-31] sort_date:y"
+  },
+  {
+    "name": "hts",
+    "query": "(TITLE_ABS:screen OR TITLE_ABS:proteomics OR TITLE_ABS:transcriptomics) AND SRC:MED AND FIRST_PDATE:[1800-01-01 TO 2020-12-31] AND FIRST_IDATE:[1800-01-01 TO 2020-12-31] sort_date:y"
+  },
+  {
+    "name": "direct_context",
+    "query": "(TITLE_ABS:knockout OR TITLE_ABS:knockdown OR TITLE_ABS:mutation OR TITLE_ABS:CRISPR OR TITLE_ABS:siRNA OR TITLE_ABS:morpholino OR TITLE_ABS:\"null allele\") AND ((TITLE_ABS:cilia OR TITLE_ABS:cilium OR TITLE_ABS:ciliary OR TITLE_ABS:intraflagellar) OR (TITLE_ABS:retina OR TITLE_ABS:cochlea OR TITLE_ABS:\"hair cell\" OR TITLE_ABS:photoreceptor OR TITLE_ABS:vestibular OR TITLE_ABS:hearing OR TITLE_ABS:\"usher syndrome\")) AND SRC:MED AND FIRST_PDATE:[1800-01-01 TO 2020-12-31] AND FIRST_IDATE:[1800-01-01 TO 2020-12-31] sort_date:y"
+  }
+]

@@ -13,9 +13,11 @@ and proceed. Expanded temporal validation is now the next research workstream.
 The 14-day schedule is a planning target, not demonstrated feasibility or a
 guarantee of completion.
 
-The current checkpoint records state and verifies retained data. **The expanded
-protocol and expanded numerical analysis have not yet been executed.** Do not
-confuse this authorization with completed validation.
+Checkpoint `91f34dd` recorded state and verified retained data. The user then
+explicitly authorized execution. Expanded acquisition and design review are now
+underway; see `temporal_validation_v2/STATUS.md`. **The expanded protocol/cohort
+are not yet frozen and no expanded numerical rankings have been computed.** Do
+not confuse complete archive acquisition with completed validation.
 
 ## Why there are two routes
 

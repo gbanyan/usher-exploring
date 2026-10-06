@@ -1,0 +1,52 @@
+[
+  {
+    "name": "retnet_genes",
+    "url": "https://retnet.org/api/diseases/getpublishedbychrom",
+    "status": 200,
+    "final_url": "https://retnet.org/api/diseases/getpublishedbychrom",
+    "bytes": 746317,
+    "sha256": "b0a27e35b360554e9807a4d5fbeb7b00f09f5c1a58218ee0ad794d1929f29602",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/retnet_genes"
+  },
+  {
+    "name": "retnet_references",
+    "url": "https://retnet.org/api/references/getpublished",
+    "status": 200,
+    "final_url": "https://retnet.org/api/references/getpublished",
+    "bytes": 663497,
+    "sha256": "e088e00521299d64f7330a5557c0b5ad3fe38ad86d4b54f2233fbcb95bdcb8c3",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/retnet_references"
+  },
+  {
+    "name": "retnet_dates",
+    "url": "https://retnet.org/api/mapclonedates/getbychrom",
+    "status": 200,
+    "final_url": "https://retnet.org/api/mapclonedates/getbychrom",
+    "bytes": 142992,
+    "sha256": "254f018a27746b848df156dd9a94e49454014fd383f93304b59963ed67253ba5",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/retnet_dates"
+  },
+  {
+    "name": "panelapp307_format",
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/307/?format=json",
+    "status": 200,
+    "final_url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/307/?format=json",
+    "bytes": 414579,
+    "sha256": "de9740926b4046257fe5a2faf80247ffe7278c7795c465f284d3e1beaabc8b9a",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/panelapp307_format"
+  },
+  {
+    "name": "mgi_orth_cdx",
+    "url": "https://web.archive.org/cdx/search/cdx?url=www.informatics.jax.org/downloads/reports/HOM_AllOrganism.rpt&output=json&filter=statuscode:200&from=2019&to=2020&collapse=timestamp:4",
+    "error": "<HTTPError 503: 'Service Unavailable'>"
+  },
+  {
+    "name": "mgi_human_cdx",
+    "url": "https://web.archive.org/cdx/search/cdx?url=www.informatics.jax.org/downloads/reports/HMD_HumanPhenotype.rpt&output=json&filter=statuscode:200&from=2019&to=2020&collapse=timestamp:4",
+    "status": 200,
+    "final_url": "https://web.archive.org/cdx/search/cdx?url=www.informatics.jax.org/downloads/reports/HMD_HumanPhenotype.rpt&output=json&filter=statuscode:200&from=2019&to=2020&collapse=timestamp:4",
+    "bytes": 526,
+    "sha256": "ae301debbe640c56deef7c6ddb2888d9856be236f4f2ba03414f1387d11fe0e0",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/mgi_human_cdx"
+  }
+]

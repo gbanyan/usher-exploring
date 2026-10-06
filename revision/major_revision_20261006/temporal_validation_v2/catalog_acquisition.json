@@ -1,0 +1,38 @@
+[
+  {
+    "name": "panel307",
+    "url": "https://panelapp.genomicsengland.co.uk/api/v1/panels/307/",
+    "retrieved_utc": "2026-10-06T11:15:06.495507+00:00",
+    "error": "<HTTPError 403: 'Forbidden'>"
+  },
+  {
+    "name": "uniprot_previous",
+    "url": "https://ftp.ebi.ac.uk/pub/databases/uniprot/previous_releases/",
+    "retrieved_utc": "2026-10-06T11:15:06.915560+00:00",
+    "status": 200,
+    "final_url": "https://ftp.ebi.ac.uk/pub/databases/uniprot/previous_releases/",
+    "bytes": 12265,
+    "sha256": "bf55c465027a646c4e1f7668c375c19b1bf90fbe6c58813212b37ee9b51f6813",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/uniprot_previous"
+  },
+  {
+    "name": "uniprot202001_metalink",
+    "url": "https://ftp.ebi.ac.uk/pub/databases/uniprot/previous_releases/release-2020_01/knowledgebase/RELEASE.metalink",
+    "retrieved_utc": "2026-10-06T11:15:08.407135+00:00",
+    "status": 200,
+    "final_url": "https://ftp.ebi.ac.uk/pub/databases/uniprot/previous_releases/release-2020_01/knowledgebase/RELEASE.metalink",
+    "bytes": 3436,
+    "sha256": "6dd9f362a6e6055e6a3bb6fb425db093f292016500962811d7e9ac7165e9f4cd",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/uniprot202001_metalink"
+  },
+  {
+    "name": "retnet_new",
+    "url": "https://retnet.org/whatsnew",
+    "retrieved_utc": "2026-10-06T11:15:09.745467+00:00",
+    "status": 200,
+    "final_url": "https://retnet.org/whatsnew",
+    "bytes": 1842,
+    "sha256": "2a2686059cf3049f200e8be72075987e331e733b6c0c4eb13fe4aaa9b3f3a974",
+    "path": "data/cache/temporal-validation-v2-20261006/catalogs/retnet_new"
+  }
+]

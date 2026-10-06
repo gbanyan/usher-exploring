@@ -1,0 +1,35 @@
+[
+  {
+    "name": "homologene68.data",
+    "url": "https://ftp.ncbi.nlm.nih.gov/pub/HomoloGene/build68/homologene.data",
+    "complete": true,
+    "status": 200,
+    "last_modified": "Tue, 06 May 2014 15:12:54 GMT",
+    "content_length": "13803677",
+    "bytes": 13803677,
+    "sha256": "bd03eb39ae54eb24f1988306a619d11353a69fbcbe86eb94231c15c9f33c7014",
+    "path": "data/cache/temporal-validation-v2-20261006/raw/homologene68.data"
+  },
+  {
+    "name": "zfin_20201230_orthologs.tsv",
+    "url": "https://zfin.org/downloads/archive/2020.12.30/human_orthos.txt",
+    "complete": true,
+    "status": 200,
+    "last_modified": "Thu, 31 Dec 2020 06:06:11 GMT",
+    "content_length": "5747202",
+    "bytes": 5747202,
+    "sha256": "e7e58b7691134c496c1dca4ff85bf993bb3872c3faf50e9e3640afb343f85ed4",
+    "path": "data/cache/temporal-validation-v2-20261006/raw/zfin_20201230_orthologs.tsv"
+  },
+  {
+    "name": "zfin_20201230_phenotypes.tsv",
+    "url": "https://zfin.org/downloads/archive/2020.12.30/phenoGeneCleanData_fish.txt",
+    "complete": true,
+    "status": 200,
+    "last_modified": "Thu, 31 Dec 2020 06:06:24 GMT",
+    "content_length": "32560641",
+    "bytes": 32560641,
+    "sha256": "7567fbe6d57e40dc9e9cb1a10b96ea6a36e036380e370e729505a428fcb29ea1",
+    "path": "data/cache/temporal-validation-v2-20261006/raw/zfin_20201230_phenotypes.tsv"
+  }
+]

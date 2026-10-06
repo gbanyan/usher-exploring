@@ -1,0 +1,12 @@
+{
+  "url": "https://web.archive.org/web/20200629060937id_/https://ftp.ncbi.nlm.nih.gov/gene/DATA/gene2pubmed.gz",
+  "snapshot": "2020-06-29T06:09:37Z",
+  "source_last_modified": "2020-06-29T02:42:00Z",
+  "bytes": 47311419,
+  "sha256": "b8e197c83c43bfa2a34660244b1522e6f9d5168039471c77f4b64f63dbc57b37",
+  "gzip_integrity_checked": true,
+  "lines": 12720364,
+  "path": "data/cache/temporal-validation-v2-20261006/raw/gene2pubmed_20200629.gz",
+  "complete": true,
+  "finished_utc": "2026-10-06T11:27:15.429132+00:00"
+}

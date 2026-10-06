@@ -1,0 +1,52 @@
+[
+  {
+    "name": "uniprot_202006_index",
+    "url": "https://ftp.ebi.ac.uk/pub/databases/uniprot/previous_releases/release-2020_06/knowledgebase/",
+    "checked_utc": "2026-10-06T11:13:49.198161+00:00",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "name": "uniprot_202006_reference",
+    "url": "https://ftp.ebi.ac.uk/pub/databases/uniprot/previous_releases/release-2020_06/",
+    "checked_utc": "2026-10-06T11:13:49.198486+00:00",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "name": "hcop_mouse_cdx",
+    "url": "https://web.archive.org/cdx/search/cdx?url=ftp.ebi.ac.uk%2Fpub%2Fdatabases%2Fgenenames%2Fhcop%2Fhuman_mouse_hcop_fifteen_column.txt.gz&output=json&filter=statuscode%3A200&to=20201231&collapse=timestamp%3A4",
+    "checked_utc": "2026-10-06T11:13:49.198605+00:00",
+    "error": "TimeoutError('The read operation timed out')"
+  },
+  {
+    "name": "hcop_zfish_cdx",
+    "url": "https://web.archive.org/cdx/search/cdx?url=ftp.ebi.ac.uk%2Fpub%2Fdatabases%2Fgenenames%2Fhcop%2Fhuman_zebrafish_hcop_fifteen_column.txt.gz&output=json&filter=statuscode%3A200&to=20201231&collapse=timestamp%3A4",
+    "checked_utc": "2026-10-06T11:13:49.199754+00:00",
+    "error": "<HTTPError 503: 'Service Unavailable'>"
+  },
+  {
+    "name": "hcop_mouse_oldhost_cdx",
+    "url": "https://web.archive.org/cdx/search/cdx?url=ftp.genenames.org%2Fpub%2Fgenenames%2Fhcop%2Fhuman_mouse_hcop_fifteen_column.txt.gz&output=json&filter=statuscode%3A200&to=20201231&collapse=timestamp%3A4",
+    "checked_utc": "2026-10-06T11:13:50.211527+00:00",
+    "error": "<HTTPError 503: 'Service Unavailable'>"
+  },
+  {
+    "name": "hcop_gcloud_cdx",
+    "url": "https://web.archive.org/cdx/search/cdx?url=storage.googleapis.com%2Fpublic-download-files%2Fhcop%2Fhuman_mouse_hcop_fifteen_column.txt.gz&output=json&filter=statuscode%3A200&to=20201231&collapse=timestamp%3A4",
+    "checked_utc": "2026-10-06T11:13:50.215324+00:00",
+    "error": "<HTTPError 503: 'Service Unavailable'>"
+  },
+  {
+    "name": "gene2pubmed_cdx_v2",
+    "url": "https://web.archive.org/cdx/search/cdx?url=ftp.ncbi.nlm.nih.gov%2Fgene%2FDATA%2Fgene2pubmed.gz&output=json&filter=statuscode%3A200&to=20201231&collapse=timestamp%3A4",
+    "checked_utc": "2026-10-06T11:13:56.323424+00:00",
+    "status": 200,
+    "final_url": "https://web.archive.org/cdx/search/cdx?url=ftp.ncbi.nlm.nih.gov%2Fgene%2FDATA%2Fgene2pubmed.gz&output=json&filter=statuscode%3A200&to=20201231&collapse=timestamp%3A4",
+    "content_type": "application/json",
+    "content_length": null,
+    "bytes": 474,
+    "truncated": false,
+    "sha256": "10f05c76084a80f5fa56351ca58f28df4928a81ddd71a9d33dd2a7501f3c7c76",
+    "path": "data/cache/temporal-validation-v2-20261006/probes/gene2pubmed_cdx_v2.prefix",
+    "error": null
+  }
+]

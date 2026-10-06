@@ -1,0 +1,10 @@
+{
+  "reason": "Default relevance ordering yielded duplicate IDs across cursor pages; completeness cannot be claimed. Stop and reacquire with documented sort_date:y ordering before any scoring.",
+  "affected_queries": [
+    "sensory",
+    "cytoskeleton"
+  ],
+  "retained_cache": "data/cache/temporal-validation-v2-20261006/literature",
+  "new_cache": "data/cache/temporal-validation-v2-20261006/literature_date_sorted",
+  "rankings_computed": false
+}

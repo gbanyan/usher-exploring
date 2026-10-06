@@ -1,0 +1,632 @@
+[
+  {
+    "symbol": "SLC66A1",
+    "disease": "recessive retinitis pigmentosa",
+    "earliest_catalog_year": 2022,
+    "references": [
+      {
+        "title": "Identification of autosomal recessive novel genes and retinal phenotypes in members of the solute carrier (SLC) superfamily",
+        "pmid": "35486108",
+        "doi": "10.1016/j.gim.2022.03.020",
+        "year": "2022"
+      }
+    ],
+    "comments": "a screen of 433 solute carrier genes in a large cohort of Israeli patients with inherited retinal diseases revealed different homozygous variants in SLC66A1 in two consanguineous families with RP",
+    "id": 18
+  },
+  {
+    "symbol": "SUMF1",
+    "disease": "<p>recessive rod-cone dystrophy</p>",
+    "earliest_catalog_year": 2024,
+    "references": [
+      {
+        "title": "Non-syndromic retinal dystrophy associated with biallelic variation of SUMF1 and reduced leukocyte sulfatase activity",
+        "pmid": "38863195",
+        "doi": "10.1111/cge.14573",
+        "year": "2024"
+      }
+    ],
+    "comments": "<p>The SUMF1 gene encodes an enzyme (FGE) required for posttranslational modification and catalytic activation of the family of sulfatase enzymes. In general, mutations in the SUMF1 gene cause multiple sulfatase deficiency (MSD), a rare lysosomal storage disorder. Several patients with an attenuated MSD disease phenotype resulting from biallelic SUMF1 variants, including an adult individual with non-syndromic retinal dystrophy, have also been identified.</p>",
+    "id": 383
+  },
+  {
+    "symbol": "THRB",
+    "disease": "dominant cone dystrophy",
+    "earliest_catalog_year": 2023,
+    "references": [
+      {
+        "title": "Expanding the phenotype of THRB: a range of macular dystrophies as the major clinical manifestations in patients with a dominant splicing variant",
+        "pmid": "37547476",
+        "doi": "10.3389/fcell.2023.1197744",
+        "year": "2023"
+      }
+    ],
+    "comments": "recurrent splice site variant in three unrelated Spanish families with autosomal dominant cone-dominated IRDs. Mutations in THRB previously found in dominant and recessive thyroid hormone resistance syndrome beta (RTH\u00df) but no splicing variants reported for those diseases. Numerous studies in model organisms have established a role for TR\u00df2,one of two THRB isoforms,\u00a0during cone subtype specification.",
+    "id": 399
+  },
+  {
+    "symbol": "CLEC3B",
+    "disease": "dominant macular dystrophy",
+    "earliest_catalog_year": 2022,
+    "references": [
+      {
+        "title": "CLEC3B is a novel causative gene for macular-retinal dystrophy",
+        "pmid": "35331648",
+        "doi": "10.1016/j.gim.2022.02.012",
+        "year": "2022"
+      }
+    ],
+    "comments": "one pathogenic variant (A180D) identified in 5 large Japanese families; gene encodes a plasminogen kringle-4 binding protein; overexpression of the A180D Clec3b variant in mouse retina appeared to mimic features of\u00a0 the human phenotype",
+    "id": 389
+  },
+  {
+    "symbol": "CCDC51",
+    "disease": "recessive rod-cone dystrophy",
+    "earliest_catalog_year": 2021,
+    "references": [
+      {
+        "title": "Mutated CCDC51 Coding for a Mitochondrial Protein, MITOK Is a Candidate Gene Defect for Autosomal Recessive Rod-Cone Dystrophy",
+        "pmid": "34360642",
+        "doi": "10.3390/ijms22157875",
+        "year": "2021"
+      }
+    ],
+    "comments": "Homozygous frameshift mutation in a consanguineous family; phenotype of the affected patient was a relatively mild rod-cone dystrophy; CCDC51, alias MITOK, codes for a mitochondrial protein and localizes in the inner segments of rod and cone photoreceptors",
+    "id": 390
+  },
+  {
+    "symbol": "CLCN2",
+    "disease": "recessive leukoencephalopathy with retinal degeneration",
+    "earliest_catalog_year": 2023,
+    "references": [
+      {
+        "title": "Biallelic CLCN2 mutations cause retinal degeneration by impairing retinal pigment epithelium phagocytosis and chloride channel function",
+        "pmid": "36964785",
+        "doi": "10.1007/s00439-023-02531-7",
+        "year": "2023"
+      }
+    ],
+    "comments": "Patient with homozygous nonsense CLCN2 mutation presented with leukodystrophy and was later diagnosed with severe bilateral retinal degeneration with loss of photoreceptors and RPE; patient iPSC-derived RPE cells carrying the CLCN2 mutation exhibited dysfunctional ClC-2 chloride channels and outer segment phagocytosis",
+    "id": 392
+  },
+  {
+    "symbol": "XXYLT1",
+    "disease": "recessive\u00a0cone-rod or macular dystrophy,\u00a0late onset",
+    "earliest_catalog_year": 2026,
+    "references": [
+      {
+        "title": "XXYLT1 and Mendelian Retinal Dystrophy",
+        "pmid": "42530953",
+        "doi": "10.1001/jamaophthalmol.2026.2795",
+        "year": "2026"
+      }
+    ],
+    "comments": "GWAS analysis of FinnGen samples identified possible IRD loci; followup in smaller IRD cohorts from Finland and the UK identified a homozygous pathogenic splice-site variant in the XXYLTI gene that resulted in a cone-rod phenotype in multiple families and a homozygous amino acid substitution that led to a macular dystrophy phenotype.",
+    "id": 438
+  },
+  {
+    "symbol": "COQ2",
+    "disease": "recessive RP",
+    "earliest_catalog_year": 2022,
+    "references": [
+      {
+        "title": "Biallelic variants in coenzyme Q10 biosynthesis pathway genes cause a retinitis pigmentosa phenotype",
+        "pmid": "36266294",
+        "doi": "10.1038/s41525-022-00330-z",
+        "year": "2022"
+      }
+    ],
+    "comments": "distinct biallelic mutations in the COQ2 gene were found in three families with RP alone, or RP and renal disease; the families were part of a cohort of patients with inherited retinal diseases screened for genes involved in coenzyme Q10 biosynthesis",
+    "id": 98
+  },
+  {
+    "symbol": "EGFLAM",
+    "disease": "recessive\u00a0complete congenital stationary night blindness",
+    "earliest_catalog_year": 2025,
+    "references": [
+      {
+        "title": "EGFLAM\u00a0Pathogenic Variants and Congenital Stationary Night Blindness",
+        "pmid": "41343198",
+        "doi": "10.1001/jamaophthalmol.2025.4888",
+        "year": "2026"
+      }
+    ],
+    "comments": "two different homozygous LOF variants in\u00a0EGFLAM\u00a0were identified in two families with typical cCSNB including high myopia; the EGFLAM protein interacts with <a href=\"disease#284\">GPR179</a>, located on the ON-bipolar cell membrane, and is important for ON-bipolar cell signaling in the retina",
+    "id": 436
+  },
+  {
+    "symbol": "CEP162",
+    "disease": "recessive late-onset retinitis pigmentosa",
+    "earliest_catalog_year": 2023,
+    "references": [
+      {
+        "title": "CEP162 deficiency causes human retinal degeneration and reveals a dual role in ciliogenesis and neurogenesis",
+        "pmid": "36862503",
+        "doi": "10.1172/JCI161156",
+        "year": "2023"
+      }
+    ],
+    "comments": "two unrelated Moroccan families with late onset RP share the same homozygous truncating mutation; truncated protein escapes nonsense-mediated decay and fails to correctly localize to the basal body in primary and photoreceptor cilia and results in delayed formation of dysmorphic cilia",
+    "id": 393
+  },
+  {
+    "symbol": "TBC1D32",
+    "disease": "recessive retinitis pigmentosa",
+    "earliest_catalog_year": 2023,
+    "references": [
+      {
+        "title": "TBC1D32 variants disrupt retinal ciliogenesis and cause retinitis pigmentosa",
+        "pmid": "37768732",
+        "doi": "10.1172/jci.insight.169426",
+        "year": "2023"
+      }
+    ],
+    "comments": "four patients presenting with RP from three unrelated families and an additional 4th European family, most patients shared abnormal visibility of large choroidal vessels in the peripheral retina, suggesting RPE loss; recessive loss-of-function TBC1D32 variants\u00a0reported as responsible for oral-facial-digital (OFD) syndrome type IX, a ciliopathy; in a Xenopus model, tbc1d32 is expressed in retinal progenitors, developing photoreceptors, and RPE cells, consistent with a putative role in retinogenesis.",
+    "id": 397
+  },
+  {
+    "symbol": "AP5Z1",
+    "disease": "recessive lysosomal macular dystrophy",
+    "earliest_catalog_year": 2025,
+    "references": [
+      {
+        "title": "Bi-allelic variants in three genes encoding distinct subunits of the vesicular AP-5 complex cause hereditary macular dystrophy",
+        "pmid": "40081374",
+        "doi": "10.1016/j.ajhg.2025.02.015",
+        "year": "2025"
+      }
+    ],
+    "comments": "pathogenic mutations in three different subunits (<a href=\"disease#413\">AP5Z1</a>, <a href=\"disease#414\">AP5M1</a>, <a href=\"disease#415\">AP5B1</a>) of the vesicular fifth adaptor protein (AP-5) complex identified in 22 individuals with recessive MD from 19 unrelated families; all subjects had progressive MD with average onset during the 5th decade of life; retinal phenotype consistent across all genotypes/genes; half of affected individuals exhibited extraocular features of variable severity but not consistent; the AP-5 complex is involved in maintaining cellular homeostasis; disruption impairs lysosomal function and endosome trafficking, leading to a previously unrecognized type of lysosomal storage disease (LSD); immunostaining of RPE cells showed punctate labeling of all three proteins on the apical side of the cell and co-localization with markers of late endosomes and the Golgi",
+    "id": 413
+  },
+  {
+    "symbol": "DNAJC30",
+    "disease": "recessive Leber-like hereditary optic neuropathy-1",
+    "earliest_catalog_year": 2021,
+    "references": [
+      {
+        "title": "Impaired complex I repair causes recessive Leber's hereditary optic neuropathy",
+        "pmid": "33465056",
+        "doi": "10.1172/JCI138267",
+        "year": "2021"
+      }
+    ],
+    "comments": "mutations in this nuclear-encoded gene, including a common founder, account for cases of LHON which are not mitochondrial in origin; hallmarks of mtLHON were recapitulated, including incomplete penetrance, male predominance, and significant idebenone responsivity; DNAJC30 is a chaperone protein needed for the efficient exchange of complex I subunits exposed to reactive oxygen species and integral to a mitochondrial complex I repair mechanism",
+    "id": 427
+  },
+  {
+    "symbol": "SLC37A3",
+    "disease": "recessive retinitis pigmentosa with macular degeneration",
+    "earliest_catalog_year": 2022,
+    "references": [
+      {
+        "title": "Identification of autosomal recessive novel genes and retinal phenotypes in members of the solute carrier (SLC) superfamily",
+        "pmid": "35486108",
+        "doi": "10.1016/j.gim.2022.03.020",
+        "year": "2022"
+      }
+    ],
+    "comments": "a screen of 433 solute carrier genes in a large cohort of Israeli patients with inherited retinal diseases revealed a homozygous variant in SLC37A3 in one consanguineous family with RP and macular degeneration",
+    "id": 140
+  },
+  {
+    "symbol": "MPDZ",
+    "disease": "<p>recessive bilateral macular coloboma</p>",
+    "earliest_catalog_year": 2022,
+    "references": [
+      {
+        "title": "Novel Compound Heterozygous Variations in MPDZ Gene Caused Isolated Bilateral Macular Coloboma in a Chinese Family",
+        "pmid": "36429029",
+        "doi": "10.3390/cells11223602",
+        "year": "2022"
+      }
+    ],
+    "comments": "<p>rdd locus in chickens (retinal dysplasia and degeneration) mapped to candidate gene mpdz which interacts with CRB1. MPDZ variants have been described in cases of recessive congenital hydrocephalus with varying ophthalmologic manifestations. Rare cases of macular coloboma without systemic abnormalities reported. Knockdown of MPDZ in zebrafish caused a decrease in the ellipsoid zone, destruction of the outer limiting membrane, and subsequent RPE degeneration.</p>",
+    "id": 374
+  },
+  {
+    "symbol": "CREB3",
+    "disease": "recessive\u00a0rod-cone and cone-rod dystrophy",
+    "earliest_catalog_year": 2025,
+    "references": [
+      {
+        "title": "Founder Homozygous Nonsense CREB3 Variant and Variable-Onset Retinal Degeneration",
+        "pmid": "40674075",
+        "doi": "10.1001/jamaophthalmol.2025.2187",
+        "year": "2025"
+      }
+    ],
+    "comments": "A founder homozygous nonsense variant (c.881G>A, p.Trp294*) was identified in 13 patients from 4 unrelated families; individuals had a nonsyndromic IRD of variable severity, as reflected by the age at onset and the retinal phenotype (RP, CRD); a truncated protein was expressed in patient fibroblasts; gene encodes a transcription factor that is a member of the leucine zipper family of DNA binding proteins; protein was observed in all retinal cell types",
+    "id": 435
+  },
+  {
+    "symbol": "FSD1L",
+    "disease": "recessive retinitis pigmentosa with or without mild neurological involvement",
+    "earliest_catalog_year": 2026,
+    "references": [
+      {
+        "title": "Bi-allelic variants in FSD1L cause retinitis pigmentosa with or without neurological involvement",
+        "pmid": "41720099",
+        "doi": "10.1016/j.ajhg.2026.01.015",
+        "year": "2026"
+      }
+    ],
+    "comments": "bi-allelic ultra-rare variants found in six individuals with RP with or without mild neurological features from four unrelated families; recent publication implicates FSDL1 variants in a severe neurodevelopmental phenotype as well; gene is found to be expressed in the retina, particularly in photoreceptors, and the protein localizes to the photoreceptor microtubule axoneme, including the connecting cilium and outer segment",
+    "id": 434
+  },
+  {
+    "symbol": "NR6A1",
+    "disease": "dominant oculo-vertebral-renal syndrome",
+    "earliest_catalog_year": 2024,
+    "references": [
+      {
+        "title": "Variants in NR6A1 cause a novel oculo vertebral renal syndrome",
+        "pmid": "40610405",
+        "doi": "10.1038/s41467-025-60574-y",
+        "year": "2025"
+      }
+    ],
+    "comments": "six rare NR6A1 variants in six families affected by uveal coloboma; characterized by colobomatous microphthalmia, missing vertebrae and congenital kidney abnormalities; gene encodes an orphan nuclear receptor which is a member of the nuclear hormone receptor family; knockdown of either or both zebrafish paralogs of NR6A1 results in abnormal eye, kidney, and somite development, which was rescued by wild-type but not variant NR6A1 mRNA",
+    "id": 426
+  },
+  {
+    "symbol": "COQ4",
+    "disease": "recessive retinitis pigmentosa",
+    "earliest_catalog_year": 2022,
+    "references": [
+      {
+        "title": "Biallelic variants in coenzyme Q10 biosynthesis pathway genes cause a retinitis pigmentosa phenotype",
+        "pmid": "36266294",
+        "doi": "10.1038/s41525-022-00330-z",
+        "year": "2022"
+      }
+    ],
+    "comments": "distinct biallelic mutations in the COQ4 gene were found in one family with recessive RP; the family was part of a cohort of patients with inherited retinal diseases screened for genes involved in coenzyme Q10 biosynthesis",
+    "id": 167
+  },
+  {
+    "symbol": "DYNC2I2",
+    "disease": "recessive rod-cone dystrophy, non-syndromic",
+    "earliest_catalog_year": 2021,
+    "references": [
+      {
+        "title": "<i>WDR34</i>, a candidate gene for non-syndromic rod-cone dystrophy",
+        "pmid": "33124039",
+        "doi": "10.1111/cge.13872",
+        "year": "2021"
+      }
+    ],
+    "comments": "also called WD repeat-containing protein 34 (WDR34)",
+    "id": 165
+  },
+  {
+    "symbol": "SLC39A12",
+    "disease": "recessive retinitis pigmentosa",
+    "earliest_catalog_year": 2022,
+    "references": [
+      {
+        "title": "Identification of autosomal recessive novel genes and retinal phenotypes in members of the solute carrier (SLC) superfamily",
+        "pmid": "35486108",
+        "doi": "10.1016/j.gim.2022.03.020",
+        "year": "2022"
+      }
+    ],
+    "comments": "a screen of 433 solute carrier genes in a large cohort of Israeli patients with inherited retinal diseases revealed homozygous variants in SLC39A2 in four consanguineous family with RP",
+    "id": 171
+  },
+  {
+    "symbol": "PDSS1",
+    "disease": "recessive retinitis pigmentosa",
+    "earliest_catalog_year": 2022,
+    "references": [
+      {
+        "title": "Biallelic variants in coenzyme Q10 biosynthesis pathway genes cause a retinitis pigmentosa phenotype",
+        "pmid": "36266294",
+        "doi": "10.1038/s41525-022-00330-z",
+        "year": "2022"
+      }
+    ],
+    "comments": "distinct biallelic mutations in the PDSS1 gene were found in six families with recessive RP, or RP and hearing impairment",
+    "id": 172
+  },
+  {
+    "symbol": "STX3",
+    "disease": "recessive early-onset severe retinal dystrophy (EOSRD)",
+    "earliest_catalog_year": 2021,
+    "references": [
+      {
+        "title": "Pathogenic STX3 variants affecting the retinal and intestinal transcripts cause an early-onset severe retinal dystrophy in microvillus inclusion disease subjects",
+        "pmid": "33974130",
+        "doi": "10.1007/s00439-021-02284-1",
+        "year": "2021"
+      }
+    ],
+    "comments": "Biallelic STX3 variants were first reported in individuals with microvillus inclusion disease (MVID); additional studies of patients with a combination of MVID and an early-onset severe retinal dystrophy revealed a different set of causative mutations. Most recently, mutations in the retina-specific isoform, STX3B, were found in patients with the retinal phenotype alone; the two isoforms, STX3A and STX3B, share 8 exons - mutations in these regions cause the syndromic phenotype; mutations in exon 9A, from STX3A, cause only the gastrointestinal phenotype; mutations in exon 9B, from the retinal-specific STX3B,\u00a0only appear to cause the retinal phenotype;\u00a0 in rodents, <em>Stx3 </em>localizes to the synaptic boutons of photoreceptors and bipolar cells and to the inner segments of photoreceptors and has been implicated in the trafficking of rhodopsin to the outer segments of rod photoreceptors.",
+    "id": 416
+  },
+  {
+    "symbol": "AP5B1",
+    "disease": "recessive lysosomal macular dystrophy",
+    "earliest_catalog_year": 2025,
+    "references": [
+      {
+        "title": "Bi-allelic variants in three genes encoding distinct subunits of the vesicular AP-5 complex cause hereditary macular dystrophy",
+        "pmid": "40081374",
+        "doi": "10.1016/j.ajhg.2025.02.015",
+        "year": "2025"
+      }
+    ],
+    "comments": "pathogenic mutations in three different subunits (<a href=\"disease#413\">AP5Z1</a>, <a href=\"disease#414\">AP5M1</a>, <a href=\"disease#415\">AP5B1</a>) of the vesicular fifth adaptor protein (AP-5) complex identified in 22 individuals with recessive MD from 19 unrelated families; all subjects had progressive MD with average onset during the 5th decade of life; retinal phenotype consistent across all genotypes/genes; half of affected individuals exhibited extraocular features of variable severity but not consistent; the AP-5 complex is involved in maintaining cellular homeostasis; disruption impairs lysosomal function and endosome trafficking, leading to a previously unrecognized type of lysosomal storage disease (LSD); immunostaining of RPE cells showed punctate labeling of all three proteins on the apical side of the cell and co-localization with markers of late endosomes and the Golgi",
+    "id": 415
+  },
+  {
+    "symbol": "SAXO6",
+    "disease": "recessive retinitis pigmentosa, late onset",
+    "earliest_catalog_year": 2026,
+    "references": [
+      {
+        "title": "Loss-of-function variants in SAXO6, encoding a microtubule inner protein of photoreceptor cilia, cause a late-onset retinal dystrophy",
+        "pmid": "41742423",
+        "doi": "10.1016/j.ajhg.2026.02.001",
+        "year": "2026"
+      }
+    ],
+    "comments": "bi-allelic combinations of six predicted null variants in MDM1 (now renamed SAXO6) were identified in six subjects from five families with late-onset RP or CRD; protein experimentally shown to be a ciliary microtubule inner protein (MIP); localizes throughout the axonemes of motile and non-motile cilia",
+    "id": 437
+  },
+  {
+    "symbol": "RNU4-2",
+    "disease": "dominant retinitis pigmentosa",
+    "earliest_catalog_year": 2026,
+    "references": [
+      {
+        "title": "De novo and inherited dominant variants in U4 and U6 snRNA genes cause retinitis pigmentosa",
+        "pmid": "41513982",
+        "doi": "https://doi.org/10.1038/s41588-025-02451-4",
+        "year": "2026"
+      }
+    ],
+    "comments": "both inherited and de novo variants in\u00a0<em>RNU4-2</em>\u00a0and four paralogs of\u00a0RNU6, encoding the U4 and U6 snRNAs, found as the molecular cause of adRP in 153 individuals across 67 families. All identified variants cluster within the U4/U6 duplex, in a region that binds directly to PRPF31 and PRPF3 and indirectly to PRPF6 and PRPF816,17. These variants increase the association of U4 and U6 snRNAs with the splicing factors SART3 and PRPF31, suggesting impaired snRNP biogenesis.",
+    "id": 429
+  },
+  {
+    "symbol": "COQ5",
+    "disease": "recessive retinitis pigmentosa",
+    "earliest_catalog_year": 2022,
+    "references": [
+      {
+        "title": "Biallelic variants in coenzyme Q10 biosynthesis pathway genes cause a retinitis pigmentosa phenotype",
+        "pmid": "36266294",
+        "doi": "10.1038/s41525-022-00330-z",
+        "year": "2022"
+      }
+    ],
+    "comments": "distinct biallelic mutations in the COQ5 gene were found in two families with recessive RP; the families were part of a cohort of patients with inherited retinal diseases screened for genes involved in coenzyme Q10 biosynthesis",
+    "id": 225
+  },
+  {
+    "symbol": "VWA8",
+    "disease": "dominant retinitis pigmentosa",
+    "earliest_catalog_year": 2023,
+    "references": [
+      {
+        "title": "Mutations in VWA8 cause autosomal-dominant retinitis pigmentosa via aberrant mitophagy activation",
+        "pmid": "37012052",
+        "doi": "10.1136/jmg-2022-108888",
+        "year": "2023"
+      }
+    ],
+    "comments": "two variants, one LOF, on the same allele segregate in a single large 4-generation Chinese family, encodes a mitochondrial matrix-targeted protein, phenotypes of zebrafish with VWA8 knockdown are similar to patient phenotype",
+    "id": 386
+  },
+  {
+    "symbol": "RNU6-8",
+    "disease": "dominant retinitis pigmentosa",
+    "earliest_catalog_year": 2026,
+    "references": [
+      {
+        "title": "De novo and inherited dominant variants in U4 and U6 snRNA genes cause retinitis pigmentosa",
+        "pmid": "41513982",
+        "doi": "https://doi.org/10.1038/s41588-025-02451-4",
+        "year": "2026"
+      }
+    ],
+    "comments": "both inherited and de novo variants in\u00a0<em>RNU4-2</em>\u00a0and four paralogs of\u00a0RNU6 (including <em>RNU6-8</em>), encoding the U4 and U6 snRNAs, found as the molecular cause of adRP in 153 individuals across 67 families. All identified variants cluster within the U4/U6 duplex, in a region that binds directly to PRPF31 and PRPF3 and indirectly to PRPF6 and PRPF816,17. These variants increase the association of U4 and U6 snRNAs with the splicing factors SART3 and PRPF31, suggesting impaired snRNP biogenesis.",
+    "id": 428
+  },
+  {
+    "symbol": "AP5M1",
+    "disease": "recessive lysosomal macular dystrophy",
+    "earliest_catalog_year": 2025,
+    "references": [
+      {
+        "title": "Bi-allelic variants in three genes encoding distinct subunits of the vesicular AP-5 complex cause hereditary macular dystrophy",
+        "pmid": "40081374",
+        "doi": "10.1016/j.ajhg.2025.02.015",
+        "year": "2025"
+      }
+    ],
+    "comments": "pathogenic mutations in three different subunits (<a href=\"disease#413\">AP5Z1</a>, <a href=\"disease#414\">AP5M1</a>, <a href=\"disease#415\">AP5B1</a>) of the vesicular fifth adaptor protein (AP-5) complex identified in 22 individuals with recessive MD from 19 unrelated families; all subjects had progressive MD with average onset during the 5th decade of life; retinal phenotype consistent across all genotypes/genes; half of affected individuals exhibited extraocular features of variable severity but not consistent; the AP-5 complex is involved in maintaining cellular homeostasis; disruption impairs lysosomal function and endosome trafficking, leading to a previously unrecognized type of lysosomal storage disease (LSD); immunostaining of RPE cells showed punctate labeling of all three proteins on the apical side of the cell and co-localization with markers of late endosomes and the Golgi.",
+    "id": 414
+  },
+  {
+    "symbol": "UBAP1L",
+    "disease": "recessive rod-cone, cone-rod, and macular dystrophy",
+    "earliest_catalog_year": 2024,
+    "references": [
+      {
+        "title": "Variants in UBAP1L lead to autosomal recessive rod-cone and cone-rod dystrophy",
+        "pmid": "38293907",
+        "doi": "10.1016/j.gim.2024.101081",
+        "year": "2024"
+      }
+    ],
+    "comments": "across three studies, 6 UBAP1L loss-of-function variants identified in 18 IRD families; gene expressed in rod and cone photoreceptors of zebrafish; rods, cones, and RPE in humans; mouse model with C-terminal truncation did not show retinal degeneration up to15 months of age; function of UBAP1L protein unknown but believed to bind ubiquitin",
+    "id": 396
+  },
+  {
+    "symbol": "RNU6-1",
+    "disease": "dominant retinitis pigmentosa",
+    "earliest_catalog_year": 2026,
+    "references": [
+      {
+        "title": "De novo and inherited dominant variants in U4 and U6 snRNA genes cause retinitis pigmentosa",
+        "pmid": "41513982",
+        "doi": "https://doi.org/10.1038/s41588-025-02451-4",
+        "year": "2026"
+      }
+    ],
+    "comments": "both inherited and de novo variants in\u00a0<em>RNU4-2</em>\u00a0and four paralogs of\u00a0RNU6 (including <em>RNU6-1</em>), encoding the U4 and U6 snRNAs, found as the molecular cause of adRP in 153 individuals across 67 families. All identified variants cluster within the U4/U6 duplex, in a region that binds directly to PRPF31 and PRPF3 and indirectly to PRPF6 and PRPF816,17. These variants increase the association of U4 and U6 snRNAs with the splicing factors SART3 and PRPF31, suggesting impaired snRNP biogenesis.",
+    "id": 430
+  },
+  {
+    "symbol": "CFAP20",
+    "disease": "recessive retinitis pigmentosa",
+    "earliest_catalog_year": 2022,
+    "references": [
+      {
+        "title": "A comprehensive WGS-based pipeline for the identification of new candidate genes in inherited retinal dystrophies.",
+        "pmid": "35246562",
+        "doi": "10.1038/s41525-022-00286-0",
+        "year": "2022"
+      }
+    ],
+    "comments": "rare cause of disease; homozygous missense variant found in a consanguineous family from Spain; CFAP20 has\u00a0 been detected in the primary cilium-derived photosensory rod outer segments of mouse retina; knockdown experiments in zebrafish\u00a0revealed a phenotype consistent with ciliary dysfunction",
+    "id": 402
+  },
+  {
+    "symbol": "NTN1",
+    "disease": "dominant chorioretinal coloboma and microthalmia with sensorineural hearing loss",
+    "earliest_catalog_year": 2024,
+    "references": [
+      {
+        "title": "A Novel De Novo Missense Variant in Netrin-1 (NTN1) Associated With Chorioretinal Coloboma, Sensorineural Hearing Loss and Polydactyly",
+        "pmid": "39648562",
+        "doi": "10.1111/cge.14651",
+        "year": "2024"
+      }
+    ],
+    "comments": "Netrin-1 was previously identified as a mediator of optic fissure closure and shown to cause ocular coloboma when knocked out in mouse and zebrafish; single human patient identified with a heterozygous de novo missense variant with phenotype including unilateral left microcornea, left esotropia and left chorioretinal coloboma. The patient also had bilateral SNHL and polydactyly; dominant mutations in a different part of the protein cause mirror movements-4 (MRMV4)",
+    "id": 417
+  },
+  {
+    "symbol": "RNU6-9",
+    "disease": "dominant retinitis pigmentosa",
+    "earliest_catalog_year": 2026,
+    "references": [
+      {
+        "title": "De novo and inherited dominant variants in U4 and U6 snRNA genes cause retinitis pigmentosa",
+        "pmid": "41513982",
+        "doi": "https://doi.org/10.1038/s41588-025-02451-4",
+        "year": "2026"
+      }
+    ],
+    "comments": "both inherited and de novo variants in\u00a0<em>RNU4-2</em>\u00a0and four paralogs of\u00a0RNU6 (including <em>RNU6-9</em>), encoding the U4 and U6 snRNAs, found as the molecular cause of adRP in 153 individuals across 67 families. All identified variants cluster within the U4/U6 duplex, in a region that binds directly to PRPF31 and PRPF3 and indirectly to PRPF6 and PRPF816,17. These variants increase the association of U4 and U6 snRNAs with the splicing factors SART3 and PRPF31, suggesting impaired snRNP biogenesis.",
+    "id": 432
+  },
+  {
+    "symbol": "RNU6-2",
+    "disease": "dominant retinitis pigmentosa",
+    "earliest_catalog_year": 2026,
+    "references": [
+      {
+        "title": "De novo and inherited dominant variants in U4 and U6 snRNA genes cause retinitis pigmentosa",
+        "pmid": "41513982",
+        "doi": "https://doi.org/10.1038/s41588-025-02451-4",
+        "year": "2026"
+      }
+    ],
+    "comments": "both inherited and de novo variants in\u00a0<em>RNU4-2</em>\u00a0and four paralogs of\u00a0RNU6 (including <em>RNU6-2</em>), encoding the U4 and U6 snRNAs, found as the molecular cause of adRP in 153 individuals across 67 families. All identified variants cluster within the U4/U6 duplex, in a region that binds directly to PRPF31 and PRPF3 and indirectly to PRPF6 and PRPF816,17. These variants increase the association of U4 and U6 snRNAs with the splicing factors SART3 and PRPF31, suggesting impaired snRNP biogenesis.",
+    "id": 431
+  },
+  {
+    "symbol": "C19orf44",
+    "disease": "biallelic pathogenic variants identified in 15 individuals from 11 unrelated families, all affected by\u00a0 a recessive IRD;\u00a0 patients typically show a late-onset phenotype with symptoms characteristic to RCD which advances to a unique and distinctive retinal phenotype of patchy perifoveal chorioretinal atrophy; phenotypes of patients with the same combination of pathogenic variants also reported to be quite different, with RP characteristics and macular sparing; protein of unknown function with ubiquitous expression, does not appear to be ciliary.",
+    "earliest_catalog_year": 2025,
+    "references": [
+      {
+        "title": "Biallelic null variants in C19orf44 cause a unique late-onset retinal dystrophy phenotype characterized by patchy perifoveal chorioretinal atrophy.",
+        "pmid": "40079362",
+        "doi": "10.1016/j.gim.2025.101401",
+        "year": "2025"
+      }
+    ],
+    "comments": null,
+    "id": 424
+  },
+  {
+    "symbol": "COQ8B",
+    "disease": "recessive retinitis pigmentosa, non-syndromic",
+    "earliest_catalog_year": 2024,
+    "references": [
+      {
+        "title": "Bi-allelic variants in COQ8B, a gene involved in the biosynthesis of coenzyme Q10, lead to non-syndromic retinitis pigmentosa",
+        "pmid": "39226897",
+        "doi": "10.1016/j.ajhg.2024.08.005",
+        "year": "2024"
+      }
+    ],
+    "comments": "four families with five individuals with potentially disease-causing bi-allelic variants in COQ8B; wide range in age-of-onset and severity, though mostly mild; variants in COQ8B are a known cause of steroid-resistant nephrotic syndrome (SRNS) but no renal symptoms were found in this group of arRP patients; COQ8B is predicted to function as a kinase participating in CoQ biosynthesis, exhibiting ATPase activity in the presence of CoQ intermediates.",
+    "id": 398
+  },
+  {
+    "symbol": "NDUFAF5",
+    "disease": "recessive mitochondrial complex 1 deficiency",
+    "earliest_catalog_year": 2021,
+    "references": [
+      {
+        "title": "Nuclear DNA Mutation Causing a Phenotypic Leber Hereditary Optic Neuropathy Plus",
+        "pmid": "32918965",
+        "doi": "10.1016/j.ophtha.2020.09.011",
+        "year": "2021"
+      }
+    ],
+    "comments": "first known case of LHON associated with a pathogenic mutation of a nuclear gene that encodes a mitochondrial complex I assembly factor; single patient with acute visual loss and dystonia; whole mtDNA genome sequencing excluded the three primary LHON mutations; two compound heterozygous variants identified in NDUFAF5;\u00a0 previously, biallelic mutations in NDUFAF5 identified in patients with mitochondrial complex I deficiency nuclear type 16 (MC1DN16)",
+    "id": 405
+  },
+  {
+    "symbol": "AGPAT3",
+    "disease": "recessive severe intellectual disability (ID) and retinitis pigmentosa",
+    "earliest_catalog_year": 2023,
+    "references": [
+      {
+        "title": "A loss of function variant in AGPAT3 underlies intellectual disability and retinitis pigmentosa (IDRP) syndrome",
+        "pmid": "37821758",
+        "doi": "10.1038/s41431-023-01475-w",
+        "year": "2023"
+      }
+    ],
+    "comments": null,
+    "id": 419
+  },
+  {
+    "symbol": "MIEF1",
+    "disease": "dominant optic neuropathy, late onset",
+    "earliest_catalog_year": 2021,
+    "references": [
+      {
+        "title": "Dominant mutations in <i>MIEF1</i> affect mitochondrial dynamics and cause a singular late onset optic neuropathy",
+        "pmid": "33632269",
+        "doi": "10.1186/s13024-021-00431-w",
+        "year": "2021"
+      }
+    ],
+    "comments": "heterozygous missense mutations in MIEF1 found in two women with late-onset optic atrophy",
+    "id": 317
+  },
+  {
+    "symbol": "IDH3G",
+    "disease": "X-linked retinitis pigmentosa",
+    "earliest_catalog_year": 2025,
+    "references": [
+      {
+        "title": "Identification of IDH3G, encoding the gamma subunit of mitochondrial isocitrate dehydrogenase, as a novel candidate gene for X-linked retinitis pigmentosa",
+        "pmid": "40119724",
+        "doi": "10.1016/j.gim.2025.101418",
+        "year": "2025"
+      }
+    ],
+    "comments": "four rare single nucleotide variants as well as a complete gene deletion in five male probands with nonsyndromic RP; IDH3G encodes the gamma subunit of mitochondrial isocitrate dehydrogenase (IDH3), an enzyme involved in the citric acid cycle, expressed in the inner segments of photoreceptors. Variants in\u00a0<a href=\"disease#412\">IDH3A</a> and <a href=\"disease#303\">IDH3B</a> , encoding the other subunits of IDH3, have already been associated with nonsyndromic autosomal recessive RP; location on the X chromosome is in the RP34 region",
+    "id": 418
+  }
+]
