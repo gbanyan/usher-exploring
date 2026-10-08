@@ -1,5 +1,7 @@
 # Phase5 author-review status — 7 October 2026
 
+**8 October worksheet usability update:** use `../../outputs/temporal-human-review-20261008/Temporal_Case_Author_Review_Defined_20261008.xlsx` for author case review. It opens on full field definitions and frozen eligibility rules, explicitly separates first-public target-association timing from clinical-evidence maturation and the human review date, and preserves all original source/evidence/Review values. All 45 cases remain pending. The 7 October workbook is preserved; this companion does not alter the frozen submission package or automatically write back author decisions.
+
 This update supersedes the next-step paragraph below; the earlier conservative and expanded-temporal decision history remains preserved.
 
 The revised manuscript, Supplementary Methods, all 23 responses to Reviewer 1 (downloaded report) and Reviewer 3 (pasted report), and cover letter are prepared. Reviewer 2 supplied only a supplementary-file access complaint; the user instructed us to leave it outside the current response scope. New author-review artifacts are in `submission/bmc_bioinformatics_major_revision_20261007/`; the original submission is preserved.
