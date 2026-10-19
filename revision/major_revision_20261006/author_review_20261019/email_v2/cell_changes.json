@@ -1,0 +1,92 @@
+[
+  {
+    "sheet": "Review",
+    "cell": "H38",
+    "symbol": "RNU4-2",
+    "gene_key": "HGNC:10193",
+    "before": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2\n",
+    "after": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2",
+    "whitespace_only": true
+  },
+  {
+    "sheet": "Review",
+    "cell": "H9",
+    "symbol": "AP5B1",
+    "gene_key": "HGNC:25104",
+    "before": "(Kaminska, 2025) PMID 40081374 \nFigure 1. (p812)\nTable 1.  (p.815)\nFigure 3. (p.817)",
+    "after": "Figure 1. (p812)\nTable 1.  (p.815)\nFigure 3. (p.817)",
+    "whitespace_only": false
+  },
+  {
+    "sheet": "Review",
+    "cell": "I10",
+    "symbol": "ATP11A",
+    "gene_key": "HGNC:13552",
+    "before": "dominant non‑syndromic hearing loss\n4 independent families\nAD",
+    "after": "non‑syndromic hearing loss\n2 pathogenic variants, at least 37  affected individuals from 4 independent families\nAD",
+    "whitespace_only": false
+  },
+  {
+    "sheet": "Review",
+    "cell": "I11",
+    "symbol": "BRWD1",
+    "gene_key": "HGNC:12760",
+    "before": "3 unrealted failies\nasthenoteratozoospermia\nAD",
+    "after": "asthenoteratozoospermia, likely primary ciliary dyskinesia\n4 pathogenic variants, 3 affected individuals from 3 unrealted failies\nAR",
+    "whitespace_only": false
+  },
+  {
+    "sheet": "Review",
+    "cell": "I12",
+    "symbol": "C19orf44",
+    "gene_key": "HGNC:26141",
+    "before": "retinal dystrophy\n4 different pathogenic variants  in 15 biallelic individuals from 11 unrelated families.\nAR",
+    "after": "late-onset retinal dystrophy (patchy perifoveal chorioretinal atrophy)\n4 different pathogenic variants  in 15 biallelic individuals from 11 unrelated families.\nAR",
+    "whitespace_only": false
+  },
+  {
+    "sheet": "Review",
+    "cell": "I17",
+    "symbol": "CREB3",
+    "gene_key": "HGNC:2347",
+    "before": "inherited retinal diseases\nA founder homozygous nonsense variant in CREB3 (c.881G>A, p.Trp294*) was identiﬁed in 13 patients from 4 unrelated familie\n",
+    "after": "inherited retinal diseases\nA founder homozygous nonsense variant in CREB3 (c.881G>A, p.Trp294*) was identiﬁed in 13 patients from 4 unrelated familie",
+    "whitespace_only": true
+  },
+  {
+    "sheet": "Review",
+    "cell": "I19",
+    "symbol": "CTNND1",
+    "gene_key": "HGNC:2515",
+    "before": "familial exudative vitreoretinopathy\n3 pathogenic variants, 7 individualts from 3 families\n1 Ctnnd1 iECKO/iECKO mice  \nAD",
+    "after": "familial exudative vitreoretinopathy (catenin family scaffolding protein)\n3 pathogenic variants, 7 individualts from 3 families\n1 Ctnnd1 iECKO/iECKO mice  \nAD",
+    "whitespace_only": false
+  },
+  {
+    "sheet": "Review",
+    "cell": "I27",
+    "symbol": "INTS11",
+    "gene_key": "HGNC:26052",
+    "before": "complex neurological disorder\n18 pathogenic variants, 15 individualts from 10 families\nAR",
+    "after": "complex neurological disorder \n18 pathogenic variants, 15 individualts from 10 families\nAR",
+    "whitespace_only": true
+  },
+  {
+    "sheet": "Review",
+    "cell": "I52",
+    "symbol": "VWA8",
+    "gene_key": "HGNC:29071",
+    "before": "Developmental Delay, Microcephaly, and Scoliosis \n1  pathogenic variants, 9 individualts from 1 families\nAR\n1 Tg Zebrafish ",
+    "after": "Developmental Delay, Microcephaly, and Scoliosis \n1  pathogenic variants, 9 individualts from 1 families\nAR\n1 MO Zebrafish ",
+    "whitespace_only": false
+  },
+  {
+    "sheet": "Review",
+    "cell": "I9",
+    "symbol": "AP5B1",
+    "gene_key": "HGNC:25104",
+    "before": "macular dystrophy\n2 independent families (family 18 and 19) \nAR, HomX1 ; Comp. hets X1",
+    "after": "macular dystrophy\n3 pathogenic variants, 2 affected individuals from 2 independent families\nAR",
+    "whitespace_only": false
+  }
+]

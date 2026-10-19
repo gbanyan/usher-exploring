@@ -1,0 +1,53 @@
+{
+  "source": {
+    "method": "Himalaya IMAP attachment download",
+    "account": "icloud",
+    "mailbox": "INBOX",
+    "message_uid": "12920",
+    "mime_part": "2",
+    "message_id": "E749D73C-7780-44A0-A742-55EE7013EE9C@gms.tcu.edu.tw",
+    "sent_at": "2026-10-19T22:39:53+08:00",
+    "sender_display_name": "靖永皓",
+    "subject": "Temporal_Case_Author_Review_Defined_20261019_V2",
+    "body_instructions": "No accompanying text instructions"
+  },
+  "original_sha256": "c92fb22e37961b06f2a549d86e86d6ccd85900833e37a2f8bcba30cb0bcee215",
+  "v2_sha256": "f9f7f0681811a5f4cd786b0b9bbfdf2837743c1f8f0064f1d31c4fc067d522e0",
+  "v2_bytes": 61539,
+  "preserved_attachment": "data/cache/author-review-v2-20261019/originals/Temporal_Case_Author_Review_Defined_20261019_V2.xlsx",
+  "accessible_copy": "outputs/temporal-author-return-v2-20261019/Temporal_Case_Author_Review_Defined_20261019_V2.xlsx",
+  "rows": 45,
+  "sheet_names": [
+    "Review",
+    "Evidence",
+    "Original TSV",
+    "Definitions"
+  ],
+  "changed_cells": 10,
+  "substantive_changed_cells": 7,
+  "substantive_changed_genes": [
+    "AP5B1",
+    "ATP11A",
+    "BRWD1",
+    "C19orf44",
+    "CTNND1",
+    "VWA8"
+  ],
+  "whitespace_only_cells": 3,
+  "eligibility": {
+    "PENDING": 45
+  },
+  "date_decisions": {
+    "CONFIRMED": 10,
+    "REVISED": 6,
+    "PENDING": 29
+  },
+  "association_date_fields_unchanged": true,
+  "gene_keys_and_order_unchanged": true,
+  "formula_text_unchanged": true,
+  "threaded_comments_unchanged": true,
+  "original_tsv_unchanged": true,
+  "formal_cohort_or_scores_changed": false,
+  "manuscript_or_submission_changed": false,
+  "scope": "Cell-value/formula/comment comparison; no clinical re-adjudication or visual workbook redesign"
+}
