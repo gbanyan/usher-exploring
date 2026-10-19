@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-19",
+  "genes_checked": 45,
+  "original_gene_entries_and_author_decisions_preserved": true,
+  "distinct_articles_checked": 43,
+  "pdf_files_sha256_verified": 46,
+  "all_43_pdf_dois_match_fresh_metadata": true,
+  "earlier_event_records_checked": 15,
+  "exact_first_day_uncertainty_retained": [
+    "ATP11A",
+    "CREB3",
+    "MRPL49",
+    "TMEM72"
+  ],
+  "typed_day_dates_and_partial_date_precision_verified": true,
+  "formula_errors_in_saved_xml": 0,
+  "xlsx_crc_passes": true,
+  "source_metadata_payload_hashes_verified": 4,
+  "source_originals_unchanged": true,
+  "protected_baseline_hashes_verified": 21,
+  "production_database_unchanged": true,
+  "cohort_or_score_or_outcome_changed": false,
+  "workbook_recalculation": {
+    "genes": 45,
+    "unresolved_before": 4,
+    "temporary_category_change": 3,
+    "unresolved_restored": 4,
+    "original_entries_preserved": true,
+    "engine": "artifact-tool; native Excel/LibreOffice not available"
+  },
+  "all_four_sheet_views_rendered_and_reviewed": true,
+  "native_excel_or_libreoffice_test": "Not performed; unavailable on this host",
+  "output_bytes": 33450,
+  "output_sha256": "06a2d5e7491be337967591e7b8ef579817aef52380809bc31253443d43c1dfb6",
+  "validation_environment": "Local macOS. Python stdlib XML/hash checks and bundled artifact-tool. PDF panels: existing Python3.13 doc-env with PyMuPDF/Pillow."
+}

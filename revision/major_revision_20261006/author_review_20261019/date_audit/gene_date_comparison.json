@@ -1,0 +1,1263 @@
+[
+  {
+    "symbol": "AP5B1",
+    "display_symbol": "AP5B1",
+    "gene_key": "HGNC:25104",
+    "original_ai_displayed_date": "2025-03-12",
+    "original_frozen_interval": [
+      "2025-01-01",
+      "2025-03-12"
+    ],
+    "professor_returned_date": "2025-04-03",
+    "professor_returned_exact_date": "2025-04-03",
+    "professor_date_status": "CONFIRMED",
+    "professor_eligibility": "PENDING",
+    "category": "Issue vs first online",
+    "suggested_exact_first_public_target_date": "2025-03-12",
+    "independently_located_public_event_date": "2025-03-12",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2025-03-12",
+    "target_report_version_of_record": null,
+    "interpretation": "Returned April 3 is the issue date. First journal publication March 12 is explicitly recorded in PDF p.18. Preserve March 12 as the located public article date.",
+    "supplied_pmids": [
+      "40081374"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.ajhg.2025.02.015",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "ATP11A",
+    "display_symbol": "ATP11A",
+    "gene_key": "HGNC:13552",
+    "original_ai_displayed_date": "2021-05-28",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-05-28"
+    ],
+    "professor_returned_date": "2022-03-12",
+    "professor_returned_exact_date": "2022-03-12",
+    "professor_date_status": "REVISED",
+    "professor_eligibility": "PENDING",
+    "category": "Preprint vs later journal",
+    "suggested_exact_first_public_target_date": null,
+    "independently_located_public_event_date": "2021-05-28",
+    "public_event_type": "Public preprint v1",
+    "uncertain_first_public_day": true,
+    "journal_first_public_for_target_report": "2022-03-12",
+    "target_report_version_of_record": null,
+    "interpretation": "May 28, 2021 is a real Research Square preprint date. March 12, 2022 is the journal online date. Also preserve the frozen 2021 interval because a 2021 thesis lead has unresolved deposit timing.",
+    "supplied_pmids": [
+      "35278131"
+    ],
+    "first_target_source": "https://www.researchsquare.com/article/rs-530835/v1",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "BRWD1",
+    "display_symbol": "BRWD1",
+    "gene_key": "HGNC:12760",
+    "original_ai_displayed_date": "2021-01-03",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-01-03"
+    ],
+    "professor_returned_date": "2021-01-03",
+    "professor_returned_exact_date": "2021-01-03",
+    "professor_date_status": "CONFIRMED",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2021-01-03",
+    "independently_located_public_event_date": "2021-01-03",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2021-01-03",
+    "target_report_version_of_record": null,
+    "interpretation": "Received and accepted in 2020, first journal online January 3, 2021. Receipt/acceptance alone do not make the paper publicly available before the cutoff.",
+    "supplied_pmids": [
+      "33389130"
+    ],
+    "first_target_source": "https://doi.org/10.1007/s00439-020-02241-4",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "C19orf44",
+    "display_symbol": "C19orf44",
+    "gene_key": "HGNC:26141",
+    "original_ai_displayed_date": "2025-03-10",
+    "original_frozen_interval": [
+      "2025-01-01",
+      "2025-03-10"
+    ],
+    "professor_returned_date": "2025-03-10",
+    "professor_returned_exact_date": "2025-03-10",
+    "professor_date_status": "CONFIRMED",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2025-03-10",
+    "independently_located_public_event_date": "2025-03-10",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2025-03-10",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "40079362"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.gim.2025.101401",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "CEP76",
+    "display_symbol": "CEP76",
+    "gene_key": "HGNC:25727",
+    "original_ai_displayed_date": "2025-10-17",
+    "original_frozen_interval": [
+      "2025-01-01",
+      "2025-10-17"
+    ],
+    "professor_returned_date": "2025-10-17",
+    "professor_returned_exact_date": "2025-10-17",
+    "professor_date_status": "CONFIRMED",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2025-10-17",
+    "independently_located_public_event_date": "2025-10-17",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2025-10-17",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "41105778"
+    ],
+    "first_target_source": "https://doi.org/10.1126/sciadv.adw3717",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "CFAP54",
+    "display_symbol": "CFAP54",
+    "gene_key": "HGNC:26456",
+    "original_ai_displayed_date": "2023-09-19",
+    "original_frozen_interval": [
+      "2023-01-01",
+      "2023-09-19"
+    ],
+    "professor_returned_date": "2023-09-19",
+    "professor_returned_exact_date": "2023-09-19",
+    "professor_date_status": "CONFIRMED",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2023-09-19",
+    "independently_located_public_event_date": "2023-09-19",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2023-09-19",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "37725231"
+    ],
+    "first_target_source": "https://doi.org/10.1007/s11684-023-0997-7",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "CLEC3B",
+    "display_symbol": "CLEC3B",
+    "gene_key": "HGNC:11891",
+    "original_ai_displayed_date": "2022-03-22",
+    "original_frozen_interval": [
+      "2022-01-01",
+      "2022-03-22"
+    ],
+    "professor_returned_date": "2022-03-22",
+    "professor_returned_exact_date": "2022-03-22",
+    "professor_date_status": "CONFIRMED",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2022-03-22",
+    "independently_located_public_event_date": "2022-03-22",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2022-03-22",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "35331648"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.gim.2022.02.012",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "COQ5",
+    "display_symbol": "COQ5",
+    "gene_key": "HGNC:28722",
+    "original_ai_displayed_date": "2022-10-20",
+    "original_frozen_interval": [
+      "2022-01-01",
+      "2022-10-20"
+    ],
+    "professor_returned_date": "2022-10-20",
+    "professor_returned_exact_date": "2022-10-20",
+    "professor_date_status": "CONFIRMED",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2022-10-20",
+    "independently_located_public_event_date": "2022-10-20",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2022-10-20",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "36266294"
+    ],
+    "first_target_source": "https://doi.org/10.1038/s41525-022-00330-z",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "CREB3",
+    "display_symbol": "CREB3",
+    "gene_key": "HGNC:2347",
+    "original_ai_displayed_date": "2024-05-01",
+    "original_frozen_interval": [
+      "2024-05-01",
+      "2025-07-17"
+    ],
+    "professor_returned_date": "2025-07-17",
+    "professor_returned_exact_date": "2025-07-17",
+    "professor_date_status": "REVISED",
+    "professor_eligibility": "PENDING",
+    "category": "Earlier conference timing uncertain",
+    "suggested_exact_first_public_target_date": null,
+    "independently_located_public_event_date": "2025-07-17",
+    "public_event_type": "Published online",
+    "uncertain_first_public_day": true,
+    "journal_first_public_for_target_report": "2025-07-17",
+    "target_report_version_of_record": null,
+    "interpretation": "July 17, 2025 is verified journal online publication. A retrospective author-program record describes target presentations in May/July 2024. Keep the frozen interval 2024-05-01 to 2025-07-17. The old displayed May 1 was not an exact verified day.",
+    "supplied_pmids": [
+      "40674075"
+    ],
+    "first_target_source": "https://doi.org/10.1001/jamaophthalmol.2025.2187",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "CRLS1",
+    "display_symbol": "CRLS1",
+    "gene_key": "HGNC:16148",
+    "original_ai_displayed_date": "2022-02-11",
+    "original_frozen_interval": [
+      "2022-01-01",
+      "2022-02-11"
+    ],
+    "professor_returned_date": "2022-02-06 accpeted\n2022-10-08 published",
+    "professor_returned_exact_date": "",
+    "professor_date_status": "REVISED",
+    "professor_eligibility": "PENDING",
+    "category": "Acceptance and unsupported issue entry",
+    "suggested_exact_first_public_target_date": "2022-02-11",
+    "independently_located_public_event_date": "2022-02-11",
+    "public_event_type": "Advance access",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2022-02-11",
+    "target_report_version_of_record": null,
+    "interpretation": "Acceptance February 6 is distinct from advance access February 11, 2022. Returned October 8 is unsupported. PubMed gives the issue date October 28, 2022. Use February 11 for the located public article date.",
+    "supplied_pmids": [
+      "35147173"
+    ],
+    "first_target_source": "https://academic.oup.com/hmg/article-pdf/31/21/3597/46673942/ddac040.pdf",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "CTNND1",
+    "display_symbol": "CTNND1",
+    "gene_key": "HGNC:2515",
+    "original_ai_displayed_date": "2022-06-14",
+    "original_frozen_interval": [
+      "2022-01-01",
+      "2022-06-14"
+    ],
+    "professor_returned_date": "2022-07-22",
+    "professor_returned_exact_date": "2022-07-22",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "In-press preview vs final version",
+    "suggested_exact_first_public_target_date": "2022-06-14",
+    "independently_located_public_event_date": "2022-06-14",
+    "public_event_type": "In-press preview",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2022-06-14",
+    "target_report_version_of_record": "2022-07-22",
+    "interpretation": "June 14, 2022 was a public in-press preview, confirmed in publisher version history. July 22 is the electronic/final issue version. The earlier original date is supported.",
+    "supplied_pmids": [
+      "35700046"
+    ],
+    "first_target_source": "https://insight.jci.org/articles/view/158428",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "DHRSX",
+    "display_symbol": "DHRSX",
+    "gene_key": "HGNC:18399",
+    "original_ai_displayed_date": "2024-05-30",
+    "original_frozen_interval": [
+      "2024-01-01",
+      "2024-05-30"
+    ],
+    "professor_returned_date": "Epub 2024-05-30\nPub 2024-07-11",
+    "professor_returned_exact_date": "",
+    "professor_date_status": "CONFIRMED",
+    "professor_eligibility": "PENDING",
+    "category": "Multiple valid date/domain events",
+    "suggested_exact_first_public_target_date": "2024-05-30",
+    "independently_located_public_event_date": "2024-05-30",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2024-05-30",
+    "target_report_version_of_record": null,
+    "interpretation": "Both returned dates are valid events: online May 30 and issue July 11, 2024. A June 10 online correction is separate. First-public timing remains May 30.",
+    "supplied_pmids": [
+      "38821050"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.cell.2024.04.041",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "DNAJC30",
+    "display_symbol": "DNAJC30",
+    "gene_key": "HGNC:16410",
+    "original_ai_displayed_date": "2021-01-19",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-01-19"
+    ],
+    "professor_returned_date": "Accepter 2021-01-14\npublished: 2021-3-15",
+    "professor_returned_exact_date": "",
+    "professor_date_status": "REVISED",
+    "professor_eligibility": "PENDING",
+    "category": "In-press preview vs final version",
+    "suggested_exact_first_public_target_date": "2021-01-19",
+    "independently_located_public_event_date": "2021-01-19",
+    "public_event_type": "In-press preview",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2021-01-19",
+    "target_report_version_of_record": "2021-03-15",
+    "interpretation": "Acceptance January 14, 2021 is not public release. Publisher version history supports January 19 in-press preview, before March 15 final electronic publication.",
+    "supplied_pmids": [
+      "33465056"
+    ],
+    "first_target_source": "https://www.jci.org/articles/view/138267",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "EFCAB1",
+    "display_symbol": "CLXN (EFCAB1)",
+    "gene_key": "HGNC:25678",
+    "original_ai_displayed_date": "2023-01-31",
+    "original_frozen_interval": [
+      "2023-01-01",
+      "2023-01-31"
+    ],
+    "professor_returned_date": "2023-01-31",
+    "professor_returned_exact_date": "2023-01-31",
+    "professor_date_status": "CONFIRMED",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2023-01-31",
+    "independently_located_public_event_date": "2023-01-31",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2023-01-31",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "36727596"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.gim.2023.100798",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "FSD1L",
+    "display_symbol": "FSD1L",
+    "gene_key": "HGNC:13753",
+    "original_ai_displayed_date": "2026-02-19",
+    "original_frozen_interval": [
+      "2026-01-01",
+      "2026-02-19"
+    ],
+    "professor_returned_date": "2026-03-05",
+    "professor_returned_exact_date": "2026-03-05",
+    "professor_date_status": "REVISED",
+    "professor_eligibility": "PENDING",
+    "category": "Issue vs first online",
+    "suggested_exact_first_public_target_date": "2026-02-19",
+    "independently_located_public_event_date": "2026-02-19",
+    "public_event_type": "Retinal companion report outside ZIP",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2026-02-19",
+    "target_report_version_of_record": null,
+    "interpretation": "February 19 is the journal online date; March 5 is the issue date. Attached PMID 41720098 is the neurological companion. Fresh metadata for the unprovided retinal PMID 41720099 independently has the same February 19 online date.",
+    "supplied_pmids": [
+      "41720098"
+    ],
+    "first_target_source": "https://pubmed.ncbi.nlm.nih.gov/41720099/",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "GPATCH11",
+    "display_symbol": "GPATCH11",
+    "gene_key": "HGNC:26768",
+    "original_ai_displayed_date": "2023-08-21",
+    "original_frozen_interval": [
+      "2023-01-01",
+      "2023-08-21"
+    ],
+    "professor_returned_date": "received 2023-10-09\nAccepted 2024-11-13\nPublished online 2024-11-21",
+    "professor_returned_exact_date": "",
+    "professor_date_status": "REVISED",
+    "professor_eligibility": "PENDING",
+    "category": "Preprint vs later journal",
+    "suggested_exact_first_public_target_date": "2023-08-21",
+    "independently_located_public_event_date": "2023-08-21",
+    "public_event_type": "Public preprint v1",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2024-11-21",
+    "target_report_version_of_record": null,
+    "interpretation": "The target preprint was public August 21, 2023, before journal receipt October 9. Journal acceptance November 13 and publication November 21, 2024 are later events. DOI August 19 is not the posting day.",
+    "supplied_pmids": [
+      "39572588"
+    ],
+    "first_target_source": "https://www.medrxiv.org/content/10.1101/2023.08.19.23293832v1",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "GPR156",
+    "display_symbol": "GPR156",
+    "gene_key": "HGNC:20844",
+    "original_ai_displayed_date": "2023-03-16",
+    "original_frozen_interval": [
+      "2023-01-01",
+      "2023-03-16"
+    ],
+    "professor_returned_date": "2023-03-16",
+    "professor_returned_exact_date": "2023-03-16",
+    "professor_date_status": "CONFIRMED",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2023-03-16",
+    "independently_located_public_event_date": "2023-03-16",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2023-03-16",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "36928819"
+    ],
+    "first_target_source": "https://doi.org/10.1038/s41591-023-02211-z",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "IDH3G",
+    "display_symbol": "IDH3G",
+    "gene_key": "HGNC:5386",
+    "original_ai_displayed_date": "2025-03-19",
+    "original_frozen_interval": [
+      "2025-01-01",
+      "2025-03-19"
+    ],
+    "professor_returned_date": "2025-03-19",
+    "professor_returned_exact_date": "2025-03-19",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2025-03-19",
+    "independently_located_public_event_date": "2025-03-19",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2025-03-19",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "40119724"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.gim.2025.101418",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "INTS11",
+    "display_symbol": "INTS11",
+    "gene_key": "HGNC:26052",
+    "original_ai_displayed_date": "2023-04-12",
+    "original_frozen_interval": [
+      "2023-01-01",
+      "2023-04-12"
+    ],
+    "professor_returned_date": "Epub 2023-04-12\npub 2023-05-04",
+    "professor_returned_exact_date": "",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Multiple valid date/domain events",
+    "suggested_exact_first_public_target_date": "2023-04-12",
+    "independently_located_public_event_date": "2023-04-12",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2023-04-12",
+    "target_report_version_of_record": null,
+    "interpretation": "Both returned dates are valid: online April 12, issue May 4, 2023. Use April 12 for the located public article date.",
+    "supplied_pmids": [
+      "37054711"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.ajhg.2023.03.012",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "KCNJ16",
+    "display_symbol": "KCNJ16",
+    "gene_key": "HGNC:6262",
+    "original_ai_displayed_date": "2021-04-02",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-04-02"
+    ],
+    "professor_returned_date": "Epub 2021-04-02\npub 2021-06-01",
+    "professor_returned_exact_date": "",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Multiple valid date/domain events",
+    "suggested_exact_first_public_target_date": "2021-04-02",
+    "independently_located_public_event_date": "2021-04-02",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2021-04-02",
+    "target_report_version_of_record": null,
+    "interpretation": "Online April 2 precedes June 1, 2021 issue. The supplied PDF is only a two-page extract. Receipt/acceptance and exact online date were checked in fresh PubMed XML, not inferred from this limited PDF.",
+    "supplied_pmids": [
+      "33811157"
+    ],
+    "first_target_source": "https://doi.org/10.1681/asn.2020111587",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "KIAA1024L",
+    "display_symbol": "KIAA1024L",
+    "gene_key": "HGNC:33914",
+    "original_ai_displayed_date": "2022-06-21",
+    "original_frozen_interval": [
+      "2022-01-01",
+      "2022-06-21"
+    ],
+    "professor_returned_date": "2022-06-21",
+    "professor_returned_exact_date": "2022-06-21",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2022-06-21",
+    "independently_located_public_event_date": "2022-06-21",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2022-06-21",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "35727972"
+    ],
+    "first_target_source": "https://doi.org/10.1073/pnas.2204084119",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "LIG3",
+    "display_symbol": "LIG3",
+    "gene_key": "HGNC:6600",
+    "original_ai_displayed_date": "2021-04-15",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-04-15"
+    ],
+    "professor_returned_date": "2021-06-22",
+    "professor_returned_exact_date": "2021-06-22",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Issue vs first online",
+    "suggested_exact_first_public_target_date": "2021-04-15",
+    "independently_located_public_event_date": "2021-04-15",
+    "public_event_type": "Advance access",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2021-04-15",
+    "target_report_version_of_record": null,
+    "interpretation": "Advance access April 15, 2021 precedes June 22 issue. Accepted December 9, 2020 does not establish pre-cutoff public availability.",
+    "supplied_pmids": [
+      "33855352"
+    ],
+    "first_target_source": "https://doi.org/10.1093/brain/awab056",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "MRPL49",
+    "display_symbol": "MRPL49",
+    "gene_key": "HGNC:1176",
+    "original_ai_displayed_date": "2024-10-11",
+    "original_frozen_interval": [
+      "2022-01-01",
+      "2024-10-11"
+    ],
+    "professor_returned_date": "2025-04-03",
+    "professor_returned_exact_date": "2025-04-03",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Preprint and unresolved thesis timing",
+    "suggested_exact_first_public_target_date": null,
+    "independently_located_public_event_date": "2024-10-11",
+    "public_event_type": "Public preprint v1",
+    "uncertain_first_public_day": true,
+    "journal_first_public_for_target_report": "2025-03-04",
+    "target_report_version_of_record": null,
+    "interpretation": "Public preprint October 11, 2024 precedes online March 4 and issue April 3, 2025. Earlier thesis award year 2022 and submission January 2023 do not establish public deposit. Keep frozen interval 2022-01-01 to 2024-10-11.",
+    "supplied_pmids": [
+      "40043708"
+    ],
+    "first_target_source": "https://www.medrxiv.org/content/10.1101/2024.10.10.24315152v1",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "PDIA6",
+    "display_symbol": "PDIA6",
+    "gene_key": "HGNC:30168",
+    "original_ai_displayed_date": "2021-01-26",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-01-26"
+    ],
+    "professor_returned_date": "2021-01-21",
+    "professor_returned_exact_date": "2021-01-21",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Acceptance vs public release",
+    "suggested_exact_first_public_target_date": "2021-01-26",
+    "independently_located_public_event_date": "2021-01-26",
+    "public_event_type": "Publisher First published",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2021-01-26",
+    "target_report_version_of_record": null,
+    "interpretation": "Returned January 21 is acceptance. Wiley first publication is January 26, 2021. PubMed Electronic is February 17. Retain both sources and use the publisher's earlier first-public statement. The original January 26 is supported.",
+    "supplied_pmids": [
+      "33495992"
+    ],
+    "first_target_source": "https://onlinelibrary.wiley.com/doi/10.1111/cge.13930",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "PKHD1L1",
+    "display_symbol": "PKHD1L1",
+    "gene_key": "HGNC:20313",
+    "original_ai_displayed_date": "2023-10-09",
+    "original_frozen_interval": [
+      "2023-01-01",
+      "2023-10-09"
+    ],
+    "professor_returned_date": "2024-03-09",
+    "professor_returned_exact_date": "2024-03-09",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Preprint vs later journal",
+    "suggested_exact_first_public_target_date": "2023-10-09",
+    "independently_located_public_event_date": "2023-10-09",
+    "public_event_type": "Public preprint v1",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2024-03-09",
+    "target_report_version_of_record": null,
+    "interpretation": "Public preprint October 9, 2023 is independently documented. It coincides with journal receipt but is not inferred from receipt. Journal online March 9, 2024 and preprint v2 December 19, 2023 are later events.",
+    "supplied_pmids": [
+      "38459354"
+    ],
+    "first_target_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10593026/",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "PLCG1",
+    "display_symbol": "PLCG1",
+    "gene_key": "HGNC:9065",
+    "original_ai_displayed_date": "2024-01-09",
+    "original_frozen_interval": [
+      "2024-01-01",
+      "2024-01-09"
+    ],
+    "professor_returned_date": "2023-11-??\n2025-08-17",
+    "professor_returned_exact_date": "",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Different domain and publication versions",
+    "suggested_exact_first_public_target_date": "2024-01-09",
+    "independently_located_public_event_date": "2024-01-09",
+    "public_event_type": "Public target preprint",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2024-04-19",
+    "target_report_version_of_record": "2025-08-27",
+    "interpretation": "Separate 2023 immune report (online July 6, issue November) from sensory target preprint January 9, 2024, reviewed preprint April 19, 2024 and Version of Record August 27, 2025. Returned August 17 has no support in checked sources.",
+    "supplied_pmids": [
+      "40862571",
+      "37422272"
+    ],
+    "first_target_source": "https://elifesciences.org/reviewed-preprints/95887v1",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "PSKH1",
+    "display_symbol": "PSKH1",
+    "gene_key": "HGNC:9529",
+    "original_ai_displayed_date": "2024-08-09",
+    "original_frozen_interval": [
+      "2024-01-01",
+      "2024-08-09"
+    ],
+    "professor_returned_date": "2024-08-09",
+    "professor_returned_exact_date": "2024-08-09",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2024-08-09",
+    "independently_located_public_event_date": "2024-08-09",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2024-08-09",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "39132680"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.gim.2024.101231",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "RFC4",
+    "display_symbol": "RFC4",
+    "gene_key": "HGNC:9972",
+    "original_ai_displayed_date": "2024-08-05",
+    "original_frozen_interval": [
+      "2024-01-01",
+      "2024-08-05"
+    ],
+    "professor_returned_date": "2024-09-05",
+    "professor_returned_exact_date": "2024-09-05",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Issue vs first online",
+    "suggested_exact_first_public_target_date": "2024-08-05",
+    "independently_located_public_event_date": "2024-08-05",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2024-08-05",
+    "target_report_version_of_record": null,
+    "interpretation": "August 5, 2024 is the online publication date in the PDF history. September 5 is the issue date.",
+    "supplied_pmids": [
+      "39106866"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.ajhg.2024.07.008",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "RNF220",
+    "display_symbol": "RNF220",
+    "gene_key": "HGNC:25552",
+    "original_ai_displayed_date": "2021-05-08",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-05-08"
+    ],
+    "professor_returned_date": "2021-05-08",
+    "professor_returned_exact_date": "2021-05-08",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2021-05-08",
+    "independently_located_public_event_date": "2021-05-08",
+    "public_event_type": "Advance access",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2021-05-08",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "33964137"
+    ],
+    "first_target_source": "https://doi.org/10.1093/brain/awab185",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "RNU4-2",
+    "display_symbol": "RNU4-2",
+    "gene_key": "HGNC:10193",
+    "original_ai_displayed_date": "2025-01-06",
+    "original_frozen_interval": [
+      "2025-01-01",
+      "2025-01-06"
+    ],
+    "professor_returned_date": "2026-01-09",
+    "professor_returned_exact_date": "2026-01-09",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Preprint vs later journal",
+    "suggested_exact_first_public_target_date": "2025-01-06",
+    "independently_located_public_event_date": "2025-01-06",
+    "public_event_type": "Public retinal preprint v1",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2026-01-09",
+    "target_report_version_of_record": null,
+    "interpretation": "January 6, 2025 is the retinal target preprint. January 9, 2026 is journal online. The four RNU-labelled PDFs are the same shared study. Prior neurodevelopmental associations belong to another disease domain.",
+    "supplied_pmids": [
+      "41513982"
+    ],
+    "first_target_source": "https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "RNU6-2",
+    "display_symbol": "RNU6-2",
+    "gene_key": "HGNC:34270",
+    "original_ai_displayed_date": "2025-01-06",
+    "original_frozen_interval": [
+      "2025-01-01",
+      "2025-01-06"
+    ],
+    "professor_returned_date": "2026-01-09",
+    "professor_returned_exact_date": "2026-01-09",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Preprint vs later journal",
+    "suggested_exact_first_public_target_date": "2025-01-06",
+    "independently_located_public_event_date": "2025-01-06",
+    "public_event_type": "Public retinal preprint v1",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2026-01-09",
+    "target_report_version_of_record": null,
+    "interpretation": "January 6, 2025 is the shared retinal preprint. January 9, 2026 is journal online. A filename is not an independent publication or a separate validation.",
+    "supplied_pmids": [
+      "41513982"
+    ],
+    "first_target_source": "https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "RNU6-8",
+    "display_symbol": "RNU6-8",
+    "gene_key": "HGNC:34285",
+    "original_ai_displayed_date": "2025-01-06",
+    "original_frozen_interval": [
+      "2025-01-01",
+      "2025-01-06"
+    ],
+    "professor_returned_date": "2026-01-09",
+    "professor_returned_exact_date": "2026-01-09",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Preprint vs later journal",
+    "suggested_exact_first_public_target_date": "2025-01-06",
+    "independently_located_public_event_date": "2025-01-06",
+    "public_event_type": "Public retinal preprint v1",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2026-01-09",
+    "target_report_version_of_record": null,
+    "interpretation": "January 6, 2025 is the shared retinal preprint. January 9, 2026 is journal online. A filename is not an independent publication or a separate validation.",
+    "supplied_pmids": [
+      "41513982"
+    ],
+    "first_target_source": "https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "RNU6-9",
+    "display_symbol": "RNU6-9",
+    "gene_key": "HGNC:34269",
+    "original_ai_displayed_date": "2025-01-06",
+    "original_frozen_interval": [
+      "2025-01-01",
+      "2025-01-06"
+    ],
+    "professor_returned_date": "2026-01-09",
+    "professor_returned_exact_date": "2026-01-09",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Preprint vs later journal",
+    "suggested_exact_first_public_target_date": "2025-01-06",
+    "independently_located_public_event_date": "2025-01-06",
+    "public_event_type": "Public retinal preprint v1",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2026-01-09",
+    "target_report_version_of_record": null,
+    "interpretation": "January 6, 2025 is the shared retinal preprint. January 9, 2026 is journal online. A filename is not an independent publication or a separate validation.",
+    "supplied_pmids": [
+      "41513982"
+    ],
+    "first_target_source": "https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "RSG1",
+    "display_symbol": "RSG1",
+    "gene_key": "HGNC:28127",
+    "original_ai_displayed_date": "2024-09-26",
+    "original_frozen_interval": [
+      "2024-01-01",
+      "2024-09-26"
+    ],
+    "professor_returned_date": "2025-07-01",
+    "professor_returned_exact_date": "2025-07-01",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Preprint vs later journal",
+    "suggested_exact_first_public_target_date": "2024-09-26",
+    "independently_located_public_event_date": "2024-09-26",
+    "public_event_type": "Public preprint v1",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2025-07-01",
+    "target_report_version_of_record": null,
+    "interpretation": "Registry-confirmed target preprint September 26, 2024 precedes journal online July 1, 2025. The direct preprint page was unavailable during this audit, so the registry and accessible journal record are distinguished.",
+    "supplied_pmids": [
+      "40593758"
+    ],
+    "first_target_source": "https://www.biorxiv.org/content/10.1101/2024.09.25.614984v1",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "SAXO6",
+    "display_symbol": "SAXO6",
+    "gene_key": "HGNC:29917",
+    "original_ai_displayed_date": "2026-02-24",
+    "original_frozen_interval": [
+      "2026-01-01",
+      "2026-02-24"
+    ],
+    "professor_returned_date": "2026-03-05",
+    "professor_returned_exact_date": "2026-03-05",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Issue vs first online",
+    "suggested_exact_first_public_target_date": "2026-02-24",
+    "independently_located_public_event_date": "2026-02-24",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2026-02-24",
+    "target_report_version_of_record": null,
+    "interpretation": "February 24, 2026 is online publication. March 5 is the issue date.",
+    "supplied_pmids": [
+      "41742423"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.ajhg.2026.02.001",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "SCNM1",
+    "display_symbol": "SCNM1",
+    "gene_key": "HGNC:23136",
+    "original_ai_displayed_date": "2022-09-08",
+    "original_frozen_interval": [
+      "2022-01-01",
+      "2022-09-08"
+    ],
+    "professor_returned_date": "2022-10-06",
+    "professor_returned_exact_date": "2022-10-06",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Issue vs first online",
+    "suggested_exact_first_public_target_date": "2022-09-08",
+    "independently_located_public_event_date": "2022-09-08",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2022-09-08",
+    "target_report_version_of_record": null,
+    "interpretation": "September 8, 2022 is online publication in the PDF history. October 6 is the issue date.",
+    "supplied_pmids": [
+      "36084634"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.ajhg.2022.08.009",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "SLC66A1",
+    "display_symbol": "SLC66A1",
+    "gene_key": "HGNC:26001",
+    "original_ai_displayed_date": "2022-04-29",
+    "original_frozen_interval": [
+      "2022-01-01",
+      "2022-04-29"
+    ],
+    "professor_returned_date": "2022-04-29",
+    "professor_returned_exact_date": "2022-04-29",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2022-04-29",
+    "independently_located_public_event_date": "2022-04-29",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2022-04-29",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "35486108"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.gim.2022.03.020",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "SPATA5L1",
+    "display_symbol": "SPATA5L1",
+    "gene_key": "HGNC:28762",
+    "original_ai_displayed_date": "2021-10-07",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-10-07"
+    ],
+    "professor_returned_date": "2021-10-07",
+    "professor_returned_exact_date": "2021-10-07",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2021-10-07",
+    "independently_located_public_event_date": "2021-10-07",
+    "public_event_type": "Published (PDF history)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2021-10-07",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "34626583"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.ajhg.2021.08.003",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "STX3",
+    "display_symbol": "STX3",
+    "gene_key": "HGNC:11438",
+    "original_ai_displayed_date": "2021-05-11",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-05-11"
+    ],
+    "professor_returned_date": "2021-05-11\nWiegerinck et al. (2014) 就有 report microvillus inclusion disease\nhttps://doi. org/10.1053/j.gastro.2014.04.002",
+    "professor_returned_exact_date": "",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Multiple valid date/domain events",
+    "suggested_exact_first_public_target_date": "2021-05-11",
+    "independently_located_public_event_date": "2021-05-11",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2021-05-11",
+    "target_report_version_of_record": null,
+    "interpretation": "The May 11, 2021 retinal target report is distinct from the 2014 intestinal microvillus-inclusion association. A previous non-target disease is not automatically a pre-cutoff target association.",
+    "supplied_pmids": [
+      "33974130"
+    ],
+    "first_target_source": "https://doi.org/10.1007/s00439-021-02284-1",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "TMEM72",
+    "display_symbol": "TMEM72",
+    "gene_key": "HGNC:31658",
+    "original_ai_displayed_date": "2021-08-31",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2022-04-30"
+    ],
+    "professor_returned_date": "2025-11-27",
+    "professor_returned_exact_date": "2025-11-27",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Earlier conference timing uncertain",
+    "suggested_exact_first_public_target_date": null,
+    "independently_located_public_event_date": "2022-04",
+    "public_event_type": "Published meeting abstract (month only)",
+    "uncertain_first_public_day": true,
+    "journal_first_public_for_target_report": "2025-11-27",
+    "target_report_version_of_record": null,
+    "interpretation": "Official ESHG programme schedules the target report August 31, 2021 and the published meeting abstract is April 2022. The full paper was online November 27, 2025 and in the April 2026 issue. Exact first abstract-release day remains unresolved. Keep frozen interval 2021-01-01 to 2022-04-30 rather than label 2021 as journal publication.",
+    "supplied_pmids": [
+      "41308066"
+    ],
+    "first_target_source": "https://www.nature.com/articles/s41431-021-01025-2.pdf",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "TP73",
+    "display_symbol": "TP73",
+    "gene_key": "HGNC:12003",
+    "original_ai_displayed_date": "2021-06-01",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-06-01"
+    ],
+    "professor_returned_date": "2021-07-01",
+    "professor_returned_exact_date": "2021-07-01",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Issue vs first online",
+    "suggested_exact_first_public_target_date": "2021-06-01",
+    "independently_located_public_event_date": "2021-06-01",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2021-06-01",
+    "target_report_version_of_record": null,
+    "interpretation": "June 1, 2021 is online publication. July 1 is the issue date.",
+    "supplied_pmids": [
+      "34077761"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.ajhg.2021.05.002",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "UBAP1L",
+    "display_symbol": "UBAP1L",
+    "gene_key": "HGNC:40028",
+    "original_ai_displayed_date": "2024-01-28",
+    "original_frozen_interval": [
+      "2024-01-01",
+      "2024-01-28"
+    ],
+    "professor_returned_date": "2024-01-28",
+    "professor_returned_exact_date": "2024-01-28",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2024-01-28",
+    "independently_located_public_event_date": "2024-01-28",
+    "public_event_type": "Electronic publication (PubMed)",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2024-01-28",
+    "target_report_version_of_record": null,
+    "interpretation": "The original displayed date and returned date agree with the first located public journal date. No conflicting earlier event was identified in this bounded reconciliation.",
+    "supplied_pmids": [
+      "38293907"
+    ],
+    "first_target_source": "https://doi.org/10.1016/j.gim.2024.101081",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "USP48",
+    "display_symbol": "USP48",
+    "gene_key": "HGNC:18533",
+    "original_ai_displayed_date": "2021-05-31",
+    "original_frozen_interval": [
+      "2021-01-01",
+      "2021-05-31"
+    ],
+    "professor_returned_date": "2021-05-25",
+    "professor_returned_exact_date": "2021-05-25",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Acceptance vs public release",
+    "suggested_exact_first_public_target_date": "2021-05-31",
+    "independently_located_public_event_date": "2021-05-31",
+    "public_event_type": "Advance access",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2021-05-31",
+    "target_report_version_of_record": null,
+    "interpretation": "Returned May 25 is acceptance. Advance access is May 31, 2021 in supplied PDF p.1.",
+    "supplied_pmids": [
+      "34059922"
+    ],
+    "first_target_source": "https://doi.org/10.1093/hmg/ddab145",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "VWA8",
+    "display_symbol": "VWA8",
+    "gene_key": "HGNC:29071",
+    "original_ai_displayed_date": "2023-04-03",
+    "original_frozen_interval": [
+      "2023-01-01",
+      "2023-04-03"
+    ],
+    "professor_returned_date": "2021-10-01",
+    "professor_returned_exact_date": "2021-10-01",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Prior non-target disease report",
+    "suggested_exact_first_public_target_date": "2023-04-03",
+    "independently_located_public_event_date": "2023-04-03",
+    "public_event_type": "Target retinal report outside ZIP",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2023-04-03",
+    "target_report_version_of_record": null,
+    "interpretation": "The supplied October 1, 2021 report concerns a prior neurodevelopmental disorder. The target retinal report PMID 37012052 was online April 3, 2023, checked in fresh metadata; independent later retinal PMID 40638000 was online July 10, 2025. Neither retinal report is in the ZIP. Do not replace target timing with the earlier non-target date.",
+    "supplied_pmids": [
+      "34660594"
+    ],
+    "first_target_source": "https://pubmed.ncbi.nlm.nih.gov/37012052/",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  },
+  {
+    "symbol": "XXYLT1",
+    "display_symbol": "XXYLT1",
+    "gene_key": "HGNC:26639",
+    "original_ai_displayed_date": "2026-07-30",
+    "original_frozen_interval": [
+      "2026-01-01",
+      "2026-07-30"
+    ],
+    "professor_returned_date": "2026-07-30",
+    "professor_returned_exact_date": "2026-07-30",
+    "professor_date_status": "PENDING",
+    "professor_eligibility": "PENDING",
+    "category": "Same first-public article date",
+    "suggested_exact_first_public_target_date": "2026-07-30",
+    "independently_located_public_event_date": "2026-07-30",
+    "public_event_type": "Published online",
+    "uncertain_first_public_day": false,
+    "journal_first_public_for_target_report": "2026-07-30",
+    "target_report_version_of_record": null,
+    "interpretation": "July 30, 2026 online publication is explicit in supplied PDF. September 1 issue and May 31 acceptance are different events.",
+    "supplied_pmids": [
+      "42530953"
+    ],
+    "first_target_source": "https://doi.org/10.1001/jamaophthalmol.2026.2795",
+    "cutoff_interpretation": "No newly confirmed pre-2021 public target association; no automatic membership change",
+    "author_eligibility_decision_changed": false
+  }
+]

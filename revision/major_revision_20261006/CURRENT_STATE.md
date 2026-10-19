@@ -1,3 +1,11 @@
+# Complete returned-reference date audit — 19 October 2026
+
+Following the TMEM72 2021/2025/2026 discussion, the user requested a full date comparison of every paper in the professor's `Refs.zip`. This is complete for all 46 PDFs, 43 distinct PMID labels and 45 gene rows. Read `author_review_20261019/date_audit/REPORT.md`, the explicit `curation.json`, `article_dates.json` and `gene_date_comparison.json`. The new readable workbook is `outputs/temporal-reference-dates-20261019/Temporal_Reference_Date_Audit_20261019.xlsx` relative to the repository root. It separates editorial milestones, first online/public previews, reviewed preprints, final versions, issue dates and earlier conference/thesis records. Unsupported returned entries are CRLS1 October 8 and PLCG1 August 17. PDIA6/USP48 returned acceptance dates must not replace first-public dates. Most differences are legitimate issue/version/preprint dates, not errors in the original temporal classification.
+
+No newly confirmed pre-2021 public target association was found in this bounded audit. No frozen eligibility label, score, temporal recovery result, manuscript or submission artifact was changed. Exact earliest-public-day uncertainty remains for ATP11A, CREB3, MRPL49 and TMEM72. Preserve the frozen intervals and source-specific limits rather than claiming that an award/submission date, a scheduled talk, or an interval lower bound is an exact first-public day. All 45 author eligibility decisions remain PENDING as returned. The original files and 21 protected baseline hashes remain unchanged. This bibliography check does not imply a new clinical author sign-off.
+
+---
+
 # Author-return reconciliation — 19 October 2026
 
 The professor's two new iCloud Downloads files only (`Temporal_Case_Author_Review_Defined_20261019.xlsx` and `Refs.zip`) have been preserved and processed. All 45 genes now have returned human reviewer/date/source/genotype notes, so the historical statement below that no case had human source review is no longer the current intake state. **Final cohort eligibility remains PENDING for all 45 rows**; date decisions are 10 CONFIRMED, 6 REVISED and 29 PENDING. The user confirmed there was no other instruction and asked to organize pending confirmations first. Do not infer final human inclusion decisions from the notes or overwrite frozen labels/outcomes.

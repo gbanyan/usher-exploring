@@ -1,0 +1,30 @@
+{
+  "archive_pdfs": 46,
+  "distinct_pmids": 43,
+  "genes": 45,
+  "date_categories": {
+    "Issue vs first online": 7,
+    "Preprint vs later journal": 8,
+    "Same first-public article date": 16,
+    "Earlier conference timing uncertain": 2,
+    "Acceptance and unsupported issue entry": 1,
+    "In-press preview vs final version": 2,
+    "Multiple valid date/domain events": 4,
+    "Preprint and unresolved thesis timing": 1,
+    "Acceptance vs public release": 2,
+    "Different domain and publication versions": 1,
+    "Prior non-target disease report": 1
+  },
+  "uncertain_exact_first_public_day": [
+    "ATP11A",
+    "CREB3",
+    "MRPL49",
+    "TMEM72"
+  ],
+  "author_eligibility_pending": 45,
+  "frozen_cohort_or_result_changed": false,
+  "date_event_rows": 15,
+  "preprint_registry_records": 7,
+  "metadata_source_files": 4,
+  "note": "A bibliographic audit of supplied papers plus targeted earlier-version leads, not an exhaustive search proving no earlier association or a fresh clinical adjudication."
+}
