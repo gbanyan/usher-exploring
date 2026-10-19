@@ -24,12 +24,14 @@
       "min_q": 1.0
     }
   ],
+  "analysis_associations_cache_sha256": "cbd385a65890743a27fd0c3143f5efb35d89a39a46b105c304c8cf55e7b58650",
+  "independent_check_scope": "Separate Fisher/BH arithmetic from analysis-derived associations; source mapping/propagation uses same-code replay",
   "case_rows": 45,
   "memberships": 341,
   "all_frozen_rank_joins_exact": true,
   "workbook_sheets": 7,
   "complete_workbook_enrichment_rows": 24597,
   "workbook_sha256": "ce61ee3dffe6e35283954bb3c0d39b1466e6cf8da8fe46eaa126b8cf7bfc4f39",
-  "visual_QA": "Ten sheet views and the complete figure inspected; no clipped table content or figure-label overlap",
+  "visual_QA": "Thirteen sheet views and the complete figure inspected; no clipped table content or figure-label overlap",
   "limits": "Numerical/source integrity audit, not independent clinical adjudication"
 }

@@ -13,6 +13,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 REV = ROOT / 'revision/major_revision_20261006'
 OUT = ROOT / 'submission/bmc_bioinformatics_major_revision_20261007'
+ARCHIVE_DATE = (2026, 10, 7, 0, 0, 0)
 
 
 def sha(path):
@@ -46,7 +47,7 @@ def archive(path, files, readme):
             entries.append({'path': relative, 'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data)})
         contents.append(('BUNDLE_MANIFEST.json', (json.dumps(entries, indent=2) + '\n').encode()))
         for name, data in contents:
-            info = zipfile.ZipInfo(name, (2026, 10, 7, 0, 0, 0))
+            info = zipfile.ZipInfo(name, ARCHIVE_DATE)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
             bundle.writestr(info, data)
@@ -79,11 +80,15 @@ def verify(out):
 
 
 def main():
+    global ARCHIVE_DATE
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir', type=Path, default=OUT)
     parser.add_argument('--verify-only', action='store_true')
+    parser.add_argument('--created-date', default='2026-10-07')
+    parser.add_argument('--include-go', action='store_true')
     args = parser.parse_args()
     out = args.output_dir
+    ARCHIVE_DATE = (*map(int, args.created_date.split('-')), 0, 0, 0)
     if args.verify_only:
         verify(out)
         return
@@ -110,22 +115,35 @@ def main():
     if len(pmids) != 6:
         raise ValueError('Expected six frozen context PMID sets')
     archive(out / 'Additional_file_12_Temporal_Evaluation.zip',
-        sorted(set(shared + temporal + pmids + [REV / 'phase5_claude_review/principal_case_human_verification.tsv'])), common_readme +
+        sorted(set(shared + temporal + pmids + [REV / 'final_review_20261019/HUMAN_REVIEW_SUMMARY.md'])), common_readme +
         '\nStart with temporal_validation_v2/OUTCOME_REPORT.md and PROTOCOL.md under the revision directory. '
         'The six date-bounded context PMID sets are included without paper text. '
         'The full raw reconstruction command requires all recorded raw and clinical cache bytes, '
         'the original Git freeze checkpoints and the pinned analysis environment; this ZIP alone '
         'does not guarantee complete offline raw-source regeneration or clinical re-adjudication. '
         'Clinical search/full-text caches are not bundled.\n'
-        'The pending 45-case author verification worksheet is included at revision/major_revision_20261006/phase5_claude_review/principal_case_human_verification.tsv.\n'
+        'A dated post-analysis human-review summary is included at revision/major_revision_20261006/final_review_20261019/HUMAN_REVIEW_SUMMARY.md. The complete working author-review form is not included.\n'
         'For an archive-only numerical check in the analysis environment, run:\n'
         'python scripts/revision_temporal_derived_replay.py\n'
         'This verifies all 38,334 co-primary score/count/rank rows from derived components, '
         'but not HIGH raw source flags or the alternative global expression vectors. '
         'All 23 scheme case outcomes and endpoint summaries are provided. '
-        'The 45 principal clinical/date classifications were AI-assisted and remain provisional, not individually human-adjudicated. Frozen labels are selection categories, not proof of clinical truth. The principal results are weak (top100/HIGH 0/41 and 0/45), '
+        'Initial 45-case clinical/date ascertainment was AI-assisted. Subsequent human author review covered primary reports and reported family/pedigree evidence for all cases after the frozen analysis. Eligibility concerns involving PDIA6, VWA8 and PLCG1 remain under review; no new human-approved cohort or revised outcome is asserted. Frozen labels are selection categories, not proof of clinical truth. The principal results are weak (top100/HIGH 0/41 and 0/45). '
         'Frozen OUTCOME_REPORT.md and independent_adjudication_20261006.json preserve earlier AI-agent screening wording and are not human adjudication records. '
-        'and these historical analogues are not prospective independent clinical validation.\n')
+        'These historical analogues are not prospective independent clinical validation.\n')
+    if args.include_go:
+        go = files_under([REV / 'go_classification_20261019'])
+        outputs = [ROOT / 'outputs/temporal-go-classification-20261019' / name for name in (
+            'Temporal_GO_Classification_20261019.xlsx',
+            'Temporal_GO_Functional_Overview_20261019.pdf',
+            'Temporal_GO_Functional_Overview_20261019.png',
+            'Temporal_GO_Functional_Overview_20261019.svg')]
+        archive(out / 'Additional_file_13_Temporal_GO_Classification.zip', sorted(set(shared + go + outputs + [ROOT / 'tests/test_revision_go.py'])), common_readme +
+            '\nStart with revision/major_revision_20261006/go_classification_20261019/REPORT.md. '
+            'Figure S1 is the Temporal_GO_Functional_Overview figure. The XLSX has seven sheets; TSVs provide complete annotations, categories and all 24,597 enrichment tests. '
+            'No analysis passes pooled BH FDR < 0.05. This contemporary functional description was added after temporal outcomes and changes no historical score or clinical eligibility. '
+            'Raw GOA/QuickGO/HGNC caches are not bundled; source manifests identify them. Source reconstruction requires those bytes. '
+            'The full working human clinical-review form is not included.\n')
     additional = {}
     for path in sorted(out.glob('Additional_file_*')):
         if path.suffix == '.json' and path.name.endswith('.entries.json'):
@@ -133,10 +151,10 @@ def main():
         if path.name == 'Additional_file_10_Checksum_Manifest.json':
             continue
         additional[path.name] = {'sha256': sha(path), 'bytes': path.stat().st_size}
-    if len(additional) != 11:
-        raise ValueError(f'Expected actual additional files 1-9,11-12, got {list(additional)}')
+    if len(additional) != (12 if args.include_go else 11):
+        raise ValueError(f'Unexpected additional files: {list(additional)}')
     write_json(out / 'Additional_file_10_Checksum_Manifest.json', {
-        'algorithm': 'SHA-256', 'scope': 'Actual delivered additional files 1-9 and 11-12',
+        'algorithm': 'SHA-256', 'scope': 'Actual delivered additional files 1-9 and 11-' + ('13' if args.include_go else '12'),
         'self_hash_excluded': True, 'files': additional})
     sources = [ROOT / 'manuscript/draft.md', ROOT / 'manuscript/supplementary_methods.md',
                REV / 'rebuttal.md', REV / 'cover_letter_revision.md']
@@ -145,10 +163,11 @@ def main():
         if path.is_file() and path.name not in ('package_manifest.json', 'package_verification.json'):
             artifacts[str(path.relative_to(out))] = {'sha256': sha(path), 'bytes': path.stat().st_size}
     write_json(out / 'package_manifest.json', {
-        'algorithm': 'SHA-256', 'created_date': '2026-10-07',
+        'algorithm': 'SHA-256', 'created_date': args.created_date,
         'source_base_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
         'source_base_commit_is_not_a_claim_of_clean_worktree': True,
-        'fixed_author_review_release_tag': 'major-revision-author-review-20261007',
+        'preserved_prior_author_review_release_tag': 'major-revision-author-review-20261007',
+        'current_author_review_release_tag': 'major-revision-author-review-' + args.created_date.replace('-', ''),
         'exact_source_hashes': {str(p.relative_to(ROOT)): sha(p) for p in sources},
         'analysis_checkpoint': '736e16f', 'temporal_original_freeze': 'bd6bb2f',
         'temporal_amended_freeze': '53da295',

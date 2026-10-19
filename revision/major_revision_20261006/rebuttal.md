@@ -1,6 +1,6 @@
-# Point-by-point response to major revision — working draft, 19 October 2026
+# Response to the editor and reviewers
 
-Response to the editor and reviewers. Reviewer 1 denotes the downloaded report (10 major and 7 minor comments); Reviewer 2 reported inaccessible figures; Reviewer 3 denotes the six comments supplied in correspondence, following the journal numbering confirmed by the corresponding author. Original comment text is reproduced below. Existing manuscript page references refer to the 7 October author-review PDFs. The new author-review account below requires alignment with the final manuscript and regenerated submission files before upload.
+Response to the editor and reviewers. Reviewer 1 denotes the downloaded report (10 major and 7 minor comments); Reviewer 2 reported inaccessible figures; Reviewer 3 denotes the six comments supplied in correspondence, following the journal numbering confirmed by the corresponding author. Original comment text is reproduced below. Page references identify the revised PDFs supplied with this response. The revision incorporates subsequent human author review and a separate descriptive GO analysis, with their timing and scope stated explicitly.
 
 We thank the editor and reviewers for helping distinguish transparent hypothesis generation from validated disease-gene prediction. We have separated seed-free raw scoring from control-informed HIGH calibration, reported final control tiers and filtering losses, added matched disease comparators and simple baselines, quantified weight/completeness/proxy dependence, and strengthened numerical replay and delivered-file checksums. We also completed a retrospective temporal assessment with 45 later target associations fixed before new ranking calculation. Its weak recovery is reported directly and narrows the claims. Following the initial AI-assisted ascertainment, human author review examined primary reports for all 45 cases, including reported families/pedigrees, phenotypes, inheritance, functional mechanisms and publication chronology. The review highlighted distinct disease mechanisms and family-evidence concerns involving PDIA6, VWA8 and PLCG1, detailed in R1-major-8. Production scores, weights and thresholds were not optimized against these new outcomes.
 
@@ -34,7 +34,7 @@ The temporal cohort likewise covers a broader, prespecified target comprising in
 
 **Changes/evidence.** Main Background “Usher syndrome as a specialized sensory ciliopathy”, Results “Internal control recovery” and Table 3; `results/control_rankings.tsv`, `results/control_tier_trace.tsv`; Supplementary Methods S4.
 
-**Revised PDF locations.** Manuscript p. 1–2 (Abstract); Manuscript p. 3–4 (Usher syndrome as a specialized sensory ciliopathy); Manuscript p. 19–20 (Internal control recovery); Manuscript p. 31 (Conclusions); Supplementary Methods p. 4 (S4. Control traces).
+**Revised PDF locations.** Manuscript p. 1–2 (Abstract); Manuscript p. 3–4 (Usher syndrome as a specialized sensory ciliopathy); Manuscript p. 19–20 (Internal control recovery); Manuscript p. 32 (Conclusions); Supplementary Methods p. 4 (S4. Control traces).
 
 ### R1-major-2. Calibration and HIGH evaluation reuse the controls
 
@@ -60,7 +60,7 @@ We added a separate later-association cohort selected from clinical/date evidenc
 
 **Changes/evidence.** Abstract; Methods “Retrospective evaluation of historical analogues”; Results “Retrospective temporal evaluation” and Table 4; Discussion “Limitations”; S6; Additional file 12, including original/amended pre-outcome manifests and all 23 scheme outcomes.
 
-**Revised PDF locations.** Manuscript p. 1–2 (Abstract); Manuscript p. 11–12 (NULL-aware composite scoring); Manuscript p. 12–14 (Retrospective evaluation of historical analogues); Manuscript p. 24–26 (Retrospective temporal evaluation); Manuscript p. 29–30 (Limitations); Supplementary Methods p. 2–3 (S3. Implemented); Supplementary Methods p. 5–10 (S6. Retrospective).
+**Revised PDF locations.** Manuscript p. 1–2 (Abstract); Manuscript p. 11–12 (NULL-aware composite scoring); Manuscript p. 12–14 (Retrospective evaluation of historical analogues); Manuscript p. 24–26 (Retrospective temporal evaluation); Manuscript p. 29–31 (Limitations); Supplementary Methods p. 2–3 (S3. Implemented); Supplementary Methods p. 5–11 (S6. Retrospective).
 
 ### R1-major-3. Show final control tiers, reasons for losses and threshold sensitivity
 
@@ -116,7 +116,7 @@ None of the 111 matches was HIGH, but 110 already failed the raw score threshold
 
 **Changes/evidence.** Results “Matched unrelated-disease comparators”; Discussion; S5; `phase3_spec.md`, `phase3_roster/`, `phase3_results/`, `phase4_results/fixed_pair_summary.tsv` and `matching_completeness_balance.tsv`.
 
-**Revised PDF locations.** Manuscript p. 20–21 (Negative controls); Manuscript p. 21–22 (Matched unrelated-disease comparators); Manuscript p. 29–30 (Limitations); Supplementary Methods p. 4–5 (S5. Frozen).
+**Revised PDF locations.** Manuscript p. 20–21 (Negative controls); Manuscript p. 21–22 (Matched unrelated-disease comparators); Manuscript p. 29–31 (Limitations); Supplementary Methods p. 4–5 (S5. Frozen).
 
 ### R1-major-5. Heuristic weights, simple baselines and top-K persistence
 
@@ -180,7 +180,7 @@ Equal weighting gives whole-ranking ρ=0.9952 and 86 shared top 100 genes. Acros
 
 **Changes/evidence.** Results “Impact of missing data handling”; Discussion; S4/S6; `results/evidence_completeness.tsv`, `threshold_sensitivity.tsv`, `per_gene_diagnostics.tsv`; `phase4_results/historical_topk_completeness.tsv`.
 
-**Revised PDF locations.** Manuscript p. 22–23 (Impact of missing data handling); Manuscript p. 23–24 (Sensitivity analysis); Supplementary Methods p. 4 (S4. Control traces); Supplementary Methods p. 5–10 (S6. Retrospective).
+**Revised PDF locations.** Manuscript p. 22–23 (Impact of missing data handling); Manuscript p. 23–24 (Sensitivity analysis); Supplementary Methods p. 4 (S4. Control traces); Supplementary Methods p. 5–11 (S6. Retrospective).
 
 ### R1-major-7. Inter-layer overlap and within-layer combination
 
@@ -226,7 +226,7 @@ Using a 31 December 2020 evidence cutoff, we reconstructed gnomAD v2.1.1, HPA v2
 
 **Additional human author review.** A human author reviewed primary reports for all 45 cases, examining reported families/pedigrees, phenotypes, inheritance, functional mechanisms and publication dates. This review took place after the frozen temporal analysis. It identified two issues relevant to interpretation: the diversity of disease mechanisms and the strength of family evidence.
 
-The family-evidence concerns involved **PDIA6, VWA8 and PLCG1**. The reviewed initial PDIA6 report described one affected individual from one family. The earlier VWA8 developmental-disorder report described nine affected individuals from one family, whereas the temporal target was a later retinal association. For PLCG1, the review distinguished a single-family immune-disorder report from a later multisystem report with auditory/ocular involvement and four families. These findings show why family support must be evaluated for the specific gene–target-phenotype association across relevant reports. Eligibility of the flagged cases remains under review; the original temporal results are retained.
+The family-evidence concerns involved **PDIA6, VWA8 and PLCG1**. The reviewed initial PDIA6 report described one affected individual from one family. The earlier VWA8 developmental-disorder report described nine affected individuals from one family, whereas the temporal target was a later retinal association. For PLCG1, the review distinguished a single-family immune-disorder report from a later multisystem report with auditory/ocular involvement and four families. These findings show why family support must be evaluated for the specific gene–target-phenotype association across relevant reports. The frozen screening ledger also cites later PDIA6 reports (PMIDs 35856135, 40974269), recording three families overall and a conservative lower bound of two target families; the VWA8 retinal reports (PMIDs 37012052, 40638000) give a target-family lower bound of two, and PLCG1 has a conservative target-family lower bound of three. These are the retained screening classifications, not new human inclusion decisions. The index-paper concerns do not by themselves constitute three exclusions. Eligibility of the flagged cases remains under review; the original temporal results are retained.
 
 Representative biological distinctions are as follows:
 
@@ -234,6 +234,8 @@ Representative biological distinctions are as follows:
 - **CTNND1:** the reported retinal association is familial exudative vitreoretinopathy through the Wnt/cadherin axis ([Yang et al., 2022; PMID 35700046](https://insight.jci.org/articles/view/158428)).
 - **DHRSX:** the reported disease is a congenital disorder of glycosylation arising from impaired dolichol biosynthesis; DHRSX is an enzyme in this pathway ([Wilson et al., 2024; PMID 38821050](https://doi.org/10.1016/j.cell.2024.04.041)).
 - **RNU4-2 and the RNU6 genes:** the relevant reports concern spliceosomal small nuclear RNAs and nonsyndromic retinitis pigmentosa ([Quinodoz et al., 2026; PMID 41513982](https://www.nature.com/articles/s41588-025-02451-4)).
+
+A post-hoc contemporary GO classification further describes the same 45 cases (S8; Additional file 13, Figure S1). BP/MF/CC coverage was 41/42/44 cases; overlapping categories included cilium and mitochondrion (eight each), cilium organization (four) and mRNA metabolic process (five). None of the 11,388 primary or 10,459/2,750 sensitivity GO tests passed pooled BH FDR < 0.05. This functional description does not alter the historical scores or supply independent predictive validation.
 
 These examples clarify the breadth of the prespecified sensory-disease cohort. Retinal or auditory involvement alone does not establish a ciliopathy, so aggregate recovery in this cohort should be interpreted within that broader scope.
 
@@ -243,7 +245,7 @@ This is a retrospective evaluation of historical analogues, not an exact product
 
 **Changes/evidence.** Methods temporal design; Results temporal assessment, sensitivity and mantis-ml sections; Discussion/Conclusions; Table 4/Figure 8; S4/S6; Additional files 11/12 with protocols, clinical ledger, baselines and full outputs.
 
-**Revised PDF locations.** Manuscript p. 23–24 (Sensitivity analysis); Manuscript p. 24–26 (Retrospective temporal evaluation); Manuscript p. 26–27 (Comparison with mantis-ml); Supplementary Methods p. 4 (S4. Control traces); Supplementary Methods p. 5–10 (S6. Retrospective).
+**Revised PDF locations.** Manuscript p. 23–24 (Sensitivity analysis); Manuscript p. 24–26 (Retrospective temporal evaluation); Manuscript p. 26–27 (Biological scope of the temporal cohort); Manuscript p. 27–28 (Comparison with mantis-ml); Supplementary Methods p. 4 (S4. Control traces); Supplementary Methods p. 5–11 (S6. Retrospective); Supplementary Methods p. 11–13 (S8. Contemporary).
 
 ### R1-major-9. Versions, timestamps, locked environment, commands and actual supplementary checksums
 
@@ -273,13 +275,13 @@ This is a retrospective evaluation of historical analogues, not an exact product
 >
 > I also recommend checking the consistency of the submitted supplementary files against the checksum manifest. In the material provided for review, the checksum associated with the expression-shortlist report does not appear to match the submitted Additional file 6. This may simply reflect a conversion from a repository Markdown file to the journal TXT file, but if so, that distinction should be documented.
 
-**Response.** We supply four schema-checked canonical derived-input tables, preserved baseline prose, explicit database/cache/output options, frozen ClinGen/HGNC exports and exact tested dependency locks. Production numerical replay is distinguished from complete raw-source acquisition; restored donor-derived annotation/animal fields and originally unknown retrieval dates remain disclosed. The earlier clean Python 3.13.1/macOS-arm64 replay reproduced 28 TSVs, including eligibility/matching. The expanded temporal run verified 24 numerical source files (204,322,926 bytes) and a committed dependency/source/clinical freeze; a separate clean reconstruction reproduced all nine temporal TSVs and the manifest byte-for-byte. The latest full suite passed 354 tests with 17 existing warnings. Source versions, URLs, accessions, retrieval metadata where recorded, local SHA-256 and figure/table commands are included in Additional files 11/12 and S7. Linux/container parity is not claimed.
+**Response.** We supply four schema-checked canonical derived-input tables, preserved baseline prose, explicit database/cache/output options, frozen ClinGen/HGNC exports and exact tested dependency locks. Production numerical replay is distinguished from complete raw-source acquisition; restored donor-derived annotation/animal fields and originally unknown retrieval dates remain disclosed. The earlier clean Python 3.13.1/macOS-arm64 replay reproduced 28 TSVs, including eligibility/matching. The expanded temporal run verified 24 numerical source files (204,322,926 bytes) and a committed dependency/source/clinical freeze; a separate clean reconstruction reproduced all nine temporal TSVs and the manifest byte-for-byte. The current full suite, including eight GO tests, passed 362 tests with 17 existing warnings. Source versions, URLs, accessions, retrieval metadata where recorded, local SHA-256 and figure/table commands are included in Additional files 11/12 and S7. Linux/container parity is not claimed.
 
 We confirmed the original mismatch: repository expression-shortlist Markdown hashes to `e046dbcd...`, while the submitted Additional file 6 TXT hashes to `13fc6ddd...`. The revised Additional file 10 instead hashes the actual delivered additional files, including freshly converted files 3/6; it excludes itself rather than claiming a self-hash. A separate package manifest records the delivered manuscript/response DOCX and PDF bytes, source hashes and source-analysis checkpoints. Both revised TXT files are generated from their named Markdown sources. Rendered document checks and a page location index accompany this revision. Large raw archives/clinical caches are not silently represented as distributed or backed up.
 
 **Changes/evidence.** Methods “Reproducibility”; S7; Additional files 4/10/11/12; package manifest and response location index. The complete executable numerical replay remains in the repository.
 
-**Revised PDF locations.** Manuscript p. 15 (Reproducibility); Manuscript p. 32–33 (Availability of data and materials); Manuscript p. 33–34 (Additional files); Supplementary Methods p. 10 (S7. Numerical replay).
+**Revised PDF locations.** Manuscript p. 15 (Reproducibility); Manuscript p. 33–34 (Availability of data and materials); Manuscript p. 34–36 (Additional files); Supplementary Methods p. 11 (S7. Numerical replay).
 
 ### R1-major-10. Retina/proxy expression, absence of hair-cell production data and proxy sensitivity
 
@@ -303,7 +305,7 @@ Expression contributes 15.5–27.5% of individual Usher controls' weighted suppo
 
 **Changes/evidence.** Methods expression layer/Table 1; Results “Expression dependence”; Discussion; S3; `results/usher_expression_diagnostics.tsv`, `baseline_comparison.tsv`, `per_gene_diagnostics.tsv`.
 
-**Revised PDF locations.** Manuscript p. 24 (Expression dependence); Manuscript p. 29–30 (Limitations); Supplementary Methods p. 1–2 (S1. Optional); Supplementary Methods p. 2–3 (S3. Implemented).
+**Revised PDF locations.** Manuscript p. 24 (Expression dependence); Manuscript p. 29–31 (Limitations); Supplementary Methods p. 1–2 (S1. Optional); Supplementary Methods p. 2–3 (S3. Implemented).
 
 ## Reviewer 1 — minor comments
 
@@ -333,7 +335,7 @@ Expression contributes 15.5–27.5% of individual Usher controls' weighted suppo
 
 > Gene-identifier terminology should be checked carefully. The manuscript acknowledges that many displayed gene names are not formally validated current HGNC symbols, so wording such as “canonical identifier” should only be used where it is strictly accurate.
 
-**Response.** We describe retained analysis IDs/labels, duplicate-symbol consolidation and 573 ENSG fallback labels without calling them validated current HGNC symbols. Additional file 1's description is corrected to retained analysis identifiers. Exact current HGNC mappings are used only for the comparator eligibility analysis; that does not retrospectively validate all production names.
+**Response.** We describe retained analysis IDs/labels, duplicate-symbol consolidation and 573 ENSG fallback labels without calling them validated current HGNC symbols. Additional file 1's description is corrected to retained analysis identifiers. Current HGNC mappings are used for comparator eligibility and the separate contemporary GO classification; these do not retrospectively validate all production names.
 
 **Revised PDF locations.** Manuscript p. 8–9 (Gene universe); Supplementary Methods p. 1–2 (S1. Optional).
 
@@ -355,7 +357,7 @@ Expression contributes 15.5–27.5% of individual Usher controls' weighted suppo
 
 **Response.** Figure 5 caption and S7 specify 500 non-control scored labels sampled without replacement, NumPy `default_rng(42)`. The revision figure code orders the 20,016 eligible background labels by retained Ensembl ID and exports sampled IDs and percentiles, making selection reproducible rather than dependent on database row order.
 
-**Revised PDF locations.** Manuscript p. 39 (Figure 5. Internal control recovery); Supplementary Methods p. 10 (S7. Numerical replay).
+**Revised PDF locations.** Manuscript p. 40 (Figure 5. Internal control recovery); Supplementary Methods p. 11 (S7. Numerical replay).
 
 ### R1-minor-6. Permanent exact-version archive/DOI if possible
 
@@ -367,7 +369,7 @@ Expression contributes 15.5–27.5% of individual Usher controls' weighted suppo
 
 **Changes/evidence.** Data availability; S7; Additional files 10-12; exact temporal outcome/audit checkpoint 736e16f and production revision checkpoint 0e1634a.
 
-**Revised PDF locations.** Manuscript p. 32–33 (Availability of data and materials); Supplementary Methods p. 10 (S7. Numerical replay).
+**Revised PDF locations.** Manuscript p. 33–34 (Availability of data and materials); Supplementary Methods p. 11 (S7. Numerical replay).
 
 ### R1-minor-7. Consider shortening biological background
 
@@ -407,7 +409,7 @@ Expression contributes 15.5–27.5% of individual Usher controls' weighted suppo
 
 **Response.** We define seed-free narrowly as no training labels or similarity seeds, disclose embedded known-gene/disease-term inputs, and separate raw scoring from downstream control-informed calibration in the Abstract, Methods and Results. HIGH is a heuristic priority tier, not validated specificity or disease probability. Table 3 reports the control filtering losses directly, and matched comparator results cannot undo reused-positive calibration. See R1-major-2/3 and Supplementary Methods S3/S5/S6.
 
-**Revised PDF locations.** Manuscript p. 11–12 (NULL-aware composite scoring); Manuscript p. 19–20 (Internal control recovery); Supplementary Methods p. 2–3 (S3. Implemented); Supplementary Methods p. 4–5 (S5. Frozen); Supplementary Methods p. 5–10 (S6. Retrospective).
+**Revised PDF locations.** Manuscript p. 11–12 (NULL-aware composite scoring); Manuscript p. 19–20 (Internal control recovery); Supplementary Methods p. 2–3 (S3. Implemented); Supplementary Methods p. 4–5 (S5. Frozen); Supplementary Methods p. 5–11 (S6. Retrospective).
 
 ### R3-3. Justify final weights and discuss logistic-ranking sensitivity
 
@@ -433,7 +435,7 @@ The score/gate was developed after the historical cutoff, several source channel
 
 **Changes/evidence.** Methods/Results temporal sections; Table 4/Figure 8; S6; Additional file 12 with the 45-case roster, date/family evidence, exclusions, source contract, all outcomes and reconstruction code.
 
-**Revised PDF locations.** Manuscript p. 12–14 (Retrospective evaluation of historical analogues); Manuscript p. 24–26 (Retrospective temporal evaluation); Manuscript p. 29–30 (Limitations); Supplementary Methods p. 5–10 (S6. Retrospective).
+**Revised PDF locations.** Manuscript p. 12–14 (Retrospective evaluation of historical analogues); Manuscript p. 24–26 (Retrospective temporal evaluation); Manuscript p. 26–27 (Biological scope of the temporal cohort); Manuscript p. 29–31 (Limitations); Supplementary Methods p. 5–11 (S6. Retrospective); Supplementary Methods p. 11–13 (S8. Contemporary).
 
 ### R3-5. Impact of excluding hair-cell expression and developmental bias
 
@@ -443,7 +445,7 @@ The score/gate was developed after the historical cutoff, several source channel
 
 **Response.** Main Methods/Results/Discussion now state the lack of production auditory-cell evidence and possible disadvantage for auditory-restricted or developmentally restricted genes. The fetal analyses do not enter the score, are based on two marker-selected samples and already selected HIGH genes, and do not establish adult expression or independent validity. We quantify expression contribution and substantial cerebellum-proxy sensitivity rather than implying complete Usher-tissue coverage. See R1-major-10, S1/S3.
 
-**Revised PDF locations.** Manuscript p. 24 (Expression dependence); Manuscript p. 29–30 (Limitations); Supplementary Methods p. 1–2 (S1. Optional); Supplementary Methods p. 2–3 (S3. Implemented).
+**Revised PDF locations.** Manuscript p. 24 (Expression dependence); Manuscript p. 29–31 (Limitations); Supplementary Methods p. 1–2 (S1. Optional); Supplementary Methods p. 2–3 (S3. Implemented).
 
 ### R3-6. General gene importance/research intensity versus disease specificity
 
@@ -453,7 +455,7 @@ The score/gate was developed after the historical cutoff, several source channel
 
 **Response.** We retain the 94.8th-percentile housekeeping failure and clarify that constraint, annotation depth and publication context can encode general importance or research effort. We added publication/GO-matched unrelated-disease comparators, correlations, source-completeness balance and common-layer/omission analyses. Separation remains with common layers but weakens to 55.6%/57.1% after animal/literature omission; clinical-label exclusions also overlap features relevant to the score. Literature-only medians reach 99.13%/99.78% for known controls and its top 100 contains 2/9 Usher and 21/28 SYSCILIA controls, emphasizing known biology and research/curation rather than independent discovery. These checks do not make the composite Usher-specific or remove all ascertainment. Rigorously adjudicated clinical negatives remain unavailable. The separate later-association cohort has now been evaluated, with weak outcomes that do not establish disease-specific predictive validity. See R1-major-4/7 and S3–S5.
 
-Human author review further clarifies the cohort's biological scope. The mitochondrial, retinal vascular, glycosylation and RNA-splicing examples provide concrete reasons to distinguish broader sensory-disease prioritization from ciliopathy-specific performance (R1-major-8).
+Human author review further clarifies the cohort's biological scope. The mitochondrial, retinal vascular, glycosylation and RNA-splicing examples provide concrete reasons to distinguish broader sensory-disease prioritization from ciliopathy-specific performance (R1-major-8). The added contemporary GO classification is consistent with functional heterogeneity, but no enrichment passed FDR < 0.05; we do not treat it as evidence of cilia specificity (S8; Additional file 13).
 
-**Revised PDF locations.** Manuscript p. 20–21 (Negative controls); Manuscript p. 21–22 (Matched unrelated-disease comparators); Manuscript p. 23–24 (Sensitivity analysis); Supplementary Methods p. 2–3 (S3. Implemented); Supplementary Methods p. 4 (S4. Control traces); Supplementary Methods p. 4–5 (S5. Frozen).
+**Revised PDF locations.** Manuscript p. 20–21 (Negative controls); Manuscript p. 21–22 (Matched unrelated-disease comparators); Manuscript p. 23–24 (Sensitivity analysis); Manuscript p. 26–27 (Biological scope of the temporal cohort); Supplementary Methods p. 2–3 (S3. Implemented); Supplementary Methods p. 4 (S4. Control traces); Supplementary Methods p. 4–5 (S5. Frozen); Supplementary Methods p. 11–13 (S8. Contemporary).
 

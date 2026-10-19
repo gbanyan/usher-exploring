@@ -1,0 +1,33 @@
+{
+  "location": "local macOS arm64",
+  "analysis_interpreter": ".venv/bin/python Python3.13.1",
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "exit_code": 0,
+      "passed": 362,
+      "warnings": 17,
+      "seconds": 5.65
+    },
+    {
+      "command": ".venv/bin/python -m pytest tests/test_revision_go.py",
+      "exit_code": 0,
+      "passed": 8
+    },
+    {
+      "command": ".venv/bin/python scripts/revision_temporal_derived_replay.py",
+      "exit_code": 0,
+      "rows": 38334,
+      "exact_scores_counts_ranks": true,
+      "HIGH_raw_flags_or_clinical_regeneration": false
+    },
+    {
+      "command": ".venv/bin/python scripts/verify_revision_go.py",
+      "exit_code": 0,
+      "independent_Fisher_BH_tests": 24597,
+      "protected_baseline_hashes": 21
+    }
+  ],
+  "authoring_runtime": "Bundled codex-primary-runtime26.1011.51657 Python3.12.14 / python-docx; Pandoc; bundled LibreOffice25.2-headless-codex.1 via canonical render_docx.py;110dpi page PNGs",
+  "PDF_readonly_QA_interpreter": "data/cache/revision-writing-20261007/doc-env/bin/python with PyMuPDF"
+}

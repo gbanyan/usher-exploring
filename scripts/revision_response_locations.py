@@ -20,7 +20,7 @@ LOCATIONS = {
     'R1-major-5': (['NULL-aware composite scoring', 'Sensitivity analysis'], ['S2. Data-driven', 'S4. Control traces']),
     'R1-major-6': (['Impact of missing data handling', 'Sensitivity analysis'], ['S4. Control traces', 'S6. Retrospective']),
     'R1-major-7': (['Evidence layers', 'Sensitivity analysis'], ['S3. Implemented', 'S4. Control traces', 'S5. Frozen']),
-    'R1-major-8': (['Sensitivity analysis', 'Retrospective temporal evaluation', 'Comparison with mantis-ml'], ['S4. Control traces', 'S6. Retrospective']),
+    'R1-major-8': (['Sensitivity analysis', 'Retrospective temporal evaluation', 'Biological scope of the temporal cohort', 'Comparison with mantis-ml'], ['S4. Control traces', 'S6. Retrospective', 'S8. Contemporary']),
     'R1-major-9': (['Reproducibility', 'Availability of data and materials', 'Additional files'], ['S7. Numerical replay']),
     'R1-major-10': (['Expression dependence', 'Limitations'], ['S1. Optional', 'S3. Implemented']),
     'R1-minor-1': (['Abstract', 'NULL-aware composite scoring'], ['S3. Implemented']),
@@ -33,9 +33,9 @@ LOCATIONS = {
     'R3-1': (['Usher syndrome as a specialized sensory ciliopathy'], []),
     'R3-2': (['NULL-aware composite scoring', 'Internal control recovery'], ['S3. Implemented', 'S5. Frozen', 'S6. Retrospective']),
     'R3-3': (['Sensitivity analysis'], ['S2. Data-driven', 'S4. Control traces']),
-    'R3-4': (['Retrospective evaluation of historical analogues', 'Retrospective temporal evaluation', 'Limitations'], ['S6. Retrospective']),
+    'R3-4': (['Retrospective evaluation of historical analogues', 'Retrospective temporal evaluation', 'Biological scope of the temporal cohort', 'Limitations'], ['S6. Retrospective', 'S8. Contemporary']),
     'R3-5': (['Expression dependence', 'Limitations'], ['S1. Optional', 'S3. Implemented']),
-    'R3-6': (['Negative controls', 'Matched unrelated-disease comparators', 'Sensitivity analysis'], ['S3. Implemented', 'S4. Control traces', 'S5. Frozen']),
+    'R3-6': (['Negative controls', 'Matched unrelated-disease comparators', 'Sensitivity analysis', 'Biological scope of the temporal cohort'], ['S3. Implemented', 'S4. Control traces', 'S5. Frozen', 'S8. Contemporary']),
 }
 
 
@@ -73,7 +73,7 @@ def page_numbers(name, anchor):
         cursor = found + 1
     candidates = [(i, level, pos) for i, (level, heading, pos) in enumerate(located)
                   if heading.rstrip('.') == anchor or heading.startswith(anchor)
-                  and anchor.startswith(('S1.', 'S2.', 'S3.', 'S4.', 'S5.', 'S6.', 'S7.'))]
+                  and anchor.startswith(('S1.', 'S2.', 'S3.', 'S4.', 'S5.', 'S6.', 'S7.', 'S8.'))]
     if not candidates:
         raise ValueError(f'No PDF location: {name} {anchor}')
     # Select the final Conclusions rather than its abstract subheading.

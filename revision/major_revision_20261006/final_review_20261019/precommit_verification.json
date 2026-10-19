@@ -1,0 +1,27 @@
+{
+  "staged_files": 101,
+  "no_data_symlink_or_uv_lock_staged": true,
+  "LFS": [
+    {
+      "path": "submission/bmc_bioinformatics_major_revision_20261019/Additional_file_11_Revision_Diagnostics_and_Replay.zip",
+      "oid_sha256": "84df07ac47fbf8844d027c3d2cfd6dce8c06e3dda2f03c2b40c4a27eb7bed67f",
+      "bytes": 18135560,
+      "staged_as_LFS_pointer": true,
+      "local_object_verified": true
+    },
+    {
+      "path": "submission/bmc_bioinformatics_major_revision_20261019/Additional_file_12_Temporal_Evaluation.zip",
+      "oid_sha256": "b2ca64eef02283a611ae92b69e544691d883e0692246f2cbc10341636ab6c0d8",
+      "bytes": 6637313,
+      "staged_as_LFS_pointer": true,
+      "local_object_verified": true
+    },
+    {
+      "path": "submission/bmc_bioinformatics_major_revision_20261019/Additional_file_13_Temporal_GO_Classification.zip",
+      "oid_sha256": "b69a8593518571d318b74e573f246164c98a3d0a205f897f4179a9df06f9752e",
+      "bytes": 3703265,
+      "staged_as_LFS_pointer": true,
+      "local_object_verified": true
+    }
+  ]
+}

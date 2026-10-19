@@ -155,7 +155,7 @@ def main():
         for i,r in enumerate(expected_data["annotations"],6):
             assert sheets[5][f"A{i}"] == r["frozen_symbol"] and sheets[5][f"E{i}"] == r["go_id"] and sheets[5][f"G{i}"] == r["evidence_code"]
 
-    report=dict(status="PASS",protected_baseline_hashes=len(freeze["protected_baseline"]),freeze_and_amended_inputs=len(expected),source_hashes=len(sources),API_response_hashes=len(ontology["requests"]),independent_fisher_BH=checks,case_rows=45,memberships=341,all_frozen_rank_joins_exact=True,workbook_sheets=7,complete_workbook_enrichment_rows=len(enrichment),workbook_sha256=sha(xlsx),visual_QA="Ten sheet views and the complete figure inspected; no clipped table content or figure-label overlap",limits="Numerical/source integrity audit, not independent clinical adjudication")
+    report=dict(status="PASS",protected_baseline_hashes=len(freeze["protected_baseline"]),freeze_and_amended_inputs=len(expected),source_hashes=len(sources),API_response_hashes=len(ontology["requests"]),independent_fisher_BH=checks,analysis_associations_cache_sha256=sha(CACHE/"analysis_associations.json"),independent_check_scope="Separate Fisher/BH arithmetic from analysis-derived associations; source mapping/propagation uses same-code replay",case_rows=45,memberships=341,all_frozen_rank_joins_exact=True,workbook_sheets=7,complete_workbook_enrichment_rows=len(enrichment),workbook_sha256=sha(xlsx),visual_QA="Thirteen sheet views and the complete figure inspected; no clipped table content or figure-label overlap",limits="Numerical/source integrity audit, not independent clinical adjudication")
     (BASE/"verification.json").write_text(json.dumps(report,indent=2)+"\n")
     print(json.dumps(report,indent=2))
 

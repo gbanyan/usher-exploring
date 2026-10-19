@@ -1,0 +1,14 @@
+{
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "tools": [
+    "Read",
+    "Glob",
+    "Grep"
+  ],
+  "permission_mode": "dontAsk",
+  "safe_mode": true,
+  "started_unix": 1792425092.441931,
+  "prompt_file": "revision/major_revision_20261006/final_review_20261019/opus_prompt.md",
+  "input_manifest": "revision/major_revision_20261006/final_review_20261019/opus_input_manifest.json"
+}

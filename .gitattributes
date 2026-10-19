@@ -7,3 +7,10 @@ revision/major_revision_20261006/phase5_claude_review/round*_inputs/** -text whi
 revision/major_revision_20261006/cover_letter_revision.md whitespace=-blank-at-eol
 revision/major_revision_20261006/rebuttal.md whitespace=-blank-at-eof
 submission/bmc_bioinformatics_major_revision_20261007/*.tsv -text whitespace=-blank-at-eol
+submission/bmc_bioinformatics_major_revision_20261019/*.zip filter=lfs diff=lfs merge=lfs -text
+submission/bmc_bioinformatics_major_revision_20261019/*.tsv -text whitespace=-blank-at-eol
+# Preserve generated SVG path geometry exactly as exported by Matplotlib.
+outputs/temporal-go-classification-20261019/*.svg -text whitespace=-blank-at-eol
+submission/bmc_bioinformatics_major_revision_20261019/figures/*.svg -text whitespace=-blank-at-eol
+# Retain exact audit responses, immutable input snapshots and PDF extraction bytes.
+revision/major_revision_20261006/final_review_20261019/** -text whitespace=-blank-at-eol,-blank-at-eof

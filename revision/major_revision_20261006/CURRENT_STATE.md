@@ -1,3 +1,23 @@
+# Final author-review artifacts verified — 20 October 2026
+
+The new package is `submission/bmc_bioinformatics_major_revision_20261019/` (assembly date retained in the path). All four documents have been regenerated and all 80 pages inspected: main 50, Supplement 13, response 16, cover 1. Actual-artifact/source verification covers all 23 original quotations, 25 response topics, 89 page locations, all 66 references in first-main-citation order, 21 protected baseline hashes, all 45 prior-package artifacts and the unchanged temporal tree. All 362 tests pass with 17 existing warnings; 38,334 temporal derived score/count/rank rows reproduce exactly. The nine main figures and Figure S1 are embedded, with separate assets retained. Additional file 13 contains the complete GO outputs and its tests; the full working human-review form is not attached.
+
+Actual first-party Claude Opus5.5 high reviewed the current package in 53 read-only turns, followed by a 46-turn focused audit after corrections. It confirmed readiness for final author review with no remaining material issue or new error. The cover version link, citation order and cumulative-family context were corrected; see `final_review_20261019/opus_review.md`, `opus_resolution.md`, `opus_followup_review.md` and raw model/provider metadata. Numerical hashing is separately performed by our verifiers; the AI review is not external peer review or clinical sign-off.
+
+The new fixed tag is `major-revision-author-review-20261019`. Final Git/LFS publication is the remaining operational step at this record checkpoint; completion must be proved in `final_review_20261019/publication_verification.json`. Do not move the 7 October tag. User author approval and the journal-generated PDF/figure-access check remain subsequent author actions; no journal upload has been performed. Flagged clinical eligibility is still under review, with frozen cumulative-family evidence now presented alongside index-paper concerns, and no new cohort exclusion/approval or outcome change asserted.
+
+---
+
+# Final author-review assembly in progress — 19 October 2026 (historical checkpoint)
+
+The active user goal is to prepare the complete pre-upload version for final author review. This supersedes the earlier response-only/GO-integration pause below. Manuscript, Supplement, response and cover-letter sources now incorporate the subsequent human review and a separate post-hoc contemporary GO description. The 7 October package/tag remains untouched. New files are being assembled under `submission/bmc_bioinformatics_major_revision_20261019/`; do not call them complete until rendering, current-artifact review and checksum verification finish.
+
+GO independent Fisher-exact/SciPy-BH recalculation agrees for all 24,597 tests, with no FDR-significant term in any analysis. Complete raw GAF/ontology replay reproduces eight TSVs plus the summary (nine files) byte-identically. All 21 protected baseline hashes and frozen case-percentile joins match. Ten workbook views covering seven sheets and the complete figure were inspected. Read `go_classification_20261019/REPORT.md`, `verification.json` and `replay_verification.json`.
+
+The author-review summary covers all 45 cases' primary reports and family/pedigree evidence after the frozen computation. PDIA6/VWA8/PLCG1 concerns remain under review; no clinical exclusion or new cohort approval was authorized. Frozen outcomes/denominators remain unchanged, and the full working author-review form will not be a new submission attachment. Human review, clinical eligibility and descriptive GO membership remain distinct.
+
+---
+
 # Reviewer-response source updated — 19 October 2026
 
 The author authorized writing the reviewer response from the current evidence, explaining human review and representative findings without submitting the full author-review worksheet. `rebuttal.md` is now the updated working response. Read `response_update_20261019/README.md`, `verification.json` and `family_note_findings.json`. All 23 Reviewer 1/3 quotations are preserved; the editor's accuracy/limitations comment and Reviewer 2's actual inaccessible-FIGURES comment are now included. Human review is described as covering primary reports/family information for every case after the frozen temporal analysis, with some eligibility concerns unresolved. Representative CRLS1/CTNND1/DHRSX/RNU mechanism distinctions and publication-version/interval checks are explained without claiming all 45 clinically approved, a new ciliary-only analysis or independent prospective validation.

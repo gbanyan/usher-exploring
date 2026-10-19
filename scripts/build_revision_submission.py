@@ -23,6 +23,8 @@ DEFAULT_OUT = ROOT / "submission/bmc_bioinformatics_major_revision_20261007"
 
 def format_document(path: Path, main: bool) -> None:
     document = Document(path)
+    if path.stem != "Cover_Letter" and document.paragraphs:
+        document.paragraphs[0].style = document.styles["Title"]
     for section in document.sections:
         section.top_margin = section.bottom_margin = Inches(.72)
         section.left_margin = section.right_margin = Inches(.72)
@@ -48,6 +50,10 @@ def format_document(path: Path, main: bool) -> None:
             if style.name.startswith("Heading"):
                 style.font.bold = True
                 style.font.size = Pt(13 if style.name in ("Heading 1", "Heading 2") else 11)
+                style.paragraph_format.keep_with_next = True
+            elif style.name == "Title":
+                style.font.bold = True
+                style.font.size = Pt(13)
                 style.paragraph_format.keep_with_next = True
     for table in document.tables:
         table.autofit = True
@@ -79,6 +85,11 @@ def format_document(path: Path, main: bool) -> None:
                 paragraphs[i + 1].paragraph_format.keep_with_next = True
         if paragraph._p.xpath('.//w:drawing'):
             paragraph.paragraph_format.keep_with_next = True
+    # Keep descriptive alternative text in OOXML without creating a duplicate
+    # visible Pandoc figure caption ahead of the journal's numbered legend.
+    descriptions = [p.text for p in paragraphs if re.match(r"Figure (?:\d+|S1)\.", p.text)]
+    for shape, description in zip(document.inline_shapes, descriptions):
+        shape._inline.docPr.set("descr", description)
     document.save(path)
 
 
@@ -89,7 +100,7 @@ def main() -> None:
     parser.add_argument("--only", choices=("Manuscript", "Supplementary_Methods", "Response_to_Reviewers", "Cover_Letter"))
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    cache = ROOT / "data/cache/revision-writing-20261007/document-inputs"
+    cache = ROOT / "data/cache" / args.output_dir.name / "document-inputs"
     cache.mkdir(parents=True, exist_ok=True)
     sources = {
         "Manuscript": ROOT / "manuscript/draft.md",
@@ -114,6 +125,9 @@ def main() -> None:
                     lines.extend([f"![]({figures[0].resolve()}){{width=6.7in}}", ""])
                 lines.append(line)
             text = "\n".join(lines)
+        elif name == "Supplementary_Methods" and "**Figure S1." in text:
+            figure = ROOT / "outputs/temporal-go-classification-20261019/Temporal_GO_Functional_Overview_20261019.png"
+            text = text.replace("**Figure S1.", f"![]({figure.resolve()}){{width=6.5in}}\n\n**Figure S1.", 1)
         staged = cache / f"{name}.md"
         staged.write_text(text)
         output = args.output_dir / f"{name}.docx"
