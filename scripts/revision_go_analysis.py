@@ -177,7 +177,8 @@ def main():
             if codes - {"IEA"}:
                 no_iea[g].update(closure)
     rank_rows = read_tsv(OLD / "results/case_rankings.tsv")
-    ranks = {(r["gene_key"], r["scheme"]): r for r in rank_rows if r["scheme"] in ("archived_five", "archived_six")}
+    ranks = {(r["gene_key"], r["scheme"]): r for r in rank_rows if r["scheme"] in ("archived_five", "augmented_six")}
+    assert all((g,s) in ranks for g in cases for s in ("archived_five","augmented_six")), "Missing frozen co-primary rank row"
     memberships, gene_rows = [], []
     for r in author_rows:
         key = r["gene_key"]
@@ -213,7 +214,7 @@ def main():
             shared_RNAcentral_HGNC_keys="; ".join(sorted(shared_rna[key])),
             frozen_2020_GO_count=int(historical[key]["go_positive_terms"]) if key in historical and historical[key]["go_positive_terms"] else None,
             five_layer_percentile=float(ranks[key,"archived_five"]["percentile"]) if key in universe else None,
-            six_layer_percentile=float(ranks[key,"archived_six"]["percentile"]) if key in universe else None,
+            six_layer_percentile=float(ranks[key,"augmented_six"]["percentile"]) if key in universe else None,
             author_eligibility_as_returned=r["human_eligibility_decision_as_returned"], notes=". ".join(notes)))
     categories = []
     for term in sorted(slim, key=lambda t: (aspect_map[t], ontology[t]["name"], t)):
@@ -223,7 +224,7 @@ def main():
             genes_of_45=len(members), proportion_of_45=len(members)/45, coding_genes_of_41=len(coded),
             noncoding_genes_of_4=len(members-coding), genes_without_IEA=sum(term in no_iea.get(g,set()) for g in members),
             median_five_percentile=statistics.median(float(ranks[g,"archived_five"]["percentile"]) for g in coded) if coded else None,
-            median_six_percentile=statistics.median(float(ranks[g,"archived_six"]["percentile"]) for g in coded) if coded else None,
+            median_six_percentile=statistics.median(float(ranks[g,"augmented_six"]["percentile"]) for g in coded) if coded else None,
             genes="; ".join(sorted(symbols[g] for g in members))))
     roster = json.loads((OLD / "cohort_screening/clinical_roster.json").read_text())["records"]
     catalog = {r["gene_key"] for r in roster if any(s.startswith(("RetNet:","panel")) for s in r.get("source_records", []))} & universe

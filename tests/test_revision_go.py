@@ -1,6 +1,7 @@
 """Meaningful edge checks for case identity, ancestry policy and enrichment helpers."""
 import sys
 import math
+import csv
 from pathlib import Path
 
 import pytest
@@ -85,3 +86,14 @@ def test_enrichment_conditions_on_aspect_and_counts_all_tested_terms():
     assert all(r["fdr_bh"] >= r["p_value"] for r in rows)
     with pytest.raises(ValueError):
         enrich("bad", assoc, aspects, {"not-in-reference"}, universe, {})
+
+
+def test_frozen_coprimary_scheme_identity_and_case_join():
+    root = Path(__file__).resolve().parents[1]
+    cases = list(csv.DictReader((root/"revision/major_revision_20261006/author_review_20261019/returned_author_observations.tsv").open(),delimiter="\t"))
+    ranks = list(csv.DictReader((root/"revision/major_revision_20261006/temporal_validation_v2/results/case_rankings.tsv").open(),delimiter="\t"))
+    for name in ("archived_five","augmented_six"):
+        current = {r["gene_key"]:r for r in ranks if r["scheme"]==name}
+        selected = [current[r["gene_key"]] for r in cases]
+        assert len(selected)==45
+        assert sum(r["in_historical_universe"]=="True" for r in selected)==41

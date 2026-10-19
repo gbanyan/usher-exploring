@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-19T14:35:30.601327+00:00",
+  "previous_amendment_sha256": "77606ae85a554a7f080393f3c4252343de80cc437e2e478ab0eb643e95c72550",
+  "second_attempt": "Aborted before saving any GO summary or enrichment due to non-existent guessed frozen six-layer scheme key",
+  "case_summary_or_enrichment_outcomes_inspected": false,
+  "coprimary_schemes": [
+    "archived_five",
+    "augmented_six"
+  ],
+  "inputs_sha256": {
+    "scripts/revision_go_analysis.py": "a559c793e35cce789e79f8a5fa0c9fa571fd30fef403918562ff1b2c10279a90",
+    "scripts/revision_go_common.py": "1b4d713fce0bd9e6e8e3bee637bd452cdf1b3f96c4877b4f577a2fdf5c99707c",
+    "tests/test_revision_go.py": "e888673ca195c15ce75cc67a3ff9fd00da452a17d3bc6527119e3df5ce71d0d2",
+    "revision/major_revision_20261006/go_classification_20261019/IMPLEMENTATION_NOTE_02.md": "7dc322a617817f90459896debf8f8d6463b9684b56087f943063411b72f5c258"
+  }
+}
