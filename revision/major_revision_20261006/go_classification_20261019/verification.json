@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "protected_baseline_hashes": 21,
+  "freeze_and_amended_inputs": 14,
+  "source_hashes": 4,
+  "API_response_hashes": 353,
+  "independent_fisher_BH": [
+    {
+      "analysis": "Primary: genome background",
+      "terms": 11388,
+      "significant": 0,
+      "min_q": 1.0
+    },
+    {
+      "analysis": "Sensitivity: exclude IEA",
+      "terms": 10459,
+      "significant": 0,
+      "min_q": 0.3531193722460008
+    },
+    {
+      "analysis": "Sensitivity: catalog background",
+      "terms": 2750,
+      "significant": 0,
+      "min_q": 1.0
+    }
+  ],
+  "case_rows": 45,
+  "memberships": 341,
+  "all_frozen_rank_joins_exact": true,
+  "workbook_sheets": 7,
+  "complete_workbook_enrichment_rows": 24597,
+  "workbook_sha256": "ce61ee3dffe6e35283954bb3c0d39b1466e6cf8da8fe46eaa126b8cf7bfc4f39",
+  "visual_QA": "Ten sheet views and the complete figure inspected; no clipped table content or figure-label overlap",
+  "limits": "Numerical/source integrity audit, not independent clinical adjudication"
+}

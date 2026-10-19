@@ -1,0 +1,139 @@
+{
+  "case_rows": 45,
+  "coding_query": 41,
+  "outside_coding_universe": 4,
+  "current_GO_annotated_cases": 45,
+  "cases_no_usable_GO": [],
+  "generic_slim_categories": 140,
+  "categories_with_cases": 85,
+  "direct_case_annotation_records": 2164,
+  "gene_category_memberships": 341,
+  "genome_eligible": 19167,
+  "catalog_eligible": 1032,
+  "coverage": [
+    {
+      "analysis": "Primary: genome background",
+      "aspect": "BP",
+      "eligible_query": 41,
+      "annotated_query": 37,
+      "eligible_background": 19167,
+      "annotated_background": 16831,
+      "unannotated_case_symbols": "C19orf44; PSKH1; TMEM72; VWA8"
+    },
+    {
+      "analysis": "Primary: genome background",
+      "aspect": "MF",
+      "eligible_query": 41,
+      "annotated_query": 38,
+      "eligible_background": 19167,
+      "annotated_background": 17541,
+      "unannotated_case_symbols": "BRWD1; CFAP54; FSD1L"
+    },
+    {
+      "analysis": "Primary: genome background",
+      "aspect": "CC",
+      "eligible_query": 41,
+      "annotated_query": 40,
+      "eligible_background": 19167,
+      "annotated_background": 18083,
+      "unannotated_case_symbols": "C19orf44"
+    },
+    {
+      "analysis": "Sensitivity: exclude IEA",
+      "aspect": "BP",
+      "eligible_query": 41,
+      "annotated_query": 37,
+      "eligible_background": 19167,
+      "annotated_background": 16213,
+      "unannotated_case_symbols": "C19orf44; PSKH1; TMEM72; VWA8"
+    },
+    {
+      "analysis": "Sensitivity: exclude IEA",
+      "aspect": "MF",
+      "eligible_query": 41,
+      "annotated_query": 38,
+      "eligible_background": 19167,
+      "annotated_background": 17256,
+      "unannotated_case_symbols": "BRWD1; CFAP54; FSD1L"
+    },
+    {
+      "analysis": "Sensitivity: exclude IEA",
+      "aspect": "CC",
+      "eligible_query": 41,
+      "annotated_query": 40,
+      "eligible_background": 19167,
+      "annotated_background": 17310,
+      "unannotated_case_symbols": "C19orf44"
+    },
+    {
+      "analysis": "Sensitivity: catalog background",
+      "aspect": "BP",
+      "eligible_query": 41,
+      "annotated_query": 37,
+      "eligible_background": 1032,
+      "annotated_background": 1010,
+      "unannotated_case_symbols": "C19orf44; PSKH1; TMEM72; VWA8"
+    },
+    {
+      "analysis": "Sensitivity: catalog background",
+      "aspect": "MF",
+      "eligible_query": 41,
+      "annotated_query": 38,
+      "eligible_background": 1032,
+      "annotated_background": 985,
+      "unannotated_case_symbols": "BRWD1; CFAP54; FSD1L"
+    },
+    {
+      "analysis": "Sensitivity: catalog background",
+      "aspect": "CC",
+      "eligible_query": 41,
+      "annotated_query": 40,
+      "eligible_background": 1032,
+      "annotated_background": 1027,
+      "unannotated_case_symbols": "C19orf44"
+    }
+  ],
+  "enrichment": [
+    {
+      "analysis": "Primary: genome background",
+      "tested_terms": 11388,
+      "fdr_significant": 0
+    },
+    {
+      "analysis": "Sensitivity: exclude IEA",
+      "tested_terms": 10459,
+      "fdr_significant": 0
+    },
+    {
+      "analysis": "Sensitivity: catalog background",
+      "tested_terms": 2750,
+      "fdr_significant": 0
+    }
+  ],
+  "ontology_version": {
+    "version": "http://purl.obolibrary.org/obo/go/releases/2026-09-27/extensions/go-plus.ofn",
+    "timestamp": "2026-09-27"
+  },
+  "annotation_audit": {
+    "source_rows": 941569,
+    "usable_source_rows": 863857,
+    "unmapped_or_outside_universe_rows": 76054,
+    "NOT_excluded": 1300,
+    "ND_excluded": 295,
+    "unresolved_or_obsolete_excluded": 51,
+    "root_only_excluded": 12
+  },
+  "mapping_row_routes": {
+    "HGNC UniProt accession": 876173,
+    "exact approved symbol": 376,
+    "ambiguous or unmapped symbol": 57778,
+    "ambiguous protein accession": 2555,
+    "unambiguous HGNC alias": 21,
+    "HGNC RNAcentral xref": 2816,
+    "HGNC RNAcentral xref (shared sequence)": 192
+  },
+  "protocol_sha256": "af1a83feaac07d22f82f2e39b5ef014c17b3d37ae69411eaf5762ddf4b5da5ea",
+  "source_resolution_sha256": "e7b9a1535e412cb019b21a88f7f4cd9130455f9f1b1edae8b904ff07ff2ad7c1",
+  "frozen_data_changed": false,
+  "original_author_eligibility_preserved": true
+}

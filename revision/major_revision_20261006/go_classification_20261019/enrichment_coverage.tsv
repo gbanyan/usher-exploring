@@ -1,0 +1,10 @@
+analysis	aspect	eligible_query	annotated_query	eligible_background	annotated_background	unannotated_case_symbols
+Primary: genome background	BP	41	37	19167	16831	C19orf44; PSKH1; TMEM72; VWA8
+Primary: genome background	MF	41	38	19167	17541	BRWD1; CFAP54; FSD1L
+Primary: genome background	CC	41	40	19167	18083	C19orf44
+Sensitivity: exclude IEA	BP	41	37	19167	16213	C19orf44; PSKH1; TMEM72; VWA8
+Sensitivity: exclude IEA	MF	41	38	19167	17256	BRWD1; CFAP54; FSD1L
+Sensitivity: exclude IEA	CC	41	40	19167	17310	C19orf44
+Sensitivity: catalog background	BP	41	37	1032	1010	C19orf44; PSKH1; TMEM72; VWA8
+Sensitivity: catalog background	MF	41	38	1032	985	BRWD1; CFAP54; FSD1L
+Sensitivity: catalog background	CC	41	40	1032	1027	C19orf44

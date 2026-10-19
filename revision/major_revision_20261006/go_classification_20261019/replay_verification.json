@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "source_reconstruction_outputs_byte_identical": {
+    "revision/major_revision_20261006/go_classification_20261019/background_gene_mapping.tsv": "b5bbbcc782ac68818aec566ad2edcf69ec42a71639ff7e4c04bfb60f7e125d8d",
+    "revision/major_revision_20261006/go_classification_20261019/case_direct_annotations.tsv": "6619c81330f1ce6ed17e200f85639a0d1a9786e8a458079276d51dd5cb0775f1",
+    "revision/major_revision_20261006/go_classification_20261019/category_summary.tsv": "25c193f2268a079c5de9fb0487b8a8126f712ddb95b7107b3cc75fec1ee852d6",
+    "revision/major_revision_20261006/go_classification_20261019/enrichment.tsv": "586886dac7bc621129e017e0814b823aa464c603c465d2727d43609a996a4fd3",
+    "revision/major_revision_20261006/go_classification_20261019/enrichment_coverage.tsv": "b7274ca0acd70a85801589035614670a8325a7c378901764963869682192b16c",
+    "revision/major_revision_20261006/go_classification_20261019/gene_slim_matrix.tsv": "904cf6baa6b0a0d23103fb5c24a28649d75fcc81945b25b103a3930a495bb609",
+    "revision/major_revision_20261006/go_classification_20261019/gene_summary.tsv": "14b2b6e536d6de6b22eafaa51f55709303342426eea6ca4fc864c755fbf86e67",
+    "revision/major_revision_20261006/go_classification_20261019/slim_membership.tsv": "541fd1804b5b1aaf4e7b1b6f7fc2b158c7d9c0877c78a8a6d52d065228390205",
+    "revision/major_revision_20261006/go_classification_20261019/summary.json": "12420deb7572086f877cb1862c37795f52d342cbe2c0c6298d5a856012b83d94"
+  },
+  "command": ".venv/bin/python scripts/revision_go_analysis.py",
+  "scope": "Complete GAF mapping, closure, categories and enrichment replay; separate Fisher/BH implementation in verification.json"
+}

@@ -37,7 +37,7 @@ def main():
         iea_only = [r["genes_of_45"]-r["genes_without_IEA"] for r in current]
         ax.barh(ys, non_iea, color=dark, height=.66)
         ax.barh(ys, iea_only, left=non_iea, color=light, height=.66)
-        ax.set_yticks(ys, [textwrap.fill(r["category"],width=34) for r in current], fontsize=9)
+        ax.set_yticks(ys, [textwrap.fill(r["category"],width=48) for r in current], fontsize=9)
         ax.tick_params(axis="y",length=0,pad=7)
         ax.invert_yaxis()
         ax.set_title(label,loc="left",fontweight="bold",fontsize=12,pad=11)
@@ -59,7 +59,7 @@ def main():
              "Non-IEA does not necessarily mean experimental evidence. RNA annotations are retained where explicitly mapped.\n"
              f"GO release {summary['ontology_version']['timestamp']}; GOA files generated 11 October 2026. Classification is descriptive.",
              fontsize=8.5,color="#52657A",linespacing=1.5)
-    fig.subplots_adjust(left=.40,right=.95,top=.90,bottom=.085,hspace=.35)
+    fig.subplots_adjust(left=.40,right=.95,top=.90,bottom=.13,hspace=.35)
     OUTPUT.mkdir(exist_ok=True,parents=True)
     for ext in ("png","pdf","svg"):
         fig.savefig(OUTPUT/f"Temporal_GO_Functional_Overview_20261019.{ext}",dpi=300,facecolor="white")
