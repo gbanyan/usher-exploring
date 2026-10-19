@@ -1,0 +1,11 @@
+# Editorial update following the Astra review
+
+The author approved applying the Astra readability recommendations and modestly shortening the biological background on 20 October 2026. The preceding review is `../astra_readability_review_20261020.md`; its proposed decision to retain the full biological discussion was superseded by the author's instruction to shorten it.
+
+The complete Background is reduced from 1,907 to 1,753 whitespace-delimited words (8.1%). The targeted biological subsections are reduced from 558 to 404 words. The retinal and hair-cell descriptions remain, while the multisystem overview, repeated scope distinction and protein-function lists are condensed. R1-minor-7 accepts the suggestion, identifies the changes and quotes the revised scope statement. All 66 references retain their first-main-citation order.
+
+Response answer text is reduced from 3,602 to 2,478 words, excluding the original comments and evidence/location lists. R1-major-8 provides the fuller temporal account; related answers use concise summaries and cross-references. The DOI response states nondeposit directly, and the cover letter omits internal release history. Methods and Supplement retain the information removed from repetitive response passages.
+
+The new package is `submission/bmc_bioinformatics_major_revision_20261020/`, identified by `major-revision-author-review-20261020`. The four documents have 49/13/14/1 pages, respectively, and all 77 final pages were visually checked. All 25 original comment blocks, 89 page-location records and protected scientific baselines are preserved. The numerical suite passed 362 tests with 17 existing warnings. `verification.json`, `visual_review.json`, `editorial_changes.json`, `validation_commands.json` and `preserved_packages.json` record the checks.
+
+The 7 and 19 October packages and tags remain unchanged. Frozen scores, weights, thresholds, clinical decisions, temporal cohort and results are unchanged. The three flagged cases remain retained with eligibility under review. This editorial update does not claim a new post-edit Astra/Opus review. The journal-generated PDF and reviewer figure access still require the submission-portal check before resubmission.

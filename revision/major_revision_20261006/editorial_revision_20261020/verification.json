@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "original_comments_preserved": 23,
+  "response_topics": 25,
+  "protected_baseline_hashes": 21,
+  "old_package_artifacts_unchanged": 45,
+  "current_source_hashes_exact": true,
+  "documents": {
+    "Manuscript": {
+      "pages": 49,
+      "embedded_images": 9,
+      "word_tables": 4,
+      "pdf_sha256": "f287cd5322d9799bf306f39f595ce61613032691b47649fa072b095ce5bfc203"
+    },
+    "Supplementary_Methods": {
+      "pages": 13,
+      "embedded_images": 1,
+      "word_tables": 2,
+      "pdf_sha256": "6846300be174d45fbaac3e64e64722e335fd8dfd0581491f751735605367f0c9"
+    },
+    "Response_to_Reviewers": {
+      "pages": 14,
+      "embedded_images": 0,
+      "word_tables": 0,
+      "pdf_sha256": "0fbbab91b6647ac3a9f84f57bee4b0f4dd27374cec3bb1bbd6135e939bfdc5ef"
+    },
+    "Cover_Letter": {
+      "pages": 1,
+      "embedded_images": 0,
+      "word_tables": 0,
+      "pdf_sha256": "96707840c606fb74d6632db3798a17bdd6781c56a889002300be5b81c9d18d15"
+    }
+  },
+  "page_location_rows": 89,
+  "original_temporal_outcomes": {
+    "archived_five": {
+      "top100": 0,
+      "high": 0,
+      "top1000": 2,
+      "top10pct": 5
+    },
+    "augmented_six": {
+      "top100": 0,
+      "high": 0,
+      "top1000": 3,
+      "top10pct": 6
+    }
+  },
+  "GO_independent_tests": 24597,
+  "additional_ZIP_size_limit_bytes": 20000000,
+  "full_author_review_form_not_attached": true,
+  "limits": [
+    "Author approval of the revised version remains the purpose of this package",
+    "Flagged clinical eligibility remains under review; no new approved cohort asserted",
+    "Journal-generated PDF/reviewer file access can only be checked in the submission portal"
+  ]
+}

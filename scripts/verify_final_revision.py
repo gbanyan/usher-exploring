@@ -3,6 +3,7 @@
 Read with the document environment (python-docx/PyMuPDF); no clinical decision
 is written, no production database is opened for mutation, no portal is used.
 """
+import argparse
 import csv
 import hashlib
 import json
@@ -35,6 +36,13 @@ def comments(text):
 
 
 def main():
+    global OUT, RECORD
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir",type=Path,default=OUT)
+    parser.add_argument("--record-dir",type=Path,default=RECORD)
+    args=parser.parse_args()
+    OUT,RECORD=args.output_dir,args.record_dir
+    RECORD.mkdir(parents=True,exist_ok=True)
     baseline=subprocess.check_output(["rtk","proxy","git","show","d3d309a:revision/major_revision_20261006/rebuttal.md"],text=True,cwd=ROOT)
     response=(REV/"rebuttal.md").read_text()
     assert len(comments(response))==23 and comments(baseline)==comments(response)
@@ -95,13 +103,14 @@ def main():
         for stale in ("Clinicalclassificationsawaitcase-by-casehumanverification", "hasnotyetbeenindividuallyverifiedbyahumanauthor", "workingdraft"):
             assert stale not in compact,(name,stale)
         if name=="Manuscript":
-            assert "major-revision-author-review-20261019" in compact
+            assert manifest["current_author_review_release_tag"] in compact
             assert "Subsequenthumanreviewidentifiedunresolvedtarget-familyevidenceinthreeflaggedcases" in compact
             assert "BP/MF/CCcoveragewas41/42/44" in compact
         if name=="Supplementary_Methods":
             assert "S6.6Subsequenthumanauthorreview" in compact and "S8.ContemporaryGOclassification" in compact
+            assert "passed362tests" in compact
         if name=="Response_to_Reviewers":
-            assert "passed362tests" in compact and "Thefigureswerenotinanaccessibleform" in compact
+            assert "Thefigureswerenotinanaccessibleform" in compact
         images=sum(len(p.get_image_info()) for p in pdf)
         assert images>=drawings,(name,images)
         (RECORD/f"{name}_pdf_text.txt").write_text(text)

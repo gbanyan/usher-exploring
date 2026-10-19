@@ -1,0 +1,131 @@
+{
+  "total_pages": 77,
+  "documents": {
+    "Manuscript": {
+      "pages": 49,
+      "all_pages_visually_inspected": true,
+      "rendered_pdf_matches_delivered": true,
+      "page_pixel_sha256": {
+        "page-1": "c1c3a4092d90b53616c2c7f5de549db12e796ec56cba01b271e3a29431ace12f",
+        "page-2": "7a3a9452e79f3c6285cc03709ebe5b7bd10de602de86940eec31d512f9418fbc",
+        "page-3": "6cee68b1c0933ad715be6f43b9e68832967ba61c7a7cab9798ef1deeb4683e57",
+        "page-4": "d7811b6a3f1ca36b5db50c7c9be847809e4f6bbe2f8797b84c64081031cf1a52",
+        "page-5": "7c281dc2b588306e8d0f7487538ebb9514af1002deaafc9aa06d24d92ee7ca15",
+        "page-6": "4d125a64ccd09a9f150163383fcb0e8c2a0fe7fdcae14e1a2c8c765c538c9eb5",
+        "page-7": "2f48dd2981099c2d18e2146c1d3985617dea1c4927715c05ea52531017145122",
+        "page-8": "c5685bdfa58fd9e36703abf8156a29807cc6200e2b8fa632ec5fbd69d5bd02e7",
+        "page-9": "f755b8cb769ebd5bc71b52fcb104734eee3b104bdfb53d87766037aee70e2a56",
+        "page-10": "918eaf4a1ea54eb67628bf7d5466047446b6e34cb02e07610aa5dc785fb4c0d2",
+        "page-11": "3f7d358dc8a2556dd0bf66b3b57ce758a32553a6be4e8daf12f4d578976e331e",
+        "page-12": "80d0a0c2e1dcfd31925acfb6c8c72c59c8eb02b76d9ae4ad87deff9681f4dd22",
+        "page-13": "ba463f690c62d9f40443e0ea4931d87a2ced2d56d8bd7e01815667920514bc65",
+        "page-14": "abc9d55c8931bc34b496b3345aa9b5eba8a552cbb8f75f50bcb4624999346e04",
+        "page-15": "cb5da46907e76eef8a4a91f81390ddea0dc602fc6154efa53c75423ea6a98a84",
+        "page-16": "95678367f1f821ee2d9e900b2918384740a4dcae7d50ee5f7385c2c928e44f6c",
+        "page-17": "3b13db311edd03861b767cf4a4092fed86b2a4442709919fde63f6ae6cc5437c",
+        "page-18": "9197eb5d311adc2a57bb5743ef9d791bda687d4c77f59257128c7ddfca1839c7",
+        "page-19": "674681515d85c6ddf4db0ea13c14d70fe9e3236667b48d3eea7d01ecd24f854d",
+        "page-20": "8b2d11a233c50cba2a6ac7261aca98ec7c7af31f45809c51f44e1b1e4fcf3457",
+        "page-21": "15342e8dfbff6bc4543c3910b3ceb11c0015ea5d26547ba602504a9145e57352",
+        "page-22": "5e5a8892a0056c630112d0888867738699110d3ab63cecbb744ecb6c1646116c",
+        "page-23": "b5126c2ba830db1eb822ba8ba666de4429442c1854ffd32227e6be87bb8258eb",
+        "page-24": "88a47b8a40a2ee2dd5e0eba91147b4bf7f076c84277b9da943a6f8817e3af7e5",
+        "page-25": "ab0e73597533e2eae43b22e2ea51b7d6019f29d92de6e93e9c5f85315f10a52f",
+        "page-26": "bfbcbf50a3e073de1983b94c70f5bda2359d4c9ef43eca8ad93e914e3b7144cb",
+        "page-27": "ef8c3b1ecf43f880fe23e698f853f96252f8565d2bdab6ca8643cea0041266d7",
+        "page-28": "e8bc5522a0b2b50f08afc628ab38cb407ffad8d408928f3d970b9132ff3b6e52",
+        "page-29": "1ccd61e4397c1019ac0ad4d1629086e173422169432eb4ed7770fd46058f0f7d",
+        "page-30": "d11e9cfa442f45b7854e3c178d99bfb4ac189dd5420d6f59839d45a701d5920f",
+        "page-31": "6e2ec13fe3064b45a9cfce32fad1f866eb0e4f908d57ec689bc3c9cae0e07b8c",
+        "page-32": "0f082c4a1d05fb89c06a9a49bf85c2a11236096f9f653abd5287cf0fa41edd9d",
+        "page-33": "84b833763aa4d00c48ec24f6d0e6ab4510be4445e097d6d8247958abd7a89d11",
+        "page-34": "193edc90652314ec9e415e2c9afaa639784c771cdc2e396453223a54ecaa5359",
+        "page-35": "8af8b61f32d0b6b2b81e12b00b1444b9c227349592b741d7c35c512f469c1ba7",
+        "page-36": "75c89dd461654869195092ab6a449ac79d1f03f5e3ba07680b18503dfa793e8a",
+        "page-37": "006a31cfa24bdb5657f8ea8c901bf0f6592f3ac12c4875f00b5cf4a33391cbb4",
+        "page-38": "feebb4c51f8e99f453f9b712b7e3c5282f878e802122252ff0c008f424919cd5",
+        "page-39": "de0e22ada313d9f96fb58814969cc504bc7f1dc4fee1f4a12410cddac8b0bc52",
+        "page-40": "f0b5cbd29a254a94ee545a194ff1ec3676be1693b784c3528a3ccc99f7f24965",
+        "page-41": "48bae7a8b7d6e3edfe3ec206471d442a9f574b4bcd54779588b84f9492921878",
+        "page-42": "d1328fbf2e363b5ddf1aa733ae1c482ddae271e3c097911e0a88b2bfdbf990bc",
+        "page-43": "fd1849f792e17695aebf5c5b94c30e5c7642252599fecf923516a5d3b57e0d3f",
+        "page-44": "0e641f975909d56b89e21b3221b8f44ddae9fa60f0542752a3b49b69c8aa359d",
+        "page-45": "367ee7d448b16e56e7ee67e4e2cc83c4a0ce8cdd7470da4806fb8a4c45c0784f",
+        "page-46": "05ee11d7f3d5645e9391c157f91954dd1b35651cdfcbbea89ebc9bbe5dd8f77e",
+        "page-47": "4655bc87be532497748359b5711a8b61cdffc159900f19bf20d2fffffda523a6",
+        "page-48": "742c626e3db40d7f907a9e64a2de89df991db9054d4bd830ed2c78a2efa9b476",
+        "page-49": "55117ea3f8376a03fdd25747bfeaf5ad3e0340c280b3a64bb28bd5360b558a73"
+      }
+    },
+    "Supplementary_Methods": {
+      "pages": 13,
+      "all_pages_visually_inspected": true,
+      "rendered_pdf_matches_delivered": true,
+      "page_pixel_sha256": {
+        "page-1": "c7a71ecc97ad86fbd8d5bc2c1f1e5030bfc66c25f4c59cae3cf9fdb2538146a9",
+        "page-2": "d3ac62fc4ac419925491ad68dd1f3eef96a83b851fbe72324bf8793be408fe56",
+        "page-3": "b2ea37cd1568c42d82cc56410f95df6d9efc6b8760d177482e65127c3893a5fb",
+        "page-4": "4b384538b8b6e28f93750a3c95ec2388a718c9b4d910cf40a3d82495b9d2e3d9",
+        "page-5": "cae224dec607b6915df521c03797efeb3e2e373c164dc3b143d5912e9b0910de",
+        "page-6": "93562b3395fd27b57993a8e806960938f8626e8c79d25c521bfff95048498b14",
+        "page-7": "4342cd6954d8cb0ce6a51e825e02b9b7e75edcb2f1e7a1626dce73fe5838676f",
+        "page-8": "16ba56dd864141b07125ffa0f6196a6a7d6f04ec53966b8d7d19d61aa34316b4",
+        "page-9": "4968161df41b67d75454849561c56c621614f42d29eb26ba99422af5c6beb6c8",
+        "page-10": "dfa8bdc5067d0f4a33982b63d4b33e2aa86f0d5e69c4ad53ccf0eb123748cc60",
+        "page-11": "4cb9017b2c0d81f30a61d3de91ab43c62bc03fe0c5cf31a4896b42f274a9228c",
+        "page-12": "db5d55901b1249055c6256fc9bdbabd589cc81f84c1f5515e1fb5817c85761f1",
+        "page-13": "d249db79ac29f9316490187bc3d20c8d71bed7834d3214f1e6a90201b293f3c6"
+      }
+    },
+    "Response_to_Reviewers": {
+      "pages": 14,
+      "all_pages_visually_inspected": true,
+      "rendered_pdf_matches_delivered": true,
+      "page_pixel_sha256": {
+        "page-1": "6e73e15dc6aea669c3dd81ed4013bc98d1f5ac2dee45198ce3760599ef92d30e",
+        "page-2": "86ebb8509fe81306097d4b21cfa395a69d6bd0e8f3e79c59a0a3803ce053b094",
+        "page-3": "5b27ae27910493b9bc8584b0fde101bffd01b7891e75533304e709f5f4752449",
+        "page-4": "758be5bab2fbaf069a62f59a6b8db30f07de041899310fb677e72566bf6e9356",
+        "page-5": "2b87d1096995c1c013e836f0489073ed1d71b0b3aeaba1e3b2e069ef5c479999",
+        "page-6": "7613ffba0d8c550cd8eb055eb3c2e7b6709d627061c07d60e02f251fd986f24f",
+        "page-7": "815daf00cf47555769570ccf51e336d9a0bd271dcd6d1e709f7f5b293b0d3010",
+        "page-8": "02011814008eab56c905ce2fb3fceefa874161c9d53282645de38e6df08afafd",
+        "page-9": "bb6b96124f3cc73f7e306d2cabf7cd99d6af94537c9357a9f5e86c3ca7fff523",
+        "page-10": "b47ab5193cc5d8cbfda480e860ce22b001e69add1965a0d82c90c204f53e2824",
+        "page-11": "df73c8b2c2138b7ba68fa0af905530eeb6f14767971ebc76588544104d985e36",
+        "page-12": "cc22a474deaca98b458d51e0502a9ecdc8a1e4d581b5f148bac24f244e267e84",
+        "page-13": "4dab89de8ad28cb60353ce10e92c8cab9cbfeee2d7804e17799370f393f4d9ab",
+        "page-14": "de070a2a55106fe8de6159f0659f2ff1e877adfa0badee55c58fe815c06f4885"
+      }
+    },
+    "Cover_Letter": {
+      "pages": 1,
+      "all_pages_visually_inspected": true,
+      "rendered_pdf_matches_delivered": true,
+      "page_pixel_sha256": {
+        "page-1": "826db112e2bacf62df23fba825968edf68a6528aadcaf7466095a39c4d53b763"
+      }
+    },
+    "response_final_render_carryforward": {
+      "identical_to_inspected_prior_render": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "changed_and_reinspected": [
+        11,
+        12
+      ]
+    }
+  },
+  "result": "PASS"
+}

@@ -1,4 +1,4 @@
-19 October 2026
+20 October 2026
 
 Ritesh Shelke  
 Editor, BMC Bioinformatics
@@ -9,11 +9,11 @@ Re: Major revision of “UsherPipe: a genome-wide multi-evidence pipeline for pr
 
 Thank you for the opportunity to revise our manuscript. For submission 97b94353-679a-4ef3-a386-69332e413872, we have addressed the editor and all three reviewers in the accompanying point-by-point response and revised the manuscript and Supplementary Methods.
 
-The revision distinguishes seed-free raw scoring from the control-calibrated HIGH priority tier and reports final control retention and filtering losses. It adds matched disease comparators, simple weighting baselines, shortlist-membership and missingness diagnostics, and analyses of the cerebellar expression proxy. We have retained the biological rationale while clarifying the score’s limited disease specificity and the absence of production hair-cell measurements.
+The revision distinguishes raw scoring from the control-calibrated HIGH priority tier and reports final control retention. We added matched disease comparators, simple scoring baselines, weight and missingness analyses, and an assessment of the cerebellar expression proxy. We also shortened the biological background, as suggested by Reviewer 1.
 
-We also completed a retrospective temporal evaluation of two historical analogues. Subsequent human author review examined the primary reports and family/pedigree evidence for all 45 AI-screened cases, clarified publication versions and disease mechanisms, and identified target-family evidence concerns that are explicitly retained in the revised text. Forty-one of its 45 later target-association genes were in the historical protein-coding universe; neither analogue recovered a principal case in the top 100 or HIGH tier. Top-100 nonrecovery is reported in the Abstract; the main Results also show the empty or near-empty genome-wide historical HIGH tiers. Source substitutions, post-cutoff method development and non-exhaustive clinical ascertainment limit interpretation. The revised claim is transparent hypothesis organization, without demonstrated reliable novel disease-gene prediction. Production weights, scores and thresholds were not optimized against these outcomes.
+A retrospective temporal assessment tested two historical analogues. Neither recovered a principal case in the top 100 or HIGH (0/41 coding cases; 0/45 overall). Subsequent human review covered the primary reports and family/pedigree evidence for all 45 cases; unresolved target-family concerns are disclosed. We report the weak recovery and source limitations directly and restrict the conclusions to hypothesis generation. Production weights, scores and thresholds remain unchanged.
 
-The revision also includes a contemporary GO functional description of the temporal cases; no enrichment passed the specified FDR threshold. This descriptive addition does not alter historical scores. The revised submission includes editable documents with embedded figures and legends, separate figure files, additional files, derived replay inputs and temporal protocols/results. We will check figure visibility in the journal-generated review PDF before completing resubmission. Checksums identify the actual delivered artifacts. The original production run and submitted materials are preserved. Code and analysis records are available at https://github.com/gbanyan/usher-exploring/tree/major-revision-author-review-20261019; the preserved 7 October author-review release remains separately identified, and the package manifest records the exact revised source and artifact hashes. The completed temporal numerical-analysis checkpoint is 736e16f.
+The revised files include embedded figures and legends, separate figure files, replay inputs and the temporal results. A separate contemporary GO description found no FDR-significant enrichment. We will check figure visibility in the journal-generated review PDF before completing resubmission. The fixed code and analysis release is https://github.com/gbanyan/usher-exploring/tree/major-revision-author-review-20261020; the package manifest records the delivered-file hashes.
 
 Thank you for considering the revised manuscript.
 
@@ -26,5 +26,3 @@ National Cheng Kung University
 No. 1, University Road, Tainan 701, Taiwan  
 Email: gbanyan.huang@gmail.com  
 ORCID: 0000-0003-4776-3550
-
-The fixed tag `major-revision-author-review-20261019` and delivered-file SHA-256 manifest identify this revision; the earlier 7 October tag is preserved unchanged.

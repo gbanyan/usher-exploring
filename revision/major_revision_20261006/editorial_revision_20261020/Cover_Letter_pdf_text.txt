@@ -1,0 +1,33 @@
+Page 1
+20 October 2026
+Ritesh Shelke
+Editor, BMC Bioinformatics
+Dear Editor,
+Re: Major revision of “UsherPipe: a genome-wide multi-evidence pipeline for prioritizing candidate genes in 
+Usher syndrome and related ciliopathies”
+Thank you for the opportunity to revise our manuscript. For submission 97b94353-679a-4ef3-a386-
+69332e413872, we have addressed the editor and all three reviewers in the accompanying point-by-point 
+response and revised the manuscript and Supplementary Methods.
+The revision distinguishes raw scoring from the control-calibrated HIGH priority tier and reports final control 
+retention. We added matched disease comparators, simple scoring baselines, weight and missingness analyses, 
+and an assessment of the cerebellar expression proxy. We also shortened the biological background, as 
+suggested by Reviewer 1.
+A retrospective temporal assessment tested two historical analogues. Neither recovered a principal case in the 
+top 100 or HIGH (0/41 coding cases; 0/45 overall). Subsequent human review covered the primary reports and 
+family/pedigree evidence for all 45 cases; unresolved target-family concerns are disclosed. We report the weak 
+recovery and source limitations directly and restrict the conclusions to hypothesis generation. Production 
+weights, scores and thresholds remain unchanged.
+The revised files include embedded figures and legends, separate figure files, replay inputs and the temporal 
+results. A separate contemporary GO description found no FDR-significant enrichment. We will check figure 
+visibility in the journal-generated review PDF before completing resubmission. The fixed code and analysis 
+release is https://github.com/gbanyan/usher-exploring/tree/major-revision-author-review-20261020; the 
+package manifest records the delivered-file hashes.
+Thank you for considering the revised manuscript.
+Yours sincerely,
+Jing-Rung Huang, MD
+Corresponding author
+Department of Computer Science and Information Engineering
+National Cheng Kung University
+No. 1, University Road, Tainan 701, Taiwan
+Email: gbanyan.huang@gmail.com
+ORCID: 0000-0003-4776-3550
