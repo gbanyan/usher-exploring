@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "actual_model": "claude-fable-5-1",
+  "provider": "firstParty",
+  "requested_effort": "xhigh",
+  "fallback_used": false,
+  "num_turns": 6,
+  "permission_denials": [],
+  "read_only_tools": [
+    "Read"
+  ],
+  "review_topics": [
+    "Editor",
+    "Reviewer 2",
+    "R1-M1",
+    "R1-M2",
+    "R1-M3",
+    "R1-M4",
+    "R1-M5",
+    "R1-M6",
+    "R1-M7",
+    "R1-M8",
+    "R1-M9",
+    "R1-M10",
+    "R1-m1",
+    "R1-m2",
+    "R1-m3",
+    "R1-m4",
+    "R1-m5",
+    "R1-m6",
+    "R1-m7",
+    "R3-1",
+    "R3-2",
+    "R3-3",
+    "R3-4",
+    "R3-5",
+    "R3-6"
+  ],
+  "source_snapshots_and_current_hashes_match": 4,
+  "package_artifacts_unchanged": 47,
+  "prompt_includes_23_original_reviewer_1_3_comments_and_editor_reviewer_2": true,
+  "recommendations_applied": false,
+  "scope_limits": [
+    "Model review of the four text sources; no numerical reanalysis or rendered-PDF page audit",
+    "Author reason for choosing cerebellum is not supplied by the reviewer model",
+    "Parent assessment distinguishes wording alignment from factual contradiction"
+  ]
+}

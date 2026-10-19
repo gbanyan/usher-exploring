@@ -18,3 +18,4 @@ submission/bmc_bioinformatics_major_revision_20261020/*.zip filter=lfs diff=lfs 
 submission/bmc_bioinformatics_major_revision_20261020/*.tsv -text whitespace=-blank-at-eol
 submission/bmc_bioinformatics_major_revision_20261020/figures/*.svg -text whitespace=-blank-at-eol
 revision/major_revision_20261006/editorial_revision_20261020/** -text whitespace=-blank-at-eol,-blank-at-eof
+revision/major_revision_20261006/fable_review_20261020/** -text whitespace=-blank-at-eol,-blank-at-eof

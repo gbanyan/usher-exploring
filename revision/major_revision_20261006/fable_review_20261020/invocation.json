@@ -1,0 +1,31 @@
+{
+  "command": [
+    "rtk",
+    "proxy",
+    "claude",
+    "--safe-mode",
+    "--model",
+    "claude-fable-5-1",
+    "--effort",
+    "xhigh",
+    "--permission-mode",
+    "dontAsk",
+    "--tools",
+    "Read",
+    "--allowedTools",
+    "Read",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "{\"mcpServers\":{}}",
+    "--no-chrome",
+    "--no-session-persistence",
+    "--output-format",
+    "json",
+    "-p"
+  ],
+  "working_directory": "/Users/gbanyan/Project/usher/usher-exploring/revision/major_revision_20261006/fable_review_20261020",
+  "stdin": "PROMPT.md",
+  "automatic_model_fallback": false,
+  "tools": "Read only",
+  "sources_read_only": true
+}

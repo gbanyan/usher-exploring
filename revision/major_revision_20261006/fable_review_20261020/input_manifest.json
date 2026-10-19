@@ -1,0 +1,41 @@
+{
+  "status": "COMPLETE",
+  "requested_model": "Claude Fable 5.1",
+  "review_executed": true,
+  "source_commit": "b5d68def99f0ff6e9f6cc85d33d49a2c4b8f86bf",
+  "release_tag": "major-revision-author-review-20261020",
+  "sources": {
+    "manuscript/draft.md": {
+      "snapshot": "revision/major_revision_20261006/fable_review_20261020/inputs/manuscript.md",
+      "sha256": "2f959d915f254cfef9b76d4eff73df2cd3297c1fb358cfe7c1e8eb31fc731d42"
+    },
+    "manuscript/supplementary_methods.md": {
+      "snapshot": "revision/major_revision_20261006/fable_review_20261020/inputs/supplementary_methods.md",
+      "sha256": "08c4d3ebc267ae0948e6d3de38fbbb4837b5c2c954c4b21ae1628fd7bd329d07"
+    },
+    "revision/major_revision_20261006/rebuttal.md": {
+      "snapshot": "revision/major_revision_20261006/fable_review_20261020/inputs/response_to_reviewers.md",
+      "sha256": "062f3538af956c2f45c542cd90bc16511bffbe2767ca2f254b13faf87bba055e"
+    },
+    "revision/major_revision_20261006/cover_letter_revision.md": {
+      "snapshot": "revision/major_revision_20261006/fable_review_20261020/inputs/cover_letter.md",
+      "sha256": "91bbd0d432b130860684acd5330cd7399321d8d3316732f33f8437afd63ae242"
+    }
+  },
+  "original_comments": {
+    "topics": 25,
+    "path": "revision/major_revision_20261006/fable_review_20261020/inputs/original_reviewer_comments.md",
+    "sha256": "90678279778875b56369c254fb364c4e56c88578854613936a7417d61413c649",
+    "included_verbatim_in_prompt": true
+  },
+  "prompt_sha256": "603b5da4d716d528fe70756b7bbcc7a609d381113bb2330e0f75a7a7dee35872",
+  "reason": "User clarified Claude; first-party Claude Fable 5.1 review completed successfully with no fallback.",
+  "requested_model_id": "claude-fable-5-1",
+  "requested_effort": "xhigh",
+  "actual_model_id": "claude-fable-5-1",
+  "actual_provider": "firstParty",
+  "num_turns": 6,
+  "duration_ms": 376390,
+  "raw_result_sha256": "72a98429a52269cf6c0dcdfec59d3bed6d4e58fa381fddf1280d7afe448dc8c1",
+  "review_sha256": "4f6a0b2159de76a08f87c1b88ef9a52b01744a1768a182b0dd7e300b02f2a97f"
+}
