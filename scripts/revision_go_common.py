@@ -67,6 +67,16 @@ def bh_fdr(pvalues):
     return out
 
 
+def same_aspect_closure(term, ontology):
+    """Keep authoritative is_a/part_of ancestors within the GAF term's aspect.
+
+    GO-plus also exposes MF-to-BP part_of links. The three aspects are analysed
+    independently in this protocol; cross-aspect inference is not introduced.
+    """
+    aspect = ontology[term]["aspect"]
+    return {t for t in ontology[term]["ancestors"] if t not in ROOTS and ontology[t].get("aspect") == aspect}
+
+
 def annotation_index(rows):
     """Index all approved HGNC records, preserving explicit shared RNA products."""
     proteins, rnas, approved, aliases = (defaultdict(set) for _ in range(4))

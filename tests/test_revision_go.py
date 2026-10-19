@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from revision_go_common import annotation_index, bh_fdr, map_product, read_editor, term_resolver
+from revision_go_common import annotation_index, bh_fdr, map_product, read_editor, same_aspect_closure, term_resolver
 from revision_go_analysis import enrich
 
 
@@ -33,6 +33,13 @@ def test_editor_parser_excludes_unsafe_has_part_and_regulates(tmp_path):
     path = tmp_path / "go.obo"
     path.write_text("[Term]\nid: GO:1\nname: example\nis_a: GO:2 ! parent\nrelationship: part_of GO:3\nrelationship: has_part GO:4\nrelationship: regulates GO:5\nsubset: goslim_generic\n")
     assert read_editor(path)["GO:1"]["parents"] == ["GO:2", "GO:3"]
+
+
+def test_cross_aspect_go_plus_inference_is_excluded_consistently():
+    terms = {"GO:1": {"aspect":"molecular_function", "ancestors":["GO:1", "GO:2", "GO:3", "GO:0003674"]},
+             "GO:2": {"aspect":"molecular_function"}, "GO:3":{"aspect":"biological_process"},
+             "GO:0003674":{"aspect":"molecular_function"}}
+    assert same_aspect_closure("GO:1",terms) == {"GO:1","GO:2"}
 
 
 def test_shared_rna_xref_is_explicit_but_family_name_is_not_imputed():

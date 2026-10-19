@@ -13,7 +13,7 @@ from pathlib import Path
 
 from scipy.stats import hypergeom
 
-from revision_go_common import ASPECTS, EXPERIMENTAL, ROOTS, annotation_index, bh_fdr, map_product, read_editor, term_resolver
+from revision_go_common import ASPECTS, EXPERIMENTAL, ROOTS, annotation_index, bh_fdr, map_product, read_editor, same_aspect_closure, term_resolver
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "revision/major_revision_20261006/go_classification_20261019"
@@ -170,7 +170,7 @@ def main():
     for g, annotated in direct.items():
         propagated[g], no_iea[g] = set(), set()
         for term, codes in annotated.items():
-            closure = set(ontology[term]["ancestors"]) - ROOTS
+            closure = same_aspect_closure(term, ontology)
             assert term in closure
             assert all(t in aspect_map and aspect_map[t] == aspect_map[term] for t in closure)
             propagated[g].update(closure)
@@ -190,7 +190,7 @@ def main():
             cats = [t for t in cats if aspect_map[t] == aspect]
             labels[aspect] = "; ".join(ontology[t]["name"]+" ["+t+"]" for t in cats)
             for t in cats:
-                supporting = sorted(g for g in direct[key] if t in ontology[g]["ancestors"])
+                supporting = sorted(g for g in direct[key] if t in same_aspect_closure(g, ontology))
                 memberships.append(dict(gene_key=key, frozen_symbol=r["symbol"], current_symbol=current["symbol"],
                     aspect=aspect, slim_go_id=t, category=ontology[t]["name"], supporting_direct_terms="; ".join(supporting),
                     supported_without_IEA=t in no_iea.get(key,set()), in_historical_universe=key in universe))

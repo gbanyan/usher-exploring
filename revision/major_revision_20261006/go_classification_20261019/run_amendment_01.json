@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-10-19T14:34:30.052946+00:00",
+  "prior_freeze_sha256": "90cc6d321c919899abbf90737c2ca977a3e25473515faf134dfd32fda6c75f28",
+  "first_attempt": "Aborted at namespace assertion before saving any GO cohort summary or enrichment outcomes",
+  "first_attempt_commit": "bb817f5",
+  "case_summary_or_enrichment_outcomes_inspected": false,
+  "rule": "is_a and part_of closure restricted to the original GAF term aspect for every gene and analysis",
+  "inputs_sha256": {
+    "scripts/revision_go_analysis.py": "e053f7671b4672a350f0e945c6c360d72148405487f62061d6e1c926dbe2ee97",
+    "scripts/revision_go_common.py": "1b4d713fce0bd9e6e8e3bee637bd452cdf1b3f96c4877b4f577a2fdf5c99707c",
+    "tests/test_revision_go.py": "9dabd8dfb90e7ebc19567fb478669bf4a21e56355b6bb15750f33ed2fcc07e52",
+    "revision/major_revision_20261006/go_classification_20261019/IMPLEMENTATION_NOTE_01.md": "702255cee2b76849fe402022a41d48b21b217d16b858a37c774596466ee73f68"
+  }
+}
