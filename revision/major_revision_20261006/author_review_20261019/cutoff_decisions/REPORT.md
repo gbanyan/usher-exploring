@@ -4,6 +4,8 @@ The author instructed that temporal eligibility should depend on a clearly suppo
 
 The new working copy is `outputs/temporal-author-cutoff-decisions-20261019/Temporal_Case_Author_Decisions_Cutoff_20261019.xlsx`. It derives from the professor's preserved V2 attachment; neither returned original is overwritten.
 
+**Current-symbol display update:** at the author's request, Review A22, its evidence-card heading A216 and the Review A22 hyperlink display now use **CLXN (formerly EFCAB1)**. Definitions D16 records the mapping and [HGNC source](https://rest.genenames.org/fetch/hgnc_id/25678). HGNC:25678 remains the same gene; HGNC records the symbol change on 29 November 2021. The Original TSV, professor's original files and frozen ledger symbol retain EFCAB1; the working ledger adds a separate display symbol. Relative to the preceding working copy (SHA-256 `6a18163e5c2fda783951ad317f1a63abfdf9389d1c5a06ea5eef94fbdc124727`), exactly three cell values change: Review A22, Evidence A216 and Definitions D16. Timing, eligibility, genotype notes and dates are unchanged.
+
 ## Working fields
 
 - **Review C:** final principal-cohort eligibility, still PENDING for all 45 genes. Target phenotype, at least two unrelated target-affected families, consistent inheritance, functional support or independent human replication, and the clinical evidence acquisition boundary of 6 October 2026 remain unchanged.
@@ -19,7 +21,7 @@ The original exact-date decisions remain preserved in the V2 source workbook and
 
 Artifact Tool authors all changed worksheet values and affected layout, renders the changed views and checks formula recalculation. A temporary timing change to PENDING increments its summary from zero to one while clinical PENDING remains 45; UNCERTAIN does not set clinical inclusion. Temporary edits are restored. No formula errors were found by the Artifact Tool scan.
 
-The serializer retained threaded comments but normalized view settings and did not synchronize changed native table-column names. The preservation step therefore transfers only Artifact Tool's authorized cell/layout/validation edits into the original package, aligns the three affected table headers, and retains all other package parts byte-for-byte. Exactly three XML parts differ: Review, Definitions and the Review table. All three original threaded comments, hyperlinks, freeze panes, selections, other sheets, original dates, genotype notes and reviewer fields remain intact. All 21 protected baseline input hashes match. Native Excel/LibreOffice recalculation was not performed.
+The serializer retained threaded comments but normalized view settings and did not synchronize changed native table-column names. The preservation step therefore transfers only Artifact Tool's authorized cell/layout/validation edits into the original package, aligns the three affected table headers and the renamed gene's hyperlink display, and retains all other package parts byte-for-byte. Exactly four XML parts differ from the professor's V2 source: Review, Evidence, Definitions and the Review table. Original TSV and all other package parts are unchanged. All three original threaded comments, hyperlink destinations, freeze panes, selections, original dates, genotype notes and reviewer fields remain intact. All 21 protected baseline input hashes match. Native Excel/LibreOffice recalculation was not performed.
 
 Use the bundled Artifact Tool node modules with `scripts/update_author_cutoff_workbook.mjs`; `--preview` renders the original before editing. Then run:
 

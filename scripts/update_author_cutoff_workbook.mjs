@@ -7,12 +7,14 @@ const source=`${root}/outputs/temporal-author-return-v2-20261019/Temporal_Case_A
 const target=`${root}/outputs/temporal-author-cutoff-decisions-20261019/Temporal_Case_Author_Decisions_Cutoff_20261019.xlsx`;
 await fs.mkdir(cache,{recursive:true});
 const previewFinal=process.argv.includes('--preview-final');
-const wb=await SpreadsheetFile.importXlsx(await FileBlob.load(previewFinal?target:source));
+const previewNames=process.argv.includes('--preview-names');
+const wb=await SpreadsheetFile.importXlsx(await FileBlob.load(previewFinal||previewNames?target:source));
 const review=wb.worksheets.getItem('Review');
+const evidence=wb.worksheets.getItem('Evidence');
 const definitions=wb.worksheets.getItem('Definitions');
 const preview=process.argv.includes('--preview');
-if(preview || previewFinal){
- const ranges=previewFinal?[['Review','A5:D11','final-review'],['Review','G8:I10','final-notes'],['Definitions','B12:D15','final-rules'],['Definitions','B18:D23','final-fields'],['Definitions','B25:D27','final-intervals']]:[['Review','A8:D11','before-review'],['Definitions','B18:D22','before-definitions']];
+if(preview || previewFinal || previewNames){
+ const ranges=previewNames?[['Review','A20:D23','names-review'],['Evidence','A216:B220','names-evidence'],['Definitions','B16:D16','names-definition']]:previewFinal?[['Review','A5:D11','final-review'],['Review','G8:I10','final-notes'],['Definitions','B12:D15','final-rules'],['Definitions','B18:D23','final-fields'],['Definitions','B25:D27','final-intervals']]:[['Review','A8:D11','before-review'],['Definitions','B18:D22','before-definitions']];
  for(const [sheetName,range,name] of ranges){
   const blob=await wb.render({sheetName,range,scale:1,format:'png'});
   await fs.writeFile(`${cache}/${name}.png`,new Uint8Array(await blob.arrayBuffer()));
@@ -23,6 +25,10 @@ if(preview || previewFinal){
 const audit=JSON.parse(await fs.readFile(`${root}/revision/major_revision_20261006/author_review_20261019/date_audit/gene_date_comparison.json`,'utf8'));
 const byKey=new Map(audit.map(r=>[r.gene_key,r]));
 const ledger=[];
+const currentGeneLabel='CLXN (formerly EFCAB1)';
+if(review.getRange('B22').values[0][0]!=='HGNC:25678' || evidence.getRange('B216').values[0][0]!=='HGNC:25678')throw new Error('CLXN stable-ID guard');
+review.getRange('A22').values=[[currentGeneLabel]];
+evidence.getRange('A216').values=[[currentGeneLabel]];
 review.getRange('A3').values=[['Read Definitions: clinical eligibility and post-2020 timing are separate decisions; exact publication day is optional.']];
 review.getRange('A6').values=[['A source-supported first-target publicity interval wholly after 2020-12-31 meets timing; clinical evidence must qualify by 2026-10-06.']];
 review.getRange('C5').values=[['Timing pending']];
@@ -46,9 +52,10 @@ for(let row=9;row<=53;row++){
  review.getRange(`H${row}`).values=[[`${originalNotes}\n\n${note}`]];
  const noteLines=`${originalNotes}\n\n${note}`.split('\n').reduce((n,line)=>n+Math.max(1,Math.ceil(line.length/53)),0);
  review.getRange(`A${row}:K${row}`).format.rowHeight=Math.max(review.getRange(`A${row}:K${row}`).format.rowHeight||0,noteLines*16+18);
- ledger.push({excel_row:row,gene_key:key,symbol:r.symbol,timing_decision:'POST_CUTOFF',interval:[lower,upper],located_public_event:r.independently_located_public_event_date,source:r.first_target_source,exact_day_uncertain:r.uncertain_first_public_day,eligibility_decision:review.getRange(`C${row}`).values[0][0]});
+ ledger.push({excel_row:row,gene_key:key,symbol:r.symbol,display_symbol:key==='HGNC:25678'?currentGeneLabel:r.symbol,timing_decision:'POST_CUTOFF',interval:[lower,upper],located_public_event:r.independently_located_public_event_date,source:r.first_target_source,exact_day_uncertain:r.uncertain_first_public_day,eligibility_decision:review.getRange(`C${row}`).values[0][0]});
 }
 const updates={
+ 'D16':'CLXN (formerly EFCAB1) is the current display for HGNC:25678. The original TSV and returned files retain their historical symbol. HGNC: https://rest.genenames.org/fetch/hgnc_id/25678',
  'C6':'Choose clinical eligibility and cutoff-window timing separately. Exact-day matching is not required for timing.',
  'D6':'Use the source-supported public date or interval. Preserve the professor’s source notes and record clinical eligibility separately.',
  'D7':'The first proposed human TARGET association must be public after 2020-12-31; a wholly post-cutoff interval suffices. Stronger clinical evidence must exist by 2026-10-06.',
@@ -96,5 +103,5 @@ for(const [sheetName,range,name] of [['Review','A5:D12','after-review'],['Review
 await fs.mkdir(target.slice(0,target.lastIndexOf('/')),{recursive:true});
 await(await SpreadsheetFile.exportXlsx(wb)).save(target);
 await fs.writeFile(`${cache}/timing_ledger.json`,JSON.stringify(ledger,null,2)+'\n');
-await fs.writeFile(`${cache}/edit_plan.json`,JSON.stringify({definition_updates:updates,review_header_cells:['A3','A6','C5','F5','D8','G8','H8'],timing_column:'D9:D53',appended_notes:'H9:H53',column_widths:{D:26,H:56},row_heights_only_for_changed_notes:true,recalculation:{eligibility_pending:45,timing_pending:0,temporary_pending_count:1,temporary_uncertain_did_not_set_eligibility:true,restored:true}},null,2)+'\n');
+await fs.writeFile(`${cache}/edit_plan.json`,JSON.stringify({definition_updates:updates,review_header_cells:['A3','A6','C5','F5','D8','G8','H8'],symbol_updates:[{sheet:'Review',cell:'A22',gene_key:'HGNC:25678',display:currentGeneLabel},{sheet:'Evidence',cell:'A216',gene_key:'HGNC:25678',display:currentGeneLabel}],timing_column:'D9:D53',appended_notes:'H9:H53',column_widths:{D:26,H:56},row_heights_only_for_changed_notes:true,recalculation:{eligibility_pending:45,timing_pending:0,temporary_pending_count:1,temporary_uncertain_did_not_set_eligibility:true,restored:true}},null,2)+'\n');
 console.log('Saved separate cutoff-window working copy; 45 POST_CUTOFF, 45 clinical decisions still PENDING.');

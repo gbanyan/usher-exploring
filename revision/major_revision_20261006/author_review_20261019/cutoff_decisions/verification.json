@@ -1,7 +1,7 @@
 {
   "source_sha256": "f9f7f0681811a5f4cd786b0b9bbfdf2837743c1f8f0064f1d31c4fc067d522e0",
-  "output_sha256": "6a18163e5c2fda783951ad317f1a63abfdf9389d1c5a06ea5eef94fbdc124727",
-  "output_bytes": 57954,
+  "output_sha256": "8791701e5c45f1ae41ced5d63dbd73e2d4cb17344de7ba8d7e81f22f6255d879",
+  "output_bytes": 58160,
   "rows": 45,
   "timing_decisions": {
     "POST_CUTOFF": 45
@@ -11,6 +11,10 @@
   },
   "original_dates_genotypes_reviewers_preserved": true,
   "unrelated_cell_values_unchanged": true,
+  "current_symbol_display": {
+    "HGNC:25678": "CLXN (formerly EFCAB1)"
+  },
+  "original_tsv_historical_symbol_unchanged": true,
   "formula_text_unchanged": true,
   "source_note_prefixes_preserved": true,
   "threaded_comments_preserved": 3,
@@ -19,6 +23,7 @@
   "changed_package_parts": [
     "xl/tables/table1.xml",
     "xl/worksheets/sheet1.xml",
+    "xl/worksheets/sheet2.xml",
     "xl/worksheets/sheet4.xml"
   ],
   "cutoff_boundary_checks_passed": true,
@@ -31,5 +36,5 @@
     "restored": true
   },
   "native_excel_recalculation": "Not performed",
-  "changed_cell_values": 123
+  "changed_cell_values": 126
 }

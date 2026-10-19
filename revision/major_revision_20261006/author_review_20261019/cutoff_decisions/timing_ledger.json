@@ -3,6 +3,7 @@
     "excel_row": 9,
     "gene_key": "HGNC:25104",
     "symbol": "AP5B1",
+    "display_symbol": "AP5B1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2025-01-01",
@@ -17,6 +18,7 @@
     "excel_row": 10,
     "gene_key": "HGNC:13552",
     "symbol": "ATP11A",
+    "display_symbol": "ATP11A",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -31,6 +33,7 @@
     "excel_row": 11,
     "gene_key": "HGNC:12760",
     "symbol": "BRWD1",
+    "display_symbol": "BRWD1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -45,6 +48,7 @@
     "excel_row": 12,
     "gene_key": "HGNC:26141",
     "symbol": "C19orf44",
+    "display_symbol": "C19orf44",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2025-01-01",
@@ -59,6 +63,7 @@
     "excel_row": 13,
     "gene_key": "HGNC:25727",
     "symbol": "CEP76",
+    "display_symbol": "CEP76",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2025-01-01",
@@ -73,6 +78,7 @@
     "excel_row": 14,
     "gene_key": "HGNC:26456",
     "symbol": "CFAP54",
+    "display_symbol": "CFAP54",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2023-01-01",
@@ -87,6 +93,7 @@
     "excel_row": 15,
     "gene_key": "HGNC:11891",
     "symbol": "CLEC3B",
+    "display_symbol": "CLEC3B",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2022-01-01",
@@ -101,6 +108,7 @@
     "excel_row": 16,
     "gene_key": "HGNC:28722",
     "symbol": "COQ5",
+    "display_symbol": "COQ5",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2022-01-01",
@@ -115,6 +123,7 @@
     "excel_row": 17,
     "gene_key": "HGNC:2347",
     "symbol": "CREB3",
+    "display_symbol": "CREB3",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2024-05-01",
@@ -129,6 +138,7 @@
     "excel_row": 18,
     "gene_key": "HGNC:16148",
     "symbol": "CRLS1",
+    "display_symbol": "CRLS1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2022-01-01",
@@ -143,6 +153,7 @@
     "excel_row": 19,
     "gene_key": "HGNC:2515",
     "symbol": "CTNND1",
+    "display_symbol": "CTNND1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2022-01-01",
@@ -157,6 +168,7 @@
     "excel_row": 20,
     "gene_key": "HGNC:18399",
     "symbol": "DHRSX",
+    "display_symbol": "DHRSX",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2024-01-01",
@@ -171,6 +183,7 @@
     "excel_row": 21,
     "gene_key": "HGNC:16410",
     "symbol": "DNAJC30",
+    "display_symbol": "DNAJC30",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -185,6 +198,7 @@
     "excel_row": 22,
     "gene_key": "HGNC:25678",
     "symbol": "EFCAB1",
+    "display_symbol": "CLXN (formerly EFCAB1)",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2023-01-01",
@@ -199,6 +213,7 @@
     "excel_row": 23,
     "gene_key": "HGNC:13753",
     "symbol": "FSD1L",
+    "display_symbol": "FSD1L",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2026-01-01",
@@ -213,6 +228,7 @@
     "excel_row": 24,
     "gene_key": "HGNC:26768",
     "symbol": "GPATCH11",
+    "display_symbol": "GPATCH11",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2023-01-01",
@@ -227,6 +243,7 @@
     "excel_row": 25,
     "gene_key": "HGNC:20844",
     "symbol": "GPR156",
+    "display_symbol": "GPR156",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2023-01-01",
@@ -241,6 +258,7 @@
     "excel_row": 26,
     "gene_key": "HGNC:5386",
     "symbol": "IDH3G",
+    "display_symbol": "IDH3G",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2025-01-01",
@@ -255,6 +273,7 @@
     "excel_row": 27,
     "gene_key": "HGNC:26052",
     "symbol": "INTS11",
+    "display_symbol": "INTS11",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2023-01-01",
@@ -269,6 +288,7 @@
     "excel_row": 28,
     "gene_key": "HGNC:6262",
     "symbol": "KCNJ16",
+    "display_symbol": "KCNJ16",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -283,6 +303,7 @@
     "excel_row": 29,
     "gene_key": "HGNC:33914",
     "symbol": "KIAA1024L",
+    "display_symbol": "KIAA1024L",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2022-01-01",
@@ -297,6 +318,7 @@
     "excel_row": 30,
     "gene_key": "HGNC:6600",
     "symbol": "LIG3",
+    "display_symbol": "LIG3",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -311,6 +333,7 @@
     "excel_row": 31,
     "gene_key": "HGNC:1176",
     "symbol": "MRPL49",
+    "display_symbol": "MRPL49",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2022-01-01",
@@ -325,6 +348,7 @@
     "excel_row": 32,
     "gene_key": "HGNC:30168",
     "symbol": "PDIA6",
+    "display_symbol": "PDIA6",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -339,6 +363,7 @@
     "excel_row": 33,
     "gene_key": "HGNC:20313",
     "symbol": "PKHD1L1",
+    "display_symbol": "PKHD1L1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2023-01-01",
@@ -353,6 +378,7 @@
     "excel_row": 34,
     "gene_key": "HGNC:9065",
     "symbol": "PLCG1",
+    "display_symbol": "PLCG1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2024-01-01",
@@ -367,6 +393,7 @@
     "excel_row": 35,
     "gene_key": "HGNC:9529",
     "symbol": "PSKH1",
+    "display_symbol": "PSKH1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2024-01-01",
@@ -381,6 +408,7 @@
     "excel_row": 36,
     "gene_key": "HGNC:9972",
     "symbol": "RFC4",
+    "display_symbol": "RFC4",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2024-01-01",
@@ -395,6 +423,7 @@
     "excel_row": 37,
     "gene_key": "HGNC:25552",
     "symbol": "RNF220",
+    "display_symbol": "RNF220",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -409,6 +438,7 @@
     "excel_row": 38,
     "gene_key": "HGNC:10193",
     "symbol": "RNU4-2",
+    "display_symbol": "RNU4-2",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2025-01-01",
@@ -423,6 +453,7 @@
     "excel_row": 39,
     "gene_key": "HGNC:34270",
     "symbol": "RNU6-2",
+    "display_symbol": "RNU6-2",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2025-01-01",
@@ -437,6 +468,7 @@
     "excel_row": 40,
     "gene_key": "HGNC:34285",
     "symbol": "RNU6-8",
+    "display_symbol": "RNU6-8",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2025-01-01",
@@ -451,6 +483,7 @@
     "excel_row": 41,
     "gene_key": "HGNC:34269",
     "symbol": "RNU6-9",
+    "display_symbol": "RNU6-9",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2025-01-01",
@@ -465,6 +498,7 @@
     "excel_row": 42,
     "gene_key": "HGNC:28127",
     "symbol": "RSG1",
+    "display_symbol": "RSG1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2024-01-01",
@@ -479,6 +513,7 @@
     "excel_row": 43,
     "gene_key": "HGNC:29917",
     "symbol": "SAXO6",
+    "display_symbol": "SAXO6",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2026-01-01",
@@ -493,6 +528,7 @@
     "excel_row": 44,
     "gene_key": "HGNC:23136",
     "symbol": "SCNM1",
+    "display_symbol": "SCNM1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2022-01-01",
@@ -507,6 +543,7 @@
     "excel_row": 45,
     "gene_key": "HGNC:26001",
     "symbol": "SLC66A1",
+    "display_symbol": "SLC66A1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2022-01-01",
@@ -521,6 +558,7 @@
     "excel_row": 46,
     "gene_key": "HGNC:28762",
     "symbol": "SPATA5L1",
+    "display_symbol": "SPATA5L1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -535,6 +573,7 @@
     "excel_row": 47,
     "gene_key": "HGNC:11438",
     "symbol": "STX3",
+    "display_symbol": "STX3",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -549,6 +588,7 @@
     "excel_row": 48,
     "gene_key": "HGNC:31658",
     "symbol": "TMEM72",
+    "display_symbol": "TMEM72",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -563,6 +603,7 @@
     "excel_row": 49,
     "gene_key": "HGNC:12003",
     "symbol": "TP73",
+    "display_symbol": "TP73",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -577,6 +618,7 @@
     "excel_row": 50,
     "gene_key": "HGNC:40028",
     "symbol": "UBAP1L",
+    "display_symbol": "UBAP1L",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2024-01-01",
@@ -591,6 +633,7 @@
     "excel_row": 51,
     "gene_key": "HGNC:18533",
     "symbol": "USP48",
+    "display_symbol": "USP48",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2021-01-01",
@@ -605,6 +648,7 @@
     "excel_row": 52,
     "gene_key": "HGNC:29071",
     "symbol": "VWA8",
+    "display_symbol": "VWA8",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2023-01-01",
@@ -619,6 +663,7 @@
     "excel_row": 53,
     "gene_key": "HGNC:26639",
     "symbol": "XXYLT1",
+    "display_symbol": "XXYLT1",
     "timing_decision": "POST_CUTOFF",
     "interval": [
       "2026-01-01",

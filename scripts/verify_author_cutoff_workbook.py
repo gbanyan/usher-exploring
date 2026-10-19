@@ -57,16 +57,16 @@ def main() -> None:
         with zipfile.ZipFile(source) as archive:
             entries = [(item, archive.read(item.filename)) for item in archive.infolist()]
         with zipfile.ZipFile(target) as archive:
-            authored_sheets = {i: ET.fromstring(archive.read(f"xl/worksheets/sheet{i}.xml")) for i in (1, 4)}
+            authored_sheets = {i: ET.fromstring(archive.read(f"xl/worksheets/sheet{i}.xml")) for i in (1, 2, 4)}
         def attribute(tag, name, value):
             pattern = rf'\b{name}="[^"]*"'
             replacement = f'{name}="{value}"'
             return re.sub(pattern, replacement, tag) if re.search(pattern, tag) else tag[:-1] + " " + replacement + ">"
         repaired = []
         for item, contents in entries:
-            if item.filename in ("xl/worksheets/sheet1.xml", "xl/worksheets/sheet4.xml"):
-                sheet_id = 1 if "sheet1.xml" in item.filename else 4
-                sheet_name = "Review" if sheet_id == 1 else "Definitions"
+            if item.filename in ("xl/worksheets/sheet1.xml", "xl/worksheets/sheet2.xml", "xl/worksheets/sheet4.xml"):
+                sheet_id = int(re.search(r'sheet(\d+)\.xml', item.filename)[1])
+                sheet_name = {1: "Review", 2: "Evidence", 4: "Definitions"}[sheet_id]
                 text = contents.decode("utf-8-sig")
                 for cell, after in new["sheets"][sheet_name]["values"].items():
                     if old["sheets"][sheet_name]["values"].get(cell, "") == after:
@@ -81,7 +81,7 @@ def main() -> None:
                         return opening + '<is><t xml:space="preserve">' + html.escape(after) + '</t></is>' + match[3]
                     text, count = re.subn(pattern, changed_cell, text, flags=re.S)
                     assert count == 1, cell
-                changed_rows = range(9, 54) if sheet_id == 1 else {int(re.search(r'\d+$', c)[0]) for c in plan["definition_updates"]}
+                changed_rows = range(9, 54) if sheet_id == 1 else ({int(re.search(r'\d+$', c)[0]) for c in plan["definition_updates"]} if sheet_id == 4 else [])
                 heights = {int(row.attrib["r"]): row.attrib.get("ht") for row in authored_sheets[sheet_id].find(NS + "sheetData")}
                 for row in changed_rows:
                     assert heights[row]
@@ -89,6 +89,9 @@ def main() -> None:
                                           lambda match: attribute(attribute(match[0], "ht", heights[row]), "customHeight", "1"), text)
                     assert count == 1
                 if sheet_id == 1:
+                    text, count = re.subn(r'<hyperlink\b(?=[^>]*\bref="A22")[^>]*/>',
+                                          lambda match: re.sub(r'\bdisplay="[^"]*"', 'display="' + html.escape(new["sheets"]["Review"]["values"]["A22"], quote=True) + '"', match[0]), text)
+                    assert count == 1
                     for column, width in ((4, "26"), (8, "56")):
                         text, count = re.subn(rf'<col\b(?=[^>]*\bmin="{column}")(?=[^>]*\bmax="{column}")[^>]*/>',
                                               lambda match: re.sub(r'\bwidth="[^"]*"', f'width="{width}"', match[0]), text)
@@ -117,6 +120,7 @@ def main() -> None:
     allowed |= {("Review", f"{column}{row}") for column in "DH" for row in range(9, 54)}
     allowed |= {("Review", "D5")}
     allowed |= {("Definitions", cell) for cell in plan["definition_updates"]}
+    allowed |= {(item["sheet"], item["cell"]) for item in plan.get("symbol_updates", [])}
     actual = []
     for sheet, details in old["sheets"].items():
         updated = new["sheets"][sheet]
@@ -129,7 +133,9 @@ def main() -> None:
     assert len(rows) == len(old_rows) == len(ledger) == 45
     assert [r["B"] for r in rows] == [r["B"] for r in old_rows]
     for before, after, evidence in zip(old_rows, rows, ledger):
-        for column in "ABCEFGIJK":
+        expected_symbol = "CLXN (formerly EFCAB1)" if after["B"] == "HGNC:25678" else before["A"]
+        assert after["A"] == expected_symbol
+        for column in "BCEFGIJK":
             assert before[column] == after[column], (column, after["A"])
         assert after["C"] == "PENDING"
         assert after["D"] == timing_status(*evidence["interval"]) == "POST_CUTOFF"
@@ -144,10 +150,14 @@ def main() -> None:
         assert b.testzip() is None
         assert set(a.namelist()) == set(b.namelist())
         changed_parts = sorted(name for name in a.namelist() if a.read(name) != b.read(name))
-        assert changed_parts == ["xl/tables/table1.xml", "xl/worksheets/sheet1.xml", "xl/worksheets/sheet4.xml"]
+        assert changed_parts == ["xl/tables/table1.xml", "xl/worksheets/sheet1.xml", "xl/worksheets/sheet2.xml", "xl/worksheets/sheet4.xml"]
         for sheet_id in (1, 2, 3, 4):
             first = ET.fromstring(a.read(f"xl/worksheets/sheet{sheet_id}.xml"))
             second = ET.fromstring(b.read(f"xl/worksheets/sheet{sheet_id}.xml"))
+            if sheet_id == 1:
+                for link in first.find(NS + "hyperlinks"):
+                    if link.attrib.get("ref") == "A22":
+                        link.attrib["display"] = "CLXN (formerly EFCAB1)"
             for tag in ("sheetViews", "sheetProtection", "autoFilter", "mergeCells", "hyperlinks"):
                 def semantic(element):
                     if element is None:
@@ -171,6 +181,8 @@ def main() -> None:
               "timing_decisions": dict(collections.Counter(r["D"] for r in rows)),
               "eligibility_decisions": dict(collections.Counter(r["C"] for r in rows)),
               "original_dates_genotypes_reviewers_preserved": True, "unrelated_cell_values_unchanged": True,
+              "current_symbol_display": {"HGNC:25678": "CLXN (formerly EFCAB1)"},
+              "original_tsv_historical_symbol_unchanged": True,
               "formula_text_unchanged": True, "source_note_prefixes_preserved": True,
               "threaded_comments_preserved": len(threads(target)),
               "native_table_headers_match_cells": True, "native_hyperlinks_views_filters_merges_preserved": True,

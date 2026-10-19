@@ -97,6 +97,12 @@
   },
   {
     "sheet": "Definitions",
+    "cell": "D16",
+    "before": "Read only. Keep the stable HGNC key when reconciling renamed genes.",
+    "after": "CLXN (formerly EFCAB1) is the current display for HGNC:25678. The original TSV and returned files retain their historical symbol. HGNC: https://rest.genenames.org/fetch/hgnc_id/25678"
+  },
+  {
+    "sheet": "Definitions",
     "cell": "D19",
     "before": "PENDING = not checked; CONFIRMED = original date is correct; REVISED = corrected date; UNCERTAIN = earliest date cannot be established.",
     "after": "POST_CUTOFF = interval wholly after cutoff; PRE_OR_AT_CUTOFF = first target report on/before cutoff; UNCERTAIN = side unresolved/crossing interval; PENDING = not assessed."
@@ -148,6 +154,18 @@
     "cell": "D7",
     "before": "The first proposed human TARGET-disease association must be public after 2020-12-31. Stronger qualifying evidence must have accumulated by 2026-10-06.",
     "after": "The first proposed human TARGET association must be public after 2020-12-31; a wholly post-cutoff interval suffices. Stronger clinical evidence must exist by 2026-10-06."
+  },
+  {
+    "sheet": "Evidence",
+    "cell": "A216",
+    "before": "EFCAB1",
+    "after": "CLXN (formerly EFCAB1)"
+  },
+  {
+    "sheet": "Review",
+    "cell": "A22",
+    "before": "EFCAB1",
+    "after": "CLXN (formerly EFCAB1)"
   },
   {
     "sheet": "Review",
