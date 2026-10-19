@@ -1,0 +1,65 @@
+[
+  {
+    "url": "https://ftp.ebi.ac.uk/pub/databases/GO/goa/HUMAN/goa_human.gaf.gz",
+    "resolved_url": "https://ftp.ebi.ac.uk/pub/databases/GO/goa/HUMAN/goa_human.gaf.gz",
+    "last_modified": "Sun, 11 Oct 2026 13:12:15 GMT",
+    "acquired_on": "2026-10-19",
+    "name": "human_protein.gaf.gz",
+    "cache_path": "data/cache/go-classification-20261019/human_protein.gaf.gz",
+    "bytes": 11580804,
+    "sha256": "76f91086e0633ad3d25b20f651237bee231f8eab150e4503b0e7b49d1ea814f5",
+    "gaf_headers": [
+      "!gaf-version: 2.2",
+      "!",
+      "!The set of protein accessions included in this file is based on UniProt reference proteomes, which provide one protein per gene.",
+      "!They include the protein sequences annotated in Swiss-Prot or the longest TrEMBL transcript if there is no Swiss-Prot record.",
+      "!If a particular protein accession is not annotated with GO, then it will not appear in this file.",
+      "!",
+      "!date-generated: 2026-10-11 13:43",
+      "!generated-by: UniProt",
+      "!go-version: http://purl.obolibrary.org/obo/go/releases/2026-09-27/extensions/go-plus.ofn",
+      "!"
+    ]
+  },
+  {
+    "url": "https://ftp.ebi.ac.uk/pub/databases/GO/goa/HUMAN/goa_human_rna.gaf.gz",
+    "resolved_url": "https://ftp.ebi.ac.uk/pub/databases/GO/goa/HUMAN/goa_human_rna.gaf.gz",
+    "last_modified": "Sun, 11 Oct 2026 14:52:00 GMT",
+    "acquired_on": "2026-10-19",
+    "name": "human_rna.gaf.gz",
+    "cache_path": "data/cache/go-classification-20261019/human_rna.gaf.gz",
+    "bytes": 644782,
+    "sha256": "d58b68ddd984b5002b70029a1e433c7906d4212238cb75b67dd02d1219adb502",
+    "gaf_headers": [
+      "!gaf-version: 2.2",
+      "!",
+      "!Note that the annotation set in this file is filtered in order to reduce redundancy; the full, unfiltered set can be found in",
+      "!ftp://ftp.ebi.ac.uk/pub/databases/GO/goa/UNIPROT/goa_uniprot_all.gaf.gz",
+      "!",
+      "!date-generated: 2026-10-11 15:38",
+      "!generated-by: UniProt",
+      "!go-version: http://purl.obolibrary.org/obo/go/releases/2026-09-27/extensions/go-plus.ofn",
+      "!"
+    ]
+  },
+  {
+    "url": "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+    "resolved_url": "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+    "last_modified": "Fri, 16 Oct 2026 13:36:15 GMT",
+    "acquired_on": "2026-10-19",
+    "name": "hgnc_complete_set.tsv",
+    "cache_path": "data/cache/go-classification-20261019/hgnc_complete_set.tsv",
+    "bytes": 16982321,
+    "sha256": "12363916be36f8f6f91879b0faade4eeaac973722de7136ec61329b77f2c2f91"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/geneontology/go-ontology/16154084af7ef6330f815c63fde0b6b6ff08b8f2/src/ontology/go-edit.obo",
+    "resolved_url": "https://raw.githubusercontent.com/geneontology/go-ontology/16154084af7ef6330f815c63fde0b6b6ff08b8f2/src/ontology/go-edit.obo",
+    "last_modified": null,
+    "acquired_on": "2026-10-19",
+    "name": "go-edit-20260927.obo",
+    "cache_path": "data/cache/go-classification-20261019/go-edit-20260927.obo",
+    "bytes": 35385689,
+    "sha256": "2cc9fc95072f8b85d4fb2c1883572e8be8be6b6e7522c787fd1286c503ca144d"
+  }
+]
