@@ -1,0 +1,63 @@
+{
+  "baseline_response_commit": "d3d309a",
+  "baseline_response_sha256": "bd7a286388405ffd7ef75009ef406bf0a6762522b39ce07310e8d83b1e86bafb",
+  "updated_response_sha256": "1b5d628d5b6a40659ad58f16cca188a3f8b03587e01b8c13eb7f938362574ba0",
+  "original_comments_preserved": 23,
+  "crosswalk_entries": 25,
+  "editor_and_actual_figure_access_comment_present": true,
+  "complete_author_review_workbook_proposed_for_submission": false,
+  "evidence_files_present": [
+    "results/control_tier_trace.tsv",
+    "results/threshold_sensitivity.tsv",
+    "results/evidence_completeness.tsv",
+    "results/layer_correlations.tsv",
+    "results/baseline_comparison.tsv",
+    "results/candidate_membership_stability.tsv",
+    "results/usher_expression_diagnostics.tsv",
+    "phase3_roster/manifest.json",
+    "phase3_results/matched_concordance.tsv",
+    "phase3_results/comparator_summary.tsv",
+    "phase4_results/fixed_pair_summary.tsv",
+    "phase4_results/matching_completeness_balance.tsv",
+    "temporal_validation_v2/PROTOCOL.md",
+    "temporal_validation_v2/execution_verification.json",
+    "temporal_validation_v2/results/case_rankings.tsv",
+    "author_review_20261019/date_audit/verification.json",
+    "author_review_20261019/email_v2/intake_manifest.json",
+    "author_review_20261019/HUMAN_REVIEW_SCOPE_CLARIFICATION.md"
+  ],
+  "preserved_primary_temporal_outcomes": {
+    "archived_five": {
+      "original_cases": 45,
+      "in_universe": 41,
+      "top100": 0,
+      "high": 0,
+      "top1000": 2,
+      "top10pct": 5,
+      "median_percentile": 46.23
+    },
+    "augmented_six": {
+      "original_cases": 45,
+      "in_universe": 41,
+      "top100": 0,
+      "high": 0,
+      "top1000": 3,
+      "top10pct": 6,
+      "median_percentile": 44.95
+    }
+  },
+  "protected_baseline_hashes_unchanged": 21,
+  "existing_submission_artifacts_unchanged": 45,
+  "changed_package_source_files": [
+    "revision/major_revision_20261006/rebuttal.md"
+  ],
+  "professor_v2_source_sha256": "f9f7f0681811a5f4cd786b0b9bbfdf2837743c1f8f0064f1d31c4fc067d522e0",
+  "limits": [
+    "This checks the response source and existing evidence, not new full computational replay.",
+    "No clinical eligibility label was finalized or outcome recomputed.",
+    "The 7 October manuscript and submission package have not been updated to the new human-review account.",
+    "Journal-generated figure accessibility is not yet verified.",
+    "Prior Opus audits apply to the 7 October package, not this newly edited response.",
+    "GO integration remains undecided and its unfinished outputs are not claimed as new response evidence."
+  ]
+}
