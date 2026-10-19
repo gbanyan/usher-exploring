@@ -1,3 +1,11 @@
+# Independent Astra readability review — 20 October 2026
+
+At the author's explicit request, GPT-6 Astra with xhigh reasoning independently reviewed the current response, manuscript, Supplement and cover letter against all 23 original Reviewer 1/3 comments plus the Editor and Reviewer 2 wording, supplied verbatim in its task. Read `astra_readability_review_20261020.md` for the 25-topic adequacy matrix, prioritized cuts and proposed replacement paragraphs. It found substantive scientific questions addressed, including openly disclosed limits; the main need is selective compression of R1-major-8 and repeated temporal/provenance qualifications. R1-minor-7 is responsive but should state the decision to retain necessary biology more directly; the reviewer suggested considering shortening rather than requiring it. The journal-generated figure-access check remains pending.
+
+This was a review-only pass. No recommendations have yet been applied to the four sources or the fixed 19 October upload package. `astra_readability_review_20261020.verification.json` verifies all four source hashes and all 47 delivered artifact hashes against the existing release manifest. No analyses, cohort eligibility decisions or frozen outcomes changed. Preserve the released package/tag if a later editorial pass creates a new version.
+
+---
+
 # Final author-review artifacts verified — 20 October 2026
 
 The new package is `submission/bmc_bioinformatics_major_revision_20261019/` (assembly date retained in the path). All four documents have been regenerated and all 80 pages inspected: main 50, Supplement 13, response 16, cover 1. Actual-artifact/source verification covers all 23 original quotations, 25 response topics, 89 page locations, all 66 references in first-main-citation order, 21 protected baseline hashes, all 45 prior-package artifacts and the unchanged temporal tree. All 362 tests pass with 17 existing warnings; 38,334 temporal derived score/count/rank rows reproduce exactly. The nine main figures and Figure S1 are embedded, with separate assets retained. Additional file 13 contains the complete GO outputs and its tests; the full working human-review form is not attached.

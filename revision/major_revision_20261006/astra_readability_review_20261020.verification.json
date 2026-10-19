@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-20",
+  "scope": "Independent readability and reviewer-response adequacy review; recommendations only",
+  "requested_model": "gpt-6-astra",
+  "requested_reasoning_effort": "xhigh",
+  "agent": "/root/astra_readability_review",
+  "original_reviewer_comments": {
+    "path": "revision/major_revision_20261006/phase5_claude_review/round4_inputs/reviewer_source_comments_20261007.json",
+    "sha256": "e383878d9136f938dbf990a26a48cb966cd641b0b79269a97d141c7de3ae46d9",
+    "count": 23,
+    "supplied_verbatim_in_agent_task": true,
+    "additional_verbatim_comments": [
+      "Editor accuracy/overstatement/limitations request",
+      "Reviewer 2 inaccessible figures"
+    ]
+  },
+  "review_report": {
+    "path": "revision/major_revision_20261006/astra_readability_review_20261020.md",
+    "sha256": "f0487dcccf09581907407b613099faad99bc2b6880b6b857612e3b8aa692b6cf"
+  },
+  "current_source_hashes": {
+    "manuscript/draft.md": {
+      "sha256": "936ea00a5e7eef5d5e2e689d11e4e88b3f8da8e7d8f3a32517602601f0adc953",
+      "matches_release": true
+    },
+    "manuscript/supplementary_methods.md": {
+      "sha256": "8d2b2f2b88a04421699d85a61e794d961e6f46caa9722454e3c26cb9493fb82e",
+      "matches_release": true
+    },
+    "revision/major_revision_20261006/cover_letter_revision.md": {
+      "sha256": "beee99d8a37c43913a96325df786345fc7c2c86179dd561b3061b15349ff65d8",
+      "matches_release": true
+    },
+    "revision/major_revision_20261006/rebuttal.md": {
+      "sha256": "7e11ca7324636488f362bc1cd3c381da7e91b7d1af4d72871f57f02e547de1a0",
+      "matches_release": true
+    }
+  },
+  "release_package_manifest_sha256": "0ec6d9b0821e312609a2fe48852fdc1f9a57c8e92e57c2c07a8fa83419487e57",
+  "release_artifacts_checked": 47,
+  "release_artifacts_unchanged": true,
+  "recommendations_applied": false,
+  "new_analyses_or_eligibility_changes": false
+}
