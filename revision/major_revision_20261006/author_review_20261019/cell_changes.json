@@ -1,0 +1,1689 @@
+[
+  {
+    "symbol": "AP5B1",
+    "gene_key": "HGNC:25104",
+    "cell": "D9",
+    "before": "PENDING",
+    "after": "CONFIRMED"
+  },
+  {
+    "symbol": "AP5B1",
+    "gene_key": "HGNC:25104",
+    "cell": "E9",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "AP5B1",
+    "gene_key": "HGNC:25104",
+    "cell": "F9",
+    "before": "",
+    "after": "46308"
+  },
+  {
+    "symbol": "AP5B1",
+    "gene_key": "HGNC:25104",
+    "cell": "G9",
+    "before": "",
+    "after": "45750"
+  },
+  {
+    "symbol": "AP5B1",
+    "gene_key": "HGNC:25104",
+    "cell": "H9",
+    "before": "",
+    "after": "(Kaminska, 2025) PMID 40081374 \nFigure 1. (p812)\nTable 1.  (p.815)\nFigure 3. (p.817)"
+  },
+  {
+    "symbol": "AP5B1",
+    "gene_key": "HGNC:25104",
+    "cell": "I9",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "macular dystrophy\n2 independent families (family 18 and 19) \nAR, HomX1 ; Comp. hets X1"
+  },
+  {
+    "symbol": "ATP11A",
+    "gene_key": "HGNC:13552",
+    "cell": "D10",
+    "before": "PENDING",
+    "after": "REVISED"
+  },
+  {
+    "symbol": "ATP11A",
+    "gene_key": "HGNC:13552",
+    "cell": "E10",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "ATP11A",
+    "gene_key": "HGNC:13552",
+    "cell": "F10",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "ATP11A",
+    "gene_key": "HGNC:13552",
+    "cell": "G10",
+    "before": "",
+    "after": "44632"
+  },
+  {
+    "symbol": "ATP11A",
+    "gene_key": "HGNC:13552",
+    "cell": "H10",
+    "before": "",
+    "after": "Figure 2, 4, 5, 6"
+  },
+  {
+    "symbol": "ATP11A",
+    "gene_key": "HGNC:13552",
+    "cell": "I10",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "dominant non‑syndromic hearing loss\n4 independent families\nAD"
+  },
+  {
+    "symbol": "BRWD1",
+    "gene_key": "HGNC:12760",
+    "cell": "D11",
+    "before": "PENDING",
+    "after": "CONFIRMED"
+  },
+  {
+    "symbol": "BRWD1",
+    "gene_key": "HGNC:12760",
+    "cell": "E11",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "BRWD1",
+    "gene_key": "HGNC:12760",
+    "cell": "F11",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "BRWD1",
+    "gene_key": "HGNC:12760",
+    "cell": "G11",
+    "before": "",
+    "after": "44199"
+  },
+  {
+    "symbol": "BRWD1",
+    "gene_key": "HGNC:12760",
+    "cell": "H11",
+    "before": "",
+    "after": "Figrue 1; Table 2"
+  },
+  {
+    "symbol": "BRWD1",
+    "gene_key": "HGNC:12760",
+    "cell": "I11",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "3 unrealted failies\nasthenoteratozoospermia\nAD"
+  },
+  {
+    "symbol": "C19orf44",
+    "gene_key": "HGNC:26141",
+    "cell": "D12",
+    "before": "PENDING",
+    "after": "CONFIRMED"
+  },
+  {
+    "symbol": "C19orf44",
+    "gene_key": "HGNC:26141",
+    "cell": "E12",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "C19orf44",
+    "gene_key": "HGNC:26141",
+    "cell": "F12",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "C19orf44",
+    "gene_key": "HGNC:26141",
+    "cell": "G12",
+    "before": "",
+    "after": "45726"
+  },
+  {
+    "symbol": "C19orf44",
+    "gene_key": "HGNC:26141",
+    "cell": "H12",
+    "before": "",
+    "after": "Figure 1; Table 1"
+  },
+  {
+    "symbol": "C19orf44",
+    "gene_key": "HGNC:26141",
+    "cell": "I12",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "retinal dystrophy\n4 different pathogenic variants  in 15 biallelic individuals from 11 unrelated families.\nAR"
+  },
+  {
+    "symbol": "CEP76",
+    "gene_key": "HGNC:25727",
+    "cell": "D13",
+    "before": "PENDING",
+    "after": "CONFIRMED"
+  },
+  {
+    "symbol": "CEP76",
+    "gene_key": "HGNC:25727",
+    "cell": "E13",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "CEP76",
+    "gene_key": "HGNC:25727",
+    "cell": "F13",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "CEP76",
+    "gene_key": "HGNC:25727",
+    "cell": "G13",
+    "before": "",
+    "after": "45947"
+  },
+  {
+    "symbol": "CEP76",
+    "gene_key": "HGNC:25727",
+    "cell": "H13",
+    "before": "",
+    "after": "Figure 1; Table 1; Table 2"
+  },
+  {
+    "symbol": "CEP76",
+    "gene_key": "HGNC:25727",
+    "cell": "I13",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "spectrum of ciliopathies\n13 different pathogenic variant in 8 biallelic individuals from 8 unrealtd families\nAR"
+  },
+  {
+    "symbol": "CFAP54",
+    "gene_key": "HGNC:26456",
+    "cell": "D14",
+    "before": "PENDING",
+    "after": "CONFIRMED"
+  },
+  {
+    "symbol": "CFAP54",
+    "gene_key": "HGNC:26456",
+    "cell": "E14",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "CFAP54",
+    "gene_key": "HGNC:26456",
+    "cell": "F14",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "CFAP54",
+    "gene_key": "HGNC:26456",
+    "cell": "G14",
+    "before": "",
+    "after": "45188"
+  },
+  {
+    "symbol": "CFAP54",
+    "gene_key": "HGNC:26456",
+    "cell": "H14",
+    "before": "",
+    "after": "Figure1, Figure 3, Figure 6"
+  },
+  {
+    "symbol": "CFAP54",
+    "gene_key": "HGNC:26456",
+    "cell": "I14",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "primary ciliary dyskinesia\n4 different pathogenic variants in 2 ballelic  individuals from 2 unrelated failies\n1 mouse hom KI \nAR"
+  },
+  {
+    "symbol": "CLEC3B",
+    "gene_key": "HGNC:11891",
+    "cell": "D15",
+    "before": "PENDING",
+    "after": "CONFIRMED"
+  },
+  {
+    "symbol": "CLEC3B",
+    "gene_key": "HGNC:11891",
+    "cell": "E15",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "CLEC3B",
+    "gene_key": "HGNC:11891",
+    "cell": "F15",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "CLEC3B",
+    "gene_key": "HGNC:11891",
+    "cell": "G15",
+    "before": "",
+    "after": "44642"
+  },
+  {
+    "symbol": "CLEC3B",
+    "gene_key": "HGNC:11891",
+    "cell": "H15",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "CLEC3B",
+    "gene_key": "HGNC:11891",
+    "cell": "I15",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "macular-retinal dystrophy\n1 pathogenic variants, 12 affected in dividual from 5 multigenerational families in a small village in Miyazaki, JP\n1 AAV Tg mouse\nAD"
+  },
+  {
+    "symbol": "COQ5",
+    "gene_key": "HGNC:28722",
+    "cell": "D16",
+    "before": "PENDING",
+    "after": "CONFIRMED"
+  },
+  {
+    "symbol": "COQ5",
+    "gene_key": "HGNC:28722",
+    "cell": "E16",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "COQ5",
+    "gene_key": "HGNC:28722",
+    "cell": "F16",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "COQ5",
+    "gene_key": "HGNC:28722",
+    "cell": "G16",
+    "before": "",
+    "after": "44854"
+  },
+  {
+    "symbol": "COQ5",
+    "gene_key": "HGNC:28722",
+    "cell": "H16",
+    "before": "",
+    "after": "Figure1, Figure 4, Table 1"
+  },
+  {
+    "symbol": "COQ5",
+    "gene_key": "HGNC:28722",
+    "cell": "I16",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "retinitis pigmentosa\n3 pathogenic variants, 2 affected individuals from 2 families\nAR\n"
+  },
+  {
+    "symbol": "CREB3",
+    "gene_key": "HGNC:2347",
+    "cell": "D17",
+    "before": "PENDING",
+    "after": "REVISED"
+  },
+  {
+    "symbol": "CREB3",
+    "gene_key": "HGNC:2347",
+    "cell": "E17",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "CREB3",
+    "gene_key": "HGNC:2347",
+    "cell": "F17",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "CREB3",
+    "gene_key": "HGNC:2347",
+    "cell": "G17",
+    "before": "",
+    "after": "45855"
+  },
+  {
+    "symbol": "CREB3",
+    "gene_key": "HGNC:2347",
+    "cell": "H17",
+    "before": "",
+    "after": "Figure 1; Table 1"
+  },
+  {
+    "symbol": "CREB3",
+    "gene_key": "HGNC:2347",
+    "cell": "I17",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "inherited retinal diseases\nA founder homozygous nonsense variant in CREB3 (c.881G>A, p.Trp294*) was identiﬁed in 13 patients from 4 unrelated familie\n"
+  },
+  {
+    "symbol": "CRLS1",
+    "gene_key": "HGNC:16148",
+    "cell": "D18",
+    "before": "PENDING",
+    "after": "REVISED"
+  },
+  {
+    "symbol": "CRLS1",
+    "gene_key": "HGNC:16148",
+    "cell": "E18",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "CRLS1",
+    "gene_key": "HGNC:16148",
+    "cell": "F18",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "CRLS1",
+    "gene_key": "HGNC:16148",
+    "cell": "G18",
+    "before": "",
+    "after": "2022-02-06 accpeted\n2022-10-08 published"
+  },
+  {
+    "symbol": "CRLS1",
+    "gene_key": "HGNC:16148",
+    "cell": "H18",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "CRLS1",
+    "gene_key": "HGNC:16148",
+    "cell": "I18",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "multi-system mitochondrial disease\n3 pathogenic variants, 4 affected individuals, 3 families\nAR"
+  },
+  {
+    "symbol": "CTNND1",
+    "gene_key": "HGNC:2515",
+    "cell": "E19",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "CTNND1",
+    "gene_key": "HGNC:2515",
+    "cell": "F19",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "CTNND1",
+    "gene_key": "HGNC:2515",
+    "cell": "G19",
+    "before": "",
+    "after": "44764"
+  },
+  {
+    "symbol": "CTNND1",
+    "gene_key": "HGNC:2515",
+    "cell": "H19",
+    "before": "",
+    "after": "Figrue1"
+  },
+  {
+    "symbol": "CTNND1",
+    "gene_key": "HGNC:2515",
+    "cell": "I19",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "familial exudative vitreoretinopathy\n3 pathogenic variants, 7 individualts from 3 families\n1 Ctnnd1 iECKO/iECKO mice  \nAD"
+  },
+  {
+    "symbol": "DHRSX",
+    "gene_key": "HGNC:18399",
+    "cell": "D20",
+    "before": "PENDING",
+    "after": "CONFIRMED"
+  },
+  {
+    "symbol": "DHRSX",
+    "gene_key": "HGNC:18399",
+    "cell": "E20",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "DHRSX",
+    "gene_key": "HGNC:18399",
+    "cell": "F20",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "DHRSX",
+    "gene_key": "HGNC:18399",
+    "cell": "G20",
+    "before": "",
+    "after": "Epub 2024-05-30\nPub 2024-07-11"
+  },
+  {
+    "symbol": "DHRSX",
+    "gene_key": "HGNC:18399",
+    "cell": "H20",
+    "before": "",
+    "after": "Figure 1; Table 1"
+  },
+  {
+    "symbol": "DHRSX",
+    "gene_key": "HGNC:18399",
+    "cell": "I20",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "glycosylation (distinct facial features, severe neurological involvement including hypotonia, scoliosis, contractures, profound intellectual disability, epilepsy, and sensorineural hearing loss.)\n3 pathogenic variants, 4 individualts from 3 families\npseudoautosomal-recessive"
+  },
+  {
+    "symbol": "DNAJC30",
+    "gene_key": "HGNC:16410",
+    "cell": "D21",
+    "before": "PENDING",
+    "after": "REVISED"
+  },
+  {
+    "symbol": "DNAJC30",
+    "gene_key": "HGNC:16410",
+    "cell": "E21",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "DNAJC30",
+    "gene_key": "HGNC:16410",
+    "cell": "F21",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "DNAJC30",
+    "gene_key": "HGNC:16410",
+    "cell": "G21",
+    "before": "",
+    "after": "Accepter 2021-01-14\npublished: 2021-3-15"
+  },
+  {
+    "symbol": "DNAJC30",
+    "gene_key": "HGNC:16410",
+    "cell": "H21",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "DNAJC30",
+    "gene_key": "HGNC:16410",
+    "cell": "I21",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "Leber’s hereditary optic neuropathy\n3 pathogenic variants, 30 symptomatic carriers male predominance (5 hom females non-symptomatic indicated incomplete penetrance,) from 29  families\nAR"
+  },
+  {
+    "symbol": "EFCAB1",
+    "gene_key": "HGNC:25678",
+    "cell": "D22",
+    "before": "PENDING",
+    "after": "CONFIRMED"
+  },
+  {
+    "symbol": "EFCAB1",
+    "gene_key": "HGNC:25678",
+    "cell": "E22",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "EFCAB1",
+    "gene_key": "HGNC:25678",
+    "cell": "F22",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "EFCAB1",
+    "gene_key": "HGNC:25678",
+    "cell": "G22",
+    "before": "",
+    "after": "44957"
+  },
+  {
+    "symbol": "EFCAB1",
+    "gene_key": "HGNC:25678",
+    "cell": "H22",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "EFCAB1",
+    "gene_key": "HGNC:25678",
+    "cell": "I22",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "primary ciliary dyskinesia\n3 pathogenic variants, 3 individualts from 3 families\nAR"
+  },
+  {
+    "symbol": "FSD1L",
+    "gene_key": "HGNC:13753",
+    "cell": "D23",
+    "before": "PENDING",
+    "after": "REVISED"
+  },
+  {
+    "symbol": "FSD1L",
+    "gene_key": "HGNC:13753",
+    "cell": "E23",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "FSD1L",
+    "gene_key": "HGNC:13753",
+    "cell": "F23",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "FSD1L",
+    "gene_key": "HGNC:13753",
+    "cell": "G23",
+    "before": "",
+    "after": "46086"
+  },
+  {
+    "symbol": "FSD1L",
+    "gene_key": "HGNC:13753",
+    "cell": "H23",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "FSD1L",
+    "gene_key": "HGNC:13753",
+    "cell": "I23",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "neurodevelopmental disorder\n7 pathogenic variants, 14 individualts from 6families\nAR"
+  },
+  {
+    "symbol": "GPATCH11",
+    "gene_key": "HGNC:26768",
+    "cell": "D24",
+    "before": "PENDING",
+    "after": "REVISED"
+  },
+  {
+    "symbol": "GPATCH11",
+    "gene_key": "HGNC:26768",
+    "cell": "E24",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "GPATCH11",
+    "gene_key": "HGNC:26768",
+    "cell": "F24",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "GPATCH11",
+    "gene_key": "HGNC:26768",
+    "cell": "G24",
+    "before": "",
+    "after": "received 2023-10-09\nAccepted 2024-11-13\nPublished online 2024-11-21"
+  },
+  {
+    "symbol": "GPATCH11",
+    "gene_key": "HGNC:26768",
+    "cell": "H24",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "GPATCH11",
+    "gene_key": "HGNC:26768",
+    "cell": "I24",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "retinal dystrophy with neurological impairment\n4 pathogenic variants, 12 individualts from 6 families\nAR"
+  },
+  {
+    "symbol": "GPR156",
+    "gene_key": "HGNC:20844",
+    "cell": "D25",
+    "before": "PENDING",
+    "after": "CONFIRMED"
+  },
+  {
+    "symbol": "GPR156",
+    "gene_key": "HGNC:20844",
+    "cell": "E25",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "GPR156",
+    "gene_key": "HGNC:20844",
+    "cell": "F25",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "GPR156",
+    "gene_key": "HGNC:20844",
+    "cell": "G25",
+    "before": "",
+    "after": "45001"
+  },
+  {
+    "symbol": "GPR156",
+    "gene_key": "HGNC:20844",
+    "cell": "H25",
+    "before": "",
+    "after": "Table 1; Figure 4"
+  },
+  {
+    "symbol": "GPR156",
+    "gene_key": "HGNC:20844",
+    "cell": "I25",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "nonsyndromic bilateral sensorineural hearing loss\n3 pathogenic variants, 8 individualts from 3 families\nAR"
+  },
+  {
+    "symbol": "IDH3G",
+    "gene_key": "HGNC:5386",
+    "cell": "E26",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "IDH3G",
+    "gene_key": "HGNC:5386",
+    "cell": "F26",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "IDH3G",
+    "gene_key": "HGNC:5386",
+    "cell": "G26",
+    "before": "",
+    "after": "45735"
+  },
+  {
+    "symbol": "IDH3G",
+    "gene_key": "HGNC:5386",
+    "cell": "H26",
+    "before": "",
+    "after": "Figure 1; Table 1"
+  },
+  {
+    "symbol": "IDH3G",
+    "gene_key": "HGNC:5386",
+    "cell": "I26",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "X-linked retinitis pigmentosa\n5 pathogenic variants, 5 individualts from 5 families\nXLR"
+  },
+  {
+    "symbol": "INTS11",
+    "gene_key": "HGNC:26052",
+    "cell": "E27",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "INTS11",
+    "gene_key": "HGNC:26052",
+    "cell": "F27",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "INTS11",
+    "gene_key": "HGNC:26052",
+    "cell": "G27",
+    "before": "",
+    "after": "Epub 2023-04-12\npub 2023-05-04"
+  },
+  {
+    "symbol": "INTS11",
+    "gene_key": "HGNC:26052",
+    "cell": "H27",
+    "before": "",
+    "after": "Table 1; Figure 1"
+  },
+  {
+    "symbol": "INTS11",
+    "gene_key": "HGNC:26052",
+    "cell": "I27",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "complex neurological disorder\n18 pathogenic variants, 15 individualts from 10 families\nAR"
+  },
+  {
+    "symbol": "KCNJ16",
+    "gene_key": "HGNC:6262",
+    "cell": "E28",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "KCNJ16",
+    "gene_key": "HGNC:6262",
+    "cell": "F28",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "KCNJ16",
+    "gene_key": "HGNC:6262",
+    "cell": "G28",
+    "before": "",
+    "after": "Epub 2021-04-02\npub 2021-06-01"
+  },
+  {
+    "symbol": "KCNJ16",
+    "gene_key": "HGNC:6262",
+    "cell": "H28",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "KCNJ16",
+    "gene_key": "HGNC:6262",
+    "cell": "I28",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "hypokalemic tubulopathy with renal salt wasting, disturbed acid-base homeostasis, and sensorineural deafness.\n6  pathogenic variants, 8 individualts from 6 families\nAR"
+  },
+  {
+    "symbol": "KIAA1024L",
+    "gene_key": "HGNC:33914",
+    "cell": "E29",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "KIAA1024L",
+    "gene_key": "HGNC:33914",
+    "cell": "F29",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "KIAA1024L",
+    "gene_key": "HGNC:33914",
+    "cell": "G29",
+    "before": "",
+    "after": "44733"
+  },
+  {
+    "symbol": "KIAA1024L",
+    "gene_key": "HGNC:33914",
+    "cell": "H29",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "KIAA1024L",
+    "gene_key": "HGNC:33914",
+    "cell": "I29",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "deafness\n3  pathogenic variants, 13 individualts from 4 families\n1  KO mice\nAR"
+  },
+  {
+    "symbol": "LIG3",
+    "gene_key": "HGNC:6600",
+    "cell": "E30",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "LIG3",
+    "gene_key": "HGNC:6600",
+    "cell": "F30",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "LIG3",
+    "gene_key": "HGNC:6600",
+    "cell": "G30",
+    "before": "",
+    "after": "44369"
+  },
+  {
+    "symbol": "LIG3",
+    "gene_key": "HGNC:6600",
+    "cell": "H30",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "LIG3",
+    "gene_key": "HGNC:6600",
+    "cell": "I30",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "neurogastrointestinal encephalomyopathy\n6 pathogenic variants, 7 individualts from 3 families\nAR"
+  },
+  {
+    "symbol": "MRPL49",
+    "gene_key": "HGNC:1176",
+    "cell": "E31",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "MRPL49",
+    "gene_key": "HGNC:1176",
+    "cell": "F31",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "MRPL49",
+    "gene_key": "HGNC:1176",
+    "cell": "G31",
+    "before": "",
+    "after": "45750"
+  },
+  {
+    "symbol": "MRPL49",
+    "gene_key": "HGNC:1176",
+    "cell": "H31",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "MRPL49",
+    "gene_key": "HGNC:1176",
+    "cell": "I31",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "sensorineural hearing loss, leukodystrophy, and ovarian insufﬁciency\n4 pathogenic variants, 13 individualts from 9 families\nAR"
+  },
+  {
+    "symbol": "PDIA6",
+    "gene_key": "HGNC:30168",
+    "cell": "E32",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "PDIA6",
+    "gene_key": "HGNC:30168",
+    "cell": "F32",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "PDIA6",
+    "gene_key": "HGNC:30168",
+    "cell": "G32",
+    "before": "",
+    "after": "44217"
+  },
+  {
+    "symbol": "PDIA6",
+    "gene_key": "HGNC:30168",
+    "cell": "H32",
+    "before": "",
+    "after": "Figure 3"
+  },
+  {
+    "symbol": "PDIA6",
+    "gene_key": "HGNC:30168",
+    "cell": "I32",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "asphyxiating thoracic dystrophy and neonatal-onset diabetes\n1 pathogenic variants, 1 individualts from 1 families\n1 KO mice (Zhang et al., 2005-02-01)\nAR"
+  },
+  {
+    "symbol": "PKHD1L1",
+    "gene_key": "HGNC:20313",
+    "cell": "E33",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "PKHD1L1",
+    "gene_key": "HGNC:20313",
+    "cell": "F33",
+    "before": "",
+    "after": "46312"
+  },
+  {
+    "symbol": "PKHD1L1",
+    "gene_key": "HGNC:20313",
+    "cell": "G33",
+    "before": "",
+    "after": "45360"
+  },
+  {
+    "symbol": "PKHD1L1",
+    "gene_key": "HGNC:20313",
+    "cell": "H33",
+    "before": "",
+    "after": "Table 1; Figure 1"
+  },
+  {
+    "symbol": "PKHD1L1",
+    "gene_key": "HGNC:20313",
+    "cell": "I33",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "nonsyndromic hearing loss\n3 pathogenic variants, 4 individualts from 4 families\nAR"
+  },
+  {
+    "symbol": "PLCG1",
+    "gene_key": "HGNC:9065",
+    "cell": "E34",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "PLCG1",
+    "gene_key": "HGNC:9065",
+    "cell": "F34",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "PLCG1",
+    "gene_key": "HGNC:9065",
+    "cell": "G34",
+    "before": "",
+    "after": "2023-11-??\n2025-08-17"
+  },
+  {
+    "symbol": "PLCG1",
+    "gene_key": "HGNC:9065",
+    "cell": "H34",
+    "before": "",
+    "after": "(PMID 37422272) Figure 1\n\n(PMID 40862571) Table 1; Figure 1"
+  },
+  {
+    "symbol": "PLCG1",
+    "gene_key": "HGNC:9065",
+    "cell": "I34",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "GOF alleles:  immune dysregulation disease (PMID 37422272)\n1 pathogenic variants, 1 individualts from 1 families\nhearing impairment, ocular pathology , cardiac septal defects , and various immunological issues (PMID 40862571)\n4  pathogenic variants, 7 individualts from 4 families\n+ 4 fly models\nAD"
+  },
+  {
+    "symbol": "PSKH1",
+    "gene_key": "HGNC:9529",
+    "cell": "E35",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "PSKH1",
+    "gene_key": "HGNC:9529",
+    "cell": "F35",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "PSKH1",
+    "gene_key": "HGNC:9529",
+    "cell": "G35",
+    "before": "",
+    "after": "45513"
+  },
+  {
+    "symbol": "PSKH1",
+    "gene_key": "HGNC:9529",
+    "cell": "H35",
+    "before": "",
+    "after": "Table 1; Figure 2"
+  },
+  {
+    "symbol": "PSKH1",
+    "gene_key": "HGNC:9529",
+    "cell": "I35",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "hepatorenal ciliopathy\n3  pathogenic variants, 7 individualts from 4families\nAR"
+  },
+  {
+    "symbol": "RFC4",
+    "gene_key": "HGNC:9972",
+    "cell": "E36",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "RFC4",
+    "gene_key": "HGNC:9972",
+    "cell": "F36",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "RFC4",
+    "gene_key": "HGNC:9972",
+    "cell": "G36",
+    "before": "",
+    "after": "45540"
+  },
+  {
+    "symbol": "RFC4",
+    "gene_key": "HGNC:9972",
+    "cell": "H36",
+    "before": "",
+    "after": "Figrue 1; Figure 2; Table 2"
+  },
+  {
+    "symbol": "RFC4",
+    "gene_key": "HGNC:9972",
+    "cell": "I36",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "multisystemic disorder :incoordination, muscle weakness, hearing impairment, and decreased body weight\n10  pathogenic variants, 9 individualts from 8 families\nAR "
+  },
+  {
+    "symbol": "RNF220",
+    "gene_key": "HGNC:25552",
+    "cell": "E37",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "RNF220",
+    "gene_key": "HGNC:25552",
+    "cell": "F37",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "RNF220",
+    "gene_key": "HGNC:25552",
+    "cell": "G37",
+    "before": "",
+    "after": "44324"
+  },
+  {
+    "symbol": "RNF220",
+    "gene_key": "HGNC:25552",
+    "cell": "H37",
+    "before": "",
+    "after": "Figure 1; Table 1"
+  },
+  {
+    "symbol": "RNF220",
+    "gene_key": "HGNC:25552",
+    "cell": "I37",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "leukodystrophy, ataxia and deafness\n2  pathogenic variants, 14 individualts from 5 families\nAR"
+  },
+  {
+    "symbol": "RNU4-2",
+    "gene_key": "HGNC:10193",
+    "cell": "E38",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "RNU4-2",
+    "gene_key": "HGNC:10193",
+    "cell": "F38",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "RNU4-2",
+    "gene_key": "HGNC:10193",
+    "cell": "G38",
+    "before": "",
+    "after": "46031"
+  },
+  {
+    "symbol": "RNU4-2",
+    "gene_key": "HGNC:10193",
+    "cell": "H38",
+    "before": "",
+    "after": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2\n"
+  },
+  {
+    "symbol": "RNU4-2",
+    "gene_key": "HGNC:10193",
+    "cell": "I38",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "neurodevelopmental disorders; nonsyndromic retinitis pigmentosa; cystoid macular edema, non-age-related lens opacities, various vitreomacular complications \n2 pathogenic variants. 41 affected , 15 families\nAD / de novo"
+  },
+  {
+    "symbol": "RNU6-2",
+    "gene_key": "HGNC:34270",
+    "cell": "E39",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "RNU6-2",
+    "gene_key": "HGNC:34270",
+    "cell": "F39",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "RNU6-2",
+    "gene_key": "HGNC:34270",
+    "cell": "G39",
+    "before": "",
+    "after": "46031"
+  },
+  {
+    "symbol": "RNU6-2",
+    "gene_key": "HGNC:34270",
+    "cell": "H39",
+    "before": "",
+    "after": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2"
+  },
+  {
+    "symbol": "RNU6-2",
+    "gene_key": "HGNC:34270",
+    "cell": "I39",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "Nonsyndromic retinitis pigmentosa (RP)\n2 pathogenic variants, ? individualts from 14 families\nAD / de novo"
+  },
+  {
+    "symbol": "RNU6-8",
+    "gene_key": "HGNC:34285",
+    "cell": "E40",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "RNU6-8",
+    "gene_key": "HGNC:34285",
+    "cell": "F40",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "RNU6-8",
+    "gene_key": "HGNC:34285",
+    "cell": "G40",
+    "before": "",
+    "after": "46031"
+  },
+  {
+    "symbol": "RNU6-8",
+    "gene_key": "HGNC:34285",
+    "cell": "H40",
+    "before": "",
+    "after": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2"
+  },
+  {
+    "symbol": "RNU6-8",
+    "gene_key": "HGNC:34285",
+    "cell": "I40",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "Retinitis pigmentosa 105 (RP105)\n1 pathogenic variants, 44 individualts from 12 families\nAD / de novo"
+  },
+  {
+    "symbol": "RNU6-9",
+    "gene_key": "HGNC:34269",
+    "cell": "E41",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "RNU6-9",
+    "gene_key": "HGNC:34269",
+    "cell": "F41",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "RNU6-9",
+    "gene_key": "HGNC:34269",
+    "cell": "G41",
+    "before": "",
+    "after": "46031"
+  },
+  {
+    "symbol": "RNU6-9",
+    "gene_key": "HGNC:34269",
+    "cell": "H41",
+    "before": "",
+    "after": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2"
+  },
+  {
+    "symbol": "RNU6-9",
+    "gene_key": "HGNC:34269",
+    "cell": "I41",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "Nonsyndromic retinitis pigmentosa (RP)\n2 pathogenic variants, ? individualts from17 families\nAD / de novo"
+  },
+  {
+    "symbol": "RSG1",
+    "gene_key": "HGNC:28127",
+    "cell": "E42",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "RSG1",
+    "gene_key": "HGNC:28127",
+    "cell": "F42",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "RSG1",
+    "gene_key": "HGNC:28127",
+    "cell": "G42",
+    "before": "",
+    "after": "45839"
+  },
+  {
+    "symbol": "RSG1",
+    "gene_key": "HGNC:28127",
+    "cell": "H42",
+    "before": "",
+    "after": "Figrue1"
+  },
+  {
+    "symbol": "RSG1",
+    "gene_key": "HGNC:28127",
+    "cell": "I42",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "ciliopathy: cleft palate, tongue lobulations and polydactyly, phenotypes characteristic of Oral-FacialDigital Syndrome.\n3  pathogenic variants, 3 individualts from 3 families\nAR"
+  },
+  {
+    "symbol": "SAXO6",
+    "gene_key": "HGNC:29917",
+    "cell": "E43",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "SAXO6",
+    "gene_key": "HGNC:29917",
+    "cell": "F43",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "SAXO6",
+    "gene_key": "HGNC:29917",
+    "cell": "G43",
+    "before": "",
+    "after": "46086"
+  },
+  {
+    "symbol": "SAXO6",
+    "gene_key": "HGNC:29917",
+    "cell": "H43",
+    "before": "",
+    "after": "Figure 1 "
+  },
+  {
+    "symbol": "SAXO6",
+    "gene_key": "HGNC:29917",
+    "cell": "I43",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "late-onset retinal dystrophy\n6 pathogenic variants, 10 individualts from 5 families\nAR"
+  },
+  {
+    "symbol": "SCNM1",
+    "gene_key": "HGNC:23136",
+    "cell": "E44",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "SCNM1",
+    "gene_key": "HGNC:23136",
+    "cell": "F44",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "SCNM1",
+    "gene_key": "HGNC:23136",
+    "cell": "G44",
+    "before": "",
+    "after": "44840"
+  },
+  {
+    "symbol": "SCNM1",
+    "gene_key": "HGNC:23136",
+    "cell": "H44",
+    "before": "",
+    "after": "Figure 2"
+  },
+  {
+    "symbol": "SCNM1",
+    "gene_key": "HGNC:23136",
+    "cell": "I44",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "orofaciodigital syndrome\n3 pathogenic variants, 4 individualts from 3 families\nAR"
+  },
+  {
+    "symbol": "SLC66A1",
+    "gene_key": "HGNC:26001",
+    "cell": "E45",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "SLC66A1",
+    "gene_key": "HGNC:26001",
+    "cell": "F45",
+    "before": "",
+    "after": "46313"
+  },
+  {
+    "symbol": "SLC66A1",
+    "gene_key": "HGNC:26001",
+    "cell": "G45",
+    "before": "",
+    "after": "44680"
+  },
+  {
+    "symbol": "SLC66A1",
+    "gene_key": "HGNC:26001",
+    "cell": "H45",
+    "before": "",
+    "after": "Table 2\n(Supplemental Figure 1)."
+  },
+  {
+    "symbol": "SLC66A1",
+    "gene_key": "HGNC:26001",
+    "cell": "I45",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "autosomal recessive RP (ARRP)\n2 pathogenic variants, 7 individualts from 2 families\nAR"
+  },
+  {
+    "symbol": "SPATA5L1",
+    "gene_key": "HGNC:28762",
+    "cell": "E46",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "SPATA5L1",
+    "gene_key": "HGNC:28762",
+    "cell": "F46",
+    "before": "",
+    "after": "46314"
+  },
+  {
+    "symbol": "SPATA5L1",
+    "gene_key": "HGNC:28762",
+    "cell": "G46",
+    "before": "",
+    "after": "44476"
+  },
+  {
+    "symbol": "SPATA5L1",
+    "gene_key": "HGNC:28762",
+    "cell": "H46",
+    "before": "",
+    "after": "Table 1"
+  },
+  {
+    "symbol": "SPATA5L1",
+    "gene_key": "HGNC:28762",
+    "cell": "I46",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "intellectual disability, spastic-dystonic cerebral palsy, epilepsy, and sensorineural hearing loss\n28 pathogenic variants, 47 individualts from 28 (26 rnrelated) families\nAR"
+  },
+  {
+    "symbol": "STX3",
+    "gene_key": "HGNC:11438",
+    "cell": "E47",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "STX3",
+    "gene_key": "HGNC:11438",
+    "cell": "F47",
+    "before": "",
+    "after": "46314"
+  },
+  {
+    "symbol": "STX3",
+    "gene_key": "HGNC:11438",
+    "cell": "G47",
+    "before": "",
+    "after": "2021-05-11\nWiegerinck et al. (2014) 就有 report microvillus inclusion disease\nhttps://doi. org/10.1053/j.gastro.2014.04.002"
+  },
+  {
+    "symbol": "STX3",
+    "gene_key": "HGNC:11438",
+    "cell": "H47",
+    "before": "",
+    "after": "Table 1"
+  },
+  {
+    "symbol": "STX3",
+    "gene_key": "HGNC:11438",
+    "cell": "I47",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "early‑onset severe retinal dystrophy in microvillus inclusion disease\n8   pathogenic variants, 8 individualts from 8 families\nAR"
+  },
+  {
+    "symbol": "TMEM72",
+    "gene_key": "HGNC:31658",
+    "cell": "E48",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "TMEM72",
+    "gene_key": "HGNC:31658",
+    "cell": "F48",
+    "before": "",
+    "after": "46314"
+  },
+  {
+    "symbol": "TMEM72",
+    "gene_key": "HGNC:31658",
+    "cell": "G48",
+    "before": "",
+    "after": "45988"
+  },
+  {
+    "symbol": "TMEM72",
+    "gene_key": "HGNC:31658",
+    "cell": "H48",
+    "before": "",
+    "after": "Figure 1\nTable 1"
+  },
+  {
+    "symbol": "TMEM72",
+    "gene_key": "HGNC:31658",
+    "cell": "I48",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "Nephronophthisis-Like kidney disease primary cilium defects\n4 pathogenic variants, 9 individualts from 6 families\nAR"
+  },
+  {
+    "symbol": "TP73",
+    "gene_key": "HGNC:12003",
+    "cell": "E49",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "TP73",
+    "gene_key": "HGNC:12003",
+    "cell": "F49",
+    "before": "",
+    "after": "46314"
+  },
+  {
+    "symbol": "TP73",
+    "gene_key": "HGNC:12003",
+    "cell": "G49",
+    "before": "",
+    "after": "44378"
+  },
+  {
+    "symbol": "TP73",
+    "gene_key": "HGNC:12003",
+    "cell": "H49",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "TP73",
+    "gene_key": "HGNC:12003",
+    "cell": "I49",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "Impaired mucociliary clearance and lissencephaly\n4 pathogenic variants, 7 individualts from 5 unrelted families\nAR"
+  },
+  {
+    "symbol": "UBAP1L",
+    "gene_key": "HGNC:40028",
+    "cell": "E50",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "UBAP1L",
+    "gene_key": "HGNC:40028",
+    "cell": "F50",
+    "before": "",
+    "after": "46314"
+  },
+  {
+    "symbol": "UBAP1L",
+    "gene_key": "HGNC:40028",
+    "cell": "G50",
+    "before": "",
+    "after": "45319"
+  },
+  {
+    "symbol": "UBAP1L",
+    "gene_key": "HGNC:40028",
+    "cell": "H50",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "UBAP1L",
+    "gene_key": "HGNC:40028",
+    "cell": "I50",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "rod-cone and cone-rod dystrophy\n3 pathogenic variants, 6 individualts from 4 families\nAR"
+  },
+  {
+    "symbol": "USP48",
+    "gene_key": "HGNC:18533",
+    "cell": "E51",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "USP48",
+    "gene_key": "HGNC:18533",
+    "cell": "F51",
+    "before": "",
+    "after": "46314"
+  },
+  {
+    "symbol": "USP48",
+    "gene_key": "HGNC:18533",
+    "cell": "G51",
+    "before": "",
+    "after": "44341"
+  },
+  {
+    "symbol": "USP48",
+    "gene_key": "HGNC:18533",
+    "cell": "H51",
+    "before": "",
+    "after": "Figure 1"
+  },
+  {
+    "symbol": "USP48",
+    "gene_key": "HGNC:18533",
+    "cell": "I51",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "non-syndromic hereditary hearing loss\n3  pathogenic variants, 10 individualts from 3 families\nAD"
+  },
+  {
+    "symbol": "VWA8",
+    "gene_key": "HGNC:29071",
+    "cell": "E52",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "VWA8",
+    "gene_key": "HGNC:29071",
+    "cell": "F52",
+    "before": "",
+    "after": "46314"
+  },
+  {
+    "symbol": "VWA8",
+    "gene_key": "HGNC:29071",
+    "cell": "G52",
+    "before": "",
+    "after": "44470"
+  },
+  {
+    "symbol": "VWA8",
+    "gene_key": "HGNC:29071",
+    "cell": "H52",
+    "before": "",
+    "after": "Figure 1\nTable 1"
+  },
+  {
+    "symbol": "VWA8",
+    "gene_key": "HGNC:29071",
+    "cell": "I52",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "Developmental Delay, Microcephaly, and Scoliosis \n1  pathogenic variants, 9 individualts from 1 families\nAR\n1 Tg Zebrafish "
+  },
+  {
+    "symbol": "XXYLT1",
+    "gene_key": "HGNC:26639",
+    "cell": "E53",
+    "before": "",
+    "after": "YHC"
+  },
+  {
+    "symbol": "XXYLT1",
+    "gene_key": "HGNC:26639",
+    "cell": "F53",
+    "before": "",
+    "after": "46314"
+  },
+  {
+    "symbol": "XXYLT1",
+    "gene_key": "HGNC:26639",
+    "cell": "G53",
+    "before": "",
+    "after": "46233"
+  },
+  {
+    "symbol": "XXYLT1",
+    "gene_key": "HGNC:26639",
+    "cell": "H53",
+    "before": "",
+    "after": "Figure 1\nTable 1"
+  },
+  {
+    "symbol": "XXYLT1",
+    "gene_key": "HGNC:26639",
+    "cell": "I53",
+    "before": "PENDING: record case-specific inheritance, segregating variants and source location",
+    "after": "Retinal Dystrophy\n2 pathogenic variants, 7 individualts from 5 families\nAR"
+  }
+]

@@ -1,4 +1,14 @@
-# Phase5 author-review status — 7 October 2026
+# Author-return reconciliation — 19 October 2026
+
+The professor's two new iCloud Downloads files only (`Temporal_Case_Author_Review_Defined_20261019.xlsx` and `Refs.zip`) have been preserved and processed. All 45 genes now have returned human reviewer/date/source/genotype notes, so the historical statement below that no case had human source review is no longer the current intake state. **Final cohort eligibility remains PENDING for all 45 rows**; date decisions are 10 CONFIRMED, 6 REVISED and 29 PENDING. The user confirmed there was no other instruction and asked to organize pending confirmations first. Do not infer final human inclusion decisions from the notes or overwrite frozen labels/outcomes.
+
+Read `author_review_20261019/REPORT.md` and `intake_manifest.json`. The follow-up workbook is `../../outputs/temporal-author-reconciliation-20261019/Temporal_Author_Confirmations_20261019.xlsx`, with 45 specific confirmation rows, preserved returned observations and a plain-language Guide. It flags acceptance/issue/preprint date differences, target vs non-target reports, target-family/replication questions, BRWD1 AR vs the returned AD note, and CLXN (EFCAB1) as the same stable HGNC:25678. Original comments/inputs and 46 reference PDFs remain preserved locally with hashes. All 21 protected baseline hashes still match. No formal score, cohort result, manuscript or submission artifact has been changed during this intake.
+
+The existing `data` symlink to `/Volumes/NV2/Project/usher/usher-exploring/data` and its pre-existing Git status were left unchanged. Copyrighted references/raw extracted text are local-only; Git is not their backup. Await explicit author responses, then document an amendment and recompute affected summaries if necessary.
+
+---
+
+# Phase5 author-review status — 7 October 2026 (historical)
 
 **8 October worksheet usability update:** use `../../outputs/temporal-human-review-20261008/Temporal_Case_Author_Review_Defined_20261008.xlsx` for author case review. It opens on full field definitions and frozen eligibility rules, explicitly separates first-public target-association timing from clinical-evidence maturation and the human review date, and preserves all original source/evidence/Review values. All 45 cases remain pending. The 7 October workbook is preserved; this companion does not alter the frozen submission package or automatically write back author decisions.
 

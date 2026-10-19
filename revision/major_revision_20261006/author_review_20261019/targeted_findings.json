@@ -1,0 +1,209 @@
+{
+  "scope": "Assistant-assisted reconciliation questions, not final human clinical decisions. Supplied primary PDFs were checked selectively; no claim of complete 768-page human adjudication.",
+  "findings": {
+    "AP5B1": {
+      "focus": "Case evidence and date",
+      "question": "Confirm the independent replication/functional route as well as the two AP5B1 families. Should the first-public date be 2025-03-12 rather than 2025-04-03? The returned date decision says CONFIRMED despite different dates.",
+      "source_check": "Supplied PMID 40081374, PDF p.18, lists publication on 2025-03-12; the cover/issue date is 2025-04-03. The frozen evidence also nominated independent reports 41830174 and 42568187, not attached here. Healthy RPE localization alone does not satisfy the functional route.",
+      "date_candidate": "2025-03-12 (publication history in supplied PDF); author confirmation pending"
+    },
+    "ATP11A": {
+      "focus": "Case evidence and date",
+      "question": "Check the gene-confirmed unrelated-family count separately from the older DFNA33 linkage family. Confirm whether the earlier preprint supports the target association before the 2022 journal article.",
+      "source_check": "Supplied PMID 35278131 p.1 describes one Newfoundland and two Israeli families; the earlier German DFNA33 linkage family is a separate issue from demonstrated ATP11A variants. Its journal-online date is 2022-03-12. The frozen screening nominated preprint PPR349560 dated 2021-05-28 and another clinical report 36300302; these are not in Refs.zip.",
+      "date_candidate": "2021-05-28 frozen preprint candidate vs 2022-03-12 journal date; earliest-source verification pending"
+    },
+    "BRWD1": {
+      "focus": "Inheritance correction",
+      "question": "Please confirm AR rather than AD in the returned genotype note, and retain the respiratory PCD/PCD-like phenotype alongside infertility when deciding target eligibility.",
+      "source_check": "Supplied PMID 33389130, PDF p.1 abstract, explicitly describes biallelic variants and autosomal recessive inheritance in three unrelated individuals with MMAF and PCD/PCD-like symptoms. The returned note says AD and lists infertility only. The 2021-01-03 online date agrees.",
+      "date_candidate": "2021-01-03; no numeric date mismatch detected"
+    },
+    "C19orf44": {
+      "focus": "Case evidence",
+      "question": "Confirm the qualifying functional or independent-new-family replication route, in addition to the 11 original retinal families.",
+      "source_check": "The returned notes cover the original PMID 40079362. The frozen screening cited 40744518 as an independent new-family replication; that report is not attached. Original expression/localization observations must not alone be counted as functional validation.",
+      "date_candidate": "2025-03-10; no numeric date mismatch detected"
+    },
+    "CREB3": {
+      "focus": "Earlier-publicity interval",
+      "question": "Does the May/July 2024 conference evidence publicly propose the retinal association? Keep an uncertainty interval unless an exact public-release day is verified.",
+      "source_check": "The returned date is the 2025-07-17 journal publication. The frozen protocol retained a 2024-05-01 to 2025-07-17 interval for earlier conference evidence. The old workbook displayed the interval's lower bound as an exact-looking date, so its display must not be treated as proof of an exact day.",
+      "date_candidate": "Interval 2024-05-01 to 2025-07-17 pending earliest-publicity adjudication"
+    },
+    "CRLS1": {
+      "focus": "Acceptance vs public date",
+      "question": "Confirm 2022-02-11 as advance-access publication, rather than acceptance on 2022-02-06 or the later issue date. Record the target sensory findings per family.",
+      "source_check": "Supplied PMID 35147173, PDF p.1, lists advance-access publication 2022-02-11 and acceptance 2022-02-06. The returned free-text date mixes acceptance and a later publication date. Acceptance is not proof of public availability.",
+      "date_candidate": "2022-02-11 (advance access in supplied PDF); author confirmation pending"
+    },
+    "CTNND1": {
+      "focus": "Online version history",
+      "question": "Distinguish the 2022-06-14 first-public candidate from the 2022-07-22 issue/PDF date, and confirm the prior non-target association remains separate.",
+      "source_check": "The supplied PMID 35700046 PDF p.2 lists 2022-07-22, while the frozen roster used 2022-06-14. This may reflect an in-press version; the PDF alone does not establish that no earlier public version existed.",
+      "date_candidate": "2022-06-14 vs 2022-07-22; earliest public version needs confirmation"
+    },
+    "DHRSX": {
+      "focus": "Date field cleanup",
+      "question": "Confirm the 2024-05-30 electronic-publication date as the first-public date and retain the later 2024-07-11 issue date only as bibliographic context.",
+      "source_check": "The returned free-text date contains both Epub and issue dates, with CONFIRMED selected. The Epub date agrees with the original AI date. Preserve the original text and enter a single exact date only after author confirmation.",
+      "date_candidate": "2024-05-30 (returned Epub date agrees with original)"
+    },
+    "DNAJC30": {
+      "focus": "In-press preview vs issue",
+      "question": "Confirm that first-public timing follows the 2021-01-19 in-press preview, not acceptance on 2021-01-14 or the March issue.",
+      "source_check": "The supplied PMID 33465056 PDF gives the 2021-03-15 issue/publication version. The JCI publisher version history independently lists version 1 in-press preview on 2021-01-19 and version 2 on 2021-03-15: https://www.jci.org/articles/view/138267 .",
+      "date_candidate": "2021-01-19 (publisher in-press preview); author confirmation pending"
+    },
+    "EFCAB1": {
+      "focus": "Symbol mapping and sign-off",
+      "question": "Use CLXN (formerly EFCAB1) for the current display name, keeping stable HGNC:25678 and the frozen historical symbol. Finalize the pending eligibility decision.",
+      "source_check": "The professor's A22 comment requests CLXN. ClinGen's primary gene record gives CLXN, HGNC:25678, previous symbol EFCAB1: https://search.clinicalgenome.org/kb/genes/HGNC%3A25678 . No gene-identity or score remapping is required.",
+      "date_candidate": "2023-01-31; no numeric date mismatch detected"
+    },
+    "FSD1L": {
+      "focus": "Target-specific companion report",
+      "question": "Review the retinal companion paper before counting target-affected families; distinguish those families from the neurodevelopmental cohort. Confirm the online date.",
+      "source_check": "The supplied PMID 41720098 concerns a neurodevelopmental disorder; the frozen retinal cohort cites companion PMID 41720099 (not attached) for six retinal individuals/four families. Supplied PDF p.15 lists publication 2026-02-19, earlier than the returned 2026-03-05 issue date.",
+      "date_candidate": "2026-02-19 (publication history in supplied PDF); target report verification pending"
+    },
+    "GPATCH11": {
+      "focus": "Earlier preprint",
+      "question": "Check whether preprint PPR705483 already proposed the relevant human retinal association before the 2024 journal article.",
+      "source_check": "The returned field lists received 2023-10-09, accepted 2024-11-13 and online 2024-11-21. The frozen screening nominated a 2023-08-21 preprint; received/accepted dates do not replace a public preprint date.",
+      "date_candidate": "2023-08-21 frozen preprint candidate vs 2024-11-21 journal date; verify earliest public source"
+    },
+    "INTS11": {
+      "focus": "Target families across reports",
+      "question": "Verify at least two unrelated retinal/optic families across the nominated reports; do not substitute all 10 neurological families for target-family evidence.",
+      "source_check": "The return covers PMID 37054711 and 15 neurological individuals/10 families. The frozen screening locates retinal evidence in one early family plus an independent 2026 family, citing 37980560 and 41810893, neither attached. The returned Epub 2023-04-12 agrees with the original date.",
+      "date_candidate": "2023-04-12 (returned Epub agrees); target-family evidence requires confirmation"
+    },
+    "KCNJ16": {
+      "focus": "Date field cleanup",
+      "question": "Select the Epub date rather than the later issue date, and confirm the target hearing evidence per family before final eligibility sign-off.",
+      "source_check": "The return lists Epub 2021-04-02 and issue 2021-06-01. The frozen roster also nominated PMID 33840812, not attached; absence from this ZIP is not proof that the evidence is absent.",
+      "date_candidate": "2021-04-02 (returned Epub agrees with original)"
+    },
+    "LIG3": {
+      "focus": "Target scope and online date",
+      "question": "Identify which unrelated families have retinal/optic findings, separately from the general neurogastrointestinal syndrome. Confirm the advance-access date.",
+      "source_check": "The returned summary reports the broader neurological/GI phenotype. Supplied PMID 33855352 p.1 gives advance access 2021-04-15, earlier than the returned 2021-06-22 issue date. The frozen notes nominate macular degeneration in relevant families; this still needs explicit human target-family confirmation.",
+      "date_candidate": "2021-04-15 (advance access in supplied PDF); target-family confirmation pending"
+    },
+    "MRPL49": {
+      "focus": "Earlier-publicity interval",
+      "question": "Check the earlier thesis/conference/preprint evidence and target-family counts before replacing the frozen date interval with the 2025 issue date.",
+      "source_check": "The frozen interval is 2022-01-01 to 2024-10-11, with nominated preprint PPR923018 on 2024-10-11. The returned date is 2025-04-03. The interval's lower bound is not an exact verified release day.",
+      "date_candidate": "Interval 2022-01-01 to 2024-10-11 pending earliest-publicity adjudication"
+    },
+    "PDIA6": {
+      "focus": "Additional target families",
+      "question": "Confirm later independent target-affected families and qualifying ciliary/functional evidence. Do not exclude or include from the first single-family paper alone. Separate acceptance from public release.",
+      "source_check": "Supplied PMID 33495992 describes one patient/family; p.1 gives acceptance 2021-01-21. The frozen evidence also cites 35856135 and 40974269, not attached. The 2021-01-26 date was the frozen public-date candidate; acceptance on 2021-01-21 is not public-release evidence.",
+      "date_candidate": "2021-01-26 frozen public-date candidate; 2021-01-21 is acceptance, not an adopted correction"
+    },
+    "PKHD1L1": {
+      "focus": "Earlier preprint",
+      "question": "Check the earlier 2023 public report before adopting the 2024 journal date as the first proposed target association.",
+      "source_check": "The return records 2024-03-09. The frozen roster used 2023-10-09 based on earlier-publicity screening. Confirm that the early version contains the same relevant human hearing association.",
+      "date_candidate": "2023-10-09 frozen earlier-publicity candidate vs 2024-03-09 journal date"
+    },
+    "PLCG1": {
+      "focus": "Prior immune vs target sensory association",
+      "question": "Keep the earlier immune-only report separate from the later hearing/ocular target report. Verify hearing/retinal target-family evidence and the earliest public target preprint.",
+      "source_check": "Both PMIDs 37422272 and 40862571 are supplied. The return mixes an uncertain 2023 date with a 2025 date. The frozen target date is a 2024-01-09 preprint candidate; category B separates the earlier non-target germline immune association.",
+      "date_candidate": "2024-01-09 frozen TARGET preprint candidate; do not use the immune-only date automatically"
+    },
+    "RFC4": {
+      "focus": "Online vs issue date",
+      "question": "Confirm the publication-history date rather than the later issue date, and identify the target hearing families within the systemic cohort.",
+      "source_check": "Supplied PMID 39106866 p.23 lists publication 2024-08-05; the returned date is 2024-09-05. The original AI date agrees with the supplied publication history.",
+      "date_candidate": "2024-08-05 (publication history in supplied PDF)"
+    },
+    "RNU4-2": {
+      "focus": "Earlier preprint and target-specific variant",
+      "question": "Verify the retinal-specific allele/family evidence separately from earlier neurodevelopmental RNU4-2 disease, and check the earlier target preprint.",
+      "source_check": "The supplied PMID 41513982 journal article is online 2026-01-09; the frozen target preprint candidate is 2025-01-06. The four RNU-labelled PDFs are copies/versions of the same paper, not independent replication reports.",
+      "date_candidate": "2025-01-06 frozen target-preprint candidate vs 2026-01-09 journal date"
+    },
+    "RNU6-2": {
+      "focus": "Earlier preprint",
+      "question": "Check the 2025 target preprint and gene-specific family count before adopting the 2026 journal date.",
+      "source_check": "The supplied PMID 41513982 is online 2026-01-09; the frozen target preprint candidate is 2025-01-06. Duplicate RNU-labelled PDF copies are not independent reports.",
+      "date_candidate": "2025-01-06 frozen target-preprint candidate vs 2026-01-09 journal date"
+    },
+    "RNU6-8": {
+      "focus": "Earlier preprint",
+      "question": "Check the 2025 target preprint and gene-specific family count before adopting the 2026 journal date.",
+      "source_check": "The supplied PMID 41513982 is online 2026-01-09; the frozen target preprint candidate is 2025-01-06. Duplicate RNU-labelled PDF copies are not independent reports.",
+      "date_candidate": "2025-01-06 frozen target-preprint candidate vs 2026-01-09 journal date"
+    },
+    "RNU6-9": {
+      "focus": "Earlier preprint",
+      "question": "Check the 2025 target preprint and gene-specific family count before adopting the 2026 journal date.",
+      "source_check": "The supplied PMID 41513982 is online 2026-01-09; the frozen target preprint candidate is 2025-01-06. Duplicate RNU-labelled PDF copies are not independent reports.",
+      "date_candidate": "2025-01-06 frozen target-preprint candidate vs 2026-01-09 journal date"
+    },
+    "RSG1": {
+      "focus": "Earlier preprint",
+      "question": "Check whether the earlier 2024 public version already contained the target human ciliopathy association.",
+      "source_check": "The supplied PMID 40593758 gives journal online publication 2025-07-01; the frozen earlier-publicity candidate is 2024-09-26. The journal date alone does not refute the earlier version.",
+      "date_candidate": "2024-09-26 frozen earlier-publicity candidate vs 2025-07-01 journal date"
+    },
+    "SAXO6": {
+      "focus": "Online vs issue date",
+      "question": "Confirm the publication-history date rather than the March issue date, retaining the stable gene key for the former MDM1 name.",
+      "source_check": "Supplied PMID 41742423 p.15 lists publication 2026-02-24; the cover/issue and returned date are 2026-03-05.",
+      "date_candidate": "2026-02-24 (publication history in supplied PDF)"
+    },
+    "SCNM1": {
+      "focus": "Online vs issue date",
+      "question": "Confirm the first-public date and distinguish later follow-up evidence from initial discovery.",
+      "source_check": "Supplied PMID 36084634 lists publication 2022-09-08; the returned date is 2022-10-06. Additional nominated report 41291844 is not attached.",
+      "date_candidate": "2022-09-08 (publication history in supplied PDF)"
+    },
+    "SLC66A1": {
+      "focus": "Replication route",
+      "question": "Confirm the qualifying functional or independent new-family replication route for the retinal association.",
+      "source_check": "The return documents the original two retinal families in 35486108. The frozen screening also nominated 39669628, not attached. Its absence from this ZIP is an author-review coverage issue, not proof of absent replication.",
+      "date_candidate": "2022-04-29; no numeric date mismatch detected"
+    },
+    "SPATA5L1": {
+      "focus": "Target-family count",
+      "question": "Count the families with sensorineural hearing loss rather than all neurological families, and confirm the target-support route across the nominated reports.",
+      "source_check": "The returned note gives 47 individuals and 28 families (26 unrelated) for a multisystem syndrome. The frozen screening also nominated 37902276, not attached. A total syndrome cohort is not automatically the count with the relevant sensory finding.",
+      "date_candidate": "2021-10-07; no numeric date mismatch detected"
+    },
+    "STX3": {
+      "focus": "Prior non-target association",
+      "question": "Confirm that the 2014 microvillus-inclusion association is a prior non-target disease, while the first human retinal association is 2021-05-11.",
+      "source_check": "The returned note correctly points to the earlier intestinal disease. Category B allows an earlier non-target association; it does not automatically exclude a later first target association. Keep both dates and disease domains separate.",
+      "date_candidate": "2021-05-11 target date; 2014 is prior non-target disease context"
+    },
+    "TMEM72": {
+      "focus": "Target scope and earlier-publicity interval",
+      "question": "Confirm relevant renal/ciliary families and the patient-cell functional route; separately adjudicate the early public thesis/conference timing.",
+      "source_check": "Supplied PMID 41308066 gives online publication 2025-11-27. The frozen protocol retained earlier timing bounded within 2021-01-01 to 2022-04-30. The raw row displays 2021-08-31, but the interval and source-publicity uncertainty must not be erased. The frozen rubric distinguishes five core NPHP-like families from another prenatal renal/neuro family and does not claim ciliary rescue.",
+      "date_candidate": "Interval 2021-01-01 to 2022-04-30 pending earliest-publicity adjudication"
+    },
+    "TP73": {
+      "focus": "Online vs issue date",
+      "question": "Confirm the June online date rather than the July issue date.",
+      "source_check": "Supplied PMID 34077761 p.11 lists publication 2021-06-01; the returned date is 2021-07-01.",
+      "date_candidate": "2021-06-01 (publication history in supplied PDF)"
+    },
+    "USP48": {
+      "focus": "Acceptance vs public date",
+      "question": "Confirm advance access on 2021-05-31 rather than acceptance on 2021-05-25.",
+      "source_check": "Supplied PMID 34059922 p.1 gives advance-access publication 2021-05-31 and acceptance 2021-05-25. The returned date matches acceptance, which is not public-release evidence.",
+      "date_candidate": "2021-05-31 (advance access in supplied PDF)"
+    },
+    "VWA8": {
+      "focus": "Different disease report",
+      "question": "Review the retinal reports before deciding target eligibility; the attached 2021 developmental paper is a different, prior non-target association.",
+      "source_check": "Supplied PMID 34660594 describes one developmental-disorder family in 2021. The frozen target cohort instead relies on retinal PMIDs 37012052 (2023) and 40638000 (2025), neither attached. Do not replace the first TARGET date with the first ANY-disease date or infer a one-family target cohort from this attachment alone.",
+      "date_candidate": "2023-04-03 frozen retinal target candidate; 2021-10-01 is prior non-target disease"
+    }
+  }
+}

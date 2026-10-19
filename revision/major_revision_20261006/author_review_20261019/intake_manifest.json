@@ -1,0 +1,44 @@
+{
+  "received_date": "2026-10-19",
+  "authorized_source_files_only": [
+    {
+      "filename": "Temporal_Case_Author_Review_Defined_20261019.xlsx",
+      "bytes": 61375,
+      "sha256": "c92fb22e37961b06f2a549d86e86d6ccd85900833e37a2f8bcba30cb0bcee215",
+      "preserved_path": "data/cache/author-review-20261019/originals/Temporal_Case_Author_Review_Defined_20261019.xlsx"
+    },
+    {
+      "filename": "Refs.zip",
+      "bytes": 189277845,
+      "sha256": "78c789c3ed3028bedf426c51616387e7d8f9d94f3fca5feb67e27e6ba22d07b6",
+      "preserved_path": "data/cache/author-review-20261019/originals/Refs.zip"
+    }
+  ],
+  "original_review_rows": 45,
+  "returned_review_rows": 45,
+  "gene_keys_match": true,
+  "original_tsv_snapshot_unchanged": true,
+  "eligibility_decisions": {
+    "PENDING": 45
+  },
+  "date_decisions": {
+    "CONFIRMED": 10,
+    "REVISED": 6,
+    "PENDING": 29
+  },
+  "human_reviewer_entries": 45,
+  "human_genotype_entries": 45,
+  "numeric_exact_dates": 37,
+  "text_date_fields": 8,
+  "numeric_date_differences": 21,
+  "cell_changes": 241,
+  "comments": 3,
+  "pdf_files": 46,
+  "unique_pdf_sha256": 44,
+  "unique_pmid_filenames": 43,
+  "total_pdf_pages": 768,
+  "formal_frozen_cohort_changed": false,
+  "formal_frozen_outcomes_changed": false,
+  "targeted_gene_questions": 34,
+  "missing_gene_reference_nominations": 16
+}

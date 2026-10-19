@@ -1,0 +1,174 @@
+excel_row	symbol	gene_key	human_eligibility_decision_as_returned	human_date_decision_as_returned	human_reviewer_as_returned	human_review_date	human_association_date_raw	human_association_exact_date_if_numeric	human_notes_as_returned	human_inheritance_genotype_as_returned	original_ai_association_date	original_ai_novelty	exact_date_differs	attached_reference_pmids	date_field_needs_disambiguation	principal_eligibility_human_signed
+9	AP5B1	HGNC:25104	PENDING	CONFIRMED	YHC	2026-10-13	45750	2025-04-03	"(Kaminska, 2025) PMID 40081374 
+Figure 1. (p812)
+Table 1.  (p.815)
+Figure 3. (p.817)"	"macular dystrophy
+2 independent families (family 18 and 19) 
+AR, HomX1 ; Comp. hets X1"	2025-03-12	A	True	40081374	False	False
+10	ATP11A	HGNC:13552	PENDING	REVISED	YHC	2026-10-17	44632	2022-03-12	Figure 2, 4, 5, 6	"dominant non‑syndromic hearing loss
+4 independent families
+AD"	2021-05-28	A	True	35278131	False	False
+11	BRWD1	HGNC:12760	PENDING	CONFIRMED	YHC	2026-10-17	44199	2021-01-03	Figrue 1; Table 2	"3 unrealted failies
+asthenoteratozoospermia
+AD"	2021-01-03	A	False	33389130	False	False
+12	C19orf44	HGNC:26141	PENDING	CONFIRMED	YHC	2026-10-17	45726	2025-03-10	Figure 1; Table 1	"retinal dystrophy
+4 different pathogenic variants  in 15 biallelic individuals from 11 unrelated families.
+AR"	2025-03-10	A	False	40079362	False	False
+13	CEP76	HGNC:25727	PENDING	CONFIRMED	YHC	2026-10-17	45947	2025-10-17	Figure 1; Table 1; Table 2	"spectrum of ciliopathies
+13 different pathogenic variant in 8 biallelic individuals from 8 unrealtd families
+AR"	2025-10-17	A	False	41105778	False	False
+14	CFAP54	HGNC:26456	PENDING	CONFIRMED	YHC	2026-10-17	45188	2023-09-19	Figure1, Figure 3, Figure 6	"primary ciliary dyskinesia
+4 different pathogenic variants in 2 ballelic  individuals from 2 unrelated failies
+1 mouse hom KI 
+AR"	2023-09-19	A	False	37725231	False	False
+15	CLEC3B	HGNC:11891	PENDING	CONFIRMED	YHC	2026-10-17	44642	2022-03-22	Figure 1	"macular-retinal dystrophy
+1 pathogenic variants, 12 affected in dividual from 5 multigenerational families in a small village in Miyazaki, JP
+1 AAV Tg mouse
+AD"	2022-03-22	A	False	35331648	False	False
+16	COQ5	HGNC:28722	PENDING	CONFIRMED	YHC	2026-10-17	44854	2022-10-20	Figure1, Figure 4, Table 1	"retinitis pigmentosa
+3 pathogenic variants, 2 affected individuals from 2 families
+AR
+"	2022-10-20	B	False	36266294	False	False
+17	CREB3	HGNC:2347	PENDING	REVISED	YHC	2026-10-17	45855	2025-07-17	Figure 1; Table 1	"inherited retinal diseases
+A founder homozygous nonsense variant in CREB3 (c.881G>A, p.Trp294*) was identiﬁed in 13 patients from 4 unrelated familie
+"	2024-05-01	A	True	40674075	False	False
+18	CRLS1	HGNC:16148	PENDING	REVISED	YHC	2026-10-17	"2022-02-06 accpeted
+2022-10-08 published"		Figure 1	"multi-system mitochondrial disease
+3 pathogenic variants, 4 affected individuals, 3 families
+AR"	2022-02-11	A	False	35147173	True	False
+19	CTNND1	HGNC:2515	PENDING	PENDING	YHC	2026-10-17	44764	2022-07-22	Figrue1	"familial exudative vitreoretinopathy
+3 pathogenic variants, 7 individualts from 3 families
+1 Ctnnd1 iECKO/iECKO mice  
+AD"	2022-06-14	B	True	35700046	False	False
+20	DHRSX	HGNC:18399	PENDING	CONFIRMED	YHC	2026-10-17	"Epub 2024-05-30
+Pub 2024-07-11"		Figure 1; Table 1	"glycosylation (distinct facial features, severe neurological involvement including hypotonia, scoliosis, contractures, profound intellectual disability, epilepsy, and sensorineural hearing loss.)
+3 pathogenic variants, 4 individualts from 3 families
+pseudoautosomal-recessive"	2024-05-30	A	False	38821050	True	False
+21	DNAJC30	HGNC:16410	PENDING	REVISED	YHC	2026-10-17	"Accepter 2021-01-14
+published: 2021-3-15"		Figure 1	"Leber’s hereditary optic neuropathy
+3 pathogenic variants, 30 symptomatic carriers male predominance (5 hom females non-symptomatic indicated incomplete penetrance,) from 29  families
+AR"	2021-01-19	A	False	33465056	True	False
+22	EFCAB1	HGNC:25678	PENDING	CONFIRMED	YHC	2026-10-17	44957	2023-01-31	Figure 1	"primary ciliary dyskinesia
+3 pathogenic variants, 3 individualts from 3 families
+AR"	2023-01-31	A	False	36727596	False	False
+23	FSD1L	HGNC:13753	PENDING	REVISED	YHC	2026-10-17	46086	2026-03-05	Figure 1	"neurodevelopmental disorder
+7 pathogenic variants, 14 individualts from 6families
+AR"	2026-02-19	A	True	41720098	False	False
+24	GPATCH11	HGNC:26768	PENDING	REVISED	YHC	2026-10-17	"received 2023-10-09
+Accepted 2024-11-13
+Published online 2024-11-21"		Figure 1	"retinal dystrophy with neurological impairment
+4 pathogenic variants, 12 individualts from 6 families
+AR"	2023-08-21	A	False	39572588	True	False
+25	GPR156	HGNC:20844	PENDING	CONFIRMED	YHC	2026-10-17	45001	2023-03-16	Table 1; Figure 4	"nonsyndromic bilateral sensorineural hearing loss
+3 pathogenic variants, 8 individualts from 3 families
+AR"	2023-03-16	A	False	36928819	False	False
+26	IDH3G	HGNC:5386	PENDING	PENDING	YHC	2026-10-17	45735	2025-03-19	Figure 1; Table 1	"X-linked retinitis pigmentosa
+5 pathogenic variants, 5 individualts from 5 families
+XLR"	2025-03-19	A	False	40119724	False	False
+27	INTS11	HGNC:26052	PENDING	PENDING	YHC	2026-10-17	"Epub 2023-04-12
+pub 2023-05-04"		Table 1; Figure 1	"complex neurological disorder
+18 pathogenic variants, 15 individualts from 10 families
+AR"	2023-04-12	A	False	37054711	True	False
+28	KCNJ16	HGNC:6262	PENDING	PENDING	YHC	2026-10-17	"Epub 2021-04-02
+pub 2021-06-01"		Figure 1	"hypokalemic tubulopathy with renal salt wasting, disturbed acid-base homeostasis, and sensorineural deafness.
+6  pathogenic variants, 8 individualts from 6 families
+AR"	2021-04-02	A	False	33811157	True	False
+29	KIAA1024L	HGNC:33914	PENDING	PENDING	YHC	2026-10-17	44733	2022-06-21	Figure 1	"deafness
+3  pathogenic variants, 13 individualts from 4 families
+1  KO mice
+AR"	2022-06-21	A	False	35727972	False	False
+30	LIG3	HGNC:6600	PENDING	PENDING	YHC	2026-10-17	44369	2021-06-22	Figure 1	"neurogastrointestinal encephalomyopathy
+6 pathogenic variants, 7 individualts from 3 families
+AR"	2021-04-15	A	True	33855352	False	False
+31	MRPL49	HGNC:1176	PENDING	PENDING	YHC	2026-10-17	45750	2025-04-03	Figure 1	"sensorineural hearing loss, leukodystrophy, and ovarian insufﬁciency
+4 pathogenic variants, 13 individualts from 9 families
+AR"	2024-10-11	A	True	40043708	False	False
+32	PDIA6	HGNC:30168	PENDING	PENDING	YHC	2026-10-17	44217	2021-01-21	Figure 3	"asphyxiating thoracic dystrophy and neonatal-onset diabetes
+1 pathogenic variants, 1 individualts from 1 families
+1 KO mice (Zhang et al., 2005-02-01)
+AR"	2021-01-26	A	True	33495992	False	False
+33	PKHD1L1	HGNC:20313	PENDING	PENDING	YHC	2026-10-17	45360	2024-03-09	Table 1; Figure 1	"nonsyndromic hearing loss
+3 pathogenic variants, 4 individualts from 4 families
+AR"	2023-10-09	A	True	38459354	False	False
+34	PLCG1	HGNC:9065	PENDING	PENDING	YHC	2026-10-18	"2023-11-??
+2025-08-17"		"(PMID 37422272) Figure 1
+
+(PMID 40862571) Table 1; Figure 1"	"GOF alleles:  immune dysregulation disease (PMID 37422272)
+1 pathogenic variants, 1 individualts from 1 families
+hearing impairment, ocular pathology , cardiac septal defects , and various immunological issues (PMID 40862571)
+4  pathogenic variants, 7 individualts from 4 families
++ 4 fly models
+AD"	2024-01-09	B	False	40862571;37422272	True	False
+35	PSKH1	HGNC:9529	PENDING	PENDING	YHC	2026-10-18	45513	2024-08-09	Table 1; Figure 2	"hepatorenal ciliopathy
+3  pathogenic variants, 7 individualts from 4families
+AR"	2024-08-09	A	False	39132680	False	False
+36	RFC4	HGNC:9972	PENDING	PENDING	YHC	2026-10-18	45540	2024-09-05	Figrue 1; Figure 2; Table 2	"multisystemic disorder :incoordination, muscle weakness, hearing impairment, and decreased body weight
+10  pathogenic variants, 9 individualts from 8 families
+AR "	2024-08-05	A	True	39106866	False	False
+37	RNF220	HGNC:25552	PENDING	PENDING	YHC	2026-10-18	44324	2021-05-08	Figure 1; Table 1	"leukodystrophy, ataxia and deafness
+2  pathogenic variants, 14 individualts from 5 families
+AR"	2021-05-08	A	False	33964137	False	False
+38	RNU4-2	HGNC:10193	PENDING	PENDING	YHC	2026-10-18	46031	2026-01-09	"Supplementary Fig. 1
+Fig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)
+Supplementary Fig. 1 and Supplementary Tables 1 and 2
+"	"neurodevelopmental disorders; nonsyndromic retinitis pigmentosa; cystoid macular edema, non-age-related lens opacities, various vitreomacular complications 
+2 pathogenic variants. 41 affected , 15 families
+AD / de novo"	2025-01-06	B	True	41513982	False	False
+39	RNU6-2	HGNC:34270	PENDING	PENDING	YHC	2026-10-18	46031	2026-01-09	"Supplementary Fig. 1
+Fig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)
+Supplementary Fig. 1 and Supplementary Tables 1 and 2"	"Nonsyndromic retinitis pigmentosa (RP)
+2 pathogenic variants, ? individualts from 14 families
+AD / de novo"	2025-01-06	A	True	41513982	False	False
+40	RNU6-8	HGNC:34285	PENDING	PENDING	YHC	2026-10-18	46031	2026-01-09	"Supplementary Fig. 1
+Fig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)
+Supplementary Fig. 1 and Supplementary Tables 1 and 2"	"Retinitis pigmentosa 105 (RP105)
+1 pathogenic variants, 44 individualts from 12 families
+AD / de novo"	2025-01-06	A	True	41513982	False	False
+41	RNU6-9	HGNC:34269	PENDING	PENDING	YHC	2026-10-18	46031	2026-01-09	"Supplementary Fig. 1
+Fig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)
+Supplementary Fig. 1 and Supplementary Tables 1 and 2"	"Nonsyndromic retinitis pigmentosa (RP)
+2 pathogenic variants, ? individualts from17 families
+AD / de novo"	2025-01-06	A	True	41513982	False	False
+42	RSG1	HGNC:28127	PENDING	PENDING	YHC	2026-10-18	45839	2025-07-01	Figrue1	"ciliopathy: cleft palate, tongue lobulations and polydactyly, phenotypes characteristic of Oral-FacialDigital Syndrome.
+3  pathogenic variants, 3 individualts from 3 families
+AR"	2024-09-26	A	True	40593758	False	False
+43	SAXO6	HGNC:29917	PENDING	PENDING	YHC	2026-10-18	46086	2026-03-05	Figure 1 	"late-onset retinal dystrophy
+6 pathogenic variants, 10 individualts from 5 families
+AR"	2026-02-24	A	True	41742423	False	False
+44	SCNM1	HGNC:23136	PENDING	PENDING	YHC	2026-10-18	44840	2022-10-06	Figure 2	"orofaciodigital syndrome
+3 pathogenic variants, 4 individualts from 3 families
+AR"	2022-09-08	A	True	36084634	False	False
+45	SLC66A1	HGNC:26001	PENDING	PENDING	YHC	2026-10-18	44680	2022-04-29	"Table 2
+(Supplemental Figure 1)."	"autosomal recessive RP (ARRP)
+2 pathogenic variants, 7 individualts from 2 families
+AR"	2022-04-29	A	False	35486108	False	False
+46	SPATA5L1	HGNC:28762	PENDING	PENDING	YHC	2026-10-19	44476	2021-10-07	Table 1	"intellectual disability, spastic-dystonic cerebral palsy, epilepsy, and sensorineural hearing loss
+28 pathogenic variants, 47 individualts from 28 (26 rnrelated) families
+AR"	2021-10-07	A	False	34626583	False	False
+47	STX3	HGNC:11438	PENDING	PENDING	YHC	2026-10-19	"2021-05-11
+Wiegerinck et al. (2014) 就有 report microvillus inclusion disease
+https://doi. org/10.1053/j.gastro.2014.04.002"		Table 1	"early‑onset severe retinal dystrophy in microvillus inclusion disease
+8   pathogenic variants, 8 individualts from 8 families
+AR"	2021-05-11	B	False	33974130	True	False
+48	TMEM72	HGNC:31658	PENDING	PENDING	YHC	2026-10-19	45988	2025-11-27	"Figure 1
+Table 1"	"Nephronophthisis-Like kidney disease primary cilium defects
+4 pathogenic variants, 9 individualts from 6 families
+AR"	2021-08-31	A	True	41308066	False	False
+49	TP73	HGNC:12003	PENDING	PENDING	YHC	2026-10-19	44378	2021-07-01	Figure 1	"Impaired mucociliary clearance and lissencephaly
+4 pathogenic variants, 7 individualts from 5 unrelted families
+AR"	2021-06-01	A	True	34077761	False	False
+50	UBAP1L	HGNC:40028	PENDING	PENDING	YHC	2026-10-19	45319	2024-01-28	Figure 1	"rod-cone and cone-rod dystrophy
+3 pathogenic variants, 6 individualts from 4 families
+AR"	2024-01-28	A	False	38293907	False	False
+51	USP48	HGNC:18533	PENDING	PENDING	YHC	2026-10-19	44341	2021-05-25	Figure 1	"non-syndromic hereditary hearing loss
+3  pathogenic variants, 10 individualts from 3 families
+AD"	2021-05-31	A	True	34059922	False	False
+52	VWA8	HGNC:29071	PENDING	PENDING	YHC	2026-10-19	44470	2021-10-01	"Figure 1
+Table 1"	"Developmental Delay, Microcephaly, and Scoliosis 
+1  pathogenic variants, 9 individualts from 1 families
+AR
+1 Tg Zebrafish "	2023-04-03	B	True	34660594	False	False
+53	XXYLT1	HGNC:26639	PENDING	PENDING	YHC	2026-10-19	46233	2026-07-30	"Figure 1
+Table 1"	"Retinal Dystrophy
+2 pathogenic variants, 7 individualts from 5 families
+AR"	2026-07-30	A	False	42530953	False	False

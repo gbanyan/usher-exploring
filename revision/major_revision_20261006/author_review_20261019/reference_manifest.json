@@ -1,0 +1,724 @@
+[
+  {
+    "filename": "USP48_PMID 34059922.pdf",
+    "symbol_from_filename": "USP48",
+    "pmid_from_filename": "34059922",
+    "bytes": 1133469,
+    "sha256": "01fc303e49d1acccae8af34fba0d3ae7b14c18f64e2d6c9279c35f13db4a2763",
+    "pages": 12,
+    "text_characters": 134535,
+    "pdf_annotations": [
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "CEP76_PMID 41105778.pdf",
+    "symbol_from_filename": "CEP76",
+    "pmid_from_filename": "41105778",
+    "bytes": 3710906,
+    "sha256": "0de575fcbfbfbad9ab5abbe8821617402247fa0a9a60a931b57110dca76ff28c",
+    "pages": 22,
+    "text_characters": 181331,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "FSD1L_PMID 41720098.pdf",
+    "symbol_from_filename": "FSD1L",
+    "pmid_from_filename": "41720098",
+    "bytes": 18969875,
+    "sha256": "1e94dcfc957b72871f1300899cdf38d1dfc7eec713b99f9f18b0de6786c3da59",
+    "pages": 17,
+    "text_characters": 98991,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "PDIA6_PMID 33495992.pdf",
+    "symbol_from_filename": "PDIA6",
+    "pmid_from_filename": "33495992",
+    "bytes": 3322791,
+    "sha256": "e58cfa09e37ce68b215cdbf1e68d328f173a9626c0f6a14e669ca8579221bf06",
+    "pages": 10,
+    "text_characters": 83788,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "TP73_PMID 34077761.pdf",
+    "symbol_from_filename": "TP73",
+    "pmid_from_filename": "34077761",
+    "bytes": 2772898,
+    "sha256": "4392db95222249900999aae59ac5219e6ba0d7ba35195004c3bde5828d296ac5",
+    "pages": 12,
+    "text_characters": 66930,
+    "pdf_annotations": [
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 4,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 4,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 11,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "SAXO6_PMID 41742423.pdf",
+    "symbol_from_filename": "SAXO6",
+    "pmid_from_filename": "41742423",
+    "bytes": 22263695,
+    "sha256": "7c92aa8f927e2bf0f26eb7a4cef18871d30db65ae801e648151d9e457de4772e",
+    "pages": 19,
+    "text_characters": 128475,
+    "pdf_annotations": [
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "DHRSX_PMID 38821050.pdf",
+    "symbol_from_filename": "DHRSX",
+    "pmid_from_filename": "38821050",
+    "bytes": 6870130,
+    "sha256": "f45d146a353d1504bb72e01bafd1b38b7e06467186c90aaa556bf7257e2ab608",
+    "pages": 42,
+    "text_characters": 215572,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "CTNND1_PMID 35700046.pdf",
+    "symbol_from_filename": "CTNND1",
+    "pmid_from_filename": "35700046",
+    "bytes": 9857929,
+    "sha256": "c25aaa482298113db2457a87265a089b918d24ea05159d9c050ffe35b6e87805",
+    "pages": 22,
+    "text_characters": 97131,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "RFC4_PMID 39106866.pdf",
+    "symbol_from_filename": "RFC4",
+    "pmid_from_filename": "39106866",
+    "bytes": 5524671,
+    "sha256": "0b90ae5d44c3f9d01dffc66c09ac0680cd424fd80c8fbc4275f1086da5169c86",
+    "pages": 25,
+    "text_characters": 223250,
+    "pdf_annotations": [
+      {
+        "page": 3,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "RNU6-2_PMID 41513982.pdf",
+    "symbol_from_filename": "RNU6-2",
+    "pmid_from_filename": "41513982",
+    "bytes": 2056838,
+    "sha256": "bf206519ba51a9c301aa1e0f50bba86f8242ad559e268883e535e7b028cffbc8",
+    "pages": 18,
+    "text_characters": 153101,
+    "pdf_annotations": [
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "PLCG1_PMID 40862571.pdf",
+    "symbol_from_filename": "PLCG1",
+    "pmid_from_filename": "40862571",
+    "bytes": 4581181,
+    "sha256": "2317a0ff0ddc9af2d29a1d28eb2798d92948e5168281df0072b855cf8b8decd3",
+    "pages": 30,
+    "text_characters": 186983,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "IDH3G_PMID 40119724.pdf",
+    "symbol_from_filename": "IDH3G",
+    "pmid_from_filename": "40119724",
+    "bytes": 2834897,
+    "sha256": "60139396e584e391f628f2d7a2a5d80d78aa690d1a94d1a631f7fb28cf7254df",
+    "pages": 14,
+    "text_characters": 90030,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "PLCG1_PMID 37422272 GOF Immu.pdf",
+    "symbol_from_filename": "PLCG1",
+    "pmid_from_filename": "37422272",
+    "bytes": 2231279,
+    "sha256": "51ff0b3e615f0e398ff70e27a5941b43561ff3ac38ebb79f8feed309293372f8",
+    "pages": 27,
+    "text_characters": 95760,
+    "pdf_annotations": [
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 7,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 7,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 7,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "RNU4-2_PMID 41513982.pdf",
+    "symbol_from_filename": "RNU4-2",
+    "pmid_from_filename": "41513982",
+    "bytes": 2057719,
+    "sha256": "2a785d28ce83746b3500a6d7f39138d13adcc2b22b01b631f8ccd1506c0fd13e",
+    "pages": 18,
+    "text_characters": 153101,
+    "pdf_annotations": [
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "LIG3_PMID 33855352.pdf",
+    "symbol_from_filename": "LIG3",
+    "pmid_from_filename": "33855352",
+    "bytes": 1694172,
+    "sha256": "f5e0f6df8ca610a34169c218004314ed836e5eb0cf4908e5eabe9dfc88e86b2c",
+    "pages": 16,
+    "text_characters": 185083,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "C19orf44_PMID 40079362.pdf",
+    "symbol_from_filename": "C19orf44",
+    "pmid_from_filename": "40079362",
+    "bytes": 2061604,
+    "sha256": "2a5486fec734833bac893efc030e7578a1bc842ff72a6a157a66d82c7fcb4e0b",
+    "pages": 14,
+    "text_characters": 98106,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "DNAJC30_PMID 33465056.pdf",
+    "symbol_from_filename": "DNAJC30",
+    "pmid_from_filename": "33465056",
+    "bytes": 6299761,
+    "sha256": "89caf421e2c509df7030c77ce4f31ecd087c0ddc7e175e6569c4769703921669",
+    "pages": 13,
+    "text_characters": 77088,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "EFCAB1_PMID 36727596.pdf",
+    "symbol_from_filename": "EFCAB1",
+    "pmid_from_filename": "36727596",
+    "bytes": 2999286,
+    "sha256": "f150e3609d79d4c266fb8852f9652b5b35af06e47136634b4cafc34dcb94fe05",
+    "pages": 13,
+    "text_characters": 85373,
+    "pdf_annotations": [
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "MRPL49_PMID 40043708.pdf",
+    "symbol_from_filename": "MRPL49",
+    "pmid_from_filename": "40043708",
+    "bytes": 4463884,
+    "sha256": "c1b96ca8ccd5d261b5b7a66178ef9a2895d1e51c9842addcee03ed4a922e8ec6",
+    "pages": 12,
+    "text_characters": 56135,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "BRWD1 PMID 33389130 guo2021.pdf",
+    "symbol_from_filename": "BRWD1",
+    "pmid_from_filename": "33389130",
+    "bytes": 2590083,
+    "sha256": "2c9081ea1cd14bbbbf350e4afbd63170add1313ee74f6d021baf248ec2c6152e",
+    "pages": 13,
+    "text_characters": 74428,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "VWA8_PMID 34660594.pdf",
+    "symbol_from_filename": "VWA8",
+    "pmid_from_filename": "34660594",
+    "bytes": 2822425,
+    "sha256": "feaf5b74329d2ba2448212b2d5a759c66705879a46d2f4ce6ada9c8529a58d24",
+    "pages": 13,
+    "text_characters": 66591,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "TMEM72_PMID 41308066.pdf",
+    "symbol_from_filename": "TMEM72",
+    "pmid_from_filename": "41308066",
+    "bytes": 5617338,
+    "sha256": "5ac9f1878f8180e8ce7897a68eade7c4ffd383ebe3e58fa8286ff9e9619b15f8",
+    "pages": 18,
+    "text_characters": 250030,
+    "pdf_annotations": [
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "COQ5_PMID 36266294.pdf",
+    "symbol_from_filename": "COQ5",
+    "pmid_from_filename": "36266294",
+    "bytes": 2509524,
+    "sha256": "933dcebfe82bd141164411310a06f324dea2cc456aa0ffb3edd6b765d752d714",
+    "pages": 12,
+    "text_characters": 122438,
+    "pdf_annotations": [
+      {
+        "page": 3,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 6,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "CRLS1_PMID 35147173.pdf",
+    "symbol_from_filename": "CRLS1",
+    "pmid_from_filename": "35147173",
+    "bytes": 2594347,
+    "sha256": "4b436c30f4344bcb3105e508df25b18999be062dcb7a5d21487c9af1df6cb43d",
+    "pages": 16,
+    "text_characters": 93131,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "SLC66A1_PMID 35486108.pdf",
+    "symbol_from_filename": "SLC66A1",
+    "pmid_from_filename": "35486108",
+    "bytes": 2304592,
+    "sha256": "4dcf5b9c4666a2937e5ae5b958e9bab07f5a4f8ca0010c5def25a3cc62e66859",
+    "pages": 13,
+    "text_characters": 86508,
+    "pdf_annotations": [
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 4,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 4,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 4,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 4,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 4,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 4,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 5,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 5,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 5,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "KCNJ16_PMID 33811157.pdf",
+    "symbol_from_filename": "KCNJ16",
+    "pmid_from_filename": "33811157",
+    "bytes": 361649,
+    "sha256": "b8ac9d4a6f671837328c64dc63c89ae37fc2943c6292e3448e9dcee3afe4961b",
+    "pages": 2,
+    "text_characters": 3958,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "SPATA5L1_PMID 34626583.pdf",
+    "symbol_from_filename": "SPATA5L1",
+    "pmid_from_filename": "34626583",
+    "bytes": 2857243,
+    "sha256": "b76d0501a533b14c6a7943ba02063e9096203bd8171610ff5d6b48338d94cc3f",
+    "pages": 11,
+    "text_characters": 103861,
+    "pdf_annotations": [
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 3,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "PSKH1_PMID 39132680.pdf",
+    "symbol_from_filename": "PSKH1",
+    "pmid_from_filename": "39132680",
+    "bytes": 2925375,
+    "sha256": "42f665af6f97bd6956f32148d0343a83af0a20459d045e1e4e32a164c4d219ce",
+    "pages": 14,
+    "text_characters": 91372,
+    "pdf_annotations": [
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "CREB3_PMID 40674075.pdf",
+    "symbol_from_filename": "CREB3",
+    "pmid_from_filename": "40674075",
+    "bytes": 3023785,
+    "sha256": "e113e1a83e105c7ba0f7515c3531011decc52db6b1853daa079cddd15449fde8",
+    "pages": 16,
+    "text_characters": 53478,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "STX3_PMID 33974130.pdf",
+    "symbol_from_filename": "STX3",
+    "pmid_from_filename": "33974130",
+    "bytes": 3684085,
+    "sha256": "bc145bf8d54a52a8216e38b7a4eef6277d294cf83d638f69bb4c49713603bc92",
+    "pages": 14,
+    "text_characters": 91258,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "RNF220_PMID 33964137.pdf",
+    "symbol_from_filename": "RNF220",
+    "pmid_from_filename": "33964137",
+    "bytes": 2134089,
+    "sha256": "b1301ac2425a01d675e4ba9a1a01078d60b03d5125673c8486b0c360ef3b0e24",
+    "pages": 16,
+    "text_characters": 178347,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "XXYLT1_PMID 42530953.pdf",
+    "symbol_from_filename": "XXYLT1",
+    "pmid_from_filename": "42530953",
+    "bytes": 1679652,
+    "sha256": "7866e0eb3b30a3b8389e8059cca405d459be5baff40509e555c37bf096ffa9fd",
+    "pages": 10,
+    "text_characters": 112796,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "GPR156_PMID 36928819.pdf",
+    "symbol_from_filename": "GPR156",
+    "pmid_from_filename": "36928819",
+    "bytes": 6564941,
+    "sha256": "d8b2ad205fafb5ad20671cf7e138091ab5bd08f65542cf6019fec35cbcbaf69e",
+    "pages": 28,
+    "text_characters": 158822,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "ATP11A_PMID 35278131.pdf",
+    "symbol_from_filename": "ATP11A",
+    "pmid_from_filename": "35278131",
+    "bytes": 6121158,
+    "sha256": "4f2cf38897d3e2c5a3d937054e5ae7b547fdacace05add855b25cbca211e4797",
+    "pages": 14,
+    "text_characters": 68146,
+    "pdf_annotations": [
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      },
+      {
+        "page": 3,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "INTS11_PMID 37054711.pdf",
+    "symbol_from_filename": "INTS11",
+    "pmid_from_filename": "37054711",
+    "bytes": 3307087,
+    "sha256": "15a065d9e934dab87f1c7812de4df46b0d648416c55027dfa719a23929cf82a2",
+    "pages": 17,
+    "text_characters": 101095,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "CFAP54_PMID 37725231.pdf",
+    "symbol_from_filename": "CFAP54",
+    "pmid_from_filename": "37725231",
+    "bytes": 3160653,
+    "sha256": "514fe28149fcab42e5598a437990c3983a665f9da4fa726ea3f824059c10f700",
+    "pages": 14,
+    "text_characters": 68970,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "SCNM1_PMID 36084634.pdf",
+    "symbol_from_filename": "SCNM1",
+    "pmid_from_filename": "36084634",
+    "bytes": 3996165,
+    "sha256": "51b7b7bcca768c87ff5cbfc63dff73512298731bafac58ad6b5b088d9bdca4ea",
+    "pages": 23,
+    "text_characters": 209416,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "GPATCH11_PMID 39572588.pdf",
+    "symbol_from_filename": "GPATCH11",
+    "pmid_from_filename": "39572588",
+    "bytes": 9506634,
+    "sha256": "a1b915a9b9cf49b86528fd97989ea2bf3602b7239d19eb22d555f3f89457fba4",
+    "pages": 20,
+    "text_characters": 170080,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "RNU6-8_PMID 41513982.pdf",
+    "symbol_from_filename": "RNU6-8",
+    "pmid_from_filename": "41513982",
+    "bytes": 2056838,
+    "sha256": "bf206519ba51a9c301aa1e0f50bba86f8242ad559e268883e535e7b028cffbc8",
+    "pages": 18,
+    "text_characters": 153101,
+    "pdf_annotations": [
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "UBAP1L_PMID 38293907.pdf",
+    "symbol_from_filename": "UBAP1L",
+    "pmid_from_filename": "38293907",
+    "bytes": 4041343,
+    "sha256": "f96a10b20d2f0c3085cf0a21b279026eff8890d11a65341ab44323a00c354fe9",
+    "pages": 12,
+    "text_characters": 72402,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "KIAA1024L_D 35727972.pdf",
+    "symbol_from_filename": "KIAA1024L",
+    "pmid_from_filename": "35727972",
+    "bytes": 3671179,
+    "sha256": "04b257fae05e1f55957e11d0236d3503387637c38a89548545e66aa10c72e510",
+    "pages": 11,
+    "text_characters": 69841,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "RSG1_PMID 40593758.pdf",
+    "symbol_from_filename": "RSG1",
+    "pmid_from_filename": "40593758",
+    "bytes": 12689936,
+    "sha256": "fa5bc7c04ef9a0a55fd43fd445fbd468b7cd1be0b7aa0b39464b685c02ca3d7c",
+    "pages": 16,
+    "text_characters": 87406,
+    "pdf_annotations": [
+      {
+        "page": 1,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "CLEC3B_PMID 35331648.pdf",
+    "symbol_from_filename": "CLEC3B",
+    "pmid_from_filename": "35331648",
+    "bytes": 3112450,
+    "sha256": "0e823b0337a0b8233b96b55f16d53c561ac50a20b2258b05d8cdee371593c8cd",
+    "pages": 12,
+    "text_characters": 58572,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "AP5B1_PMID 40081374 Kaminska 2025.pdf",
+    "symbol_from_filename": "AP5B1",
+    "pmid_from_filename": "40081374",
+    "bytes": 6840193,
+    "sha256": "d56d0052423d71e6d74f20dc69ce35060293f23b681c96948488fba129ad6407",
+    "pages": 22,
+    "text_characters": 134127,
+    "pdf_annotations": []
+  },
+  {
+    "filename": "RNU6-9_PMID 41513982.pdf",
+    "symbol_from_filename": "RNU6-9",
+    "pmid_from_filename": "41513982",
+    "bytes": 2056838,
+    "sha256": "bf206519ba51a9c301aa1e0f50bba86f8242ad559e268883e535e7b028cffbc8",
+    "pages": 18,
+    "text_characters": 153101,
+    "pdf_annotations": [
+      {
+        "page": 2,
+        "type": "Highlight",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "filename": "PKHD1L1_PMID 38459354.pdf",
+    "symbol_from_filename": "PKHD1L1",
+    "pmid_from_filename": "38459354",
+    "bytes": 4418350,
+    "sha256": "034cf211c4b9e5fb574d47dcf92aa5b202b5b7117250820e062634d59b9d8edb",
+    "pages": 19,
+    "text_characters": 107695,
+    "pdf_annotations": []
+  }
+]

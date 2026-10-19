@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-19",
+  "exact_returned_observation_rows_preserved": 45,
+  "pending_author_decisions": 45,
+  "blank_new_author_responses": true,
+  "original_source_checksums_verified": true,
+  "xlsx_crc_passes": true,
+  "formula_errors": 0,
+  "typed_numeric_dates_preserved": true,
+  "original_comments_transcribed": 3,
+  "new_workbook_sha256": "e9e3e04a0ab1c4c46591a893a68b5846a6256f874db873888d0ad9918d6464d6",
+  "production_database_sha256": "0beb4f61c62ebff2ba6358069d9eb37cb6c4a9366140bb1c1c486cd2d59f2c65",
+  "production_database_unchanged": true,
+  "protected_baseline_hashes_verified": 21,
+  "native_excel_or_libreoffice_test": "not performed; LibreOffice executable unavailable on this host on 19 October",
+  "artifact_tool_input_change_recalculation": {
+    "changed_eligibility_pending": 44,
+    "restored_eligibility_pending": 45,
+    "date_stays_blank": true,
+    "temporary_edit_restored": true
+  },
+  "rendered_sheet_views_checked": 3,
+  "formal_clinical_decisions_changed": false,
+  "frozen_score_or_outcome_changed": false
+}
