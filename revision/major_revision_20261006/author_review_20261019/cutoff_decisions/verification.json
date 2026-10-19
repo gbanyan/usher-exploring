@@ -1,0 +1,35 @@
+{
+  "source_sha256": "f9f7f0681811a5f4cd786b0b9bbfdf2837743c1f8f0064f1d31c4fc067d522e0",
+  "output_sha256": "6a18163e5c2fda783951ad317f1a63abfdf9389d1c5a06ea5eef94fbdc124727",
+  "output_bytes": 57954,
+  "rows": 45,
+  "timing_decisions": {
+    "POST_CUTOFF": 45
+  },
+  "eligibility_decisions": {
+    "PENDING": 45
+  },
+  "original_dates_genotypes_reviewers_preserved": true,
+  "unrelated_cell_values_unchanged": true,
+  "formula_text_unchanged": true,
+  "source_note_prefixes_preserved": true,
+  "threaded_comments_preserved": 3,
+  "native_table_headers_match_cells": true,
+  "native_hyperlinks_views_filters_merges_preserved": true,
+  "changed_package_parts": [
+    "xl/tables/table1.xml",
+    "xl/worksheets/sheet1.xml",
+    "xl/worksheets/sheet4.xml"
+  ],
+  "cutoff_boundary_checks_passed": true,
+  "protected_input_hashes_unchanged": 21,
+  "artifact_recalculation": {
+    "eligibility_pending": 45,
+    "timing_pending": 0,
+    "temporary_pending_count": 1,
+    "temporary_uncertain_did_not_set_eligibility": true,
+    "restored": true
+  },
+  "native_excel_recalculation": "Not performed",
+  "changed_cell_values": 123
+}

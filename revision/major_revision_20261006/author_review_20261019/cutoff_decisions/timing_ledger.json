@@ -1,0 +1,632 @@
+[
+  {
+    "excel_row": 9,
+    "gene_key": "HGNC:25104",
+    "symbol": "AP5B1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2025-01-01",
+      "2025-03-12"
+    ],
+    "located_public_event": "2025-03-12",
+    "source": "https://doi.org/10.1016/j.ajhg.2025.02.015",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 10,
+    "gene_key": "HGNC:13552",
+    "symbol": "ATP11A",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-05-28"
+    ],
+    "located_public_event": "2021-05-28",
+    "source": "https://www.researchsquare.com/article/rs-530835/v1",
+    "exact_day_uncertain": true,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 11,
+    "gene_key": "HGNC:12760",
+    "symbol": "BRWD1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-01-03"
+    ],
+    "located_public_event": "2021-01-03",
+    "source": "https://doi.org/10.1007/s00439-020-02241-4",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 12,
+    "gene_key": "HGNC:26141",
+    "symbol": "C19orf44",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2025-01-01",
+      "2025-03-10"
+    ],
+    "located_public_event": "2025-03-10",
+    "source": "https://doi.org/10.1016/j.gim.2025.101401",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 13,
+    "gene_key": "HGNC:25727",
+    "symbol": "CEP76",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2025-01-01",
+      "2025-10-17"
+    ],
+    "located_public_event": "2025-10-17",
+    "source": "https://doi.org/10.1126/sciadv.adw3717",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 14,
+    "gene_key": "HGNC:26456",
+    "symbol": "CFAP54",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2023-01-01",
+      "2023-09-19"
+    ],
+    "located_public_event": "2023-09-19",
+    "source": "https://doi.org/10.1007/s11684-023-0997-7",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 15,
+    "gene_key": "HGNC:11891",
+    "symbol": "CLEC3B",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2022-01-01",
+      "2022-03-22"
+    ],
+    "located_public_event": "2022-03-22",
+    "source": "https://doi.org/10.1016/j.gim.2022.02.012",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 16,
+    "gene_key": "HGNC:28722",
+    "symbol": "COQ5",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2022-01-01",
+      "2022-10-20"
+    ],
+    "located_public_event": "2022-10-20",
+    "source": "https://doi.org/10.1038/s41525-022-00330-z",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 17,
+    "gene_key": "HGNC:2347",
+    "symbol": "CREB3",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2024-05-01",
+      "2025-07-17"
+    ],
+    "located_public_event": "2025-07-17",
+    "source": "https://doi.org/10.1001/jamaophthalmol.2025.2187",
+    "exact_day_uncertain": true,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 18,
+    "gene_key": "HGNC:16148",
+    "symbol": "CRLS1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2022-01-01",
+      "2022-02-11"
+    ],
+    "located_public_event": "2022-02-11",
+    "source": "https://academic.oup.com/hmg/article-pdf/31/21/3597/46673942/ddac040.pdf",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 19,
+    "gene_key": "HGNC:2515",
+    "symbol": "CTNND1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2022-01-01",
+      "2022-06-14"
+    ],
+    "located_public_event": "2022-06-14",
+    "source": "https://insight.jci.org/articles/view/158428",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 20,
+    "gene_key": "HGNC:18399",
+    "symbol": "DHRSX",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2024-01-01",
+      "2024-05-30"
+    ],
+    "located_public_event": "2024-05-30",
+    "source": "https://doi.org/10.1016/j.cell.2024.04.041",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 21,
+    "gene_key": "HGNC:16410",
+    "symbol": "DNAJC30",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-01-19"
+    ],
+    "located_public_event": "2021-01-19",
+    "source": "https://www.jci.org/articles/view/138267",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 22,
+    "gene_key": "HGNC:25678",
+    "symbol": "EFCAB1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2023-01-01",
+      "2023-01-31"
+    ],
+    "located_public_event": "2023-01-31",
+    "source": "https://doi.org/10.1016/j.gim.2023.100798",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 23,
+    "gene_key": "HGNC:13753",
+    "symbol": "FSD1L",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2026-01-01",
+      "2026-02-19"
+    ],
+    "located_public_event": "2026-02-19",
+    "source": "https://pubmed.ncbi.nlm.nih.gov/41720099/",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 24,
+    "gene_key": "HGNC:26768",
+    "symbol": "GPATCH11",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2023-01-01",
+      "2023-08-21"
+    ],
+    "located_public_event": "2023-08-21",
+    "source": "https://www.medrxiv.org/content/10.1101/2023.08.19.23293832v1",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 25,
+    "gene_key": "HGNC:20844",
+    "symbol": "GPR156",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2023-01-01",
+      "2023-03-16"
+    ],
+    "located_public_event": "2023-03-16",
+    "source": "https://doi.org/10.1038/s41591-023-02211-z",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 26,
+    "gene_key": "HGNC:5386",
+    "symbol": "IDH3G",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2025-01-01",
+      "2025-03-19"
+    ],
+    "located_public_event": "2025-03-19",
+    "source": "https://doi.org/10.1016/j.gim.2025.101418",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 27,
+    "gene_key": "HGNC:26052",
+    "symbol": "INTS11",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2023-01-01",
+      "2023-04-12"
+    ],
+    "located_public_event": "2023-04-12",
+    "source": "https://doi.org/10.1016/j.ajhg.2023.03.012",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 28,
+    "gene_key": "HGNC:6262",
+    "symbol": "KCNJ16",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-04-02"
+    ],
+    "located_public_event": "2021-04-02",
+    "source": "https://doi.org/10.1681/asn.2020111587",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 29,
+    "gene_key": "HGNC:33914",
+    "symbol": "KIAA1024L",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2022-01-01",
+      "2022-06-21"
+    ],
+    "located_public_event": "2022-06-21",
+    "source": "https://doi.org/10.1073/pnas.2204084119",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 30,
+    "gene_key": "HGNC:6600",
+    "symbol": "LIG3",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-04-15"
+    ],
+    "located_public_event": "2021-04-15",
+    "source": "https://doi.org/10.1093/brain/awab056",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 31,
+    "gene_key": "HGNC:1176",
+    "symbol": "MRPL49",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2022-01-01",
+      "2024-10-11"
+    ],
+    "located_public_event": "2024-10-11",
+    "source": "https://www.medrxiv.org/content/10.1101/2024.10.10.24315152v1",
+    "exact_day_uncertain": true,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 32,
+    "gene_key": "HGNC:30168",
+    "symbol": "PDIA6",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-01-26"
+    ],
+    "located_public_event": "2021-01-26",
+    "source": "https://onlinelibrary.wiley.com/doi/10.1111/cge.13930",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 33,
+    "gene_key": "HGNC:20313",
+    "symbol": "PKHD1L1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2023-01-01",
+      "2023-10-09"
+    ],
+    "located_public_event": "2023-10-09",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10593026/",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 34,
+    "gene_key": "HGNC:9065",
+    "symbol": "PLCG1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2024-01-01",
+      "2024-01-09"
+    ],
+    "located_public_event": "2024-01-09",
+    "source": "https://elifesciences.org/reviewed-preprints/95887v1",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 35,
+    "gene_key": "HGNC:9529",
+    "symbol": "PSKH1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2024-01-01",
+      "2024-08-09"
+    ],
+    "located_public_event": "2024-08-09",
+    "source": "https://doi.org/10.1016/j.gim.2024.101231",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 36,
+    "gene_key": "HGNC:9972",
+    "symbol": "RFC4",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2024-01-01",
+      "2024-08-05"
+    ],
+    "located_public_event": "2024-08-05",
+    "source": "https://doi.org/10.1016/j.ajhg.2024.07.008",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 37,
+    "gene_key": "HGNC:25552",
+    "symbol": "RNF220",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-05-08"
+    ],
+    "located_public_event": "2021-05-08",
+    "source": "https://doi.org/10.1093/brain/awab185",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 38,
+    "gene_key": "HGNC:10193",
+    "symbol": "RNU4-2",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2025-01-01",
+      "2025-01-06"
+    ],
+    "located_public_event": "2025-01-06",
+    "source": "https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 39,
+    "gene_key": "HGNC:34270",
+    "symbol": "RNU6-2",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2025-01-01",
+      "2025-01-06"
+    ],
+    "located_public_event": "2025-01-06",
+    "source": "https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 40,
+    "gene_key": "HGNC:34285",
+    "symbol": "RNU6-8",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2025-01-01",
+      "2025-01-06"
+    ],
+    "located_public_event": "2025-01-06",
+    "source": "https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 41,
+    "gene_key": "HGNC:34269",
+    "symbol": "RNU6-9",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2025-01-01",
+      "2025-01-06"
+    ],
+    "located_public_event": "2025-01-06",
+    "source": "https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 42,
+    "gene_key": "HGNC:28127",
+    "symbol": "RSG1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2024-01-01",
+      "2024-09-26"
+    ],
+    "located_public_event": "2024-09-26",
+    "source": "https://www.biorxiv.org/content/10.1101/2024.09.25.614984v1",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 43,
+    "gene_key": "HGNC:29917",
+    "symbol": "SAXO6",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2026-01-01",
+      "2026-02-24"
+    ],
+    "located_public_event": "2026-02-24",
+    "source": "https://doi.org/10.1016/j.ajhg.2026.02.001",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 44,
+    "gene_key": "HGNC:23136",
+    "symbol": "SCNM1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2022-01-01",
+      "2022-09-08"
+    ],
+    "located_public_event": "2022-09-08",
+    "source": "https://doi.org/10.1016/j.ajhg.2022.08.009",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 45,
+    "gene_key": "HGNC:26001",
+    "symbol": "SLC66A1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2022-01-01",
+      "2022-04-29"
+    ],
+    "located_public_event": "2022-04-29",
+    "source": "https://doi.org/10.1016/j.gim.2022.03.020",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 46,
+    "gene_key": "HGNC:28762",
+    "symbol": "SPATA5L1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-10-07"
+    ],
+    "located_public_event": "2021-10-07",
+    "source": "https://doi.org/10.1016/j.ajhg.2021.08.003",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 47,
+    "gene_key": "HGNC:11438",
+    "symbol": "STX3",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-05-11"
+    ],
+    "located_public_event": "2021-05-11",
+    "source": "https://doi.org/10.1007/s00439-021-02284-1",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 48,
+    "gene_key": "HGNC:31658",
+    "symbol": "TMEM72",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2022-04-30"
+    ],
+    "located_public_event": "2022-04",
+    "source": "https://www.nature.com/articles/s41431-021-01025-2.pdf",
+    "exact_day_uncertain": true,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 49,
+    "gene_key": "HGNC:12003",
+    "symbol": "TP73",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-06-01"
+    ],
+    "located_public_event": "2021-06-01",
+    "source": "https://doi.org/10.1016/j.ajhg.2021.05.002",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 50,
+    "gene_key": "HGNC:40028",
+    "symbol": "UBAP1L",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2024-01-01",
+      "2024-01-28"
+    ],
+    "located_public_event": "2024-01-28",
+    "source": "https://doi.org/10.1016/j.gim.2024.101081",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 51,
+    "gene_key": "HGNC:18533",
+    "symbol": "USP48",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2021-01-01",
+      "2021-05-31"
+    ],
+    "located_public_event": "2021-05-31",
+    "source": "https://doi.org/10.1093/hmg/ddab145",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 52,
+    "gene_key": "HGNC:29071",
+    "symbol": "VWA8",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2023-01-01",
+      "2023-04-03"
+    ],
+    "located_public_event": "2023-04-03",
+    "source": "https://pubmed.ncbi.nlm.nih.gov/37012052/",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  },
+  {
+    "excel_row": 53,
+    "gene_key": "HGNC:26639",
+    "symbol": "XXYLT1",
+    "timing_decision": "POST_CUTOFF",
+    "interval": [
+      "2026-01-01",
+      "2026-07-30"
+    ],
+    "located_public_event": "2026-07-30",
+    "source": "https://doi.org/10.1001/jamaophthalmol.2026.2795",
+    "exact_day_uncertain": false,
+    "eligibility_decision": "PENDING"
+  }
+]

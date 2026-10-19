@@ -1,0 +1,740 @@
+[
+  {
+    "sheet": "Definitions",
+    "cell": "B15",
+    "before": "Three distinct dates",
+    "after": "Cutoff-window example"
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "B19",
+    "before": "Human check of the AI-listed first public target-association date",
+    "after": "Human decision on the first-target association’s side of the cutoff"
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "B22",
+    "before": "Human-verified FIRST PUBLIC proposed TARGET-association date",
+    "after": "Professor’s original association-date entry (preserved)"
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "C12",
+    "before": "The first public report PROPOSING this target association must be after 2020-12-31. Include preprints/early-online reports; do not use issue year or database curation date as a substitute.",
+    "after": "The earliest proposed public human TARGET association must be after 2020-12-31. Use public preprints/online versions or a source-supported interval; the exact day need not be established."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "C14",
+    "before": "EXCLUDE: a documented rule fails. UNCERTAIN: required facts or dates remain unresolved/contradictory.",
+    "after": "EXCLUDE: a documented clinical/timing rule fails. UNCERTAIN: a required clinical fact or the side of the cutoff cannot be resolved."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "C15",
+    "before": "First preprint proposing target association: 2021-06-10. Journal publication: 2022. Independent replication: 2024.",
+    "after": "Earliest public target report is bounded within 2021–2022; journal publication is in 2022; stronger clinical confirmation arrives in 2024."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "C19",
+    "before": "Compares your primary-source date assessment against the provisional date shown in column J.",
+    "after": "D assesses whether the earliest proposed public TARGET association is after 2020-12-31, using source-supported dates/intervals and the earlier-publicity review. It no longer checks exact agreement with J."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "C22",
+    "before": "Earliest verified public report proposing a germline Mendelian association between this gene and the target disease domain. This may precede strong clinical confirmation.",
+    "after": "G preserves the professor’s returned date text/value. It may be a journal issue, acceptance or other version date; it is not automatically the first public date."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "C23",
+    "before": "Evidence supporting C and D, including target disease, gene-specific family count, functional or replication route, earlier reports, corrected date or interval and contrary evidence.",
+    "after": "Preserved source locations plus the timing assessment, first-target publicity interval, located public report and source URL. Clinical reasons/family counts remain separate."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "C25",
+    "before": "Original AI-screened first-report date, provided as the comparison for human date verification.",
+    "after": "Original AI-screened located date retained for provenance. A displayed interval lower bound is not necessarily a verified exact first-public day."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "C27",
+    "before": "AI-listed exact/bounded first-public-report timing. The interval preserves uncertainty when a precise public date cannot be established.",
+    "after": "The original source interval retains uncertainty. Timing can be resolved without establishing the exact earliest day."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "C45",
+    "before": "Original human first-public-date check status; edit Review D",
+    "after": "Original exact-first-public-date check status in the frozen source snapshot; its old meaning is preserved there."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "C6",
+    "before": "Choose an eligibility decision and a date decision. Record the source evidence and sign/date the row.",
+    "after": "Choose clinical eligibility and cutoff-window timing separately. Exact-day matching is not required for timing."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D12",
+    "before": "Pre-2021 target nominations confirmed later are evidence maturation, not new temporal cases. An earlier non-target disease association may qualify as category B. A date interval crossing the cutoff remains unresolved.",
+    "after": "A pre-2021 target proposal confirmed later is evidence maturation. A prior non-target disease does not itself disqualify. An interval crossing the cutoff stays unresolved."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D14",
+    "before": "Write the exact reason. Candidate/single-family/contested associations do not qualify for the principal strong cohort.",
+    "after": "An uncertain exact publication day alone does not prevent INCLUDE when a supported first-target interval is wholly post-cutoff. Clinical rules must still be met."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D15",
+    "before": "Enter 2021-06-10 in Review G. Record 2024 as support in notes. Enter the actual day you perform this review in Review F. This is a hypothetical example.",
+    "after": "Timing D = POST_CUTOFF. Record the supported interval and source in H; no exact day is required. C = INCLUDE only if the clinical rules are also satisfied. This is hypothetical."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D19",
+    "before": "PENDING = not checked; CONFIRMED = original date is correct; REVISED = corrected date; UNCERTAIN = earliest date cannot be established.",
+    "after": "POST_CUTOFF = interval wholly after cutoff; PRE_OR_AT_CUTOFF = first target report on/before cutoff; UNCERTAIN = side unresolved/crossing interval; PENDING = not assessed."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D20",
+    "before": "Enter that person’s name. An AI audit is not human verification.",
+    "after": "E/F retain the professor’s primary-source reviewer/date. The new timing coding follows the author-approved cutoff-window rule of 2026-10-19 and the existing date audit; it does not assert new professor sign-off."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D22",
+    "before": "Enter yyyy-mm-dd after source verification, including when D = CONFIRMED. If only an interval is known, leave this exact-date field blank and record bounds/uncertainty in H.",
+    "after": "Use the source-supported public date or interval recorded in H to decide D. Exact-day precision is optional. The original V2 workbook preserves the prior exact-date decisions."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D23",
+    "before": "Use a concise summary with PMID and page/table/figure. Record any novelty A/B correction here. Record the first date meeting the stronger rubric separately from the first proposed date.",
+    "after": "The appended timing assessment applies the author-approved rule and completed date audit; it does not sign off clinical eligibility. Record any clinical decision, supporting source and deciding author here."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D25",
+    "before": "Read only. It is provisional, not already human verified. Corrected date belongs in G; explanation belongs in H.",
+    "after": "Read only. D now concerns the side of the cutoff, not exact agreement with J. Use H for the supported date/interval and source."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D27",
+    "before": "A wholly post-cutoff interval can meet timing rules even if its exact date stays UNCERTAIN. An interval crossing 2020-12-31 cannot enter primary novelty recovery until resolved.",
+    "after": "A supported interval wholly after 2020-12-31 is POST_CUTOFF even if the exact day is unknown. Crossing intervals remain UNCERTAIN. A later publication alone does not rule out an earlier target report."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D45",
+    "before": "Read only source snapshot.",
+    "after": "Read only source snapshot. The working Review D now records cutoff-window timing using the statuses in Definitions row 19."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D6",
+    "before": "Fill yellow cells in Review. Use PMID plus page/table/figure. Preserve unresolved questions as UNCERTAIN.",
+    "after": "Use the source-supported public date or interval. Preserve the professor’s source notes and record clinical eligibility separately."
+  },
+  {
+    "sheet": "Definitions",
+    "cell": "D7",
+    "before": "The first proposed human TARGET-disease association must be public after 2020-12-31. Stronger qualifying evidence must have accumulated by 2026-10-06.",
+    "after": "The first proposed human TARGET association must be public after 2020-12-31; a wholly post-cutoff interval suffices. Stronger clinical evidence must exist by 2026-10-06."
+  },
+  {
+    "sheet": "Review",
+    "cell": "A3",
+    "before": "Start with Definitions: field meanings, exact eligibility rules, dropdown choices and a date example.",
+    "after": "Read Definitions: clinical eligibility and post-2020 timing are separate decisions; exact publication day is optional."
+  },
+  {
+    "sheet": "Review",
+    "cell": "A6",
+    "before": "The first-public-report date, later strong-evidence date and the date you do this review are different dates.",
+    "after": "A source-supported first-target publicity interval wholly after 2020-12-31 meets timing; clinical evidence must qualify by 2026-10-06."
+  },
+  {
+    "sheet": "Review",
+    "cell": "C5",
+    "before": "Date pending",
+    "after": "Timing pending"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D10",
+    "before": "REVISED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D11",
+    "before": "CONFIRMED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D12",
+    "before": "CONFIRMED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D13",
+    "before": "CONFIRMED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D14",
+    "before": "CONFIRMED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D15",
+    "before": "CONFIRMED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D16",
+    "before": "CONFIRMED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D17",
+    "before": "REVISED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D18",
+    "before": "REVISED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D19",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D20",
+    "before": "CONFIRMED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D21",
+    "before": "REVISED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D22",
+    "before": "CONFIRMED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D23",
+    "before": "REVISED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D24",
+    "before": "REVISED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D25",
+    "before": "CONFIRMED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D26",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D27",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D28",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D29",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D30",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D31",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D32",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D33",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D34",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D35",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D36",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D37",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D38",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D39",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D40",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D41",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D42",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D43",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D44",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D45",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D46",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D47",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D48",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D49",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D5",
+    "before": "29",
+    "after": "0"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D50",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D51",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D52",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D53",
+    "before": "PENDING",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D8",
+    "before": "Human decision: is the AI-listed first public target-association date correct?",
+    "after": "Timing: first public TARGET association after 2020-12-31?"
+  },
+  {
+    "sheet": "Review",
+    "cell": "D9",
+    "before": "CONFIRMED",
+    "after": "POST_CUTOFF"
+  },
+  {
+    "sheet": "Review",
+    "cell": "F5",
+    "before": "Pending counts do not certify completed verification. UNCERTAIN remains unresolved.",
+    "after": "POST_CUTOFF confirms timing only. Final clinical eligibility is still a separate decision in C."
+  },
+  {
+    "sheet": "Review",
+    "cell": "G8",
+    "before": "Human-verified date of the FIRST PUBLIC report proposing this gene–TARGET DISEASE association",
+    "after": "Professor’s date entry (preserved; see H for public date or interval used for timing)"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H10",
+    "before": "Figure 2, 4, 5, 6",
+    "after": "Figure 2, 4, 5, 6\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-05-28. Located public target report: 2021-05-28. Source: https://www.researchsquare.com/article/rs-530835/v1 Exact first-public day remains unresolved; the interval is wholly after the cutoff."
+  },
+  {
+    "sheet": "Review",
+    "cell": "H11",
+    "before": "Figrue 1; Table 2",
+    "after": "Figrue 1; Table 2\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-01-03. Located public target report: 2021-01-03. Source: https://doi.org/10.1007/s00439-020-02241-4"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H12",
+    "before": "Figure 1; Table 1",
+    "after": "Figure 1; Table 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2025-01-01 to 2025-03-10. Located public target report: 2025-03-10. Source: https://doi.org/10.1016/j.gim.2025.101401"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H13",
+    "before": "Figure 1; Table 1; Table 2",
+    "after": "Figure 1; Table 1; Table 2\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2025-01-01 to 2025-10-17. Located public target report: 2025-10-17. Source: https://doi.org/10.1126/sciadv.adw3717"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H14",
+    "before": "Figure1, Figure 3, Figure 6",
+    "after": "Figure1, Figure 3, Figure 6\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2023-01-01 to 2023-09-19. Located public target report: 2023-09-19. Source: https://doi.org/10.1007/s11684-023-0997-7"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H15",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2022-01-01 to 2022-03-22. Located public target report: 2022-03-22. Source: https://doi.org/10.1016/j.gim.2022.02.012"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H16",
+    "before": "Figure1, Figure 4, Table 1",
+    "after": "Figure1, Figure 4, Table 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2022-01-01 to 2022-10-20. Located public target report: 2022-10-20. Source: https://doi.org/10.1038/s41525-022-00330-z"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H17",
+    "before": "Figure 1; Table 1",
+    "after": "Figure 1; Table 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2024-05-01 to 2025-07-17. Located public target report: 2025-07-17. Source: https://doi.org/10.1001/jamaophthalmol.2025.2187 Exact first-public day remains unresolved; the interval is wholly after the cutoff."
+  },
+  {
+    "sheet": "Review",
+    "cell": "H18",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2022-01-01 to 2022-02-11. Located public target report: 2022-02-11. Source: https://academic.oup.com/hmg/article-pdf/31/21/3597/46673942/ddac040.pdf"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H19",
+    "before": "Figrue1",
+    "after": "Figrue1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2022-01-01 to 2022-06-14. Located public target report: 2022-06-14. Source: https://insight.jci.org/articles/view/158428"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H20",
+    "before": "Figure 1; Table 1",
+    "after": "Figure 1; Table 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2024-01-01 to 2024-05-30. Located public target report: 2024-05-30. Source: https://doi.org/10.1016/j.cell.2024.04.041"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H21",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-01-19. Located public target report: 2021-01-19. Source: https://www.jci.org/articles/view/138267"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H22",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2023-01-01 to 2023-01-31. Located public target report: 2023-01-31. Source: https://doi.org/10.1016/j.gim.2023.100798"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H23",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2026-01-01 to 2026-02-19. Located public target report: 2026-02-19. Source: https://pubmed.ncbi.nlm.nih.gov/41720099/"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H24",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2023-01-01 to 2023-08-21. Located public target report: 2023-08-21. Source: https://www.medrxiv.org/content/10.1101/2023.08.19.23293832v1"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H25",
+    "before": "Table 1; Figure 4",
+    "after": "Table 1; Figure 4\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2023-01-01 to 2023-03-16. Located public target report: 2023-03-16. Source: https://doi.org/10.1038/s41591-023-02211-z"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H26",
+    "before": "Figure 1; Table 1",
+    "after": "Figure 1; Table 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2025-01-01 to 2025-03-19. Located public target report: 2025-03-19. Source: https://doi.org/10.1016/j.gim.2025.101418"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H27",
+    "before": "Table 1; Figure 1",
+    "after": "Table 1; Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2023-01-01 to 2023-04-12. Located public target report: 2023-04-12. Source: https://doi.org/10.1016/j.ajhg.2023.03.012"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H28",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-04-02. Located public target report: 2021-04-02. Source: https://doi.org/10.1681/asn.2020111587"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H29",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2022-01-01 to 2022-06-21. Located public target report: 2022-06-21. Source: https://doi.org/10.1073/pnas.2204084119"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H30",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-04-15. Located public target report: 2021-04-15. Source: https://doi.org/10.1093/brain/awab056"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H31",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2022-01-01 to 2024-10-11. Located public target report: 2024-10-11. Source: https://www.medrxiv.org/content/10.1101/2024.10.10.24315152v1 Exact first-public day remains unresolved; the interval is wholly after the cutoff."
+  },
+  {
+    "sheet": "Review",
+    "cell": "H32",
+    "before": "Figure 3",
+    "after": "Figure 3\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-01-26. Located public target report: 2021-01-26. Source: https://onlinelibrary.wiley.com/doi/10.1111/cge.13930"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H33",
+    "before": "Table 1; Figure 1",
+    "after": "Table 1; Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2023-01-01 to 2023-10-09. Located public target report: 2023-10-09. Source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10593026/"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H34",
+    "before": "(PMID 37422272) Figure 1\n\n(PMID 40862571) Table 1; Figure 1",
+    "after": "(PMID 37422272) Figure 1\n\n(PMID 40862571) Table 1; Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2024-01-01 to 2024-01-09. Located public target report: 2024-01-09. Source: https://elifesciences.org/reviewed-preprints/95887v1"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H35",
+    "before": "Table 1; Figure 2",
+    "after": "Table 1; Figure 2\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2024-01-01 to 2024-08-09. Located public target report: 2024-08-09. Source: https://doi.org/10.1016/j.gim.2024.101231"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H36",
+    "before": "Figrue 1; Figure 2; Table 2",
+    "after": "Figrue 1; Figure 2; Table 2\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2024-01-01 to 2024-08-05. Located public target report: 2024-08-05. Source: https://doi.org/10.1016/j.ajhg.2024.07.008"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H37",
+    "before": "Figure 1; Table 1",
+    "after": "Figure 1; Table 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-05-08. Located public target report: 2021-05-08. Source: https://doi.org/10.1093/brain/awab185"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H38",
+    "before": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2",
+    "after": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2025-01-01 to 2025-01-06. Located public target report: 2025-01-06. Source: https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H39",
+    "before": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2",
+    "after": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2025-01-01 to 2025-01-06. Located public target report: 2025-01-06. Source: https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H40",
+    "before": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2",
+    "after": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2025-01-01 to 2025-01-06. Located public target report: 2025-01-06. Source: https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H41",
+    "before": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2",
+    "after": "Supplementary Fig. 1\nFig. 1a, Supplementary Fig. 1 and Supplementary Tables 1 and 2)\nSupplementary Fig. 1 and Supplementary Tables 1 and 2\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2025-01-01 to 2025-01-06. Located public target report: 2025-01-06. Source: https://www.medrxiv.org/content/10.1101/2025.01.06.24317169v1.full.pdf"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H42",
+    "before": "Figrue1",
+    "after": "Figrue1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2024-01-01 to 2024-09-26. Located public target report: 2024-09-26. Source: https://www.biorxiv.org/content/10.1101/2024.09.25.614984v1"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H43",
+    "before": "Figure 1 ",
+    "after": "Figure 1 \n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2026-01-01 to 2026-02-24. Located public target report: 2026-02-24. Source: https://doi.org/10.1016/j.ajhg.2026.02.001"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H44",
+    "before": "Figure 2",
+    "after": "Figure 2\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2022-01-01 to 2022-09-08. Located public target report: 2022-09-08. Source: https://doi.org/10.1016/j.ajhg.2022.08.009"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H45",
+    "before": "Table 2\n(Supplemental Figure 1).",
+    "after": "Table 2\n(Supplemental Figure 1).\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2022-01-01 to 2022-04-29. Located public target report: 2022-04-29. Source: https://doi.org/10.1016/j.gim.2022.03.020"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H46",
+    "before": "Table 1",
+    "after": "Table 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-10-07. Located public target report: 2021-10-07. Source: https://doi.org/10.1016/j.ajhg.2021.08.003"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H47",
+    "before": "Table 1",
+    "after": "Table 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-05-11. Located public target report: 2021-05-11. Source: https://doi.org/10.1007/s00439-021-02284-1"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H48",
+    "before": "Figure 1\nTable 1",
+    "after": "Figure 1\nTable 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2022-04-30. Located public target report: 2022-04. Source: https://www.nature.com/articles/s41431-021-01025-2.pdf Exact first-public day remains unresolved; the interval is wholly after the cutoff."
+  },
+  {
+    "sheet": "Review",
+    "cell": "H49",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-06-01. Located public target report: 2021-06-01. Source: https://doi.org/10.1016/j.ajhg.2021.05.002"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H50",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2024-01-01 to 2024-01-28. Located public target report: 2024-01-28. Source: https://doi.org/10.1016/j.gim.2024.101081"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H51",
+    "before": "Figure 1",
+    "after": "Figure 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2021-01-01 to 2021-05-31. Located public target report: 2021-05-31. Source: https://doi.org/10.1093/hmg/ddab145"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H52",
+    "before": "Figure 1\nTable 1",
+    "after": "Figure 1\nTable 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2023-01-01 to 2023-04-03. Located public target report: 2023-04-03. Source: https://pubmed.ncbi.nlm.nih.gov/37012052/"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H53",
+    "before": "Figure 1\nTable 1",
+    "after": "Figure 1\nTable 1\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2026-01-01 to 2026-07-30. Located public target report: 2026-07-30. Source: https://doi.org/10.1001/jamaophthalmol.2026.2795"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H8",
+    "before": "Human reasons for inclusion/exclusion and date decision, with PMID and page/table/figure",
+    "after": "Source notes and clinical reasons, plus cutoff-window assessment and supporting source"
+  },
+  {
+    "sheet": "Review",
+    "cell": "H9",
+    "before": "Figure 1. (p812)\nTable 1.  (p.815)\nFigure 3. (p.817)",
+    "after": "Figure 1. (p812)\nTable 1.  (p.815)\nFigure 3. (p.817)\n\nTiming: POST_CUTOFF. Retained first-target publicity interval: 2025-01-01 to 2025-03-12. Located public target report: 2025-03-12. Source: https://doi.org/10.1016/j.ajhg.2025.02.015"
+  }
+]
