@@ -35,8 +35,9 @@ def main() -> None:
     assert "> The figures were not in an accessible form. So I could not review this." in updated
     assert "## Editor\n" in updated and "## Reviewer 2\n" in updated
     assert not re.search(r"awaits? individual human verification|have not yet been individually human-adjudicated", updated)
-    assert "final resolution remains outstanding" in updated
-    assert "was not a blinded pre-outcome adjudication" in updated
+    assert "Eligibility of the flagged cases remains under review" in updated
+    assert "review took place after the frozen temporal analysis" in updated
+    assert "family-evidence concerns involved **PDIA6, VWA8 and PLCG1**" in updated
     assert "exact first-public day is unnecessary" in updated
     assert not re.search(r"Temporal_.*\.xlsx", updated)
     crosswalk = list(csv.DictReader((BASE / "reviewer_crosswalk.tsv").open(), delimiter="\t"))
@@ -88,7 +89,8 @@ def main() -> None:
             assert "1 families" in r["I"]
             findings.append({"symbol": r["A"], "gene_key": r["B"], "cell": f"I{r['excel_row']}",
                              "note_as_returned": r["I"], "interpretation": interpretations[r["A"]],
-                             "eligibility": r["C"], "explicit_professor_rejection": False})
+                             "eligibility": r["C"], "author_confirmed_concern_case": True,
+                             "explicit_professor_rejection": False})
     assert len(findings) == 3
     report = {
         "baseline_response_commit": "d3d309a", "baseline_response_sha256": hashlib.sha256(baseline.encode()).hexdigest(),

@@ -21,6 +21,8 @@ This does not mean every optional recommendation was implemented. A DOI-bearing 
 
 ## Single-family clues in the returned XLSX
 
+The author subsequently confirmed that PDIA6, VWA8 and PLCG1 are the intended concern cases and requested a direct account with less repetitive defensive wording. The response now names them explicitly and retains one clear sentence that flagged eligibility is under review. This confirmation identifies the cases of concern; it does not instruct an exclusion or change their clinical decision fields.
+
 At the author's request, the original V2 workbook was checked for the forgotten concern. Review I32 (PDIA6) records one individual/one family in an initial report; I52 (VWA8) records nine individuals/one family in an earlier non-target developmental report. I34 (PLCG1) distinguishes one immune-disorder family from four later auditory/ocular multisystem families. These are literal source-note observations, not explicit final rejection annotations. The three original comment threads contain no single-family objection. The frozen source record nominated additional PDIA6 reports and separate VWA8 retinal reports, so these rows do not establish cumulative target-family failure. See `family_note_findings.json` for exact preserved wording and locations. RNU6-2 and RNU6-9 notes contain question marks for patient counts, but list 14 and 17 families respectively; uncertainty in patient count must not be silently converted to one-family evidence.
 
 ## Before journal upload

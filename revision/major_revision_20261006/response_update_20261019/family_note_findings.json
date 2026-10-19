@@ -6,6 +6,7 @@
     "note_as_returned": "asphyxiating thoracic dystrophy and neonatal-onset diabetes\n1 pathogenic variants, 1 individualts from 1 families\n1 KO mice (Zhang et al., 2005-02-01)\nAR",
     "interpretation": "One family in the initial report summarized by the professor; other reports were nominated in the frozen record. Cumulative target-family eligibility is not decided by this row alone.",
     "eligibility": "PENDING",
+    "author_confirmed_concern_case": true,
     "explicit_professor_rejection": false
   },
   {
@@ -15,6 +16,7 @@
     "note_as_returned": "GOF alleles:  immune dysregulation disease (PMID 37422272)\n1 pathogenic variants, 1 individualts from 1 families\nhearing impairment, ocular pathology , cardiac septal defects , and various immunological issues (PMID 40862571)\n4  pathogenic variants, 7 individualts from 4 families\n+ 4 fly models\nAD",
     "interpretation": "The same cell distinguishes one immune-disorder family from four later auditory/ocular multisystem families; do not collapse both source/phenotype counts into one.",
     "eligibility": "PENDING",
+    "author_confirmed_concern_case": true,
     "explicit_professor_rejection": false
   },
   {
@@ -24,6 +26,7 @@
     "note_as_returned": "Developmental Delay, Microcephaly, and Scoliosis \n1  pathogenic variants, 9 individualts from 1 families\nAR\n1 MO Zebrafish ",
     "interpretation": "One family in an earlier developmental-disorder report. This is not the subsequent retinal target report nominated in the frozen record.",
     "eligibility": "PENDING",
+    "author_confirmed_concern_case": true,
     "explicit_professor_rejection": false
   }
 ]

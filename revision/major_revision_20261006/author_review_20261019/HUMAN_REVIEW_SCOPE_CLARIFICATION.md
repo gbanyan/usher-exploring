@@ -1,5 +1,7 @@
 # Human family-review scope — author clarification, 19 October 2026
 
+**Subsequent case identification:** after checking the returned XLSX, the author confirmed PDIA6, VWA8 and PLCG1 as the intended family-evidence concern cases and requested that they be named directly in the reviewer response. The original uncertainty about which cases were intended, described below, is therefore resolved. Final inclusion/exclusion was not assigned by this clarification.
+
 The author clarified that the professor reviewed the family/pedigree information for all cases. The professor's concern is that some reports appear to contain only one family, raising questions about evidence strength. This supersedes the assistant's preceding conversational suggestion that the human review did not cover family information comprehensively.
 
 This is a clarification supplied by the author, not a new independent audit of the professor's work. It establishes the reported scope of the review; it does not establish that all 45 cases meet the two-unrelated-target-family criterion. The specific genes affected by the newly stated single-family concern have not yet been enumerated in this clarification. Do not infer that list or automatically change eligibility labels.
