@@ -6,6 +6,8 @@ The active author-review upload set is now `submission/bmc_bioinformatics_major_
 
 This applies the independent Fable review; it does not assert a second independent review of the edited bytes. Journal-generated PDF and reviewer figure access remain portal checks. No journal submission was performed. Flagged clinical eligibility remains under review, with no cohort exclusions or approval inferred.
 
+Release commit `2ec0333cdf2ea2630f5967173e44b9e0f1f29774` and the new v2 tag are verified on both Gitea and GitHub; both remotes accepted all three LFS objects. All 47 tagged artifact hashes and four source hashes match the package, and the public GitHub tag API returns HTTP200. `fable_edits_20261020/publication_verification.json` records the proof. Later bookkeeping commits may advance the branch without moving fixed tags or changing delivered bytes.
+
 ---
 
 # Independent Claude Fable 5.1 review completed — 20 October 2026
