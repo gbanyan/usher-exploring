@@ -1,0 +1,9 @@
+{
+  "remote": "origin",
+  "attempt": 3,
+  "per_command_exact_URL_proxy_override": true,
+  "global_configuration_changed": false,
+  "returncode": 1,
+  "stdout": "Uploading LFS objects:   0% (0/3), 0 B | 0 B/s, done.\n",
+  "stderr": "Remote \"origin\" does not support the Git LFS locking API. Consider disabling it with:\n  $ git config lfs.https://git.gbanyan.net/research/usher-exploring.git/info/lfs.locksverify false\nRemote \"origin\" does not support the Git LFS locking API. Consider disabling it with:\n  $ git config lfs.https://git.gbanyan.net/research/usher-exploring.git/info/lfs.locksverify false\nbatch response: Post \"https://git.gbanyan.net/research/usher-exploring.git/info/lfs/objects/batch\": dial tcp 192.168.20.9:443: connect: no route to host\nerror: failed to push some refs to 'ssh://git.gbanyan.net:30009/research/usher-exploring.git'\n"
+}

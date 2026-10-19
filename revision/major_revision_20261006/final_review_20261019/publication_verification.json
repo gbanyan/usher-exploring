@@ -1,0 +1,51 @@
+{
+  "release_commit": "eaeb10a4031457af13485cb19744b4bf47aace58",
+  "release_tag": "major-revision-author-review-20261019",
+  "local_tag_object": "b804150ffd13c2b6c59c6ee31925ff61d9d97ab2",
+  "old_release_commit": "3dbbd8c578f319a45b492dc1c96654a3f34762b6",
+  "remotes": {
+    "origin": {
+      "refs": {
+        "refs/heads/revision/major-revision": "eaeb10a4031457af13485cb19744b4bf47aace58",
+        "refs/tags/major-revision-author-review-20261007": "7b84b0507dfd6a64647e698da956c7503b6ae76e",
+        "refs/tags/major-revision-author-review-20261007^{}": "3dbbd8c578f319a45b492dc1c96654a3f34762b6",
+        "refs/tags/major-revision-author-review-20261019": "b804150ffd13c2b6c59c6ee31925ff61d9d97ab2",
+        "refs/tags/major-revision-author-review-20261019^{}": "eaeb10a4031457af13485cb19744b4bf47aace58"
+      },
+      "new_branch_and_tag_verified": true,
+      "old_tag_unchanged": true
+    },
+    "github": {
+      "refs": {
+        "refs/heads/revision/major-revision": "eaeb10a4031457af13485cb19744b4bf47aace58",
+        "refs/tags/major-revision-author-review-20261007": "7b84b0507dfd6a64647e698da956c7503b6ae76e",
+        "refs/tags/major-revision-author-review-20261007^{}": "3dbbd8c578f319a45b492dc1c96654a3f34762b6",
+        "refs/tags/major-revision-author-review-20261019": "b804150ffd13c2b6c59c6ee31925ff61d9d97ab2",
+        "refs/tags/major-revision-author-review-20261019^{}": "eaeb10a4031457af13485cb19744b4bf47aace58"
+      },
+      "new_branch_and_tag_verified": true,
+      "old_tag_unchanged": true
+    }
+  },
+  "LFS_uploads": {
+    "origin": {
+      "objects": 3,
+      "success": true,
+      "evidence": "push_origin_tunnel_result.json"
+    },
+    "github": {
+      "objects": 3,
+      "success": true,
+      "evidence": "push_github_result.json"
+    }
+  },
+  "global_proxy_configuration_changed": false,
+  "journal_uploaded": false,
+  "public_GitHub_API": {
+    "url": "https://api.github.com/repos/gbanyan/usher-exploring/git/ref/tags/major-revision-author-review-20261019",
+    "unauthenticated_http_status": 200,
+    "tag_object_sha": "b804150ffd13c2b6c59c6ee31925ff61d9d97ab2",
+    "verified": true
+  },
+  "tagged_manifest_and_47_artifacts_match_local": true
+}

@@ -1,0 +1,6 @@
+{
+  "remote": "github",
+  "returncode": 0,
+  "stdout": "Uploading LFS objects: 100% (3/3), 28 MB | 6.0 MB/s, done.\n",
+  "stderr": "To github.com:gbanyan/usher-exploring.git\n   95662c7..eaeb10a  revision/major-revision -> revision/major-revision\n * [new tag]         major-revision-author-review-20261019 -> major-revision-author-review-20261019\n"
+}

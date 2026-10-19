@@ -1,0 +1,9 @@
+{
+  "remote": "origin",
+  "attempt": 4,
+  "task_owned_SSH_SOCKS_via_gbminipc": true,
+  "global_configuration_changed": false,
+  "returncode": 0,
+  "stdout": "Uploading LFS objects: 100% (3/3), 28 MB | 0 B/s, done.\n",
+  "stderr": "Locking support detected on remote \"origin\". Consider enabling it with:\n  $ git config lfs.https://git.gbanyan.net/research/usher-exploring.git/info/lfs.locksverify true\nLocking support detected on remote \"origin\". Consider enabling it with:\n  $ git config lfs.https://git.gbanyan.net/research/usher-exploring.git/info/lfs.locksverify true\nremote: \nremote: Create a new pull request for 'revision/major-revision':        \nremote:   https://git.gbanyan.net/research/usher-exploring/pulls/new/revision/major-revision        \nremote: \nTo ssh://git.gbanyan.net:30009/research/usher-exploring.git\n   95662c7..eaeb10a  revision/major-revision -> revision/major-revision\n * [new tag]         major-revision-author-review-20261019 -> major-revision-author-review-20261019\n"
+}

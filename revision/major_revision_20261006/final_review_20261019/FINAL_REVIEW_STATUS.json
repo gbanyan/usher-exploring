@@ -1,0 +1,42 @@
+{
+  "objective": "Prepare complete pre-upload version for final author review",
+  "status": "complete_for_author_review",
+  "release_commit": "eaeb10a4031457af13485cb19744b4bf47aace58",
+  "release_tag": "major-revision-author-review-20261019",
+  "documents": {
+    "Manuscript": 50,
+    "Supplementary_Methods": 13,
+    "Response_to_Reviewers": 16,
+    "Cover_Letter": 1
+  },
+  "reviewer_subjects": 25,
+  "original_substantive_comments_preserved": 23,
+  "reference_order_verified": 66,
+  "page_locations": 89,
+  "protected_baseline_hashes": 21,
+  "old_artifacts_unchanged": 45,
+  "new_artifacts_verified": 47,
+  "archive_entries_verified": 653,
+  "full_tests_passed": 362,
+  "warnings": 17,
+  "GO_tests_independent_arithmetic": 24597,
+  "frozen_temporal_derived_rows_replayed": 38334,
+  "Opus": {
+    "canonical_model": "claude-opus-5-5",
+    "provider": "firstParty",
+    "effort": "high",
+    "read_only_turns": [
+      53,
+      46
+    ],
+    "material_findings_remaining": 0
+  },
+  "full_author_review_form_attached": false,
+  "case_eligibility_changed": false,
+  "journal_uploaded": false,
+  "remaining_author_actions": [
+    "Final scientific/coauthor approval",
+    "Accept or resolve the explicitly disclosed target-family concerns without silently replacing frozen outcomes",
+    "Inspect journal-generated PDF and reviewer figure access before completing resubmission"
+  ]
+}
