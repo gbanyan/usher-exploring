@@ -1,3 +1,15 @@
+# Major revision submitted — 20 October 2026
+
+**Status: REVISION SUBMITTED; submission work closed.** The author confirmed in this conversation that they completed the final submission to BMC Bioinformatics (submission ID `97b94353-679a-4ef3-a386-69332e413872`). The final submit action was performed by the author after the agent uploaded and verified the files. This status is based on the author’s confirmation, not a separately inspected portal receipt or a claim about the journal’s subsequent workflow stage. Await further journal correspondence.
+
+The submitted package is `submission/bmc_bioinformatics_major_revision_20261020_v2/`, fixed at tag `major-revision-author-review-20261020-v2` / commit `2ec0333cdf2ea2630f5967173e44b9e0f1f29774`. All 47 packaged artifact hashes and four manuscript-source hashes remain unchanged. The prior portal check verified all 26 downloaded files byte-for-byte: manuscript, response, cover, nine figures, thirteen numbered Additional files and the readable Supplementary Methods PDF. Data Availability was synchronized with the current manuscript. Preserve all fixed tags, released packages, numerical outcomes and local-only databases/raw caches.
+
+Human temporal review is summarized in the response, S6.6 and `HUMAN_REVIEW_SUMMARY.md` inside Additional file 12; the original full human-review XLSX was not attached. Additional file 12 retains the frozen cohort, protocol and analysis outputs for reproducibility. The Excel in Additional file 13 is the separate GO classification. No new scientific result, eligibility approval or cohort exclusion is asserted. The already disclosed flagged eligibility questions remain unchanged; resubmission completion is not clinical adjudication.
+
+Read `portal_upload_20261020/submission_confirmation.json` for the closing record and `portal_upload_20261020/verification.json` for the pre-submit file checks. Earlier entries below are historical checkpoints; their statements that submission had not yet occurred are superseded by this author-confirmed submission record. No further revision edits, analyses or portal actions are pending in this work session.
+
+---
+
 # Revision files uploaded to SNAPP — 20 October 2026
 
 At the author’s request, the v2 package was uploaded through the existing Safari/SNAPP revision draft. The final Review page shows 25 files in the Files section plus the cover letter: clean manuscript DOCX, response PDF, nine separate figure PDFs, all thirteen numbered Additional files and a readable Supplementary Methods PDF under Related files. One residual old Additional file 7 was removed; every numbered supplement is now unique. The cover letter was replaced with v2. The portal Abstract matched the current manuscript; the stale Data Availability statement was updated to the current statement, including Additional files 11–13 and the fixed v2 tag. Existing authors and declarations were retained.
