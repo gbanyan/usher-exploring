@@ -1,3 +1,11 @@
+# Revision files uploaded to SNAPP — 20 October 2026
+
+At the author’s request, the v2 package was uploaded through the existing Safari/SNAPP revision draft. The final Review page shows 25 files in the Files section plus the cover letter: clean manuscript DOCX, response PDF, nine separate figure PDFs, all thirteen numbered Additional files and a readable Supplementary Methods PDF under Related files. One residual old Additional file 7 was removed; every numbered supplement is now unique. The cover letter was replaced with v2. The portal Abstract matched the current manuscript; the stale Data Availability statement was updated to the current statement, including Additional files 11–13 and the fixed v2 tag. Existing authors and declarations were retained.
+
+All 26 files were downloaded through the portal UI and matched byte-for-byte against the v2 package. See `portal_upload_20261020/verification.json`. This verifies submitting-author downloads, not a separate reviewer account. The current Review page exposes no generated reviewer-PDF preview. The agent left the page at **Submit manuscript**, without clicking it. Final submission incorporates publishing terms and the existing conditional APC declaration; no submitted-revision confirmation was observed. Do not record this checkpoint as a completed resubmission.
+
+---
+
 # Fable recommendations applied — 20 October 2026 (v2)
 
 The author authorized the selective edits recommended by Claude Fable 5.1. Current manuscript, Supplement, response and cover sources now include the documented cerebellum rationale, direct existing-weight explanation in R3-3, explicit single-layer comparison in R1-major-7, aligned retina/proxy terminology and selective repetition cuts. The original February plan and implementation support the cerebellum explanation; it does not claim cochlear equivalence. The AI-use statement includes Fable. No analysis, weight, clinical eligibility or frozen outcome changed.

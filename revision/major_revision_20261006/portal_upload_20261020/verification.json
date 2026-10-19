@@ -1,0 +1,149 @@
+{
+  "status": "PASS",
+  "submission_id": "97b94353-679a-4ef3-a386-69332e413872",
+  "revision_draft_id": "4d792e9e-839a-4cf0-b744-b17f39c160d5",
+  "source_package": "submission/bmc_bioinformatics_major_revision_20261020_v2",
+  "fixed_release": "major-revision-author-review-20261020-v2",
+  "portal_file_count_excluding_cover_letter": 25,
+  "downloaded_files_byte_identical": [
+    {
+      "file": "Manuscript.docx",
+      "sha256": "3fdce1e05082f8fa964b2bd74d469a0e4eb515028f5694a539468fc032e306c1",
+      "bytes": 1267932
+    },
+    {
+      "file": "Response_to_Reviewers.pdf",
+      "sha256": "216a5c3a68f06918f64169fe85837856679be5c4162d3694de775118ded54dcf",
+      "bytes": 169109
+    },
+    {
+      "file": "Cover_Letter.docx",
+      "sha256": "16fa78425ac97117da3538ad6c8f85eb92400a1cb50427950554427dc0bb37b6",
+      "bytes": 11465
+    },
+    {
+      "file": "Supplementary_Methods.pdf",
+      "sha256": "d06ed2ca98f1d4473b923134fab04adbaad964ca3cd2b3053a26f04ca6c308a1",
+      "bytes": 503352
+    },
+    {
+      "file": "fig4_top_candidates_heatmap.pdf",
+      "sha256": "4624b5ac70863aab43effb5d87a9e666f5f97df83dc8fafd41a39664a0b6b61f",
+      "bytes": 35751
+    },
+    {
+      "file": "fig1_architecture.pdf",
+      "sha256": "9e653d63e4edcfbb98d7b8da94e1c2b7aacde6487c4aa2ccd3726ffadac56cc4",
+      "bytes": 38393
+    },
+    {
+      "file": "fig6_ablation.pdf",
+      "sha256": "f2c5c23a1beb9c96b7f1e5544dc0c49210b2210fce9cb07fb3f7a0b3929cee47",
+      "bytes": 33076
+    },
+    {
+      "file": "fig8_principal_recovery.pdf",
+      "sha256": "235b5a15f793e36a82861ac3d36650c9bf7726316679e1478d719ad371da46bc",
+      "bytes": 15632
+    },
+    {
+      "file": "fig5_validation_controls.pdf",
+      "sha256": "921e0803f109f926faaba1c5fb4205dec12d8c282c75d4f09daece1eb9aa013e",
+      "bytes": 21291
+    },
+    {
+      "file": "fig2_score_distribution.pdf",
+      "sha256": "b18cc96b84b39f9a51bb7e7db094a3f1b8a0734547827e8a9117a1a7c9131a6d",
+      "bytes": 19933
+    },
+    {
+      "file": "fig9_mantisml_benchmark.pdf",
+      "sha256": "2fb1974b865f0f9999e3ee2b893358ee48a02bc23d9b8de1b11f4fb079c7e2c7",
+      "bytes": 20097
+    },
+    {
+      "file": "fig3_layer_coverage.pdf",
+      "sha256": "f281d4e6d0d86b52ca5d15e056f2705c80f7b390ead5c42e66ae867777d4a057",
+      "bytes": 18544
+    },
+    {
+      "file": "fig7_sensitivity_heatmap.pdf",
+      "sha256": "29f39c6fa0eefbaf8476fd674b6347d8897716dda3ef9de6a485a0c786b03b98",
+      "bytes": 23938
+    },
+    {
+      "file": "Additional_file_3_Supplementary_Methods.txt",
+      "sha256": "d4aae6909704b48389b560329af0b55da07e510c972381eaa0948d2ef95c4597",
+      "bytes": 50890
+    },
+    {
+      "file": "Additional_file_2_Table_S2.tsv",
+      "sha256": "f5acb99751554c370e85fad1d8f8712ef96cafe822a33180dfe084a7b47656a3",
+      "bytes": 145892
+    },
+    {
+      "file": "Additional_file_6_Expression_Shortlist_Report.txt",
+      "sha256": "a1e1e3200421716c5a79e865bdd0f8efc96c04f91fdbcd9e73852086c3a84117",
+      "bytes": 2688
+    },
+    {
+      "file": "Additional_file_7_Expression_Shortlist_Summary.tsv",
+      "sha256": "cf325dbd5a2b545b471eee2dfe0deebd30cdf6e3cd34f443f841dd74fafb47e8",
+      "bytes": 669
+    },
+    {
+      "file": "Additional_file_5_Expression_Shortlist_Candidates.tsv",
+      "sha256": "0dde4c327187a09ab6d4569d55dbf84a82d25883ddf1bb679deea3093277bf67",
+      "bytes": 37211
+    },
+    {
+      "file": "Additional_file_11_Revision_Diagnostics_and_Replay.zip",
+      "sha256": "e5ee325cb83a66a7888a391e4a4596834086cc441bdbcc444b75e74c624527e7",
+      "bytes": 18135764
+    },
+    {
+      "file": "Additional_file_9_GSE135913_Provenance.json",
+      "sha256": "470de16bba054a7e3782cd2fd831383b897d856fb5c8c8c8b542f2e5b2bc618f",
+      "bytes": 2576
+    },
+    {
+      "file": "Additional_file_8_GSE135913_Hair_Cell_Expression.tsv",
+      "sha256": "3e475010971d403bab43848f18ae70412bbe1977cb81a66283559f56405f7017",
+      "bytes": 1288046
+    },
+    {
+      "file": "Additional_file_4_Reproducibility_Manifest.json",
+      "sha256": "3e03a8627cae95317874109408ccf1e989f0cbb76ea3f182d84f5c1c4868ecc2",
+      "bytes": 8188
+    },
+    {
+      "file": "Additional_file_13_Temporal_GO_Classification.zip",
+      "sha256": "691b25df914ac34e1a4df9f266d53638a98217d9d7860fd51b0cdfd54466f723",
+      "bytes": 3703468
+    },
+    {
+      "file": "Additional_file_10_Checksum_Manifest.json",
+      "sha256": "9500f2abc61c3665b49429616eeb57a1773d30b49dbc1bf2a798376c27b2500f",
+      "bytes": 2148
+    },
+    {
+      "file": "Additional_file_1_Table_S1.tsv",
+      "sha256": "d6cb4e64b499a7e508f07b4ab4506b1a1402d3ff1796f959896d8288e595f82f",
+      "bytes": 2875
+    },
+    {
+      "file": "Additional_file_12_Temporal_Evaluation.zip",
+      "sha256": "44555f7725dc3e0b139f8c401a5407b5f3a48f4c0a69e3b6beaa9c8086cbec91",
+      "bytes": 6637514
+    }
+  ],
+  "data_availability": "Portal statement replaced with current manuscript statement; fixed v2 link and Additional files 11\u201313 included",
+  "abstract": "Existing portal abstract matched current manuscript on inspection",
+  "related_file": "Supplementary_Methods.pdf supplied for readable S-section/page references; Additional file 3 TXT retained as numbered supplementary material",
+  "submission_status": "Uploaded and saved; final Submit manuscript has not been clicked by the agent",
+  "limits": [
+    "No generated reviewer-PDF preview is exposed on the current Review page",
+    "Downloads verify submitting-author access, not a separate reviewer account",
+    "Final submission incorporates publishing terms and existing conditional APC declaration"
+  ]
+}
