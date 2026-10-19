@@ -1,0 +1,9 @@
+# Source transport resolution before GO outcomes
+
+The direct GO release/current endpoints and the public release bucket's ontology objects returned HTTP 403 on 19 October 2026; bucket listings were readable but the objects were not. No case GO summary or enrichment result was examined while resolving this transport problem.
+
+Use the authoritative EMBL-EBI QuickGO ontology service for **all required `is_a,part_of` ancestor closures and current term metadata**. Its `/ontology/go/about` endpoint identifies GO release **2026-09-27**, matching the `go-version` header of the human GOA protein/RNA files generated **2026-10-11**. Cache every requested term response, URL and SHA-256. Verify the version before and after acquisition and before analysis. This preserves inferred ontology ancestry rather than approximating it with only the editor file's asserted edges.
+
+Read generic GO-slim membership, alternate IDs and obsolete replacement metadata from the official GO ontology editor snapshot pinned to commit **16154084af7ef6330f815c63fde0b6b6ff08b8f2** (27 September 2026), then validate the active term IDs and names through QuickGO. Keep the editor snapshot and QuickGO ontology version separately identified; do not claim that the editor file is a downloaded `go-basic.obo` release. Exclude roots and obsolete slim terms. This is an explicit source-resolution detail under the existing protocol, not a change to the biological test, annotation/evidence policy, background, statistics or figure-selection rule.
+
+Official service documentation: https://www.ebi.ac.uk/QuickGO/api/example.html . Source files are under https://ftp.ebi.ac.uk/pub/databases/GO/goa/HUMAN/ . The frozen HGNC mapping explicitly supplies RNAcentral accessions for the four RNU genes; any contemporary use of those accessions will be recorded, including the shared RNAcentral sequence ID for RNU6-2/RNU6-9. No family-name or sequence-similarity imputation is permitted.
