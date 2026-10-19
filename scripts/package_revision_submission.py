@@ -85,6 +85,7 @@ def main():
     parser.add_argument('--output-dir', type=Path, default=OUT)
     parser.add_argument('--verify-only', action='store_true')
     parser.add_argument('--created-date', default='2026-10-07')
+    parser.add_argument('--release-tag', help='Fixed release tag; defaults to the date-based author-review tag')
     parser.add_argument('--include-go', action='store_true')
     args = parser.parse_args()
     out = args.output_dir
@@ -167,7 +168,7 @@ def main():
         'source_base_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
         'source_base_commit_is_not_a_claim_of_clean_worktree': True,
         'preserved_prior_author_review_release_tag': 'major-revision-author-review-20261007',
-        'current_author_review_release_tag': 'major-revision-author-review-' + args.created_date.replace('-', ''),
+        'current_author_review_release_tag': args.release_tag or 'major-revision-author-review-' + args.created_date.replace('-', ''),
         'exact_source_hashes': {str(p.relative_to(ROOT)): sha(p) for p in sources},
         'analysis_checkpoint': '736e16f', 'temporal_original_freeze': 'bd6bb2f',
         'temporal_amended_freeze': '53da295',

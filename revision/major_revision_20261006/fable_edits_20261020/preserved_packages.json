@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "releases": {
+    "major-revision-author-review-20261007": {
+      "commit": "3dbbd8c578f319a45b492dc1c96654a3f34762b6",
+      "artifacts_verified": 45
+    },
+    "major-revision-author-review-20261019": {
+      "commit": "eaeb10a4031457af13485cb19744b4bf47aace58",
+      "artifacts_verified": 47
+    },
+    "major-revision-author-review-20261020": {
+      "commit": "965e1ef83fe39e27167a20831fca3b06802ff5a5",
+      "artifacts_verified": 47
+    }
+  }
+}

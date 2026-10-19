@@ -1,0 +1,36 @@
+{
+  "baseline_commit": "ca96f63",
+  "scope": "Apply Fable direct-answer and selective readability recommendations; no scientific analysis or eligibility changes",
+  "sources": {
+    "manuscript/draft.md": {
+      "before_words": 13100,
+      "after_words": 12915,
+      "before_sha256": "2f959d915f254cfef9b76d4eff73df2cd3297c1fb358cfe7c1e8eb31fc731d42",
+      "after_sha256": "ef61328ba50bd736b95da20b61e7dd2bee337e86f825d8f651583146d969170e"
+    },
+    "manuscript/supplementary_methods.md": {
+      "before_words": 6460,
+      "after_words": 6503,
+      "before_sha256": "08c4d3ebc267ae0948e6d3de38fbbb4837b5c2c954c4b21ae1628fd7bd329d07",
+      "after_sha256": "4a1d13f15447d854f420ba838f94076962fd097e0c5823e9140252df38e962ed"
+    },
+    "revision/major_revision_20261006/rebuttal.md": {
+      "before_words": 6101,
+      "after_words": 6145,
+      "before_sha256": "062f3538af956c2f45c542cd90bc16511bffbe2767ca2f254b13faf87bba055e",
+      "after_sha256": "47d67c6df9ca3ca610c8e168d3350d75609de7fa0e02bbaea3ee94cf6b352320"
+    },
+    "revision/major_revision_20261006/cover_letter_revision.md": {
+      "before_words": 265,
+      "after_words": 265,
+      "before_sha256": "91bbd0d432b130860684acd5330cd7399321d8d3316732f33f8437afd63ae242",
+      "after_sha256": "294724f8db5ab3ba29d2c45963df8fa7c40023940e0f70ff5858d90ec8523363"
+    }
+  },
+  "optional_suggestions_not_applied": [
+    "Do not remove key Abstract quantitative findings or its provisional case status",
+    "Keep the output-consistency audit in place; no major structural rewrite",
+    "Do not imply lock/replay commands demonstrate container parity",
+    "Preserve calibrated-gate, temporal and candidate-specific qualifications needed for scientific interpretation"
+  ]
+}

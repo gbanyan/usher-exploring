@@ -1,3 +1,13 @@
+# Fable recommendations applied — 20 October 2026 (v2)
+
+The author authorized the selective edits recommended by Claude Fable 5.1. Current manuscript, Supplement, response and cover sources now include the documented cerebellum rationale, direct existing-weight explanation in R3-3, explicit single-layer comparison in R1-major-7, aligned retina/proxy terminology and selective repetition cuts. The original February plan and implementation support the cerebellum explanation; it does not claim cochlear equivalence. The AI-use statement includes Fable. No analysis, weight, clinical eligibility or frozen outcome changed.
+
+The active author-review upload set is now `submission/bmc_bioinformatics_major_revision_20261020_v2/`, with a distinct fixed tag `major-revision-author-review-20261020-v2`. Main/Supplement/response/cover remain 49/13/14/1 pages (77 total); every final page was checked visually or matched byte-identically to a previously checked page. All 25 response topics, 23 original Reviewer 1/3 quotations and 66 references remain intact; 89 response locations were regenerated. All 362 tests pass (17 existing warnings), and actual-package verification passes for the sources, artifacts, 21 protected baselines, frozen outcomes and ZIP contents. The 7/19/20 October prior packages retain all 45/47/47 artifact hashes and their fixed tags are unchanged. See `fable_edits_20261020/README.md` and verification records.
+
+This applies the independent Fable review; it does not assert a second independent review of the edited bytes. Journal-generated PDF and reviewer figure access remain portal checks. No journal submission was performed. Flagged clinical eligibility remains under review, with no cohort exclusions or approval inferred.
+
+---
+
 # Independent Claude Fable 5.1 review completed — 20 October 2026
 
 The author requested a fresh review under the same readability and response-adequacy principles as Astra and clarified that Fable means **Claude Fable 5.1**. The local Claude CLI completed the review with requested xhigh reasoning and read-only tools. Raw metadata confirms canonical `claude-fable-5-1`, `firstParty`, six turns and no permission denials or fallback. Read `fable_review_20261020/REVIEW.md`, `ASSESSMENT.md`, `input_manifest.json` and `verification.json`. All 25 original Editor/Reviewer topics were supplied verbatim; snapshots match the four current sources.

@@ -1,0 +1,25 @@
+{
+  "wording": "To include neural expression context in the cilia-focused panel, we used cerebellum, which had measurements in both HPA and GTEx. This was a pragmatic proxy choice; it does not provide cochlear evidence.",
+  "basis": [
+    {
+      "path": ".planning/phases/03-core-evidence-layers/03-02-PLAN.md",
+      "sha256": "7d3966c886730c0d6e2f1fa2feea7f75ff73a352c1d387011c2c0dfbea35e698",
+      "relevant_lines": [
+        55,
+        92,
+        95,
+        96
+      ]
+    },
+    {
+      "commit": "8aa6698",
+      "path": "src/usher_pipeline/evidence/expression/models.py",
+      "sha256": "a844f10c7cf4d905b0611362d7f48d0681a5076262d5dbf9bdaa48cb9493a8f3",
+      "evidence": [
+        "hpa_cerebellum_tpm: HPA cerebellum TPM (proxy for cilia-rich tissue)",
+        "HPA and GTEx identifiers for cerebellum; inner-ear bulk fields unavailable"
+      ]
+    }
+  ],
+  "scope": "Design motivation and source availability, not proof of cochlear equivalence or biological specificity"
+}

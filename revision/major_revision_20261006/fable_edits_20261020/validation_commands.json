@@ -1,0 +1,16 @@
+{
+  "location": "Local macOS arm64",
+  "tests": {
+    "command": "rtk proxy .venv/bin/python -m pytest -q",
+    "passed": 362,
+    "warnings": 17,
+    "elapsed_seconds": 5.97,
+    "exit_code": 0
+  },
+  "build": "scripts/build_revision_submission.py --output-dir submission/bmc_bioinformatics_major_revision_20261020_v2 --figures-dir submission/bmc_bioinformatics_major_revision_20261020_v2/figures",
+  "render": "Bundled documents/render_docx.py for each of four DOCX files, --emit_pdf --dpi 110",
+  "locations": "scripts/revision_response_locations.py --pdf-dir submission/bmc_bioinformatics_major_revision_20261020_v2; completed before response rebuild/render",
+  "package": "scripts/package_revision_submission.py --output-dir submission/bmc_bioinformatics_major_revision_20261020_v2 --created-date 2026-10-20 --release-tag major-revision-author-review-20261020-v2 --include-go",
+  "verify": "scripts/verify_final_revision.py --output-dir submission/bmc_bioinformatics_major_revision_20261020_v2 --record-dir revision/major_revision_20261006/fable_edits_20261020",
+  "scope": "Editorial source and actual delivered-file verification; no new clinical decisions or scientific reruns"
+}

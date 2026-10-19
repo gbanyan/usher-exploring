@@ -13,7 +13,7 @@ The revision distinguishes raw scoring from the control-calibrated HIGH priority
 
 A retrospective temporal assessment tested two historical analogues. Neither recovered a principal case in the top 100 or HIGH (0/41 coding cases; 0/45 overall). Subsequent human review covered the primary reports and family/pedigree evidence for all 45 cases; unresolved target-family concerns are disclosed. We report the weak recovery and source limitations directly and restrict the conclusions to hypothesis generation. Production weights, scores and thresholds remain unchanged.
 
-The revised files include embedded figures and legends, separate figure files, replay inputs and the temporal results. A separate contemporary GO description found no FDR-significant enrichment. We will check figure visibility in the journal-generated review PDF before completing resubmission. The fixed code and analysis release is https://github.com/gbanyan/usher-exploring/tree/major-revision-author-review-20261020; the package manifest records the delivered-file hashes.
+The revised files include embedded figures and legends, separate figure files, replay inputs and the temporal results. A separate contemporary GO description found no FDR-significant enrichment. We will check figure visibility in the journal-generated review PDF before completing resubmission. The fixed code and analysis release is https://github.com/gbanyan/usher-exploring/tree/major-revision-author-review-20261020-v2; the package manifest records the delivered-file hashes.
 
 Thank you for considering the revised manuscript.
 
