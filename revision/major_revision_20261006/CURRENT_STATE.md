@@ -4,6 +4,8 @@ The author authorized applying the Astra readability recommendations and modestl
 
 The new upload package is `submission/bmc_bioinformatics_major_revision_20261020/`. Main/Supplement/response/cover are 49/13/14/1 pages (77 total), all visually inspected after rendering; 89 response locations were regenerated from the revised PDFs. All 25 original comment blocks and 66 references in first-citation order are preserved. All 362 tests pass with 17 existing warnings, and package verification passes for the 21 protected baselines, frozen temporal outcomes, sources and delivered artifacts. Both earlier packages remain unchanged (45/47 artifacts). Read `editorial_revision_20261020/README.md` and its verification records. The new fixed tag is `major-revision-author-review-20261020`; do not move either earlier tag. No scientific analysis, clinical eligibility decision or cohort outcome changed. No new independent model review of the edited version is asserted; prior reviews are preserved with their original scope. The journal portal's final figure-access check remains an author action.
 
+Release commit `965e1ef83fe39e27167a20831fca3b06802ff5a5` and the new annotated tag are verified on both Gitea and GitHub. Both remotes accepted all three new LFS objects; all 47 tagged artifacts and four source hashes match the delivered package, and the public GitHub tag API returns HTTP200. `editorial_revision_20261020/publication_verification.json` records these checks. Subsequent bookkeeping commits may advance the branch without moving the fixed tag or changing the packaged bytes.
+
 ---
 
 # Independent Astra readability review — 20 October 2026
