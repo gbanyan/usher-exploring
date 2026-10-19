@@ -1,3 +1,9 @@
+# Human family-review scope clarification — 19 October 2026
+
+The author clarified that the professor reviewed family/pedigree information for all cases, but raised concerns about some reports appearing to contain only one family. Read `author_review_20261019/HUMAN_REVIEW_SCOPE_CLARIFICATION.md`. Do not repeat the assistant's earlier suggestion that the human review omitted family information. Review coverage does not imply all 45 cases satisfy the frozen two-unrelated-target-family rule or have final eligibility approval. The specific genes affected by this newly stated concern have not yet been listed. Working C remains PENDING for all 45; no workbook or frozen result changed. Non-ciliary functional classification and family-evidence strength are separate issues. Manuscript/rebuttal edits remain paused.
+
+---
+
 # Author-approved cutoff-window worksheet — 19 October 2026
 
 The current working workbook now displays **CLXN (formerly EFCAB1)** in Review A22 and its Evidence A216 heading, with the hyperlink display synchronized and HGNC:25678 unchanged. Definitions D16 cites HGNC. Original returned files, Original TSV and frozen historical identifiers retain EFCAB1. This author-approved naming update changes no dates, genotype evidence, timing/eligibility decisions or scores; manuscript text remains untouched.

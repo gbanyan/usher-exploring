@@ -1,0 +1,11 @@
+# Human family-review scope — author clarification, 19 October 2026
+
+The author clarified that the professor reviewed the family/pedigree information for all cases. The professor's concern is that some reports appear to contain only one family, raising questions about evidence strength. This supersedes the assistant's preceding conversational suggestion that the human review did not cover family information comprehensively.
+
+This is a clarification supplied by the author, not a new independent audit of the professor's work. It establishes the reported scope of the review; it does not establish that all 45 cases meet the two-unrelated-target-family criterion. The specific genes affected by the newly stated single-family concern have not yet been enumerated in this clarification. Do not infer that list or automatically change eligibility labels.
+
+The appropriate distinction for the eventual manuscript and reviewer response is **human review of all cases, with some eligibility concerns unresolved**, rather than **no human family review** or **all cases fully approved**. A response may accurately say that author review covered reported pedigrees/family evidence and raised concerns about apparent single-family support, alongside the review of phenotypes, functions and publication chronology. Do not claim a case was excluded, a discrepancy resolved, a new stratum analyzed or revised text completed until that action actually occurs.
+
+The frozen principal-cohort rule remains at least two unrelated families with the relevant gene–target-phenotype evidence, cumulatively across eligible reports, plus the other clinical criteria. One displayed pedigree is not necessarily the study's total family count. If cumulative evidence truly remains one family by the acquisition boundary, the case does not meet that principal-cohort rule; if the count is unresolved, its eligibility remains unresolved. Functional classification as non-ciliary is a separate question and cannot substitute for addressing a family-count concern.
+
+All working clinical eligibility fields remain PENDING. No workbook, frozen cohort, score, result, manuscript, supplement or rebuttal has been changed by this scope clarification. Manuscript integration remains paused pending the ongoing discussion.
