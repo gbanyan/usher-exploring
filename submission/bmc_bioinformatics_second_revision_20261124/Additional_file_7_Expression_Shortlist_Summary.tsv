@@ -1,0 +1,8 @@
+strategy	description	status	shortlist_size	reduction_percent	omim_in_high_retained	known_in_high_retained
+photoreceptor_q75	Photoreceptor expression >= Q75	available	16	74.2	1	2
+hair_cell_q75	Fetal cochlear hair-cell expression >= Q75	available	16	74.2	2	2
+retina_hair_concordant_q75	Photoreceptor and hair-cell expression >= Q75	available	5	91.9	1	1
+retina_concordant_q75	Photoreceptor and HPA retina >= Q75	NA	NA	NA	NA	NA
+direct_protein	Direct cilia/centrosome protein evidence	available	23	62.9	0	1
+expression_or_protein	Photoreceptor >= Q75 OR direct protein	available	34	45.2	1	2
+expression_and_protein	Photoreceptor >= Q75 AND direct protein	available	5	91.9	0	1

@@ -242,7 +242,7 @@ def fig4_top_candidates_heatmap(df: pl.DataFrame, top_n: int = 25):
     # Add legend for markers
     ax.text(
         0, -0.28,
-        "* Established Usher gene   + Known ciliopathy gene   Grey = no data (NULL)",
+        "* Established Usher gene   + SYSCILIA ciliary control   Grey = no data (NULL)",
         transform=ax.transAxes, fontsize=8, va="top", style="italic",
     )
 

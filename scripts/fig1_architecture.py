@@ -113,9 +113,9 @@ def main():
               "(HIGH / MEDIUM / LOW) with a HIGH-tier cilia-signal gate")
     down_arrow(ax, FX0 + FW / 2, 4.8, 3.9)
 
-    # Stage 4: reporting and validation
+    # Stage 4: reporting and internal checks
     stage_box(ax, FX0, 2.8, FW, 1.05,
-              "4. Report generation & validation",
+              "4. Reporting & internal checks",
               "candidates.tsv / .parquet, publication figures,\n"
               "positive / negative controls, sensitivity analysis")
 

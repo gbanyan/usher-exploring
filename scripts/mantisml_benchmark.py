@@ -213,13 +213,13 @@ def main():
     for i, d in enumerate(data, 1):
         ax1.scatter([i] * len(d), d, s=14, color="black", alpha=0.45, zorder=3)
     ax1.axhline(75, ls="--", color="gray", lw=1)
-    ax1.set_ylabel("Known-gene percentile")
-    ax1.set_title("Known-gene recovery")
+    ax1.set_ylabel("Control percentile")
+    ax1.set_title("Control recovery (35 shared controls)")
     ax1.set_ylim(0, 102)
 
     metrics = ["known_median_pctile", "recall_at_10pct",
                "recall_at_20pct", "housekeeping_median_pctile"]
-    labels = ["Known\nmedian %ile", "Recall\n@10%", "Recall\n@20%",
+    labels = ["Control\nmedian %ile", "Recall\n@10%", "Recall\n@20%",
               "Housekeeping\nmedian %ile"]
     x = range(len(metrics))
     w = 0.38
@@ -230,7 +230,7 @@ def main():
     ax2.set_xticks(list(x))
     ax2.set_xticklabels(labels, fontsize=9)
     ax2.set_ylabel("Value")
-    ax2.set_title("Benchmark metrics")
+    ax2.set_title("Cached-output metrics (exploratory)")
     ax2.legend(loc="upper center", bbox_to_anchor=(0.5, -0.24), ncol=2)
 
     ax1.text(-0.08, 1.05, "A", transform=ax1.transAxes, fontsize=16,
